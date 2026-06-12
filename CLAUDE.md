@@ -77,17 +77,39 @@
 선택한 방향과 그 이유를 **한 줄로 먼저 밝힌 뒤** 집필을 시작한다.
 
 ### STEP 4 — 캐릭터 파일 갱신
-해당 5화에 등장한 인물의 `characters/{카테고리}/` 파일을 업데이트한다.
-- **갱신 항목**: 나이, 하렘 서열, 다른 여인들과의 관계, 시안 감정 별점, 30세 잔여 시간
-- **`## 현재 상태` 섹션**: 감정 아크 요약 / 최근 결정적 사건 / 시안과의 온도 / 30세 규칙 인지도
-- **조연 신규 확인**: 이번 5화에서 고유 이름 + 고유 역할이 처음 부여된 조연(신하·장인 등)이 있으면 `characters/{카테고리}/` 파일 즉시 작성
+해당 5화에 등장한 **모든 카테고리** 인물의 `characters/{카테고리}/` 파일을 업데이트한다.
+내전(후궁)뿐 아니라 신하·외부·지방여인 모두 동일하게 갱신한다.
+
+- **내전 갱신 항목**: 나이, 하렘 서열, 다른 여인들과의 관계, 시안 감정 별점, 30세 잔여 시간, `## 현재 상태` 섹션 (감정 아크 요약 / 최근 결정적 사건 / 시안과의 온도 / 30세 규칙 인지도)
+- **신하·외부·지방여인 갱신 항목**: 직책 변화, 충성도 변화, 주요 사건, `## 현재 상태` 섹션 (역할·관계·최근 결정적 사건)
+- **조연 신규 확인**: 이번 5화에서 고유 이름 + 고유 역할이 처음 부여된 인물이 있으면 `characters/{카테고리}/` 파일 즉시 작성
 
 ### STEP 5 — HTML 일괄 변환
 방금 완성된 5화 각각을 순서대로 변환한다.
 ```
-node convert.js {n-4}화 && node convert.js {n-3}화 && ... && node convert.js {n}화
+node convert.js {n-4}화 && node convert.js {n-3}화 && ... && node convert.js {n}화 && node convert-profile.js all && node convert-setting.js
 ```
-예) 41~45화 완성 후: `node convert.js 41화 && node convert.js 42화 && node convert.js 43화 && node convert.js 44화 && node convert.js 45화`
+예) 41~45화 완성 후: `node convert.js 41화 && node convert.js 42화 && node convert.js 43화 && node convert.js 44화 && node convert.js 45화 && node convert-profile.js all && node convert-setting.js`
+
+### STEP 6 — RELATIONS.md 압축 루틴 (50화 단위 자동 트리거)
+> 완성 화수가 **50의 배수**일 때(150화, 200화, 250화…) 반드시 실행한다.
+
+`setting/RELATIONS.md`의 `## 감정선 변화 기록` 섹션에서:
+- **압축 대상**: 가장 오래된 `### 최근 감정선` 블록 (50화분)
+- **압축 형식**: `### 중기 핵심 전환점 요약 (EP{n}~EP{n+49})` 테이블로 변환
+  - 컬럼: 인물 / 핵심 EP / 전환 내용
+  - 인물당 2~3개 결정적 전환점만 남기고 나머지 생략
+- **유지 대상**: 최근 50화 블록은 상세 항목 그대로 유지
+
+예) 150화 완료 시: EP101~150 → 요약 테이블 변환 / EP151~는 상세 유지
+
+### STEP 7 — Git 커밋 & Push
+모든 갱신(캐릭터 파일·HTML·history·TERRITORY·RELATIONS)이 끝난 뒤 실행한다.
+```
+git add episodes/ html/ characters/ story/history.md setting/
+git commit -m "ep{n-4}~{n}화 완성 및 설정 갱신"
+git push
+```
 
 ---
 
