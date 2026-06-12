@@ -78,16 +78,18 @@ function buildProfile(name) {
     }
     .header {
       display: flex;
-      gap: 2.5rem;
-      align-items: flex-start;
+      flex-direction: column; /* [수정] 좌우에서 위아래 배치로 변경 */
+      gap: 1.5rem;            /* [수정] 간격 조정 */
+      align-items: center;    /* [수정] 중앙 정렬 */
       margin-bottom: 2.5rem;
       padding-bottom: 2rem;
       border-bottom: 1px solid #2a2a2a;
     }
     .portrait {
       flex-shrink: 0;
-      width: 200px;
-      height: 260px;
+      width: 90%;            /* [수정] 가로 전체 채우기 */
+      max-width: 650px;       /* [추가] 너무 커지는 것 방지 (원하는 크기로 조절 가능) */
+      height: auto;           /* [수정] 세로는 비율에 맞게 자동 조절 */
       border: 1px solid #3a3020;
       border-radius: 4px;
       overflow: hidden;
@@ -95,7 +97,8 @@ function buildProfile(name) {
     }
     .portrait img {
       width: 100%;
-      height: 100%;
+      height: auto;           /* [수정] 이미지 비율 유지 */
+      display: block;         /* [추가] 하단 공백 제거 */
       object-fit: cover;
       object-position: top;
       cursor: pointer;
@@ -127,6 +130,9 @@ function buildProfile(name) {
       justify-content: center;
       color: #444;
       font-size: 1.2rem;
+    }
+    .header-info {
+          text-align: center;     /* [추가] 이름과 태그도 중앙 정렬 */
     }
     .header-info h1 {
       font-size: 2rem;
@@ -176,7 +182,7 @@ function buildProfile(name) {
     .back:hover { text-decoration: underline; }
     @media (max-width: 560px) {
       .header { flex-direction: column; align-items: center; }
-      .portrait { width: 160px; height: 210px; }
+      .portrait { width: 100%; height: auto; } /* [수정] 모바일도 동일하게 비율 유지 */
     }
   </style>
 </head>
