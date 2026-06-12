@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>왕의 귀환 — 이란</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #1a1a1a;
+      color: #e8e0d0;
+      font-family: 'Nanum Myeongjo', Georgia, serif;
+      font-size: 1.0rem;
+      line-height: 1.85;
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+    }
+    .header {
+      display: flex;
+      flex-direction: column; /* [수정] 좌우에서 위아래 배치로 변경 */
+      gap: 1.5rem;            /* [수정] 간격 조정 */
+      align-items: center;    /* [수정] 중앙 정렬 */
+      margin-bottom: 2.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid #2a2a2a;
+    }
+    .portrait {
+      flex-shrink: 0;
+      width: 90%;            /* [수정] 가로 전체 채우기 */
+      max-width: 650px;       /* [추가] 너무 커지는 것 방지 (원하는 크기로 조절 가능) */
+      height: auto;           /* [수정] 세로는 비율에 맞게 자동 조절 */
+      border: 1px solid #3a3020;
+      border-radius: 4px;
+      overflow: hidden;
+      background: #111;
+    }
+    .portrait img {
+      width: 100%;
+      height: auto;           /* [수정] 이미지 비율 유지 */
+      display: block;         /* [추가] 하단 공백 제거 */
+      object-fit: cover;
+      object-position: top;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+    .portrait img:hover { opacity: 0.85; }
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.88);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+    }
+    #lightbox.open { display: flex; }
+    #lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+      border: 1px solid #3a3020;
+      border-radius: 4px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.7);
+    }
+    .portrait.no-image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #444;
+      font-size: 1.2rem;
+    }
+    .header-info {
+          text-align: center;     /* [추가] 이름과 태그도 중앙 정렬 */
+    }
+    .header-info h1 {
+      font-size: 2rem;
+      color: #d4a843;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.4rem;
+    }
+    .category-tag {
+      display: inline-block;
+      background: #2a2010;
+      color: #d4a843;
+      border: 1px solid #3a3020;
+      font-size: 0.78rem;
+      padding: 0.15rem 0.6rem;
+      border-radius: 2px;
+      letter-spacing: 0.05em;
+    }
+    h2 {
+      font-size: 1.05rem;
+      color: #d4a843;
+      margin: 2rem 0 0.6rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 1px solid #2a2a2a;
+      letter-spacing: 0.06em;
+    }
+    h3 {
+      font-size: 0.95rem;
+      color: #b8a060;
+      margin: 1.2rem 0 0.4rem;
+    }
+    p { margin: 0.5rem 0; }
+    ul { padding-left: 1.4rem; margin: 0.4rem 0; }
+    li { margin: 0.25rem 0; }
+    hr {
+      border: none;
+      border-top: 1px solid #2a2a2a;
+      margin: 1.6rem 0;
+    }
+    strong { color: #c8b870; }
+    .back {
+      display: inline-block;
+      margin-bottom: 2rem;
+      color: #d4a843;
+      text-decoration: none;
+      font-size: 0.88rem;
+    }
+    .back:hover { text-decoration: underline; }
+    @media (max-width: 560px) {
+      .header { flex-direction: column; align-items: center; }
+      .portrait { width: 100%; height: auto; } /* [수정] 모바일도 동일하게 비율 유지 */
+    }
+  </style>
+</head>
+<body>
+  <a class="back" href="../characters.html">← 인물 목록</a>
+  <div class="header">
+    <div class="portrait"><img src="../../images/characters/내전/이란.png" alt="이란" onclick="openLightbox(this.src)" /></div>
+    <div class="header-info">
+      <h1>이란</h1>
+      <span class="category-tag">후궁</span>
+    </div>
+  </div>
+  <div class="profile-body">
+    
+<p>> <strong>고정 섹션</strong>: 처음 작성 후 수정 안 함 (외형·성격·매력·결말·대사)</p>
+<p>> <strong>갱신 섹션</strong>: `## 현재 상태` 하나만 — 5화 완료마다 이 섹션 전체를 업데이트</p>
+<hr>
+<h2>기본 정보  ✦ 고정</h2>
+<p>이름: 이란 (怡蘭)</p>
+<p>생일: 음력 3월 / 이른 봄</p>
+<p>출신: 원배국 왕녀</p>
+<p>신분 (첫 등장): 후궁 2위 (EP193~) — 왕녀 신분으로 연공 있는 미현·나련보다 서열 우선</p>
+<p>첫 등장: EP193화</p>
+<hr>
+<h2>외형  ✦ 고정</h2>
+<h3>미의 유형 (하나만 선택 — 기존 캐릭터와 중복 금지)</h3>
+<ul><li>[x] 고혹미 — 성숙하고 품격 있는 매혹, 은은한 관능</li>
+</ul>
+<h3>얼굴</h3>
+<ul><li>얼굴형: 갸름하고 정교한 턱선. 선 하나가 살짝 틀어져도 알아챌 수 있는 정밀한 이목구비</li>
+<li>눈: 길고 부드러운 눈꼬리. 짙고 깊은 눈빛 — 무언가를 항상 재고 있는 것 같은 느낌</li>
+<li>코: 오뚝하고 섬세함. 왕족 혈통 특유의 단정함</li>
+<li>입술: 붉고 자연스럽게 도톰함. 말을 많이 하지 않을 때 더 선명하게 보임</li>
+<li>피부: 흰 피부. 볼 부분이 약간 분홍빛 — 감추려 해도 감정이 드러나는 부위</li>
+</ul>
+<h3>머리카락</h3>
+<ul><li>길이·형태: 허리 아래까지 닿는 긴 직모</li>
+<li>색·광택: 짙은 검은색. 관리가 잘 된 왕족의 머리카락</li>
+<li>평소 스타일: 정성껏 올린 스타일. 처음엔 원배식 올림머리. 내전 생활이 길어지면서 반만 올리는 방식으로 변화</li>
+</ul>
+<h3>체형</h3>
+<ul><li>키: 163cm (보통)</li>
+<li>전체 인상: 가늘고 길지만 곡선이 있음. 왕녀로 자랐기에 움직임에 군더더기가 없음</li>
+<li>가슴·허리·엉덩이 비율: 균형 잡힘. 허리가 가늘어 올린 머리와 드러난 목선이 더 강조됨</li>
+<li>손·발: 손이 길고 가늘다. 반지를 끼면 더 눈에 띄는 손</li>
+</ul>
+<h3>움직임 & 첫인상</h3>
+<ul><li>걸음걸이: 느리고 정확하다. 빠르게 걷지 않는다 — 왕녀는 서두르지 않는다고 배웠기 때문</li>
+<li>자세 습관: 등이 곧다. 무너지면 지는 것이라 생각한다</li>
+<li>처음 봤을 때 느낌 한 줄: "이 사람은 이곳에 오고 싶어서 온 것이 아니다"라는 것이 한눈에 보인다</li>
+</ul>
+<h3>독특한 매력 포인트</h3>
+<p>> 머리를 올렸을 때 드러나는 목선. 목에서 쇄골까지 이어지는 선이 유난히 길고 우아하다. 올림머리가 흐트러지기 시작하는 순간 — 의도치 않게 그 선이 완전히 드러난다.</p>
+<h3>의상 & 비주얼 스타일</h3>
+<strong>시대 배경</strong>: 백제 초기 (기원전 18년~). 고구려·한(漢) 영향을 받은 삼국 초기 복식.
+<ul><li>신분 표현 색: 연한 옥색과 흰색. 원배 왕족의 색</li>
+<li>평상복 스타일: 단정한 저고리에 폭이 넓은 치마. 장식을 과하게 달지 않음 — 신분을 굳이 증명하지 않아도 된다고 생각하는 사람</li>
+<li>예복 / 특별 장면: 금색 장식이 더해진 원배식 예복. 처음 입궁 때 착용</li>
+<li>침소복: 얇은 흰 저고리. 목선이 처음부터 드러나 있음</li>
+<li>머리 장식·패물: 원배식 쪽 비녀. 패물은 단 하나만 — 어머니에게 받은 옥가락지</li>
+<li>향: 없음. 향을 쓰지 않는다. 원래 없는 것을 더 좋아한다</li>
+</ul>
+<hr>
+<h2>성격  ✦ 고정</h2>
+<ul><li>강점: 버티는 힘. 감정을 드러내지 않는 훈련이 오래됐다. 관찰력 — 낯선 공간에서 빠르게 구조를 파악한다</li>
+<li>약점: 도움을 청하지 못한다. 왕녀로 자라 "먼저 손 내미는 것"을 배운 적이 없다. 이것이 내전에서 가장 불리한 점이다</li>
+<li>욕망: 이 공간에서 자기 방식으로 살아남는 것. 원배를 배신하지 않으면서 이 나라의 일부가 되는 것</li>
+<li>두려움: 무시당하는 것. 왕녀 신분을 내세워도 아무도 신경 쓰지 않는 공간이 된다면 — 그것이 가장 무섭다</li>
+</ul>
+<hr>
+<h2>시안을 매료시키는 성적 매력  ✦ 고정</h2>
+<ul><li>외형에서 비롯된 관능 포인트: 올림머리 아래 드러나는 긴 목선. 저고리 목 라인이 무너지기 시작하는 순간의 대비</li>
+<li>움직임 때 드러나는 매력: 등이 곧은 채로 몸이 처음 흔들리는 순간 — 버텨온 것이 무너지는 그 찰나</li>
+<li>목소리·숨결·향: 목소리가 낮고 선명하다. 화가 나도 소리를 높이지 않는다. 숨이 차오를 때도 한동안 참는다</li>
+<li>침소에서의 반응 패턴: 절대 먼저 말하지 않는다. 그러나 몸이 먼저 반응한다. 자기가 원한다는 것을 알면서도 인정하지 않으려 하는 긴장감이 자극 포인트</li>
+<li>시안이 가장 탐닉하는 부위: 목선. 올림머리가 흐트러진 순간 드러나는 귀 아래 목 라인</li>
+</ul>
+<hr>
+<h2>불멸 비밀 인지도  ✦ 고정</h2>
+<ul><li>[x] 모름</li>
+</ul>
+<hr>
+<h2>예정 결말  ✦ 고정</h2>
+<ul><li>[x] 미정</li>
+</ul>
+<hr>
+<h2>대표 대사  ✦ 고정</h2>
+<p>"원배에서는 이렇게 하지 않습니다."</p>
+<hr>
+<h2>현재 상태 (EP193)  ✦ 갱신 — 5화 완료마다 이 섹션 전체를 업데이트</h2>
+<ul><li><strong>나이</strong>: 18세</li>
+<li><strong>신분·서열</strong>: 원배 왕녀. 후궁 2위 (EP193 입궁 — 왕녀 신분, 1위는 은화 연공 고정)</li>
+<li><strong>30세까지</strong>: 약 12년</li>
+</ul>
+<h3>하렘 내 위치</h3>
+<ul><li>역할: 입궁 초기. 아직 역할 없음. 은화에게 내전 규칙 안내받는 중</li>
+<li>은화: 1위. 규칙을 안내하는 사람. 이란은 처음엔 은화 방식에 반발하지만 점차 은화가 자기 방식이 있는 사람이라는 것을 알아감</li>
+<li>미현: 3위(이란 입궁 후 서열 변동). 이란 앞에서 티를 내지 않는다. 약초원에서 마주침</li>
+<li>나련: 4위(이란 입궁 후 서열 변동). 담담하다. 강을 기록하는 사람이 어떤 상황에서도 흔들리지 않는다</li>
+</ul>
+<h3>시안과의 감정</h3>
+<ul><li>충성: ★★☆☆☆</li>
+<li>사랑: ★☆☆☆☆</li>
+<li>공포: ★★★☆☆</li>
+</ul>
+<h3>감정 아크</h3>
+<p>입궁 초기. 왕녀 신분 자존심과 낯선 공간에 대한 두려움이 공존. 시안과의 첫 만남 — 거리를 두려 하지만 거리가 좁혀지는 것을 막지 못하는 단계</p>
+<h3>최근 결정적 사건</h3>
+<p>EP193 입궁. 정전 앞 은화와 첫 만남. 시안 첫 밤 방문 — "원배에서는 이렇게 하지 않습니다"라고 했다. 그러나 끝까지 버티지는 못했다</p>
+<h3>시안과의 온도</h3>
+<p>차갑다. 아직. 그러나 시안이 올림머리를 건드린 순간 — 등이 처음으로 흔들렸다</p>
+
+  </div>
+  <div id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="">
+  </div>
+  <script>
+    function openLightbox(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').classList.add('open');
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  </script>
+</body>
+</html>
