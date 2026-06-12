@@ -38,6 +38,28 @@
       height: 100%;
       object-fit: cover;
       object-position: top;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+    .portrait img:hover { opacity: 0.85; }
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.88);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+    }
+    #lightbox.open { display: flex; }
+    #lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+      border: 1px solid #3a3020;
+      border-radius: 4px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.7);
     }
     .portrait.no-image {
       display: flex;
@@ -101,7 +123,7 @@
 <body>
   <a class="back" href="../characters.html">← 인물 목록</a>
   <div class="header">
-    <div class="portrait"><img src="../../images/characters/내전/서연.png" alt="서연" /></div>
+    <div class="portrait"><img src="../../images/characters/내전/서연.png" alt="서연" onclick="openLightbox(this.src)" /></div>
     <div class="header-info">
       <h1>서연</h1>
       <span class="category-tag">후궁</span>
@@ -202,14 +224,29 @@
 <h2>대표 대사</h2>
 <p>"왕이 뭔지는 몰라도, 여기가 부족보다 크긴 하네요."</p>
 <hr>
-<h2>현재 상태 (EP150)</h2>
-<ul><li><strong>나이</strong>: 23세 (EP150 기준. 즉위 8년 가을)</li>
+<h2>현재 상태 (EP155)</h2>
+<ul><li><strong>나이</strong>: 23세 (EP155 기준. 즉위 9년 봄)</li>
 <li><strong>30세까지</strong>: 7년</li>
-<li><strong>감정 아크</strong>: EP149 약초 바구니 들고 방문 — 영산강 동편 산 채취 경로 발견 보고. "다음 달에 갔다 오겠습니다." 시안이 사흘 이내 제한. 방문 후 자연스럽게 밤 씬. 말 없이 맡겼다. 설명 없이 왔다가 설명 없이 갔다. "다음 달 돌아오면 — 또 오겠습니다."</li>
-<li><strong>최근 결정적 사건</strong>: EP149 — 영산강 동편 산 채취 루트 신규 발견 보고. 시안이 "사흘 이내에 돌아와라." 처음으로 외출 제한을 받았다. 그러나 거부하지 않았다. 밤 씬 끝에 "쑥은 약재로 쓰시고, 산초는 음식에 씁니다." 실용 설명으로 끝맺는 것이 이 사람의 방식.</li>
-<li><strong>시안과의 온도</strong>: ★★★★☆. 계산 없고 전략 없음. 그냥 왔다가 그냥 간다. "다음 달 또 오겠습니다"라는 말이 이 사람의 충성 선언이다.</li>
-<li><strong>30세까지 7년</strong>: 한영도·도감 유지. 영산강 동편 신규 채취 루트 개척 중. 미현 도감 63종과 계속 연동. 말 없이 일이 된다.</li>
+<li><strong>감정 아크</strong>: EP154 채취 여행에서 검은 돌 + 기름 냄새 발견 → 지형도 직접 그려옴. "시키지 않았는데 그렸다." EP155 봄 재방문 — 시안이 직접 검은 돌 집음. "나씨 장터 부속 채취 금지 구역으로 묶어라." 지형도에 검은 원 추가. "특별한 것입니까." "나중에 쓸 것이다."</li>
+<li><strong>최근 결정적 사건</strong>: EP155 — 석유 삼출암 위치 봄 재방문. 시안이 직접 검은 돌을 확인하고 채취 금지 구역으로 묶음. 서연이 지형도 관리 전담. 봄 순시에 시안 앞장서기로 확정.</li>
+<li><strong>시안과의 온도</strong>: ★★★★☆. 계산 없고 전략 없음. 발견하면 그린다. 그린 것을 가져온다. 이것이 이 사람의 방식.</li>
+<li><strong>30세까지 7년</strong>: 영산강 동편 채취 루트 + 석유 삼출암 위치 지형도 관리. 미현 도감 연동 계속. 시안의 기술 복선 관리에 무의식적으로 가장 많이 관여한 사람.</li>
 </ul>
   </div>
+  <div id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="">
+  </div>
+  <script>
+    function openLightbox(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').classList.add('open');
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  </script>
 </body>
 </html>

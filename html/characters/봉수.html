@@ -38,6 +38,28 @@
       height: 100%;
       object-fit: cover;
       object-position: top;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+    .portrait img:hover { opacity: 0.85; }
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.88);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+    }
+    #lightbox.open { display: flex; }
+    #lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+      border: 1px solid #3a3020;
+      border-radius: 4px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.7);
     }
     .portrait.no-image {
       display: flex;
@@ -139,12 +161,28 @@
 <li>시안에 대한 태도: 존경보다는 신뢰. 원리를 주는 사람으로 인식</li>
 </ul>
 <hr>
-<h2>현재 상태 (EP150)</h2>
-<ul><li>EP147 연노차 5호 2차 시제 — 바퀴 축 기름 달리 바르는 방법 독자 발견 → 조준 재조정 속도 추가 향상</li>
-<li>EP148 연노차 기마 사각지대 대응 나율 교범 등재 기여 (봉수 발견 → 나율 전술 추가)</li>
-<li>EP149 연노차 3호 설계 완성 — 조준 반경 좌우 30도→45도 확장. 시제는 겨울 전 예정. 목재 이미 1년 전부터 준비.</li>
-<li>연노차 계열 기술의 실질적 계승자. 시안이 원리를 주면 봉수가 그것을 넘어서는 사람.</li>
+<h2>현재 상태 (EP155)</h2>
+<ul><li>EP151 연노차 3호 시제 착수. 시안이 한파 목재 수축 문제 선제 지적 → 쐐기 고정 방식 채택.</li>
+<li>EP152 한파로 쐐기 예상보다 빨리 한계 도달. 시안 재설계: 쐐기 홈 2배 확장 + 장쐐기 제작.</li>
+<li>EP153 연노차 3호 완성. 나율 직접 조작 확인. 기마 연동 교범 추가본 반영.</li>
+<li>연노차 3호 — 조준 반경 좌우 45도. 장쐐기 한파 대응 완성. 나율과 봉수가 연동해서 완성한 첫 무기.</li>
+<li>연노차 계열 기술의 실질적 계승자. 자율 설계 → 자율 문제 해결 → 나율과 전술 연동 완성 단계.</li>
 </ul>
   </div>
+  <div id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="">
+  </div>
+  <script>
+    function openLightbox(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').classList.add('open');
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  </script>
 </body>
 </html>

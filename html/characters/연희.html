@@ -38,6 +38,28 @@
       height: 100%;
       object-fit: cover;
       object-position: top;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+    .portrait img:hover { opacity: 0.85; }
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.88);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+    }
+    #lightbox.open { display: flex; }
+    #lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+      border: 1px solid #3a3020;
+      border-radius: 4px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.7);
     }
     .portrait.no-image {
       display: flex;
@@ -101,7 +123,7 @@
 <body>
   <a class="back" href="../characters.html">← 인물 목록</a>
   <div class="header">
-    <div class="portrait"><img src="../../images/characters/내전/연희.png" alt="연희" /></div>
+    <div class="portrait"><img src="../../images/characters/내전/연희.png" alt="연희" onclick="openLightbox(this.src)" /></div>
     <div class="header-info">
       <h1>연희</h1>
       <span class="category-tag">후궁</span>
@@ -201,14 +223,29 @@
 <h2>대표 대사</h2>
 <p>"저는 마한 사람입니다. 전하의 후궁이 되는 건 제가 선택한 게 아닙니다."</p>
 <hr>
-<h2>현재 상태 (EP150)</h2>
-<ul><li><strong>나이</strong>: 28세 (EP150 기준. 즉위 8년 가을)</li>
-<li><strong>30세까지</strong>: 2년</li>
-<li><strong>감정 아크</strong>: EP148 낙랑 사신 태수 직접 서신 도착 → 왕충 배제 분석 → 사신 접견 자리 동석. 정보 채널 운용자에서 전략적 파트너로 완성됐다. EP148 밤 씬 "오래 기억해 주십시오" — 처음으로 요청했다.</li>
-<li><strong>최근 결정적 사건</strong>: EP146 밤 — 올림머리 스스로 풀고 왔다. "2년입니다." EP148 — 낙랑 사신 서신에서 왕충 배제를 즉각 포착. 협상 동석 요청 시안이 수락. EP149 — 왕충 서기 경로 통해 태수부 내부 온도 확인. 협상 진행 실무 전담.</li>
-<li><strong>시안과의 온도</strong>: 전략 파트너. 사신 접견 동석 수락이 이 관계의 완성. 30세까지 2년 — 낙랑 협상이 완료되는 시점과 겹친다. 그것을 알고 있다.</li>
-<li><strong>30세까지 2년</strong>: 낙랑과 교역 재개 합의 완료. 왕충 서기 경로 유지. 낙랑 태수부 내부 분열 공작 계속 운용 중.</li>
+<h2>현재 상태 (EP155)</h2>
+<ul><li><strong>나이</strong>: 28세 → 29세 근접 (EP155 기준. 즉위 9년 봄)</li>
+<li><strong>30세까지</strong>: 약 1.5년</li>
+<li><strong>감정 아크</strong>: EP154 왕충 서기 마지막 서신 — 서기 잡힘. 왕충 경로 완전 소멸. 원배 태수 측근 부상 확인. "새로운 루트를 만들어야 합니다. 시간이 걸립니다." 시안이 "시간을 써라."</li>
+<li><strong>최근 결정적 사건</strong>: EP154 — 왕충 서기 경로 소실. 원배가 내년 봄 사신 + 독자 조달 철회 조항 예고. 시안 전략: "교역 중단이 오면 받아라. 지금은 더 준비됐다." 연희 — "전하는 항상 이미 다음을 보고 계십니다." 새 경로 개척 과제 수령.</li>
+<li><strong>시안과의 온도</strong>: 전략 파트너. 낙랑 협상을 완성한 사람이 이제 낙랑 내부 정보 채널을 다시 구축해야 한다. 30세까지 1.5년 — 새 루트 완성이 다음 과제다.</li>
+<li><strong>30세까지 약 1.5년</strong>: 왕충 서기 경로 소실. 원배 태수 측근 확인. 새 경로 개척 착수. 낙랑 내부 분열 공작 — 연희가 독자적으로 다음 채널을 구축해야 하는 단계.</li>
 </ul>
   </div>
+  <div id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="">
+  </div>
+  <script>
+    function openLightbox(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').classList.add('open');
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  </script>
 </body>
 </html>

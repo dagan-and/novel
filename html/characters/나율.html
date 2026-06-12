@@ -38,6 +38,28 @@
       height: 100%;
       object-fit: cover;
       object-position: top;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+    .portrait img:hover { opacity: 0.85; }
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.88);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+    }
+    #lightbox.open { display: flex; }
+    #lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+      border: 1px solid #3a3020;
+      border-radius: 4px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.7);
     }
     .portrait.no-image {
       display: flex;
@@ -101,7 +123,7 @@
 <body>
   <a class="back" href="../characters.html">← 인물 목록</a>
   <div class="header">
-    <div class="portrait"><img src="../../images/characters/내전/나율.png" alt="나율" /></div>
+    <div class="portrait"><img src="../../images/characters/내전/나율.png" alt="나율" onclick="openLightbox(this.src)" /></div>
     <div class="header-info">
       <h1>나율</h1>
       <span class="category-tag">후궁</span>
@@ -112,9 +134,9 @@
 <h2>기본 정보</h2>
 <p>이름: 나율 (羅栗)</p>
 <p>성별: 여</p>
-<p>나이: 27세 (EP095 기준)</p>
+<p>나이: 30세 (EP153 기준 — 30세 도달)</p>
 <p>출신: 북방 국경 무장 가문</p>
-<p>신분: 후궁 2위 (9화~)</p>
+<p>신분: 기마대 교관 (EP153 30세 도달 → 내전 퇴거, EP155 교관 전환 완료)</p>
 <hr>
 <h2>외형</h2>
 <h3>미의 유형</h3>
@@ -168,12 +190,12 @@
 <li>목소리·숨결·향:                   낮고 직접적인 목소리, 사향·박하 계열 향, 숨을 참지 않고 그대로 내쉬는 솔직함</li>
 <li>침소에서의 반응 패턴:             수줍음이 없다, 먼저 시안을 응시함, 거칠고 솔직한 반응 — 소리를 감추지 않는 타입</li>
 <li>시안이 가장 탐닉하는 부위:        쇄골 위 흉터 + 탄탄한 어깨선 — 무장 가문의 흔적</li>
-<li>30세 규칙 잔여 시간: 3년 (현재 27세)</li>
+<li>30세 규칙 잔여 시간: 0 — 30세 도달. 내전 퇴거 완료. 기마대 교관으로 전환</li>
 </ul>
 <hr>
 <h2>하렘 내 위치</h2>
-<ul><li>서열: 2위 (5인 완성 후에도 유지)</li>
-<li>역할: 내실 / 시안의 유희</li>
+<ul><li>서열: 퇴거 (EP153 30세 도달 → EP155 공식 내전 퇴거)</li>
+<li>역할: 기마대 교관. 교범 16편 + 3호 연동 추가본 관리</li>
 <li>다른 여인들과의 관계:</li>
 </ul>  - 소아: 안정적 공존. 초기 긴장 완전히 해소됨
 <p>  - 연희: 무난한 공존</p>
@@ -201,14 +223,29 @@
 <h2>대표 대사</h2>
 <p>"전하, 저는 눈치 보는 걸 잘 못합니다. 그냥 솔직하게 말해도 됩니까?"</p>
 <hr>
-<h2>현재 상태 (EP150)</h2>
-<ul><li><strong>나이</strong>: 29세 (EP150 기준. 즉위 8년 가을)</li>
-<li><strong>30세까지</strong>: 6개월 미만 (150화 이후)</li>
-<li><strong>감정 아크</strong>: EP147 기마 사각지대 발견·교범 16편 착수 → EP148 연노차 기마 대형 사각지대 실험 완료·교범 16편 기록 → EP149 기마 변칙 대형 각도 추가 → EP150 교범 16편 완성. "오늘 — 교범을 완성했을 때 처음으로 — 기뻤습니다." 6개월을 두려움으로만 세지 않은 첫 날.</li>
-<li><strong>최근 결정적 사건</strong>: EP150 — 교범 16편 완성. "이 교범을 쓴 사람은 나율입니다. 뒤에 남길 것이 생겼습니다." 처음으로 기쁨을 말했다. 시안이 "6개월 동안 — 그 기쁨도 기억해라." EP150 밤 씬 — 쇄골 흉터에 시안 손이 닿았을 때 눈을 감았다. 군인의 자제력이 시안 앞에서 무너진 밤.</li>
-<li><strong>시안과의 온도</strong>: 충성 ★★★★★ + 감정 ★★★★★. 교범 완성 기쁨을 시안에게 말한 첫 날. "흔들립니다"라고 했다. 흔들린다고 말하는 것 자체가 이 사람의 가장 솔직한 고백.</li>
-<li><strong>30세까지 6개월 미만</strong>: 교범 16편 완성. 다음 목표: 기마 대형 실전 배치. 6개월 안에 끝낸다. 두려움과 기쁨을 동시에 기억하는 사람이 됐다.</li>
+<h2>현재 상태 (EP155)</h2>
+<ul><li><strong>나이</strong>: 30세 (EP153 기준. 즉위 9년 봄)</li>
+<li><strong>30세 도달 — 내전 퇴거 완료 (EP155)</strong></li>
+<li><strong>감정 아크</strong>: EP151 기마 실전 배치 완료 보고 — "이제 다 됐습니다." EP152 한파 쐐기 한계 확인. EP153 연노차 3호 완성 → 30세 당일 진무 서류 → 한 달 유예 결정. 30세 당일 밤 "잘 했습니까" "그러면 됩니다." EP155 교범 3호 연동 추가본 완성 → 내전 퇴거. "교범이 남는 한 — 저는 여기 있는 것과 같습니다." 훈련장에서 "교범 16편. 오늘부터 다시 처음부터 간다."</li>
+<li><strong>최근 결정적 사건</strong>: EP155 — 교범 16편 3호 연동 추가본 완성. 마지막 페이지에 나율(羅栗) 직접 서명. 한 달 유예 기간 끝에 내전을 나갔다. 퇴거 당일 — "교범이 남는 한 저는 여기 있는 것과 같습니다." 이후 훈련장에서 기마대 교관으로 복귀. 군청빛 저고리, 허리에 가죽 띠.</li>
+<li><strong>시안과의 온도</strong>: 내전 안에서의 관계는 끝났다. 훈련장에서 자주 볼 것이다. 교범이 남는 한 이 사람은 여기 있다.</li>
+<li><strong>30세 도달 이후</strong>: 교범 16편 + 3호 연동 추가본. 기마대 교관 직책. 내전 공석 1자리 발생 → 충원 예정 (봄 순시).</li>
 </ul>
   </div>
+  <div id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="">
+  </div>
+  <script>
+    function openLightbox(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').classList.add('open');
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  </script>
 </body>
 </html>
