@@ -118,7 +118,7 @@ node convert.js {n-4}화 && node convert.js {n-3}화 && ... && node convert.js {
 ### STEP 7 — Git 커밋 & Push
 모든 갱신(캐릭터 파일·HTML·history·TERRITORY·RELATIONS)이 끝난 뒤 실행한다.
 ```
-git add episodes/ html/ characters/ story/history.md setting/
+git add episodes/ html/ characters/ story/ setting/ images/
 git commit -m "ep{n-4}~{n}화 완성 및 설정 갱신"
 git push
 ```
