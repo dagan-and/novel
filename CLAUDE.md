@@ -5,8 +5,8 @@
 ## 집필 시작 시 반드시 읽어야 할 파일 (순서대로)
 
 1. **`setting/master.md`** — 집필 규칙 전체
-2. **`story/history.md`** — 현재 화수·마일스톤
-3. **`setting/TERRITORY.md` / `setting/RELATIONS.md`** — 현재 세력·인물 상태 (연재 중인 경우)
+2. **`setting/HISTORY.md`** — 현재 화수·마일스톤
+3. **`setting/RELATIONS.md` / `setting/TERRITORY.md` / `setting/TECH.md` ** — 현재 세력·인물·기술 상태 (연재 중인 경우)
 4. **해당 화에 등장하는 인물의 캐릭터 파일**
 5. **`episodes/` 최근 3화 MD** — 서사 연속성·문체 확인 (3화 미만이면 있는 것 전부)
 
@@ -17,17 +17,17 @@
 | 파일 | 역할 | 갱신 주기 |
 |---|---|---|
 | `setting/master.md` | 집필 규칙 | 거의 안 바뀜 |
-| `story/history.md` | 화수·마일스톤 (경량) | 5화 완료마다 |
+| `setting/HISTORY.md` | 화수·마일스톤 (경량) | 5화 완료마다 |
 | `characters/주인공/sian.md` | 주인공 | 필요 시 |
-| `characters/내전/{인물}.md` | 현직 후궁 (소아·연희·미현·서연·나련) | 등장 시 작성 + 5화 완료마다 `현재 상태` 갱신 |
-| `characters/내전/퇴거/{인물}.md` | 퇴거 후궁 (나율 등) | 해당 분야 서사 등장 시에만 갱신 |
-| `characters/내전/이별/{인물}.md` | 사망·이별 인물 (서연 예정) | 사망 처리 시 이동. 이후 갱신 없음 |
-| `characters/신하/{인물}.md` | 신하·조정 (진무·단웅 등) | 필요 시 |
-| `characters/외부/{인물}.md` | 외교·외부 인물 (왕충·유씨대인 등) | 필요 시 |
+| `characters/내전/{인물}.md` | 현직 후궁 | 등장 시 작성 + 5화 완료마다 `현재 상태` 갱신 |
+| `characters/내전/퇴거/{인물}.md` | 퇴거 후궁 | 해당 분야 서사 등장 시에만 갱신 |
+| `characters/내전/이별/{인물}.md` | 사망·이별 인물 | 사망 처리 시 이동. 이후 갱신 없음 |
+| `characters/신하/{인물}.md` | 신하·조정 | 필요 시 |
+| `characters/외부/{인물}.md` | 외교·외부 인물 | 필요 시 |
 | `episodes/{n}화.md` | 본편 MD 원본 | 집필 시 저장 |
 | `html/{n}화.html` | HTML 출력 | convert.js 실행 후 |
 | `setting/character.md` | 신규 인물 생성 템플릿 | 필요 시 |
-| `setting/TECH.md` | 도입 기술 기록 | 기술 도입 시 |
+| `setting/TECH.md` | 도입 기술 기록 | 5화 완료마다 |
 | `setting/TERRITORY.md` | 영토·자원·건축물 현황 | 5화 완료마다 |
 | `setting/RELATIONS.md` | 인물 관계·충성도·복선 | 5화 완료마다 |
 
@@ -38,14 +38,13 @@
 ```
 [새 세션]
   1. master.md 읽기
-  2. history.md 읽기          (화수·마일스톤 파악)
+  2. HISTORY.md 읽기          (화수·마일스톤 파악)
   3. 해당 인물 파일 읽기
   4. episodes/ 최근 3화 읽기  (서사 연속성·문체 확인)
         ↓
   5화 집필 (episodes/{n}화.md)
         ↓
-  history.md / setting/TERRITORY.md / setting/RELATIONS.md 갱신
-  (setting/TECH.md는 기술 도입 시에만 갱신)
+  setting/HISTORY.md / setting/TERRITORY.md / setting/RELATIONS.md / setting/TECH.md 갱신
   해당 5화에 등장한 인물의 characters/{카테고리}/ 파일 갱신
     - 내전: `## 현재 상태` 섹션 하나만 전체 업데이트
       (나이·신분·서열·30세 잔여·하렘 내 위치·감정 별점·감정 아크·최근 결정적 사건·시안과의 온도)
@@ -105,10 +104,10 @@ node convert.js {n-4}화 && node convert.js {n-3}화 && ... && node convert.js {
 
 예) 150화 완료 시: EP101~150 → 요약 테이블 변환 / EP151~는 상세 유지
 
-### STEP 6-B — history.md 압축 루틴 (50화 단위 자동 트리거)
+### STEP 6-B — HISTORY.md 압축 루틴 (50화 단위 자동 트리거)
 > 완성 화수가 **50의 배수**일 때(200화, 250화…) 반드시 실행한다.
 
-`story/history.md`의 `## 마일스톤 사건` 섹션에서:
+`setting/HISTORY.md`의 `## 마일스톤 사건` 섹션에서:
 - **압축 대상**: `### 최근 상세 기록` 중 가장 오래된 50화 블록
 - **압축 형식**: `### {시기} 핵심 전환점 요약 (EP{n}~EP{n+49})` 테이블로 변환
   - 10화 단위 그룹, 컬럼: 화수 / 핵심 사건 / 의미
@@ -117,10 +116,24 @@ node convert.js {n-4}화 && node convert.js {n-3}화 && ... && node convert.js {
 
 예) 200화 완료 시: EP101~150 → 요약 테이블 변환 / EP151~는 상세 유지
 
-### STEP 6-C — 대규모 병합 압축 (100화 단위 자동 트리거)
+
+### STEP 6-C — TECH.md 압축 루틴 (50화 단위 자동 트리거)
+> 완성 화수가 **50의 배수**일 때(200화, 250화…) 반드시 실행한다.
+
+`setting/HISTORY.md`의 `## 마일스톤 사건` 섹션에서:
+- **압축 대상**: `### 최근 상세 기록` 중 가장 오래된 50화 블록
+- **압축 형식**: `### {시기} 핵심 전환점 요약 (EP{n}~EP{n+49})` 테이블로 변환
+  - 10화 단위 그룹, 컬럼: 화수 / 핵심 사건 / 의미
+  - 그룹당 결정적 사건 2~3개만 남기고 나머지 생략
+- **유지 대상**: 최근 50화 블록은 `### 최근 상세 기록` 아래 상세 항목 그대로 유지
+
+예) 200화 완료 시: EP101~150 → 요약 테이블 변환 / EP151~는 상세 유지
+
+
+### STEP 6-D — 대규모 병합 압축 (100화 단위 자동 트리거)
 > 완성 화수가 **100의 배수**일 때(300화, 400화…) 반드시 실행한다.
 
-**history.md + RELATIONS.md** 양쪽 모두 실행:
+**HISTORY.md + RELATIONS.md + TECH.md ** 모두 실행:
 - **병합 대상**: 200화 이상 지난 요약 블록 전체 (50화 단위 요약 테이블 여러 개)
 - **병합 형식**: `### 초기 핵심 전환점 (EP1~EP{n})` 단일 테이블로 통합
   - 컬럼: 화수 / 사건 / 의미
@@ -131,9 +144,9 @@ node convert.js {n-4}화 && node convert.js {n-3}화 && ... && node convert.js {
 예) 300화 완료 시: EP1~100 블록들 → `초기 핵심 전환점 (EP1~EP100)` 단일 테이블 / EP101~는 기존 방식 유지
 
 ### STEP 7 — Git 커밋 & Push
-모든 갱신(캐릭터 파일·HTML·history·TERRITORY·RELATIONS)이 끝난 뒤 실행한다.
+모든 갱신(캐릭터 파일·HTML·HISTORY·TERRITORY·RELATIONS,TECH)이 끝난 뒤 실행한다.
 ```
-git add episodes/ html/ characters/ story/ setting/ images/
+git add episodes/ html/ characters/ setting/ images/
 git commit -m "ep{n-4}~{n}화 완성 및 설정 갱신"
 git push
 ```
@@ -142,10 +155,10 @@ git push
 
 ## 집필 절대 규칙
 
-1. `story/history.md` 확인 없이 집필 시작 금지
+1. `setting/HISTORY.md` 확인 없이 집필 시작 금지
 2. 인물 파일 없이 해당 인물을 주요 등장시키는 것 금지
 3. 신규 인물: `characters/{카테고리}/`에 MD 먼저 작성 후 등장 (카테고리: 내전/지방여인/신하/외부)
-4. 5화 완료마다 `story/history.md` / `setting/TERRITORY.md` / `setting/RELATIONS.md` 갱신
+4. 5화 완료마다 `setting/HISTORY.md` / `setting/TERRITORY.md` / `setting/RELATIONS.md` / `setting/TECH.md` 갱신
 5. 5화 완료마다 등장 인물 `characters/{카테고리}/` 파일의 `## 현재 상태` 섹션 갱신 — 내전 후궁은 이 섹션 하나에서 모든 갱신 항목 관리
 6. MD 저장 경로: `episodes/{n}화.md` → `node convert.js {n}화` → `html/{n}화.html`
 7. 집필 전 `episodes/` 최근 3화 MD를 읽어 인물·사건·문체 흐름을 확인한다 (3화 미만이면 있는 것 전부)
