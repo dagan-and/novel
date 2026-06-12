@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>왕의 귀환 — 나련</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #1a1a1a;
+      color: #e8e0d0;
+      font-family: 'Nanum Myeongjo', Georgia, serif;
+      font-size: 1.0rem;
+      line-height: 1.85;
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+    }
+    .header {
+      display: flex;
+      gap: 2.5rem;
+      align-items: flex-start;
+      margin-bottom: 2.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid #2a2a2a;
+    }
+    .portrait {
+      flex-shrink: 0;
+      width: 200px;
+      height: 260px;
+      border: 1px solid #3a3020;
+      border-radius: 4px;
+      overflow: hidden;
+      background: #111;
+    }
+    .portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+    .portrait img:hover { opacity: 0.85; }
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.88);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+    }
+    #lightbox.open { display: flex; }
+    #lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+      border: 1px solid #3a3020;
+      border-radius: 4px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.7);
+    }
+    .portrait.no-image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #444;
+      font-size: 1.2rem;
+    }
+    .header-info h1 {
+      font-size: 2rem;
+      color: #d4a843;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.4rem;
+    }
+    .category-tag {
+      display: inline-block;
+      background: #2a2010;
+      color: #d4a843;
+      border: 1px solid #3a3020;
+      font-size: 0.78rem;
+      padding: 0.15rem 0.6rem;
+      border-radius: 2px;
+      letter-spacing: 0.05em;
+    }
+    h2 {
+      font-size: 1.05rem;
+      color: #d4a843;
+      margin: 2rem 0 0.6rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 1px solid #2a2a2a;
+      letter-spacing: 0.06em;
+    }
+    h3 {
+      font-size: 0.95rem;
+      color: #b8a060;
+      margin: 1.2rem 0 0.4rem;
+    }
+    p { margin: 0.5rem 0; }
+    ul { padding-left: 1.4rem; margin: 0.4rem 0; }
+    li { margin: 0.25rem 0; }
+    hr {
+      border: none;
+      border-top: 1px solid #2a2a2a;
+      margin: 1.6rem 0;
+    }
+    strong { color: #c8b870; }
+    .back {
+      display: inline-block;
+      margin-bottom: 2rem;
+      color: #d4a843;
+      text-decoration: none;
+      font-size: 0.88rem;
+    }
+    .back:hover { text-decoration: underline; }
+    @media (max-width: 560px) {
+      .header { flex-direction: column; align-items: center; }
+      .portrait { width: 160px; height: 210px; }
+    }
+  </style>
+</head>
+<body>
+  <a class="back" href="../characters.html">← 인물 목록</a>
+  <div class="header">
+    <div class="portrait no-image"><span>나련</span></div>
+    <div class="header-info">
+      <h1>나련</h1>
+      <span class="category-tag">후궁</span>
+    </div>
+  </div>
+  <div class="profile-body">
+    
+<h2>기본 정보</h2>
+<p>이름: 나련 (那蓮)</p>
+<p>성별: 여</p>
+<p>나이: 20세 (EP159 기준)</p>
+<p>출신: 전남 영산강 하구 나씨 가문 (나건의 조카딸)</p>
+<p>신분: 후궁 6위 (EP159 첫 만남 / 입궁 EP160 예정)</p>
+<p>하렘 서열: 6위 (예정)</p>
+<hr>
+<h2>외형</h2>
+<h3>미의 유형</h3>
+<ul><li>[x] 이국미 — 영산강 유역·서해 해안 출신, 낯선 아름다움</li>
+</ul>
+<h3>얼굴</h3>
+<ul><li>얼굴형:          갸름하고 부드럽다. 광대가 약간 높다.</li>
+<li>눈:              강과 바다를 오래 본 눈. 멀리 보는 버릇. 짙은 눈동자, 조용하고 깊다.</li>
+<li>코:              작고 오똑. 전남 출신 특유의 선명함.</li>
+<li>입술:            얇고 단정. 말이 적다. 그러나 말할 때는 명확하다.</li>
+<li>피부:            갈색빛. 햇빛을 많이 받은 피부. 나건과 비슷한 빛.</li>
+</ul>
+<h3>머리카락</h3>
+<ul><li>길이·형태:       짙은 흑갈색. 허리까지. 평소엔 하나로 묶는다.</li>
+<li>색·광택:         검은빛에 갈색이 섞인 윤기.</li>
+<li>평소 스타일:     뒤로 묶거나 조개껍데기 장식 핀으로 고정.</li>
+</ul>
+<h3>체형</h3>
+<ul><li>키:              162~164cm</li>
+<li>전체 인상:       조용하게 서 있어도 눈에 들어오는 비율. 허리가 가늘고 어깨가 반듯.</li>
+<li>체형 특징:       배를 타면서 단련된 몸. 표면에서는 잘 드러나지 않지만 움직임이 안정적.</li>
+<li>손·발:           손이 약간 거칠다. 강줄을 잡던 흔적.</li>
+</ul>
+<h3>움직임 & 첫인상</h3>
+<ul><li>걸음걸이:        느리지 않고 조용하다. 발소리가 없다. 균형이 좋다.</li>
+<li>자세 습관:       멀리 보는 버릇. 수평선을 보던 버릇이 남아있다.</li>
+<li>처음 봤을 때 느낌 한 줄: "바다를 오래 본 사람 — 이 사람이 어디서 왔는지 알 것 같았다."</li>
+</ul>
+<h3>독특한 매력 포인트</h3>
+<p>> 옷깃 아래 가슴골 위로 드러나는 쇄골 선 — 영산강 뱃일을 하며 단련된 몸에서 오는 선명한 선. 나건과 같은 피부 빛이지만 여린 곳이 더 여리다.</p>
+<h3>의상 & 비주얼 스타일</h3>
+<strong>시대 배경</strong>: 백제 초기 (기원전 18년~). 전남 나씨 가문 복식.
+<ul><li>신분 표현 색:      짙은 남색·갈색·자연 염색</li>
+<li>평상복 스타일:     전남 나씨 가문 복식. 실용적. 허리 끈 없이 자연스러운 매듭.</li>
+<li>예복 / 특별 장면:  입궁 후 내전 복식. 처음엔 불편해한다.</li>
+<li>침소복:            얇은 마포. 단순한 매듭.</li>
+<li>머리 장식·패물:    조개껍데기 핀, 작은 구리 귀걸이.</li>
+<li>향:                강물 냄새·바람 (인공 향 없음)</li>
+</ul>
+<hr>
+<h2>성격</h2>
+<ul><li>강점: 조용하고 관찰력이 뛰어나다. 두려움을 쉽게 드러내지 않는다. 주어진 상황을 빠르게 수용한다.</li>
+<li>약점: 먼저 다가가지 않는다. 친밀함을 만드는 데 시간이 걸린다.</li>
+<li>욕망: 가족(나씨 가문)이 안전한 것. 자신이 쓸모 있는 자리에 있는 것.</li>
+<li>두려움: 위례성이라는 낯선 곳. 내전이라는 세계. 그러나 드러내지 않는다.</li>
+</ul>
+<hr>
+<h2>시안을 매료시키는 성적 매력</h2>
+<ul><li>외형에서 비롯된 관능 포인트:     갈색 피부의 깊이 + 강과 바다를 오래 본 눈 — 위례성 어느 여인에게도 없는 시선</li>
+<li>움직일 때 드러나는 매력:          배를 타던 균형 감각이 남아있는 몸놀림. 흔들려도 중심을 잃지 않는다.</li>
+<li>목소리·숨결·향:                   낮고 차분한 목소리. 강물과 바람 냄새. 말수가 적어 더 집중하게 만든다.</li>
+<li>침소에서의 반응 패턴:             처음엔 긴장이 역력하나 시안이 이끌면 빠르게 순응. 조용하지만 숨기는 것이 없다.</li>
+<li>시안이 가장 탐닉하는 부위:        쇄골 선과 갈색 목덜미 — 영산강 햇빛이 만들어낸 빛깔</li>
+<li>30세 규칙: ★★★★★ (인지도 없음, EP159 기준 처음 만남)</li>
+</ul>
+<hr>
+<h2>역할</h2>
+<ul><li>나씨 가문과 백제 내전의 연결 고리 (정치적 의미)</li>
+<li>영산강 수운·서해 해안 정보 채널 (나건 보조)</li>
+<li>시안의 해상 전략 복선 인물 — 서해를 오래 본 여인</li>
+</ul>
+<hr>
+<h2>시안과의 관계</h2>
+<p>첫 만남: EP159 (나씨 거점 순시 중 나건 소개)</p>
+<p>현재 관계: —</p>
+<p>시안에 대한 감정 (EP159):</p>
+<ul><li>두려움: ★★★★☆ (왕에 대한 두려움. 그러나 드러내지 않는다)</li>
+<li>신뢰: ★☆☆☆☆ (첫 만남)</li>
+<li>수용: ★★★☆☆ (가문을 위한 선택 — 거부하지 않는다)</li>
+</ul>
+<hr>
+<h2>불멸 비밀 인지도</h2>
+<ul><li>[x] 모름</li>
+</ul>
+<hr>
+<h2>예정 결말</h2>
+<ul><li>[ ] 미정</li>
+</ul>
+<hr>
+<h2>대표 대사</h2>
+<p>"...강이 끝나는 곳이 바다입니다." (EP159, 첫 만남)</p>
+<hr>
+<h2>현재 상태 (EP160)</h2>
+<ul><li>EP159 — 나건의 소개로 시안과 첫 만남. "강이 끝나는 곳이 바다입니다." 두렵지만 드러내지 않는다. 밤 씬 (첫 번째). "처음 배를 탔을 때도 무서웠습니다. 익숙해졌습니다."</li>
+<li>EP160 — 위례성 입성. 소아의 안내로 내전 처음 들어섬. 창 밖 한강 확인. "강이 있으면 익숙해질 수 있다." 내전 5인 완성.</li>
+<li>30세 규칙 잔여 시간: 약 10년</li>
+<li>시안과의 온도: 두렵지만 수용. 강과 바다를 아는 눈이 시안의 시선에 남아있다.</li>
+</ul>
+  </div>
+  <div id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="">
+  </div>
+  <script>
+    function openLightbox(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').classList.add('open');
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  </script>
+</body>
+</html>
