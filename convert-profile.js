@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const CATEGORIES = ['내전', '신하', '외부', '지방여인'];
+const CATEGORIES = ['내전', '지방여인', '신하', '외부'];
 
 function findCharacter(name) {
   for (const cat of CATEGORIES) {
@@ -51,7 +51,7 @@ function buildProfile(name) {
   const categoryLabel = { 내전: '후궁', 신하: '신하', 외부: '외부 인물', 지방여인: '지방 여인' };
 
   const imageBlock = imageSrc
-    ? `<div class="portrait"><img src="${imageSrc}" alt="${name}" /></div>`
+    ? `<div class="portrait"><img src="${imageSrc}" alt="${name}" onclick="openLightbox(this.src)" /></div>`
     : `<div class="portrait no-image"><span>${name}</span></div>`;
 
   // h1(이름) 제거 후 나머지 렌더링
@@ -98,6 +98,28 @@ function buildProfile(name) {
       height: 100%;
       object-fit: cover;
       object-position: top;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+    .portrait img:hover { opacity: 0.85; }
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.88);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+    }
+    #lightbox.open { display: flex; }
+    #lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+      border: 1px solid #3a3020;
+      border-radius: 4px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.7);
     }
     .portrait.no-image {
       display: flex;
@@ -170,6 +192,21 @@ function buildProfile(name) {
   <div class="profile-body">
     ${bodyHtml}
   </div>
+  <div id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="">
+  </div>
+  <script>
+    function openLightbox(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').classList.add('open');
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  </script>
 </body>
 </html>`;
 

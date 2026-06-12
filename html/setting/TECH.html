@@ -15,6 +15,7 @@
       max-width: 960px;
       margin: 0 auto;
       padding: 3rem 1.5rem 5rem;
+      word-break: keep-all;
     }
     h1 { font-size: 1.5rem; color: #d4a843; margin-bottom: 2rem; letter-spacing: 0.08em; }
     h2 { font-size: 1.05rem; color: #d4a843; margin: 2.2rem 0 0.7rem; padding-bottom: 0.3rem; border-bottom: 1px solid #2a2a2a; letter-spacing: 0.05em; }
@@ -26,8 +27,9 @@
     strong { color: #c8b870; }
     em { color: #a0a0a0; font-style: italic; }
     blockquote { border-left: 3px solid #3a3020; padding-left: 1rem; color: #a0a0a0; margin: 0.8rem 0; }
-    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
-    th { background: #222; color: #d4a843; padding: 0.5rem 0.75rem; text-align: left; border-bottom: 1px solid #3a3020; }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1rem 0; }
+    table { width: max-content; min-width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    th { background: #222; color: #d4a843; padding: 0.5rem 0.75rem; text-align: left; border-bottom: 1px solid #3a3020; white-space: nowrap; }
     td { padding: 0.45rem 0.75rem; border-bottom: 1px solid #252525; vertical-align: top; }
     tr:hover td { background: #1f1f1f; }
     code { background: #222; color: #7ecfc0; padding: 0.1rem 0.35rem; border-radius: 2px; font-size: 0.88rem; }
@@ -47,7 +49,7 @@
 
 <h2>완성 기술 요약</h2>
 
-<table>
+<div class="table-wrap"><table>
 <tr><th>코드</th><th>기술명</th><th>최초→완성</th><th>현재 효과</th></tr>
 <tbody>
 <tr><td>T-AGR</td><td>삼포식 윤작</td><td>3화</td><td>식량 +40~80% 유지</td></tr>
@@ -63,26 +65,26 @@
 <tr><td>T-ENG</td><td>교각 다리 (한강 상류)</td><td>69화→74화</td><td>기마 도하 속도 3배. 나율 교범 등록</td></tr>
 <tr><td>T-ENG</td><td>염전 (서쪽 해안)</td><td>65화→75화</td><td>시범 수확 성공 (5말). 내년 10배 확대</td></tr>
 <tr><td>T-COM</td><td>제지 완성</td><td>73화→79화</td><td>풀 3회 코팅. 번짐 해소. 남돌 대량 생산 가동. 행정 문서 베→종이 전환 시작. 지도 활용 가능</td></tr>
-</tbody></table>
+</tbody></table></div>
 
 <hr>
 
 <h2>기술 분야 코드</h2>
 
-<table>
+<div class="table-wrap"><table>
 <tr><th>코드</th><th>분야</th></tr>
 <tbody>
 <tr><td>T-AGR</td><td>농업 (Agriculture)</td></tr>
 <tr><td>T-ENG</td><td>토목·자원 공학 (Engineering)</td></tr>
 <tr><td>T-COM</td><td>통신·행정 (Communication)</td></tr>
 <tr><td>T-MIL</td><td>군사 (Military)</td></tr>
-</tbody></table>
+</tbody></table></div>
 
 <hr>
 
 <h2>핵심 연쇄 효과</h2>
 
-<table>
+<div class="table-wrap"><table>
 <tr><th>트리거</th><th>결과</th></tr>
 <tbody>
 <tr><td>T-AGR 윤작 + T-ENG 수로</td><td>→ 식량 잉여 + 민심 → 인구 유입 기반</td></tr>
@@ -92,86 +94,86 @@
 <tr><td>T-ENG 도정 수차 + 도량형</td><td>→ 인력 절감 + 세수 23% 향상</td></tr>
 <tr><td>T-ENG 교각 다리 + 군용 도로망</td><td>→ 전 거점 기마 기동 최적화</td></tr>
 <tr><td>T-ENG 염전 + T-COM 제지</td><td>→ 소금 자급 예정 + 행정 문서 비용 절감 → 낙랑 의존도 감소</td></tr>
-</tbody></table>
+</tbody></table></div>
 
 <h2>완성 기술 추가 (EP091~095)</h2>
 
-<table>
+<div class="table-wrap"><table>
 <tr><th>T-ENG</th><th>석탄-제련로 연동</th><th>EP091→EP095</th><th>목탄·석탄 7:3 비율. 철 밀도↑. 쇠뇌 부품 품질 향상 확인</th></tr>
 <tr><th>T-MIL</th><th>기마 대형 교범</th><th>EP082→EP094</th><th>열두 편 완성·정식 등록. 나율 교범 담당·기마대 교관 겸임 확정</th></tr>
-</tbody></table>
+</tbody></table></div>
 
 <h2>완성 기술 추가 (EP101~105)</h2>
 
-<table>
+<div class="table-wrap"><table>
 <tr><th>T-MED</th><th>약초 목록 + 그림 도감 착수</th><th>EP101→EP105</th><th>47종 목록 완성. 서연 그림 도감 32종 (작업 중). 독성 식물 붉은 테두리 표시. 미현 관리 담당</th></tr>
 <tr><th>T-AGR</th><th>소 쟁기 도입</th><th>EP102→EP105</th><th>마한 서남부 시험 완료. 전 지역 가동 시작. 같은 시간 경작 면적 2배 이상</th></tr>
-</tbody></table>
+</tbody></table></div>
 
 <h2>기술 분야 코드 추가</h2>
 
-<table>
+<div class="table-wrap"><table>
 <tr><th>T-MED</th><th>의료 (Medicine)</th></tr>
 <tr><th>T-EDU</th><th>교육·기술 전파 (Education)</th></tr>
-</tbody></table>
+</tbody></table></div>
 
 <h2>완성 기술 추가 (EP106~110)</h2>
 
-<table>
+<div class="table-wrap"><table>
 <tr><th>T-MED</th><th>약초 그림 도감 완성</th><th>EP101→EP107</th><th>47종 전부 완성. 사본 3부 (위례성·한강·마한 서남부). 독성 붉은 테두리 표시. 미현 관리</th></tr>
 <tr><th>T-MIL</th><th>기마 교범 13편 완성</th><th>EP097→EP110</th><th>기마 돌격 + 쇠뇌 후퇴 연계 전술 포함. 진무 정식 등록 완료</th></tr>
 <tr><th>T-MIL</th><th>쇠뇌 격발 각도 개선</th><th>EP110</th><th>봉수 독자 개선. 사거리 추가 향상. 교범 14편 착수 예정</th></tr>
-</tbody></table>
+</tbody></table></div>
 
 <h2>완성 기술 추가 (EP121~140)</h2>
 
-<table>
+<div class="table-wrap"><table>
 <tr><th>T-MIL</th><th>연노차(連弩車)</th><th>EP122→EP125</th><th>쇠뇌 20자루 수레 고정 탑재. 동시 발사. 50보 17/20발. 4대 완성. 실전 2회 투입 (고부·나씨 전투). 교범 14편 등록</th></tr>
 <tr><th>T-MIL</th><th>투석차(投石車)</th><th>EP126→EP131</th><th>평형추 방식. 기본형 185보. 개량형(철제 평형추 350근) 220보. 불덩이 운용 검증 (180보, 3보 반경). 교범 14편 등록</th></tr>
 <tr><th>T-MIL</th><th>기마 교범 14편</th><th>EP116→EP139</th><th>연노차 전술·투석차 공략 절차·불덩이 운용·혼합 대형 도표 포함. 완성</th></tr>
 <tr><th>T-MED</th><th>약초 도감 61종</th><th>EP107→EP140</th><th>영산강 신규 2종 포함. 견습 의원 독자 처치 완수. 정식 의원 승격 예정</th></tr>
 <tr><th>T-COM</th><th>한영도(漢榮圖)</th><th>EP140</th><th>한강~영산강 전 구간 지도. 거점·강줄기·장터·봉화 위치 수록. 서연 제작</th></tr>
-</tbody></table>
+</tbody></table></div>
 
 <h2>핵심 연쇄 효과 추가</h2>
 
-<table>
+<div class="table-wrap"><table>
 <tr><th>T-MIL 연노차 + 궁수 선제 사격</th><th>→ 성벽 위 제압 + 연노차 전진 → 야전 거점 30분 이내 돌파</th></tr>
 <tr><th>T-MIL 투석차 + 연노차 합동</th><th>→ 성벽 안쪽 타격 → 수비 붕괴 → 창병 돌격 연계</th></tr>
 <tr><th>T-MIL 투석차 불덩이 + 목조 성벽</th><th>→ 목성 1발 점화 가능</th></tr>
-</tbody></table>
+</tbody></table></div>
 
 <h2>완성 기술 추가 (EP141~145)</h2>
 
-<table>
+<div class="table-wrap"><table>
 <tr><th>T-ENG</th><th>소금 완전 자급</th><th>EP075→EP142</th><th>서쪽 해안 염전 4배 확대. 낙랑 소금 의존도 제로 달성</th></tr>
 <tr><th>T-MIL</th><th>기마 교범 15편 완성</th><th>EP139→EP144</th><th>전남 원정·불덩이 운용·연노차 전술 합동 대형 도표 포함. 나율 작성</th></tr>
 <tr><th>T-MIL</th><th>연노차 5호 경량형 시제</th><th>EP142→EP145</th><th>대나무 틀·철 이음새. 15근 경량화. <strong>조준 재조정 속도 향상 봉수 자율 발견</strong>. T-EDU 첫 자율 개량</th></tr>
-</tbody></table>
+</tbody></table></div>
 
 <h2>기술단 (技術團) 구성 (EP145 기준)</h2>
 
 <blockquote>시안이 직접 원리를 전수한 핵심 장인. 기술 자립화의 핵심 인력.</blockquote>
 
-<table>
+<div class="table-wrap"><table>
 <tr><th>담당자</th><th>전담 기술 계열</th><th>최근 성과</th><th>자율 개량 이력</th></tr>
 <tbody>
 <tr><td>남돌</td><td>제련·수차·제지</td><td>제련로 2호 자율 최적화. 종이 대량 생산 체계 안정</td><td>수차 날개 각도 자율 개선 (EP067)</td></tr>
 <tr><td>봉수</td><td>쇠뇌·연노차</td><td>연노차 2·3호 제작 완료. 실전 2회 운용</td><td>격발 각도 독자 개선 (EP110) — 시안 지시 없이 착안</td></tr>
 <tr><td>(목수 미확정)</td><td>투석차·목구조</td><td>투석차 개량형 팔 보강. 불덩이 운용 검증</td><td>EP141~에서 이름 확정 예정</td></tr>
-</tbody></table>
+</tbody></table></div>
 
 <hr>
 
 <h2>진행 중 / 계획 기술</h2>
 
-<table>
+<div class="table-wrap"><table>
 <tr><th>코드</th><th>기술명</th><th>상태</th><th>완성 예정</th></tr>
 <tbody>
 <tr><td>T-ENG</td><td>저수지 (한강 상류)</td><td>기초 50% — 가을 담수 목표</td><td>EP146~</td></tr>
 <tr><td>T-MIL</td><td>연노차 5호 경량형 교범</td><td>봉수 자율 개량 기반. 나율 작성 중</td><td>EP146~</td></tr>
 <tr><td>T-MIL</td><td>기마 변칙 대형 (투석차+연노차 동시 운용)</td><td>나율 실험 예정</td><td>EP146~</td></tr>
-</tbody></table>
+</tbody></table></div>
 
 </body>
 </html>

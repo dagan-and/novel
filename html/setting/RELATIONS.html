@@ -15,6 +15,7 @@
       max-width: 960px;
       margin: 0 auto;
       padding: 3rem 1.5rem 5rem;
+      word-break: keep-all;
     }
     h1 { font-size: 1.5rem; color: #d4a843; margin-bottom: 2rem; letter-spacing: 0.08em; }
     h2 { font-size: 1.05rem; color: #d4a843; margin: 2.2rem 0 0.7rem; padding-bottom: 0.3rem; border-bottom: 1px solid #2a2a2a; letter-spacing: 0.05em; }
@@ -26,8 +27,9 @@
     strong { color: #c8b870; }
     em { color: #a0a0a0; font-style: italic; }
     blockquote { border-left: 3px solid #3a3020; padding-left: 1rem; color: #a0a0a0; margin: 0.8rem 0; }
-    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
-    th { background: #222; color: #d4a843; padding: 0.5rem 0.75rem; text-align: left; border-bottom: 1px solid #3a3020; }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1rem 0; }
+    table { width: max-content; min-width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    th { background: #222; color: #d4a843; padding: 0.5rem 0.75rem; text-align: left; border-bottom: 1px solid #3a3020; white-space: nowrap; }
     td { padding: 0.45rem 0.75rem; border-bottom: 1px solid #252525; vertical-align: top; }
     tr:hover td { background: #1f1f1f; }
     code { background: #222; color: #7ecfc0; padding: 0.1rem 0.35rem; border-radius: 2px; font-size: 0.88rem; }
@@ -39,16 +41,16 @@
 <body>
   <a class="back" href="../index.html">← 메인</a>
   <h1>RELATIONS 현황판</h1>
-<p><em>최종 갱신: EP150</em></p>
+<p><em>최종 갱신: EP155</em></p>
 
 <h2>인물 상태 요약</h2>
 
-<table>
+<div class="table-wrap"><table>
 <tr><th>이름</th><th>소속</th><th>현재 상태</th><th>주인공과의 관계</th><th>충성도</th></tr>
 <tbody>
 <tr><td>진무</td><td>위례성 조정</td><td>활동 중</td><td>낙랑 교역 성사 공동 진행. 완전한 신뢰 유지</td><td>★★★★★</td></tr>
 <tr><td>소아</td><td>내전 (1위)</td><td>안정화</td><td>미현 편애로 흔들렸으나 "변하지 않는다" 확인 후 안정. 30세 규칙 의식 중</td><td>★★★★★</td></tr>
-<tr><td>나율</td><td>내전 (2위)</td><td>역할 확장</td><td>쇠뇌 교대 사격 운용 안 제출·채택 (60화). 전술 참여 인정. "잘 봤다" 수용</td><td>★★★★★</td></tr>
+<tr><td>나율</td><td>기마대 교관 (전 후궁 2위, EP155 퇴거)</td><td>교관 전환 완료</td><td>30세 도달. 교범 16편+3호 연동 추가본 완성. 내전 퇴거 후 훈련장 교관. "교범이 남는 한 저는 여기 있는 것과 같습니다"</td><td>★★★★★</td></tr>
 <tr><td>연희</td><td>내전 (3위)</td><td>안정화</td><td>42화 시안 곁에서 먼저 감정 개방. 자존심 아래 감정 깊어지는 중</td><td>★★★★★</td></tr>
 <tr><td>미현</td><td>내전 (4위)</td><td>통합 완료</td><td>시안 편애 유지. 서연에게 새침하게 관심 표현. 내전 구성원으로 완전 흡수</td><td>★★★★☆</td></tr>
 <tr><td>서연</td><td>내전 (5위)</td><td>완전 정착</td><td>내전 완전 정착. 55화 "다행입니다" — 내전을 자신의 세상으로 받아들임. 두려움 없이 배우는 방식 확립</td><td>★★★★☆</td></tr>
@@ -57,25 +59,25 @@
 <tr><td>소갈</td><td>백제 (마한 서남부 행정 보좌)</td><td>활동 중</td><td>반발 가족 수비대 전환 처리. 단웅 행정 실무 보좌. 주도적 판단력 증명</td><td>★★★★☆</td></tr>
 <tr><td>유강</td><td>백제 (국경 수비대)</td><td>활동 중</td><td>중개인 신고 후 수비대 근무 성실. 생존 본능 체계 내 정착</td><td>★★★☆☆</td></tr>
 <tr><td>가람</td><td>마한 서남부 거점 (지방 여인)</td><td>정보망 안정</td><td>정보 두 번 연속 정확 (52~53화). 낙랑 철제 도구 경로 파악 추가 지시 받음. 단웅 통해 보고 체계 확립</td><td>★★★★☆</td></tr>
-</tbody></table>
+</tbody></table></div>
 
 <h2>세력 관계</h2>
 
-<table>
+<div class="table-wrap"><table>
 <tr><th>세력</th><th>현재 관계</th><th>긴장도</th><th>비고</th></tr>
 <tbody>
 <tr><td>마한</td><td>흡수 완료</td><td>★☆☆☆☆</td><td>단웅 행정으로 사실상 해체. 잔류 세력 봉기도 귀순으로 처리</td></tr>
 <tr><td>말갈</td><td>억지 성공</td><td>★★☆☆☆</td><td>기마 300두 이후 재침 없음</td></tr>
-<tr><td>낙랑</td><td>교역 재개 (조건 불리)</td><td>★★☆☆☆</td><td>교역세 10퍼·물량 7할·독자 조달 권리 유지. 우리 쪽이 유리. 왕충 배제·자택 연금. 서기 경로 유지. 태수부 내부 분열 공작 중</td></tr>
+<tr><td>낙랑</td><td>교역 재개 유지 / 원배 압박 예고</td><td>★★★☆☆</td><td>교역세 10퍼·물량 7할·독자 조달 권리 유지. 왕충 배제·서기 소멸. 원배 태수 측근으로 부상 — 내년 봄 독자 조달 철회 조항 예고. 연희 새 루트 개척 착수</td></tr>
 <tr><td>설씨 가문</td><td>동맹 안정</td><td>★☆☆☆☆</td><td>기마 300두 협력 완료. 안정 유지</td></tr>
 <tr><td>양주 소가문</td><td>편입 완료</td><td>★☆☆☆☆</td><td>미현 부친. 세금 면제. 행정권 편입</td></tr>
-</tbody></table>
+</tbody></table></div>
 
 <h2>감정선 변화 기록</h2>
 
 <h3>초기 핵심 전환점 요약 (EP001~EP055)</h3>
 
-<table>
+<div class="table-wrap"><table>
 <tr><th>인물</th><th>핵심 EP</th><th>전환 내용</th></tr>
 <tbody>
 <tr><td>소아</td><td>EP034, EP045, EP051</td><td>"소아도 예쁘다" 자존감 회복 / "9년 선택" 버팀→선택 / 더운 밤 먼저 다가옴</td></tr>
@@ -86,11 +88,11 @@
 <tr><td>단웅</td><td>EP033</td><td>"전하한테 배우고 있소" — 완전 전환 선언</td></tr>
 <tr><td>가람</td><td>EP047</td><td>첫 만남. 경계→수용. 약속 확인 첫 발화</td></tr>
 <tr><td>내전 전체</td><td>EP035, EP040</td><td>4인 처음으로 함께 웃음 (구도 완성) / 5인 처음으로 같은 공간에서 밥</td></tr>
-</tbody></table>
+</tbody></table></div>
 
 <h3>중기 핵심 전환점 요약 (EP056~EP100)</h3>
 
-<table>
+<div class="table-wrap"><table>
 <tr><th>인물</th><th>핵심 EP</th><th>전환 내용</th></tr>
 <tbody>
 <tr><td>소아</td><td>EP063, EP087, EP097</td><td>장터 관리 역할 선언("허락이 아닌 선언") / 분업 체계 공식화·"소아에게 보고해라" 수령, 가운데 서는 역할 확립 / 봉수 자율 개선 수용 — 위임 완전 체화</td></tr>
@@ -101,11 +103,11 @@
 <tr><td>단웅</td><td>EP084</td><td>염전 제방 선제 확장·지시 없이 판단·"품삯으로 불렀습니다" — 자율 행정 완성</td></tr>
 <tr><td>가람</td><td>EP065, EP073</td><td>홍씨 신원 파악·"끝까지 추적하라" / 홍씨-원배 연결 확인·왕충 역이용 루트 확정</td></tr>
 <tr><td>내전 전체</td><td>EP095, EP100</td><td>즉위 5년 마지막 밤 5인 각자 한 마디(구심점 완성) / 미현 부음 후 4인 처소 방문·서연 "다섯이 있습니다"</td></tr>
-</tbody></table>
+</tbody></table></div>
 
 <h3>중기 핵심 전환점 요약 (EP101~EP145)</h3>
 
-<table>
+<div class="table-wrap"><table>
 <tr><th>인물</th><th>핵심 EP</th><th>전환 내용</th></tr>
 <tbody>
 <tr><td>소아</td><td>EP112, EP121, EP137</td><td>"4년" 발화·장터 이름 못 지었다 / "한터" 확정·현판 완성·봉수에게 직접 요청 / 왕세자 불안 솔직 인정·"신경 쓰여도 된다" 수용</td></tr>
@@ -115,10 +117,10 @@
 <tr><td>서연</td><td>EP140</td><td>한영도 제출·스스로 이름 붙임·"한강에서 영산강까지"</td></tr>
 <tr><td>봉수</td><td>EP142, EP145</td><td>연노차 5호 자율 설계 착수·시안에게 원리 직접 물음 / 5호 시제 완성·바퀴 축 기름 자율 발견</td></tr>
 <tr><td>진무</td><td>EP143</td><td>위씨-낙랑 연결 증거 직접 들고 내려옴·"낙랑 먼저" 지시 수용</td></tr>
-</tbody></table>
+</tbody></table></div>
 
-<h3>최근 감정선 (EP146~EP150)</h3>
-<table>
+<h3>최근 감정선 (EP146~EP155)</h3>
+<div class="table-wrap"><table>
 <tr><th>EP146</th><th>연희</th><th>올림머리 스스로 풀고 왔다. "2년입니다." 손이 차가웠다. "오래 기억해 주십시오." 시안이 연희의 손을 쥐었다</th></tr>
 <tr><th>EP147</th><th>소아</th><th>낙랑 철수 당일 밤 순번 아닌 방문. "며칠 힘드셨을 것 같아서요." 그냥 있었다. "2년 반 충분히 써라"</th></tr>
 <tr><th>EP147</th><th>봉수</th><th>연노차 5호 2차 시제. 바퀴 축 기름 달리 바르는 방법 독자 발견. "제가 해봤습니다"</th></tr>
@@ -129,21 +131,36 @@
 <tr><th>EP149</th><th>서연</th><th>영산강 동편 산 채취 루트 발견 보고. 다음 달 출발 허락 받음. 밤 씬 — 말 없이 맡겼다. "다음 달 돌아오면 또 오겠습니다"</th></tr>
 <tr><th>EP150</th><th>나율</th><th>밤 씬 — "처음으로 기뻤습니다." "흔들립니다"라고 했다. 시안: "6개월 동안 그 기쁨도 기억해라"</th></tr>
 <tr><th>EP150</th><th>진무</th><th>"봉화망이 없었으면 달랐습니다." 45화를 기억했다. 처음으로 전략 전체를 이야기 들음 — "낙랑 내부를 나눈다"</th></tr>
-</tbody></table>
+<tr><th>EP151</th><th>나율</th><th>기마 실전 배치 완료 보고. "이제 다 됐습니다." 한 달. 밤 씬 — "오늘 밤 기억해 주십시오." 눈을 감지 않으려 했다</th></tr>
+<tr><th>EP152</th><th>나율</th><th>순번 아닌 두 번째 방문. 침소복으로 왔다. "오늘은 저한테 집중해 주십시오." 처음으로 요구를 말했다</th></tr>
+<tr><th>EP152</th><th>연희</th><th>왕충 서기 경로 조사 개시. 원배 태수 측근 부상 확인. "마지막 교신이 될 수 있습니다"</th></tr>
+<tr><th>EP153</th><th>봉수·나율</th><th>연노차 3호 완성. 나율이 직접 조작 확인. 둘이 연동해서 기마 교범 추가 결정. 시안이 보면서 "내가 시키지 않아도 연결됐다"</th></tr>
+<tr><th>EP153</th><th>나율</th><th>30세 도달. 진무 서류. 한 달 유예. 당일 밤 — "잘 했습니까" "그러면 됩니다." 조용한 밤. 아주 작게 이름 불렀다</th></tr>
+<tr><th>EP153</th><th>소아</th><th>나율 30세 다음날. "이제 내전에 자리가 하나 생겼습니다." 가장 오래된 사람이 먼저 받아들였다</th></tr>
+<tr><th>EP154</th><th>연희</th><th>왕충 서기 마지막 서신. 서기 잡힘. "새로운 루트를 만들겠습니다." 시안이 "시간을 써라." 전략을 먼저 이해하는 사람</th></tr>
+<tr><th>EP154</th><th>서연</th><th>검은 돌 기름 냄새. 지형도 직접 그려옴. 시키지 않았는데 그렸다. "아무에게도 말하지 마라"</th></tr>
+<tr><th>EP154</th><th>미현</th><th>"저는 도감이 있습니다." "5년 남았습니다." "도감 계속 늘리겠습니다." 나율이 나가는 것을 자기 자리를 확인하는 계기로 썼다</th></tr>
+<tr><th>EP155</th><th>나율</th><th>교범 3호 연동 추가본 완성. 마지막 페이지에 나율(羅栗) 서명. 내전 퇴거. "교범이 남는 한 저는 여기 있는 것과 같습니다"</th></tr>
+<tr><th>EP155</th><th>소아</th><th>나씨 루트 세수 12% 상승 보고. "이번 순시에서 좋은 사람 만나시면 — 데려오십시오." 밤 씬. 새벽에 거래세 이야기 꺼냄. 가장 오래된 방식</th></tr>
+<tr><th>EP155</th><th>서연</th><th>석유 삼출암 봄 재방문. 시안이 직접 검은 돌 확인. 채취 금지 구역 설정. 지형도에 검은 원 추가</th></tr>
+<tr><th>EP155</th><th>진무</th><th>공석 1자리 공식 보고. 봄 순시 전남까지 일정 수령. 처음으로 충원을 공식 건의한 화</th></tr>
+</tbody></table></div>
 
 <h2>미완 복선 / 활성 긴장 요소</h2>
 
-<table>
+<div class="table-wrap"><table>
 <tr><th>복선</th><th>마지막 진전</th><th>현재 상태</th></tr>
 <tbody>
-<tr><td>낙랑 군사 압박</td><td>EP150 완결</td><td>교역 재개 합의 완료. 왕충 배제. 서기 경로 유지. 내부 분열 공작 장기 운용 단계 진입</td></tr>
-<tr><td>왕세자-위씨-낙랑 연결</td><td>EP150 정리</td><td>위씨 대행자 석방 (서신 차단 인지·벌 없음). 연명 상소 가문 전부 자진 철회. 왕세자 압박 일시 소강</td></tr>
-<tr><td>나율 30세 심리전</td><td>EP150 결정적</td><td>교범 16편 완성 + "처음으로 기뻤습니다". "흔들립니다"라고 했다. 두려움과 기쁨을 동시에 기억하는 사람이 됐다. 30세까지 6개월 미만</td></tr>
-<tr><td>소아 30세 심리전</td><td>EP147</td><td>순번 아닌 방문. "며칠 힘드셨을 것 같아서요." 소금 잉여분 출하 개시. 30세까지 2년 반</td></tr>
-<tr><td>연희 30세 심리전</td><td>EP148</td><td>낙랑 협상 실무 파트너로 완성. "사신이 오면 제가 있겠습니다" — 시안 수락. 30세까지 2년</td></tr>
-<tr><td>봉수 기술 자립화</td><td>EP149 결정적</td><td>연노차 3호 설계 완성 (조준 45도). 1년 전부터 목재 준비. 시안이 시키기 전에 준비한 첫 사례</td></tr>
-<tr><td>낙랑 내부 분열 공작</td><td>EP150 신규</td><td>왕충 서기 경로를 통한 태수부 내부 온도 파악. 왕충-태수 분열 구조 확인. 장기 운용 시작</td></tr>
-</tbody></table>
+<tr><td>낙랑 군사 압박</td><td>EP150 완결</td><td>교역 재개 합의 완료. 왕충 경로 소멸. 원배 태수 측근 부상. 내년 봄 독자 조달 철회 조항 예고 — 연희 새 루트 개척 착수</td></tr>
+<tr><td>왕세자-위씨-낙랑 연결</td><td>EP150 정리</td><td>위씨 대행자 석방. 연명 상소 가문 전부 자진 철회. 추가 동향 없음</td></tr>
+<tr><td>나율 30세 심리전</td><td><strong>EP155 완결</strong></td><td>30세 도달. 교범 3호 연동 추가본 완성. 내전 퇴거. 기마대 교관 전환. "교범이 남는 한 저는 여기 있는 것과 같습니다"</td></tr>
+<tr><td>소아 30세 심리전</td><td>EP155</td><td>세수 12% 상승 확인. "이번 순시에서 좋은 사람 만나시면 데려오십시오." 30세까지 약 2.5년</td></tr>
+<tr><td>연희 30세 심리전</td><td>EP154~155</td><td>왕충 서기 소멸. 새 루트 개척 착수. 30세까지 약 1.5년 — 새 루트 완성이 과제</td></tr>
+<tr><td>봉수 기술 자립화</td><td>EP153 완결</td><td>연노차 3호 완성 (조준 45도·장쐐기). 나율과 기마 연동 교범 완성. 시안이 원리를 주면 봉수가 그것을 넘어선다</td></tr>
+<tr><td>낙랑 내부 분열 공작</td><td>EP154~155 진행 중</td><td>왕충 서기 소멸 → 연희 새 채널 구축 착수. 원배 견제 인물 파악 목표. 장기 운용</td></tr>
+<tr><td><strong>6번째 후궁 충원 복선</strong></td><td><strong>EP155 신규</strong></td><td>나율 퇴거로 내전 공석 1. 봄 순시 전남까지. 진무 공식 건의. 소아 먼저 권유. 전남 영산강 일대 유력</td></tr>
+<tr><td><strong>T-ENG 석유 삼출암</strong></td><td><strong>EP154~155 진행 중</strong></td><td>영산강 동편 산 암벽 습지. 서연 발견·지형도 작성. 채취 금지 구역 설정. 정제 기술 미보유 — 위치 확보 단계</td></tr>
+</tbody></table></div>
 
 </body>
 </html>

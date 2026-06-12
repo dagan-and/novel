@@ -18,6 +18,7 @@ const DARK_STYLE = `
       max-width: 960px;
       margin: 0 auto;
       padding: 3rem 1.5rem 5rem;
+      word-break: keep-all;
     }
     h1 { font-size: 1.5rem; color: #d4a843; margin-bottom: 2rem; letter-spacing: 0.08em; }
     h2 { font-size: 1.05rem; color: #d4a843; margin: 2.2rem 0 0.7rem; padding-bottom: 0.3rem; border-bottom: 1px solid #2a2a2a; letter-spacing: 0.05em; }
@@ -29,8 +30,9 @@ const DARK_STYLE = `
     strong { color: #c8b870; }
     em { color: #a0a0a0; font-style: italic; }
     blockquote { border-left: 3px solid #3a3020; padding-left: 1rem; color: #a0a0a0; margin: 0.8rem 0; }
-    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
-    th { background: #222; color: #d4a843; padding: 0.5rem 0.75rem; text-align: left; border-bottom: 1px solid #3a3020; }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1rem 0; }
+    table { width: max-content; min-width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    th { background: #222; color: #d4a843; padding: 0.5rem 0.75rem; text-align: left; border-bottom: 1px solid #3a3020; white-space: nowrap; }
     td { padding: 0.45rem 0.75rem; border-bottom: 1px solid #252525; vertical-align: top; }
     tr:hover td { background: #1f1f1f; }
     code { background: #222; color: #7ecfc0; padding: 0.1rem 0.35rem; border-radius: 2px; font-size: 0.88rem; }
@@ -51,7 +53,7 @@ function mdToHtml(text) {
 
     // 테이블
     if (/^\|/.test(line)) {
-      if (!inTable) { out.push('<table>'); inTable = true; tableHead = true; }
+      if (!inTable) { out.push('<div class="table-wrap"><table>'); inTable = true; tableHead = true; }
       if (/^\|[-| ]+\|$/.test(line.replace(/\s/g, ''))) {
         out.push('<tbody>'); tableHead = false; continue;
       }
@@ -60,7 +62,7 @@ function mdToHtml(text) {
       out.push(`<tr>${cells}</tr>`);
       continue;
     } else if (inTable) {
-      out.push('</tbody></table>'); inTable = false; tableHead = true;
+      out.push('</tbody></table></div>'); inTable = false; tableHead = true;
     }
 
     // 리스트
@@ -89,7 +91,7 @@ function mdToHtml(text) {
     out.push(`<p>${inlineMd(line)}</p>`);
   }
 
-  if (inTable) out.push('</tbody></table>');
+  if (inTable) out.push('</tbody></table></div>');
   if (inUl) out.push('</ul>');
 
   return out.join('\n');
