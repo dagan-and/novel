@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const CATEGORIES = ['내전', '내전/퇴거', '지방여인', '신하', '외부'];
+const CATEGORIES = ['내전', '지방여인', '내전/퇴거', '신하', '외부'];
 
 function findCharacter(name) {
   for (const cat of CATEGORIES) {
