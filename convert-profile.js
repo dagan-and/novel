@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const CATEGORIES = ['내전', '주인공', '신하', '외부', '지방여인'];
+const CATEGORIES = ['내전', '신하', '외부', '지방여인'];
 
 function findCharacter(name) {
   for (const cat of CATEGORIES) {
@@ -48,7 +48,7 @@ function buildProfile(name) {
   const raw = fs.readFileSync(file, 'utf-8');
   const imageSrc = findImage(name, category);
 
-  const categoryLabel = { 내전: '후궁', 주인공: '주인공', 신하: '신하', 외부: '외부 인물', 지방여인: '지방 여인' };
+  const categoryLabel = { 내전: '후궁', 신하: '신하', 외부: '외부 인물', 지방여인: '지방 여인' };
 
   const imageBlock = imageSrc
     ? `<div class="portrait"><img src="${imageSrc}" alt="${name}" /></div>`
@@ -203,7 +203,7 @@ function buildIndex() {
     if (!fs.existsSync(dir)) continue;
     const files = fs.readdirSync(dir).filter(f => f.endsWith('.md'));
     if (!files.length) continue;
-    const categoryLabel = { 내전: '후궁', 주인공: '주인공', 신하: '신하', 외부: '외부 인물', 지방여인: '지방 여인' };
+    const categoryLabel = { 내전: '후궁', 신하: '신하', 외부: '외부 인물', 지방여인: '지방 여인' };
     const cards = files.map(f => {
       const name = f.replace(/\.md$/, '');
       const imgSrc = findImage(name, cat);
