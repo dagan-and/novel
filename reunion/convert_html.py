@@ -94,8 +94,11 @@ for arg in args:
     is_adult = '_a' in base_name
     suffix = '_a' if is_adult else ''
 
-    prev_link = f'<a href="ep.{ep_num-1}{suffix}.html">← 이전 화</a>' if ep_num > 1 else '<span></span>'
-    next_link = f'<a href="ep.{ep_num+1}{suffix}.html">다음 화 →</a>'
+    def ep_exists(n):
+        return os.path.exists(os.path.join(base_dir, 'episodes', f'ep.{n:03d}{suffix}.md'))
+
+    prev_link = f'<a href="ep.{ep_num-1:03d}{suffix}.html">← 이전 화</a>' if ep_num > 1 and ep_exists(ep_num - 1) else '<span></span>'
+    next_link = f'<a href="ep.{ep_num+1:03d}{suffix}.html">다음 화 →</a>' if ep_exists(ep_num + 1) else '<span style="color:#444">— 계속 —</span>'
 
     body = convert_body(raw)
 

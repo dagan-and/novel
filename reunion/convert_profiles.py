@@ -307,11 +307,13 @@ def build_index(names):
         stats = parse_emotion_stats(raw)
         total_score = sum(s['value'] for s in stats) if stats else 0
         img_src = find_image(name)
-        thumb = (
-            f'<img src="../images/characters/{name}.png" alt="{name}">'
-            if img_src else
-            f'<div class="no-img">{name[0]}</div>'
-        )
+        if img_src:
+            # img_src is '../../images/...' relative to html/characters/name.html
+            # characters.html sits at html/, so strip one level
+            img_from_index = '../' + img_src.replace('../../', '')
+            thumb = f'<img src="{img_from_index}" alt="{name}">'
+        else:
+            thumb = f'<div class="no-img">{name[0]}</div>'
         cat_em = f'<em>{category}</em>' if category else ''
         card = f'<a class="card" href="characters/{name}.html">{thumb}<span>{name}</span>{cat_em}</a>'
         entries.append({'name': name, 'total_score': total_score, 'card': card})
