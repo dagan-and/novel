@@ -82,6 +82,10 @@ for arg in args:
     input_file = os.path.join(base_dir, 'episodes', f'{base_name}.md')
     output_file = os.path.join(base_dir, 'html', f'{base_name}.html')
 
+    if '_a' in base_name:
+        print(f'건너뜀 (성인씬): {base_name}')
+        continue
+
     if not os.path.exists(input_file):
         print(f'파일 없음: {input_file}')
         continue
