@@ -107,8 +107,10 @@ def build_radar_chart(stats):
         x, y = pt(i, LR)
         anchor = 'end' if x < cx - 6 else ('start' if x > cx + 6 else 'middle')
         dy = -6 if y < cy - 6 else (12 if y > cy + 6 else 4)
+
+        # 폰트 크기 기존 11.5 -> 20% 확대하여 약 13.8로 수정
         labels.append(
-            f'<text x="{x:.1f}" y="{y+dy:.1f}" text-anchor="{anchor}" font-size="11.5" '
+            f'<text x="{x:.1f}" y="{y+dy:.1f}" text-anchor="{anchor}" font-size="13.8" '
             f'fill="#a08090" font-family="\'Nanum Myeongjo\',Georgia,serif">'
             f'{s["label"]} <tspan fill="#c9a0b8">{s["value"]}</tspan></text>'
         )
@@ -118,21 +120,27 @@ def build_radar_chart(stats):
         f'{grids}{axes}{data_poly}{dots}{"".join(labels)}</svg>'
     )
 
-# ── 현재 구분 파싱 ──────────────────────────────────────────────────
+# ── 현재 구분 파싱 (부가설명 지우고 메인/서브만 추출) ────────────────
 def get_category(raw):
     m = re.search(r'- 현재 구분:\s*(.+)', raw)
     if not m:
         return ''
-    return re.sub(r'\s*/\s*메인|\s*/\s*서브', '', m.group(1)).strip()
+    line = m.group(1)
+    # 메인 또는 서브 글자만 정확하게 매칭해서 추출
+    match = re.search(r'(메인|서브)', line)
+    if match:
+        return match.group(1)
+    return line.strip()
 
 # ── 프로필 HTML 빌드 ─────────────────────────────────────────────────
+# 모든 폰트 크기(font-size)를 기존 대비 1.2배(20% 확대) 적용
 PROFILE_CSS = """
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       background: #1a1a1a;
       color: #e8e0d0;
       font-family: 'Nanum Myeongjo', Georgia, serif;
-      font-size: 1.0rem;
+      font-size: 1.2rem; /* 1.0rem -> 1.2rem */
       line-height: 1.85;
       max-width: 820px;
       margin: 0 auto;
@@ -170,7 +178,7 @@ PROFILE_CSS = """
       align-items: center;
       justify-content: center;
       color: #444;
-      font-size: 1.2rem;
+      font-size: 1.44rem; /* 1.2rem -> 1.44rem */
       height: 200px;
     }
     #lightbox {
@@ -194,7 +202,7 @@ PROFILE_CSS = """
     }
     .header-info { text-align: center; }
     .header-info h1 {
-      font-size: 2rem;
+      font-size: 2.4rem; /* 2rem -> 2.4rem */
       color: #c9a0b8;
       letter-spacing: 0.1em;
       margin-bottom: 0.4rem;
@@ -204,26 +212,26 @@ PROFILE_CSS = """
       background: #2a1020;
       color: #c9a0b8;
       border: 1px solid #3a2030;
-      font-size: 0.78rem;
+      font-size: 0.94rem; /* 0.78rem -> 0.94rem */
       padding: 0.15rem 0.6rem;
       border-radius: 2px;
       letter-spacing: 0.05em;
     }
     h2 {
-      font-size: 1.05rem;
+      font-size: 1.26rem; /* 1.05rem -> 1.26rem */
       color: #c9a0b8;
       margin: 2rem 0 0.6rem;
       padding-bottom: 0.3rem;
       border-bottom: 1px solid #2a2a2a;
       letter-spacing: 0.06em;
     }
-    h3 { font-size: 0.95rem; color: #b08098; margin: 1.2rem 0 0.4rem; }
+    h3 { font-size: 1.14rem; /* 0.95rem -> 1.14rem */ color: #b08098; margin: 1.2rem 0 0.4rem; }
     p { margin: 0.5rem 0; }
     ul { padding-left: 1.4rem; margin: 0.4rem 0; }
     li { margin: 0.25rem 0; }
     hr { border: none; border-top: 1px solid #2a2a2a; margin: 1.6rem 0; }
     strong { color: #c8a8b8; }
-    .back { display: inline-block; margin-bottom: 2rem; color: #c9a0b8; text-decoration: none; font-size: 0.88rem; }
+    .back { display: inline-block; margin-bottom: 2rem; color: #c9a0b8; text-decoration: none; font-size: 1.06rem; /* 0.88rem -> 1.06rem */ }
     .back:hover { text-decoration: underline; }
     .emotion-chart { width: 90%; max-width: 300px; display: block; margin: 0 auto; }
     @media (max-width: 560px) { .portrait { width: 100%; } .emotion-chart { max-width: 260px; } }
@@ -298,6 +306,7 @@ def build_profile(name):
     return True
 
 # ── 인물 목록 index ─────────────────────────────────────────────────
+# 인물 목록 페이지 내부 텍스트 크기도 1.2배(20% 확대) 일괄 적용
 def build_index(names):
     entries = []
     for name in names:
@@ -308,8 +317,6 @@ def build_index(names):
         total_score = sum(s['value'] for s in stats) if stats else 0
         img_src = find_image(name)
         if img_src:
-            # img_src is '../../images/...' relative to html/characters/name.html
-            # characters.html sits at html/, so strip one level
             img_from_index = '../' + img_src.replace('../../', '')
             thumb = f'<img src="{img_from_index}" alt="{name}">'
         else:
@@ -333,11 +340,12 @@ def build_index(names):
       background: #1a1a1a;
       color: #e8e0d0;
       font-family: 'Nanum Myeongjo', Georgia, serif;
+      font-size: 1.2rem; /* 리스트 페이지 기본 크기 추가 */
       max-width: 900px;
       margin: 0 auto;
       padding: 3rem 1.5rem 5rem;
     }}
-    h1 {{ font-size: 1.6rem; color: #c9a0b8; text-align: center; margin-bottom: 3rem; letter-spacing: 0.08em; }}
+    h1 {{ font-size: 1.92rem; /* 1.6rem -> 1.92rem */ color: #c9a0b8; text-align: center; margin-bottom: 3rem; letter-spacing: 0.08em; }}
     .grid {{ display: flex; flex-wrap: wrap; gap: 1rem; }}
     .card {{
       display: flex; flex-direction: column; align-items: center;
@@ -350,10 +358,10 @@ def build_index(names):
     }}
     .card .no-img {{
       display: flex; align-items: center; justify-content: center;
-      color: #555; font-size: 1.8rem;
+      color: #555; font-size: 2.16rem; /* 1.8rem -> 2.16rem */
     }}
-    .card span {{ margin-top: 0.4rem; font-size: 0.88rem; color: #c8a8b8; }}
-    .card em {{ font-size: 0.75rem; color: #666; font-style: normal; }}
+    .card span {{ margin-top: 0.4rem; font-size: 1.06rem; /* 0.88rem -> 1.06rem */ color: #c8a8b8; }}
+    .card em {{ font-size: 0.9rem; /* 0.75rem -> 0.9rem */ color: #666; font-style: normal; }}
     .card:hover span {{ color: #c9a0b8; text-decoration: underline; }}
   </style>
 </head>
