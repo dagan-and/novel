@@ -86,6 +86,11 @@ for arg in args:
         print(f'건너뜀 (성인씬): {base_name}')
         continue
 
+    adult_file = os.path.join(base_dir, 'episodes', f'{base_name}_a.md')
+    if os.path.exists(adult_file):
+        print(f'건너뜀 (_a 존재): {base_name}')
+        continue
+
     if not os.path.exists(input_file):
         print(f'파일 없음: {input_file}')
         continue
