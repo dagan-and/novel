@@ -114,7 +114,7 @@ def build_radar_chart(stats):
         )
 
     return (
-        f'<svg class="emotion-chart" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">'
+        f'<svg class="emotion-chart" viewBox="-50 -15 400 330" xmlns="http://www.w3.org/2000/svg">'
         f'{grids}{axes}{data_poly}{dots}{"".join(labels)}</svg>'
     )
 
