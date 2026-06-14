@@ -163,9 +163,14 @@ def build_index():
         )
         ep_groups += f'<div class="ep-group"><div class="ep-label">{start}~{end}화</div><div class="ep-links">{links}</div></div>'
 
+    index_cards = [
+        {'out': 'setting/관계망.html', 'title': '관계망'},
+        {'out': 'setting/연대기.html', 'title': '연대기'},
+        {'out': 'characters.html',     'title': '인물'},
+    ]
     setting_links = '\n      '.join(
-        '<a class="setting-card" href="{out}">{title}</a>'.format(**s)
-        for s in SETTING_FILES
+        '<a class="setting-card" href="{out}">{title}</a>'.format(**c)
+        for c in index_cards
     )
     ep_section = ep_groups if ep_groups else '<p style="color:#555;font-size:0.88rem;">에피소드 없음</p>'
 
@@ -225,15 +230,10 @@ def build_index():
   <p class="subtitle">총 {len(ep_files)}화 완성</p>
 
   <section>
-    <h2>설정</h2>
+    <h2>설정 / 인물</h2>
     <div class="setting-grid">
       {setting_links}
     </div>
-  </section>
-
-  <section>
-    <h2>인물</h2>
-    <a class="char-link" href="characters.html">인물 목록 →</a>
   </section>
 
   <section>
