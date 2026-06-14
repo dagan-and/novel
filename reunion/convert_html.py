@@ -13,14 +13,14 @@ CSS = """
       background: #1a1a1a;
       color: #e8e0d0;
       font-family: 'Nanum Myeongjo', Georgia, serif;
-      font-size: 2.16rem;
+      font-size: 1.65rem;
       line-height: 1.95;
       max-width: 780px;
       margin: 0 auto;
       padding: 3rem 1.5rem 5rem;
     }
     h1 {
-      font-size: 3.6rem;
+      font-size: 1.6rem;
       text-align: center;
       color: #c9a0b8;
       margin-bottom: 2.5rem;
@@ -30,7 +30,7 @@ CSS = """
     .time {
       font-weight: bold;
       color: #c9a0b8;
-      font-size: 2.16rem;
+      font-size: 1.28rem;
       text-align: center;
       margin: 1.8rem 0 1rem;
     }
@@ -47,7 +47,7 @@ CSS = """
       margin-top: 3.5rem;
       padding-top: 1rem;
       border-top: 1px solid #2a2a2a;
-      font-size: 2.16rem;
+      font-size: 1.3rem;
     }
     .nav a { color: #c9a0b8; text-decoration: none; }
     .nav a:hover { text-decoration: underline; }

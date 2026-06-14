@@ -110,7 +110,7 @@ def build_radar_chart(stats):
 
         # 폰트 크기 기존 11.5 -> 20% 확대하여 약 13.8로 수정
         labels.append(
-            f'<text x="{x:.1f}" y="{y+dy:.1f}" text-anchor="{anchor}" font-size="13.8" '
+            f'<text x="{x:.1f}" y="{y+dy:.1f}" text-anchor="{anchor}" font-size="18.8" '
             f'fill="#a08090" font-family="\'Nanum Myeongjo\',Georgia,serif">'
             f'{s["label"]} <tspan fill="#c9a0b8">{s["value"]}</tspan></text>'
         )
