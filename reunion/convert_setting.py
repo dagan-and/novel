@@ -16,16 +16,16 @@ DARK_STYLE = """
       background: #1a1a1a;
       color: #e8e0d0;
       font-family: 'Nanum Myeongjo', Georgia, serif;
-      font-size: 0.97rem;
+      font-size: 1.21rem;
       line-height: 1.85;
       max-width: 960px;
       margin: 0 auto;
       padding: 3rem 1.5rem 5rem;
       word-break: keep-all;
     }
-    h1 { font-size: 1.5rem; color: #c9a0b8; margin-bottom: 2rem; letter-spacing: 0.08em; }
-    h2 { font-size: 1.05rem; color: #c9a0b8; margin: 2.2rem 0 0.7rem; padding-bottom: 0.3rem; border-bottom: 1px solid #2a2a2a; letter-spacing: 0.05em; }
-    h3 { font-size: 0.95rem; color: #b08098; margin: 1.4rem 0 0.4rem; }
+    h1 { font-size: 1.88rem; color: #c9a0b8; margin-bottom: 2rem; letter-spacing: 0.08em; }
+    h2 { font-size: 1.31rem; color: #c9a0b8; margin: 2.2rem 0 0.7rem; padding-bottom: 0.3rem; border-bottom: 1px solid #2a2a2a; letter-spacing: 0.05em; }
+    h3 { font-size: 1.19rem; color: #b08098; margin: 1.4rem 0 0.4rem; }
     p { margin: 0.5rem 0; }
     ul { padding-left: 1.4rem; margin: 0.4rem 0; }
     li { margin: 0.25rem 0; }
@@ -34,12 +34,12 @@ DARK_STYLE = """
     em { color: #a0a0a0; font-style: italic; }
     blockquote { border-left: 3px solid #3a2030; padding-left: 1rem; color: #a0a0a0; margin: 0.8rem 0; }
     .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1rem 0; }
-    table { width: max-content; min-width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    table { width: max-content; min-width: 100%; border-collapse: collapse; font-size: 1.13rem; }
     th { background: #222; color: #c9a0b8; padding: 0.5rem 0.75rem; text-align: left; border-bottom: 1px solid #3a2030; white-space: nowrap; }
     td { padding: 0.45rem 0.75rem; border-bottom: 1px solid #252525; vertical-align: top; }
     tr:hover td { background: #1f1f1f; }
-    code { background: #222; color: #c9a0b8; padding: 0.1rem 0.35rem; border-radius: 2px; font-size: 0.88rem; }
-    .back { display: inline-block; margin-bottom: 2rem; color: #c9a0b8; text-decoration: none; font-size: 0.88rem; }
+    code { background: #222; color: #c9a0b8; padding: 0.1rem 0.35rem; border-radius: 2px; font-size: 1.1rem; }
+    .back { display: inline-block; margin-bottom: 2rem; color: #c9a0b8; text-decoration: none; font-size: 1.1rem; }
     .back:hover { text-decoration: underline; }
 """
 
@@ -172,7 +172,7 @@ def build_index():
         '<a class="setting-card" href="{out}">{title}</a>'.format(**c)
         for c in index_cards
     )
-    ep_section = ep_groups if ep_groups else '<p style="color:#555;font-size:0.88rem;">에피소드 없음</p>'
+    ep_section = ep_groups if ep_groups else '<p style="color:#555;font-size:1.1rem;">에피소드 없음</p>'
 
     html = f'''<!DOCTYPE html>
 <html lang="ko">
@@ -190,17 +190,17 @@ def build_index():
       margin: 0 auto;
       padding: 3rem 1.5rem 5rem;
     }}
-    h1 {{ font-size: 2rem; color: #c9a0b8; text-align: center; letter-spacing: 0.12em; margin-bottom: 0.5rem; }}
-    .subtitle {{ text-align: center; color: #666; font-size: 0.85rem; margin-bottom: 3rem; }}
+    h1 {{ font-size: 2.5rem; color: #c9a0b8; text-align: center; letter-spacing: 0.12em; margin-bottom: 0.5rem; }}
+    .subtitle {{ text-align: center; color: #666; font-size: 1.06rem; margin-bottom: 3rem; }}
     section {{ margin-bottom: 2.8rem; }}
-    h2 {{ font-size: 0.85rem; color: #888; letter-spacing: 0.12em; margin-bottom: 1rem; padding-bottom: 0.35rem; border-bottom: 1px solid #2a2a2a; }}
+    h2 {{ font-size: 1.06rem; color: #888; letter-spacing: 0.12em; margin-bottom: 1rem; padding-bottom: 0.35rem; border-bottom: 1px solid #2a2a2a; }}
     .setting-grid {{ display: flex; gap: 1rem; flex-wrap: wrap; }}
     .setting-card {{
       flex: 1; min-width: 140px;
       background: #1f1f1f; border: 1px solid #3a2030;
       color: #c9a0b8; text-decoration: none;
       padding: 0.9rem 1.2rem;
-      border-radius: 3px; font-size: 0.9rem;
+      border-radius: 3px; font-size: 1.13rem;
       text-align: center; letter-spacing: 0.04em;
     }}
     .setting-card:hover {{ background: #251520; }}
@@ -208,18 +208,18 @@ def build_index():
       display: inline-block;
       background: #1f1f1f; border: 1px solid #3a2030;
       color: #c9a0b8; text-decoration: none;
-      padding: 0.9rem 2rem; border-radius: 3px; font-size: 0.9rem;
+      padding: 0.9rem 2rem; border-radius: 3px; font-size: 1.13rem;
     }}
     .char-link:hover {{ background: #251520; }}
     .ep-group {{ margin-bottom: 1rem; }}
-    .ep-label {{ font-size: 0.75rem; color: #666; margin-bottom: 0.35rem; letter-spacing: 0.05em; }}
+    .ep-label {{ font-size: 0.94rem; color: #666; margin-bottom: 0.35rem; letter-spacing: 0.05em; }}
     .ep-links {{ display: flex; flex-wrap: wrap; gap: 0.4rem; }}
     .ep-links a {{
       display: inline-block;
       width: 48px; text-align: center;
       background: #1f1f1f; border: 1px solid #2a2a2a;
       color: #c8a8b8; text-decoration: none;
-      padding: 0.3rem 0; font-size: 0.82rem;
+      padding: 0.3rem 0; font-size: 1.03rem;
       border-radius: 2px;
     }}
     .ep-links a:hover {{ background: #251520; color: #c9a0b8; }}

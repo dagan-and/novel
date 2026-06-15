@@ -110,7 +110,7 @@ def build_radar_chart(stats):
 
         # 폰트 크기 기존 11.5 -> 20% 확대하여 약 13.8로 수정
         labels.append(
-            f'<text x="{x:.1f}" y="{y+dy:.1f}" text-anchor="{anchor}" font-size="18.8" '
+            f'<text x="{x:.1f}" y="{y+dy:.1f}" text-anchor="{anchor}" font-size="23.5" '
             f'fill="#a08090" font-family="\'Nanum Myeongjo\',Georgia,serif">'
             f'{s["label"]} <tspan fill="#c9a0b8">{s["value"]}</tspan></text>'
         )
@@ -140,7 +140,7 @@ PROFILE_CSS = """
       background: #1a1a1a;
       color: #e8e0d0;
       font-family: 'Nanum Myeongjo', Georgia, serif;
-      font-size: 1.2rem; /* 1.0rem -> 1.2rem */
+      font-size: 1.5rem; /* 1.0rem -> 1.2rem -> 1.5rem */
       line-height: 1.85;
       max-width: 820px;
       margin: 0 auto;
@@ -178,7 +178,7 @@ PROFILE_CSS = """
       align-items: center;
       justify-content: center;
       color: #444;
-      font-size: 1.44rem; /* 1.2rem -> 1.44rem */
+      font-size: 1.8rem; /* 1.2rem -> 1.44rem -> 1.8rem */
       height: 200px;
     }
     #lightbox {
@@ -202,7 +202,7 @@ PROFILE_CSS = """
     }
     .header-info { text-align: center; }
     .header-info h1 {
-      font-size: 2.4rem; /* 2rem -> 2.4rem */
+      font-size: 3rem; /* 2rem -> 2.4rem -> 3rem */
       color: #c9a0b8;
       letter-spacing: 0.1em;
       margin-bottom: 0.4rem;
@@ -212,26 +212,26 @@ PROFILE_CSS = """
       background: #2a1020;
       color: #c9a0b8;
       border: 1px solid #3a2030;
-      font-size: 0.94rem; /* 0.78rem -> 0.94rem */
+      font-size: 1.18rem; /* 0.78rem -> 0.94rem -> 1.18rem */
       padding: 0.15rem 0.6rem;
       border-radius: 2px;
       letter-spacing: 0.05em;
     }
     h2 {
-      font-size: 1.26rem; /* 1.05rem -> 1.26rem */
+      font-size: 1.58rem; /* 1.05rem -> 1.26rem -> 1.58rem */
       color: #c9a0b8;
       margin: 2rem 0 0.6rem;
       padding-bottom: 0.3rem;
       border-bottom: 1px solid #2a2a2a;
       letter-spacing: 0.06em;
     }
-    h3 { font-size: 1.14rem; /* 0.95rem -> 1.14rem */ color: #b08098; margin: 1.2rem 0 0.4rem; }
+    h3 { font-size: 1.43rem; /* 0.95rem -> 1.14rem -> 1.43rem */ color: #b08098; margin: 1.2rem 0 0.4rem; }
     p { margin: 0.5rem 0; }
     ul { padding-left: 1.4rem; margin: 0.4rem 0; }
     li { margin: 0.25rem 0; }
     hr { border: none; border-top: 1px solid #2a2a2a; margin: 1.6rem 0; }
     strong { color: #c8a8b8; }
-    .back { display: inline-block; margin-bottom: 2rem; color: #c9a0b8; text-decoration: none; font-size: 1.06rem; /* 0.88rem -> 1.06rem */ }
+    .back { display: inline-block; margin-bottom: 2rem; color: #c9a0b8; text-decoration: none; font-size: 1.33rem; /* 0.88rem -> 1.06rem -> 1.33rem */ }
     .back:hover { text-decoration: underline; }
     .emotion-chart { width: 90%; max-width: 300px; display: block; margin: 0 auto; }
     @media (max-width: 560px) { .portrait { width: 100%; } .emotion-chart { max-width: 260px; } }
@@ -340,12 +340,12 @@ def build_index(names):
       background: #1a1a1a;
       color: #e8e0d0;
       font-family: 'Nanum Myeongjo', Georgia, serif;
-      font-size: 1.2rem; /* 리스트 페이지 기본 크기 추가 */
+      font-size: 1.5rem; /* 리스트 페이지 기본 크기 추가 */
       max-width: 900px;
       margin: 0 auto;
       padding: 3rem 1.5rem 5rem;
     }}
-    h1 {{ font-size: 1.92rem; /* 1.6rem -> 1.92rem */ color: #c9a0b8; text-align: center; margin-bottom: 3rem; letter-spacing: 0.08em; }}
+    h1 {{ font-size: 2.4rem; /* 1.6rem -> 1.92rem -> 2.4rem */ color: #c9a0b8; text-align: center; margin-bottom: 3rem; letter-spacing: 0.08em; }}
     .grid {{ display: flex; flex-wrap: wrap; gap: 1rem; }}
     .card {{
       display: flex; flex-direction: column; align-items: center;
@@ -358,10 +358,10 @@ def build_index(names):
     }}
     .card .no-img {{
       display: flex; align-items: center; justify-content: center;
-      color: #555; font-size: 2.16rem; /* 1.8rem -> 2.16rem */
+      color: #555; font-size: 2.7rem; /* 1.8rem -> 2.16rem -> 2.7rem */
     }}
-    .card span {{ margin-top: 0.4rem; font-size: 1.06rem; /* 0.88rem -> 1.06rem */ color: #c8a8b8; }}
-    .card em {{ font-size: 0.9rem; /* 0.75rem -> 0.9rem */ color: #666; font-style: normal; }}
+    .card span {{ margin-top: 0.4rem; font-size: 1.33rem; /* 0.88rem -> 1.06rem -> 1.33rem */ color: #c8a8b8; }}
+    .card em {{ font-size: 1.13rem; /* 0.75rem -> 0.9rem -> 1.13rem */ color: #666; font-style: normal; }}
     .card:hover span {{ color: #c9a0b8; text-decoration: underline; }}
   </style>
 </head>
