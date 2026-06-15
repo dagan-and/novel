@@ -89,21 +89,30 @@ CSS = """
 """
 
 PRELUDE_DIR = os.path.join('images', 'preludes')
-MALE_SPEAKERS = {'김시안', '시안'}
 MALE_COLOR = '#8fbfe8'
 FEMALE_COLOR = '#e0a1bb'
 EXTRA_COLOR = '#a8a09a'
 
 
-def load_female_speakers(base_dir):
+def load_speakers(base_dir):
     char_dir = os.path.join(base_dir, 'characters')
-    names = set()
+    male, female = set(), set()
     for fname in os.listdir(char_dir):
-        if fname.endswith('.md') and fname != '캐릭터양식.md':
-            name = fname[:-3]
-            if name not in MALE_SPEAKERS:
-                names.add(name)
-    return names
+        if not fname.endswith('.md') or fname == '캐릭터양식.md':
+            continue
+        name = fname[:-3]
+        path = os.path.join(char_dir, fname)
+        with open(path, encoding='utf-8') as f:
+            content = f.read()
+        if re.search(r'^- 성별:\s*남', content, re.MULTILINE):
+            male.add(name)
+            if len(name) > 1:
+                male.add(name[1:])
+        else:
+            female.add(name)
+            if len(name) > 1:
+                female.add(name[1:])
+    return male, female
 
 
 def find_prelude_image(base_dir, episode_number):
@@ -150,8 +159,8 @@ def resolve_episode_html_name(base_dir, episode_number):
     return None
 
 
-def build_speaker_line(name, content, female_speakers):
-    if name in MALE_SPEAKERS:
+def build_speaker_line(name, content, male_speakers, female_speakers):
+    if name in male_speakers:
         color = MALE_COLOR
     elif name in female_speakers:
         color = FEMALE_COLOR
@@ -164,7 +173,7 @@ def build_speaker_line(name, content, female_speakers):
         f'</p>'
     )
 
-def convert_body(text, female_speakers):
+def convert_body(text, male_speakers, female_speakers):
     # <time> 태그
     text = re.sub(r'<time>([\s\S]*?)</time>', lambda m: f'<div class="time">{m.group(1).strip()}</div>', text)
     # <thought> 태그
@@ -187,13 +196,13 @@ def convert_body(text, female_speakers):
         else:
             speaker_match = re.match(r'^\[([^\]]+)\]\s*(.+)$', stripped)
             if speaker_match:
-                result.append(build_speaker_line(speaker_match.group(1).strip(), speaker_match.group(2).strip(), female_speakers))
+                result.append(build_speaker_line(speaker_match.group(1).strip(), speaker_match.group(2).strip(), male_speakers, female_speakers))
             else:
                 result.append(f'<p>{escape(stripped)}</p>')
     return '\n'.join(result)
 
 base_dir = os.path.dirname(os.path.abspath(__file__))
-female_speakers = load_female_speakers(base_dir)
+male_speakers, female_speakers = load_speakers(base_dir)
 
 for arg in args:
     base_name = arg.replace('.md', '')
@@ -227,7 +236,7 @@ for arg in args:
     prev_link = f'<a href="{prev_name}.html">← 이전 화</a>' if prev_name else '<span></span>'
     next_link = f'<a href="{next_name}.html">다음 화 →</a>' if next_name else '<span style="color:#444">— 계속 —</span>'
 
-    body = convert_body(raw, female_speakers)
+    body = convert_body(raw, male_speakers, female_speakers)
 
     html = f"""<!DOCTYPE html>
 <html lang="ko">
