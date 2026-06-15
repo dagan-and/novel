@@ -442,7 +442,6 @@ def build_index(names):
   </style>
 </head>
 <body>
-  <h1>다시 만나는 관계들 — 인물</h1>
   <div class="grid">
     {grid}
   </div>
