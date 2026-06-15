@@ -139,50 +139,70 @@ def build_radar_chart(stats):
         f'{grids}{axes}{data_poly}{dots}{"".join(labels)}</svg>'
     )
 
-# ── 친밀도 파싱 ────────────────────────────────────────────────────
-def parse_intimacy(raw):
-    m = re.search(r'- 친밀도:\s*(.+)', raw)
-    if not m:
-        return 0
-    mapping = {'깊은': 5, '가까움': 4, '보통': 3, '낮음': 2, '초기': 1}
-    return mapping.get(m.group(1).strip(), 0)
+# ── 성인씬 횟수 집계 ────────────────────────────────────────────────
+def parse_adult_scene_counts():
+    counts = {}
+    episodes_dir = os.path.join(BASE, 'episodes')
+    if not os.path.exists(episodes_dir):
+        return counts
 
-# ── 관계 진도 파싱 ──────────────────────────────────────────────────
-def parse_progress(raw):
-    m = re.search(r'- 관계 진도:\s*(\d)단계', raw)
-    return int(m.group(1)) if m else 0
+    for fname in sorted(os.listdir(episodes_dir)):
+        if not fname.endswith('.md') or not re.match(r'^ep\.\d+(_a)?\.md$', fname):
+            continue
 
-# ── 친밀도 + 진도 상태 블록 ─────────────────────────────────────────
-def build_status_block(intimacy, progress):
-    if not intimacy and not progress:
-        return ''
+        path = os.path.join(episodes_dir, fname)
+        lines = open(path, encoding='utf-8').read().splitlines()
+        i = 0
+        while i < len(lines):
+            if '성인씬 #' not in lines[i]:
+                i += 1
+                continue
 
+            i += 1
+            in_people = False
+            while i < len(lines) and lines[i].strip() != '---':
+                line = lines[i]
+                if line.startswith('- 등장인물:'):
+                    in_people = True
+                elif in_people and re.match(r'^- [^:]+:', line):
+                    break
+                elif in_people:
+                    match = re.match(r'^\s{2,4}-\s*([가-힣]+):', line)
+                    if match:
+                        name = match.group(1)
+                        if name not in {'외형 참고', '성격 참고'}:
+                            counts[name] = counts.get(name, 0) + 1
+                i += 1
+            i += 1
+
+    return counts
+
+
+def build_adult_scene_block(count):
     hearts = ''.join(
-        f'<span class="heart {"filled" if i <= intimacy else "empty"}">{"♥" if i <= intimacy else "♡"}</span>'
-        for i in range(1, 6)
+        '<span class="heart filled">♥</span>'
+        for _ in range(count)
     )
-
-    stage_labels = ['스킨십', '키스', '관계']
-    stages = ''.join(
-        '<div class="stage {cls}">'
-        '<span class="stage-num">{n}단계</span>'
-        '<span class="stage-dot">{dot}</span>'
-        '<span class="stage-label">{label}</span>'
-        '</div>'.format(
-            cls='unlocked' if i <= progress else 'locked',
-            n=i,
-            dot='◆' if i <= progress else '◇',
-            label=stage_labels[i - 1]
-        )
-        for i in range(1, 4)
-    )
-
+    if not hearts:
+        hearts = '<span class="heart empty">♡</span>'
     return (
-        '<div class="status-block">'
-        f'<div class="status-hearts">{hearts}</div>'
-        f'<div class="status-stages">{stages}</div>'
+        '<div class="adult-scene-block">'
+        '<p class="adult-scene-label">성인씬</p>'
+        f'<div class="adult-scene-hearts">{hearts}</div>'
+        f'<p class="adult-scene-count">성인씬 {count}회</p>'
         '</div>'
     )
+
+
+def strip_hidden_profile_lines(body_md):
+    hidden_patterns = (
+        r'^- 친밀도:.*$',
+        r'^- 관계 진도:.*$',
+        r'^- 현재 단계:.*$',
+    )
+    for pattern in hidden_patterns:
+        body_md = re.sub(pattern, '', body_md, flags=re.MULTILINE)
+    return body_md
 
 # ── 현재 구분 파싱 (부가설명 지우고 메인/서브만 추출) ────────────────
 def get_category(raw):
@@ -304,35 +324,37 @@ PROFILE_CSS = """
     .back { display: inline-block; margin-bottom: 2rem; color: #c9a0b8; text-decoration: none; font-size: 1.33rem; /* 0.88rem -> 1.06rem -> 1.33rem */ }
     .back:hover { text-decoration: underline; }
     .emotion-chart { width: 90%; max-width: 380px; display: block; margin: 0 auto; }
-    .status-block {
+    .adult-scene-block {
       text-align: center;
       margin: 1.4rem 0 0.4rem;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 1rem;
+      gap: 0.55rem;
     }
-    .status-hearts { display: flex; gap: 0.3rem; }
-    .heart { font-size: 1.7rem; line-height: 1; transition: transform 0.15s; }
+    .adult-scene-label {
+      margin: 0;
+      color: #a08090;
+      font-size: 1.02rem;
+      letter-spacing: 0.18em;
+    }
+    .adult-scene-hearts {
+      display: flex;
+      gap: 0.3rem;
+    }
+    .heart { font-size: 1.7rem; line-height: 1; }
     .heart.filled { color: #c9a0b8; }
     .heart.empty  { color: #2e2020; }
-    .heart.filled:hover { transform: scale(1.2); }
-    .status-stages { display: flex; gap: 1.4rem; }
-    .stage {
-      display: flex; flex-direction: column; align-items: center; gap: 0.3rem;
-      font-family: 'Nanum Myeongjo', Georgia, serif;
+    .adult-scene-count {
+      margin: 0;
+      color: #c8a8b8;
+      font-size: 1.08rem;
+      letter-spacing: 0.04em;
     }
-    .stage-num { font-size: 0.78rem; letter-spacing: 0.06em; }
-    .stage-dot { font-size: 1.3rem; line-height: 1; }
-    .stage-label { font-size: 0.72rem; letter-spacing: 0.04em; }
-    .stage.unlocked .stage-dot  { color: #c9a0b8; }
-    .stage.unlocked .stage-num  { color: #a08090; }
-    .stage.unlocked .stage-label{ color: #a08090; }
-    .stage.locked   .stage-dot  { color: #2e2020; }
-    .stage.locked   .stage-num  { color: #333; }
-    .stage.locked   .stage-label{ color: #2a2a2a; }
     @media (max-width: 560px) { .portrait { width: 100%; } .emotion-chart { max-width: 320px; } }
 """
+
+ADULT_SCENE_COUNTS = parse_adult_scene_counts()
 
 def build_profile(name):
     file = os.path.join(BASE, 'characters', f'{name}.md')
@@ -345,9 +367,7 @@ def build_profile(name):
     category = get_category(raw)
     emotion_stats = parse_emotion_stats(raw)
     chart_block = build_radar_chart(emotion_stats) if emotion_stats else ''
-    intimacy = parse_intimacy(raw)
-    progress = parse_progress(raw)
-    status_block = build_status_block(intimacy, progress)
+    adult_scene_block = build_adult_scene_block(ADULT_SCENE_COUNTS.get(name, 0))
     story_year, story_month = get_story_date()
     current_age = calc_current_age(raw, story_year, story_month)
 
@@ -358,6 +378,7 @@ def build_profile(name):
     )
 
     body_md = re.sub(r'^# .+\n', '', raw)
+    body_md = strip_hidden_profile_lines(body_md)
     body_html = md_to_html(body_md)
     cat_tag = f'<span class="category-tag">{category}</span>' if category else ''
     age_tag = f'<p class="current-age">{story_year}년 기준 {current_age}세</p>' if current_age else ''
@@ -375,7 +396,7 @@ def build_profile(name):
   <div class="header">
     {image_block}
     {chart_block}
-    {status_block}
+    {adult_scene_block}
     <div class="header-info">
       <h1>{name}</h1>
       {cat_tag}

@@ -110,33 +110,33 @@
     .back { display: inline-block; margin-bottom: 2rem; color: #c9a0b8; text-decoration: none; font-size: 1.33rem; /* 0.88rem -> 1.06rem -> 1.33rem */ }
     .back:hover { text-decoration: underline; }
     .emotion-chart { width: 90%; max-width: 380px; display: block; margin: 0 auto; }
-    .status-block {
+    .adult-scene-block {
       text-align: center;
       margin: 1.4rem 0 0.4rem;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 1rem;
+      gap: 0.55rem;
     }
-    .status-hearts { display: flex; gap: 0.3rem; }
-    .heart { font-size: 1.7rem; line-height: 1; transition: transform 0.15s; }
+    .adult-scene-label {
+      margin: 0;
+      color: #a08090;
+      font-size: 1.02rem;
+      letter-spacing: 0.18em;
+    }
+    .adult-scene-hearts {
+      display: flex;
+      gap: 0.3rem;
+    }
+    .heart { font-size: 1.7rem; line-height: 1; }
     .heart.filled { color: #c9a0b8; }
     .heart.empty  { color: #2e2020; }
-    .heart.filled:hover { transform: scale(1.2); }
-    .status-stages { display: flex; gap: 1.4rem; }
-    .stage {
-      display: flex; flex-direction: column; align-items: center; gap: 0.3rem;
-      font-family: 'Nanum Myeongjo', Georgia, serif;
+    .adult-scene-count {
+      margin: 0;
+      color: #c8a8b8;
+      font-size: 1.08rem;
+      letter-spacing: 0.04em;
     }
-    .stage-num { font-size: 0.78rem; letter-spacing: 0.06em; }
-    .stage-dot { font-size: 1.3rem; line-height: 1; }
-    .stage-label { font-size: 0.72rem; letter-spacing: 0.04em; }
-    .stage.unlocked .stage-dot  { color: #c9a0b8; }
-    .stage.unlocked .stage-num  { color: #a08090; }
-    .stage.unlocked .stage-label{ color: #a08090; }
-    .stage.locked   .stage-dot  { color: #2e2020; }
-    .stage.locked   .stage-num  { color: #333; }
-    .stage.locked   .stage-label{ color: #2a2a2a; }
     @media (max-width: 560px) { .portrait { width: 100%; } .emotion-chart { max-width: 320px; } }
   </style>
 </head>
@@ -145,7 +145,7 @@
   <div class="header">
     <div class="portrait"><img src="../../images/characters/한서진.png" alt="한서진" onclick="openLightbox(this.src)" /></div>
     <svg class="emotion-chart" viewBox="-100 -25 500 360" xmlns="http://www.w3.org/2000/svg"><polygon points="150.0,126.2 172.6,142.7 164.0,169.2 136.0,169.2 127.4,142.7" fill="none" stroke="#3a2030" stroke-width="0.8"/><polygon points="150.0,102.5 195.2,135.3 177.9,188.4 122.1,188.4 104.8,135.3" fill="none" stroke="#3a2030" stroke-width="0.8"/><polygon points="150.0,78.8 217.8,128.0 191.9,207.6 108.1,207.6 82.2,128.0" fill="none" stroke="#3a2030" stroke-width="0.8"/><polygon points="150.0,55.0 240.4,120.6 205.8,226.9 94.2,226.9 59.6,120.6" fill="none" stroke="#3a2030" stroke-width="0.8"/><line x1="150" y1="150" x2="150.0" y2="55.0" stroke="#3a2030" stroke-width="0.8"/><line x1="150" y1="150" x2="240.4" y2="120.6" stroke="#3a2030" stroke-width="0.8"/><line x1="150" y1="150" x2="205.8" y2="226.9" stroke="#3a2030" stroke-width="0.8"/><line x1="150" y1="150" x2="94.2" y2="226.9" stroke="#3a2030" stroke-width="0.8"/><line x1="150" y1="150" x2="59.6" y2="120.6" stroke="#3a2030" stroke-width="0.8"/><polygon points="150.0,64.5 234.0,122.7 158.9,162.3 138.3,166.1 106.6,135.9" fill="rgba(201,160,184,0.2)" stroke="#c9a0b8" stroke-width="1.5"/><circle cx="150.0" cy="64.5" r="3" fill="#c9a0b8"/><circle cx="234.0" cy="122.7" r="3" fill="#c9a0b8"/><circle cx="158.9" cy="162.3" r="3" fill="#c9a0b8"/><circle cx="138.3" cy="166.1" r="3" fill="#c9a0b8"/><circle cx="106.6" cy="135.9" r="3" fill="#c9a0b8"/><text x="150.0" y="25.0" text-anchor="middle" font-size="23.5" fill="#a08090" font-family="'Nanum Myeongjo',Georgia,serif">호감도 <tspan fill="#c9a0b8">90</tspan></text><text x="263.2" y="107.2" text-anchor="start" font-size="23.5" fill="#a08090" font-family="'Nanum Myeongjo',Georgia,serif">신뢰도 <tspan fill="#c9a0b8">93</tspan></text><text x="219.9" y="258.3" text-anchor="start" font-size="23.5" fill="#a08090" font-family="'Nanum Myeongjo',Georgia,serif">질투심 <tspan fill="#c9a0b8">16</tspan></text><text x="80.1" y="258.3" text-anchor="end" font-size="23.5" fill="#a08090" font-family="'Nanum Myeongjo',Georgia,serif">독점욕 <tspan fill="#c9a0b8">21</tspan></text><text x="36.8" y="107.2" text-anchor="end" font-size="23.5" fill="#a08090" font-family="'Nanum Myeongjo',Georgia,serif">의존도 <tspan fill="#c9a0b8">48</tspan></text></svg>
-    <div class="status-block"><div class="status-hearts"><span class="heart filled">♥</span><span class="heart filled">♥</span><span class="heart filled">♥</span><span class="heart filled">♥</span><span class="heart filled">♥</span></div><div class="status-stages"><div class="stage unlocked"><span class="stage-num">1단계</span><span class="stage-dot">◆</span><span class="stage-label">스킨십</span></div><div class="stage unlocked"><span class="stage-num">2단계</span><span class="stage-dot">◆</span><span class="stage-label">키스</span></div><div class="stage unlocked"><span class="stage-num">3단계</span><span class="stage-dot">◆</span><span class="stage-label">관계</span></div></div></div>
+    <div class="adult-scene-block"><p class="adult-scene-label">성인씬</p><div class="adult-scene-hearts"><span class="heart filled">♥</span><span class="heart filled">♥</span><span class="heart filled">♥</span><span class="heart filled">♥</span><span class="heart filled">♥</span><span class="heart filled">♥</span><span class="heart filled">♥</span><span class="heart filled">♥</span></div><p class="adult-scene-count">성인씬 8회</p></div>
     <div class="header-info">
       <h1>한서진</h1>
       <span class="category-tag">메인</span>
@@ -202,7 +202,9 @@
 
 <ul>
 <li>첫 만남: ep.036</li>
-<li>현재 단계: 3단계</li>
+</ul>
+
+<ul>
 <li>특이사항: 기말이 끝난 밤, 혼자 찾은 와인바에서 첫 만남. 메뉴를 고르지 않는 시안을 서진이 먼저 관찰하고 말을 걸었다. ep.038에서 시안에게 가까운 사람이 둘이라는 사실을 직접 듣고도 연말 시음회 도움 약속을 유지함. ep.039에서 이하은과 만나 두 사람의 관계가 실제로 안정되어 있음을 확인. ep.041~045에서 소율·하은과 각각 다른 방식으로 부딪힌 끝에, 자신이 직접 관계 안으로 들어오기로 결정함.</li>
 </ul>
 
@@ -213,8 +215,10 @@
 <ul>
 <li>현재 구분: <strong>메인</strong> (ep.055에서 승격)</li>
 <li>직업: 종로 소규모 와인바 매니저</li>
-<li>친밀도: 깊은</li>
-<li>관계 진도: 3단계 (ep.045_a — 후보 단계를 끝내고 스스로 관계 진입을 선택)</li>
+</ul>
+
+
+<ul>
 <li>현재 상태: 2014년 4월 중순. ep.071의 외부 제안 차단과 ep.075_a의 정리를 지나며, 공간을 지키는 문제를 더 이상 혼자 감당하지 않겠다는 기준이 확실해졌다. 특히 중요한 순간마다 빠지지 않는 다온을 내부 사람으로 인정하기 시작했고, 버거운 순간일수록 더 먼저 자기 사람들을 안쪽으로 끌어들여 정리하는 쪽으로 움직인다.</li>
 <li>김시안 호칭: 시안 씨 → <strong>오빠</strong> (ep.050에서 변경)</li>
 <li>김시안이 부르는 호칭: 서진 씨 → <strong>서진아</strong> (ep.050에서 변경)</li>

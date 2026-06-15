@@ -110,33 +110,33 @@
     .back { display: inline-block; margin-bottom: 2rem; color: #c9a0b8; text-decoration: none; font-size: 1.33rem; /* 0.88rem -> 1.06rem -> 1.33rem */ }
     .back:hover { text-decoration: underline; }
     .emotion-chart { width: 90%; max-width: 380px; display: block; margin: 0 auto; }
-    .status-block {
+    .adult-scene-block {
       text-align: center;
       margin: 1.4rem 0 0.4rem;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 1rem;
+      gap: 0.55rem;
     }
-    .status-hearts { display: flex; gap: 0.3rem; }
-    .heart { font-size: 1.7rem; line-height: 1; transition: transform 0.15s; }
+    .adult-scene-label {
+      margin: 0;
+      color: #a08090;
+      font-size: 1.02rem;
+      letter-spacing: 0.18em;
+    }
+    .adult-scene-hearts {
+      display: flex;
+      gap: 0.3rem;
+    }
+    .heart { font-size: 1.7rem; line-height: 1; }
     .heart.filled { color: #c9a0b8; }
     .heart.empty  { color: #2e2020; }
-    .heart.filled:hover { transform: scale(1.2); }
-    .status-stages { display: flex; gap: 1.4rem; }
-    .stage {
-      display: flex; flex-direction: column; align-items: center; gap: 0.3rem;
-      font-family: 'Nanum Myeongjo', Georgia, serif;
+    .adult-scene-count {
+      margin: 0;
+      color: #c8a8b8;
+      font-size: 1.08rem;
+      letter-spacing: 0.04em;
     }
-    .stage-num { font-size: 0.78rem; letter-spacing: 0.06em; }
-    .stage-dot { font-size: 1.3rem; line-height: 1; }
-    .stage-label { font-size: 0.72rem; letter-spacing: 0.04em; }
-    .stage.unlocked .stage-dot  { color: #c9a0b8; }
-    .stage.unlocked .stage-num  { color: #a08090; }
-    .stage.unlocked .stage-label{ color: #a08090; }
-    .stage.locked   .stage-dot  { color: #2e2020; }
-    .stage.locked   .stage-num  { color: #333; }
-    .stage.locked   .stage-label{ color: #2a2a2a; }
     @media (max-width: 560px) { .portrait { width: 100%; } .emotion-chart { max-width: 320px; } }
   </style>
 </head>
@@ -145,7 +145,7 @@
   <div class="header">
     <div class="portrait"><img src="../../images/characters/정다온.png" alt="정다온" onclick="openLightbox(this.src)" /></div>
     <svg class="emotion-chart" viewBox="-100 -25 500 360" xmlns="http://www.w3.org/2000/svg"><polygon points="150.0,126.2 172.6,142.7 164.0,169.2 136.0,169.2 127.4,142.7" fill="none" stroke="#3a2030" stroke-width="0.8"/><polygon points="150.0,102.5 195.2,135.3 177.9,188.4 122.1,188.4 104.8,135.3" fill="none" stroke="#3a2030" stroke-width="0.8"/><polygon points="150.0,78.8 217.8,128.0 191.9,207.6 108.1,207.6 82.2,128.0" fill="none" stroke="#3a2030" stroke-width="0.8"/><polygon points="150.0,55.0 240.4,120.6 205.8,226.9 94.2,226.9 59.6,120.6" fill="none" stroke="#3a2030" stroke-width="0.8"/><line x1="150" y1="150" x2="150.0" y2="55.0" stroke="#3a2030" stroke-width="0.8"/><line x1="150" y1="150" x2="240.4" y2="120.6" stroke="#3a2030" stroke-width="0.8"/><line x1="150" y1="150" x2="205.8" y2="226.9" stroke="#3a2030" stroke-width="0.8"/><line x1="150" y1="150" x2="94.2" y2="226.9" stroke="#3a2030" stroke-width="0.8"/><line x1="150" y1="150" x2="59.6" y2="120.6" stroke="#3a2030" stroke-width="0.8"/><polygon points="150.0,72.1 222.3,126.5 154.5,156.1 140.5,163.1 118.4,139.7" fill="rgba(201,160,184,0.2)" stroke="#c9a0b8" stroke-width="1.5"/><circle cx="150.0" cy="72.1" r="3" fill="#c9a0b8"/><circle cx="222.3" cy="126.5" r="3" fill="#c9a0b8"/><circle cx="154.5" cy="156.1" r="3" fill="#c9a0b8"/><circle cx="140.5" cy="163.1" r="3" fill="#c9a0b8"/><circle cx="118.4" cy="139.7" r="3" fill="#c9a0b8"/><text x="150.0" y="25.0" text-anchor="middle" font-size="23.5" fill="#a08090" font-family="'Nanum Myeongjo',Georgia,serif">호감도 <tspan fill="#c9a0b8">82</tspan></text><text x="263.2" y="107.2" text-anchor="start" font-size="23.5" fill="#a08090" font-family="'Nanum Myeongjo',Georgia,serif">신뢰도 <tspan fill="#c9a0b8">80</tspan></text><text x="219.9" y="258.3" text-anchor="start" font-size="23.5" fill="#a08090" font-family="'Nanum Myeongjo',Georgia,serif">질투심 <tspan fill="#c9a0b8">8</tspan></text><text x="80.1" y="258.3" text-anchor="end" font-size="23.5" fill="#a08090" font-family="'Nanum Myeongjo',Georgia,serif">독점욕 <tspan fill="#c9a0b8">17</tspan></text><text x="36.8" y="107.2" text-anchor="end" font-size="23.5" fill="#a08090" font-family="'Nanum Myeongjo',Georgia,serif">의존도 <tspan fill="#c9a0b8">35</tspan></text></svg>
-    <div class="status-block"><div class="status-hearts"><span class="heart filled">♥</span><span class="heart filled">♥</span><span class="heart filled">♥</span><span class="heart filled">♥</span><span class="heart filled">♥</span></div><div class="status-stages"><div class="stage unlocked"><span class="stage-num">1단계</span><span class="stage-dot">◆</span><span class="stage-label">스킨십</span></div><div class="stage unlocked"><span class="stage-num">2단계</span><span class="stage-dot">◆</span><span class="stage-label">키스</span></div><div class="stage unlocked"><span class="stage-num">3단계</span><span class="stage-dot">◆</span><span class="stage-label">관계</span></div></div></div>
+    <div class="adult-scene-block"><p class="adult-scene-label">성인씬</p><div class="adult-scene-hearts"><span class="heart filled">♥</span><span class="heart filled">♥</span></div><p class="adult-scene-count">성인씬 2회</p></div>
     <div class="header-info">
       <h1>정다온</h1>
       <span class="category-tag">서브</span>
@@ -202,7 +202,9 @@
 
 <ul>
 <li>첫 만남: ep.056</li>
-<li>현재 단계: 3단계</li>
+</ul>
+
+<ul>
 <li>특이사항: 종로 새 와인바의 소프트 오픈 날, 문화 웹진 취재 목적으로 처음 방문했다. ep.057에서 하은을 통해 공간의 시각 언어를 묻다가 시안과 제대로 인사를 나눴고, ep.060에서 자신이 막아 낸 선정적 편집 방향을 직접 설명하며 다시 찾아와 관계의 다음 가능성을 남겼다. ep.061<em>a에서 취재자와 취재 대상의 선을 넘는 첫 확인을 했고, ep.065에서 네 사람 앞에서 더는 애매한 관찰자 자리에 머물지 않겠다고 직접 밝혔다. ep.067</em>a에서 옥상에서 시안과의 관계를 완전히 개인적인 영역으로 넘기며 3단계에 진입했고, ep.069에서는 외부 홍보 문구를 함께 걸러 내며 공간 안쪽 사람으로 행동하기 시작했다.</li>
 </ul>
 
@@ -213,8 +215,10 @@
 <ul>
 <li>현재 구분: <strong>서브</strong> (ep.075에서 반복적 선택과 공존 검증을 통과하며 정착)</li>
 <li>직업: 독립 문화 웹진 객원 필자·사진 담당 (2014년 2월 졸업)</li>
-<li>친밀도: 깊은</li>
-<li>관계 진도: 3단계 (ep.067_a — 취재자의 거리감을 내려놓고 시안과의 관계를 개인적 영역으로 확정)</li>
+</ul>
+
+
+<ul>
 <li>현재 상태: 2014년 4월 중순. ep.071에서 외부 이벤트 제안을 직접 끊어 내며 공간을 지키는 언어를 자기 쪽으로 선택했고, ep.073에서 하은과 전시를 함께 꾸리며 실무 안쪽으로 들어왔다. ep.074의 가족선 긴장 속에서도 빠지지 않은 끝에 ep.075에서 서브 후보 단계를 지나 실제 서브 포지션으로 정착했다.</li>
 <li>김시안 호칭: <strong>김시안 씨</strong> (ep.057에서 첫 사용)</li>
 <li>김시안이 부르는 호칭: <strong>다온 씨</strong> (ep.057에서 첫 사용)</li>
