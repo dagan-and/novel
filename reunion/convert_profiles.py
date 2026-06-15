@@ -5,6 +5,25 @@ import sys, os, re, math
 BASE = os.path.dirname(os.path.abspath(__file__))
 EXCLUDE = {'캐릭터양식', '김시안'}
 
+# ── 스토리 현재 연도/월 파싱 (관계망.md 기준) ───────────────────────
+def get_story_date():
+    path = os.path.join(BASE, '관계망.md')
+    if not os.path.exists(path):
+        return None, None
+    raw = open(path, encoding='utf-8').read()
+    m = re.search(r'연도:\s*(\d{4})년\s*(\d{1,2})월', raw)
+    if m:
+        return int(m.group(1)), int(m.group(2))
+    m = re.search(r'연도:\s*(\d{4})년', raw)
+    return (int(m.group(1)), None) if m else (None, None)
+
+# ── 현재 나이 계산 ───────────────────────────────────────────────────
+def calc_current_age(raw, story_year, story_month):
+    m = re.search(r'생년월일:\s*(\d{4})년', raw)
+    if not m or not story_year:
+        return None
+    return story_year - int(m.group(1)) + 1
+
 # ── 이미지 탐색 ─────────────────────────────────────────────────────
 def find_image(name):
     for ext in ('png', 'jpg', 'jpeg', 'webp'):
@@ -262,6 +281,12 @@ PROFILE_CSS = """
       border-radius: 2px;
       letter-spacing: 0.05em;
     }
+    .current-age {
+      font-size: 1rem;
+      color: #6a5060;
+      letter-spacing: 0.05em;
+      margin-top: 0.35rem;
+    }
     h2 {
       font-size: 1.58rem; /* 1.05rem -> 1.26rem -> 1.58rem */
       color: #c9a0b8;
@@ -323,6 +348,8 @@ def build_profile(name):
     intimacy = parse_intimacy(raw)
     progress = parse_progress(raw)
     status_block = build_status_block(intimacy, progress)
+    story_year, story_month = get_story_date()
+    current_age = calc_current_age(raw, story_year, story_month)
 
     image_block = (
         f'<div class="portrait"><img src="{image_src}" alt="{name}" onclick="openLightbox(this.src)" /></div>'
@@ -333,6 +360,7 @@ def build_profile(name):
     body_md = re.sub(r'^# .+\n', '', raw)
     body_html = md_to_html(body_md)
     cat_tag = f'<span class="category-tag">{category}</span>' if category else ''
+    age_tag = f'<p class="current-age">{story_year}년 기준 {current_age}세</p>' if current_age else ''
 
     html = f"""<!DOCTYPE html>
 <html lang="ko">
@@ -351,6 +379,7 @@ def build_profile(name):
     <div class="header-info">
       <h1>{name}</h1>
       {cat_tag}
+      {age_tag}
     </div>
   </div>
   <div class="profile-body">
