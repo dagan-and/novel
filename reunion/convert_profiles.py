@@ -120,6 +120,51 @@ def build_radar_chart(stats):
         f'{grids}{axes}{data_poly}{dots}{"".join(labels)}</svg>'
     )
 
+# ── 친밀도 파싱 ────────────────────────────────────────────────────
+def parse_intimacy(raw):
+    m = re.search(r'- 친밀도:\s*(.+)', raw)
+    if not m:
+        return 0
+    mapping = {'깊은': 5, '가까움': 4, '보통': 3, '낮음': 2, '초기': 1}
+    return mapping.get(m.group(1).strip(), 0)
+
+# ── 관계 진도 파싱 ──────────────────────────────────────────────────
+def parse_progress(raw):
+    m = re.search(r'- 관계 진도:\s*(\d)단계', raw)
+    return int(m.group(1)) if m else 0
+
+# ── 친밀도 + 진도 상태 블록 ─────────────────────────────────────────
+def build_status_block(intimacy, progress):
+    if not intimacy and not progress:
+        return ''
+
+    hearts = ''.join(
+        f'<span class="heart {"filled" if i <= intimacy else "empty"}">{"♥" if i <= intimacy else "♡"}</span>'
+        for i in range(1, 6)
+    )
+
+    stage_labels = ['스킨십', '키스', '관계']
+    stages = ''.join(
+        '<div class="stage {cls}">'
+        '<span class="stage-num">{n}단계</span>'
+        '<span class="stage-dot">{dot}</span>'
+        '<span class="stage-label">{label}</span>'
+        '</div>'.format(
+            cls='unlocked' if i <= progress else 'locked',
+            n=i,
+            dot='◆' if i <= progress else '◇',
+            label=stage_labels[i - 1]
+        )
+        for i in range(1, 4)
+    )
+
+    return (
+        '<div class="status-block">'
+        f'<div class="status-hearts">{hearts}</div>'
+        f'<div class="status-stages">{stages}</div>'
+        '</div>'
+    )
+
 # ── 현재 구분 파싱 (부가설명 지우고 메인/서브만 추출) ────────────────
 def get_category(raw):
     m = re.search(r'- 현재 구분:\s*(.+)', raw)
@@ -234,6 +279,33 @@ PROFILE_CSS = """
     .back { display: inline-block; margin-bottom: 2rem; color: #c9a0b8; text-decoration: none; font-size: 1.33rem; /* 0.88rem -> 1.06rem -> 1.33rem */ }
     .back:hover { text-decoration: underline; }
     .emotion-chart { width: 90%; max-width: 300px; display: block; margin: 0 auto; }
+    .status-block {
+      text-align: center;
+      margin: 1.4rem 0 0.4rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    .status-hearts { display: flex; gap: 0.3rem; }
+    .heart { font-size: 1.7rem; line-height: 1; transition: transform 0.15s; }
+    .heart.filled { color: #c9a0b8; }
+    .heart.empty  { color: #2e2020; }
+    .heart.filled:hover { transform: scale(1.2); }
+    .status-stages { display: flex; gap: 1.4rem; }
+    .stage {
+      display: flex; flex-direction: column; align-items: center; gap: 0.3rem;
+      font-family: 'Nanum Myeongjo', Georgia, serif;
+    }
+    .stage-num { font-size: 0.78rem; letter-spacing: 0.06em; }
+    .stage-dot { font-size: 1.3rem; line-height: 1; }
+    .stage-label { font-size: 0.72rem; letter-spacing: 0.04em; }
+    .stage.unlocked .stage-dot  { color: #c9a0b8; }
+    .stage.unlocked .stage-num  { color: #a08090; }
+    .stage.unlocked .stage-label{ color: #a08090; }
+    .stage.locked   .stage-dot  { color: #2e2020; }
+    .stage.locked   .stage-num  { color: #333; }
+    .stage.locked   .stage-label{ color: #2a2a2a; }
     @media (max-width: 560px) { .portrait { width: 100%; } .emotion-chart { max-width: 260px; } }
 """
 
@@ -248,6 +320,9 @@ def build_profile(name):
     category = get_category(raw)
     emotion_stats = parse_emotion_stats(raw)
     chart_block = build_radar_chart(emotion_stats) if emotion_stats else ''
+    intimacy = parse_intimacy(raw)
+    progress = parse_progress(raw)
+    status_block = build_status_block(intimacy, progress)
 
     image_block = (
         f'<div class="portrait"><img src="{image_src}" alt="{name}" onclick="openLightbox(this.src)" /></div>'
@@ -272,6 +347,7 @@ def build_profile(name):
   <div class="header">
     {image_block}
     {chart_block}
+    {status_block}
     <div class="header-info">
       <h1>{name}</h1>
       {cat_tag}

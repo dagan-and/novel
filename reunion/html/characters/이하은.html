@@ -104,6 +104,33 @@
     .back { display: inline-block; margin-bottom: 2rem; color: #c9a0b8; text-decoration: none; font-size: 1.33rem; /* 0.88rem -> 1.06rem -> 1.33rem */ }
     .back:hover { text-decoration: underline; }
     .emotion-chart { width: 90%; max-width: 300px; display: block; margin: 0 auto; }
+    .status-block {
+      text-align: center;
+      margin: 1.4rem 0 0.4rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    .status-hearts { display: flex; gap: 0.3rem; }
+    .heart { font-size: 1.7rem; line-height: 1; transition: transform 0.15s; }
+    .heart.filled { color: #c9a0b8; }
+    .heart.empty  { color: #2e2020; }
+    .heart.filled:hover { transform: scale(1.2); }
+    .status-stages { display: flex; gap: 1.4rem; }
+    .stage {
+      display: flex; flex-direction: column; align-items: center; gap: 0.3rem;
+      font-family: 'Nanum Myeongjo', Georgia, serif;
+    }
+    .stage-num { font-size: 0.78rem; letter-spacing: 0.06em; }
+    .stage-dot { font-size: 1.3rem; line-height: 1; }
+    .stage-label { font-size: 0.72rem; letter-spacing: 0.04em; }
+    .stage.unlocked .stage-dot  { color: #c9a0b8; }
+    .stage.unlocked .stage-num  { color: #a08090; }
+    .stage.unlocked .stage-label{ color: #a08090; }
+    .stage.locked   .stage-dot  { color: #2e2020; }
+    .stage.locked   .stage-num  { color: #333; }
+    .stage.locked   .stage-label{ color: #2a2a2a; }
     @media (max-width: 560px) { .portrait { width: 100%; } .emotion-chart { max-width: 260px; } }
   </style>
 </head>
@@ -112,6 +139,7 @@
   <div class="header">
     <div class="portrait"><img src="../../images/characters/이하은.png" alt="이하은" onclick="openLightbox(this.src)" /></div>
     <svg class="emotion-chart" viewBox="-50 -15 400 330" xmlns="http://www.w3.org/2000/svg"><polygon points="150.0,126.2 172.6,142.7 164.0,169.2 136.0,169.2 127.4,142.7" fill="none" stroke="#3a2030" stroke-width="0.8"/><polygon points="150.0,102.5 195.2,135.3 177.9,188.4 122.1,188.4 104.8,135.3" fill="none" stroke="#3a2030" stroke-width="0.8"/><polygon points="150.0,78.8 217.8,128.0 191.9,207.6 108.1,207.6 82.2,128.0" fill="none" stroke="#3a2030" stroke-width="0.8"/><polygon points="150.0,55.0 240.4,120.6 205.8,226.9 94.2,226.9 59.6,120.6" fill="none" stroke="#3a2030" stroke-width="0.8"/><line x1="150" y1="150" x2="150.0" y2="55.0" stroke="#3a2030" stroke-width="0.8"/><line x1="150" y1="150" x2="240.4" y2="120.6" stroke="#3a2030" stroke-width="0.8"/><line x1="150" y1="150" x2="205.8" y2="226.9" stroke="#3a2030" stroke-width="0.8"/><line x1="150" y1="150" x2="94.2" y2="226.9" stroke="#3a2030" stroke-width="0.8"/><line x1="150" y1="150" x2="59.6" y2="120.6" stroke="#3a2030" stroke-width="0.8"/><polygon points="150.0,62.6 230.4,123.9 161.2,165.4 139.4,164.6 114.8,138.6" fill="rgba(201,160,184,0.2)" stroke="#c9a0b8" stroke-width="1.5"/><circle cx="150.0" cy="62.6" r="3" fill="#c9a0b8"/><circle cx="230.4" cy="123.9" r="3" fill="#c9a0b8"/><circle cx="161.2" cy="165.4" r="3" fill="#c9a0b8"/><circle cx="139.4" cy="164.6" r="3" fill="#c9a0b8"/><circle cx="114.8" cy="138.6" r="3" fill="#c9a0b8"/><text x="150.0" y="25.0" text-anchor="middle" font-size="23.5" fill="#a08090" font-family="'Nanum Myeongjo',Georgia,serif">호감도 <tspan fill="#c9a0b8">92</tspan></text><text x="263.2" y="107.2" text-anchor="start" font-size="23.5" fill="#a08090" font-family="'Nanum Myeongjo',Georgia,serif">신뢰도 <tspan fill="#c9a0b8">89</tspan></text><text x="219.9" y="258.3" text-anchor="start" font-size="23.5" fill="#a08090" font-family="'Nanum Myeongjo',Georgia,serif">질투심 <tspan fill="#c9a0b8">20</tspan></text><text x="80.1" y="258.3" text-anchor="end" font-size="23.5" fill="#a08090" font-family="'Nanum Myeongjo',Georgia,serif">독점욕 <tspan fill="#c9a0b8">19</tspan></text><text x="36.8" y="107.2" text-anchor="end" font-size="23.5" fill="#a08090" font-family="'Nanum Myeongjo',Georgia,serif">의존도 <tspan fill="#c9a0b8">39</tspan></text></svg>
+    <div class="status-block"><div class="status-hearts"><span class="heart filled">♥</span><span class="heart filled">♥</span><span class="heart filled">♥</span><span class="heart filled">♥</span><span class="heart filled">♥</span></div><div class="status-stages"><div class="stage unlocked"><span class="stage-num">1단계</span><span class="stage-dot">◆</span><span class="stage-label">스킨십</span></div><div class="stage unlocked"><span class="stage-num">2단계</span><span class="stage-dot">◆</span><span class="stage-label">키스</span></div><div class="stage unlocked"><span class="stage-num">3단계</span><span class="stage-dot">◆</span><span class="stage-label">관계</span></div></div></div>
     <div class="header-info">
       <h1>이하은</h1>
       <span class="category-tag">메인</span>
