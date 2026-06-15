@@ -146,7 +146,7 @@ def extract_scene_caption(text):
 
 def replace_adult_scene_block(text, illustration_html):
     pattern = re.compile(
-        r'\n---\n## \[성인씬 #[^\n]+\]\n[\s\S]*?\n---\n',
+        r'\n---\n##\s*(?:\[)?성인씬 #[^\n\]]+(?:\])?\n[\s\S]*?\n---\n',
         re.MULTILINE,
     )
     return pattern.sub(f'\n{illustration_html}\n', text, count=1)
