@@ -346,7 +346,7 @@ CHAR_CSS_CLASS = {
     '한서진': 'cc-seojin', '정다온': 'cc-daon',
 }
 
-INTIMACY_WIDTH = {'깊은': 80, '보통': 45, '얕은': 25, '없음': 10}
+INTIMACY_WIDTH = {'깊은': 100, '보통': 55, '얕은': 30, '없음': 10}
 
 EVENT_BADGE = {
     '관계 전환': '<span class="badge b-turn">관계 전환</span>',
