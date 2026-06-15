@@ -3,6 +3,7 @@ import glob
 import os
 import re
 import sys
+from html import escape
 
 if len(sys.argv) < 2:
     print("사용법: python3 convert_html.py ep.[번호] [ep.[번호] ...]")
@@ -30,6 +31,20 @@ CSS = """
       letter-spacing: 0.08em;
     }
     p { margin: 0.75rem 0; }
+    p.speaker-line {
+      display: flex;
+      align-items: baseline;
+      gap: 0.7rem;
+    }
+    .speaker-tag {
+      flex: 0 0 auto;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      opacity: 0.9;
+    }
+    .speaker-text {
+      flex: 1 1 auto;
+    }
     .time {
       font-weight: bold;
       color: #b890a8;
@@ -74,6 +89,9 @@ CSS = """
 """
 
 PRELUDE_DIR = os.path.join('images', 'preludes')
+MALE_SPEAKERS = {'김시안', '시안'}
+MALE_COLOR = '#8fbfe8'
+FEMALE_COLOR = '#e0a1bb'
 
 
 def find_prelude_image(base_dir, episode_number):
@@ -119,6 +137,16 @@ def resolve_episode_html_name(base_dir, episode_number):
             return candidate
     return None
 
+
+def build_speaker_line(name, content):
+    color = MALE_COLOR if name in MALE_SPEAKERS else FEMALE_COLOR
+    return (
+        f'<p class="speaker-line">'
+        f'<span class="speaker-tag" style="color:{color}">{escape(name)}</span>'
+        f'<span class="speaker-text" style="color:{color}">{escape(content)}</span>'
+        f'</p>'
+    )
+
 def convert_body(text):
     # <time> 태그
     text = re.sub(r'<time>([\s\S]*?)</time>', lambda m: f'<div class="time">{m.group(1).strip()}</div>', text)
@@ -140,7 +168,11 @@ def convert_body(text):
         elif stripped.startswith('<'):
             result.append(stripped)
         else:
-            result.append(f'<p>{stripped}</p>')
+            speaker_match = re.match(r'^\[([^\]]+)\]\s*(.+)$', stripped)
+            if speaker_match:
+                result.append(build_speaker_line(speaker_match.group(1).strip(), speaker_match.group(2).strip()))
+            else:
+                result.append(f'<p>{escape(stripped)}</p>')
     return '\n'.join(result)
 
 base_dir = os.path.dirname(os.path.abspath(__file__))
