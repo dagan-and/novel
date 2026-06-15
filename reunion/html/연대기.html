@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>에피소드 연대기 — 다시 만나는 관계들</title>
+  <style>
+    :root {
+      --bg: #08061a;
+      --panel: #110f28;
+      --panel2: #1a1840;
+      --border: #2a2260;
+      --border-hi: #5040a0;
+      --pink: #c050a8;
+      --purple: #7040d0;
+      --blue: #4080d0;
+      --cyan: #40b0c0;
+      --gold: #c0a030;
+      --green: #30a860;
+      --orange: #c07828;
+      --red: #c03040;
+      --text: #e0d8f8;
+      --text2: #9080b8;
+      --text3: #5040a0;
+
+      --c-sian: #9060d0;
+      --c-soyu: #c050a8;
+      --c-haeun: #4090c0;
+      --c-seojin: #50b090;
+      --c-daon: #c0a030;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Noto Sans KR', -apple-system, 'Helvetica Neue', sans-serif;
+      min-height: 100vh;
+      padding: 2rem 1.5rem 5rem;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    /* ─── NAV ─── */
+    .nav-bar {
+      display: flex; gap: 0.5rem; margin-bottom: 1.5rem;
+    }
+    .nav-bar a {
+      padding: 0.3rem 0.9rem; border-radius: 4px;
+      font-size: 0.75rem; text-decoration: none;
+      border: 1px solid var(--border); color: var(--text2);
+      transition: all 0.2s;
+    }
+    .nav-bar a:hover { border-color: var(--border-hi); color: var(--text); }
+    .nav-bar a.active { border-color: var(--pink); color: var(--pink); background: rgba(192,80,168,0.1); }
+
+    /* ─── PAGE HEADER ─── */
+    .page-header {
+      padding: 1.5rem 1.75rem;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin-bottom: 2rem;
+      position: relative; overflow: hidden;
+    }
+    .page-header::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(135deg, rgba(64,176,192,0.1) 0%, transparent 55%);
+      pointer-events: none;
+    }
+    .page-header h1 {
+      font-size: 1.3rem; font-weight: 700;
+      color: var(--text); letter-spacing: 0.05em; margin-bottom: 0.4rem;
+    }
+    .page-header p { font-size: 0.8rem; color: var(--text2); }
+
+    /* ─── CHARACTER LEGEND ─── */
+    .char-legend {
+      display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;
+    }
+    .legend-item {
+      display: flex; align-items: center; gap: 0.35rem;
+      padding: 0.2rem 0.6rem;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      font-size: 0.7rem; color: var(--text2);
+    }
+    .legend-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+    }
+
+    /* ─── SECTION TITLE ─── */
+    .section-title {
+      display: flex; align-items: center; gap: 0.75rem;
+      margin: 2.2rem 0 1rem;
+      color: var(--text2);
+      font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+    }
+    .section-title::before, .section-title::after {
+      content: ''; flex: 1; height: 1px; background: var(--border);
+    }
+
+    /* ─── ARC SUMMARY CARDS ─── */
+    .arc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 0.8rem;
+      margin-bottom: 1rem;
+    }
+    .arc-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--purple);
+      border-radius: 8px;
+      padding: 1rem 1.1rem;
+    }
+    .arc-range {
+      font-size: 0.65rem; color: var(--cyan);
+      letter-spacing: 0.06em; margin-bottom: 0.4rem; font-weight: 600;
+    }
+    .arc-event {
+      font-size: 0.78rem; color: var(--text); line-height: 1.5; margin-bottom: 0.5rem;
+    }
+    .arc-rel {
+      font-size: 0.7rem; color: var(--text2); line-height: 1.45;
+      padding-top: 0.5rem; border-top: 1px solid var(--border);
+    }
+
+    /* ─── EPISODE TIMELINE ─── */
+    .timeline {
+      position: relative;
+      padding-left: 0;
+    }
+
+    /* table-style episode grid */
+    .ep-grid {
+      display: grid;
+      gap: 0.65rem;
+    }
+
+    .ep-card {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .ep-card:hover {
+      border-color: var(--border-hi);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.35);
+    }
+    .ep-card.has-adult { border-left: 3px solid var(--pink); }
+    .ep-card.has-event { border-left: 3px solid var(--cyan); }
+    .ep-card.has-crisis { border-left: 3px solid var(--red); }
+
+    .ep-num-col {
+      background: var(--panel2);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 0.8rem 0.4rem;
+      border-right: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .ep-num {
+      font-size: 1.1rem; font-weight: 700;
+      color: var(--text); letter-spacing: 0.02em;
+      line-height: 1;
+    }
+    .ep-num-label {
+      font-size: 0.55rem; color: var(--text3);
+      letter-spacing: 0.08em; text-transform: uppercase;
+      margin-top: 0.2rem;
+    }
+
+    .ep-body {
+      padding: 0.8rem 1rem;
+    }
+    .ep-meta {
+      display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 0.5rem;
+      align-items: center;
+    }
+    .ep-date {
+      font-size: 0.67rem; color: var(--text3);
+      letter-spacing: 0.04em;
+    }
+    .ep-loc {
+      font-size: 0.67rem; color: var(--text2);
+    }
+    .ep-loc::before { content: '📍 '; }
+    .ep-summary {
+      font-size: 0.8rem; color: var(--text); line-height: 1.55; margin-bottom: 0.5rem;
+    }
+    .ep-footer {
+      display: flex; gap: 0.35rem; flex-wrap: wrap; align-items: center;
+    }
+
+    /* character chips */
+    .char-chip {
+      padding: 0.12rem 0.45rem;
+      border-radius: 20px;
+      font-size: 0.62rem; font-weight: 500;
+      border: 1px solid;
+    }
+    .cc-sian   { border-color: var(--c-sian);   color: var(--c-sian);   background: rgba(144,96,208,0.1); }
+    .cc-soyu   { border-color: var(--c-soyu);   color: var(--c-soyu);   background: rgba(192,80,168,0.1); }
+    .cc-haeun  { border-color: var(--c-haeun);  color: var(--c-haeun);  background: rgba(64,144,192,0.1); }
+    .cc-seojin { border-color: var(--c-seojin); color: var(--c-seojin); background: rgba(80,176,144,0.1); }
+    .cc-daon   { border-color: var(--c-daon);   color: var(--c-daon);   background: rgba(192,160,48,0.1); }
+
+    /* event badges */
+    .badge {
+      padding: 0.12rem 0.45rem;
+      border-radius: 3px;
+      font-size: 0.62rem; font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .b-adult  { background: rgba(192,80,168,0.15); color: #e060c0; border: 1px solid rgba(192,80,168,0.3); }
+    .b-turn   { background: rgba(64,176,192,0.12); color: #40c0d8; border: 1px solid rgba(64,176,192,0.3); }
+    .b-mild   { background: rgba(112,64,208,0.12); color: #9060e0; border: 1px solid rgba(112,64,208,0.3); }
+    .b-crisis { background: rgba(192,48,64,0.15);  color: #e04060; border: 1px solid rgba(192,48,64,0.3); }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <div class="nav-bar">
+    <a href="관계망.html">관계망</a>
+    <a href="연대기.html" class="active">연대기</a>
+  </div>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <h1>에피소드 연대기</h1>
+    <p>다시 만나는 관계들 · 1차 루프 · 2013~2014</p>
+  </div>
+
+  <!-- LEGEND -->
+  <div class="char-legend">
+    <div class="legend-item"><div class="legend-dot" style="background:var(--c-sian)"></div>김시안</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--c-soyu)"></div>임소율</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--c-haeun)"></div>이하은</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--c-seojin)"></div>한서진</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--c-daon)"></div>정다온</div>
+    <div style="flex:1"></div>
+    <div class="legend-item" style="border-color:rgba(192,80,168,0.4)"><span style="color:var(--pink);font-weight:700">성</span>성인씬</div>
+    <div class="legend-item" style="border-color:rgba(64,176,192,0.4)"><span style="color:var(--cyan);font-weight:700">전</span>관계 전환</div>
+    <div class="legend-item" style="border-color:rgba(112,64,208,0.4)"><span style="color:#9060e0;font-weight:700">변</span>약한 변화</div>
+    <div class="legend-item" style="border-color:rgba(192,48,64,0.4)"><span style="color:var(--red);font-weight:700">위</span>중대한 위기</div>
+  </div>
+
+  <!-- ARC SUMMARY -->
+  <div class="section-title">스토리 아크 요약 (ep.001~050)</div>
+  <div class="arc-grid">
+    <div class="arc-card">
+      <div class="arc-range">EP.001 ~ 020</div>
+      <div class="arc-event">38세의 기억을 가진 시안이 2013년 25살로 귀환하고 임소율과 관계를 쌓음</div>
+      <div class="arc-rel">ep.020 소율 메인 진입, 호칭 오빠로 변경</div>
+    </div>
+    <div class="arc-card">
+      <div class="arc-range">EP.013 ~ 030</div>
+      <div class="arc-event">이하은과 만나 소율의 존재를 숨기지 않은 채 두 관계를 이어 감</div>
+      <div class="arc-rel">ep.030 소율·하은 첫 직접 대면과 공존 수용</div>
+    </div>
+    <div class="arc-card">
+      <div class="arc-range">EP.031 ~ 040</div>
+      <div class="arc-event">두 사람의 공동 일상과 소율의 부산 공백을 거쳐 하은의 중심 역할을 검증</div>
+      <div class="arc-rel">ep.040 하은 메인 승격, 공동 메인 체제 확정</div>
+    </div>
+    <div class="arc-card">
+      <div class="arc-range">EP.036 ~ 045</div>
+      <div class="arc-event">와인바 매니저 한서진 등장, 독립 공간 목표와 가족 압박 노출</div>
+      <div class="arc-rel">ep.045 서진이 복수 관계를 알고도 서브로 진입</div>
+    </div>
+    <div class="arc-card">
+      <div class="arc-range">EP.046 ~ 050</div>
+      <div class="arc-event">서진이 소율·하은과 감정 규칙과 실무 역할을 만들고 팝업 와인바를 흑자로 마침</div>
+      <div class="arc-rel">ep.050 서진 호칭 오빠로 변경, 세 여성의 협업 구조 형성</div>
+    </div>
+  </div>
+
+  <!-- EPISODE TIMELINE -->
+  <div class="section-title">에피소드 상세 (ep.051~065)</div>
+  <div class="ep-grid">
+
+    <div class="ep-card">
+      <div class="ep-num-col">
+        <div class="ep-num">051</div>
+        <div class="ep-num-label">EP</div>
+      </div>
+      <div class="ep-body">
+        <div class="ep-meta">
+          <span class="ep-date">2014 초봄</span>
+          <span class="ep-loc">종로 빈 상가</span>
+        </div>
+        <div class="ep-summary">서진이 하은과 함께 정식 공간 후보를 검토하고, 아버지의 압박 전화 속에서도 계약 결심을 굳힌다</div>
+        <div class="ep-footer">
+          <span class="char-chip cc-sian">김시안</span>
+          <span class="char-chip cc-seojin">한서진</span>
+          <span class="char-chip cc-haeun">이하은</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ep-card has-event">
+      <div class="ep-num-col">
+        <div class="ep-num">052</div>
+        <div class="ep-num-label">EP</div>
+      </div>
+      <div class="ep-body">
+        <div class="ep-meta">
+          <span class="ep-date">2014 초봄</span>
+          <span class="ep-loc">대학 캠퍼스 · 서대문구 골목</span>
+        </div>
+        <div class="ep-summary">소율이 개강과 오픈 준비를 앞두고 불안을 직접 말하는 방식으로 관계 규칙을 다시 다잡는다</div>
+        <div class="ep-footer">
+          <span class="char-chip cc-sian">김시안</span>
+          <span class="char-chip cc-soyu">임소율</span>
+          <span class="badge b-mild">변화</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ep-card has-adult has-event">
+      <div class="ep-num-col">
+        <div class="ep-num">053</div>
+        <div class="ep-num-label">EP</div>
+      </div>
+      <div class="ep-body">
+        <div class="ep-meta">
+          <span class="ep-date">2014 초봄</span>
+          <span class="ep-loc">이하은 자취방 겸 작업실</span>
+        </div>
+        <div class="ep-summary">하은이 서진 가게의 로고를 완성하며 조력자가 아닌 중심 멤버로서 자기 욕구를 직접 드러낸다</div>
+        <div class="ep-footer">
+          <span class="char-chip cc-sian">김시안</span>
+          <span class="char-chip cc-haeun">이하은</span>
+          <span class="badge b-adult">성인씬</span>
+          <span class="badge b-turn">관계 전환</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ep-card">
+      <div class="ep-num-col">
+        <div class="ep-num">054</div>
+        <div class="ep-num-label">EP</div>
+      </div>
+      <div class="ep-body">
+        <div class="ep-meta">
+          <span class="ep-date">2014 초봄</span>
+          <span class="ep-loc">종로 계약 예정 상가</span>
+        </div>
+        <div class="ep-summary">네 사람이 오픈 리허설을 하며 역할을 실제 운영 체계로 맞추고, 서진의 메인 진입이 눈앞에 왔음을 확인한다</div>
+        <div class="ep-footer">
+          <span class="char-chip cc-sian">김시안</span>
+          <span class="char-chip cc-soyu">임소율</span>
+          <span class="char-chip cc-haeun">이하은</span>
+          <span class="char-chip cc-seojin">한서진</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ep-card has-adult has-crisis">
+      <div class="ep-num-col">
+        <div class="ep-num">055</div>
+        <div class="ep-num-label">EP</div>
+      </div>
+      <div class="ep-body">
+        <div class="ep-meta">
+          <span class="ep-date">2014 초봄</span>
+          <span class="ep-loc">종로 부동산 · 빈 상가</span>
+        </div>
+        <div class="ep-summary">서진이 아버지의 공개 반대 앞에서 정식 계약을 끝내고, 밤에는 시안과 함께 자기 자리를 확정한다</div>
+        <div class="ep-footer">
+          <span class="char-chip cc-sian">김시안</span>
+          <span class="char-chip cc-soyu">임소율</span>
+          <span class="char-chip cc-haeun">이하은</span>
+          <span class="char-chip cc-seojin">한서진</span>
+          <span class="badge b-adult">성인씬</span>
+          <span class="badge b-crisis">중대한 위기</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ep-card has-event">
+      <div class="ep-num-col">
+        <div class="ep-num">056</div>
+        <div class="ep-num-label">EP</div>
+      </div>
+      <div class="ep-body">
+        <div class="ep-meta">
+          <span class="ep-date">2014 초봄</span>
+          <span class="ep-loc">종로 와인바</span>
+        </div>
+        <div class="ep-summary">정식 오픈 첫날, 소율은 역할로만 남을까 두려운 마음을 털어놓고 다온은 취재 명목으로 공간 안에 첫발을 들인다</div>
+        <div class="ep-footer">
+          <span class="char-chip cc-sian">김시안</span>
+          <span class="char-chip cc-soyu">임소율</span>
+          <span class="char-chip cc-seojin">한서진</span>
+          <span class="char-chip cc-daon">정다온</span>
+          <span class="badge b-mild">변화</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ep-card has-event">
+      <div class="ep-num-col">
+        <div class="ep-num">057</div>
+        <div class="ep-num-label">EP</div>
+      </div>
+      <div class="ep-body">
+        <div class="ep-meta">
+          <span class="ep-date">2014 초봄</span>
+          <span class="ep-loc">대학 캠퍼스</span>
+        </div>
+        <div class="ep-summary">하은이 다온과 공간의 시각 언어를 두고 대화하고, 시안은 다온에게 손님 없는 시간의 진짜 모습을 보라고 초대한다</div>
+        <div class="ep-footer">
+          <span class="char-chip cc-sian">김시안</span>
+          <span class="char-chip cc-haeun">이하은</span>
+          <span class="char-chip cc-daon">정다온</span>
+          <span class="badge b-turn">관계 전환</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ep-card has-adult">
+      <div class="ep-num-col">
+        <div class="ep-num">058</div>
+        <div class="ep-num-label">EP</div>
+      </div>
+      <div class="ep-body">
+        <div class="ep-meta">
+          <span class="ep-date">2014 초봄</span>
+          <span class="ep-loc">종로 와인바 옥상 쉼터</span>
+        </div>
+        <div class="ep-summary">소율이 바빠질수록 뒤로 밀려나는 두려움을 숨기지 않고 말한 뒤, 시안과 함께 일상 안의 자기 자리를 다시 확인한다</div>
+        <div class="ep-footer">
+          <span class="char-chip cc-sian">김시안</span>
+          <span class="char-chip cc-soyu">임소율</span>
+          <span class="badge b-adult">성인씬</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ep-card has-event">
+      <div class="ep-num-col">
+        <div class="ep-num">059</div>
+        <div class="ep-num-label">EP</div>
+      </div>
+      <div class="ep-body">
+        <div class="ep-meta">
+          <span class="ep-date">2014 초봄</span>
+          <span class="ep-loc">종로 와인바 오픈 전</span>
+        </div>
+        <div class="ep-summary">다온이 선정적인 기사 부제를 막아 낸 교정본을 직접 들고 와 서진과 하은 앞에서 공간을 가볍게 쓰지 않겠다는 기준을 증명한다</div>
+        <div class="ep-footer">
+          <span class="char-chip cc-sian">김시안</span>
+          <span class="char-chip cc-haeun">이하은</span>
+          <span class="char-chip cc-seojin">한서진</span>
+          <span class="char-chip cc-daon">정다온</span>
+          <span class="badge b-mild">변화</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ep-card">
+      <div class="ep-num-col">
+        <div class="ep-num">060</div>
+        <div class="ep-num-label">EP</div>
+      </div>
+      <div class="ep-body">
+        <div class="ep-meta">
+          <span class="ep-date">2014 초봄</span>
+          <span class="ep-loc">마포 독립서점 · 종로 와인바</span>
+        </div>
+        <div class="ep-summary">다온이 지켜 낸 기사 결과물을 시안에게 먼저 보여 준 뒤 다시 가게를 찾아오며, 취재가 아닌 개인적 호기심으로 남을 가능성을 드러낸다</div>
+        <div class="ep-footer">
+          <span class="char-chip cc-sian">김시안</span>
+          <span class="char-chip cc-soyu">임소율</span>
+          <span class="char-chip cc-haeun">이하은</span>
+          <span class="char-chip cc-seojin">한서진</span>
+          <span class="char-chip cc-daon">정다온</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ep-card has-adult has-event">
+      <div class="ep-num-col">
+        <div class="ep-num">061</div>
+        <div class="ep-num-label">EP</div>
+      </div>
+      <div class="ep-body">
+        <div class="ep-meta">
+          <span class="ep-date">2014 초봄</span>
+          <span class="ep-loc">종로 와인바</span>
+        </div>
+        <div class="ep-summary">다온이 후속 기사 압박을 털어놓다가 시안과 취재자 바깥의 감정을 처음 확인하며, 애매한 관찰자 자리를 벗어나기 시작한다</div>
+        <div class="ep-footer">
+          <span class="char-chip cc-sian">김시안</span>
+          <span class="char-chip cc-daon">정다온</span>
+          <span class="badge b-adult">성인씬</span>
+          <span class="badge b-turn">관계 전환</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ep-card has-event">
+      <div class="ep-num-col">
+        <div class="ep-num">062</div>
+        <div class="ep-num-label">EP</div>
+      </div>
+      <div class="ep-body">
+        <div class="ep-meta">
+          <span class="ep-date">2014 초봄</span>
+          <span class="ep-loc">종로 와인바</span>
+        </div>
+        <div class="ep-summary">소율과 서진이 다온이 가져온 오프라인 제안을 함께 걸러 내며, 다온에게 애매한 중간지대 대신 공간 쪽에 서라는 기준을 분명히 건넨다</div>
+        <div class="ep-footer">
+          <span class="char-chip cc-sian">김시안</span>
+          <span class="char-chip cc-soyu">임소율</span>
+          <span class="char-chip cc-seojin">한서진</span>
+          <span class="char-chip cc-daon">정다온</span>
+          <span class="badge b-mild">변화</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ep-card has-event">
+      <div class="ep-num-col">
+        <div class="ep-num">063</div>
+        <div class="ep-num-label">EP</div>
+      </div>
+      <div class="ep-body">
+        <div class="ep-meta">
+          <span class="ep-date">2014 초봄</span>
+          <span class="ep-loc">이하은 작업실</span>
+        </div>
+        <div class="ep-summary">하은이 외부 시선과 내부 균형을 혼자 읽어내느라 지친 상태를 처음 직접 인정하고, 시안에게 중간에서 끊어 달라고 부탁한다</div>
+        <div class="ep-footer">
+          <span class="char-chip cc-sian">김시안</span>
+          <span class="char-chip cc-haeun">이하은</span>
+          <span class="badge b-mild">변화</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ep-card has-adult has-event">
+      <div class="ep-num-col">
+        <div class="ep-num">064</div>
+        <div class="ep-num-label">EP</div>
+      </div>
+      <div class="ep-body">
+        <div class="ep-meta">
+          <span class="ep-date">2014 초봄</span>
+          <span class="ep-loc">종로 와인바</span>
+        </div>
+        <div class="ep-summary">서진이 가족 전화와 통제 욕구로 지친 마음을 털어놓고, 시안에게 혼자 버티지 않겠다는 방식으로 다시 기대며 관계를 정리한다</div>
+        <div class="ep-footer">
+          <span class="char-chip cc-sian">김시안</span>
+          <span class="char-chip cc-seojin">한서진</span>
+          <span class="badge b-adult">성인씬</span>
+          <span class="badge b-mild">변화</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ep-card has-event">
+      <div class="ep-num-col">
+        <div class="ep-num">065</div>
+        <div class="ep-num-label">EP</div>
+      </div>
+      <div class="ep-body">
+        <div class="ep-meta">
+          <span class="ep-date">2014 초봄</span>
+          <span class="ep-loc">종로 와인바</span>
+        </div>
+        <div class="ep-summary">다온이 네 사람 앞에서 더는 애매한 취재자 자리에 머물지 않겠다고 밝히고, 기존 멤버들은 각자의 기준 안에서 그녀를 생활권 안으로 시험하기 시작한다</div>
+        <div class="ep-footer">
+          <span class="char-chip cc-sian">김시안</span>
+          <span class="char-chip cc-soyu">임소율</span>
+          <span class="char-chip cc-haeun">이하은</span>
+          <span class="char-chip cc-seojin">한서진</span>
+          <span class="char-chip cc-daon">정다온</span>
+          <span class="badge b-turn">관계 전환</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

@@ -135,7 +135,7 @@ def build_radar_chart(stats):
         )
 
     return (
-        f'<svg class="emotion-chart" viewBox="-50 -15 400 330" xmlns="http://www.w3.org/2000/svg">'
+        f'<svg class="emotion-chart" viewBox="-100 -25 500 360" xmlns="http://www.w3.org/2000/svg">'
         f'{grids}{axes}{data_poly}{dots}{"".join(labels)}</svg>'
     )
 
@@ -303,7 +303,7 @@ PROFILE_CSS = """
     strong { color: #c8a8b8; }
     .back { display: inline-block; margin-bottom: 2rem; color: #c9a0b8; text-decoration: none; font-size: 1.33rem; /* 0.88rem -> 1.06rem -> 1.33rem */ }
     .back:hover { text-decoration: underline; }
-    .emotion-chart { width: 90%; max-width: 300px; display: block; margin: 0 auto; }
+    .emotion-chart { width: 90%; max-width: 380px; display: block; margin: 0 auto; }
     .status-block {
       text-align: center;
       margin: 1.4rem 0 0.4rem;
@@ -331,7 +331,7 @@ PROFILE_CSS = """
     .stage.locked   .stage-dot  { color: #2e2020; }
     .stage.locked   .stage-num  { color: #333; }
     .stage.locked   .stage-label{ color: #2a2a2a; }
-    @media (max-width: 560px) { .portrait { width: 100%; } .emotion-chart { max-width: 260px; } }
+    @media (max-width: 560px) { .portrait { width: 100%; } .emotion-chart { max-width: 320px; } }
 """
 
 def build_profile(name):

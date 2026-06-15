@@ -124,10 +124,12 @@ def convert_body(text):
     text = re.sub(r'<time>([\s\S]*?)</time>', lambda m: f'<div class="time">{m.group(1).strip()}</div>', text)
     # <thought> 태그
     text = re.sub(r'<thought>([\s\S]*?)</thought>', lambda m: f'<p class="thought">{m.group(1).strip()}</p>', text)
+    # <progress> 태그 제거
+    text = re.sub(r'<progress>[^<]*</progress>', '', text)
     # --- 구분선
     text = re.sub(r'^---$', '<div class="divider">* * *</div>', text, flags=re.MULTILINE)
-    # # 제목 제거 (마크다운 h1)
-    text = re.sub(r'^# .+$', '', text, flags=re.MULTILINE)
+    # # 제목 제거 (마크다운 h1, h2)
+    text = re.sub(r'^#{1,2} .+$', '', text, flags=re.MULTILINE)
     # 일반 텍스트 줄 → <p>
     lines = text.split('\n')
     result = []
@@ -163,9 +165,11 @@ for arg in args:
     m = re.search(r'ep\.(\d+)(_a)?', base_name)
     ep_num = int(m.group(1)) if m else 0
     prelude_image = find_prelude_image(base_dir, ep_num)
-    if '_a' in base_name and prelude_image:
+    if prelude_image:
         caption_text = extract_scene_caption(raw)
         raw = replace_adult_scene_block(raw, build_illustration_html(prelude_image, ep_num, output_file, caption_text))
+    else:
+        raw = replace_adult_scene_block(raw, '')
 
     prev_name = resolve_episode_html_name(base_dir, ep_num - 1) if ep_num > 1 else None
     next_name = resolve_episode_html_name(base_dir, ep_num + 1)
