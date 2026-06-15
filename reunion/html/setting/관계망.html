@@ -3,132 +3,397 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>다시 만나는 관계들 — 관계망</title>
+  <title>관계망 대시보드 — 다시 만나는 관계들</title>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      background: #1a1a1a;
-      color: #e8e0d0;
-      font-family: 'Nanum Myeongjo', Georgia, serif;
-      font-size: 1.21rem;
-      line-height: 1.85;
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 3rem 1.5rem 5rem;
-      word-break: keep-all;
+    :root {
+      --bg:#08061a; --panel:#110f28; --panel2:#1a1840;
+      --border:#2a2260; --border-hi:#5040a0;
+      --pink:#c050a8; --purple:#7040d0; --blue:#4080d0; --cyan:#40b0c0;
+      --green:#30a860; --orange:#c07828; --red:#c03040;
+      --text:#e0d8f8; --text2:#9080b8; --text3:#5040a0;
+      --c-sian:#9060d0; --c-soyu:#c050a8; --c-haeun:#4090c0;
+      --c-seojin:#50b090; --c-daon:#c0a030;
     }
-    h1 { font-size: 1.88rem; color: #c9a0b8; margin-bottom: 2rem; letter-spacing: 0.08em; }
-    h2 { font-size: 1.31rem; color: #c9a0b8; margin: 2.2rem 0 0.7rem; padding-bottom: 0.3rem; border-bottom: 1px solid #2a2a2a; letter-spacing: 0.05em; }
-    h3 { font-size: 1.19rem; color: #b08098; margin: 1.4rem 0 0.4rem; }
-    p { margin: 0.5rem 0; }
-    ul { padding-left: 1.4rem; margin: 0.4rem 0; }
-    li { margin: 0.25rem 0; }
-    hr { border: none; border-top: 1px solid #2a2a2a; margin: 1.8rem 0; }
-    strong { color: #c8a8b8; }
-    em { color: #a0a0a0; font-style: italic; }
-    blockquote { border-left: 3px solid #3a2030; padding-left: 1rem; color: #a0a0a0; margin: 0.8rem 0; }
-    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1rem 0; }
-    table { width: max-content; min-width: 100%; border-collapse: collapse; font-size: 1.13rem; }
-    th { background: #222; color: #c9a0b8; padding: 0.5rem 0.75rem; text-align: left; border-bottom: 1px solid #3a2030; white-space: nowrap; }
-    td { padding: 0.45rem 0.75rem; border-bottom: 1px solid #252525; vertical-align: top; }
-    tr:hover td { background: #1f1f1f; }
-    code { background: #222; color: #c9a0b8; padding: 0.1rem 0.35rem; border-radius: 2px; font-size: 1.1rem; }
-    .back { display: inline-block; margin-bottom: 2rem; color: #c9a0b8; text-decoration: none; font-size: 1.1rem; }
-    .back:hover { text-decoration: underline; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body {
+      background:var(--bg); color:var(--text);
+      font-family:'Noto Sans KR',-apple-system,'Helvetica Neue',sans-serif;
+      min-height:100vh; padding:2rem 1.5rem 5rem;
+      max-width:1080px; margin:0 auto;
+    }
+    .nav-bar { display:flex; gap:0.5rem; margin-bottom:1.5rem; }
+    .nav-bar a {
+      padding:0.3rem 0.9rem; border-radius:4px; font-size:0.75rem;
+      text-decoration:none; border:1px solid var(--border); color:var(--text2);
+      transition:all 0.2s;
+    }
+    .nav-bar a:hover { border-color:var(--border-hi); color:var(--text); }
+    .nav-bar a.active { border-color:var(--pink); color:var(--pink); background:rgba(192,80,168,0.1); }
+    .section-title {
+      display:flex; align-items:center; gap:0.75rem;
+      margin:2.2rem 0 1rem; color:var(--text2);
+      font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase;
+    }
+    .section-title::before,.section-title::after { content:''; flex:1; height:1px; background:var(--border); }
+
+    .game-header {
+      display:flex; align-items:center; gap:1.5rem;
+      padding:1.5rem 1.75rem; background:var(--panel);
+      border:1px solid var(--border); border-radius:10px; margin-bottom:2rem;
+      position:relative; overflow:hidden;
+    }
+    .game-header::before {
+      content:''; position:absolute; top:0;left:0;right:0;bottom:0;
+      background:linear-gradient(135deg,rgba(112,64,208,0.15) 0%,transparent 55%);
+      pointer-events:none;
+    }
+    .player-avatar {
+      width:68px; height:68px; border-radius:50%;
+      background:linear-gradient(135deg,var(--purple),var(--pink));
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.5rem; font-weight:700; color:white;
+      box-shadow:0 0 20px rgba(192,80,168,0.35); flex-shrink:0;
+      border:2px solid rgba(192,80,168,0.4);
+    }
+    .player-info h1 { font-size:1.5rem; font-weight:700; color:var(--text); letter-spacing:0.06em; margin-bottom:0.5rem; }
+    .player-tags { display:flex; gap:0.4rem; flex-wrap:wrap; }
+    .tag { padding:0.2rem 0.65rem; border-radius:20px; font-size:0.72rem; border:1px solid; letter-spacing:0.03em; }
+    .tag-loop { border-color:var(--cyan); color:var(--cyan); background:rgba(64,176,192,0.08); }
+    .tag-year { border-color:var(--purple); color:#a080e8; background:rgba(112,64,208,0.08); }
+    .tag-loc  { border-color:var(--text3); color:var(--text2); background:rgba(80,64,160,0.08); }
+    .harem-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:0.9rem; }
+    .char-card {
+      background:var(--panel); border:1px solid var(--border); border-radius:10px; padding:1.2rem;
+      position:relative; overflow:hidden;
+      transition:border-color 0.2s,transform 0.15s,box-shadow 0.2s;
+    }
+    .char-card:hover { border-color:var(--border-hi); transform:translateY(-2px); box-shadow:0 8px 24px rgba(0,0,0,0.4); }
+    .char-card.main { border-top:2px solid var(--pink); }
+    .char-card.sub  { border-top:2px solid var(--blue); }
+    .char-card::before { content:''; position:absolute; top:0; right:0; width:100px; height:100px; border-radius:50%; pointer-events:none; opacity:0.06; }
+    .char-card.main::before { background:radial-gradient(var(--pink),transparent); }
+    .char-card.sub::before  { background:radial-gradient(var(--blue),transparent); }
+    .char-card-header { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.9rem; }
+    .char-avatar { width:46px; height:46px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.82rem; font-weight:700; color:white; flex-shrink:0; }
+    .char-avatar.main { background:linear-gradient(135deg,#802080,#c050a8); box-shadow:0 0 10px rgba(192,80,168,0.3); }
+    .char-avatar.sub  { background:linear-gradient(135deg,#204080,#4080d0); box-shadow:0 0 10px rgba(64,128,208,0.3); }
+    .char-badge { padding:0.18rem 0.55rem; border-radius:3px; font-size:0.65rem; font-weight:700; letter-spacing:0.04em; }
+    .badge-main { background:linear-gradient(135deg,#a030a0,#c050a8); color:white; }
+    .badge-sub  { background:linear-gradient(135deg,#204880,#4080c0); color:white; }
+    .char-name { font-size:1.05rem; font-weight:700; color:var(--text); margin-bottom:0.8rem; }
+    .stat-row { margin-bottom:0.55rem; }
+    .stat-label { display:flex; justify-content:space-between; font-size:0.67rem; color:var(--text3); letter-spacing:0.05em; margin-bottom:0.25rem; }
+    .stat-label span { color:var(--text2); font-weight:500; }
+    .stat-bar { height:5px; background:rgba(45,36,96,0.8); border-radius:3px; overflow:hidden; }
+    .stat-bar-fill { height:100%; border-radius:3px; }
+    .fill-main { background:linear-gradient(90deg,#7030c0,#c050a8); }
+    .fill-sub  { background:linear-gradient(90deg,#2050a0,#4080d0); }
+    .stage-label { display:flex; justify-content:space-between; font-size:0.67rem; color:var(--text3); letter-spacing:0.05em; margin-bottom:0.3rem; }
+    .stage-label span { color:var(--text2); font-weight:500; }
+    .stage-orbs { display:flex; gap:0.35rem; }
+    .orb { width:9px; height:9px; border-radius:50%; background:rgba(45,36,96,0.8); border:1px solid var(--border-hi); }
+    .orb.filled-main { background:var(--pink); box-shadow:0 0 6px rgba(192,80,168,0.6); border-color:var(--pink); }
+    .orb.filled-sub  { background:var(--blue); box-shadow:0 0 6px rgba(64,128,208,0.6); border-color:var(--blue); }
+    .char-status { margin-top:0.8rem; font-size:0.75rem; color:var(--text2); line-height:1.55; padding-top:0.75rem; border-top:1px solid var(--border); }
+    .rel-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:0.8rem; }
+    .rel-card { background:var(--panel); border:1px solid var(--border); border-radius:8px; padding:1rem 1.2rem; transition:border-color 0.2s; }
+    .rel-card:hover { border-color:var(--border-hi); }
+    .rel-pair-header { display:flex; align-items:center; gap:0.5rem; margin-bottom:0.7rem; }
+    .rel-avatar-sm { width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.6rem; font-weight:700; color:white; flex-shrink:0; }
+    .rel-vs { font-size:0.65rem; color:var(--text3); }
+    .rel-pair-name { font-size:0.85rem; font-weight:600; color:var(--text); }
+    .rel-section { margin-bottom:0.45rem; }
+    .rel-section-label { font-size:0.62rem; color:var(--text3); letter-spacing:0.06em; text-transform:uppercase; margin-bottom:0.2rem; }
+    .rel-section-text { font-size:0.75rem; color:var(--text2); line-height:1.55; }
+    .rel-honorifics { display:flex; gap:0.4rem; margin-top:0.5rem; flex-wrap:wrap; }
+    .honorific { font-size:0.68rem; padding:0.12rem 0.5rem; background:rgba(42,34,96,0.6); border:1px solid var(--border); border-radius:3px; color:var(--text2); }
+    .honorific b { color:var(--text); }
+    .quest-list { display:grid; gap:0.55rem; }
+    .quest-item { display:grid; grid-template-columns:32px 1fr auto; gap:0.8rem; align-items:start; background:var(--panel); border:1px solid var(--border); border-radius:6px; padding:0.7rem 1rem; transition:border-color 0.2s; }
+    .quest-item:hover { border-color:var(--border-hi); }
+    .quest-icon { width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.75rem; flex-shrink:0; margin-top:1px; }
+    .qi-done   { background:rgba(40,160,80,0.15);  border:1px solid rgba(48,168,96,0.5); }
+    .qi-active { background:rgba(192,120,40,0.15); border:1px solid rgba(192,120,40,0.5); }
+    .quest-text { font-size:0.78rem; color:var(--text); line-height:1.5; margin-bottom:0.25rem; }
+    .quest-ep { font-size:0.67rem; color:var(--text3); }
+    .quest-ep span { color:var(--text2); }
+    .qs-badge { font-size:0.67rem; padding:0.15rem 0.5rem; border-radius:3px; white-space:nowrap; align-self:start; font-weight:500; }
+    .qs-done   { background:rgba(40,160,80,0.12); color:#40c060; border:1px solid rgba(48,168,96,0.3); }
+    .qs-active { background:rgba(192,120,40,0.12); color:#e09040; border:1px solid rgba(200,120,40,0.3); }
 </style>
 </head>
 <body>
-  <a class="back" href="../index.html">← 메인</a>
-  <h2>김시안 현재 상태</h2>
-<ul>
-<li>루프: 1차</li>
-<li>연도: 2014년 3월 하순</li>
-<li>나이: 26세 (연나이)</li>
-<li>거주지: 서울 서대문구 자취방 (대학 4학년)</li>
-</ul>
-
-<hr>
-
-<h2>하렘 현황</h2>
-
-<div class="table-wrap"><table>
-<tr><th>이름</th><th>구분</th><th>친밀도</th><th>관계 진도</th><th>현재 상태</th></tr>
-<tbody>
-<tr><td>임소율</td><td>메인</td><td>깊은</td><td>3단계</td><td>활성 — 새 변수 앞에서도 자기 불안과 자리를 직접 말하며, 애매한 거리보다 분명한 합의를 더 선호하기 시작함</td></tr>
-<tr><td>이하은</td><td>메인</td><td>깊은</td><td>3단계</td><td>활성 — 외부 시선의 결을 가장 먼저 읽어내되, 이제는 버거운 부담을 혼자 떠안지 않고 자기 기준을 먼저 말하려 함</td></tr>
-<tr><td>한서진</td><td>메인</td><td>깊은</td><td>3단계</td><td>활성 — 운영과 외부 노출의 기준을 붙잡는 동시에, 버거운 순간에는 시안에게 먼저 기대는 쪽으로 조금 더 이동함</td></tr>
-<tr><td>정다온</td><td>서브 후보</td><td>보통</td><td>2단계</td><td>활성 — 취재자의 선을 넘는 첫 확인 뒤에도 물러서지 않고, 이 생활권 안에 솔직한 사람으로 남고 싶다고 직접 밝힘</td></tr>
-</tbody></table></div>
-
-<hr>
-
-<h2>멤버 간 관계망</h2>
-
-<h3>임소율 × 이하은</h3>
-<ul>
-<li>현재: 서로 다른 강점을 유지한 채 오픈 이후의 외부 시선까지 함께 감당하는 안정적 공존</li>
-<li>최근 변화: 소율은 운영 리듬 안에서 자기 자리를 더 직접 요구했고, 하은은 바깥 기록자의 시선이 공간 안으로 들어오는 방식을 먼저 읽어 냄</li>
-<li>예정 분기: 새 변수 정다온이 반복적으로 드나들 때도 지금의 조율 감각이 유지되는지 확인</li>
-<li>호칭: 소율 → 하은 <code>하은아</code> / 하은 → 소율 <code>소율 언니</code> (동갑이지만 소율 생일 빠름)</li>
-</ul>
-
-<h3>임소율 × 한서진</h3>
-<ul>
-<li>현재: 운영 현장에서 서로 다른 긴장을 나눠 맡는 같은 편</li>
-<li>최근 변화: 소율은 역할에만 묶이지 않겠다는 요구를 분명히 했고, 서진은 그런 소율의 자리를 실무 안에서 자연스럽게 비워 두기 시작함</li>
-<li>예정 분기: 오픈 이후 바쁜 일상 속에서도 두 사람이 경쟁보다 보완 쪽으로 계속 정렬되는지 확인</li>
-<li>호칭: 서진 → 소율 <code>소율아</code> / 소율 → 서진 <code>서진 언니</code></li>
-</ul>
-
-<h3>이하은 × 한서진</h3>
-<ul>
-<li>현재: 공간의 기준과 표현 방식을 함께 지키는 실무 동맹</li>
-<li>최근 변화: 하은은 다온의 취재 시선을 빠르게 읽어 냈고, 서진은 기사 제목까지 직접 걸러 내며 외부 노출의 기준선을 세움</li>
-<li>예정 분기: 가게가 더 알려질수록 두 사람이 어디까지 공개하고 어디서부터 닫을지 기준을 맞춰 가는지 확인</li>
-<li>호칭: 서진 → 하은 <code>하은아</code> / 하은 → 서진 <code>서진 언니</code></li>
-</ul>
-
-<h3>임소율 × 정다온</h3>
-<ul>
-<li>현재: 경계와 호의가 동시에 놓인 첫 합의 단계</li>
-<li>최근 변화: 소율은 다온 앞에서 자기 자리를 먼저 밝히며 애매한 거리보다 솔직한 합의를 택했고, 다온은 그 말을 피하지 않고 받아들였다</li>
-<li>예정 분기: 다온이 시안을 향한 호기심을 더 분명히 드러낼수록 소율이 불안을 얼마나 건강하게 표면화하는지 확인</li>
-<li>호칭: 소율 → 다온 <code>다온 씨</code> / 다온 → 소율 <code>소율 씨</code></li>
-</ul>
-
-<h3>이하은 × 정다온</h3>
-<ul>
-<li>현재: 서로의 기준을 읽고 검증하는 조용한 긴장 관계</li>
-<li>최근 변화: 하은은 다온이 공간을 함부로 소비하지 않는다는 점을 인정했고, 다온 역시 하은의 시각 기준을 글 안에 반영하기 시작함</li>
-<li>예정 분기: 하은이 다온을 읽는 역할에만 머무르지 않고, 자기 부담을 적절히 나누는지 확인</li>
-<li>호칭: 하은 → 다온 <code>다온 씨</code> / 다온 → 하은 <code>하은 씨</code></li>
-</ul>
-
-<h3>한서진 × 정다온</h3>
-<ul>
-<li>현재: 시험과 승인 사이에 선 실무적 신뢰 형성 단계</li>
-<li>최근 변화: 서진은 다온에게 애매한 중간지대에 서지 말라고 못 박았고, 다온은 공간 쪽에 서겠다는 방향을 행동으로 증명하기 시작했다</li>
-<li>예정 분기: 외부 제안이 커질수록 두 사람이 공개 기준과 홍보 방식에서 얼마나 같은 편을 유지하는지 확인</li>
-<li>호칭: 서진 → 다온 <code>다온 씨</code> / 다온 → 서진 <code>서진 씨</code></li>
-</ul>
-
-<hr>
-
-<h2>복선 트래커</h2>
-
-<div class="table-wrap"><table>
-<tr><th>복선 내용</th><th>심은 화수</th><th>예정 회수</th><th>상태</th></tr>
-<tbody>
-<tr><td>임태준의 가족 시선과 소율의 선택</td><td>ep.035</td><td>ep.044~055</td><td>진행 — 소율은 흔들리지 않았지만 가족선 후속 반응은 아직 남아 있음</td></tr>
-<tr><td>한서진의 독립 공간 목표와 가족 압박</td><td>ep.036</td><td>ep.049~055</td><td>완료 — 아버지의 공개 반대 앞에서 계약 체결까지 마침</td></tr>
-<tr><td>한서진의 실질 진입 이후 세 사람의 균형</td><td>ep.045</td><td>ep.046~050</td><td>완료 — 직접 합의와 역할 분담으로 공동 운영 구조 형성</td></tr>
-<tr><td>한서진 호칭 변화와 관계 내 자리 확정</td><td>ep.046</td><td>ep.050</td><td>완료 — 시안 씨→오빠, 서진 씨→서진아</td></tr>
-<tr><td>팝업 이후 정식 공간 계약</td><td>ep.049</td><td>ep.051~055</td><td>완료 — 정식 계약 체결 및 메인 승격 검증 완료</td></tr>
-<tr><td>정식 공간 오픈 이후 네 사람의 생활권 재편</td><td>ep.055</td><td>ep.056~065</td><td>완료 — 역할 분담과 감정 조율의 방식이 한 차례 재정렬되며 새 사람을 받아들일 기준선까지 세워짐</td></tr>
-<tr><td>외부 기록자 정다온의 유입과 기사 노출</td><td>ep.056</td><td>ep.057~068</td><td>진행 — 취재자의 선을 넘는 첫 확인 이후, 다온이 생활권 안에 어떤 자리로 잔류할지가 다음 분기로 넘어감</td></tr>
-<tr><td>이하은의 과부하와 기준 분담 문제</td><td>ep.063</td><td>ep.066~072</td><td>진행 — 외부 시선과 내부 운영을 가장 먼저 읽는 하은의 부담을 누가 어떻게 나눌지 아직 남아 있음</td></tr>
-<tr><td>정다온의 생활권 정착과 서브 후보 확정 여부</td><td>ep.065</td><td>ep.066~075</td><td>진행 — 솔직한 사람으로 남겠다는 선언 이후, 실제로 반복적 선택과 공존 합의를 통과할 수 있는지 검증 필요</td></tr>
-</tbody></table></div>
-
+  <div class="nav-bar">
+    <a href="관계망.html" class="active">관계망</a>
+    <a href="연대기.html">연대기</a>
+    <a href="../index.html">← 메인</a>
+  </div>
+  
+  <div class="game-header">
+    <div class="player-avatar">시안</div>
+    <div class="player-info">
+      <h1>김시안</h1>
+      <div class="player-tags">
+        <span class="tag tag-loop">1차</span>
+        <span class="tag tag-year">2014년 4월 상순</span>
+        <span class="tag tag-loc">26세 (연나이) · 서울 서대문구 자취방 (대학 4학년)</span>
+      </div>
+    </div>
+  </div>
+  <div class="section-title"><span>◈</span> 하렘 현황</div>
+  <div class="harem-grid">
+    <div class="char-card main">
+      <div class="char-card-header">
+        <div class="char-avatar main">소율</div>
+        <span class="char-badge badge-main">메인</span>
+      </div>
+      <div class="char-name">임소율</div>
+      <div class="stat-row">
+        <div class="stat-label">친밀도 <span>깊은</span></div>
+        <div class="stat-bar"><div class="stat-bar-fill fill-main" style="width:80%"></div></div>
+      </div>
+      <div class="stat-row">
+        <div class="stage-label">관계 진도 <span>3단계</span></div>
+        <div class="stage-orbs"><div class="orb filled-main"></div><div class="orb filled-main"></div><div class="orb filled-main"></div><div class="orb "></div><div class="orb "></div></div>
+      </div>
+      <div class="char-status">다온과 직접 마주 앉아 자기 불안과 욕심을 숨기지 않겠다고 선을 긋고, 이해하는 사람으로만 남지 않겠다는 기준을 세움</div>
+    </div>
+    <div class="char-card main">
+      <div class="char-card-header">
+        <div class="char-avatar main">하은</div>
+        <span class="char-badge badge-main">메인</span>
+      </div>
+      <div class="char-name">이하은</div>
+      <div class="stat-row">
+        <div class="stat-label">친밀도 <span>깊은</span></div>
+        <div class="stat-bar"><div class="stat-bar-fill fill-main" style="width:80%"></div></div>
+      </div>
+      <div class="stat-row">
+        <div class="stage-label">관계 진도 <span>3단계</span></div>
+        <div class="stage-orbs"><div class="orb filled-main"></div><div class="orb filled-main"></div><div class="orb filled-main"></div><div class="orb "></div><div class="orb "></div></div>
+      </div>
+      <div class="char-status">사진 셀렉과 기사 언어를 실제로 나눠 맡기며 부담 분담을 시작했고, 버티기보다 먼저 요구하는 쪽으로 한 단계 더 이동함</div>
+    </div>
+    <div class="char-card main">
+      <div class="char-card-header">
+        <div class="char-avatar main">서진</div>
+        <span class="char-badge badge-main">메인</span>
+      </div>
+      <div class="char-name">한서진</div>
+      <div class="stat-row">
+        <div class="stat-label">친밀도 <span>깊은</span></div>
+        <div class="stat-bar"><div class="stat-bar-fill fill-main" style="width:80%"></div></div>
+      </div>
+      <div class="stat-row">
+        <div class="stage-label">관계 진도 <span>3단계</span></div>
+        <div class="stage-orbs"><div class="orb filled-main"></div><div class="orb filled-main"></div><div class="orb filled-main"></div><div class="orb "></div><div class="orb "></div></div>
+      </div>
+      <div class="char-status">외부 홍보 제안과 가족 압박이 다시 들어왔을 때 혼자 처리하지 않고 네 사람의 기준 안으로 끌어들여 대응함</div>
+    </div>
+    <div class="char-card sub">
+      <div class="char-card-header">
+        <div class="char-avatar sub">다온</div>
+        <span class="char-badge badge-sub">서브 후보</span>
+      </div>
+      <div class="char-name">정다온</div>
+      <div class="stat-row">
+        <div class="stat-label">친밀도 <span>깊어지는 중</span></div>
+        <div class="stat-bar"><div class="stat-bar-fill fill-sub" style="width:50%"></div></div>
+      </div>
+      <div class="stat-row">
+        <div class="stage-label">관계 진도 <span>3단계</span></div>
+        <div class="stage-orbs"><div class="orb filled-sub"></div><div class="orb filled-sub"></div><div class="orb filled-sub"></div><div class="orb "></div><div class="orb "></div></div>
+      </div>
+      <div class="char-status">시안과의 선을 완전히 넘은 뒤에도 기사와 외부 언어를 지키는 행동으로 생활권 안쪽 사람이라는 자리를 증명하기 시작함</div>
+    </div>
+  </div>
+  <div class="section-title"><span>◈</span> 멤버 간 관계망</div>
+  <div class="rel-grid">
+    <div class="rel-card">
+      <div class="rel-pair-header">
+        <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#802080,#c050a8)">소율</div>
+        <div class="rel-vs">×</div>
+        <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#802080,#c050a8)">하은</div>
+        <div class="rel-pair-name">임소율 × 이하은</div>
+      </div>
+      <div class="rel-section">
+        <div class="rel-section-label">현재</div>
+        <div class="rel-section-text">각자 다른 방식으로 감정을 앞에 내놓으면서도, 외부 시선과 내부 피로를 함께 분담하는 안정적 공존</div>
+      </div>
+      <div class="rel-section">
+        <div class="rel-section-label">최근 변화</div>
+        <div class="rel-section-text">소율은 이해하는 사람 역할에만 머물지 않겠다고 했고, 하은은 다온에게 사진 셀렉을 실제로 맡기며 혼자 읽어내던 부담을 나누기 시작했다</div>
+      </div>
+      <div class="rel-honorifics"><div class="honorific"><b>소율</b> → 하은아</div><div class="honorific"><b>하은</b> → 소율 언니</div></div>
+    </div>
+    <div class="rel-card">
+      <div class="rel-pair-header">
+        <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#802080,#c050a8)">소율</div>
+        <div class="rel-vs">×</div>
+        <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#802080,#c050a8)">서진</div>
+        <div class="rel-pair-name">임소율 × 한서진</div>
+      </div>
+      <div class="rel-section">
+        <div class="rel-section-label">현재</div>
+        <div class="rel-section-text">운영 현장과 대외 압박 앞에서 서로 다른 방식으로 중심을 세우는 같은 편</div>
+      </div>
+      <div class="rel-section">
+        <div class="rel-section-label">최근 변화</div>
+        <div class="rel-section-text">소율은 공간 안 사람 냄새가 남는 언어를 보탰고, 서진은 외부 홍보 제안을 혼자 받지 않고 소율까지 포함한 내부 기준으로 되받아치기 시작했다</div>
+      </div>
+      <div class="rel-honorifics"><div class="honorific"><b>서진</b> → 소율아</div><div class="honorific"><b>소율</b> → 서진 언니</div></div>
+    </div>
+    <div class="rel-card">
+      <div class="rel-pair-header">
+        <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#802080,#c050a8)">하은</div>
+        <div class="rel-vs">×</div>
+        <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#802080,#c050a8)">서진</div>
+        <div class="rel-pair-name">이하은 × 한서진</div>
+      </div>
+      <div class="rel-section">
+        <div class="rel-section-label">현재</div>
+        <div class="rel-section-text">공간의 미감과 운영 기준을 함께 지키는 실무 동맹</div>
+      </div>
+      <div class="rel-section">
+        <div class="rel-section-label">최근 변화</div>
+        <div class="rel-section-text">하은은 보여 줄 수 있는 것과 없는 것을 문장으로 정리했고, 서진은 외부 홍보 제안을 그 기준선 안으로 끌어와 둘의 판단을 공동 기준으로 만들었다</div>
+      </div>
+      <div class="rel-honorifics"><div class="honorific"><b>서진</b> → 하은아</div><div class="honorific"><b>하은</b> → 서진 언니</div></div>
+    </div>
+    <div class="rel-card">
+      <div class="rel-pair-header">
+        <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#802080,#c050a8)">소율</div>
+        <div class="rel-vs">×</div>
+        <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#204080,#4080d0)">다온</div>
+        <div class="rel-pair-name">임소율 × 정다온</div>
+      </div>
+      <div class="rel-section">
+        <div class="rel-section-label">현재</div>
+        <div class="rel-section-text">경계와 호의를 동시에 인정한 직접 합의 단계</div>
+      </div>
+      <div class="rel-section">
+        <div class="rel-section-label">최근 변화</div>
+        <div class="rel-section-text">소율은 다온을 따로 불러 자기 불안과 욕심을 숨기지 않겠다고 분명히 말했고, 다온은 소율이 자기 자리를 설명하느라 지치게 만들지 않겠다고 답했다</div>
+      </div>
+      <div class="rel-honorifics"><div class="honorific"><b>소율</b> → 다온 씨</div><div class="honorific"><b>다온</b> → 소율 씨</div></div>
+    </div>
+    <div class="rel-card">
+      <div class="rel-pair-header">
+        <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#802080,#c050a8)">하은</div>
+        <div class="rel-vs">×</div>
+        <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#204080,#4080d0)">다온</div>
+        <div class="rel-pair-name">이하은 × 정다온</div>
+      </div>
+      <div class="rel-section">
+        <div class="rel-section-label">현재</div>
+        <div class="rel-section-text">기준 검증을 넘어 실제로 일을 나누기 시작한 조용한 협업 관계</div>
+      </div>
+      <div class="rel-section">
+        <div class="rel-section-label">최근 변화</div>
+        <div class="rel-section-text">하은은 다온에게 사진 셀렉과 캡션 초안을 맡기며 부담을 나눴고, 다온은 그 기준을 이해한 채 외부 홍보 문구를 함께 걸러 냈다</div>
+      </div>
+      <div class="rel-honorifics"><div class="honorific"><b>하은</b> → 다온 씨</div><div class="honorific"><b>다온</b> → 하은 씨</div></div>
+    </div>
+    <div class="rel-card">
+      <div class="rel-pair-header">
+        <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#802080,#c050a8)">서진</div>
+        <div class="rel-vs">×</div>
+        <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#204080,#4080d0)">다온</div>
+        <div class="rel-pair-name">한서진 × 정다온</div>
+      </div>
+      <div class="rel-section">
+        <div class="rel-section-label">현재</div>
+        <div class="rel-section-text">외부 언어를 함께 막아내는 실무적 신뢰 형성 단계</div>
+      </div>
+      <div class="rel-section">
+        <div class="rel-section-label">최근 변화</div>
+        <div class="rel-section-text">서진은 홍보 제안 압박을 다온 앞에 그대로 꺼냈고, 다온은 기사와 브랜딩 문구를 직접 걸러 내며 공간 쪽 사람으로 행동했다</div>
+      </div>
+      <div class="rel-honorifics"><div class="honorific"><b>서진</b> → 다온 씨</div><div class="honorific"><b>다온</b> → 서진 씨</div></div>
+    </div>
+  </div>
+  <div class="section-title"><span>◈</span> 복선 트래커</div>
+  <div class="quest-list">
+    <div class="quest-item">
+      <div class="quest-icon qi-active">▶</div>
+      <div>
+        <div class="quest-text">임태준의 가족 시선과 소율의 선택</div>
+        <div class="quest-ep">심은 화수 <span>ep.035</span> · 예정 회수 <span>ep.044~055</span> · 소율은 흔들리지 않았지만 가족선 후속 반응은 아직 남아 있음</div>
+      </div>
+      <div class="qs-badge qs-active">진행</div>
+    </div>
+    <div class="quest-item">
+      <div class="quest-icon qi-done">✓</div>
+      <div>
+        <div class="quest-text">한서진의 독립 공간 목표와 가족 압박</div>
+        <div class="quest-ep">심은 화수 <span>ep.036</span> · 예정 회수 <span>ep.049~055</span> · 아버지의 공개 반대 앞에서 계약 체결까지 마침</div>
+      </div>
+      <div class="qs-badge qs-done">완료</div>
+    </div>
+    <div class="quest-item">
+      <div class="quest-icon qi-done">✓</div>
+      <div>
+        <div class="quest-text">한서진의 실질 진입 이후 세 사람의 균형</div>
+        <div class="quest-ep">심은 화수 <span>ep.045</span> · 예정 회수 <span>ep.046~050</span> · 직접 합의와 역할 분담으로 공동 운영 구조 형성</div>
+      </div>
+      <div class="qs-badge qs-done">완료</div>
+    </div>
+    <div class="quest-item">
+      <div class="quest-icon qi-done">✓</div>
+      <div>
+        <div class="quest-text">한서진 호칭 변화와 관계 내 자리 확정</div>
+        <div class="quest-ep">심은 화수 <span>ep.046</span> · 예정 회수 <span>ep.050</span> · 시안 씨→오빠, 서진 씨→서진아</div>
+      </div>
+      <div class="qs-badge qs-done">완료</div>
+    </div>
+    <div class="quest-item">
+      <div class="quest-icon qi-done">✓</div>
+      <div>
+        <div class="quest-text">팝업 이후 정식 공간 계약</div>
+        <div class="quest-ep">심은 화수 <span>ep.049</span> · 예정 회수 <span>ep.051~055</span> · 정식 계약 체결 및 메인 승격 검증 완료</div>
+      </div>
+      <div class="qs-badge qs-done">완료</div>
+    </div>
+    <div class="quest-item">
+      <div class="quest-icon qi-done">✓</div>
+      <div>
+        <div class="quest-text">정식 공간 오픈 이후 네 사람의 생활권 재편</div>
+        <div class="quest-ep">심은 화수 <span>ep.055</span> · 예정 회수 <span>ep.056~065</span> · 역할 분담과 감정 조율의 방식이 한 차례 재정렬되며 새 사람을 받아들일 기준선까지 세워짐</div>
+      </div>
+      <div class="qs-badge qs-done">완료</div>
+    </div>
+    <div class="quest-item">
+      <div class="quest-icon qi-done">✓</div>
+      <div>
+        <div class="quest-text">외부 기록자 정다온의 유입과 기사 노출</div>
+        <div class="quest-ep">심은 화수 <span>ep.056</span> · 예정 회수 <span>ep.057~068</span> · 시안과의 관계를 개인적 영역으로 확실히 넘긴 뒤에도, 공간을 지키는 언어를 함께 걸러 내며 내부 사람으로 남을 자격을 행동으로 증명함</div>
+      </div>
+      <div class="qs-badge qs-done">완료</div>
+    </div>
+    <div class="quest-item">
+      <div class="quest-icon qi-active">▶</div>
+      <div>
+        <div class="quest-text">이하은의 과부하와 기준 분담 문제</div>
+        <div class="quest-ep">심은 화수 <span>ep.063</span> · 예정 회수 <span>ep.066~072</span> · 사진과 문장 일부를 다온에게 실제로 넘겼지만, 하은이 장기적으로 어디까지 손을 놓을 수 있는지는 아직 더 검증 필요</div>
+      </div>
+      <div class="qs-badge qs-active">진행</div>
+    </div>
+    <div class="quest-item">
+      <div class="quest-icon qi-active">▶</div>
+      <div>
+        <div class="quest-text">정다온의 생활권 정착과 서브 후보 확정 여부</div>
+        <div class="quest-ep">심은 화수 <span>ep.065</span> · 예정 회수 <span>ep.066~075</span> · 솔직한 사람으로 남겠다는 선언 이후, 실제로 반복적 선택과 공존 합의를 통과할 수 있는지 검증 필요</div>
+      </div>
+      <div class="qs-badge qs-active">진행</div>
+    </div>
+    <div class="quest-item">
+      <div class="quest-icon qi-active">▶</div>
+      <div>
+        <div class="quest-text">외부 홍보 제안과 한서진의 공간 브랜딩 기준</div>
+        <div class="quest-ep">심은 화수 <span>ep.069</span> · 예정 회수 <span>ep.070~078</span> · 가족선과 연결된 외부 제안 압박을 어떻게 끊고 자기 언어로 덮어쓰는지가 다음 분기로 이어짐</div>
+      </div>
+      <div class="qs-badge qs-active">진행</div>
+    </div>
+  </div>
 </body>
 </html>
