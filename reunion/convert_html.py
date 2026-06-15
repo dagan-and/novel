@@ -77,11 +77,14 @@ PRELUDE_DIR = os.path.join('images', 'preludes')
 
 
 def find_prelude_image(base_dir, episode_number):
-    pattern = os.path.join(base_dir, PRELUDE_DIR, f'ep.{episode_number:03d}.*')
-    matches = sorted(
-        path for path in glob.glob(pattern)
-        if os.path.isfile(path) and os.path.splitext(path)[1].lower() in {'.png', '.jpg', '.jpeg', '.webp', '.gif'}
-    )
+    matches = []
+    for name_pattern in (f'ep.{episode_number:03d}.*', f'{episode_number:03d}.*'):
+        pattern = os.path.join(base_dir, PRELUDE_DIR, name_pattern)
+        matches.extend(
+            path for path in glob.glob(pattern)
+            if os.path.isfile(path) and os.path.splitext(path)[1].lower() in {'.png', '.jpg', '.jpeg', '.webp', '.gif'}
+        )
+    matches = sorted(set(matches))
     return matches[0] if matches else None
 
 
