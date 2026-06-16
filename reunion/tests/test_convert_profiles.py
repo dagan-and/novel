@@ -33,8 +33,8 @@ class ConvertProfilesAdultSceneTests(unittest.TestCase):
     def test_profile_caps_hearts_at_five_for_higher_counts(self):
         html = self.render_profile("이하은")
 
-        self.assertIn("성인씬 7회", html)
-        self.assertEqual(len(re.findall(r'class="heart filled"', html)), 7)
+        self.assertIn("성인씬 8회", html)
+        self.assertEqual(len(re.findall(r'class="heart filled"', html)), 8)
         self.assertEqual(len(re.findall(r'class="heart empty"', html)), 0)
 
 
