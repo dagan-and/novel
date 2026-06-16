@@ -47,7 +47,7 @@ CSS = """
     }
     .time {
       font-weight: bold;
-      color: #b890a8;
+      color: #e8c97a;
       font-size: 1.25rem;
       text-align: center;
       margin: 1.8rem 0 1rem;
