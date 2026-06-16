@@ -139,8 +139,44 @@ KANGEMANG_CSS = GAME_CSS_BASE + """
     .orb.filled-sub  { background:var(--blue); box-shadow:0 0 6px rgba(64,128,208,0.6); border-color:var(--blue); }
     .char-status { margin-top:0.8rem; font-size:0.75rem; color:var(--text2); line-height:1.55; padding-top:0.75rem; border-top:1px solid var(--border); }
     .rel-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:0.8rem; }
-    .rel-card { background:var(--panel); border:1px solid var(--border); border-radius:8px; padding:1rem 1.2rem; transition:border-color 0.2s; }
+    /* ── 필터 UI ── */
+    .filter-bar { margin-bottom:1.2rem; }
+    .type-tabs { display:flex; gap:0; border-bottom:1px solid var(--border); margin-bottom:0.75rem; overflow-x:auto; }
+    .type-tab {
+      padding:0.45rem 1rem; border:none; border-bottom:2px solid transparent;
+      background:transparent; color:var(--text2); font-size:0.72rem;
+      cursor:pointer; white-space:nowrap; letter-spacing:0.05em;
+      font-family:inherit; transition:color 0.15s;
+    }
+    .type-tab:hover { color:var(--text); }
+    .type-tab.active { border-bottom-color:var(--pink); color:var(--pink); }
+    .char-chips { display:flex; gap:0.35rem; flex-wrap:wrap; align-items:center; }
+    .chip-label { font-size:0.65rem; color:var(--text3); letter-spacing:0.05em; margin-right:0.2rem; }
+    .char-chip-btn {
+      padding:0.18rem 0.6rem; border-radius:12px; border:1px solid var(--border);
+      background:rgba(42,34,96,0.3); color:var(--text2); font-size:0.68rem;
+      cursor:pointer; font-family:inherit; transition:all 0.15s;
+    }
+    .char-chip-btn:hover { border-color:var(--border-hi); color:var(--text); }
+    .char-chip-btn.active { border-color:var(--pink); background:rgba(192,80,168,0.15); color:var(--pink); }
+    /* ── 관계 카드 (타입별 테두리) ── */
+    .rel-card { background:var(--panel); border:1px solid var(--border); border-left-width:3px; border-radius:8px; padding:1rem 1.2rem; transition:border-color 0.2s; }
     .rel-card:hover { border-color:var(--border-hi); }
+    .rel-card[data-type="동맹"] { border-left-color:#30a860; }
+    .rel-card[data-type="긴장"] { border-left-color:#c07828; }
+    .rel-card[data-type="탐색"] { border-left-color:#4080d0; }
+    .rel-card[data-type="우정"] { border-left-color:#40b0c0; }
+    .rel-card.hidden { display:none; }
+    /* ── 타입 뱃지 ── */
+    .type-badge { font-size:0.62rem; padding:0.12rem 0.5rem; border-radius:10px; white-space:nowrap; font-weight:500; }
+    .badge-동맹 { background:rgba(48,168,96,0.15);  border:1px solid rgba(48,168,96,0.4);  color:#40c060; }
+    .badge-긴장 { background:rgba(192,120,40,0.15); border:1px solid rgba(192,120,40,0.4); color:#e09040; }
+    .badge-탐색 { background:rgba(64,128,208,0.15); border:1px solid rgba(64,128,208,0.4); color:#60a8e0; }
+    .badge-우정 { background:rgba(64,176,192,0.15); border:1px solid rgba(64,176,192,0.4); color:#40b0c0; }
+    /* ── 범례 ── */
+    .type-legend { display:flex; gap:0.9rem; flex-wrap:wrap; margin-top:0.9rem; }
+    .legend-entry { display:flex; align-items:center; gap:0.3rem; font-size:0.65rem; color:var(--text3); }
+    .legend-bar { width:3px; height:12px; border-radius:2px; }
     .rel-pair-header { display:flex; align-items:center; gap:0.5rem; margin-bottom:0.7rem; }
     .rel-avatar-sm { width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.6rem; font-weight:700; color:white; flex-shrink:0; }
     .rel-vs { font-size:0.65rem; color:var(--text3); }
@@ -393,15 +429,13 @@ def render_kangemang(md_text):
         type_    = row.get('구분', '')
         intimacy = row.get('친밀도', '')
         stage_s  = row.get('관계 진도', '')
-        status   = re.sub(r'^활성\s*[—\-]\s*', '', row.get('현재 상태', ''))
+        status = re.sub(r'^활성\s*[—\-]\s*', '', row.get('현재 상태', ''))
+        status = re.sub(r'[\.\s]*호감도\s*\d+/\d+', '', status).strip()
 
         tc = 'main' if type_ == '메인' else 'sub'
         bc = 'badge-main' if type_ == '메인' else 'badge-sub'
         fc = 'fill-main'  if type_ == '메인' else 'fill-sub'
-        oc = 'filled-main' if type_ == '메인' else 'filled-sub'
         w  = INTIMACY_WIDTH.get(intimacy, 50)
-        n  = int(re.search(r'\d+', stage_s).group()) if re.search(r'\d+', stage_s) else 0
-        orbs = ''.join(f'<div class="orb {oc if i < n else ""}"></div>' for i in range(5))
 
         cards.append(f'''
     <div class="char-card {tc}">
@@ -414,15 +448,15 @@ def render_kangemang(md_text):
         <div class="stat-label">친밀도 <span>{intimacy}</span></div>
         <div class="stat-bar"><div class="stat-bar-fill {fc}" style="width:{w}%"></div></div>
       </div>
-      <div class="stat-row">
-        <div class="stage-label">관계 진도 <span>{stage_s}</span></div>
-        <div class="stage-orbs">{orbs}</div>
-      </div>
       <div class="char-status">{status}</div>
     </div>''')
     harem_html = f'<div class="harem-grid">{"".join(cards)}\n  </div>'
 
-    # ── 멤버 간 관계망
+    # ── 멤버 간 관계망 — 타입 집계 + 인물 목록
+    types_order = ['동맹', '긴장', '탐색', '우정']
+    type_counts = {t: 0 for t in types_order}
+    all_chars_ordered = []
+
     rel_cards = []
     for title, body in rel_subsections:
         nm = re.match(r'(.+?)\s*[×x]\s*(.+)', title)
@@ -433,19 +467,31 @@ def render_kangemang(md_text):
         c2 = CHAR_COLOR_MAIN if char_type_map.get(n2) == '메인' else CHAR_COLOR_SUB
 
         bul = parse_bullets_to_dict(body)
-        current = bul.get('현재', '')
-        recent  = bul.get('최근 변화', '')
+        rel_type = bul.get('타입', '')
+        current  = bul.get('현재', '')
+        recent   = bul.get('최근 변화', '')
         hon_line = bul.get('호칭', '')
         pairs = re.findall(r'(\S+)\s*→\s*\S+\s*`([^`]+)`', hon_line)
         hons = ''.join(f'<div class="honorific"><b>{c}</b> → {h}</div>' for c, h in pairs)
 
+        if rel_type in type_counts:
+            type_counts[rel_type] += 1
+        for name in [n1, n2]:
+            gn = given_name(name)
+            if gn not in all_chars_ordered:
+                all_chars_ordered.append(gn)
+
+        chars_attr = f'{given_name(n1)},{given_name(n2)}'
         rel_cards.append(f'''
-    <div class="rel-card">
+    <div class="rel-card" data-type="{rel_type}" data-chars="{chars_attr}">
       <div class="rel-pair-header">
-        <div class="rel-avatar-sm" style="background:{c1}">{given_name(n1)}</div>
-        <div class="rel-vs">×</div>
-        <div class="rel-avatar-sm" style="background:{c2}">{given_name(n2)}</div>
-        <div class="rel-pair-name">{n1} × {n2}</div>
+        <div style="display:flex;align-items:center;gap:0.5rem;flex:1;min-width:0">
+          <div class="rel-avatar-sm" style="background:{c1}">{given_name(n1)}</div>
+          <div class="rel-vs">×</div>
+          <div class="rel-avatar-sm" style="background:{c2}">{given_name(n2)}</div>
+          <div class="rel-pair-name">{n1} × {n2}</div>
+        </div>
+        <span class="type-badge badge-{rel_type}">{rel_type}</span>
       </div>
       <div class="rel-section">
         <div class="rel-section-label">현재</div>
@@ -457,7 +503,55 @@ def render_kangemang(md_text):
       </div>
       <div class="rel-honorifics">{hons}</div>
     </div>''')
-    rel_html = f'<div class="rel-grid">{"".join(rel_cards)}\n  </div>'
+
+    # 필터 UI
+    total = sum(type_counts.values())
+    type_tabs = f'<button class="type-tab active" data-type="all" onclick="filterRel(this,\'all\')">전체 ({total})</button>'
+    for t in types_order:
+        if type_counts[t]:
+            type_tabs += f'<button class="type-tab" data-type="{t}" onclick="filterRel(this,\'{t}\')">{t} ({type_counts[t]})</button>'
+
+    char_chips = '<span class="chip-label">인물</span>'
+    char_chips += '<button class="char-chip-btn active" data-char="all" onclick="filterChar(this,\'all\')">전체</button>'
+    for ch in all_chars_ordered:
+        char_chips += f'<button class="char-chip-btn" data-char="{ch}" onclick="filterChar(this,\'{ch}\')">{ch}</button>'
+
+    filter_js = '''<script>
+var _rtype="all",_char="all";
+function filterRel(btn,t){
+  _rtype=t;
+  document.querySelectorAll(".type-tab").forEach(function(b){b.classList.toggle("active",b.dataset.type===t);});
+  applyRelFilter();
+}
+function filterChar(btn,c){
+  _char=c;
+  document.querySelectorAll(".char-chip-btn").forEach(function(b){b.classList.toggle("active",b.dataset.char===c);});
+  applyRelFilter();
+}
+function applyRelFilter(){
+  document.querySelectorAll(".rel-card").forEach(function(card){
+    var tm=_rtype==="all"||card.dataset.type===_rtype;
+    var cm=_char==="all"||card.dataset.chars.split(",").indexOf(_char)!==-1;
+    card.classList.toggle("hidden",!(tm&&cm));
+  });
+}
+</script>'''
+
+    legend_html = '''  <div class="type-legend">
+    <div class="legend-entry"><div class="legend-bar" style="background:#30a860"></div>동맹</div>
+    <div class="legend-entry"><div class="legend-bar" style="background:#c07828"></div>긴장</div>
+    <div class="legend-entry"><div class="legend-bar" style="background:#4080d0"></div>탐색</div>
+    <div class="legend-entry"><div class="legend-bar" style="background:#40b0c0"></div>우정</div>
+  </div>'''
+
+    rel_html = f'''  <div class="filter-bar">
+    <div class="type-tabs">{type_tabs}</div>
+    <div class="char-chips">{char_chips}</div>
+  </div>
+  <div class="rel-grid">{"".join(rel_cards)}
+  </div>
+{legend_html}
+{filter_js}'''
 
     # ── 복선 트래커
     quests = []

@@ -96,8 +96,44 @@
     .orb.filled-sub  { background:var(--blue); box-shadow:0 0 6px rgba(64,128,208,0.6); border-color:var(--blue); }
     .char-status { margin-top:0.8rem; font-size:0.75rem; color:var(--text2); line-height:1.55; padding-top:0.75rem; border-top:1px solid var(--border); }
     .rel-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:0.8rem; }
-    .rel-card { background:var(--panel); border:1px solid var(--border); border-radius:8px; padding:1rem 1.2rem; transition:border-color 0.2s; }
+    /* ── 필터 UI ── */
+    .filter-bar { margin-bottom:1.2rem; }
+    .type-tabs { display:flex; gap:0; border-bottom:1px solid var(--border); margin-bottom:0.75rem; overflow-x:auto; }
+    .type-tab {
+      padding:0.45rem 1rem; border:none; border-bottom:2px solid transparent;
+      background:transparent; color:var(--text2); font-size:0.72rem;
+      cursor:pointer; white-space:nowrap; letter-spacing:0.05em;
+      font-family:inherit; transition:color 0.15s;
+    }
+    .type-tab:hover { color:var(--text); }
+    .type-tab.active { border-bottom-color:var(--pink); color:var(--pink); }
+    .char-chips { display:flex; gap:0.35rem; flex-wrap:wrap; align-items:center; }
+    .chip-label { font-size:0.65rem; color:var(--text3); letter-spacing:0.05em; margin-right:0.2rem; }
+    .char-chip-btn {
+      padding:0.18rem 0.6rem; border-radius:12px; border:1px solid var(--border);
+      background:rgba(42,34,96,0.3); color:var(--text2); font-size:0.68rem;
+      cursor:pointer; font-family:inherit; transition:all 0.15s;
+    }
+    .char-chip-btn:hover { border-color:var(--border-hi); color:var(--text); }
+    .char-chip-btn.active { border-color:var(--pink); background:rgba(192,80,168,0.15); color:var(--pink); }
+    /* ── 관계 카드 (타입별 테두리) ── */
+    .rel-card { background:var(--panel); border:1px solid var(--border); border-left-width:3px; border-radius:8px; padding:1rem 1.2rem; transition:border-color 0.2s; }
     .rel-card:hover { border-color:var(--border-hi); }
+    .rel-card[data-type="동맹"] { border-left-color:#30a860; }
+    .rel-card[data-type="긴장"] { border-left-color:#c07828; }
+    .rel-card[data-type="탐색"] { border-left-color:#4080d0; }
+    .rel-card[data-type="우정"] { border-left-color:#40b0c0; }
+    .rel-card.hidden { display:none; }
+    /* ── 타입 뱃지 ── */
+    .type-badge { font-size:0.62rem; padding:0.12rem 0.5rem; border-radius:10px; white-space:nowrap; font-weight:500; }
+    .badge-동맹 { background:rgba(48,168,96,0.15);  border:1px solid rgba(48,168,96,0.4);  color:#40c060; }
+    .badge-긴장 { background:rgba(192,120,40,0.15); border:1px solid rgba(192,120,40,0.4); color:#e09040; }
+    .badge-탐색 { background:rgba(64,128,208,0.15); border:1px solid rgba(64,128,208,0.4); color:#60a8e0; }
+    .badge-우정 { background:rgba(64,176,192,0.15); border:1px solid rgba(64,176,192,0.4); color:#40b0c0; }
+    /* ── 범례 ── */
+    .type-legend { display:flex; gap:0.9rem; flex-wrap:wrap; margin-top:0.9rem; }
+    .legend-entry { display:flex; align-items:center; gap:0.3rem; font-size:0.65rem; color:var(--text3); }
+    .legend-bar { width:3px; height:12px; border-radius:2px; }
     .rel-pair-header { display:flex; align-items:center; gap:0.5rem; margin-bottom:0.7rem; }
     .rel-avatar-sm { width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.6rem; font-weight:700; color:white; flex-shrink:0; }
     .rel-vs { font-size:0.65rem; color:var(--text3); }
@@ -152,10 +188,6 @@
         <div class="stat-label">친밀도 <span>깊은</span></div>
         <div class="stat-bar"><div class="stat-bar-fill fill-main" style="width:100%"></div></div>
       </div>
-      <div class="stat-row">
-        <div class="stage-label">관계 진도 <span>3단계</span></div>
-        <div class="stage-orbs"><div class="orb filled-main"></div><div class="orb filled-main"></div><div class="orb filled-main"></div><div class="orb "></div><div class="orb "></div></div>
-      </div>
       <div class="char-status">폭우와 물류 지연이 겹친 월요일 아침에도 예약 순서와 주간 정산 리듬을 먼저 붙잡아, 기다리는 사람이 아니라 생활 리듬의 고정축이라는 자리를 실제 운영으로 증명함</div>
     </div>
     <div class="char-card main">
@@ -167,10 +199,6 @@
       <div class="stat-row">
         <div class="stat-label">친밀도 <span>깊은</span></div>
         <div class="stat-bar"><div class="stat-bar-fill fill-main" style="width:100%"></div></div>
-      </div>
-      <div class="stat-row">
-        <div class="stage-label">관계 진도 <span>3단계</span></div>
-        <div class="stage-orbs"><div class="orb filled-main"></div><div class="orb filled-main"></div><div class="orb filled-main"></div><div class="orb "></div><div class="orb "></div></div>
       </div>
       <div class="char-status">다온·연서·소율을 각기 다른 속도로 같은 기준 안에 묶는 중심축 역할 위에, 이제는 그 기준 자체를 실제 안내 카드와 메뉴 문장으로 남겨 두는 단계까지 넘어감</div>
     </div>
@@ -184,10 +212,6 @@
         <div class="stat-label">친밀도 <span>깊은</span></div>
         <div class="stat-bar"><div class="stat-bar-fill fill-main" style="width:100%"></div></div>
       </div>
-      <div class="stat-row">
-        <div class="stage-label">관계 진도 <span>3단계</span></div>
-        <div class="stage-orbs"><div class="orb filled-main"></div><div class="orb filled-main"></div><div class="orb filled-main"></div><div class="orb "></div><div class="orb "></div></div>
-      </div>
       <div class="char-status">시안의 바깥 일정이 실제 평일 운영 공백과 새벽 물류 변수로 이어져도 입구와 공간 리듬을 먼저 지키는 역할이 더 또렷해졌고, 낮 시간대 인물까지 어디까지 들일지 현장에서 직접 가르는 기준선으로 더 선명해짐</div>
     </div>
     <div class="char-card main">
@@ -199,10 +223,6 @@
       <div class="stat-row">
         <div class="stat-label">친밀도 <span>깊은</span></div>
         <div class="stat-bar"><div class="stat-bar-fill fill-main" style="width:100%"></div></div>
-      </div>
-      <div class="stat-row">
-        <div class="stage-label">관계 진도 <span>3단계</span></div>
-        <div class="stage-orbs"><div class="orb filled-main"></div><div class="orb filled-main"></div><div class="orb filled-main"></div><div class="orb "></div><div class="orb "></div></div>
       </div>
       <div class="char-status">기능만 하는 사람이 아니라 기대고 싶은 사람으로 남고 싶다는 마음을 드러낸 뒤, 시안이 실제로 비운 평일 운영에서도 회사식 문장을 현장 리듬에 맞게 즉시 잘라 내는 안쪽 기준 관리자로 더 단단해짐</div>
     </div>
@@ -216,11 +236,7 @@
         <div class="stat-label">친밀도 <span>중간</span></div>
         <div class="stat-bar"><div class="stat-bar-fill fill-sub" style="width:50%"></div></div>
       </div>
-      <div class="stat-row">
-        <div class="stage-label">관계 진도 <span>3단계</span></div>
-        <div class="stage-orbs"><div class="orb filled-sub"></div><div class="orb filled-sub"></div><div class="orb filled-sub"></div><div class="orb "></div><div class="orb "></div></div>
-      </div>
-      <div class="char-status">연서와 함께 평일 테이스팅 실전 라인을 끝까지 맞춰 본 뒤, 배수인에게도 늦게 들어온 사람이 버려야 할 조급함을 직접 짚어 주며 사람보다 결과물로 불릴 자리를 더 선명히 지키고 있음. 호감도 89/100</div>
+      <div class="char-status">연서와 함께 평일 테이스팅 실전 라인을 끝까지 맞춰 본 뒤, 배수인에게도 늦게 들어온 사람이 버려야 할 조급함을 직접 짚어 주며 사람보다 결과물로 불릴 자리를 더 선명히 지키고 있음</div>
     </div>
     <div class="char-card sub">
       <div class="char-card-header">
@@ -232,11 +248,7 @@
         <div class="stat-label">친밀도 <span>중간</span></div>
         <div class="stat-bar"><div class="stat-bar-fill fill-sub" style="width:50%"></div></div>
       </div>
-      <div class="stat-row">
-        <div class="stage-label">관계 진도 <span>3단계</span></div>
-        <div class="stage-orbs"><div class="orb filled-sub"></div><div class="orb filled-sub"></div><div class="orb filled-sub"></div><div class="orb "></div><div class="orb "></div></div>
-      </div>
-      <div class="char-status">미현과 평일 테이스팅 실전 라인을 정식으로 고정했고, 시안이 없는 시간에도 같은 리듬이 남도록 선반 표식과 접시 동선까지 직접 설계하며 더 안쪽으로 넓혀 가는 중. 도자기 공방 보조 / 주말 플리마켓 셀러. 호감도 72/100</div>
+      <div class="char-status">미현과 평일 테이스팅 실전 라인을 정식으로 고정했고, 시안이 없는 시간에도 같은 리듬이 남도록 선반 표식과 접시 동선까지 직접 설계하며 더 안쪽으로 넓혀 가는 중. 도자기 공방 보조 / 주말 플리마켓 셀러</div>
     </div>
     <div class="char-card sub">
       <div class="char-card-header">
@@ -248,21 +260,24 @@
         <div class="stat-label">친밀도 <span>중간</span></div>
         <div class="stat-bar"><div class="stat-bar-fill fill-sub" style="width:50%"></div></div>
       </div>
-      <div class="stat-row">
-        <div class="stage-label">관계 진도 <span>3단계</span></div>
-        <div class="stage-orbs"><div class="orb filled-sub"></div><div class="orb filled-sub"></div><div class="orb filled-sub"></div><div class="orb "></div><div class="orb "></div></div>
-      </div>
-      <div class="char-status">소율·하은·서진 앞에서 어느 편에 설지 반복해서 증명한 끝에, 자기 이름을 남길 수 있는 후원 행사 기획까지 스스로 끊어 내고 서브 진입을 확정함. 와인 수입 브랜드 교육팀 보조 계약직 / 행사 운영 프리랜서. 호감도 72/100</div>
+      <div class="char-status">소율·하은·서진 앞에서 어느 편에 설지 반복해서 증명한 끝에, 자기 이름을 남길 수 있는 후원 행사 기획까지 스스로 끊어 내고 서브 진입을 확정함. 와인 수입 브랜드 교육팀 보조 계약직 / 행사 운영 프리랜서</div>
     </div>
   </div>
   <div class="section-title"><span>◈</span> 멤버 간 관계망</div>
+    <div class="filter-bar">
+    <div class="type-tabs"><button class="type-tab active" data-type="all" onclick="filterRel(this,'all')">전체 (17)</button><button class="type-tab" data-type="동맹" onclick="filterRel(this,'동맹')">동맹 (5)</button><button class="type-tab" data-type="긴장" onclick="filterRel(this,'긴장')">긴장 (5)</button><button class="type-tab" data-type="탐색" onclick="filterRel(this,'탐색')">탐색 (5)</button><button class="type-tab" data-type="우정" onclick="filterRel(this,'우정')">우정 (2)</button></div>
+    <div class="char-chips"><span class="chip-label">인물</span><button class="char-chip-btn active" data-char="all" onclick="filterChar(this,'all')">전체</button><button class="char-chip-btn" data-char="소율" onclick="filterChar(this,'소율')">소율</button><button class="char-chip-btn" data-char="하은" onclick="filterChar(this,'하은')">하은</button><button class="char-chip-btn" data-char="수인" onclick="filterChar(this,'수인')">수인</button><button class="char-chip-btn" data-char="서진" onclick="filterChar(this,'서진')">서진</button><button class="char-chip-btn" data-char="다온" onclick="filterChar(this,'다온')">다온</button><button class="char-chip-btn" data-char="미현" onclick="filterChar(this,'미현')">미현</button><button class="char-chip-btn" data-char="연서" onclick="filterChar(this,'연서')">연서</button></div>
+  </div>
   <div class="rel-grid">
-    <div class="rel-card">
+    <div class="rel-card" data-type="동맹" data-chars="소율,하은">
       <div class="rel-pair-header">
-        <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#802080,#c050a8)">소율</div>
-        <div class="rel-vs">×</div>
-        <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#802080,#c050a8)">하은</div>
-        <div class="rel-pair-name">임소율 × 이하은</div>
+        <div style="display:flex;align-items:center;gap:0.5rem;flex:1;min-width:0">
+          <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#802080,#c050a8)">소율</div>
+          <div class="rel-vs">×</div>
+          <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#802080,#c050a8)">하은</div>
+          <div class="rel-pair-name">임소율 × 이하은</div>
+        </div>
+        <span class="type-badge badge-동맹">동맹</span>
       </div>
       <div class="rel-section">
         <div class="rel-section-label">현재</div>
@@ -274,12 +289,15 @@
       </div>
       <div class="rel-honorifics"><div class="honorific"><b>소율</b> → 하은아</div><div class="honorific"><b>하은</b> → 소율 언니</div></div>
     </div>
-    <div class="rel-card">
+    <div class="rel-card" data-type="긴장" data-chars="소율,수인">
       <div class="rel-pair-header">
-        <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#802080,#c050a8)">소율</div>
-        <div class="rel-vs">×</div>
-        <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#204080,#4080d0)">수인</div>
-        <div class="rel-pair-name">임소율 × 배수인</div>
+        <div style="display:flex;align-items:center;gap:0.5rem;flex:1;min-width:0">
+          <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#802080,#c050a8)">소율</div>
+          <div class="rel-vs">×</div>
+          <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#204080,#4080d0)">수인</div>
+          <div class="rel-pair-name">임소율 × 배수인</div>
+        </div>
+        <span class="type-badge badge-긴장">긴장</span>
       </div>
       <div class="rel-section">
         <div class="rel-section-label">현재</div>
@@ -291,29 +309,15 @@
       </div>
       <div class="rel-honorifics"><div class="honorific"><b>소율</b> → 수인 씨</div><div class="honorific"><b>배수인</b> → 소율 씨</div></div>
     </div>
-    <div class="rel-card">
+    <div class="rel-card" data-type="동맹" data-chars="소율,서진">
       <div class="rel-pair-header">
-        <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#802080,#c050a8)">소율</div>
-        <div class="rel-vs">×</div>
-        <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#204080,#4080d0)">가람</div>
-        <div class="rel-pair-name">임소율 × 윤가람</div>
-      </div>
-      <div class="rel-section">
-        <div class="rel-section-label">현재</div>
-        <div class="rel-section-text">시안의 낮 시간대에서 넘어온 새 인물을, 불안보다 실제 선택과 역할로 먼저 읽어 보려는 메인과 서브 후보의 첫 대면</div>
-      </div>
-      <div class="rel-section">
-        <div class="rel-section-label">최근 변화</div>
-        <div class="rel-section-text">폭우와 물류 지연이 겹친 월요일 아침, 소율은 가람에게 문자로 먼저 상황을 알려 준 선택이 다행이었다고 직접 말했고 가람 역시 그 말을 핑계 없이 받아냈다</div>
-      </div>
-      <div class="rel-honorifics"><div class="honorific"><b>소율</b> → 가람 씨</div><div class="honorific"><b>윤가람</b> → 소율 씨</div></div>
-    </div>
-    <div class="rel-card">
-      <div class="rel-pair-header">
-        <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#802080,#c050a8)">소율</div>
-        <div class="rel-vs">×</div>
-        <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#802080,#c050a8)">서진</div>
-        <div class="rel-pair-name">임소율 × 한서진</div>
+        <div style="display:flex;align-items:center;gap:0.5rem;flex:1;min-width:0">
+          <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#802080,#c050a8)">소율</div>
+          <div class="rel-vs">×</div>
+          <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#802080,#c050a8)">서진</div>
+          <div class="rel-pair-name">임소율 × 한서진</div>
+        </div>
+        <span class="type-badge badge-동맹">동맹</span>
       </div>
       <div class="rel-section">
         <div class="rel-section-label">현재</div>
@@ -325,12 +329,15 @@
       </div>
       <div class="rel-honorifics"><div class="honorific"><b>서진</b> → 소율아</div><div class="honorific"><b>소율</b> → 서진 언니</div></div>
     </div>
-    <div class="rel-card">
+    <div class="rel-card" data-type="동맹" data-chars="하은,서진">
       <div class="rel-pair-header">
-        <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#802080,#c050a8)">하은</div>
-        <div class="rel-vs">×</div>
-        <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#802080,#c050a8)">서진</div>
-        <div class="rel-pair-name">이하은 × 한서진</div>
+        <div style="display:flex;align-items:center;gap:0.5rem;flex:1;min-width:0">
+          <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#802080,#c050a8)">하은</div>
+          <div class="rel-vs">×</div>
+          <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#802080,#c050a8)">서진</div>
+          <div class="rel-pair-name">이하은 × 한서진</div>
+        </div>
+        <span class="type-badge badge-동맹">동맹</span>
       </div>
       <div class="rel-section">
         <div class="rel-section-label">현재</div>
@@ -342,12 +349,15 @@
       </div>
       <div class="rel-honorifics"><div class="honorific"><b>서진</b> → 하은아</div><div class="honorific"><b>하은</b> → 서진 언니</div></div>
     </div>
-    <div class="rel-card">
+    <div class="rel-card" data-type="긴장" data-chars="소율,다온">
       <div class="rel-pair-header">
-        <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#802080,#c050a8)">소율</div>
-        <div class="rel-vs">×</div>
-        <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#802080,#c050a8)">다온</div>
-        <div class="rel-pair-name">임소율 × 정다온</div>
+        <div style="display:flex;align-items:center;gap:0.5rem;flex:1;min-width:0">
+          <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#802080,#c050a8)">소율</div>
+          <div class="rel-vs">×</div>
+          <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#802080,#c050a8)">다온</div>
+          <div class="rel-pair-name">임소율 × 정다온</div>
+        </div>
+        <span class="type-badge badge-긴장">긴장</span>
       </div>
       <div class="rel-section">
         <div class="rel-section-label">현재</div>
@@ -359,12 +369,15 @@
       </div>
       <div class="rel-honorifics"><div class="honorific"><b>소율</b> → 다온 씨</div><div class="honorific"><b>다온</b> → 소율 씨</div></div>
     </div>
-    <div class="rel-card">
+    <div class="rel-card" data-type="동맹" data-chars="하은,다온">
       <div class="rel-pair-header">
-        <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#802080,#c050a8)">하은</div>
-        <div class="rel-vs">×</div>
-        <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#802080,#c050a8)">다온</div>
-        <div class="rel-pair-name">이하은 × 정다온</div>
+        <div style="display:flex;align-items:center;gap:0.5rem;flex:1;min-width:0">
+          <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#802080,#c050a8)">하은</div>
+          <div class="rel-vs">×</div>
+          <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#802080,#c050a8)">다온</div>
+          <div class="rel-pair-name">이하은 × 정다온</div>
+        </div>
+        <span class="type-badge badge-동맹">동맹</span>
       </div>
       <div class="rel-section">
         <div class="rel-section-label">현재</div>
@@ -376,12 +389,15 @@
       </div>
       <div class="rel-honorifics"><div class="honorific"><b>하은</b> → 다온 씨</div><div class="honorific"><b>다온</b> → 하은 씨</div></div>
     </div>
-    <div class="rel-card">
+    <div class="rel-card" data-type="탐색" data-chars="하은,수인">
       <div class="rel-pair-header">
-        <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#802080,#c050a8)">하은</div>
-        <div class="rel-vs">×</div>
-        <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#204080,#4080d0)">수인</div>
-        <div class="rel-pair-name">이하은 × 배수인</div>
+        <div style="display:flex;align-items:center;gap:0.5rem;flex:1;min-width:0">
+          <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#802080,#c050a8)">하은</div>
+          <div class="rel-vs">×</div>
+          <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#204080,#4080d0)">수인</div>
+          <div class="rel-pair-name">이하은 × 배수인</div>
+        </div>
+        <span class="type-badge badge-탐색">탐색</span>
       </div>
       <div class="rel-section">
         <div class="rel-section-label">현재</div>
@@ -393,12 +409,15 @@
       </div>
       <div class="rel-honorifics"><div class="honorific"><b>하은</b> → 수인 씨</div><div class="honorific"><b>배수인</b> → 하은 씨</div></div>
     </div>
-    <div class="rel-card">
+    <div class="rel-card" data-type="동맹" data-chars="서진,다온">
       <div class="rel-pair-header">
-        <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#802080,#c050a8)">서진</div>
-        <div class="rel-vs">×</div>
-        <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#802080,#c050a8)">다온</div>
-        <div class="rel-pair-name">한서진 × 정다온</div>
+        <div style="display:flex;align-items:center;gap:0.5rem;flex:1;min-width:0">
+          <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#802080,#c050a8)">서진</div>
+          <div class="rel-vs">×</div>
+          <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#802080,#c050a8)">다온</div>
+          <div class="rel-pair-name">한서진 × 정다온</div>
+        </div>
+        <span class="type-badge badge-동맹">동맹</span>
       </div>
       <div class="rel-section">
         <div class="rel-section-label">현재</div>
@@ -410,12 +429,15 @@
       </div>
       <div class="rel-honorifics"><div class="honorific"><b>서진</b> → 다온아</div><div class="honorific"><b>다온</b> → 서진 언니</div></div>
     </div>
-    <div class="rel-card">
+    <div class="rel-card" data-type="긴장" data-chars="서진,미현">
       <div class="rel-pair-header">
-        <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#802080,#c050a8)">서진</div>
-        <div class="rel-vs">×</div>
-        <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#204080,#4080d0)">미현</div>
-        <div class="rel-pair-name">한서진 × 박미현</div>
+        <div style="display:flex;align-items:center;gap:0.5rem;flex:1;min-width:0">
+          <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#802080,#c050a8)">서진</div>
+          <div class="rel-vs">×</div>
+          <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#204080,#4080d0)">미현</div>
+          <div class="rel-pair-name">한서진 × 박미현</div>
+        </div>
+        <span class="type-badge badge-긴장">긴장</span>
       </div>
       <div class="rel-section">
         <div class="rel-section-label">현재</div>
@@ -427,12 +449,15 @@
       </div>
       <div class="rel-honorifics"><div class="honorific"><b>서진</b> → 미현 씨</div><div class="honorific"><b>박미현</b> → 한서진 씨</div></div>
     </div>
-    <div class="rel-card">
+    <div class="rel-card" data-type="긴장" data-chars="소율,미현">
       <div class="rel-pair-header">
-        <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#802080,#c050a8)">소율</div>
-        <div class="rel-vs">×</div>
-        <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#204080,#4080d0)">미현</div>
-        <div class="rel-pair-name">임소율 × 박미현</div>
+        <div style="display:flex;align-items:center;gap:0.5rem;flex:1;min-width:0">
+          <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#802080,#c050a8)">소율</div>
+          <div class="rel-vs">×</div>
+          <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#204080,#4080d0)">미현</div>
+          <div class="rel-pair-name">임소율 × 박미현</div>
+        </div>
+        <span class="type-badge badge-긴장">긴장</span>
       </div>
       <div class="rel-section">
         <div class="rel-section-label">현재</div>
@@ -444,12 +469,15 @@
       </div>
       <div class="rel-honorifics"><div class="honorific"><b>소율</b> → 미현 씨</div><div class="honorific"><b>박미현</b> → 소율 씨</div></div>
     </div>
-    <div class="rel-card">
+    <div class="rel-card" data-type="우정" data-chars="하은,연서">
       <div class="rel-pair-header">
-        <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#802080,#c050a8)">하은</div>
-        <div class="rel-vs">×</div>
-        <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#204080,#4080d0)">연서</div>
-        <div class="rel-pair-name">이하은 × 오연서</div>
+        <div style="display:flex;align-items:center;gap:0.5rem;flex:1;min-width:0">
+          <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#802080,#c050a8)">하은</div>
+          <div class="rel-vs">×</div>
+          <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#204080,#4080d0)">연서</div>
+          <div class="rel-pair-name">이하은 × 오연서</div>
+        </div>
+        <span class="type-badge badge-우정">우정</span>
       </div>
       <div class="rel-section">
         <div class="rel-section-label">현재</div>
@@ -461,12 +489,15 @@
       </div>
       <div class="rel-honorifics"><div class="honorific"><b>하은</b> → 연서야</div><div class="honorific"><b>오연서</b> → 하은 언니</div></div>
     </div>
-    <div class="rel-card">
+    <div class="rel-card" data-type="우정" data-chars="서진,연서">
       <div class="rel-pair-header">
-        <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#802080,#c050a8)">서진</div>
-        <div class="rel-vs">×</div>
-        <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#204080,#4080d0)">연서</div>
-        <div class="rel-pair-name">한서진 × 오연서</div>
+        <div style="display:flex;align-items:center;gap:0.5rem;flex:1;min-width:0">
+          <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#802080,#c050a8)">서진</div>
+          <div class="rel-vs">×</div>
+          <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#204080,#4080d0)">연서</div>
+          <div class="rel-pair-name">한서진 × 오연서</div>
+        </div>
+        <span class="type-badge badge-우정">우정</span>
       </div>
       <div class="rel-section">
         <div class="rel-section-label">현재</div>
@@ -478,12 +509,15 @@
       </div>
       <div class="rel-honorifics"><div class="honorific"><b>서진</b> → 연서야</div><div class="honorific"><b>오연서</b> → 서진 씨</div></div>
     </div>
-    <div class="rel-card">
+    <div class="rel-card" data-type="긴장" data-chars="다온,미현">
       <div class="rel-pair-header">
-        <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#802080,#c050a8)">다온</div>
-        <div class="rel-vs">×</div>
-        <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#204080,#4080d0)">미현</div>
-        <div class="rel-pair-name">정다온 × 박미현</div>
+        <div style="display:flex;align-items:center;gap:0.5rem;flex:1;min-width:0">
+          <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#802080,#c050a8)">다온</div>
+          <div class="rel-vs">×</div>
+          <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#204080,#4080d0)">미현</div>
+          <div class="rel-pair-name">정다온 × 박미현</div>
+        </div>
+        <span class="type-badge badge-긴장">긴장</span>
       </div>
       <div class="rel-section">
         <div class="rel-section-label">현재</div>
@@ -495,12 +529,15 @@
       </div>
       <div class="rel-honorifics"><div class="honorific"><b>다온</b> → 미현 씨</div><div class="honorific"><b>박미현</b> → 다온 씨</div></div>
     </div>
-    <div class="rel-card">
+    <div class="rel-card" data-type="탐색" data-chars="미현,연서">
       <div class="rel-pair-header">
-        <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#204080,#4080d0)">미현</div>
-        <div class="rel-vs">×</div>
-        <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#204080,#4080d0)">연서</div>
-        <div class="rel-pair-name">박미현 × 오연서</div>
+        <div style="display:flex;align-items:center;gap:0.5rem;flex:1;min-width:0">
+          <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#204080,#4080d0)">미현</div>
+          <div class="rel-vs">×</div>
+          <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#204080,#4080d0)">연서</div>
+          <div class="rel-pair-name">박미현 × 오연서</div>
+        </div>
+        <span class="type-badge badge-탐색">탐색</span>
       </div>
       <div class="rel-section">
         <div class="rel-section-label">현재</div>
@@ -512,12 +549,15 @@
       </div>
       <div class="rel-honorifics"><div class="honorific"><b>연서</b> → 미현 씨</div><div class="honorific"><b>박미현</b> → 연서 씨</div></div>
     </div>
-    <div class="rel-card">
+    <div class="rel-card" data-type="탐색" data-chars="서진,수인">
       <div class="rel-pair-header">
-        <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#802080,#c050a8)">서진</div>
-        <div class="rel-vs">×</div>
-        <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#204080,#4080d0)">수인</div>
-        <div class="rel-pair-name">한서진 × 배수인</div>
+        <div style="display:flex;align-items:center;gap:0.5rem;flex:1;min-width:0">
+          <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#802080,#c050a8)">서진</div>
+          <div class="rel-vs">×</div>
+          <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#204080,#4080d0)">수인</div>
+          <div class="rel-pair-name">한서진 × 배수인</div>
+        </div>
+        <span class="type-badge badge-탐색">탐색</span>
       </div>
       <div class="rel-section">
         <div class="rel-section-label">현재</div>
@@ -529,29 +569,15 @@
       </div>
       <div class="rel-honorifics"><div class="honorific"><b>서진</b> → 수인 씨</div><div class="honorific"><b>배수인</b> → 한서진 씨</div></div>
     </div>
-    <div class="rel-card">
+    <div class="rel-card" data-type="탐색" data-chars="다온,수인">
       <div class="rel-pair-header">
-        <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#802080,#c050a8)">서진</div>
-        <div class="rel-vs">×</div>
-        <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#204080,#4080d0)">가람</div>
-        <div class="rel-pair-name">한서진 × 윤가람</div>
-      </div>
-      <div class="rel-section">
-        <div class="rel-section-label">현재</div>
-        <div class="rel-section-text">밤의 공간을 지키는 메인과 새벽 물류를 지키는 서브 후보가, 같은 병 하나를 두고도 결국 대충 넘기지 않는 쪽으로 선을 맞춰 본 첫 접점</div>
-      </div>
-      <div class="rel-section">
-        <div class="rel-section-label">최근 변화</div>
-        <div class="rel-section-text">가람은 온도 기록이 끊긴 병을 직접 종로까지 들고 와 재검수를 요구했고, 서진은 그 책임감과 판단 방식을 확인한 뒤 다음부터는 손님 시간 전에 먼저 연락하라는 선까지 열어 주었다</div>
-      </div>
-      <div class="rel-honorifics"><div class="honorific"><b>서진</b> → 가람 씨</div><div class="honorific"><b>윤가람</b> → 한서진 씨</div></div>
-    </div>
-    <div class="rel-card">
-      <div class="rel-pair-header">
-        <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#802080,#c050a8)">다온</div>
-        <div class="rel-vs">×</div>
-        <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#204080,#4080d0)">수인</div>
-        <div class="rel-pair-name">정다온 × 배수인</div>
+        <div style="display:flex;align-items:center;gap:0.5rem;flex:1;min-width:0">
+          <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#802080,#c050a8)">다온</div>
+          <div class="rel-vs">×</div>
+          <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#204080,#4080d0)">수인</div>
+          <div class="rel-pair-name">정다온 × 배수인</div>
+        </div>
+        <span class="type-badge badge-탐색">탐색</span>
       </div>
       <div class="rel-section">
         <div class="rel-section-label">현재</div>
@@ -563,12 +589,15 @@
       </div>
       <div class="rel-honorifics"><div class="honorific"><b>다온</b> → 수인 씨</div><div class="honorific"><b>배수인</b> → 정다온 씨</div></div>
     </div>
-    <div class="rel-card">
+    <div class="rel-card" data-type="탐색" data-chars="미현,수인">
       <div class="rel-pair-header">
-        <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#204080,#4080d0)">미현</div>
-        <div class="rel-vs">×</div>
-        <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#204080,#4080d0)">수인</div>
-        <div class="rel-pair-name">박미현 × 배수인</div>
+        <div style="display:flex;align-items:center;gap:0.5rem;flex:1;min-width:0">
+          <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#204080,#4080d0)">미현</div>
+          <div class="rel-vs">×</div>
+          <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#204080,#4080d0)">수인</div>
+          <div class="rel-pair-name">박미현 × 배수인</div>
+        </div>
+        <span class="type-badge badge-탐색">탐색</span>
       </div>
       <div class="rel-section">
         <div class="rel-section-label">현재</div>
@@ -580,24 +609,33 @@
       </div>
       <div class="rel-honorifics"><div class="honorific"><b>미현</b> → 수인 씨</div><div class="honorific"><b>배수인</b> → 미현 씨</div></div>
     </div>
-    <div class="rel-card">
-      <div class="rel-pair-header">
-        <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#204080,#4080d0)">수인</div>
-        <div class="rel-vs">×</div>
-        <div class="rel-avatar-sm" style="background:linear-gradient(135deg,#204080,#4080d0)">가람</div>
-        <div class="rel-pair-name">배수인 × 윤가람</div>
-      </div>
-      <div class="rel-section">
-        <div class="rel-section-label">현재</div>
-        <div class="rel-section-text">같은 브랜드 바깥 라인에 서 있지만, 어느 방식으로 시안의 생활권에 닿을지를 두고 서로 다른 속도를 재 본 첫 탐색 관계</div>
-      </div>
-      <div class="rel-section">
-        <div class="rel-section-label">최근 변화</div>
-        <div class="rel-section-text">수인은 가람에게 눈에 띄는 호의보다 시안의 생활 리듬을 무너지지 않게 붙는 쪽을 보라고 직접 말했고, 가람은 순순히 따르지는 않되 그 문장을 걸러 볼 가치가 있다고 받아들였다</div>
-      </div>
-      <div class="rel-honorifics"><div class="honorific"><b>수인</b> → 윤가람 씨</div><div class="honorific"><b>윤가람</b> → 배수인 씨</div></div>
-    </div>
   </div>
+  <div class="type-legend">
+    <div class="legend-entry"><div class="legend-bar" style="background:#30a860"></div>동맹</div>
+    <div class="legend-entry"><div class="legend-bar" style="background:#c07828"></div>긴장</div>
+    <div class="legend-entry"><div class="legend-bar" style="background:#4080d0"></div>탐색</div>
+    <div class="legend-entry"><div class="legend-bar" style="background:#40b0c0"></div>우정</div>
+  </div>
+<script>
+var _rtype="all",_char="all";
+function filterRel(btn,t){
+  _rtype=t;
+  document.querySelectorAll(".type-tab").forEach(function(b){b.classList.toggle("active",b.dataset.type===t);});
+  applyRelFilter();
+}
+function filterChar(btn,c){
+  _char=c;
+  document.querySelectorAll(".char-chip-btn").forEach(function(b){b.classList.toggle("active",b.dataset.char===c);});
+  applyRelFilter();
+}
+function applyRelFilter(){
+  document.querySelectorAll(".rel-card").forEach(function(card){
+    var tm=_rtype==="all"||card.dataset.type===_rtype;
+    var cm=_char==="all"||card.dataset.chars.split(",").indexOf(_char)!==-1;
+    card.classList.toggle("hidden",!(tm&&cm));
+  });
+}
+</script>
   <div class="section-title"><span>◈</span> 복선 트래커</div>
   <div class="quest-list">
     <div class="quest-item">
@@ -780,15 +818,7 @@
       <div class="quest-icon qi-active">▶</div>
       <div>
         <div class="quest-text">이하은의 기준 언어 고정</div>
-        <div class="quest-ep">심은 화수 <span>ep.128</span> · 예정 회수 <span>ep.129~145</span> · 하은은 사람을 판정하는 것에서 더 나아가 자기 문장 자체를 공간 안에 남기려는 욕심을 시안 앞에서도 숨기지 않았다. 실제 안내 카드와 메뉴 문장을 다시 쓰며 설명보다 태도가 남는 표현을 고정하기 시작했고, 이후 그 언어가 수인이나 가람 같은 바깥 출신 인력까지 통과시키는 공통 기준으로 자리 잡는지 지켜볼 필요가 있다</div>
-      </div>
-      <div class="qs-badge qs-active">진행</div>
-    </div>
-    <div class="quest-item">
-      <div class="quest-icon qi-active">▶</div>
-      <div>
-        <div class="quest-text">윤가람의 새벽 생활권 유입과 안쪽 기준 접촉</div>
-        <div class="quest-ep">심은 화수 <span>ep.131</span> · 예정 회수 <span>ep.133~145</span> · 가람은 새벽 냉장 물류 검수 현장에서 시안을 처음 만난 뒤, 온도 기록이 끊긴 병을 직접 종로까지 가져오고 폭우가 겹친 월요일 아침에는 대체 물량을 끝까지 연결했다. 아직은 서브 후보 단계지만, 낮 시간대 책임감이 안쪽 공간 기준과 어디까지 맞물릴 수 있는지가 다음 관전 포인트다</div>
+        <div class="quest-ep">심은 화수 <span>ep.128</span> · 예정 회수 <span>ep.129~145</span> · 하은은 사람을 판정하는 것에서 더 나아가 자기 문장 자체를 공간 안에 남기려는 욕심을 시안 앞에서도 숨기지 않았다. 실제 안내 카드와 메뉴 문장을 다시 쓰며 설명보다 태도가 남는 표현을 고정하기 시작했고, 이후 그 언어가 수인 같은 바깥 출신 인력까지 통과시키는 공통 기준으로 자리 잡는지 지켜볼 필요가 있다</div>
       </div>
       <div class="qs-badge qs-active">진행</div>
     </div>

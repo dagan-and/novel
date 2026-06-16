@@ -73,7 +73,7 @@ def build_commit_message(changed_eps):
 # ── 변환 ──────────────────────────────────────────────────────────────
 
 def step_convert_episodes():
-    print('\n[ 1/3 ] 에피소드 HTML 변환')
+    print('\n[ 1/4 ] 에피소드 HTML 변환')
     ep_names = all_episode_names()
     if not ep_names:
         print('  변환할 에피소드 없음')
@@ -82,13 +82,18 @@ def step_convert_episodes():
 
 
 def step_convert_profiles():
-    print('\n[ 2/3 ] 캐릭터 프로필 HTML 변환')
+    print('\n[ 2/4 ] 캐릭터 프로필 HTML 변환')
     run([sys.executable, 'convert_profiles.py'])
 
 
 def step_convert_setting():
-    print('\n[ 3/3 ] 세계관·관계망·인덱스 HTML 변환')
+    print('\n[ 3/4 ] 세계관·관계망·인덱스 HTML 변환')
     run([sys.executable, 'convert_setting.py'])
+
+
+def step_convert_preludes():
+    print('\n[ 4/4 ] 삽화 갤러리 HTML 변환')
+    run([sys.executable, 'convert_preludes.py'])
 
 
 # ── git ───────────────────────────────────────────────────────────────
@@ -122,6 +127,7 @@ def main():
     step_convert_episodes()
     step_convert_profiles()
     step_convert_setting()
+    step_convert_preludes()
 
     if DRY:
         print('\n--dry 모드: git 건너뜀')
