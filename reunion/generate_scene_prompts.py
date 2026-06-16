@@ -45,6 +45,7 @@ def parse_args() -> argparse.Namespace:
         help="Episode numbers or files. Example: 092 ep.137 episodes/ep.092.md",
     )
     parser.add_argument(
+        "-all",
         "--all",
         action="store_true",
         help="Generate prompts for every episode that contains an adult-scene block.",
@@ -60,9 +61,17 @@ def parse_args() -> argparse.Namespace:
         help="Common prompt text file.",
     )
     parser.add_argument(
+        "-f",
         "--force",
         action="store_true",
+        default=True,
         help="Overwrite existing prompt files.",
+    )
+    parser.add_argument(
+        "--no-force",
+        dest="force",
+        action="store_false",
+        help="Fail instead of overwriting when a prompt file already exists.",
     )
     return parser.parse_args()
 

@@ -786,12 +786,22 @@ def build_index():
         {'out': 'setting/관계망.html', 'title': '관계망'},
         {'out': 'setting/연대기.html', 'title': '연대기'},
         {'out': 'setting/장기연재계획.html', 'title': '장기 계획'},
-        {'out': 'characters.html',     'title': '인물'},
+        {
+            'out': 'characters.html',
+            'title': '인물',
+            'sub_out': 'preludes.html',
+            'sub_title': '삽화',
+        },
     ]
-    setting_links = '\n      '.join(
-        '<a class="setting-card" href="{out}">{title}</a>'.format(**c)
-        for c in index_cards
-    )
+    card_chunks = []
+    for card in index_cards:
+        main_link = '<a class="setting-card" href="{out}">{title}</a>'.format(**card)
+        if 'sub_out' in card:
+            sub_link = '<a class="setting-subcard" href="{sub_out}">{sub_title}</a>'.format(**card)
+            card_chunks.append(f'<div class="setting-card-stack">{main_link}{sub_link}</div>')
+        else:
+            card_chunks.append(main_link)
+    setting_links = '\n      '.join(card_chunks)
     ep_section = ep_groups if ep_groups else '<p style="color:#555;font-size:1.1rem;">에피소드 없음</p>'
 
     html = f'''<!DOCTYPE html>
@@ -815,7 +825,8 @@ def build_index():
     section {{ margin-bottom: 2.8rem; }}
     h2 {{ font-size: 1.06rem; color: #888; letter-spacing: 0.12em; margin-bottom: 1rem; padding-bottom: 0.35rem; border-bottom: 1px solid #2a2a2a; }}
     .setting-grid {{ display: flex; gap: 1rem; flex-wrap: wrap; }}
-    .setting-card {{
+    .setting-card,
+    .setting-subcard {{
       flex: 1; min-width: 140px;
       background: #1f1f1f; border: 1px solid #3a2030;
       color: #c9a0b8; text-decoration: none;
@@ -823,7 +834,26 @@ def build_index():
       border-radius: 3px; font-size: 1.13rem;
       text-align: center; letter-spacing: 0.04em;
     }}
-    .setting-card:hover {{ background: #251520; }}
+    .setting-card:hover,
+    .setting-subcard:hover {{ background: #251520; }}
+    .setting-card-stack {{
+      flex: 1;
+      min-width: 140px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }}
+    .setting-card-stack .setting-card,
+    .setting-card-stack .setting-subcard {{
+      width: 100%;
+    }}
+    .setting-subcard {{
+      font-size: 0.96rem;
+      padding: 0.62rem 1rem;
+      color: #e8d4df;
+      border-color: #4a2d3e;
+      background: #221a1f;
+    }}
     .char-link {{
       display: inline-block;
       background: #1f1f1f; border: 1px solid #3a2030;
