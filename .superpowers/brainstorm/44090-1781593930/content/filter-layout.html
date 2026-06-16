@@ -1,0 +1,141 @@
+<h2>필터 조합 방식 — 어떤 구조가 더 직관적일까요?</h2>
+<p class="subtitle">캐릭터 필터 + 관계 타입 필터를 어떻게 배치할지 선택해주세요</p>
+
+<div class="options">
+
+  <div class="option" data-choice="b1" onclick="toggleSelect(this)">
+    <div class="letter">B1</div>
+    <div class="content">
+      <h3>타입 탭 (상단) + 캐릭터 칩 (하단)</h3>
+      <p>관계 타입이 메인 탭, 캐릭터는 보조 필터. "동맹 탭에서 소율 관련만" 식으로 좁혀서 보기</p>
+      <div style="margin-top:10px;background:#0d0b22;border-radius:8px;padding:10px;font-size:10px">
+        <!-- Type tabs -->
+        <div style="display:flex;gap:4px;border-bottom:1px solid #2a2260;padding-bottom:8px;margin-bottom:8px">
+          <span style="padding:4px 10px;border-radius:4px 4px 0 0;background:rgba(64,176,192,0.2);border:1px solid #40b0c0;border-bottom:none;color:#40b0c0;font-size:10px">전체</span>
+          <span style="padding:4px 10px;border-radius:4px 4px 0 0;background:rgba(48,168,96,0.15);border:1px solid rgba(48,168,96,0.4);color:#40c060;font-size:10px">동맹</span>
+          <span style="padding:4px 10px;border-radius:4px 4px 0 0;background:rgba(192,80,168,0.12);border:1px solid #5040a0;color:#9080b8;font-size:10px">우정</span>
+          <span style="padding:4px 10px;border-radius:4px 4px 0 0;background:rgba(192,80,168,0.12);border:1px solid #5040a0;color:#9080b8;font-size:10px">긴장</span>
+          <span style="padding:4px 10px;border-radius:4px 4px 0 0;background:rgba(192,80,168,0.12);border:1px solid #5040a0;color:#9080b8;font-size:10px">탐색</span>
+        </div>
+        <!-- Character chips -->
+        <div style="display:flex;gap:4px;flex-wrap:wrap;margin-bottom:8px">
+          <span style="font-size:9px;color:#7060a0;margin-right:2px;line-height:22px">인물:</span>
+          <span style="padding:2px 8px;border-radius:12px;background:rgba(192,80,168,0.2);border:1px solid #c050a8;color:#c050a8;font-size:9px">소율 ✕</span>
+          <span style="padding:2px 8px;border-radius:12px;background:rgba(42,34,96,0.4);border:1px solid #2a2260;color:#7060a0;font-size:9px">하은</span>
+          <span style="padding:2px 8px;border-radius:12px;background:rgba(42,34,96,0.4);border:1px solid #2a2260;color:#7060a0;font-size:9px">서진</span>
+          <span style="padding:2px 8px;border-radius:12px;background:rgba(42,34,96,0.4);border:1px solid #2a2260;color:#7060a0;font-size:9px">다온</span>
+          <span style="padding:2px 8px;border-radius:12px;background:rgba(42,34,96,0.4);border:1px solid #2a2260;color:#7060a0;font-size:9px">미현</span>
+        </div>
+        <!-- Result cards -->
+        <div style="background:#110f28;border:1px solid #2a2260;border-left:3px solid #40c060;border-radius:6px;padding:8px;margin-bottom:5px">
+          <div style="display:flex;align-items:center;gap:5px;margin-bottom:3px">
+            <span style="font-size:9px;padding:1px 5px;border-radius:2px;background:rgba(48,168,96,0.15);border:1px solid rgba(48,168,96,0.4);color:#40c060">동맹</span>
+            <span style="color:#e0d8f8;font-size:10px">소율 × 하은</span>
+          </div>
+          <div style="color:#7060a0;font-size:9px">안정적 공존 · 소율→하은아 / 하은→소율 언니</div>
+        </div>
+        <div style="background:#110f28;border:1px solid #2a2260;border-left:3px solid #40c060;border-radius:6px;padding:8px">
+          <div style="display:flex;align-items:center;gap:5px;margin-bottom:3px">
+            <span style="font-size:9px;padding:1px 5px;border-radius:2px;background:rgba(48,168,96,0.15);border:1px solid rgba(48,168,96,0.4);color:#40c060">동맹</span>
+            <span style="color:#e0d8f8;font-size:10px">소율 × 서진</span>
+          </div>
+          <div style="color:#7060a0;font-size:9px">운영 현장에서 서로 받쳐주는 같은 편</div>
+        </div>
+      </div>
+      <div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap">
+        <span style="font-size:10px;padding:2px 7px;border-radius:3px;background:rgba(48,168,96,0.15);border:1px solid rgba(48,168,96,0.4);color:#40c060">타입으로 먼저 분류</span>
+        <span style="font-size:10px;padding:2px 7px;border-radius:3px;background:rgba(48,168,96,0.15);border:1px solid rgba(48,168,96,0.4);color:#40c060">캐릭터로 세부 필터</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="b2" onclick="toggleSelect(this)">
+    <div class="letter">B2</div>
+    <div class="content">
+      <h3>캐릭터 탭 (상단) + 타입 뱃지 색상</h3>
+      <p>캐릭터가 메인 탭, 카드마다 관계 타입 뱃지를 색상으로 표시. 한 인물의 모든 관계를 타입 색상으로 한눈에 파악</p>
+      <div style="margin-top:10px;background:#0d0b22;border-radius:8px;padding:10px;font-size:10px">
+        <!-- Character tabs -->
+        <div style="display:flex;gap:4px;flex-wrap:wrap;margin-bottom:8px">
+          <span style="padding:3px 9px;border-radius:4px;background:rgba(192,80,168,0.25);border:1px solid #c050a8;color:#c050a8;font-size:10px">소율</span>
+          <span style="padding:3px 9px;border-radius:4px;background:rgba(42,34,96,0.4);border:1px solid #2a2260;color:#9080b8;font-size:10px">하은</span>
+          <span style="padding:3px 9px;border-radius:4px;background:rgba(42,34,96,0.4);border:1px solid #2a2260;color:#9080b8;font-size:10px">서진</span>
+          <span style="padding:3px 9px;border-radius:4px;background:rgba(42,34,96,0.4);border:1px solid #2a2260;color:#9080b8;font-size:10px">다온</span>
+          <span style="padding:3px 9px;border-radius:4px;background:rgba(42,34,96,0.4);border:1px solid #2a2260;color:#9080b8;font-size:10px">미현</span>
+        </div>
+        <!-- Cards with type badges -->
+        <div style="background:#110f28;border:1px solid #2a2260;border-radius:6px;padding:8px;margin-bottom:5px">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:3px">
+            <span style="color:#e0d8f8;font-size:10px">소율 × 하은</span>
+            <span style="font-size:9px;padding:1px 6px;border-radius:10px;background:rgba(48,168,96,0.15);border:1px solid rgba(48,168,96,0.4);color:#40c060">동맹</span>
+          </div>
+          <div style="color:#7060a0;font-size:9px">안정적 공존 · 소율→하은아 / 하은→소율 언니</div>
+        </div>
+        <div style="background:#110f28;border:1px solid #2a2260;border-radius:6px;padding:8px;margin-bottom:5px">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:3px">
+            <span style="color:#e0d8f8;font-size:10px">소율 × 서진</span>
+            <span style="font-size:9px;padding:1px 6px;border-radius:10px;background:rgba(48,168,96,0.15);border:1px solid rgba(48,168,96,0.4);color:#40c060">동맹</span>
+          </div>
+          <div style="color:#7060a0;font-size:9px">운영 현장에서 서로 받쳐주는 같은 편</div>
+        </div>
+        <div style="background:#110f28;border:1px solid #2a2260;border-radius:6px;padding:8px">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:3px">
+            <span style="color:#e0d8f8;font-size:10px">소율 × 미현</span>
+            <span style="font-size:9px;padding:1px 6px;border-radius:10px;background:rgba(192,120,40,0.15);border:1px solid rgba(192,120,40,0.4);color:#e09040">긴장</span>
+          </div>
+          <div style="color:#7060a0;font-size:9px">먼저 쌓인 시간의 무게와 긴장 섞인 인정 단계</div>
+        </div>
+      </div>
+      <div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap">
+        <span style="font-size:10px;padding:2px 7px;border-radius:3px;background:rgba(48,168,96,0.15);border:1px solid rgba(48,168,96,0.4);color:#40c060">인물 중심 탐색</span>
+        <span style="font-size:10px;padding:2px 7px;border-radius:3px;background:rgba(48,168,96,0.15);border:1px solid rgba(48,168,96,0.4);color:#40c060">색상으로 타입 직관</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="b3" onclick="toggleSelect(this)">
+    <div class="letter">B3</div>
+    <div class="content">
+      <h3>두 필터 동시에 (독립 작동)</h3>
+      <p>캐릭터 + 타입 필터 각각 독립적으로 AND 작동. "소율 선택 + 동맹 선택 = 소율의 동맹 관계만" 표시</p>
+      <div style="margin-top:10px;background:#0d0b22;border-radius:8px;padding:10px;font-size:10px">
+        <div style="display:flex;gap:8px;margin-bottom:8px">
+          <div style="flex:1">
+            <div style="font-size:9px;color:#7060a0;margin-bottom:4px;letter-spacing:0.05em">PERSON</div>
+            <div style="display:flex;gap:3px;flex-wrap:wrap">
+              <span style="padding:2px 7px;border-radius:3px;background:rgba(192,80,168,0.25);border:1px solid #c050a8;color:#c050a8;font-size:9px">소율</span>
+              <span style="padding:2px 7px;border-radius:3px;background:rgba(42,34,96,0.3);border:1px solid #2a2260;color:#7060a0;font-size:9px">하은</span>
+              <span style="padding:2px 7px;border-radius:3px;background:rgba(42,34,96,0.3);border:1px solid #2a2260;color:#7060a0;font-size:9px">서진</span>
+            </div>
+          </div>
+          <div style="flex:1">
+            <div style="font-size:9px;color:#7060a0;margin-bottom:4px;letter-spacing:0.05em">TYPE</div>
+            <div style="display:flex;gap:3px;flex-wrap:wrap">
+              <span style="padding:2px 7px;border-radius:3px;background:rgba(48,168,96,0.2);border:1px solid #40c060;color:#40c060;font-size:9px">동맹</span>
+              <span style="padding:2px 7px;border-radius:3px;background:rgba(42,34,96,0.3);border:1px solid #2a2260;color:#7060a0;font-size:9px">긴장</span>
+              <span style="padding:2px 7px;border-radius:3px;background:rgba(42,34,96,0.3);border:1px solid #2a2260;color:#7060a0;font-size:9px">우정</span>
+            </div>
+          </div>
+        </div>
+        <div style="font-size:9px;color:#5040a0;margin-bottom:5px">→ 소율 + 동맹 = 2건 표시</div>
+        <div style="background:#110f28;border:1px solid #2a2260;border-left:3px solid #40c060;border-radius:6px;padding:8px;margin-bottom:4px">
+          <div style="display:flex;justify-content:space-between">
+            <span style="color:#e0d8f8;font-size:10px">소율 × 하은</span>
+            <span style="font-size:9px;color:#40c060">동맹</span>
+          </div>
+        </div>
+        <div style="background:#110f28;border:1px solid #2a2260;border-left:3px solid #40c060;border-radius:6px;padding:8px">
+          <div style="display:flex;justify-content:space-between">
+            <span style="color:#e0d8f8;font-size:10px">소율 × 서진</span>
+            <span style="font-size:9px;color:#40c060">동맹</span>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap">
+        <span style="font-size:10px;padding:2px 7px;border-radius:3px;background:rgba(48,168,96,0.15);border:1px solid rgba(48,168,96,0.4);color:#40c060">가장 강력한 필터링</span>
+        <span style="font-size:10px;padding:2px 7px;border-radius:3px;background:rgba(192,120,40,0.15);border:1px solid rgba(192,120,40,0.4);color:#e09040">결과가 너무 적을 수 있음</span>
+      </div>
+    </div>
+  </div>
+
+</div>

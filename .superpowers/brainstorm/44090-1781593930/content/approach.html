@@ -1,0 +1,141 @@
+<h2>관계망 HTML — 어떻게 개선할까요?</h2>
+<p class="subtitle">현재: 텍스트 카드 15장이 그냥 나열됨. 한눈에 파악하기 힘든 구조.</p>
+
+<div class="options">
+
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>인터랙티브 네트워크 그래프</h3>
+      <p>노드(캐릭터)와 엣지(관계선)를 SVG/Canvas로 그려서, 클릭하면 관계 상세가 펼쳐지는 실제 그래프 시각화</p>
+      <div style="margin-top:10px; background:#0d0b22; border-radius:8px; padding:12px; font-size:11px; line-height:1.8">
+        <div style="position:relative; height:120px;">
+          <!-- Center node -->
+          <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+            width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#7040d0,#c050a8);
+            display:flex;align-items:center;justify-content:center;color:#fff;font-size:9px;font-weight:700;
+            box-shadow:0 0 12px rgba(192,80,168,0.5)">시안</div>
+          <!-- Main chars -->
+          <div style="position:absolute;left:18%;top:12%;width:28px;height:28px;border-radius:50%;
+            background:linear-gradient(135deg,#802080,#c050a8);display:flex;align-items:center;
+            justify-content:center;color:#fff;font-size:8px;font-weight:700;">소율</div>
+          <div style="position:absolute;right:18%;top:12%;width:28px;height:28px;border-radius:50%;
+            background:linear-gradient(135deg,#802080,#c050a8);display:flex;align-items:center;
+            justify-content:center;color:#fff;font-size:8px;font-weight:700;">하은</div>
+          <div style="position:absolute;left:8%;top:55%;width:28px;height:28px;border-radius:50%;
+            background:linear-gradient(135deg,#802080,#c050a8);display:flex;align-items:center;
+            justify-content:center;color:#fff;font-size:8px;font-weight:700;">서진</div>
+          <div style="position:absolute;right:8%;top:55%;width:28px;height:28px;border-radius:50%;
+            background:linear-gradient(135deg,#802080,#c050a8);display:flex;align-items:center;
+            justify-content:center;color:#fff;font-size:8px;font-weight:700;">다온</div>
+          <div style="position:absolute;left:30%;bottom:4%;width:24px;height:24px;border-radius:50%;
+            background:linear-gradient(135deg,#204080,#4080d0);display:flex;align-items:center;
+            justify-content:center;color:#fff;font-size:8px;font-weight:700;">미현</div>
+          <div style="position:absolute;right:30%;bottom:4%;width:24px;height:24px;border-radius:50%;
+            background:linear-gradient(135deg,#204080,#4080d0);display:flex;align-items:center;
+            justify-content:center;color:#fff;font-size:8px;font-weight:700;">연서</div>
+          <!-- Lines (SVG overlay) -->
+          <svg style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;" xmlns="http://www.w3.org/2000/svg">
+            <line x1="50%" y1="50%" x2="22%" y2="18%" stroke="#c050a8" stroke-width="1.5" stroke-opacity="0.5"/>
+            <line x1="50%" y1="50%" x2="78%" y2="18%" stroke="#c050a8" stroke-width="1.5" stroke-opacity="0.5"/>
+            <line x1="50%" y1="50%" x2="13%" y2="60%" stroke="#c050a8" stroke-width="1.5" stroke-opacity="0.5"/>
+            <line x1="50%" y1="50%" x2="87%" y2="60%" stroke="#c050a8" stroke-width="1.5" stroke-opacity="0.5"/>
+            <line x1="22%" y1="18%" x2="78%" y2="18%" stroke="#5040a0" stroke-width="1" stroke-opacity="0.4" stroke-dasharray="3,3"/>
+            <line x1="22%" y1="18%" x2="13%" y2="60%" stroke="#5040a0" stroke-width="1" stroke-opacity="0.4" stroke-dasharray="3,3"/>
+            <line x1="78%" y1="18%" x2="87%" y2="60%" stroke="#5040a0" stroke-width="1" stroke-opacity="0.4" stroke-dasharray="3,3"/>
+          </svg>
+        </div>
+        <div style="color:#9080b8;font-size:10px;text-align:center;margin-top:4px">→ 노드 클릭 시 관계 상세 패널 오픈</div>
+      </div>
+      <div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap">
+        <span style="font-size:10px;padding:2px 7px;border-radius:3px;background:rgba(48,168,96,0.15);border:1px solid rgba(48,168,96,0.4);color:#40c060">한눈에 전체 파악</span>
+        <span style="font-size:10px;padding:2px 7px;border-radius:3px;background:rgba(192,120,40,0.15);border:1px solid rgba(192,120,40,0.4);color:#e09040">구현 복잡도 높음</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>캐릭터 필터 + 카드 뷰</h3>
+      <p>상단에 캐릭터 버튼을 두고, 클릭하면 해당 캐릭터와 연관된 관계 카드만 필터링. 현재 레이아웃 유지하며 탐색성 개선</p>
+      <div style="margin-top:10px; background:#0d0b22; border-radius:8px; padding:10px; font-size:11px;">
+        <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:8px">
+          <span style="padding:3px 9px;border-radius:4px;background:rgba(192,80,168,0.25);border:1px solid #c050a8;color:#c050a8;font-size:10px;cursor:pointer">소율</span>
+          <span style="padding:3px 9px;border-radius:4px;background:rgba(42,34,96,0.4);border:1px solid #2a2260;color:#9080b8;font-size:10px">하은</span>
+          <span style="padding:3px 9px;border-radius:4px;background:rgba(42,34,96,0.4);border:1px solid #2a2260;color:#9080b8;font-size:10px">서진</span>
+          <span style="padding:3px 9px;border-radius:4px;background:rgba(42,34,96,0.4);border:1px solid #2a2260;color:#9080b8;font-size:10px">다온</span>
+          <span style="padding:3px 9px;border-radius:4px;background:rgba(42,34,96,0.4);border:1px solid #2a2260;color:#9080b8;font-size:10px">미현</span>
+        </div>
+        <div style="background:#110f28;border:1px solid #2a2260;border-radius:6px;padding:8px;font-size:10px;color:#9080b8">
+          <div style="color:#e0d8f8;font-size:11px;margin-bottom:4px">소율 × 하은 — 안정적 공존</div>
+          <div style="color:#7060a0;font-size:9px">소율 → 하은아 / 하은 → 소율 언니</div>
+        </div>
+        <div style="background:#110f28;border:1px solid #2a2260;border-radius:6px;padding:8px;font-size:10px;color:#9080b8;margin-top:5px">
+          <div style="color:#e0d8f8;font-size:11px;margin-bottom:4px">소율 × 서진 — 같은 편</div>
+          <div style="color:#7060a0;font-size:9px">소율 → 서진 언니 / 서진 → 소율아</div>
+        </div>
+      </div>
+      <div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap">
+        <span style="font-size:10px;padding:2px 7px;border-radius:3px;background:rgba(48,168,96,0.15);border:1px solid rgba(48,168,96,0.4);color:#40c060">빠른 구현</span>
+        <span style="font-size:10px;padding:2px 7px;border-radius:3px;background:rgba(48,168,96,0.15);border:1px solid rgba(48,168,96,0.4);color:#40c060">기존 디자인 유지</span>
+        <span style="font-size:10px;padding:2px 7px;border-radius:3px;background:rgba(192,120,40,0.15);border:1px solid rgba(192,120,40,0.4);color:#e09040">전체 구조는 텍스트</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>매트릭스 + 슬라이드오버 패널</h3>
+      <p>상단에 7×7 관계 매트릭스 테이블로 전체 연결 강도를 색으로 한눈에 보여주고, 셀 클릭 시 옆에서 상세 패널이 슬라이드로 열리는 구조</p>
+      <div style="margin-top:10px; background:#0d0b22; border-radius:8px; padding:10px; font-size:10px; overflow-x:auto">
+        <table style="border-collapse:collapse;width:100%;font-size:9px">
+          <tr>
+            <td style="padding:3px;color:#5040a0"></td>
+            <td style="padding:3px;color:#9080b8;text-align:center">소율</td>
+            <td style="padding:3px;color:#9080b8;text-align:center">하은</td>
+            <td style="padding:3px;color:#9080b8;text-align:center">서진</td>
+            <td style="padding:3px;color:#9080b8;text-align:center">다온</td>
+            <td style="padding:3px;color:#9080b8;text-align:center">미현</td>
+            <td style="padding:3px;color:#9080b8;text-align:center">연서</td>
+          </tr>
+          <tr>
+            <td style="padding:3px;color:#9080b8">소율</td>
+            <td style="padding:2px;background:#1a1840;text-align:center">—</td>
+            <td style="padding:2px;background:rgba(192,80,168,0.4);border-radius:3px;text-align:center;cursor:pointer">🔗</td>
+            <td style="padding:2px;background:rgba(192,80,168,0.4);border-radius:3px;text-align:center;cursor:pointer">🔗</td>
+            <td style="padding:2px;background:rgba(192,80,168,0.25);border-radius:3px;text-align:center;cursor:pointer">🔗</td>
+            <td style="padding:2px;background:rgba(64,128,208,0.2);border-radius:3px;text-align:center;cursor:pointer">🔗</td>
+            <td style="padding:2px;background:#1a1840;text-align:center;color:#5040a0">-</td>
+          </tr>
+          <tr>
+            <td style="padding:3px;color:#9080b8">하은</td>
+            <td style="padding:2px;background:rgba(192,80,168,0.4);border-radius:3px;text-align:center;cursor:pointer">🔗</td>
+            <td style="padding:2px;background:#1a1840;text-align:center">—</td>
+            <td style="padding:2px;background:rgba(192,80,168,0.4);border-radius:3px;text-align:center;cursor:pointer">🔗</td>
+            <td style="padding:2px;background:rgba(192,80,168,0.35);border-radius:3px;text-align:center;cursor:pointer">🔗</td>
+            <td style="padding:2px;background:rgba(64,128,208,0.2);border-radius:3px;text-align:center;cursor:pointer">🔗</td>
+            <td style="padding:2px;background:rgba(64,128,208,0.25);border-radius:3px;text-align:center;cursor:pointer">🔗</td>
+          </tr>
+          <tr>
+            <td style="padding:3px;color:#9080b8">서진</td>
+            <td style="padding:2px;background:rgba(192,80,168,0.4);border-radius:3px;text-align:center">🔗</td>
+            <td style="padding:2px;background:rgba(192,80,168,0.4);border-radius:3px;text-align:center">🔗</td>
+            <td style="padding:2px;background:#1a1840;text-align:center">—</td>
+            <td style="padding:2px;background:rgba(192,80,168,0.4);border-radius:3px;text-align:center">🔗</td>
+            <td style="padding:2px;background:rgba(64,128,208,0.2);border-radius:3px;text-align:center">🔗</td>
+            <td style="padding:2px;background:rgba(64,128,208,0.2);border-radius:3px;text-align:center">🔗</td>
+          </tr>
+        </table>
+        <div style="color:#9080b8;font-size:9px;margin-top:5px">→ 셀 클릭 시 우측에서 관계 상세 슬라이드</div>
+      </div>
+      <div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap">
+        <span style="font-size:10px;padding:2px 7px;border-radius:3px;background:rgba(48,168,96,0.15);border:1px solid rgba(48,168,96,0.4);color:#40c060">전체 구조 파악 쉬움</span>
+        <span style="font-size:10px;padding:2px 7px;border-radius:3px;background:rgba(48,168,96,0.15);border:1px solid rgba(48,168,96,0.4);color:#40c060">클릭 상세 탐색</span>
+        <span style="font-size:10px;padding:2px 7px;border-radius:3px;background:rgba(192,120,40,0.15);border:1px solid rgba(192,120,40,0.4);color:#e09040">중간 복잡도</span>
+      </div>
+    </div>
+  </div>
+
+</div>
