@@ -449,9 +449,10 @@ def build_index(names):
             thumb = f'<div class="no-img">{name[0]}</div>'
         cat_em = f'<em>{category}</em>' if category else ''
         card = f'<a class="card" href="characters/{name}.html">{thumb}<span>{name}</span>{cat_em}</a>'
-        entries.append({'name': name, 'total_score': total_score, 'card': card})
+        adult_count = ADULT_SCENE_COUNTS.get(name, 0)
+        entries.append({'name': name, 'total_score': total_score, 'adult_count': adult_count, 'card': card})
 
-    entries.sort(key=lambda e: -e['total_score'])
+    entries.sort(key=lambda e: (-e['adult_count'], -e['total_score']))
     grid = '\n    '.join(e['card'] for e in entries)
 
     html = f"""<!DOCTYPE html>
