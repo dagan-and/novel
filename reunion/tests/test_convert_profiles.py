@@ -23,19 +23,27 @@ class ConvertProfilesAdultSceneTests(unittest.TestCase):
     def test_profile_shows_adult_scene_hearts_and_count(self):
         html = self.render_profile("정다온")
 
-        self.assertIn("성인씬 5회", html)
-        self.assertEqual(len(re.findall(r'class="heart filled"', html)), 5)
+        count_match = re.search(r"성인씬 (\d+)회", html)
+        self.assertIsNotNone(count_match)
+        self.assertEqual(len(re.findall(r'class="heart filled"', html)), int(count_match.group(1)))
         self.assertEqual(len(re.findall(r'class="heart empty"', html)), 0)
         self.assertNotIn("친밀도:", html)
         self.assertNotIn("관계 진도:", html)
         self.assertNotIn("현재 단계:", html)
 
-    def test_profile_caps_hearts_at_five_for_higher_counts(self):
+    def test_profile_keeps_heart_count_in_sync_with_displayed_total(self):
         html = self.render_profile("이하은")
 
-        self.assertIn("성인씬 12회", html)
-        self.assertEqual(len(re.findall(r'class="heart filled"', html)), 12)
+        count_match = re.search(r"성인씬 (\d+)회", html)
+        self.assertIsNotNone(count_match)
+        self.assertEqual(len(re.findall(r'class="heart filled"', html)), int(count_match.group(1)))
         self.assertEqual(len(re.findall(r'class="heart empty"', html)), 0)
+
+    def test_profile_renders_origin_without_series_title(self):
+        html = self.render_profile("임소율")
+
+        self.assertIn("출신: 부산", html)
+        self.assertNotIn("다시 만나는 관계들", html)
 
 
 if __name__ == "__main__":

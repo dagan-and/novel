@@ -243,11 +243,11 @@ for arg in args:
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>다시 만나는 관계들 — {base_name}</title>
+  <title>{base_name}</title>
   <style>{CSS}  </style>
 </head>
 <body>
-  <h1>다시 만나는 관계들 — {base_name}</h1>
+  <h1>{base_name}</h1>
   {body}
   <div class="nav">
     {prev_link}

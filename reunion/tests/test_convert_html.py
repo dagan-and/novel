@@ -57,6 +57,7 @@ class ConvertHtmlIllustrationTests(unittest.TestCase):
         self.assertIn("../images/preludes/ep.998.png", html)
         self.assertIn("<figcaption>테스트 공간</figcaption>", html)
         self.assertNotIn("## [성인씬 #1 — ep.998]", html)
+        self.assertNotIn("다시 만나는 관계들", html)
 
     def test_numeric_only_image_name_is_supported(self):
         IMAGE_DIR.mkdir(parents=True, exist_ok=True)

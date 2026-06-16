@@ -414,7 +414,7 @@ def build_profile(name):
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>다시 만나는 관계들 — {name}</title>
+  <title>{name}</title>
   <style>{PROFILE_CSS}  </style>
 </head>
 <body>
@@ -486,7 +486,7 @@ def build_index(names):
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>다시 만나는 관계들 — 인물</title>
+  <title>인물</title>
   <style>
     * {{ box-sizing: border-box; margin: 0; padding: 0; }}
     body {{

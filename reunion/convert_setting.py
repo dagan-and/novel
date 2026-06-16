@@ -6,6 +6,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 SETTING_FILES = [
     {'src': 'setting/세계관.md', 'out': 'setting/세계관.html', 'title': '세계관'},
+    {'src': 'setting/장기연재계획.md', 'out': 'setting/장기연재계획.html', 'title': '장기 연재 계획'},
 ]
 
 # ── GENERIC DARK STYLE (세계관) ───────────────────────────────────────────────
@@ -585,7 +586,7 @@ function applyRelFilter(){
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>관계망 대시보드 — 다시 만나는 관계들</title>
+  <title>관계망</title>
   <style>{KANGEMANG_CSS}</style>
 </head>
 <body>
@@ -693,7 +694,7 @@ def render_yondaegi(md_text):
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>에피소드 연대기 — 다시 만나는 관계들</title>
+  <title>연대기</title>
   <style>{YONDAEGI_CSS}</style>
 </head>
 <body>
@@ -704,7 +705,7 @@ def render_yondaegi(md_text):
   </div>
   <div class="page-header">
     <h1>에피소드 연대기</h1>
-    <p>다시 만나는 관계들 · 1차 루프 · 2013~2014</p>
+    <p>1차 루프 · 2013~2014</p>
   </div>
   {legend}
   <div class="section-title"><span>◈</span> 스토리 아크 요약</div>
@@ -724,13 +725,14 @@ def build_setting(src, out, title):
         return
     with open(src_path, encoding='utf-8') as f:
         raw = f.read()
+    raw = re.sub(r'^# 다시 만나는 관계들\s*\n(?:\s*\n)?---\s*\n', '', raw, count=1)
     body = md_to_html(raw)
     html = f'''<!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>다시 만나는 관계들 — {title}</title>
+  <title>{title}</title>
   <style>{DARK_STYLE}</style>
 </head>
 <body>
@@ -783,6 +785,7 @@ def build_index():
     index_cards = [
         {'out': 'setting/관계망.html', 'title': '관계망'},
         {'out': 'setting/연대기.html', 'title': '연대기'},
+        {'out': 'setting/장기연재계획.html', 'title': '장기 계획'},
         {'out': 'characters.html',     'title': '인물'},
     ]
     setting_links = '\n      '.join(
@@ -796,7 +799,7 @@ def build_index():
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>다시 만나는 관계들</title>
+  <title>목차</title>
   <style>
     * {{ box-sizing: border-box; margin: 0; padding: 0; }}
     body {{
@@ -843,7 +846,6 @@ def build_index():
   </style>
 </head>
 <body>
-  <h1>다시 만나는 관계들</h1>
   <p class="subtitle">총 {len(ep_files)}화 완성</p>
 
   <section>

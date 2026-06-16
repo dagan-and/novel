@@ -43,7 +43,7 @@ HTML_TEMPLATE = """\
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>다시 만나는 관계들 — 삽화</title>
+  <title>삽화</title>
   <style>
     * {{ box-sizing: border-box; margin: 0; padding: 0; }}
     body {{
@@ -122,7 +122,7 @@ HTML_TEMPLATE = """\
 
   <a class="back" href="index.html">← 목차</a>
 
-  <h1>다시 만나는 관계들</h1>
+  <h1>삽화</h1>
   <p class="page-sub">삽화 {count}장</p>
 
   <h2 class="section-title">삽화</h2>
