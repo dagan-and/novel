@@ -10,9 +10,9 @@
       background: #1a1a1a;
       color: #e8e0d0;
       font-family: 'Nanum Myeongjo', Georgia, serif;
-      max-width: 960px;
+      max-width: 1180px;
       margin: 0 auto;
-      padding: 3rem 1.5rem 5rem;
+      padding: 2.5rem 1.5rem 5rem;
     }
     a.back {
       display: inline-block; margin-bottom: 2.5rem;
@@ -34,78 +34,48 @@
       border-bottom: 1px solid #2a2a2a;
     }
 
-    /* ── 삽화 스크롤 영역 ── */
+    /* ── 삽화 세로 스크롤 영역 ── */
     .gallery-wrap {
       position: relative;
       margin-bottom: 3.5rem;
     }
     .gallery-track {
       display: flex;
-      gap: 1rem;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
+      flex-direction: column;
+      gap: 2.5rem;
+      overflow-y: auto;
+      max-height: calc(100vh - 220px);
+      scroll-snap-type: y proximity;
       -webkit-overflow-scrolling: touch;
-      padding: 0.5rem 0 1rem;
+      padding: 0.25rem 0.5rem 1rem 0;
       scrollbar-width: thin;
       scrollbar-color: #3a2030 #1a1a1a;
     }
-    .gallery-track::-webkit-scrollbar { height: 5px; }
+    .gallery-track::-webkit-scrollbar { width: 8px; }
     .gallery-track::-webkit-scrollbar-track { background: #1a1a1a; }
     .gallery-track::-webkit-scrollbar-thumb { background: #3a2030; border-radius: 3px; }
 
     .prelude-item {
-      flex: 0 0 auto;
       scroll-snap-align: start;
       display: flex; flex-direction: column; align-items: center;
       text-decoration: none; color: #e8e0d0;
-      width: 220px;
+      width: 100%;
     }
     .prelude-item img {
-      width: 220px; height: 310px;
-      object-fit: cover; object-position: top;
+      width: min(100%, 780px);
+      height: auto;
       border: 1px solid #3a2030; border-radius: 3px;
       background: #111;
       transition: border-color 0.2s;
+      box-shadow: 0 14px 40px rgba(0,0,0,0.28);
     }
     .prelude-item:hover img { border-color: #c9a0b8; }
     .prelude-item span {
-      margin-top: 0.45rem; font-size: 0.95rem; color: #888;
-      letter-spacing: 0.05em;
+      margin-top: 0.75rem; font-size: 1.05rem; color: #9a8c94;
+      letter-spacing: 0.08em;
     }
     .prelude-item:hover span { color: #c9a0b8; }
 
-    /* 좌우 버튼 */
-    .scroll-btn {
-      position: absolute; top: 50%; transform: translateY(-60%);
-      background: rgba(26,26,26,0.85); border: 1px solid #3a2030;
-      color: #c9a0b8; font-size: 1.8rem; line-height: 1;
-      width: 2.4rem; height: 2.4rem; border-radius: 50%;
-      cursor: pointer; display: flex; align-items: center; justify-content: center;
-      z-index: 2; user-select: none;
-      transition: background 0.2s, border-color 0.2s;
-    }
-    .scroll-btn:hover { background: #251520; border-color: #c9a0b8; }
-    .scroll-btn.left  { left: -1.3rem; }
-    .scroll-btn.right { right: -1.3rem; }
-
-    /* ── 인물 그리드 ── */
-    .char-grid {
-      display: flex; flex-wrap: wrap; gap: 1rem;
-    }
-    .char-card {
-      display: flex; flex-direction: column; align-items: center;
-      text-decoration: none; color: #e8e0d0; width: 110px;
-    }
-    .char-card img {
-      width: 110px; height: 140px;
-      object-fit: cover; object-position: top;
-      border: 1px solid #3a2030; border-radius: 3px; background: #111;
-      transition: border-color 0.2s;
-    }
-    .char-card:hover img { border-color: #c9a0b8; }
-    .char-card span { margin-top: 0.4rem; font-size: 1.05rem; color: #c8a8b8; }
-    .char-card em { font-size: 0.88rem; color: #666; font-style: normal; }
-    .char-card:hover span { color: #c9a0b8; text-decoration: underline; }
   </style>
 </head>
 <body>
@@ -113,264 +83,201 @@
   <a class="back" href="index.html">← 목차</a>
 
   <h1>다시 만나는 관계들</h1>
-  <p class="page-sub">삽화 47장 · 인물 8명</p>
+  <p class="page-sub">삽화 47장</p>
 
   <h2 class="section-title">삽화</h2>
   <div class="gallery-wrap">
-    <button class="scroll-btn left"  id="btn-left"  aria-label="이전">&#8249;</button>
     <div class="gallery-track" id="gallery-track">
-      <a class="prelude-item" href="ep.020.html">
-        <img src="../images/preludes/020.png" alt="ep.020 삽화" loading="lazy">
-        <span>ep.020</span>
-      </a>
-      <a class="prelude-item" href="ep.023.html">
-        <img src="../images/preludes/023.png" alt="ep.023 삽화" loading="lazy">
-        <span>ep.023</span>
-      </a>
-      <a class="prelude-item" href="ep.024.html">
-        <img src="../images/preludes/024.png" alt="ep.024 삽화" loading="lazy">
-        <span>ep.024</span>
-      </a>
-      <a class="prelude-item" href="ep.026.html">
-        <img src="../images/preludes/026.png" alt="ep.026 삽화" loading="lazy">
-        <span>ep.026</span>
-      </a>
-      <a class="prelude-item" href="ep.027.html">
-        <img src="../images/preludes/027.png" alt="ep.027 삽화" loading="lazy">
-        <span>ep.027</span>
-      </a>
-      <a class="prelude-item" href="ep.029.html">
-        <img src="../images/preludes/029.png" alt="ep.029 삽화" loading="lazy">
-        <span>ep.029</span>
-      </a>
-      <a class="prelude-item" href="ep.034.html">
-        <img src="../images/preludes/034.png" alt="ep.034 삽화" loading="lazy">
-        <span>ep.034</span>
-      </a>
-      <a class="prelude-item" href="ep.037.html">
-        <img src="../images/preludes/037.png" alt="ep.037 삽화" loading="lazy">
-        <span>ep.037</span>
-      </a>
-      <a class="prelude-item" href="ep.040.html">
-        <img src="../images/preludes/040.png" alt="ep.040 삽화" loading="lazy">
-        <span>ep.040</span>
-      </a>
-      <a class="prelude-item" href="ep.042.html">
-        <img src="../images/preludes/042.png" alt="ep.042 삽화" loading="lazy">
-        <span>ep.042</span>
-      </a>
-      <a class="prelude-item" href="ep.045.html">
-        <img src="../images/preludes/045.png" alt="ep.045 삽화" loading="lazy">
-        <span>ep.045</span>
-      </a>
-      <a class="prelude-item" href="ep.046.html">
-        <img src="../images/preludes/046.png" alt="ep.046 삽화" loading="lazy">
-        <span>ep.046</span>
-      </a>
-      <a class="prelude-item" href="ep.048.html">
-        <img src="../images/preludes/048.png" alt="ep.048 삽화" loading="lazy">
-        <span>ep.048</span>
-      </a>
-      <a class="prelude-item" href="ep.050.html">
-        <img src="../images/preludes/050.png" alt="ep.050 삽화" loading="lazy">
-        <span>ep.050</span>
-      </a>
-      <a class="prelude-item" href="ep.053.html">
-        <img src="../images/preludes/053.png" alt="ep.053 삽화" loading="lazy">
-        <span>ep.053</span>
-      </a>
-      <a class="prelude-item" href="ep.055.html">
-        <img src="../images/preludes/055.png" alt="ep.055 삽화" loading="lazy">
-        <span>ep.055</span>
-      </a>
-      <a class="prelude-item" href="ep.058.html">
-        <img src="../images/preludes/058.png" alt="ep.058 삽화" loading="lazy">
-        <span>ep.058</span>
-      </a>
-      <a class="prelude-item" href="ep.061.html">
-        <img src="../images/preludes/061.png" alt="ep.061 삽화" loading="lazy">
-        <span>ep.061</span>
-      </a>
-      <a class="prelude-item" href="ep.064.html">
-        <img src="../images/preludes/064.png" alt="ep.064 삽화" loading="lazy">
-        <span>ep.064</span>
-      </a>
-      <a class="prelude-item" href="ep.067.html">
-        <img src="../images/preludes/067.png" alt="ep.067 삽화" loading="lazy">
-        <span>ep.067</span>
-      </a>
-      <a class="prelude-item" href="ep.070.html">
-        <img src="../images/preludes/070.png" alt="ep.070 삽화" loading="lazy">
-        <span>ep.070</span>
-      </a>
-      <a class="prelude-item" href="ep.072.html">
-        <img src="../images/preludes/072.png" alt="ep.072 삽화" loading="lazy">
-        <span>ep.072</span>
-      </a>
-      <a class="prelude-item" href="ep.075.html">
-        <img src="../images/preludes/075.png" alt="ep.075 삽화" loading="lazy">
-        <span>ep.075</span>
-      </a>
-      <a class="prelude-item" href="ep.081.html">
-        <img src="../images/preludes/081.png" alt="ep.081 삽화" loading="lazy">
-        <span>ep.081</span>
-      </a>
-      <a class="prelude-item" href="ep.084.html">
-        <img src="../images/preludes/084.png" alt="ep.084 삽화" loading="lazy">
-        <span>ep.084</span>
-      </a>
-      <a class="prelude-item" href="ep.087.html">
-        <img src="../images/preludes/087.png" alt="ep.087 삽화" loading="lazy">
-        <span>ep.087</span>
-      </a>
-      <a class="prelude-item" href="ep.090.html">
-        <img src="../images/preludes/090.png" alt="ep.090 삽화" loading="lazy">
-        <span>ep.090</span>
-      </a>
-      <a class="prelude-item" href="ep.092.html">
-        <img src="../images/preludes/092.png" alt="ep.092 삽화" loading="lazy">
-        <span>ep.092</span>
-      </a>
-      <a class="prelude-item" href="ep.094.html">
-        <img src="../images/preludes/094.png" alt="ep.094 삽화" loading="lazy">
-        <span>ep.094</span>
-      </a>
-      <a class="prelude-item" href="ep.097.html">
-        <img src="../images/preludes/097.png" alt="ep.097 삽화" loading="lazy">
-        <span>ep.097</span>
-      </a>
-      <a class="prelude-item" href="ep.100.html">
-        <img src="../images/preludes/100.png" alt="ep.100 삽화" loading="lazy">
-        <span>ep.100</span>
-      </a>
-      <a class="prelude-item" href="ep.103.html">
-        <img src="../images/preludes/103.png" alt="ep.103 삽화" loading="lazy">
-        <span>ep.103</span>
-      </a>
-      <a class="prelude-item" href="ep.106.html">
-        <img src="../images/preludes/106.png" alt="ep.106 삽화" loading="lazy">
-        <span>ep.106</span>
-      </a>
-      <a class="prelude-item" href="ep.109.html">
-        <img src="../images/preludes/109.png" alt="ep.109 삽화" loading="lazy">
-        <span>ep.109</span>
-      </a>
-      <a class="prelude-item" href="ep.112.html">
-        <img src="../images/preludes/112.png" alt="ep.112 삽화" loading="lazy">
-        <span>ep.112</span>
-      </a>
-      <a class="prelude-item" href="ep.114.html">
-        <img src="../images/preludes/114.png" alt="ep.114 삽화" loading="lazy">
-        <span>ep.114</span>
-      </a>
-      <a class="prelude-item" href="ep.117.html">
-        <img src="../images/preludes/117.png" alt="ep.117 삽화" loading="lazy">
-        <span>ep.117</span>
-      </a>
-      <a class="prelude-item" href="ep.119.html">
-        <img src="../images/preludes/119.png" alt="ep.119 삽화" loading="lazy">
-        <span>ep.119</span>
-      </a>
-      <a class="prelude-item" href="ep.122.html">
-        <img src="../images/preludes/122.png" alt="ep.122 삽화" loading="lazy">
-        <span>ep.122</span>
-      </a>
-      <a class="prelude-item" href="ep.125.html">
-        <img src="../images/preludes/125.png" alt="ep.125 삽화" loading="lazy">
-        <span>ep.125</span>
-      </a>
-      <a class="prelude-item" href="ep.126.html">
-        <img src="../images/preludes/126.png" alt="ep.126 삽화" loading="lazy">
-        <span>ep.126</span>
-      </a>
-      <a class="prelude-item" href="ep.128.html">
-        <img src="../images/preludes/128.png" alt="ep.128 삽화" loading="lazy">
-        <span>ep.128</span>
-      </a>
-      <a class="prelude-item" href="ep.130.html">
-        <img src="../images/preludes/130.png" alt="ep.130 삽화" loading="lazy">
-        <span>ep.130</span>
-      </a>
-      <a class="prelude-item" href="ep.132.html">
-        <img src="../images/preludes/132.png" alt="ep.132 삽화" loading="lazy">
-        <span>ep.132</span>
-      </a>
-      <a class="prelude-item" href="ep.135.html">
-        <img src="../images/preludes/135.png" alt="ep.135 삽화" loading="lazy">
-        <span>ep.135</span>
-      </a>
-      <a class="prelude-item" href="ep.137.html">
-        <img src="../images/preludes/137.png" alt="ep.137 삽화" loading="lazy">
-        <span>ep.137</span>
-      </a>
-      <a class="prelude-item" href="ep.140.html">
+      <div class="prelude-item">
         <img src="../images/preludes/140.png" alt="ep.140 삽화" loading="lazy">
         <span>ep.140</span>
-      </a>
+      </div>
+      <div class="prelude-item">
+        <img src="../images/preludes/137.png" alt="ep.137 삽화" loading="lazy">
+        <span>ep.137</span>
+      </div>
+      <div class="prelude-item">
+        <img src="../images/preludes/135.png" alt="ep.135 삽화" loading="lazy">
+        <span>ep.135</span>
+      </div>
+      <div class="prelude-item">
+        <img src="../images/preludes/132.png" alt="ep.132 삽화" loading="lazy">
+        <span>ep.132</span>
+      </div>
+      <div class="prelude-item">
+        <img src="../images/preludes/130.png" alt="ep.130 삽화" loading="lazy">
+        <span>ep.130</span>
+      </div>
+      <div class="prelude-item">
+        <img src="../images/preludes/128.png" alt="ep.128 삽화" loading="lazy">
+        <span>ep.128</span>
+      </div>
+      <div class="prelude-item">
+        <img src="../images/preludes/126.png" alt="ep.126 삽화" loading="lazy">
+        <span>ep.126</span>
+      </div>
+      <div class="prelude-item">
+        <img src="../images/preludes/125.png" alt="ep.125 삽화" loading="lazy">
+        <span>ep.125</span>
+      </div>
+      <div class="prelude-item">
+        <img src="../images/preludes/122.png" alt="ep.122 삽화" loading="lazy">
+        <span>ep.122</span>
+      </div>
+      <div class="prelude-item">
+        <img src="../images/preludes/119.png" alt="ep.119 삽화" loading="lazy">
+        <span>ep.119</span>
+      </div>
+      <div class="prelude-item">
+        <img src="../images/preludes/117.png" alt="ep.117 삽화" loading="lazy">
+        <span>ep.117</span>
+      </div>
+      <div class="prelude-item">
+        <img src="../images/preludes/114.png" alt="ep.114 삽화" loading="lazy">
+        <span>ep.114</span>
+      </div>
+      <div class="prelude-item">
+        <img src="../images/preludes/112.png" alt="ep.112 삽화" loading="lazy">
+        <span>ep.112</span>
+      </div>
+      <div class="prelude-item">
+        <img src="../images/preludes/109.png" alt="ep.109 삽화" loading="lazy">
+        <span>ep.109</span>
+      </div>
+      <div class="prelude-item">
+        <img src="../images/preludes/106.png" alt="ep.106 삽화" loading="lazy">
+        <span>ep.106</span>
+      </div>
+      <div class="prelude-item">
+        <img src="../images/preludes/103.png" alt="ep.103 삽화" loading="lazy">
+        <span>ep.103</span>
+      </div>
+      <div class="prelude-item">
+        <img src="../images/preludes/100.png" alt="ep.100 삽화" loading="lazy">
+        <span>ep.100</span>
+      </div>
+      <div class="prelude-item">
+        <img src="../images/preludes/097.png" alt="ep.097 삽화" loading="lazy">
+        <span>ep.097</span>
+      </div>
+      <div class="prelude-item">
+        <img src="../images/preludes/094.png" alt="ep.094 삽화" loading="lazy">
+        <span>ep.094</span>
+      </div>
+      <div class="prelude-item">
+        <img src="../images/preludes/092.png" alt="ep.092 삽화" loading="lazy">
+        <span>ep.092</span>
+      </div>
+      <div class="prelude-item">
+        <img src="../images/preludes/090.png" alt="ep.090 삽화" loading="lazy">
+        <span>ep.090</span>
+      </div>
+      <div class="prelude-item">
+        <img src="../images/preludes/087.png" alt="ep.087 삽화" loading="lazy">
+        <span>ep.087</span>
+      </div>
+      <div class="prelude-item">
+        <img src="../images/preludes/084.png" alt="ep.084 삽화" loading="lazy">
+        <span>ep.084</span>
+      </div>
+      <div class="prelude-item">
+        <img src="../images/preludes/081.png" alt="ep.081 삽화" loading="lazy">
+        <span>ep.081</span>
+      </div>
+      <div class="prelude-item">
+        <img src="../images/preludes/075.png" alt="ep.075 삽화" loading="lazy">
+        <span>ep.075</span>
+      </div>
+      <div class="prelude-item">
+        <img src="../images/preludes/072.png" alt="ep.072 삽화" loading="lazy">
+        <span>ep.072</span>
+      </div>
+      <div class="prelude-item">
+        <img src="../images/preludes/070.png" alt="ep.070 삽화" loading="lazy">
+        <span>ep.070</span>
+      </div>
+      <div class="prelude-item">
+        <img src="../images/preludes/067.png" alt="ep.067 삽화" loading="lazy">
+        <span>ep.067</span>
+      </div>
+      <div class="prelude-item">
+        <img src="../images/preludes/064.png" alt="ep.064 삽화" loading="lazy">
+        <span>ep.064</span>
+      </div>
+      <div class="prelude-item">
+        <img src="../images/preludes/061.png" alt="ep.061 삽화" loading="lazy">
+        <span>ep.061</span>
+      </div>
+      <div class="prelude-item">
+        <img src="../images/preludes/058.png" alt="ep.058 삽화" loading="lazy">
+        <span>ep.058</span>
+      </div>
+      <div class="prelude-item">
+        <img src="../images/preludes/055.png" alt="ep.055 삽화" loading="lazy">
+        <span>ep.055</span>
+      </div>
+      <div class="prelude-item">
+        <img src="../images/preludes/053.png" alt="ep.053 삽화" loading="lazy">
+        <span>ep.053</span>
+      </div>
+      <div class="prelude-item">
+        <img src="../images/preludes/050.png" alt="ep.050 삽화" loading="lazy">
+        <span>ep.050</span>
+      </div>
+      <div class="prelude-item">
+        <img src="../images/preludes/048.png" alt="ep.048 삽화" loading="lazy">
+        <span>ep.048</span>
+      </div>
+      <div class="prelude-item">
+        <img src="../images/preludes/046.png" alt="ep.046 삽화" loading="lazy">
+        <span>ep.046</span>
+      </div>
+      <div class="prelude-item">
+        <img src="../images/preludes/045.png" alt="ep.045 삽화" loading="lazy">
+        <span>ep.045</span>
+      </div>
+      <div class="prelude-item">
+        <img src="../images/preludes/042.png" alt="ep.042 삽화" loading="lazy">
+        <span>ep.042</span>
+      </div>
+      <div class="prelude-item">
+        <img src="../images/preludes/040.png" alt="ep.040 삽화" loading="lazy">
+        <span>ep.040</span>
+      </div>
+      <div class="prelude-item">
+        <img src="../images/preludes/037.png" alt="ep.037 삽화" loading="lazy">
+        <span>ep.037</span>
+      </div>
+      <div class="prelude-item">
+        <img src="../images/preludes/034.png" alt="ep.034 삽화" loading="lazy">
+        <span>ep.034</span>
+      </div>
+      <div class="prelude-item">
+        <img src="../images/preludes/029.png" alt="ep.029 삽화" loading="lazy">
+        <span>ep.029</span>
+      </div>
+      <div class="prelude-item">
+        <img src="../images/preludes/027.png" alt="ep.027 삽화" loading="lazy">
+        <span>ep.027</span>
+      </div>
+      <div class="prelude-item">
+        <img src="../images/preludes/026.png" alt="ep.026 삽화" loading="lazy">
+        <span>ep.026</span>
+      </div>
+      <div class="prelude-item">
+        <img src="../images/preludes/024.png" alt="ep.024 삽화" loading="lazy">
+        <span>ep.024</span>
+      </div>
+      <div class="prelude-item">
+        <img src="../images/preludes/023.png" alt="ep.023 삽화" loading="lazy">
+        <span>ep.023</span>
+      </div>
+      <div class="prelude-item">
+        <img src="../images/preludes/020.png" alt="ep.020 삽화" loading="lazy">
+        <span>ep.020</span>
+      </div>
     </div>
-    <button class="scroll-btn right" id="btn-right" aria-label="다음">&#8250;</button>
   </div>
 
-  <h2 class="section-title">인물</h2>
-  <div class="char-grid">
-    <a class="char-card" href="characters/이하은.html">
-      <img src="../images/characters/이하은.png" alt="이하은">
-      <span>이하은</span>
-      <em>메인</em>
-    </a>
-    <a class="char-card" href="characters/한서진.html">
-      <img src="../images/characters/한서진.png" alt="한서진">
-      <span>한서진</span>
-      <em>메인</em>
-    </a>
-    <a class="char-card" href="characters/임소율.html">
-      <img src="../images/characters/임소율.png" alt="임소율">
-      <span>임소율</span>
-      <em>메인</em>
-    </a>
-    <a class="char-card" href="characters/정다온.html">
-      <img src="../images/characters/정다온.png" alt="정다온">
-      <span>정다온</span>
-      <em>메인</em>
-    </a>
-    <a class="char-card" href="characters/박미현.html">
-      <img src="../images/characters/박미현.png" alt="박미현">
-      <span>박미현</span>
-      <em>서브</em>
-    </a>
-    <a class="char-card" href="characters/오연서.html">
-      <img src="../images/characters/오연서.png" alt="오연서">
-      <span>오연서</span>
-      <em>서브</em>
-    </a>
-    <a class="char-card" href="characters/배수인.html">
-      <img src="../images/characters/배수인.png" alt="배수인">
-      <span>배수인</span>
-      <em>서브</em>
-    </a>
-    <div class="char-card">
-      <img src="../images/characters/김시안.png" alt="김시안">
-      <span>김시안</span>
-      <em>메인</em>
-    </div>
-  </div>
-
-  <script>
-    const track = document.getElementById('gallery-track');
-    const STEP  = 240; // px per scroll
-
-    document.getElementById('btn-left').addEventListener('click', () => {
-      track.scrollBy({ left: -STEP * 3, behavior: 'smooth' });
-    });
-    document.getElementById('btn-right').addEventListener('click', () => {
-      track.scrollBy({ left: STEP * 3, behavior: 'smooth' });
-    });
-
-    // 모바일: 버튼 숨김 (터치 스크롤 충분)
-    if ('ontouchstart' in window) {
-      document.getElementById('btn-left').style.display  = 'none';
-      document.getElementById('btn-right').style.display = 'none';
-    }
-  </script>
 </body>
 </html>

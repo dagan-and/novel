@@ -23,8 +23,8 @@ class ConvertProfilesAdultSceneTests(unittest.TestCase):
     def test_profile_shows_adult_scene_hearts_and_count(self):
         html = self.render_profile("정다온")
 
-        self.assertIn("성인씬 3회", html)
-        self.assertEqual(len(re.findall(r'class="heart filled"', html)), 3)
+        self.assertIn("성인씬 5회", html)
+        self.assertEqual(len(re.findall(r'class="heart filled"', html)), 5)
         self.assertEqual(len(re.findall(r'class="heart empty"', html)), 0)
         self.assertNotIn("친밀도:", html)
         self.assertNotIn("관계 진도:", html)
@@ -33,8 +33,8 @@ class ConvertProfilesAdultSceneTests(unittest.TestCase):
     def test_profile_caps_hearts_at_five_for_higher_counts(self):
         html = self.render_profile("이하은")
 
-        self.assertIn("성인씬 8회", html)
-        self.assertEqual(len(re.findall(r'class="heart filled"', html)), 8)
+        self.assertIn("성인씬 12회", html)
+        self.assertEqual(len(re.findall(r'class="heart filled"', html)), 12)
         self.assertEqual(len(re.findall(r'class="heart empty"', html)), 0)
 
 

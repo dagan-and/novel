@@ -140,7 +140,27 @@ def build_radar_chart(stats):
     )
 
 # ── 성인씬 횟수 집계 ────────────────────────────────────────────────
-def parse_adult_scene_counts():
+def parse_profile_adult_scene_counts():
+    counts = {}
+    characters_dir = os.path.join(BASE, 'characters')
+    if not os.path.exists(characters_dir):
+        return counts
+
+    for fname in sorted(os.listdir(characters_dir)):
+        if not fname.endswith('.md'):
+            continue
+        name = os.path.splitext(fname)[0]
+        if name == '캐릭터양식':
+            continue
+
+        raw = open(os.path.join(characters_dir, fname), encoding='utf-8').read()
+        match = re.search(r'## \[성인씬 기록\][\s\S]*?- 총 성인씬:\s*(\d+)회', raw)
+        if match:
+            counts[name] = int(match.group(1))
+    return counts
+
+
+def parse_episode_adult_scene_counts():
     counts = {}
     episodes_dir = os.path.join(BASE, 'episodes')
     if not os.path.exists(episodes_dir):
@@ -176,6 +196,12 @@ def parse_adult_scene_counts():
             i += 1
 
     return counts
+
+
+def parse_adult_scene_counts():
+    profile_counts = parse_profile_adult_scene_counts()
+    episode_counts = parse_episode_adult_scene_counts()
+    return {**episode_counts, **profile_counts}
 
 
 def build_adult_scene_block(count):
