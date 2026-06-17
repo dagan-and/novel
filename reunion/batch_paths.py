@@ -14,7 +14,7 @@ def episode_number(value: str | Path) -> int:
     if isinstance(value, Path):
         name = value.stem
     else:
-        name = str(value).replace(".md", "").replace(".html", "").replace(".txt", "")
+        name = str(value).replace(".md", "").replace(".html", "").replace(".txt", "").replace(".prompt", "")
     match = EPISODE_PATTERN.match(name)
     if not match:
         raise ValueError(f"에피소드 번호를 해석할 수 없습니다: {value}")
