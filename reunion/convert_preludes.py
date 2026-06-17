@@ -5,6 +5,7 @@ convert_preludes.py — preludes.html 생성
 """
 
 import os, re, unicodedata
+from pathlib import Path
 
 def nfc(s):
     return unicodedata.normalize('NFC', s)
@@ -17,20 +18,22 @@ OUT_FILE  = os.path.join(BASE_DIR, 'html', 'preludes.html')
 def collect_preludes():
     """images/preludes/ 에서 NNN.png 목록 수집 → 최신화부터 정렬"""
     items = []
-    for f in sorted(os.listdir(IMG_PRE)):
-        m = re.match(r'^(\d+)\.png$', f)
+    for path in sorted(Path(IMG_PRE).rglob('*.png')):
+        m = re.match(r'^ep\.(\d+)(?:_a)?\.png$|^(\d+)\.png$', path.name)
         if m:
-            items.append((int(m.group(1)), f))
+            ep_num = int(m.group(1) or m.group(2))
+            rel_path = os.path.relpath(path, os.path.dirname(OUT_FILE)).replace(os.sep, '/')
+            items.append((ep_num, rel_path))
     return sorted(items, reverse=True)
 
 
 def build_prelude_items(preludes):
     lines = []
-    for ep_num, fname in preludes:
+    for ep_num, rel_path in preludes:
         ep_id  = f'ep.{ep_num:03d}'
         lines.append(
             f'      <div class="prelude-item">\n'
-            f'        <img src="../images/preludes/{fname}" alt="{ep_id} 삽화" loading="lazy">\n'
+            f'        <img src="{rel_path}" alt="{ep_id} 삽화" loading="lazy">\n'
             f'        <span>{ep_id}</span>\n'
             f'      </div>'
         )

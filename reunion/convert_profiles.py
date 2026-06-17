@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """convert-profile.js 의 Python 포팅 — 캐릭터 프로필 HTML + 인물 목록 생성"""
 import sys, os, re, math
+from pathlib import Path
+
+from batch_paths import iter_episode_files
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 EXCLUDE = {'캐릭터양식', '김시안'}
@@ -166,11 +169,7 @@ def parse_episode_adult_scene_counts():
     if not os.path.exists(episodes_dir):
         return counts
 
-    for fname in sorted(os.listdir(episodes_dir)):
-        if not fname.endswith('.md') or not re.match(r'^ep\.\d+(_a)?\.md$', fname):
-            continue
-
-        path = os.path.join(episodes_dir, fname)
+    for path in iter_episode_files(Path(episodes_dir), 'md'):
         lines = open(path, encoding='utf-8').read().splitlines()
         i = 0
         while i < len(lines):

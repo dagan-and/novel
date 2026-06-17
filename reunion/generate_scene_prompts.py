@@ -5,6 +5,8 @@ import argparse
 import re
 from pathlib import Path
 
+from batch_paths import iter_episode_files, prompt_output_path, source_episode_path
+
 
 ROOT = Path(__file__).resolve().parent
 EPISODES_DIR = ROOT / "episodes"
@@ -14,15 +16,10 @@ COMMON_PROMPT_PATH = PROMPT_DIR / "common_scene_prompt.txt"
 
 SAFE_SECTION_ORDER = [
     "장소",
-    "등장인물",
     "의상",
-    "이미지 포인트",
     "표정 포인트",
-    "손 / 시선 포인트",
-    "복장 상태",
     "배경 소품 강조",
-    "소품 / 환경",
-    "분위기 키워드",
+    "소품 / 환경"
 ]
 
 SKIP_PREFIXES = {
@@ -85,15 +82,16 @@ def resolve_episode_path(raw: str) -> Path:
     if not digits:
         raise SystemExit(f"화수를 해석할 수 없습니다: {raw}")
     ep_no = int(digits.group(1))
-    candidate = EPISODES_DIR / f"ep.{ep_no:03d}.md"
-    if not candidate.exists():
-        raise SystemExit(f"에피소드 파일이 없습니다: {candidate}")
-    return candidate
+    episode_name = f"ep.{ep_no:03d}"
+    try:
+        return source_episode_path(ROOT, episode_name)
+    except FileNotFoundError:
+        raise SystemExit(f"에피소드 파일이 없습니다: {episode_name}")
 
 
 def adult_episode_paths() -> list[Path]:
     paths: list[Path] = []
-    for path in sorted(EPISODES_DIR.glob("ep.*.md")):
+    for path in iter_episode_files(EPISODES_DIR, "md"):
         if "성인씬 #" in path.read_text(encoding="utf-8"):
             paths.append(path)
     return paths
@@ -222,7 +220,9 @@ def main() -> int:
         sections = parse_safe_sections(block_lines)
         episode_label = extract_episode_label(heading, episode_path)
         prompt = build_prompt(template_text, episode_label, sections)
-        output_path = output_dir / f"{episode_label}.prompt.txt"
+        output_path = prompt_output_path(ROOT, episode_label)
+        if output_dir != PROMPT_DIR:
+            output_path = output_dir / output_path.relative_to(PROMPT_DIR)
         write_text(output_path, prompt, force=args.force)
         print(f"[prompt] {episode_label} -> {output_path}")
 

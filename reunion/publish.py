@@ -8,6 +8,9 @@ publish.py — 변환 3종 + git commit & push 자동 실행
 """
 
 import os, re, sys, subprocess
+from pathlib import Path
+
+from batch_paths import iter_episode_files
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 EPISODES_DIR = os.path.join(BASE, 'episodes')
@@ -36,21 +39,14 @@ def git_status_lines():
 
 def all_episode_names():
     """episodes/ 안의 ep.NNN[_a].md 목록 (정렬)"""
-    names = []
-    for f in sorted(os.listdir(EPISODES_DIR)):
-        if not f.endswith('.md'):
-            continue
-        base = f.replace('.md', '')
-        if re.match(r'^ep\.\d+(_a)?$', base):
-            names.append(base)
-    return names
+    return [path.stem for path in iter_episode_files(Path(EPISODES_DIR), 'md')]
 
 
 def new_or_modified_episodes():
     """git status 기준 신규·수정된 에피소드 이름 목록"""
     eps = []
     for line in git_status_lines():
-        m = re.search(r'episodes/(ep\.\d+(?:_a)?)\.md', line)
+        m = re.search(r'episodes/(?:\d{3}-\d{3}/)?(ep\.\d+(?:_a)?)\.md', line)
         if m:
             eps.append(m.group(1))
     return sorted(set(eps))

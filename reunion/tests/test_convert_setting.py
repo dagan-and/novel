@@ -28,6 +28,9 @@ class ConvertSettingTitleTests(unittest.TestCase):
         self.assertNotIn("다시 만나는 관계들", timeline_html)
         self.assertIn('href="preludes.html"', index_html)
         self.assertIn(">삽화<", index_html)
+        self.assertIn("총 200화 완성", index_html)
+        self.assertIn('href="001-100/ep.001.html"', index_html)
+        self.assertIn('href="101-200/ep.200_a.html"', index_html)
 
 
 if __name__ == "__main__":

@@ -5,6 +5,8 @@ import re
 import sys
 from html import escape
 
+from batch_paths import batch_label, html_episode_path, source_episode_path
+
 if len(sys.argv) < 2:
     print("사용법: python3 convert_html.py ep.[번호] [ep.[번호] ...]")
     sys.exit(1)
@@ -118,7 +120,7 @@ def load_speakers(base_dir):
 def find_prelude_image(base_dir, episode_number):
     matches = []
     for name_pattern in (f'ep.{episode_number:03d}.*', f'{episode_number:03d}.*'):
-        pattern = os.path.join(base_dir, PRELUDE_DIR, name_pattern)
+        pattern = os.path.join(base_dir, PRELUDE_DIR, batch_label(episode_number), name_pattern)
         matches.extend(
             path for path in glob.glob(pattern)
             if os.path.isfile(path) and os.path.splitext(path)[1].lower() in {'.png', '.jpg', '.jpeg', '.webp', '.gif'}
@@ -154,8 +156,11 @@ def replace_adult_scene_block(text, illustration_html):
 
 def resolve_episode_html_name(base_dir, episode_number):
     for candidate in (f'ep.{episode_number:03d}_a', f'ep.{episode_number:03d}'):
-        if os.path.exists(os.path.join(base_dir, 'episodes', f'{candidate}.md')):
+        try:
+            source_episode_path(Path(base_dir), candidate)
             return candidate
+        except FileNotFoundError:
+            continue
     return None
 
 
@@ -201,21 +206,30 @@ def convert_body(text, male_speakers, female_speakers):
                 result.append(f'<p>{escape(stripped)}</p>')
     return '\n'.join(result)
 
-base_dir = os.path.dirname(os.path.abspath(__file__))
+from pathlib import Path
+
+
+base_dir = Path(os.path.dirname(os.path.abspath(__file__)))
 male_speakers, female_speakers = load_speakers(base_dir)
 
 for arg in args:
     base_name = arg.replace('.md', '')
-    input_file = os.path.join(base_dir, 'episodes', f'{base_name}.md')
-    output_file = os.path.join(base_dir, 'html', f'{base_name}.html')
-
-    adult_file = os.path.join(base_dir, 'episodes', f'{base_name}_a.md')
-    if '_a' not in base_name and os.path.exists(adult_file):
-        print(f'건너뜀 (_a 존재): {base_name}')
+    try:
+        input_file = source_episode_path(base_dir, base_name)
+    except FileNotFoundError:
+        print(f'파일 없음: episodes/{base_name}.md')
         continue
+    output_file = html_episode_path(base_dir, base_name)
 
-    if not os.path.exists(input_file):
-        print(f'파일 없음: {input_file}')
+    adult_file_exists = False
+    if '_a' not in base_name:
+        try:
+            source_episode_path(base_dir, f'{base_name}_a')
+            adult_file_exists = True
+        except FileNotFoundError:
+            adult_file_exists = False
+    if adult_file_exists:
+        print(f'건너뜀 (_a 존재): {base_name}')
         continue
 
     with open(input_file, 'r', encoding='utf-8') as f:
@@ -233,8 +247,18 @@ for arg in args:
     prev_name = resolve_episode_html_name(base_dir, ep_num - 1) if ep_num > 1 else None
     next_name = resolve_episode_html_name(base_dir, ep_num + 1)
 
-    prev_link = f'<a href="{prev_name}.html">← 이전 화</a>' if prev_name else '<span></span>'
-    next_link = f'<a href="{next_name}.html">다음 화 →</a>' if next_name else '<span style="color:#444">— 계속 —</span>'
+    if prev_name:
+        prev_target = html_episode_path(base_dir, prev_name)
+        prev_href = os.path.relpath(prev_target, output_file.parent).replace(os.sep, '/')
+        prev_link = f'<a href="{prev_href}">← 이전 화</a>'
+    else:
+        prev_link = '<span></span>'
+    if next_name:
+        next_target = html_episode_path(base_dir, next_name)
+        next_href = os.path.relpath(next_target, output_file.parent).replace(os.sep, '/')
+        next_link = f'<a href="{next_href}">다음 화 →</a>'
+    else:
+        next_link = '<span style="color:#444">— 계속 —</span>'
 
     body = convert_body(raw, male_speakers, female_speakers)
 
@@ -259,4 +283,4 @@ for arg in args:
     os.makedirs(os.path.dirname(output_file), exist_ok=True)
     with open(output_file, 'w', encoding='utf-8') as f:
         f.write(html)
-    print(f'✓ html/{base_name}.html 생성 완료')
+    print(f'✓ html/{output_file.relative_to(base_dir / "html").as_posix()} 생성 완료')

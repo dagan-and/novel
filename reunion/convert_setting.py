@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 import os
 import re
+from pathlib import Path
+
+from batch_paths import batch_bounds, html_episode_path, iter_episode_files
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -764,23 +767,39 @@ def build_game_page(src, out, renderer):
 
 def build_index():
     html_dir = os.path.join(BASE_DIR, 'html')
-    ep_files = []
-    if os.path.exists(html_dir):
-        ep_files = sorted(
-            [f for f in os.listdir(html_dir) if re.match(r'^ep\.\d+\.html$', f)],
-            key=lambda f: int(re.search(r'\d+', f).group())
-        )
+    episodes_root = Path(BASE_DIR) / 'episodes'
+    episode_paths = iter_episode_files(episodes_root, 'md')
 
-    grouped = [ep_files[i:i + 10] for i in range(0, len(ep_files), 10)]
-    ep_groups = ''
-    for gi, group in enumerate(grouped):
-        start = gi * 10 + 1
-        end = min(start + 9, len(ep_files))
+    sections = []
+    current_batch = None
+    current_rows = []
+    for row_start in range(0, len(episode_paths), 10):
+        group = episode_paths[row_start:row_start + 10]
+        if not group:
+            continue
+        start_num = int(re.search(r'\d+', group[0].stem).group())
+        end_num = int(re.search(r'\d+', group[-1].stem).group())
+        batch_range = batch_bounds(start_num)
+        if batch_range != current_batch:
+            if current_rows:
+                sections.append((current_batch, ''.join(current_rows)))
+                current_rows = []
+            current_batch = batch_range
         links = ''.join(
-            '<a href="{}">{}</a>'.format(f, int(re.search(r'\d+', f).group()))
-            for f in group
+            '<a href="{}">{}</a>'.format(
+                os.path.relpath(html_episode_path(Path(BASE_DIR), path.stem), html_dir).replace(os.sep, '/'),
+                int(re.search(r'\d+', path.stem).group()),
+            )
+            for path in group
         )
-        ep_groups += f'<div class="ep-group"><div class="ep-label">{start}~{end}화</div><div class="ep-links">{links}</div></div>'
+        current_rows.append(f'<div class="ep-group"><div class="ep-label">{start_num}~{end_num}화</div><div class="ep-links">{links}</div></div>')
+    if current_rows:
+        sections.append((current_batch, ''.join(current_rows)))
+
+    ep_groups = ''.join(
+        f'<div class="ep-batch"><h3>{start}~{end}화</h3>{rows}</div>'
+        for (start, end), rows in sections
+    )
 
     index_cards = [
         {'out': 'setting/관계망.html', 'title': '관계망'},
@@ -862,6 +881,19 @@ def build_index():
     }}
     .char-link:hover {{ background: #251520; }}
     .ep-group {{ margin-bottom: 1rem; }}
+    .ep-batch {{
+      margin-bottom: 1.8rem;
+      padding: 1rem 1rem 0.3rem;
+      border: 1px solid #2b2130;
+      background: #171417;
+      border-radius: 6px;
+    }}
+    .ep-batch h3 {{
+      font-size: 1rem;
+      color: #c9a0b8;
+      margin-bottom: 0.9rem;
+      letter-spacing: 0.08em;
+    }}
     .ep-label {{ font-size: 0.94rem; color: #666; margin-bottom: 0.35rem; letter-spacing: 0.05em; }}
     .ep-links {{ display: flex; flex-wrap: wrap; gap: 0.4rem; }}
     .ep-links a {{
@@ -876,7 +908,7 @@ def build_index():
   </style>
 </head>
 <body>
-  <p class="subtitle">총 {len(ep_files)}화 완성</p>
+  <p class="subtitle">총 {len(episode_paths)}화 완성</p>
 
   <section>
     <h2>설정 / 인물</h2>
