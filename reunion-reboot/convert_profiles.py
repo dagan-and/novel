@@ -242,6 +242,7 @@ def get_category(raw):
 # ── 프로필 HTML 빌드 ─────────────────────────────────────────────────
 PROFILE_CSS = """
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 120%; }
     body {
       background: #111417;
       color: #e8e1d5;
@@ -483,6 +484,7 @@ def build_index(names):
   <title>인물</title>
   <style>
     * {{ box-sizing: border-box; margin: 0; padding: 0; }}
+    html {{ font-size: 120%; }}
     body {{
       background: #111417;
       color: #e8e1d5;

@@ -49,6 +49,7 @@ HTML_TEMPLATE = """\
   <title>삽화</title>
   <style>
     * {{ box-sizing: border-box; margin: 0; padding: 0; }}
+    html {{ font-size: 120%; }}
     body {{
       background: #111417;
       color: #e8e1d5;

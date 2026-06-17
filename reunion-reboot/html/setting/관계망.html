@@ -15,6 +15,7 @@
       --c-seojin:#83c59c; --c-daon:#d6a15f;
     }
     * { box-sizing:border-box; margin:0; padding:0; }
+    html { font-size:120%; }
     body {
       background:var(--bg); color:var(--text);
       font-family:'Pretendard','Noto Sans KR','Apple SD Gothic Neo',sans-serif;
@@ -186,10 +187,10 @@
       </div>
       <div class="char-name">박미현</div>
       <div class="stat-row">
-        <div class="stat-label">친밀도 <span>낮음+</span></div>
+        <div class="stat-label">친밀도 <span>낮음++</span></div>
         <div class="stat-bar"><div class="stat-bar-fill fill-sub" style="width:50%"></div></div>
       </div>
-      <div class="char-status">시안의 반복 방문, 연한 커피, 창가 자리, 상담 회피를 기억함. 금요일 방문 여부를 기다리는 상태</div>
+      <div class="char-status">시안의 반복 방문, 연한 커피, 창가 자리, 대답 늦는 버릇까지 기억함. 시안이 `돌아오겠다`는 말을 실제로 지키자 기대가 커짐</div>
     </div>
     <div class="char-card sub">
       <div class="char-card-header">
@@ -198,10 +199,10 @@
       </div>
       <div class="char-name">유하린</div>
       <div class="stat-row">
-        <div class="stat-label">친밀도 <span>낮음</span></div>
+        <div class="stat-label">친밀도 <span>낮음+</span></div>
         <div class="stat-bar"><div class="stat-bar-fill fill-sub" style="width:50%"></div></div>
       </div>
-      <div class="char-status">캠퍼스 신입생 생활권. 시안에게 길과 동아리 추천 선배 도움을 받으며 기대기 시작</div>
+      <div class="char-status">캠퍼스 신입생 생활권. 시안에게 추천 선배 이름을 받고 조별 발표까지 엮이며, 기다려도 되는지 묻는 단계</div>
     </div>
     <div class="char-card sub">
       <div class="char-card-header">
@@ -210,10 +211,10 @@
       </div>
       <div class="char-name">서나윤</div>
       <div class="stat-row">
-        <div class="stat-label">친밀도 <span>없음</span></div>
-        <div class="stat-bar"><div class="stat-bar-fill fill-sub" style="width:10%"></div></div>
+        <div class="stat-label">친밀도 <span>낮음</span></div>
+        <div class="stat-bar"><div class="stat-bar-fill fill-sub" style="width:50%"></div></div>
       </div>
-      <div class="char-status">갓 사회로 나온 편의점 야간 알바. 야간 귀가길 생활권 확장용 보류 히로인</div>
+      <div class="char-status">학교 후문 편의점 야간 알바. 시안의 늦은 귀가 시간, 참치마요, 생수, 카페 컵 슬리브를 기억하기 시작</div>
     </div>
   </div>
   <div class="section-title"><span>◈</span> 멤버 간 관계망</div>
@@ -234,11 +235,11 @@
       </div>
       <div class="rel-section">
         <div class="rel-section-label">현재</div>
-        <div class="rel-section-text">직접 대화는 거의 없음</div>
+        <div class="rel-section-text">카페에서 서로 이름을 소개하고, 시안의 동행 여부와 창가 자리를 사이에 둔 첫 견제가 생김</div>
       </div>
       <div class="rel-section">
         <div class="rel-section-label">최근 변화</div>
-        <div class="rel-section-text">ep.004에서 하린이 카페까지 시안을 찾아와 `선배`라고 부르는 장면을 미현이 목격했다.</div>
+        <div class="rel-section-text">ep.007에서 하린이 시안과 함께 카페에 왔고, ep.010에서 미현이 인터뷰 중 시안을 `자꾸 신경 쓰이는 손님`으로 인정했다.</div>
       </div>
       <div class="rel-honorifics"></div>
     </div>
@@ -258,7 +259,7 @@
       </div>
       <div class="rel-section">
         <div class="rel-section-label">최근 변화</div>
-        <div class="rel-section-text">없음</div>
+        <div class="rel-section-text">서나윤이 ep.009에서 시안의 카페 컵 슬리브를 봤고, 영수증 뒷면에 `내일도?`라는 메모를 남겼다.</div>
       </div>
       <div class="rel-honorifics"></div>
     </div>
@@ -278,7 +279,7 @@
       </div>
       <div class="rel-section">
         <div class="rel-section-label">최근 변화</div>
-        <div class="rel-section-text">없음</div>
+        <div class="rel-section-text">하린은 학교 안에서 시안의 시간을 기다리기 시작했고, 나윤은 밤 귀가 시간에 시안을 기억하기 시작했다.</div>
       </div>
       <div class="rel-honorifics"></div>
     </div>
@@ -331,7 +332,7 @@ function applyRelFilter(){
       <div class="quest-icon qi-active">▶</div>
       <div>
         <div class="quest-text">유하린의 금요일 추가 접수 약속</div>
-        <div class="quest-ep">심은 화수 <span>ep.005</span> · 예정 회수 <span>ep.006 예정</span></div>
+        <div class="quest-ep">심은 화수 <span>ep.005</span> · 예정 회수 <span>ep.006</span></div>
       </div>
       <div class="qs-badge qs-active">진행</div>
     </div>
@@ -339,7 +340,31 @@ function applyRelFilter(){
       <div class="quest-icon qi-active">▶</div>
       <div>
         <div class="quest-text">박미현의 컵 메모 `금요일엔요?`</div>
-        <div class="quest-ep">심은 화수 <span>ep.005</span> · 예정 회수 <span>ep.006 예정</span></div>
+        <div class="quest-ep">심은 화수 <span>ep.005</span> · 예정 회수 <span>ep.006~007</span></div>
+      </div>
+      <div class="qs-badge qs-active">진행</div>
+    </div>
+    <div class="quest-item">
+      <div class="quest-icon qi-active">▶</div>
+      <div>
+        <div class="quest-text">박미현의 이름을 제대로 소개하기</div>
+        <div class="quest-ep">심은 화수 <span>ep.008</span> · 예정 회수 <span>ep.010 이후 지속</span></div>
+      </div>
+      <div class="qs-badge qs-active">진행</div>
+    </div>
+    <div class="quest-item">
+      <div class="quest-icon qi-active">▶</div>
+      <div>
+        <div class="quest-text">서나윤의 야간 편의점 기억</div>
+        <div class="quest-ep">심은 화수 <span>ep.009</span> · 예정 회수 <span>ep.011 이후</span></div>
+      </div>
+      <div class="qs-badge qs-active">진행</div>
+    </div>
+    <div class="quest-item">
+      <div class="quest-icon qi-active">▶</div>
+      <div>
+        <div class="quest-text">하린의 문자와 나윤의 영수증 메모</div>
+        <div class="quest-ep">심은 화수 <span>ep.010</span> · 예정 회수 <span>ep.011 예정</span></div>
       </div>
       <div class="qs-badge qs-active">진행</div>
     </div>

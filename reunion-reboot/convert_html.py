@@ -15,6 +15,7 @@ args = sys.argv[1:]
 
 CSS = """
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 120%; }
     body {
       background: #111417;
       color: #e8e1d5;

@@ -17,6 +17,7 @@ SETTING_FILES = [
 
 DARK_STYLE = """
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 120%; }
     body {
       background: #111417;
       color: #e8e1d5;
@@ -61,6 +62,7 @@ GAME_CSS_BASE = """
       --c-seojin:#83c59c; --c-daon:#d6a15f;
     }
     * { box-sizing:border-box; margin:0; padding:0; }
+    html { font-size:120%; }
     body {
       background:var(--bg); color:var(--text);
       font-family:'Pretendard','Noto Sans KR','Apple SD Gothic Neo',sans-serif;
@@ -822,6 +824,7 @@ def build_index():
   <title>목차</title>
   <style>
     * {{ box-sizing: border-box; margin: 0; padding: 0; }}
+    html {{ font-size: 120%; }}
     body {{
       background: #111417;
       color: #e8e1d5;
