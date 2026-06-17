@@ -212,9 +212,8 @@ def build_adult_scene_block(count):
         hearts = '<span class="heart empty">♡</span>'
     return (
         '<div class="adult-scene-block">'
-        '<p class="adult-scene-label">성인씬</p>'
         f'<div class="adult-scene-hearts">{hearts}</div>'
-        f'<p class="adult-scene-count">성인씬 {count}회</p>'
+        f'<p class="adult-scene-count">♥ {count}</p>'
         '</div>'
     )
 
@@ -357,15 +356,11 @@ PROFILE_CSS = """
       align-items: center;
       gap: 0.55rem;
     }
-    .adult-scene-label {
-      margin: 0;
-      color: #a08090;
-      font-size: 1.02rem;
-      letter-spacing: 0.18em;
-    }
     .adult-scene-hearts {
       display: flex;
       gap: 0.3rem;
+      flex-wrap: wrap;
+      justify-content: center;
     }
     .heart { font-size: 1.7rem; line-height: 1; }
     .heart.filled { color: #c9a0b8; }
@@ -373,8 +368,8 @@ PROFILE_CSS = """
     .adult-scene-count {
       margin: 0;
       color: #c8a8b8;
-      font-size: 1.08rem;
-      letter-spacing: 0.04em;
+      font-size: 1.18rem;
+      letter-spacing: 0.06em;
     }
     @media (max-width: 560px) { .portrait { width: 100%; } .emotion-chart { max-width: 320px; } }
 """

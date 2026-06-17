@@ -20,13 +20,15 @@ class ConvertProfilesAdultSceneTests(unittest.TestCase):
         self.assertTrue(html_path.exists(), msg=result.stdout)
         return html_path.read_text(encoding="utf-8")
 
-    def test_profile_shows_adult_scene_hearts_and_count(self):
+    def test_profile_shows_compact_heart_count_without_adult_scene_copy(self):
         html = self.render_profile("정다온")
 
-        count_match = re.search(r"성인씬 (\d+)회", html)
+        count_match = re.search(r'class="adult-scene-count">♥\s*(\d+)</p>', html)
         self.assertIsNotNone(count_match)
         self.assertEqual(len(re.findall(r'class="heart filled"', html)), int(count_match.group(1)))
         self.assertEqual(len(re.findall(r'class="heart empty"', html)), 0)
+        self.assertNotIn('class="adult-scene-label"', html)
+        self.assertNotIn("성인씬 9회", html)
         self.assertNotIn("친밀도:", html)
         self.assertNotIn("관계 진도:", html)
         self.assertNotIn("현재 단계:", html)
@@ -34,7 +36,7 @@ class ConvertProfilesAdultSceneTests(unittest.TestCase):
     def test_profile_keeps_heart_count_in_sync_with_displayed_total(self):
         html = self.render_profile("이하은")
 
-        count_match = re.search(r"성인씬 (\d+)회", html)
+        count_match = re.search(r'class="adult-scene-count">♥\s*(\d+)</p>', html)
         self.assertIsNotNone(count_match)
         self.assertEqual(len(re.findall(r'class="heart filled"', html)), int(count_match.group(1)))
         self.assertEqual(len(re.findall(r'class="heart empty"', html)), 0)

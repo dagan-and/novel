@@ -62,21 +62,6 @@ HTML_TEMPLATE = """\
       color: #c9a0b8; text-decoration: none; font-size: 1.05rem;
     }}
     a.back:hover {{ text-decoration: underline; }}
-    h1 {{
-      font-size: 2.2rem; color: #c9a0b8; text-align: center;
-      letter-spacing: 0.1em; margin-bottom: 0.4rem;
-    }}
-    .page-sub {{
-      text-align: center; color: #666; font-size: 1rem; margin-bottom: 3rem;
-    }}
-
-    /* ── 섹션 헤더 ── */
-    .section-title {{
-      font-size: 1rem; color: #888; letter-spacing: 0.12em;
-      margin-bottom: 1.2rem; padding-bottom: 0.35rem;
-      border-bottom: 1px solid #2a2a2a;
-    }}
-
     /* ── 삽화 세로 스크롤 영역 ── */
     .gallery-wrap {{
       position: relative;
@@ -125,10 +110,6 @@ HTML_TEMPLATE = """\
 
   <a class="back" href="index.html">← 목차</a>
 
-  <h1>삽화</h1>
-  <p class="page-sub">삽화 {count}장</p>
-
-  <h2 class="section-title">삽화</h2>
   <div class="gallery-wrap">
     <div class="gallery-track" id="gallery-track">
 {prelude_items}

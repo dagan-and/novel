@@ -807,7 +807,7 @@ def build_index():
         {'out': 'setting/장기연재계획.html', 'title': '장기 계획'},
     ]
     card_chunks = [
-        '<a class="setting-card" href="{out}">{title}</a>'.format(**card)
+        '<a class="utility-button" href="{out}">{title}</a>'.format(**card)
         for card in index_cards
     ]
     setting_links = '\n      '.join(card_chunks)
@@ -828,24 +828,93 @@ def build_index():
       margin: 0 auto;
       padding: 3rem 1.5rem 5rem;
     }}
-    .subtitle {{ text-align: center; color: #666; font-size: 1.06rem; margin-bottom: 3rem; }}
-    .setting-grid {{ display: flex; gap: 1rem; flex-wrap: wrap; }}
-    .setting-card {{
-      flex: 1; min-width: 140px;
-      background: #1f1f1f; border: 1px solid #3a2030;
-      color: #c9a0b8; text-decoration: none;
-      padding: 0.9rem 1.2rem;
-      border-radius: 3px; font-size: 1.13rem;
-      text-align: center; letter-spacing: 0.04em;
+    .subtitle {{ text-align: center; color: #666; font-size: 1.06rem; margin-bottom: 2rem; }}
+    .index-layout {{
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 180px;
+      gap: 1.5rem;
     }}
-    .setting-card:hover {{ background: #251520; }}
+    .episode-sections {{
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }}
+    .ep-batch {{
+      background: #161616;
+      border: 1px solid #2b2429;
+      border-radius: 6px;
+      padding: 1rem 1.1rem 1.2rem;
+    }}
+    .ep-batch h3 {{
+      color: #c9a0b8;
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.9rem;
+    }}
+    .ep-group {{
+      display: grid;
+      grid-template-columns: 88px minmax(0, 1fr);
+      gap: 0.9rem;
+      align-items: start;
+      padding: 0.45rem 0;
+      border-top: 1px solid #221d20;
+    }}
+    .ep-group:first-of-type {{ border-top: 0; padding-top: 0; }}
+    .ep-label {{
+      color: #8f7c88;
+      font-size: 0.92rem;
+      letter-spacing: 0.04em;
+      padding-top: 0.15rem;
+    }}
+    .ep-links {{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }}
+    .ep-links a {{
+      color: #e8e0d0;
+      text-decoration: none;
+      font-size: 0.98rem;
+      min-width: 2.3rem;
+    }}
+    .ep-links a:hover {{ color: #c9a0b8; text-decoration: underline; }}
+    .utility-buttons {{
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }}
+    .utility-button {{
+      background: #1f1f1f;
+      border: 1px solid #3a2030;
+      color: #c9a0b8;
+      text-decoration: none;
+      padding: 0.95rem 1.1rem;
+      border-radius: 4px;
+      font-size: 1.08rem;
+      text-align: center;
+      letter-spacing: 0.04em;
+    }}
+    .utility-button:hover {{ background: #251520; }}
+    @media (max-width: 760px) {{
+      .index-layout {{
+        grid-template-columns: 1fr;
+      }}
+      .utility-buttons {{
+        order: -1;
+      }}
+    }}
   </style>
 </head>
 <body>
   <p class="subtitle">총 {len(episode_paths)}화 완성</p>
 
-  <div class="setting-grid">
-    {setting_links}
+  <div class="index-layout">
+    <div class="episode-sections">
+      {ep_groups}
+    </div>
+    <div class="utility-buttons">
+      {setting_links}
+    </div>
   </div>
 </body>
 </html>'''
