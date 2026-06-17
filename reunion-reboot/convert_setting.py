@@ -11,6 +11,7 @@ SETTING_FILES = [
     {'src': 'setting/세계관.md', 'out': 'setting/세계관.html', 'title': '세계관'},
     {'src': 'setting/장기연재계획.md', 'out': 'setting/장기연재계획.html', 'title': '장기 연재 계획'},
     {'src': 'setting/라노벨문체규칙.md', 'out': 'setting/라노벨문체규칙.html', 'title': '라노벨 문체 규칙'},
+    {'src': 'setting/성인씬작성규칙.md', 'out': 'setting/성인씬작성규칙.html', 'title': '성인씬 작성 규칙'},
 ]
 
 # ── GENERIC READING STYLE (세계관) ───────────────────────────────────────────
@@ -809,6 +810,7 @@ def build_index():
         {'out': 'preludes.html',             'title': '삽화'},
         {'out': 'setting/장기연재계획.html', 'title': '장기 계획'},
         {'out': 'setting/라노벨문체규칙.html', 'title': '문체 규칙'},
+        {'out': 'setting/성인씬작성규칙.html', 'title': '성인씬 규칙'},
     ]
     card_chunks = [
         '<a class="utility-button" href="{out}">{title}</a>'.format(**card)
