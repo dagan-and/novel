@@ -802,26 +802,15 @@ def build_index():
     )
 
     index_cards = [
-        {'out': 'setting/관계망.html', 'title': '관계망'},
-        {'out': 'setting/연대기.html', 'title': '연대기'},
+        {'out': 'characters.html',           'title': '인물'},
+        {'out': 'preludes.html',             'title': '삽화'},
         {'out': 'setting/장기연재계획.html', 'title': '장기 계획'},
-        {
-            'out': 'characters.html',
-            'title': '인물',
-            'sub_out': 'preludes.html',
-            'sub_title': '삽화',
-        },
     ]
-    card_chunks = []
-    for card in index_cards:
-        main_link = '<a class="setting-card" href="{out}">{title}</a>'.format(**card)
-        if 'sub_out' in card:
-            sub_link = '<a class="setting-subcard" href="{sub_out}">{sub_title}</a>'.format(**card)
-            card_chunks.append(f'<div class="setting-card-stack">{main_link}{sub_link}</div>')
-        else:
-            card_chunks.append(main_link)
+    card_chunks = [
+        '<a class="setting-card" href="{out}">{title}</a>'.format(**card)
+        for card in index_cards
+    ]
     setting_links = '\n      '.join(card_chunks)
-    ep_section = ep_groups if ep_groups else '<p style="color:#555;font-size:1.1rem;">에피소드 없음</p>'
 
     html = f'''<!DOCTYPE html>
 <html lang="ko">
@@ -839,13 +828,9 @@ def build_index():
       margin: 0 auto;
       padding: 3rem 1.5rem 5rem;
     }}
-    h1 {{ font-size: 2.5rem; color: #c9a0b8; text-align: center; letter-spacing: 0.12em; margin-bottom: 0.5rem; }}
     .subtitle {{ text-align: center; color: #666; font-size: 1.06rem; margin-bottom: 3rem; }}
-    section {{ margin-bottom: 2.8rem; }}
-    h2 {{ font-size: 1.06rem; color: #888; letter-spacing: 0.12em; margin-bottom: 1rem; padding-bottom: 0.35rem; border-bottom: 1px solid #2a2a2a; }}
     .setting-grid {{ display: flex; gap: 1rem; flex-wrap: wrap; }}
-    .setting-card,
-    .setting-subcard {{
+    .setting-card {{
       flex: 1; min-width: 140px;
       background: #1f1f1f; border: 1px solid #3a2030;
       color: #c9a0b8; text-decoration: none;
@@ -853,74 +838,15 @@ def build_index():
       border-radius: 3px; font-size: 1.13rem;
       text-align: center; letter-spacing: 0.04em;
     }}
-    .setting-card:hover,
-    .setting-subcard:hover {{ background: #251520; }}
-    .setting-card-stack {{
-      flex: 1;
-      min-width: 140px;
-      display: flex;
-      flex-direction: column;
-      gap: 0.55rem;
-    }}
-    .setting-card-stack .setting-card,
-    .setting-card-stack .setting-subcard {{
-      width: 100%;
-    }}
-    .setting-subcard {{
-      font-size: 0.96rem;
-      padding: 0.62rem 1rem;
-      color: #e8d4df;
-      border-color: #4a2d3e;
-      background: #221a1f;
-    }}
-    .char-link {{
-      display: inline-block;
-      background: #1f1f1f; border: 1px solid #3a2030;
-      color: #c9a0b8; text-decoration: none;
-      padding: 0.9rem 2rem; border-radius: 3px; font-size: 1.13rem;
-    }}
-    .char-link:hover {{ background: #251520; }}
-    .ep-group {{ margin-bottom: 1rem; }}
-    .ep-batch {{
-      margin-bottom: 1.8rem;
-      padding: 1rem 1rem 0.3rem;
-      border: 1px solid #2b2130;
-      background: #171417;
-      border-radius: 6px;
-    }}
-    .ep-batch h3 {{
-      font-size: 1rem;
-      color: #c9a0b8;
-      margin-bottom: 0.9rem;
-      letter-spacing: 0.08em;
-    }}
-    .ep-label {{ font-size: 0.94rem; color: #666; margin-bottom: 0.35rem; letter-spacing: 0.05em; }}
-    .ep-links {{ display: flex; flex-wrap: wrap; gap: 0.4rem; }}
-    .ep-links a {{
-      display: inline-block;
-      width: 48px; text-align: center;
-      background: #1f1f1f; border: 1px solid #2a2a2a;
-      color: #c8a8b8; text-decoration: none;
-      padding: 0.3rem 0; font-size: 1.03rem;
-      border-radius: 2px;
-    }}
-    .ep-links a:hover {{ background: #251520; color: #c9a0b8; }}
+    .setting-card:hover {{ background: #251520; }}
   </style>
 </head>
 <body>
   <p class="subtitle">총 {len(episode_paths)}화 완성</p>
 
-  <section>
-    <h2>설정 / 인물</h2>
-    <div class="setting-grid">
-      {setting_links}
-    </div>
-  </section>
-
-  <section>
-    <h2>에피소드</h2>
-    {ep_section}
-  </section>
+  <div class="setting-grid">
+    {setting_links}
+  </div>
 </body>
 </html>'''
 
