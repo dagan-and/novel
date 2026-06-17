@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>인물</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #111417;
+      color: #e8e1d5;
+      font-family: 'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+      font-size: 1rem;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+      word-break: keep-all;
+    }
+    h1 { font-size: 1.8rem; color: #79b8b2; text-align: center; margin-bottom: 3rem; letter-spacing: 0.02em; }
+    .grid { display: flex; flex-wrap: wrap; gap: 1rem; }
+    .card {
+      display: flex; flex-direction: column; align-items: center;
+      text-decoration: none; color: #e8e1d5; width: 110px;
+    }
+    .card img, .card .no-img {
+      width: 110px; height: 140px;
+      object-fit: cover; object-position: top;
+      border: 1px solid #30383a; border-radius: 8px; background: #181d20;
+    }
+    .card .no-img {
+      display: flex; align-items: center; justify-content: center;
+      color: #8f9996; font-size: 2rem;
+    }
+    .card span { margin-top: 0.4rem; font-size: 1rem; color: #8fd0c9; font-weight: 700; }
+    .card em { font-size: 0.86rem; color: #9faaa6; font-style: normal; }
+    .card:hover span { color: #b9e7df; text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="grid">
+    <a class="card" href="characters/유하린.html"><img src="../images/characters/유하린.png" alt="유하린"><span>유하린</span><em>**후보**</em></a>
+    <a class="card" href="characters/박미현.html"><img src="../images/characters/박미현.png" alt="박미현"><span>박미현</span><em>메인</em></a>
+    <a class="card" href="characters/서나윤.html"><img src="../images/characters/서나윤.png" alt="서나윤"><span>서나윤</span><em>**후보**</em></a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>목차</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #111417;
+      color: #e8e1d5;
+      font-family: 'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+      word-break: keep-all;
+    }
+    .subtitle { text-align: center; color: #9faaa6; font-size: 1rem; margin-bottom: 2rem; }
+    .index-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 180px;
+      gap: 1.5rem;
+    }
+    .episode-sections {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .ep-batch {
+      background: #181d20;
+      border: 1px solid #30383a;
+      border-radius: 6px;
+      padding: 1rem 1.1rem 1.2rem;
+    }
+    .ep-batch h3 {
+      color: #79b8b2;
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.9rem;
+    }
+    .ep-group {
+      display: grid;
+      grid-template-columns: 88px minmax(0, 1fr);
+      gap: 0.9rem;
+      align-items: start;
+      padding: 0.45rem 0;
+      border-top: 1px solid #30383a;
+    }
+    .ep-group:first-of-type { border-top: 0; padding-top: 0; }
+    .ep-label {
+      color: #8f9996;
+      font-size: 0.92rem;
+      letter-spacing: 0.04em;
+      padding-top: 0.15rem;
+    }
+    .ep-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .ep-links a {
+      color: #e8e1d5;
+      text-decoration: none;
+      font-size: 0.98rem;
+      min-width: 2.3rem;
+    }
+    .ep-links a:hover { color: #8fd0c9; text-decoration: underline; }
+    .utility-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+    .utility-button {
+      background: #181d20;
+      border: 1px solid #3d4a4c;
+      color: #8fd0c9;
+      text-decoration: none;
+      padding: 0.95rem 1.1rem;
+      border-radius: 4px;
+      font-size: 1.08rem;
+      text-align: center;
+      letter-spacing: 0.04em;
+    }
+    .utility-button:hover { background: #20282b; }
+    @media (max-width: 760px) {
+      .index-layout {
+        grid-template-columns: 1fr;
+      }
+      .utility-buttons {
+        order: -1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <p class="subtitle">총 5화 완성</p>
+
+  <div class="index-layout">
+    <div class="episode-sections">
+      <div class="ep-batch"><h3>1~100화</h3><div class="ep-group"><div class="ep-label">1~5화</div><div class="ep-links"><a href="001-100/ep.001.html">1</a><a href="001-100/ep.002.html">2</a><a href="001-100/ep.003.html">3</a><a href="001-100/ep.004.html">4</a><a href="001-100/ep.005.html">5</a></div></div></div>
+    </div>
+    <div class="utility-buttons">
+      <a class="utility-button" href="characters.html">인물</a>
+      <a class="utility-button" href="preludes.html">삽화</a>
+      <a class="utility-button" href="setting/장기연재계획.html">장기 계획</a>
+      <a class="utility-button" href="setting/라노벨문체규칙.html">문체 규칙</a>
+    </div>
+  </div>
+</body>
+</html>

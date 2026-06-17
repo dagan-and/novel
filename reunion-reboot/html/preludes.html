@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>삽화</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #111417;
+      color: #e8e1d5;
+      font-family: 'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 5rem;
+    }
+    a.back {
+      display: inline-block; margin-bottom: 2.5rem;
+      color: #8fd0c9; text-decoration: none; font-size: 1rem; font-weight: 700;
+    }
+    a.back:hover { text-decoration: underline; }
+    /* ── 삽화 세로 스크롤 영역 ── */
+    .gallery-wrap {
+      position: relative;
+      margin-bottom: 3.5rem;
+    }
+    .gallery-track {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      overflow-y: auto;
+      max-height: calc(100vh - 220px);
+      scroll-snap-type: y proximity;
+      -webkit-overflow-scrolling: touch;
+      padding: 0.25rem 0.5rem 1rem 0;
+      scrollbar-width: thin;
+      scrollbar-color: #4f6667 #111417;
+    }
+    .gallery-track::-webkit-scrollbar { width: 8px; }
+    .gallery-track::-webkit-scrollbar-track { background: #111417; }
+    .gallery-track::-webkit-scrollbar-thumb { background: #4f6667; border-radius: 3px; }
+
+    .prelude-item {
+      scroll-snap-align: start;
+      display: flex; flex-direction: column; align-items: center;
+      text-decoration: none; color: #e8e1d5;
+      width: 100%;
+    }
+    .prelude-item img {
+      width: min(100%, 780px);
+      height: auto;
+      border: 1px solid #30383a; border-radius: 8px;
+      background: #181d20;
+      transition: border-color 0.2s;
+      box-shadow: 0 14px 40px rgba(0,0,0,0.28);
+    }
+    .prelude-item:hover img { border-color: #79b8b2; }
+    .prelude-item span {
+      margin-top: 0.75rem; font-size: 1rem; color: #9faaa6;
+      letter-spacing: 0.03em;
+    }
+    .prelude-item:hover span { color: #8fd0c9; }
+
+  </style>
+</head>
+<body>
+
+  <a class="back" href="index.html">← 목차</a>
+
+  <div class="gallery-wrap">
+    <div class="gallery-track" id="gallery-track">
+
+    </div>
+  </div>
+
+</body>
+</html>
