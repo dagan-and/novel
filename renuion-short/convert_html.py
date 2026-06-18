@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 import glob
 import os
+import random
 import re
 import sys
+import unicodedata
 from html import escape
 
 from batch_paths import batch_label, html_episode_path, source_episode_path
@@ -111,6 +113,8 @@ CSS = """
 """
 
 PRELUDE_DIR = os.path.join('images', 'preludes')
+CHARACTER_IMAGE_DIR = os.path.join('images', 'characters')
+IMAGE_EXTENSIONS = {'.png', '.jpg', '.jpeg', '.webp', '.gif'}
 MALE_COLOR = '#82aee0'
 FEMALE_COLOR = '#d97b95'
 EXTRA_COLOR = '#b7aca0'
@@ -143,10 +147,73 @@ def find_prelude_image(base_dir, episode_number):
         pattern = os.path.join(base_dir, PRELUDE_DIR, batch_label(episode_number), name_pattern)
         matches.extend(
             path for path in glob.glob(pattern)
-            if os.path.isfile(path) and os.path.splitext(path)[1].lower() in {'.png', '.jpg', '.jpeg', '.webp', '.gif'}
+            if os.path.isfile(path) and os.path.splitext(path)[1].lower() in IMAGE_EXTENSIONS
         )
     matches = sorted(set(matches))
     return matches[0] if matches else None
+
+
+def find_normalized_child(parent, child_name):
+    target = unicodedata.normalize('NFC', child_name)
+    if not os.path.isdir(parent):
+        return None
+    for entry in os.listdir(parent):
+        if unicodedata.normalize('NFC', entry) == target:
+            return os.path.join(parent, entry)
+    return None
+
+
+def find_character_image(base_dir, character_name):
+    if not character_name:
+        return None
+
+    image_root = os.path.join(base_dir, CHARACTER_IMAGE_DIR)
+    folder = find_normalized_child(image_root, character_name)
+    matches = []
+    if folder and os.path.isdir(folder):
+        matches.extend(
+            os.path.join(folder, fname)
+            for fname in os.listdir(folder)
+            if os.path.isfile(os.path.join(folder, fname))
+            and os.path.splitext(fname)[1].lower() in IMAGE_EXTENSIONS
+        )
+    matches = sorted(set(matches))
+    if matches:
+        return random.choice(matches)
+
+    direct_matches = []
+    for ext in IMAGE_EXTENSIONS:
+        direct_name = f'{character_name}{ext}'
+        direct_path = find_normalized_child(image_root, direct_name)
+        if direct_path and os.path.isfile(direct_path):
+            direct_matches.append(direct_path)
+
+    direct_matches = sorted(set(direct_matches))
+    return random.choice(direct_matches) if direct_matches else None
+
+
+def extract_adult_scene_block(text):
+    pattern = re.compile(
+        r'\n---\n+(##\s*(?:\[)?성인씬 #[^\n\]]+(?:\])?\n[\s\S]*?)\n---\n',
+        re.MULTILINE,
+    )
+    match = pattern.search(text)
+    return match.group(1) if match else ''
+
+
+def extract_scene_character(text, female_speakers):
+    block = extract_adult_scene_block(text)
+    if not block:
+        return None
+    full_names = sorted(
+        (name for name in female_speakers if len(name) > 1),
+        key=len,
+        reverse=True,
+    )
+    for name in full_names:
+        if re.search(rf'(^|\s|[-:\[\]]){re.escape(name)}(\s|[:\]\-]|$)', block):
+            return name
+    return None
 
 
 def build_illustration_html(image_path, episode_number, output_file, caption_text):
@@ -172,6 +239,14 @@ def replace_adult_scene_block(text, illustration_html):
         re.MULTILINE,
     )
     return pattern.sub(f'\n{illustration_html}\n', text, count=1)
+
+
+def find_scene_image(base_dir, episode_number, raw_text, female_speakers):
+    prelude_image = find_prelude_image(base_dir, episode_number)
+    if prelude_image:
+        return prelude_image
+    character_name = extract_scene_character(raw_text, female_speakers)
+    return find_character_image(base_dir, character_name)
 
 
 def display_episode_name(base_name):
@@ -284,10 +359,10 @@ for arg in args:
     display_title = extract_display_title(raw, base_name)
     m = re.search(r'ep\.(\d+)(_a)?', base_name)
     ep_num = int(m.group(1)) if m else 0
-    prelude_image = find_prelude_image(base_dir, ep_num)
-    if prelude_image:
+    scene_image = find_scene_image(base_dir, ep_num, raw, female_speakers)
+    if scene_image:
         caption_text = extract_scene_caption(raw)
-        raw = replace_adult_scene_block(raw, build_illustration_html(prelude_image, ep_num, output_file, caption_text))
+        raw = replace_adult_scene_block(raw, build_illustration_html(scene_image, ep_num, output_file, caption_text))
     else:
         raw = replace_adult_scene_block(raw, '')
 

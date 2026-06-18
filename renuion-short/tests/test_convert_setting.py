@@ -37,8 +37,9 @@ class ConvertSettingTitleTests(unittest.TestCase):
         self.assertIn('class="episode-sections"', index_html)
         self.assertIn('class="utility-buttons"', index_html)
         self.assertIn('class="utility-button"', index_html)
-        self.assertIn("총 1화 완성", index_html)
+        self.assertIn("총 6화 완성", index_html)
         self.assertIn('href="001-100/ep.001_a.html"', index_html)
+        self.assertIn('href="001-100/ep.006_a.html"', index_html)
 
 
 if __name__ == "__main__":

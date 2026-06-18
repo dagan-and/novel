@@ -5,11 +5,85 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c71a506f-f30c-48a5-9305-623130cfa75c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.225_a.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/201-300/ep.225_a.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.230_a.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/201-300/ep.230_a.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/setting/장기연재계획.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/setting/장기연재계획.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setting/장기연재계획.md" beforeDir="false" afterPath="$PROJECT_DIR$/setting/장기연재계획.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/characters/김시안.md" beforeDir="false" afterPath="$PROJECT_DIR$/../renuion-short/characters/김시안.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/characters/박미현.md" beforeDir="false" afterPath="$PROJECT_DIR$/../renuion-short/characters/박미현.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/characters/서나윤.md" beforeDir="false" afterPath="$PROJECT_DIR$/../renuion-short/characters/서나윤.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/characters/유하린.md" beforeDir="false" afterPath="$PROJECT_DIR$/../renuion-short/characters/유하린.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/characters/이재인.md" beforeDir="false" afterPath="$PROJECT_DIR$/../renuion-short/characters/이재인.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/characters/정다은.md" beforeDir="false" afterPath="$PROJECT_DIR$/../renuion-short/characters/정다은.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/characters/최윤서.md" beforeDir="false" afterPath="$PROJECT_DIR$/../renuion-short/characters/최윤서.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/101-200/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/101-200/109.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/101-200/115.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/101-200/119.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/101-200/124.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/101-200/134.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/101-200/139.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/101-200/144.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/101-200/149.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/101-200/154.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/101-200/159.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/101-200/164.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/101-200/169.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/101-200/174.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/101-200/179.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/101-200/184.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/101-200/189.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/101-200/198.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/201-300/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/201-300/205.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/201-300/210.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/201-300/215.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/201-300/220.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/201-300/225.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/201-300/230.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/201-300/235.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/201-300/240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/201-300/245.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/201-300/249.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/201-300/254.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/201-300/259.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/201-300/263.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/201-300/269.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/201-300/275.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/201-300/280.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/201-300/285.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/201-300/290.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/201-300/295.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/201-300/300.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/301-400/305.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/301-400/310.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/301-400/315.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/301-400/320.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/301-400/325.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/301-400/330.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/301-400/335.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/301-400/340.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/301-400/345.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/301-400/350.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/301-400/355.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/301-400/360.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/301-400/365.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/301-400/370.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/301-400/375.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/301-400/380.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/301-400/385.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/301-400/390.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/301-400/395.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/301-400/400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/401-500/405.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/401-500/410.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/401-500/415.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/401-500/420.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/401-500/425.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/401-500/430.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/401-500/435.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/preludes/401-500/440.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/images/prompt/common_scene_prompt.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../renuion-short/images/prompt/common_scene_prompt.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/planning/시리즈개요.md" beforeDir="false" afterPath="$PROJECT_DIR$/../renuion-short/planning/시리즈개요.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/planning/핵심컨셉.md" beforeDir="false" afterPath="$PROJECT_DIR$/../renuion-short/planning/핵심컨셉.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/setting/세계관.md" beforeDir="false" afterPath="$PROJECT_DIR$/../renuion-short/setting/세계관.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../renuion-short/setting/장기연재계획.md" beforeDir="false" afterPath="$PROJECT_DIR$/../renuion-short/setting/장기연재계획.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,27 +103,27 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="3FFudggNUCqaKwnUFlDoAzOQ4Sc" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.readMode.enableVisualFormatting": "true",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/kys1207/novel-repo/reunion-reboot"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/kys1207/novel-repo/reunion-reboot&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/images/characters" />

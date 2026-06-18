@@ -11,6 +11,10 @@ EPISODE_PATH = BASE_DIR / "episodes" / "901-1000" / "ep.998_a.md"
 IMAGE_DIR = BASE_DIR / "images" / "preludes" / "901-1000"
 IMAGE_PATH = prelude_output_path(BASE_DIR, "ep.998", "png")
 HTML_PATH = html_episode_path(BASE_DIR, "ep.998_a")
+TEST_CHARACTER_PATH = BASE_DIR / "characters" / "테스트히로인.md"
+CHARACTER_IMAGE_DIR = BASE_DIR / "images" / "characters" / "테스트히로인"
+CHARACTER_IMAGE_PATH = CHARACTER_IMAGE_DIR / "테스트히로인.png"
+CHARACTER_IMAGE_ALT_PATH = CHARACTER_IMAGE_DIR / "테스트히로인_02.png"
 TINY_PNG = base64.b64decode(
     "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+/p9sAAAAASUVORK5CYII="
 )
@@ -25,6 +29,9 @@ class ConvertHtmlIllustrationTests(unittest.TestCase):
             BASE_DIR / "episodes" / "1001-1100" / "ep.1001.md",
             IMAGE_PATH,
             IMAGE_DIR / "998.png",
+            TEST_CHARACTER_PATH,
+            CHARACTER_IMAGE_PATH,
+            CHARACTER_IMAGE_ALT_PATH,
             HTML_PATH,
             html_episode_path(BASE_DIR, "ep.999"),
             html_episode_path(BASE_DIR, "ep.1000"),
@@ -39,6 +46,7 @@ class ConvertHtmlIllustrationTests(unittest.TestCase):
             EPISODE_PATH.parent,
             BASE_DIR / "episodes" / "1001-1100",
             IMAGE_DIR,
+            CHARACTER_IMAGE_DIR,
         ):
             if directory.exists() and not any(directory.iterdir()):
                 directory.rmdir()
@@ -144,6 +152,50 @@ class ConvertHtmlIllustrationTests(unittest.TestCase):
         html = HTML_PATH.read_text(encoding="utf-8")
         self.assertIn("../../images/preludes/901-1000/998.png", html)
         self.assertIn("<figcaption>숫자 파일명 테스트</figcaption>", html)
+
+    def test_adult_episode_without_prelude_uses_character_folder_image(self):
+        CHARACTER_IMAGE_DIR.mkdir(parents=True, exist_ok=True)
+        EPISODE_PATH.parent.mkdir(parents=True, exist_ok=True)
+        TEST_CHARACTER_PATH.write_text("- 성별: 여\n", encoding="utf-8")
+        EPISODE_PATH.write_text(
+            "\n".join(
+                [
+                    "샘플 본문 첫 문장.",
+                    "",
+                    "---",
+                    "## [성인씬 #1 — ep.998]",
+                    "",
+                    "- 장소: 캐릭터 이미지 테스트",
+                    "- 등장인물:",
+                    "  - 김시안: 말끝을 흐린다.",
+                    "  - 테스트히로인: 컵을 내려놓지 못한다.",
+                    "- <progress>3단계</progress>",
+                    "",
+                    "---",
+                    "",
+                    "후속 문장.",
+                ]
+            ),
+            encoding="utf-8",
+        )
+        CHARACTER_IMAGE_PATH.write_bytes(TINY_PNG)
+        CHARACTER_IMAGE_ALT_PATH.write_bytes(TINY_PNG)
+
+        result = subprocess.run(
+            ["python3", "convert_html.py", "ep.998_a"],
+            cwd=BASE_DIR,
+            capture_output=True,
+            text=True,
+        )
+
+        self.assertEqual(result.returncode, 0, msg=result.stderr)
+        html = HTML_PATH.read_text(encoding="utf-8")
+        self.assertIn('class="scene-illustration"', html)
+        self.assertRegex(
+            html,
+            r"\.\./\.\./images/characters/테스트히로인/테스트히로인(?:_02)?\.png",
+        )
+        self.assertIn("<figcaption>캐릭터 이미지 테스트</figcaption>", html)
 
     def test_unbracketed_adult_scene_heading_is_replaced_with_illustration(self):
         IMAGE_DIR.mkdir(parents=True, exist_ok=True)
