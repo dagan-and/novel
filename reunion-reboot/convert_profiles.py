@@ -492,8 +492,10 @@ def build_index(names):
       font-size: 1rem;
       width: 100%;
       height: 100vh;
+      height: 100svh;
+      height: 100dvh;
       margin: 0 auto;
-      padding: 1.2rem 1.5rem;
+      padding: 1.2rem 1.5rem max(1.2rem, env(safe-area-inset-bottom));
       word-break: keep-all;
       overflow: hidden;
     }}
@@ -514,7 +516,7 @@ def build_index(names):
       border: 1px solid #30383a;
       border-radius: 8px;
       background:
-        linear-gradient(180deg, rgba(17,20,23,0) 42%, rgba(17,20,23,0.92) 100%),
+        linear-gradient(180deg, rgba(17,20,23,0) 22%, rgba(17,20,23,0.72) 70%, rgba(17,20,23,0.96) 100%),
         #181d20;
       box-shadow: 0 18px 38px rgba(0,0,0,0.28);
     }}
@@ -531,19 +533,23 @@ def build_index(names):
       color: #8f9996; font-size: 3rem;
     }}
     .card span, .card em {{ position: relative; z-index: 1; margin-left: 1rem; margin-right: 1rem; }}
-    .card span {{ margin-bottom: 0.12rem; font-size: 1.22rem; color: #dff7f1; font-weight: 800; text-shadow: 0 2px 10px rgba(0,0,0,0.7); }}
-    .card em {{ margin-bottom: 1rem; font-size: 0.9rem; color: #b9c7c3; font-style: normal; }}
+    .card span, .card em {{
+      -webkit-text-stroke: 0.45px rgba(0,0,0,0.9);
+      text-shadow: 0 1px 2px rgba(0,0,0,1), 0 3px 12px rgba(0,0,0,0.95);
+    }}
+    .card span {{ margin-bottom: 0.12rem; font-size: 1.22rem; color: #f2fffb; font-weight: 900; }}
+    .card em {{ margin-bottom: 1rem; font-size: 0.9rem; color: #e3eee9; font-style: normal; font-weight: 700; }}
     .card:hover img {{ transform: scale(1.035); filter: brightness(1.08); }}
     .card:hover span {{ color: #8fd0c9; text-decoration: underline; }}
     @media (max-width: 760px) {{
-      body {{ padding: 0.75rem 0.55rem; }}
+      body {{ padding: 0.75rem 0.55rem max(0.75rem, env(safe-area-inset-bottom)); }}
       .grid {{ gap: 0.45rem; }}
       .card span, .card em {{ margin-left: 0.55rem; margin-right: 0.55rem; }}
       .card span {{ font-size: clamp(0.8rem, 3.6vw, 1.05rem); }}
       .card em {{ margin-bottom: 0.55rem; font-size: clamp(0.68rem, 3vw, 0.82rem); }}
     }}
     @media (max-width: 460px) {{
-      body {{ padding: 0.55rem 0.35rem; }}
+      body {{ padding: 0.55rem 0.35rem max(0.55rem, env(safe-area-inset-bottom)); }}
       .grid {{ gap: 0.35rem; }}
     }}
   </style>

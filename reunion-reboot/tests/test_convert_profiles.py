@@ -63,11 +63,27 @@ class ConvertProfilesAdultSceneTests(unittest.TestCase):
         html = (BASE_DIR / "html" / "characters.html").read_text(encoding="utf-8")
         self.assertIn("grid-template-columns: repeat(3, minmax(0, 1fr));", html)
         self.assertIn("grid-template-rows: repeat(2, minmax(0, 1fr));", html)
-        self.assertIn("height: 100vh;", html)
+        self.assertIn("height: 100svh;", html)
+        self.assertIn("height: 100dvh;", html)
+        self.assertIn("env(safe-area-inset-bottom)", html)
         self.assertNotIn("grid-template-columns: repeat(2", html)
         self.assertNotIn("grid-template-columns: 1fr", html)
         self.assertNotIn('href="characters/김시안.html"', html)
         self.assertEqual(html.count('class="card"'), 5)
+
+    def test_character_index_labels_have_readability_treatment(self):
+        result = subprocess.run(
+            ["python3", "convert_profiles.py", "all"],
+            cwd=BASE_DIR,
+            capture_output=True,
+            text=True,
+        )
+        self.assertEqual(result.returncode, 0, msg=result.stderr)
+
+        html = (BASE_DIR / "html" / "characters.html").read_text(encoding="utf-8")
+        self.assertIn("-webkit-text-stroke: 0.45px rgba(0,0,0,0.9);", html)
+        self.assertIn("text-shadow: 0 1px 2px rgba(0,0,0,1), 0 3px 12px rgba(0,0,0,0.95);", html)
+        self.assertIn("linear-gradient(180deg, rgba(17,20,23,0) 22%, rgba(17,20,23,0.72) 70%, rgba(17,20,23,0.96) 100%)", html)
 
 
 if __name__ == "__main__":
