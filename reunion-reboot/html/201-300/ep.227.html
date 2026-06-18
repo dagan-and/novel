@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>227. 스무 분의 문장</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 120%; }
+    body {
+      background: #111417;
+      color: #e8e1d5;
+      font-family: 'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+      font-size: 1.12rem;
+      line-height: 1.9;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3rem 1.4rem 5rem;
+      word-break: keep-all;
+    }
+    h1 {
+      font-size: 1.35rem;
+      text-align: center;
+      color: #79b8b2;
+      margin-bottom: 2.5rem;
+      letter-spacing: 0.02em;
+    }
+    p { margin: 0.75rem 0; }
+    p.speaker-line {
+      display: flex;
+      align-items: baseline;
+      gap: 0.7rem;
+      margin: 0.68rem 0;
+    }
+    .speaker-tag {
+      flex: 0 0 auto;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .speaker-text {
+      flex: 1 1 auto;
+    }
+    .message-line {
+      margin: 1rem 0;
+      padding: 0.72rem 0.9rem;
+      background: #182023;
+      border: 1px solid #2f3f41;
+      border-left: 4px solid #79b8b2;
+      border-radius: 6px;
+      color: #d8e5df;
+      font-size: 1.02rem;
+      line-height: 1.75;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+    }
+    .message-sender {
+      font-weight: 700;
+      color: #8fd0c9;
+      margin-right: 0.35rem;
+    }
+    .time {
+      font-weight: bold;
+      color: #d6a15f;
+      font-size: 1.08rem;
+      text-align: center;
+      margin: 1.8rem 0 1rem;
+    }
+    .thought { color: #9bbac0; font-style: italic; }
+    .divider {
+      text-align: center;
+      color: #5f6564;
+      margin: 2.2rem 0;
+      letter-spacing: 0.6em;
+    }
+    figure.scene-illustration {
+      margin: 2.5rem 0 2.8rem;
+    }
+    .scene-illustration img {
+      display: block;
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid #30383a;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.36);
+    }
+    .scene-illustration figcaption {
+      margin-top: 0.8rem;
+      text-align: center;
+      font-size: 0.92rem;
+      color: #9faaa6;
+      letter-spacing: 0.02em;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 3.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid #30383a;
+      font-size: 1rem;
+    }
+    .nav a { color: #8fd0c9; text-decoration: none; font-weight: 700; }
+    .nav a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <h1>227. 스무 분의 문장</h1>
+  
+
+<p>일요일 오후, 동아리방 문은 반쯤 열려 있었다.</p>
+
+<p class="message-line"><span class="message-sender">[유하린]</span>선배, 여기요.</p>
+
+<p>하린은 창가 테이블에 앉아 있었다.</p>
+
+<p>노트북 옆에는 파스텔색 포스트잇이 줄지어 붙어 있었다.</p>
+
+<p>제목은 굵게 적혀 있었다.</p>
+
+<p>`멈춰 있지 않은 기다림`</p>
+
+<p>시안은 가방을 내려놓았다.</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>제목 살아 있네요.</p>
+
+<p class="message-line"><span class="message-sender">[유하린]</span>살아만 있으면 안 돼요. 제출해야 돼요.</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>갑자기 현실적이네요.</p>
+
+<p class="message-line"><span class="message-sender">[유하린]</span>다은 씨한테 조금 배웠어요.</p>
+
+<p>하린은 웃었지만, 손끝은 포스트잇 모서리를 만지고 있었다.</p>
+
+<p>시안은 화면을 봤다.</p>
+
+<p>문장 하나가 눈에 걸렸다.</p>
+
+<p>`기다림은 누군가의 퇴근 시간을 모르는 일에서 시작된다.`</p>
+
+<p>시안은 잠깐 멈췄다.</p>
+
+<p class="message-line"><span class="message-sender">[유하린]</span>이상해요?</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>아니요. 너무 정확해서요.</p>
+
+<p class="message-line"><span class="message-sender">[유하린]</span>선배가 회사 가니까요.</p>
+
+<p>하린은 가볍게 말하려 했다.</p>
+
+<p>하지만 목소리 끝이 살짝 내려갔다.</p>
+
+<p>시안은 의자를 당겨 앉았다.</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>오늘은 여기 먼저 봅니다.</p>
+
+<p class="message-line"><span class="message-sender">[유하린]</span>일요일 저녁 회사 20분 있잖아요.</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>아직 오후예요.</p>
+
+<p class="message-line"><span class="message-sender">[유하린]</span>오후가 끝나면요?</p>
+
+<p>그 질문은 조용했다.</p>
+
+<p>그래서 피하기 더 어려웠다.</p>
+
+<p>시안은 노트북 화면을 가리켰다.</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>그럼 오후 안에 한 문장이라도 끝내죠.</p>
+
+<p class="message-line"><span class="message-sender">[유하린]</span>선배답네요.</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>좋은 뜻이에요?</p>
+
+<p class="message-line"><span class="message-sender">[유하린]</span>반반이요.</p>
+
+<p>하린은 작은 웃음을 흘렸다.</p>
+
+<p>둘은 문장을 고쳤다.</p>
+
+<p>기다림.</p>
+
+<p>퇴근 시간.</p>
+
+<p>먼저 묻는 사람.</p>
+
+<p>다시 오는 사람.</p>
+
+<p>문장마다 시안의 하루가 조금씩 걸렸다.</p>
+
+<p>하린은 그것을 숨기지 않았다.</p>
+
+<p class="message-line"><span class="message-sender">[유하린]</span>저, 선배 회사 얘기 쓰는 거 싫으면 말해 주세요.</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>싫은 건 아니에요.</p>
+
+<p class="message-line"><span class="message-sender">[유하린]</span>그럼 무서운 건요?</p>
+
+<p>시안은 커서를 봤다.</p>
+
+<p>깜박.</p>
+
+<p>깜박.</p>
+
+<p>사람보다 솔직한 게 커서일 때가 있다.</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>조금요.</p>
+
+<p>하린은 포스트잇 하나를 떼어 냈다.</p>
+
+<p>그리고 새로 썼다.</p>
+
+<p>`무서워도 문장에 넣기.`</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>그건 어디 규칙이에요?</p>
+
+<p class="message-line"><span class="message-sender">[유하린]</span>제 거요.</p>
+
+<p>오후 5시 40분.</p>
+
+<p>시안의 휴대폰이 울렸다.</p>
+
+<p class="message-line"><span class="message-sender">[정다은]</span>회사 자료 확인은 20분 제한입니다. 시작/종료 시각 공유 권장.</p>
+
+<p>하린의 시선이 화면에 닿았다.</p>
+
+<p>그다음, 또 하나.</p>
+
+<p class="message-line"><span class="message-sender">[이재인]</span>오늘 20분만요. 시작하면 타이머 켜요. 타이머 안 켜면 2시간 갑니다.</p>
+
+<p>하린은 입술을 꾹 다물었다가 폈다.</p>
+
+<p class="message-line"><span class="message-sender">[유하린]</span>스무 분이 되게 많네요.</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>하린 씨 자료 먼저 저장하고 갈게요.</p>
+
+<p class="message-line"><span class="message-sender">[유하린]</span>아니요.</p>
+
+<p>하린은 노트북을 닫지 않았다.</p>
+
+<p>대신 시안의 손목시계를 봤다.</p>
+
+<p class="message-line"><span class="message-sender">[유하린]</span>여기서 켜요. 저도 볼래요.</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>회사 자료를요?</p>
+
+<p class="message-line"><span class="message-sender">[유하린]</span>아니요.</p>
+
+<p>하린은 자기 문서에 새 줄을 만들었다.</p>
+
+<p class="message-line"><span class="message-sender">[유하린]</span>스무 분이 선배를 얼마나 가져가는지요.</p>
+
+<p>시안은 말문이 막혔다.</p>
+
+<p>일요일 오후.</p>
+
+<p>문장 하나를 고치러 왔는데.</p>
+
+<p>하린은 시간 자체를 고치려 하고 있었다.</p>
+
+  <div class="nav">
+    <a href="ep.226.html">← 이전 화</a>
+    <a href="ep.228.html">다음 화 →</a>
+  </div>
+</body>
+</html>

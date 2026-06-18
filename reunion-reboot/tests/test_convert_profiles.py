@@ -51,6 +51,20 @@ class ConvertProfilesAdultSceneTests(unittest.TestCase):
         self.assertIn("출신: 서울", html)
         self.assertNotIn("다시 만나는 관계들", html)
 
+    def test_character_index_uses_three_by_two_expanded_grid(self):
+        result = subprocess.run(
+            ["python3", "convert_profiles.py", "all"],
+            cwd=BASE_DIR,
+            capture_output=True,
+            text=True,
+        )
+        self.assertEqual(result.returncode, 0, msg=result.stderr)
+
+        html = (BASE_DIR / "html" / "characters.html").read_text(encoding="utf-8")
+        self.assertIn("grid-template-columns: repeat(3, minmax(0, 1fr));", html)
+        self.assertIn("grid-auto-rows: minmax(300px, 1fr);", html)
+        self.assertIn("min-height: calc(100vh - 4rem);", html)
+
 
 if __name__ == "__main__":
     unittest.main()

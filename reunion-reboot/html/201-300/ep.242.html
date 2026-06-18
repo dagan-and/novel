@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>242. 길 갈라지는 데까지</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 120%; }
+    body {
+      background: #111417;
+      color: #e8e1d5;
+      font-family: 'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+      font-size: 1.12rem;
+      line-height: 1.9;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3rem 1.4rem 5rem;
+      word-break: keep-all;
+    }
+    h1 {
+      font-size: 1.35rem;
+      text-align: center;
+      color: #79b8b2;
+      margin-bottom: 2.5rem;
+      letter-spacing: 0.02em;
+    }
+    p { margin: 0.75rem 0; }
+    p.speaker-line {
+      display: flex;
+      align-items: baseline;
+      gap: 0.7rem;
+      margin: 0.68rem 0;
+    }
+    .speaker-tag {
+      flex: 0 0 auto;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .speaker-text {
+      flex: 1 1 auto;
+    }
+    .message-line {
+      margin: 1rem 0;
+      padding: 0.72rem 0.9rem;
+      background: #182023;
+      border: 1px solid #2f3f41;
+      border-left: 4px solid #79b8b2;
+      border-radius: 6px;
+      color: #d8e5df;
+      font-size: 1.02rem;
+      line-height: 1.75;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+    }
+    .message-sender {
+      font-weight: 700;
+      color: #8fd0c9;
+      margin-right: 0.35rem;
+    }
+    .time {
+      font-weight: bold;
+      color: #d6a15f;
+      font-size: 1.08rem;
+      text-align: center;
+      margin: 1.8rem 0 1rem;
+    }
+    .thought { color: #9bbac0; font-style: italic; }
+    .divider {
+      text-align: center;
+      color: #5f6564;
+      margin: 2.2rem 0;
+      letter-spacing: 0.6em;
+    }
+    figure.scene-illustration {
+      margin: 2.5rem 0 2.8rem;
+    }
+    .scene-illustration img {
+      display: block;
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid #30383a;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.36);
+    }
+    .scene-illustration figcaption {
+      margin-top: 0.8rem;
+      text-align: center;
+      font-size: 0.92rem;
+      color: #9faaa6;
+      letter-spacing: 0.02em;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 3.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid #30383a;
+      font-size: 1rem;
+    }
+    .nav a { color: #8fd0c9; text-decoration: none; font-weight: 700; }
+    .nav a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <h1>242. 길 갈라지는 데까지</h1>
+  
+
+<p>퇴근길 회사 앞 횡단보도는 길었다.</p>
+
+<p>빨간불이 오래 버텼다.</p>
+
+<p>시안은 가방에서 휴대폰을 꺼내려 했다.</p>
+
+<p>이재인이 손목을 톡 쳤다.</p>
+
+<p class="message-line"><span class="message-sender">[이재인]</span>지금 보면 걸으면서 봐요.</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>안 볼 수도 있죠.</p>
+
+<p class="message-line"><span class="message-sender">[이재인]</span>안 볼 사람이면 꺼내지도 않았어요.</p>
+
+<p>시안은 얌전히 휴대폰을 넣었다.</p>
+
+<p>사람은 자신을 너무 잘 보는 사람 앞에서 억울해진다.</p>
+
+<p>둘은 역 방향으로 걸었다.</p>
+
+<p>이재인의 운동화 소리가 빠르게 붙었다 떨어졌다.</p>
+
+<p>그녀는 가만히 걷는 법이 없는 사람 같았다.</p>
+
+<p class="message-line"><span class="message-sender">[이재인]</span>학교 가서 양식 받고, 집 가서 스캔하고, 오늘 제출까지요?</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>네.</p>
+
+<p class="message-line"><span class="message-sender">[이재인]</span>스캔은요?</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>편의점 복합기.</p>
+
+<p class="message-line"><span class="message-sender">[이재인]</span>어느 편의점요?</p>
+
+<p>시안은 멈칫했다.</p>
+
+<p>나윤의 편의점.</p>
+
+<p>이름을 말하기 전부터 일이 복잡해졌다.</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>아는 편의점이 있어요.</p>
+
+<p class="message-line"><span class="message-sender">[이재인]</span>아.</p>
+
+<p>이재인은 더 묻지 않았다.</p>
+
+<p>그 대신 횡단보도 앞에서 말했다.</p>
+
+<p class="message-line"><span class="message-sender">[이재인]</span>그럼 더 좋네요. 모르는 복합기랑 싸우는 것보다.</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>안 물어봐요?</p>
+
+<p class="message-line"><span class="message-sender">[이재인]</span>뭘요?</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>아는 편의점이 누구냐고.</p>
+
+<p>이재인은 눈을 동그랗게 떴다가 웃었다.</p>
+
+<p class="message-line"><span class="message-sender">[이재인]</span>물어보면 빨리 가요?</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>아니요.</p>
+
+<p class="message-line"><span class="message-sender">[이재인]</span>그럼 안 물어봐요.</p>
+
+<p>단순했다.</p>
+
+<p>그래서 편했다.</p>
+
+<p>편해서 또 조심스러웠다.</p>
+
+<p>역 입구에서 길이 갈라졌다.</p>
+
+<p>이재인은 회사 방향 지하철로, 시안은 학교 방향으로.</p>
+
+<p class="message-line"><span class="message-sender">[이재인]</span>여기서부터는 안 봐요. 대신 도착하면 보내요.</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>보고 체계가 늘었네요.</p>
+
+<p class="message-line"><span class="message-sender">[이재인]</span>길에서 자료 보다 넘어지면 제가 괜히 찜찜하잖아요.</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>걱정인가요, 관리인가요?</p>
+
+<p class="message-line"><span class="message-sender">[이재인]</span>생활 안전이요.</p>
+
+<p>또 새로운 항목이 생겼다.</p>
+
+<p>시안은 웃으며 고개를 끄덕였다.</p>
+
+<p>학교에 도착하니 하린이 학과 사무실 앞에 서 있었다.</p>
+
+<p>손에는 양식이 들려 있었다.</p>
+
+<p class="message-line"><span class="message-sender">[유하린]</span>선배, 여기요.</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>고마워요. 오래 기다렸어요?</p>
+
+<p class="message-line"><span class="message-sender">[유하린]</span>아니요.</p>
+
+<p>하린은 바로 대답했다.</p>
+
+<p>너무 바로라서, 오히려 거짓말 같았다.</p>
+
+<p>그녀의 손끝에는 종이 모서리 자국이 남아 있었다.</p>
+
+<p class="message-line"><span class="message-sender">[유하린]</span>회사 분이랑 같이 왔어요?</p>
+
+<p>시안은 잠깐 멈췄다.</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>역까지요. 길 갈라지는 데까지.</p>
+
+<p>하린은 양식을 내밀었다.</p>
+
+<p class="message-line"><span class="message-sender">[유하린]</span>저는 여기까지요.</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>하린 씨.</p>
+
+<p class="message-line"><span class="message-sender">[유하린]</span>괜찮아요.</p>
+
+<p>하린은 웃었다.</p>
+
+<p>하지만 양식 아래 포스트잇은 웃지 않았다.</p>
+
+<p>`다음엔 여기부터.`</p>
+
+<p>길은 갈라졌다.</p>
+
+<p>그런데 각자 갈라지는 지점에 표시를 남기기 시작했다.</p>
+
+  <div class="nav">
+    <a href="ep.241.html">← 이전 화</a>
+    <a href="ep.243.html">다음 화 →</a>
+  </div>
+</body>
+</html>

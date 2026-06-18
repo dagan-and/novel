@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>244. 접수 완료 전의 아침</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 120%; }
+    body {
+      background: #111417;
+      color: #e8e1d5;
+      font-family: 'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+      font-size: 1.12rem;
+      line-height: 1.9;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3rem 1.4rem 5rem;
+      word-break: keep-all;
+    }
+    h1 {
+      font-size: 1.35rem;
+      text-align: center;
+      color: #79b8b2;
+      margin-bottom: 2.5rem;
+      letter-spacing: 0.02em;
+    }
+    p { margin: 0.75rem 0; }
+    p.speaker-line {
+      display: flex;
+      align-items: baseline;
+      gap: 0.7rem;
+      margin: 0.68rem 0;
+    }
+    .speaker-tag {
+      flex: 0 0 auto;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .speaker-text {
+      flex: 1 1 auto;
+    }
+    .message-line {
+      margin: 1rem 0;
+      padding: 0.72rem 0.9rem;
+      background: #182023;
+      border: 1px solid #2f3f41;
+      border-left: 4px solid #79b8b2;
+      border-radius: 6px;
+      color: #d8e5df;
+      font-size: 1.02rem;
+      line-height: 1.75;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+    }
+    .message-sender {
+      font-weight: 700;
+      color: #8fd0c9;
+      margin-right: 0.35rem;
+    }
+    .time {
+      font-weight: bold;
+      color: #d6a15f;
+      font-size: 1.08rem;
+      text-align: center;
+      margin: 1.8rem 0 1rem;
+    }
+    .thought { color: #9bbac0; font-style: italic; }
+    .divider {
+      text-align: center;
+      color: #5f6564;
+      margin: 2.2rem 0;
+      letter-spacing: 0.6em;
+    }
+    figure.scene-illustration {
+      margin: 2.5rem 0 2.8rem;
+    }
+    .scene-illustration img {
+      display: block;
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid #30383a;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.36);
+    }
+    .scene-illustration figcaption {
+      margin-top: 0.8rem;
+      text-align: center;
+      font-size: 0.92rem;
+      color: #9faaa6;
+      letter-spacing: 0.02em;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 3.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid #30383a;
+      font-size: 1rem;
+    }
+    .nav a { color: #8fd0c9; text-decoration: none; font-weight: 700; }
+    .nav a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <h1>244. 접수 완료 전의 아침</h1>
+  
+
+<p>다음 날 아침, 시안은 회사 로비에서 포털을 새로고침했다.</p>
+
+<p>승인 대기.</p>
+
+<p>아직 그대로.</p>
+
+<p class="message-line"><span class="message-sender">[이재인]</span>손가락 닳겠어요.</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>닳아서라도 바뀌면 좋겠네요.</p>
+
+<p class="message-line"><span class="message-sender">[이재인]</span>그럼 회사 복사기도 맨날 닳았겠죠.</p>
+
+<p>이재인은 보리차를 내밀었다.</p>
+
+<p>요즘 그녀는 커피보다 보리차를 자주 줬다.</p>
+
+<p>월요일의 죽는 횟수를 줄이는 방식이라고 했다.</p>
+
+<p>오늘은 화요일인데도.</p>
+
+<p>사람은 한번 정해진 생존법을 쉽게 버리지 않는다.</p>
+
+<p>10시 14분.</p>
+
+<p>정다은에게 메시지가 왔다.</p>
+
+<p class="message-line"><span class="message-sender">[정다은]</span>학과 사무실 확인했습니다. 증빙 접수 완료. 승인 반영은 오늘 오후 예상입니다.</p>
+
+<p>시안은 숨을 내쉬었다.</p>
+
+<p>그 숨을 이재인이 옆에서 들었다.</p>
+
+<p class="message-line"><span class="message-sender">[이재인]</span>됐어요?</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>접수 완료요.</p>
+
+<p class="message-line"><span class="message-sender">[이재인]</span>와. 덜 망했네요.</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>이 말 이제 중독될 것 같아요.</p>
+
+<p class="message-line"><span class="message-sender">[이재인]</span>위험한 칭찬이에요.</p>
+
+<p>시안은 단체방에 보냈다.</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>졸업 증빙 접수 완료. 오후 승인 반영 예정입니다.</p>
+
+<p>네 답이 거의 동시에 왔다.</p>
+
+<p class="message-line"><span class="message-sender">[박미현]</span>승인되면 오늘 컵에 적을게요.</p>
+
+<p class="message-line"><span class="message-sender">[유하린]</span>다행이에요. 진짜요.</p>
+
+<p class="message-line"><span class="message-sender">[서나윤]</span>접수 완료 밥 필요.</p>
+
+<p class="message-line"><span class="message-sender">[정다은]</span>오후 4시 재확인.</p>
+
+<p>그리고 곧바로 회사 메일.</p>
+
+<p class="message-line"><span class="message-sender">[인사팀]</span>후속 과제 중간 점검: 오늘 오후 5시 30분.</p>
+
+<p>시안은 화면을 보며 웃었다.</p>
+
+<p>웃음이 아니면 욕이 나올 것 같았다.</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>회사가 오후 5시 30분을 잡았습니다.</p>
+
+<p>단체방에 보냈다.</p>
+
+<p>미현의 답이 먼저 왔다.</p>
+
+<p class="message-line"><span class="message-sender">[박미현]</span>오후 승인 컵이 또 늦겠네요.</p>
+
+<p>하린.</p>
+
+<p class="message-line"><span class="message-sender">[유하린]</span>오늘은 제 자료 안 잡을게요.</p>
+
+<p>나윤.</p>
+
+<p class="message-line"><span class="message-sender">[서나윤]</span>밥은 잡을게요.</p>
+
+<p>다은.</p>
+
+<p class="message-line"><span class="message-sender">[정다은]</span>오후 4시 승인 확인 후 5시 30분 회의 전 공유하십시오.</p>
+
+<p>이재인이 옆에서 물었다.</p>
+
+<p class="message-line"><span class="message-sender">[이재인]</span>오늘도 많아요?</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>오늘도 다섯 방향입니다.</p>
+
+<p class="message-line"><span class="message-sender">[이재인]</span>하나 늘었네요?</p>
+
+<p>시안은 멈췄다.</p>
+
+<p>이재인은 말하고 나서야 눈을 깜박였다.</p>
+
+<p class="message-line"><span class="message-sender">[이재인]</span>아. 저 포함인가.</p>
+
+<p>잠깐 조용했다.</p>
+
+<p>그녀는 어색하게 웃었다.</p>
+
+<p class="message-line"><span class="message-sender">[이재인]</span>저는 방향 아니고, 그냥 옆길 정도로 해요.</p>
+
+<p>시안은 대답하지 못했다.</p>
+
+<p>옆길.</p>
+
+<p>그 말이 이상하게 오래 남았다.</p>
+
+<p>옆길은 가끔 지름길이 된다.</p>
+
+<p>그리고 지름길은, 원래 길을 가장 먼저 흔든다.</p>
+
+  <div class="nav">
+    <a href="ep.243.html">← 이전 화</a>
+    <a href="ep.245.html">다음 화 →</a>
+  </div>
+</body>
+</html>

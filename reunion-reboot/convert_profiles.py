@@ -227,17 +227,17 @@ def strip_hidden_profile_lines(body_md):
         body_md = re.sub(pattern, '', body_md, flags=re.MULTILINE)
     return body_md
 
-# ── 현재 구분 파싱 (부가설명 지우고 메인/서브만 추출) ────────────────
+# ── 현재 구분 파싱 (부가설명/마크다운 표시 제거) ───────────────────
 def get_category(raw):
     m = re.search(r'- 현재 구분:\s*(.+)', raw)
     if not m:
         return ''
-    line = m.group(1)
+    line = re.sub(r'[*_`]', '', m.group(1)).strip()
     # 메인 또는 서브 글자만 정확하게 매칭해서 추출
     match = re.search(r'(메인|서브)', line)
     if match:
         return match.group(1)
-    return line.strip()
+    return line
 
 # ── 프로필 HTML 빌드 ─────────────────────────────────────────────────
 PROFILE_CSS = """
@@ -496,23 +496,50 @@ def build_index(names):
       word-break: keep-all;
     }}
     h1 {{ font-size: 1.8rem; color: #79b8b2; text-align: center; margin-bottom: 3rem; letter-spacing: 0.02em; }}
-    .grid {{ display: flex; flex-wrap: wrap; gap: 1rem; }}
+    .grid {{
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-auto-rows: minmax(300px, 1fr);
+      gap: 1.15rem;
+      min-height: calc(100vh - 4rem);
+    }}
     .card {{
-      display: flex; flex-direction: column; align-items: center;
-      text-decoration: none; color: #e8e1d5; width: 110px;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      text-decoration: none; color: #e8e1d5;
+      min-height: 300px;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid #30383a;
+      border-radius: 18px;
+      background:
+        linear-gradient(180deg, rgba(17,20,23,0) 42%, rgba(17,20,23,0.92) 100%),
+        #181d20;
+      box-shadow: 0 18px 38px rgba(0,0,0,0.28);
     }}
     .card img, .card .no-img {{
-      width: 110px; height: 140px;
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
       object-fit: cover; object-position: top;
-      border: 1px solid #30383a; border-radius: 8px; background: #181d20;
+      border: 0; border-radius: 0; background: #181d20;
+      transition: transform 0.24s ease, filter 0.24s ease;
     }}
     .card .no-img {{
       display: flex; align-items: center; justify-content: center;
-      color: #8f9996; font-size: 2rem;
+      color: #8f9996; font-size: 3rem;
     }}
-    .card span {{ margin-top: 0.4rem; font-size: 1rem; color: #8fd0c9; font-weight: 700; }}
-    .card em {{ font-size: 0.86rem; color: #9faaa6; font-style: normal; }}
-    .card:hover span {{ color: #b9e7df; text-decoration: underline; }}
+    .card span, .card em {{ position: relative; z-index: 1; margin-left: 1rem; margin-right: 1rem; }}
+    .card span {{ margin-bottom: 0.12rem; font-size: 1.22rem; color: #dff7f1; font-weight: 800; text-shadow: 0 2px 10px rgba(0,0,0,0.7); }}
+    .card em {{ margin-bottom: 1rem; font-size: 0.9rem; color: #b9c7c3; font-style: normal; }}
+    .card:hover img {{ transform: scale(1.035); filter: brightness(1.08); }}
+    .card:hover span {{ color: #8fd0c9; text-decoration: underline; }}
+    @media (max-width: 760px) {{
+      body {{ padding: 1rem 0.75rem 2rem; }}
+      .grid {{ grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: minmax(260px, 42vh); }}
+    }}
+    @media (max-width: 460px) {{
+      .grid {{ grid-template-columns: 1fr; grid-auto-rows: minmax(340px, 62vh); }}
+    }}
   </style>
 </head>
 <body>

@@ -80,6 +80,32 @@ class ConvertHtmlIllustrationTests(unittest.TestCase):
         self.assertNotIn("## [성인씬 #1 — ep.998]", html)
         self.assertNotIn("다시 만나는 관계들", html)
 
+    def test_adult_episode_title_uses_markdown_heading_without_internal_suffix(self):
+        EPISODE_PATH.parent.mkdir(parents=True, exist_ok=True)
+        EPISODE_PATH.write_text(
+            "\n".join(
+                [
+                    "# ep.998_a - 테스트 부제목",
+                    "",
+                    "샘플 본문.",
+                ]
+            ),
+            encoding="utf-8",
+        )
+
+        result = subprocess.run(
+            ["python3", "convert_html.py", "ep.998_a"],
+            cwd=BASE_DIR,
+            capture_output=True,
+            text=True,
+        )
+
+        self.assertEqual(result.returncode, 0, msg=result.stderr)
+        html = HTML_PATH.read_text(encoding="utf-8")
+        self.assertIn("<title>ep.998 - 테스트 부제목</title>", html)
+        self.assertIn("<h1>ep.998 - 테스트 부제목</h1>", html)
+        self.assertNotIn("<h1>ep.998_a", html)
+
     def test_numeric_only_image_name_is_supported(self):
         IMAGE_DIR.mkdir(parents=True, exist_ok=True)
         EPISODE_PATH.parent.mkdir(parents=True, exist_ok=True)

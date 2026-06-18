@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>241. 후속 과제는 남는다</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 120%; }
+    body {
+      background: #111417;
+      color: #e8e1d5;
+      font-family: 'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+      font-size: 1.12rem;
+      line-height: 1.9;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3rem 1.4rem 5rem;
+      word-break: keep-all;
+    }
+    h1 {
+      font-size: 1.35rem;
+      text-align: center;
+      color: #79b8b2;
+      margin-bottom: 2.5rem;
+      letter-spacing: 0.02em;
+    }
+    p { margin: 0.75rem 0; }
+    p.speaker-line {
+      display: flex;
+      align-items: baseline;
+      gap: 0.7rem;
+      margin: 0.68rem 0;
+    }
+    .speaker-tag {
+      flex: 0 0 auto;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .speaker-text {
+      flex: 1 1 auto;
+    }
+    .message-line {
+      margin: 1rem 0;
+      padding: 0.72rem 0.9rem;
+      background: #182023;
+      border: 1px solid #2f3f41;
+      border-left: 4px solid #79b8b2;
+      border-radius: 6px;
+      color: #d8e5df;
+      font-size: 1.02rem;
+      line-height: 1.75;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+    }
+    .message-sender {
+      font-weight: 700;
+      color: #8fd0c9;
+      margin-right: 0.35rem;
+    }
+    .time {
+      font-weight: bold;
+      color: #d6a15f;
+      font-size: 1.08rem;
+      text-align: center;
+      margin: 1.8rem 0 1rem;
+    }
+    .thought { color: #9bbac0; font-style: italic; }
+    .divider {
+      text-align: center;
+      color: #5f6564;
+      margin: 2.2rem 0;
+      letter-spacing: 0.6em;
+    }
+    figure.scene-illustration {
+      margin: 2.5rem 0 2.8rem;
+    }
+    .scene-illustration img {
+      display: block;
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid #30383a;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.36);
+    }
+    .scene-illustration figcaption {
+      margin-top: 0.8rem;
+      text-align: center;
+      font-size: 0.92rem;
+      color: #9faaa6;
+      letter-spacing: 0.02em;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 3.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid #30383a;
+      font-size: 1rem;
+    }
+    .nav a { color: #8fd0c9; text-decoration: none; font-weight: 700; }
+    .nav a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <h1>241. 후속 과제는 남는다</h1>
+  
+
+<p>점심시간은 통화로 사라졌다.</p>
+
+<p>정다은은 전화 너머에서 차분하게 말했다.</p>
+
+<p class="message-line"><span class="message-sender">[정다은]</span>대체 인정 신청서 양식을 찾아야 합니다. 성적표 캡처만으로는 부족할 가능성이 있습니다.</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>가능성이요?</p>
+
+<p class="message-line"><span class="message-sender">[정다은]</span>행정에서 가능성은 거의 확정입니다.</p>
+
+<p>시안은 회사 식당 구석에서 눈을 감았다.</p>
+
+<p>옆에서 이재인이 젓가락을 내밀었다.</p>
+
+<p class="message-line"><span class="message-sender">[이재인]</span>통화하면서 먹어요.</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>예의가.</p>
+
+<p class="message-line"><span class="message-sender">[이재인]</span>굶는 게 더 무례해요. 자기 몸한테.</p>
+
+<p>정다은이 전화 너머에서 잠깐 멈췄다.</p>
+
+<p class="message-line"><span class="message-sender">[정다은]</span>옆에 이재인 씨입니까?</p>
+
+<p>시안은 젓가락을 든 채 굳었다.</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>네.</p>
+
+<p class="message-line"><span class="message-sender">[정다은]</span>식사는 하십시오. 그 조언은 맞습니다.</p>
+
+<p>이재인은 입모양으로 말했다.</p>
+
+<p>`맞대요.`</p>
+
+<p>시안은 웃음을 참았다.</p>
+
+<p>이 상황에서 웃으면 인생이 가벼워 보일 수 있다.</p>
+
+<p>하지만 안 웃으면 너무 무거웠다.</p>
+
+<p>오후에는 회사 후속 회의가 있었다.</p>
+
+<p>인사팀장은 발표 우수 조를 따로 불렀다.</p>
+
+<p class="message-line"><span class="message-sender">[인사팀장]</span>이번 주 안에 간단한 개선안 문서를 추가로 제출해 주세요. 실무 부서에서 볼 예정입니다.</p>
+
+<p>실무 부서.</p>
+
+<p>그 말이 나오자 방 안 공기가 달라졌다.</p>
+
+<p>이재인이 작은 목소리로 말했다.</p>
+
+<p class="message-line"><span class="message-sender">[이재인]</span>이거 잘하면 진짜 평가에 남아요.</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>지금 졸업요건이 안 남을 위기인데요.</p>
+
+<p class="message-line"><span class="message-sender">[이재인]</span>둘 다 남겨야죠.</p>
+
+<p>잔인했다.</p>
+
+<p>정답이라 더 잔인했다.</p>
+
+<p>회의가 끝난 뒤, 이재인은 복도에서 바로 노란 포스트잇을 꺼냈다.</p>
+
+<p>`오늘: 졸업 증빙`</p>
+
+<p>`내일: 후속 과제 뼈대`</p>
+
+<p>`목요일: 수정`</p>
+
+<p>`금요일: 제출`</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>너무 빨라요.</p>
+
+<p class="message-line"><span class="message-sender">[이재인]</span>늦으면 더 빨리 뛰어야 해요.</p>
+
+<p>시안은 사진을 찍었다.</p>
+
+<p>단체방에 올렸다.</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>회사 후속 과제가 생겼습니다. 이번 주 안 제출입니다. 졸업 증빙도 오늘 처리해야 합니다.</p>
+
+<p>잠깐의 침묵.</p>
+
+<p>그리고 네 방향.</p>
+
+<p class="message-line"><span class="message-sender">[박미현]</span>오늘은 카페 오지 말고 졸업부터요. 대신 컵은 안 치울게요.</p>
+
+<p class="message-line"><span class="message-sender">[유하린]</span>제가 사무실에서 양식 받아 놨어요.</p>
+
+<p class="message-line"><span class="message-sender">[서나윤]</span>오늘 밥 두 번 확인할 거예요.</p>
+
+<p class="message-line"><span class="message-sender">[정다은]</span>후속 과제 일정표와 졸업 증빙 일정을 분리해야 합니다.</p>
+
+<p>시안은 화면을 봤다.</p>
+
+<p>모두가 자기 방식으로 자리를 내주고 있었다.</p>
+
+<p>하지만 내준 자리는 비어 있지 않았다.</p>
+
+<p>각자의 표시가 붙었다.</p>
+
+<p>그때 이재인이 물었다.</p>
+
+<p class="message-line"><span class="message-sender">[이재인]</span>오늘 학교 들러요?</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>네. 양식 받아야 해서요.</p>
+
+<p class="message-line"><span class="message-sender">[이재인]</span>그럼 회사에서 역까지 같이 가요. 길 갈라지는 데까지.</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>괜찮아요. 혼자 가도.</p>
+
+<p class="message-line"><span class="message-sender">[이재인]</span>혼자 가면 또 자료 보면서 걸을 것 같아서요.</p>
+
+<p>들켰다.</p>
+
+<p>시안은 포스트잇을 접어 지갑에 넣었다.</p>
+
+<p>후속 과제는 남았다.</p>
+
+<p>그리고 같이 걷자는 말도, 이상하게 남았다.</p>
+
+  <div class="nav">
+    <a href="ep.240.html">← 이전 화</a>
+    <a href="ep.242.html">다음 화 →</a>
+  </div>
+</body>
+</html>

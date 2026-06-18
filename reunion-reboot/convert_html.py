@@ -174,6 +174,18 @@ def replace_adult_scene_block(text, illustration_html):
     return pattern.sub(f'\n{illustration_html}\n', text, count=1)
 
 
+def display_episode_name(base_name):
+    return base_name.replace('_a', '')
+
+
+def extract_display_title(text, base_name):
+    for line in text.splitlines():
+        match = re.match(r'^#\s+(.+?)\s*$', line)
+        if match:
+            return match.group(1).strip().replace('_a', '')
+    return display_episode_name(base_name)
+
+
 def resolve_episode_html_name(base_dir, episode_number):
     for candidate in (f'ep.{episode_number:03d}_a', f'ep.{episode_number:03d}'):
         try:
@@ -269,6 +281,7 @@ for arg in args:
     with open(input_file, 'r', encoding='utf-8') as f:
         raw = f.read()
 
+    display_title = extract_display_title(raw, base_name)
     m = re.search(r'ep\.(\d+)(_a)?', base_name)
     ep_num = int(m.group(1)) if m else 0
     prelude_image = find_prelude_image(base_dir, ep_num)
@@ -301,11 +314,11 @@ for arg in args:
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{base_name}</title>
+  <title>{display_title}</title>
   <style>{CSS}  </style>
 </head>
 <body>
-  <h1>{base_name}</h1>
+  <h1>{display_title}</h1>
   {body}
   <div class="nav">
     {prev_link}
