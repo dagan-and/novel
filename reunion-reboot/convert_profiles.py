@@ -490,27 +490,29 @@ def build_index(names):
       color: #e8e1d5;
       font-family: 'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
       font-size: 1rem;
-      max-width: 900px;
+      width: 100%;
+      height: 100vh;
       margin: 0 auto;
-      padding: 3rem 1.5rem 5rem;
+      padding: 1.2rem 1.5rem;
       word-break: keep-all;
+      overflow: hidden;
     }}
     h1 {{ font-size: 1.8rem; color: #79b8b2; text-align: center; margin-bottom: 3rem; letter-spacing: 0.02em; }}
     .grid {{
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      grid-auto-rows: minmax(300px, 1fr);
-      gap: 1.15rem;
-      min-height: calc(100vh - 4rem);
+      grid-template-rows: repeat(2, minmax(0, 1fr));
+      gap: 0.9rem;
+      height: 100%;
     }}
     .card {{
       display: flex; flex-direction: column; justify-content: flex-end;
       text-decoration: none; color: #e8e1d5;
-      min-height: 300px;
+      min-height: 0;
       overflow: hidden;
       position: relative;
       border: 1px solid #30383a;
-      border-radius: 18px;
+      border-radius: 8px;
       background:
         linear-gradient(180deg, rgba(17,20,23,0) 42%, rgba(17,20,23,0.92) 100%),
         #181d20;
@@ -534,11 +536,15 @@ def build_index(names):
     .card:hover img {{ transform: scale(1.035); filter: brightness(1.08); }}
     .card:hover span {{ color: #8fd0c9; text-decoration: underline; }}
     @media (max-width: 760px) {{
-      body {{ padding: 1rem 0.75rem 2rem; }}
-      .grid {{ grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: minmax(260px, 42vh); }}
+      body {{ padding: 0.75rem 0.55rem; }}
+      .grid {{ gap: 0.45rem; }}
+      .card span, .card em {{ margin-left: 0.55rem; margin-right: 0.55rem; }}
+      .card span {{ font-size: clamp(0.8rem, 3.6vw, 1.05rem); }}
+      .card em {{ margin-bottom: 0.55rem; font-size: clamp(0.68rem, 3vw, 0.82rem); }}
     }}
     @media (max-width: 460px) {{
-      .grid {{ grid-template-columns: 1fr; grid-auto-rows: minmax(340px, 62vh); }}
+      body {{ padding: 0.55rem 0.35rem; }}
+      .grid {{ gap: 0.35rem; }}
     }}
   </style>
 </head>

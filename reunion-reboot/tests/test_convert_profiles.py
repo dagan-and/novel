@@ -62,8 +62,12 @@ class ConvertProfilesAdultSceneTests(unittest.TestCase):
 
         html = (BASE_DIR / "html" / "characters.html").read_text(encoding="utf-8")
         self.assertIn("grid-template-columns: repeat(3, minmax(0, 1fr));", html)
-        self.assertIn("grid-auto-rows: minmax(300px, 1fr);", html)
-        self.assertIn("min-height: calc(100vh - 4rem);", html)
+        self.assertIn("grid-template-rows: repeat(2, minmax(0, 1fr));", html)
+        self.assertIn("height: 100vh;", html)
+        self.assertNotIn("grid-template-columns: repeat(2", html)
+        self.assertNotIn("grid-template-columns: 1fr", html)
+        self.assertNotIn('href="characters/김시안.html"', html)
+        self.assertEqual(html.count('class="card"'), 5)
 
 
 if __name__ == "__main__":
