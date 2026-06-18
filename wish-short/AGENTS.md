@@ -1,5 +1,11 @@
 # AGENTS.md - 리부트 설정 이식 단편 세션 가이드
 
+## 단편 구성 포맷 (최우선)
+
+- **도입부와 성인씬 본문 모두 대화를 쓰지 않는다.** `[이름] "대사"` 형식, 문자 메시지, 단어 단위 발화 포함 일절 금지.
+- 도입부는 상황 묘사만으로, 성인씬 본문은 행위·감각 묘사만으로 구성한다.
+- 세부 규칙은 `setting/단편구성포맷.md`를 최우선으로 따른다.
+
 ## 사용 원칙
 
 - 이 폴더는 `reunion-reboot/`의 설정, 문체, 대화 형식, 성인씬 컨텍스트 운영을 독립 단편 작업에 이식한 작업 공간이다.
@@ -67,20 +73,21 @@ renuion-short/
 ## 참조 우선순위
 
 1. `AGENTS.md`
-2. `planning/단편개요.md`
-3. `planning/시리즈개요.md`
-4. `planning/핵심컨셉.md`
-5. `planning/주제와정서.md`
-6. `setting/세계관.md`
-7. `setting/독서흐름개선규칙.md`
-8. `setting/라노벨문체규칙.md`
-9. `setting/시나리오작성규칙.md`
-10. `setting/성인씬작성규칙.md`
-11. `setting/대사태그정리.md`
-12. `characters/`
-13. `관계망.md`
-14. `연대기.md`
-15. `setting/` 하위 작업 규칙
+2. `setting/단편구성포맷.md`
+3. `planning/단편개요.md`
+4. `planning/시리즈개요.md`
+5. `planning/핵심컨셉.md`
+6. `planning/주제와정서.md`
+7. `setting/세계관.md`
+8. `setting/독서흐름개선규칙.md`
+9. `setting/라노벨문체규칙.md`
+10. `setting/시나리오작성규칙.md`
+11. `setting/성인씬작성규칙.md`
+12. `setting/대사태그정리.md`
+13. `characters/`
+14. `관계망.md`
+15. `연대기.md`
+16. `setting/` 하위 작업 규칙
 
 ## 금지 사항
 
