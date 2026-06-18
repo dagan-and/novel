@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>265. 주말 작업 금지</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 120%; }
+    body {
+      background: #111417;
+      color: #e8e1d5;
+      font-family: 'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+      font-size: 1.12rem;
+      line-height: 1.9;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3rem 1.4rem 5rem;
+      word-break: keep-all;
+    }
+    h1 {
+      font-size: 1.35rem;
+      text-align: center;
+      color: #79b8b2;
+      margin-bottom: 2.5rem;
+      letter-spacing: 0.02em;
+    }
+    p { margin: 0.75rem 0; }
+    p.speaker-line {
+      display: flex;
+      align-items: baseline;
+      gap: 0.7rem;
+      margin: 0.68rem 0;
+    }
+    .speaker-tag {
+      flex: 0 0 auto;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .speaker-text {
+      flex: 1 1 auto;
+    }
+    .message-line {
+      margin: 1rem 0;
+      padding: 0.72rem 0.9rem;
+      background: #182023;
+      border: 1px solid #2f3f41;
+      border-left: 4px solid #79b8b2;
+      border-radius: 6px;
+      color: #d8e5df;
+      font-size: 1.02rem;
+      line-height: 1.75;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+    }
+    .message-sender {
+      font-weight: 700;
+      color: #8fd0c9;
+      margin-right: 0.35rem;
+    }
+    .time {
+      font-weight: bold;
+      color: #d6a15f;
+      font-size: 1.08rem;
+      text-align: center;
+      margin: 1.8rem 0 1rem;
+    }
+    .thought { color: #9bbac0; font-style: italic; }
+    .divider {
+      text-align: center;
+      color: #5f6564;
+      margin: 2.2rem 0;
+      letter-spacing: 0.6em;
+    }
+    figure.scene-illustration {
+      margin: 2.5rem 0 2.8rem;
+    }
+    .scene-illustration img {
+      display: block;
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid #30383a;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.36);
+    }
+    .scene-illustration figcaption {
+      margin-top: 0.8rem;
+      text-align: center;
+      font-size: 0.92rem;
+      color: #9faaa6;
+      letter-spacing: 0.02em;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 3.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid #30383a;
+      font-size: 1rem;
+    }
+    .nav a { color: #8fd0c9; text-decoration: none; font-weight: 700; }
+    .nav a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <h1>265. 주말 작업 금지</h1>
+  
+
+<p>토요일 아침.</p>
+
+<p>시안은 휴대폰을 보고도 바로 일어나지 않았다.</p>
+
+<p>회사 메신저가 떠 있었다.</p>
+
+<p class="message-line"><span class="message-sender">[실무담당자]</span>월요일 회의 전에 자료 한 번만 더 보면 좋겠습니다. 주말에 가능하면 확인 부탁해요.</p>
+
+<p>주말.</p>
+
+<p>가능하면.</p>
+
+<p>부탁.</p>
+
+<p>무해한 단어 셋이 모이면 꽤 해로웠다.</p>
+
+<p>시안은 침대에 앉아 단체방을 열었다.</p>
+
+<p>보내기 전부터 머리가 아팠다.</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>회사에서 월요일 전 자료 확인 요청이 왔습니다. 주말 작업 가능 여부 묻는 내용입니다. 바로 수락하지 않겠습니다.</p>
+
+<p>정다은이 먼저 답했다.</p>
+
+<p class="message-line"><span class="message-sender">[정다은]</span>주말 작업 금지 원칙 확인. 필요 시 월요일 오전 조기 확인으로 대체하십시오.</p>
+
+<p>나윤.</p>
+
+<p class="message-line"><span class="message-sender">[서나윤]</span>주말은 밥부터.</p>
+
+<p>미현.</p>
+
+<p class="message-line"><span class="message-sender">[박미현]</span>토요일 저녁은요?</p>
+
+<p>하린.</p>
+
+<p class="message-line"><span class="message-sender">[유하린]</span>일요일 오후 줄어드는 거 아니죠?</p>
+
+<p>문채영.</p>
+
+<p class="message-line"><span class="message-sender">[문채영]</span>회사가 주말을 노크했습니다. 문 열지 마세요.</p>
+
+<p>시안은 웃었다.</p>
+
+<p>이번엔 바로 회사 메신저에 답했다.</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>주말에는 기존 일정이 있어 자료 확인이 어렵습니다. 월요일 오전 출근 후 바로 확인하겠습니다.</p>
+
+<p>전송.</p>
+
+<p>손가락이 조금 떨렸다.</p>
+
+<p>하지만 전송했다.</p>
+
+<p>곧 이재인에게 개인 메시지가 왔다.</p>
+
+<p class="message-line"><span class="message-sender">[이재인]</span>잘했어요.</p>
+
+<p>시안은 화면을 봤다.</p>
+
+<p>이재인이 그런 말을 보냈다.</p>
+
+<p>하린의 말 같고, 다은의 확인 같고, 나윤의 통과 같고, 미현의 컵 같았다.</p>
+
+<p>그러면서도 이재인답게 짧았다.</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>재인 씨도 안 봅니까?</p>
+
+<p>답은 조금 늦었다.</p>
+
+<p class="message-line"><span class="message-sender">[이재인]</span>저도 안 보려고요. 가방은 열었는데 다시 닫았어요.</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>큰일 했네요.</p>
+
+<p class="message-line"><span class="message-sender">[이재인]</span>엄청 큰일이에요.</p>
+
+<p>시안은 웃었다.</p>
+
+<p>토요일 오후, 그는 카페로 갔다.</p>
+
+<p>미현은 컵에 새 메모를 붙였다.</p>
+
+<p>`주말 작업 금지`</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;다은 씨가 좋아할 문장이네요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;그래도 제가 먼저 붙였어요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;중요합니까?&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;네.&quot;</span></p>
+
+<p>중요했다.</p>
+
+<p>이 시리즈의 모든 건 결국 먼저 붙인 메모에서 시작했다.</p>
+
+<p>일요일 오후에는 하린이 동아리방 문 앞에서 기다리고 있었다.</p>
+
+<p>손에는 파스텔색 포스트잇.</p>
+
+<p>`주말은 아직 남아 있음`</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;선배, 오늘 회사 안 봤어요?&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;안 봤어요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;잘했어요.&quot;</span></p>
+
+<p>이번엔 그 말을 웃으면서 받을 수 있었다.</p>
+
+<p>월요일이 오기 전.</p>
+
+<p>주말은 아주 조금.</p>
+
+<p>정말 아주 조금.</p>
+
+<p>되찾은 것 같았다.</p>
+
+<p>하지만 일요일 밤 10시 30분.</p>
+
+<p>회사 메신저가 다시 울렸다.</p>
+
+<p class="message-line"><span class="message-sender">[실무담당자]</span>월요일 오전 회의가 7시 50분으로 당겨졌습니다. 가능한 분만 참석 부탁드립니다.</p>
+
+<p>가능한 분.</p>
+
+<p>시안은 화면을 봤다.</p>
+
+<p>주말 작업은 닫았는데.</p>
+
+<p>월요일 아침이 더 일찍 열렸다.</p>
+
+  <div class="nav">
+    <a href="ep.264.html">← 이전 화</a>
+    <a href="ep.266.html">다음 화 →</a>
+  </div>
+</body>
+</html>
