@@ -34,8 +34,9 @@
 ## 파일 구조
 
 ```text
-renuion-short/
+wish-short/
 ├── AGENTS.md
+├── CLAUDE.md
 ├── 관계망.md
 ├── 연대기.md
 ├── planning/
@@ -57,13 +58,13 @@ renuion-short/
 ├── setting/
 │   ├── 세계관.md
 │   ├── 워크플로우.md
+│   ├── 단편구성포맷.md
 │   ├── 개요작성규칙.md
 │   ├── 시나리오작성규칙.md
 │   ├── 성인씬작성규칙.md
 │   ├── 독서흐름개선규칙.md
 │   ├── 라노벨문체규칙.md
 │   ├── 기록업데이트규칙.md
-│   ├── 대사태그정리.md
 │   ├── 연대기압축규칙.md
 │   └── 장기연재계획.md
 └── episodes/
