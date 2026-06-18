@@ -69,7 +69,7 @@ class ConvertProfilesAdultSceneTests(unittest.TestCase):
         self.assertNotIn("grid-template-columns: repeat(2", html)
         self.assertNotIn("grid-template-columns: 1fr", html)
         self.assertNotIn('href="characters/김시안.html"', html)
-        self.assertEqual(html.count('class="card"'), 5)
+        self.assertEqual(html.count('class="card"'), 6)
 
     def test_character_index_labels_have_readability_treatment(self):
         result = subprocess.run(

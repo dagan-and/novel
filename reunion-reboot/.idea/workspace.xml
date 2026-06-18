@@ -12,102 +12,25 @@
       <change beforePath="$PROJECT_DIR$/characters/유하린.md" beforeDir="false" afterPath="$PROJECT_DIR$/characters/유하린.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/characters/이재인.md" beforeDir="false" afterPath="$PROJECT_DIR$/characters/이재인.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/characters/정다은.md" beforeDir="false" afterPath="$PROJECT_DIR$/characters/정다은.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/convert_preludes.py" beforeDir="false" afterPath="$PROJECT_DIR$/convert_preludes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/001-100/ep.019_a.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/001-100/ep.019_a.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/001-100/ep.024_a.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/001-100/ep.024_a.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/001-100/ep.030_a.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/001-100/ep.030_a.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/001-100/ep.034_a.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/001-100/ep.034_a.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/001-100/ep.038_a.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/001-100/ep.038_a.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/001-100/ep.042_a.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/001-100/ep.042_a.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/001-100/ep.045_a.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/001-100/ep.045_a.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/001-100/ep.048_a.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/001-100/ep.048_a.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/001-100/ep.054_a.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/001-100/ep.054_a.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/001-100/ep.058_a.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/001-100/ep.058_a.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/001-100/ep.062_a.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/001-100/ep.062_a.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/001-100/ep.066_a.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/001-100/ep.066_a.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/001-100/ep.070_a.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/001-100/ep.070_a.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/001-100/ep.078_a.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/001-100/ep.078_a.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/001-100/ep.082_a.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/001-100/ep.082_a.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/001-100/ep.094_a.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/001-100/ep.094_a.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/001-100/ep.097_a.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/001-100/ep.097_a.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/101-200/ep.109_a.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/101-200/ep.109_a.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/101-200/ep.115_a.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/101-200/ep.115_a.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/101-200/ep.119_a.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/101-200/ep.119_a.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/101-200/ep.124_a.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/101-200/ep.124_a.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/101-200/ep.134_a.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/101-200/ep.134_a.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/101-200/ep.139_a.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/101-200/ep.139_a.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/101-200/ep.144_a.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/101-200/ep.144_a.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/101-200/ep.149_a.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/101-200/ep.149_a.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/101-200/ep.154_a.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/101-200/ep.154_a.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/101-200/ep.159_a.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/101-200/ep.159_a.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/101-200/ep.164_a.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/101-200/ep.164_a.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/101-200/ep.169_a.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/101-200/ep.169_a.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/101-200/ep.174_a.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/101-200/ep.174_a.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/101-200/ep.179_a.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/101-200/ep.179_a.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/101-200/ep.184_a.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/101-200/ep.184_a.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/101-200/ep.189_a.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/101-200/ep.189_a.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/101-200/ep.198_a.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/101-200/ep.198_a.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.201.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/201-300/ep.201.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.202.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/201-300/ep.202.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.203.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/201-300/ep.203.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.204.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/201-300/ep.204.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.205.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.206.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/201-300/ep.206.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.207.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/201-300/ep.207.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.208.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/201-300/ep.208.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.209.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/201-300/ep.209.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.210.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.211.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/201-300/ep.211.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.212.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/201-300/ep.212.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.213.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/201-300/ep.213.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.214.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/201-300/ep.214.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.215.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.216.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/201-300/ep.216.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.217.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/201-300/ep.217.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.218.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/201-300/ep.218.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.219.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/201-300/ep.219.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.220.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.221.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/201-300/ep.221.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.222.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/201-300/ep.222.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.223.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/201-300/ep.223.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.224.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/201-300/ep.224.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.225.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.226.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/201-300/ep.226.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.227.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/201-300/ep.227.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.228.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/201-300/ep.228.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.229.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/201-300/ep.229.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.230.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.231.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/201-300/ep.231.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.232.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/201-300/ep.232.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.233.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/201-300/ep.233.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.234.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/201-300/ep.234.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.235.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.236.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/201-300/ep.236.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.237.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/201-300/ep.237.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.238.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/201-300/ep.238.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.239.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/201-300/ep.239.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.240.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.241.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/201-300/ep.241.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.242.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/201-300/ep.242.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.243.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/201-300/ep.243.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.244.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/201-300/ep.244.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.245.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.246.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/201-300/ep.246.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.247.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/201-300/ep.247.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.248.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/201-300/ep.248.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.249.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.250.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/201-300/ep.250.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.205_a.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/201-300/ep.205_a.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.210_a.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/201-300/ep.210_a.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.215_a.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/201-300/ep.215_a.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.220_a.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/201-300/ep.220_a.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.290_a.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/201-300/ep.290_a.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/characters.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/characters.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/html/characters/박미현.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/characters/박미현.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/html/characters/서나윤.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/characters/서나윤.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/html/characters/유하린.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/characters/유하린.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/html/characters/이재인.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/characters/이재인.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/html/characters/정다은.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/characters/정다은.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setting/독서흐름개선규칙.md" beforeDir="false" afterPath="$PROJECT_DIR$/setting/독서흐름개선규칙.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setting/성인씬작성규칙.md" beforeDir="false" afterPath="$PROJECT_DIR$/setting/성인씬작성규칙.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setting/세계관.md" beforeDir="false" afterPath="$PROJECT_DIR$/setting/세계관.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setting/시나리오작성규칙.md" beforeDir="false" afterPath="$PROJECT_DIR$/setting/시나리오작성규칙.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/preludes.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/preludes.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/setting/관계망.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/setting/관계망.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/setting/장기연재계획.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/setting/장기연재계획.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/setting/장기연재계획.md" beforeDir="false" afterPath="$PROJECT_DIR$/setting/장기연재계획.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_convert_preludes.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_convert_preludes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_convert_profiles.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_convert_profiles.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_convert_setting.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_convert_setting.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/관계망.md" beforeDir="false" afterPath="$PROJECT_DIR$/관계망.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/연대기.md" beforeDir="false" afterPath="$PROJECT_DIR$/연대기.md" afterDir="false" />
     </list>

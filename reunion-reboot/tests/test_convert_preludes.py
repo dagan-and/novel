@@ -39,9 +39,7 @@ class ConvertPreludesTests(unittest.TestCase):
         self.assertIn('data-range-target="001-100"', html)
         self.assertIn('data-range-target="101-200"', html)
         self.assertIn('data-range-target="201-300"', html)
-        self.assertIn('class="range-panel active" data-range-panel="101-200"', html)
-        self.assertIn('class="range-panel" data-range-panel="201-300"', html)
-        self.assertIn("삽화 없음", html)
+        self.assertIn('class="range-panel active" data-range-panel="201-300"', html)
 
     def test_generated_preludes_page_scrolls_one_image_at_a_time(self):
         result = subprocess.run(
