@@ -17,7 +17,6 @@
 - 세부 작업 순서는 `setting/워크플로우.md`를 따른다.
 - 단편 방향은 `planning/단편개요.md`를 최우선 참조한다.
 - 세계관 고정 규칙은 `setting/세계관.md`, 읽힘과 문체는 `setting/독서흐름개선규칙.md`, `setting/라노벨문체규칙.md`를 함께 참조한다.
-- 대화는 `setting/시나리오작성규칙.md`와 `setting/대사태그정리.md`에 따라 `[이름] "대사"` 형식을 기본으로 한다.
 - 성인씬이 필요한 경우 직접 본문 묘사를 쓰지 않고 `setting/성인씬작성규칙.md`의 성인씬 컨텍스트 구역을 사용한다.
 - 캐릭터 개별 고정/가변 정보는 `characters/` 파일을 따른다.
 
@@ -83,11 +82,10 @@ renuion-short/
 9. `setting/라노벨문체규칙.md`
 10. `setting/시나리오작성규칙.md`
 11. `setting/성인씬작성규칙.md`
-12. `setting/대사태그정리.md`
-13. `characters/`
-14. `관계망.md`
-15. `연대기.md`
-16. `setting/` 하위 작업 규칙
+12. `characters/`
+13. `관계망.md`
+14. `연대기.md`
+15. `setting/` 하위 작업 규칙
 
 ## 금지 사항
 
