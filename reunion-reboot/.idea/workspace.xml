@@ -6,33 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="c71a506f-f30c-48a5-9305-623130cfa75c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/characters/김시안.md" beforeDir="false" afterPath="$PROJECT_DIR$/characters/김시안.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/characters/박미현.md" beforeDir="false" afterPath="$PROJECT_DIR$/characters/박미현.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/characters/서나윤.md" beforeDir="false" afterPath="$PROJECT_DIR$/characters/서나윤.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/characters/유하린.md" beforeDir="false" afterPath="$PROJECT_DIR$/characters/유하린.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/characters/이재인.md" beforeDir="false" afterPath="$PROJECT_DIR$/characters/이재인.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/characters/정다은.md" beforeDir="false" afterPath="$PROJECT_DIR$/characters/정다은.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.205_a.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/201-300/ep.205_a.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.210_a.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/201-300/ep.210_a.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.215_a.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/201-300/ep.215_a.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.220_a.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/201-300/ep.220_a.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.290_a.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/201-300/ep.290_a.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/characters.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/characters.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/characters/박미현.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/characters/박미현.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/characters/서나윤.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/characters/서나윤.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/characters/유하린.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/characters/유하린.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/characters/이재인.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/characters/이재인.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/characters/정다은.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/characters/정다은.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/preludes.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/preludes.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/setting/관계망.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/setting/관계망.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.225_a.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/201-300/ep.225_a.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/episodes/201-300/ep.230_a.md" beforeDir="false" afterPath="$PROJECT_DIR$/episodes/201-300/ep.230_a.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/html/setting/장기연재계획.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/setting/장기연재계획.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/setting/장기연재계획.md" beforeDir="false" afterPath="$PROJECT_DIR$/setting/장기연재계획.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_convert_preludes.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_convert_preludes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_convert_profiles.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_convert_profiles.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_convert_setting.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_convert_setting.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/관계망.md" beforeDir="false" afterPath="$PROJECT_DIR$/관계망.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/연대기.md" beforeDir="false" afterPath="$PROJECT_DIR$/연대기.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

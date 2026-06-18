@@ -37,7 +37,7 @@ class ConvertSettingTitleTests(unittest.TestCase):
         self.assertIn('class="episode-sections"', index_html)
         self.assertIn('class="utility-buttons"', index_html)
         self.assertIn('class="utility-button"', index_html)
-        self.assertIn("총 500화 완성", index_html)
+        self.assertIn("총 550화 완성", index_html)
         self.assertIn('href="001-100/ep.001.html"', index_html)
 
 

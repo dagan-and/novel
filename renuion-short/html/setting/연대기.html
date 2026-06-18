@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>연대기</title>
+  <style>
+    :root {
+      --bg:#111417; --panel:#181d20; --panel2:#20282b;
+      --border:#30383a; --border-hi:#4f6667;
+      --pink:#d97b95; --purple:#9a93d6; --blue:#82aee0; --cyan:#79b8b2;
+      --green:#83c59c; --orange:#d6a15f; --red:#e07171;
+      --text:#e8e1d5; --text2:#b7aca0; --text3:#7f8a86;
+      --c-sian:#aaa0e8; --c-soyu:#d97b95; --c-haeun:#82aee0;
+      --c-seojin:#83c59c; --c-daon:#d6a15f;
+    }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    html { font-size:120%; }
+    body {
+      background:var(--bg); color:var(--text);
+      font-family:'Pretendard','Noto Sans KR','Apple SD Gothic Neo',sans-serif;
+      min-height:100vh; padding:2rem 1.5rem 5rem;
+      max-width:1080px; margin:0 auto;
+      word-break:keep-all;
+    }
+    .nav-bar { display:flex; gap:0.5rem; margin-bottom:1.5rem; }
+    .nav-bar a {
+      padding:0.3rem 0.9rem; border-radius:4px; font-size:0.75rem;
+      text-decoration:none; border:1px solid var(--border); color:var(--text2);
+      transition:all 0.2s;
+    }
+    .nav-bar a:hover { border-color:var(--border-hi); color:var(--text); }
+    .nav-bar a.active { border-color:var(--pink); color:var(--pink); background:rgba(192,80,168,0.1); }
+    .section-title {
+      display:flex; align-items:center; gap:0.75rem;
+      margin:2.2rem 0 1rem; color:var(--text2);
+      font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase;
+    }
+    .section-title::before,.section-title::after { content:''; flex:1; height:1px; background:var(--border); }
+
+    .page-header { padding:1.5rem 1.75rem; background:var(--panel); border:1px solid var(--border); border-radius:10px; margin-bottom:2rem; position:relative; overflow:hidden; }
+    .page-header::before { content:''; position:absolute; top:0;left:0;right:0;bottom:0; background:linear-gradient(135deg,rgba(64,176,192,0.1) 0%,transparent 55%); pointer-events:none; }
+    .page-header h1 { font-size:1.3rem; font-weight:700; color:var(--text); letter-spacing:0.05em; margin-bottom:0.4rem; }
+    .page-header p { font-size:0.8rem; color:var(--text2); }
+    .char-legend { display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:1.5rem; }
+    .legend-item { display:flex; align-items:center; gap:0.35rem; padding:0.2rem 0.6rem; background:var(--panel); border:1px solid var(--border); border-radius:20px; font-size:0.7rem; color:var(--text2); }
+    .legend-dot { width:8px; height:8px; border-radius:50%; }
+    .arc-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:0.8rem; margin-bottom:1rem; }
+    .arc-card { background:var(--panel); border:1px solid var(--border); border-left:3px solid var(--purple); border-radius:8px; padding:1rem 1.1rem; }
+    .arc-range { font-size:0.65rem; color:var(--cyan); letter-spacing:0.06em; margin-bottom:0.4rem; font-weight:600; }
+    .arc-event { font-size:0.78rem; color:var(--text); line-height:1.5; margin-bottom:0.5rem; }
+    .arc-rel { font-size:0.7rem; color:var(--text2); line-height:1.45; padding-top:0.5rem; border-top:1px solid var(--border); }
+    .ep-grid { display:grid; gap:0.65rem; }
+    .ep-card { display:grid; grid-template-columns:72px 1fr; background:var(--panel); border:1px solid var(--border); border-radius:8px; overflow:hidden; transition:border-color 0.2s,box-shadow 0.2s; }
+    .ep-card:hover { border-color:var(--border-hi); box-shadow:0 4px 16px rgba(0,0,0,0.35); }
+    .ep-card.has-adult { border-left:3px solid var(--pink); }
+    .ep-card.has-event { border-left:3px solid var(--cyan); }
+    .ep-card.has-crisis { border-left:3px solid var(--red); }
+    .ep-num-col { background:var(--panel2); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:0.8rem 0.4rem; border-right:1px solid var(--border); flex-shrink:0; }
+    .ep-num { font-size:1.1rem; font-weight:700; color:var(--text); line-height:1; }
+    .ep-num-label { font-size:0.55rem; color:var(--text3); letter-spacing:0.08em; text-transform:uppercase; margin-top:0.2rem; }
+    .ep-body { padding:0.8rem 1rem; }
+    .ep-meta { display:flex; gap:0.4rem; flex-wrap:wrap; margin-bottom:0.5rem; align-items:center; }
+    .ep-date { font-size:0.67rem; color:var(--text3); }
+    .ep-loc { font-size:0.67rem; color:var(--text2); }
+    .ep-loc::before { content:'📍 '; }
+    .ep-summary { font-size:0.8rem; color:var(--text); line-height:1.55; margin-bottom:0.5rem; }
+    .ep-footer { display:flex; gap:0.35rem; flex-wrap:wrap; align-items:center; }
+    .char-chip { padding:0.12rem 0.45rem; border-radius:20px; font-size:0.62rem; font-weight:500; border:1px solid; }
+    .cc-sian   { border-color:var(--c-sian);   color:var(--c-sian);   background:rgba(144,96,208,0.1); }
+    .cc-soyu   { border-color:var(--c-soyu);   color:var(--c-soyu);   background:rgba(192,80,168,0.1); }
+    .cc-haeun  { border-color:var(--c-haeun);  color:var(--c-haeun);  background:rgba(64,144,192,0.1); }
+    .cc-seojin { border-color:var(--c-seojin); color:var(--c-seojin); background:rgba(80,176,144,0.1); }
+    .cc-daon   { border-color:var(--c-daon);   color:var(--c-daon);   background:rgba(192,160,48,0.1); }
+    .badge { padding:0.12rem 0.45rem; border-radius:3px; font-size:0.62rem; font-weight:600; }
+    .b-adult  { background:rgba(192,80,168,0.15); color:#e060c0; border:1px solid rgba(192,80,168,0.3); }
+    .b-turn   { background:rgba(64,176,192,0.12); color:#40c0d8; border:1px solid rgba(64,176,192,0.3); }
+    .b-mild   { background:rgba(112,64,208,0.12); color:#9060e0; border:1px solid rgba(112,64,208,0.3); }
+    .b-crisis { background:rgba(192,48,64,0.15);  color:#e04060; border:1px solid rgba(192,48,64,0.3); }
+</style>
+</head>
+<body>
+  <div class="nav-bar">
+    <a href="관계망.html">관계망</a>
+    <a href="연대기.html" class="active">연대기</a>
+    <a href="../index.html">← 메인</a>
+  </div>
+  <div class="page-header">
+    <h1>에피소드 연대기</h1>
+    <p>1차 루프 · 2013~2014</p>
+  </div>
+  
+  <div class="char-legend">
+    <div class="legend-item"><div class="legend-dot" style="background:var(--c-sian)"></div>김시안</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--c-soyu)"></div>박미현</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--c-haeun)"></div>유하린</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--c-seojin)"></div>서나윤</div>
+    <div style="flex:1"></div>
+    <div class="legend-item" style="border-color:rgba(192,80,168,0.4)"><span style="color:var(--pink);font-weight:700">성</span>&nbsp;성인씬</div>
+    <div class="legend-item" style="border-color:rgba(64,176,192,0.4)"><span style="color:var(--cyan);font-weight:700">전</span>&nbsp;관계 전환</div>
+    <div class="legend-item" style="border-color:rgba(112,64,208,0.4)"><span style="color:#9060e0;font-weight:700">변</span>&nbsp;약한 변화</div>
+    <div class="legend-item" style="border-color:rgba(192,48,64,0.4)"><span style="color:var(--red);font-weight:700">위</span>&nbsp;중대한 위기</div>
+  </div>
+  <div class="section-title"><span>◈</span> 스토리 아크 요약</div>
+  <div class="arc-grid">
+  </div>
+  <div class="section-title"><span>◈</span> 에피소드 상세</div>
+  <div class="ep-grid">
+  </div>
+</body>
+</html>
