@@ -7,7 +7,7 @@
   - 인물 상세: ViewPager(가로 스크롤) + 닷 인디케이터, 이미지 순서 랜덤
   - 인물 목록: 세로 스크롤, 카드 aspect-ratio로 높이 축소, 순서/이미지 랜덤
 """
-import sys, os, re, math, json
+import sys, os, re, math, json, unicodedata
 from pathlib import Path
 from urllib.parse import quote as urlquote
 import html as htmllib
@@ -40,7 +40,7 @@ def calc_current_age(raw, story_year, story_month):
 
 # ── 이미지 탐색 ─────────────────────────────────────────────────────
 def _url(s):
-    return urlquote(s, safe='')
+    return urlquote(unicodedata.normalize('NFC', s), safe='')
 
 
 def find_all_images(name, depth=2):
