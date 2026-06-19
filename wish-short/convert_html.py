@@ -224,19 +224,20 @@ def extract_adult_scene_block(text):
     return match.group(1) if match else ''
 
 
-def extract_scene_character(text, female_speakers):
+def extract_scene_characters(text, female_speakers):
     block = extract_adult_scene_block(text)
     if not block:
-        return None
+        return []
     full_names = sorted(
         (name for name in female_speakers if len(name) > 1),
         key=len,
         reverse=True,
     )
+    found = []
     for name in full_names:
         if re.search(rf'(^|\s|[-:\[\]]){re.escape(name)}(\s|[:\]\-]|$)', block):
-            return name
-    return None
+            found.append(name)
+    return found
 
 
 def build_illustration_html(image_paths, episode_number, output_file, caption_text):
@@ -283,8 +284,13 @@ def find_scene_image(base_dir, episode_number, raw_text, female_speakers):
     prelude_image = find_prelude_image(base_dir, episode_number)
     if prelude_image:
         return [prelude_image]
-    character_name = extract_scene_character(raw_text, female_speakers)
-    return find_character_images(base_dir, character_name, count=2)
+    character_names = extract_scene_characters(raw_text, female_speakers)
+    images = []
+    for name in character_names:
+        img = find_character_image(base_dir, name)
+        if img:
+            images.append(img)
+    return images
 
 
 def display_episode_name(base_name):
