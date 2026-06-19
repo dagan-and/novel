@@ -100,6 +100,27 @@ CSS = """
       color: #9faaa6;
       letter-spacing: 0.02em;
     }
+    figure.scene-illustration-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+      margin: 2.5rem 0 2.8rem;
+    }
+    .scene-illustration-pair img {
+      display: block;
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid #30383a;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.36);
+    }
+    .scene-illustration-pair figcaption {
+      grid-column: 1 / -1;
+      margin-top: 0.5rem;
+      text-align: center;
+      font-size: 0.92rem;
+      color: #9faaa6;
+      letter-spacing: 0.02em;
+    }
     .nav {
       display: flex;
       justify-content: space-between;
@@ -164,32 +185,34 @@ def find_normalized_child(parent, child_name):
 
 
 def find_character_image(base_dir, character_name):
+    images = find_character_images(base_dir, character_name, count=1)
+    return images[0] if images else None
+
+
+def find_character_images(base_dir, character_name, count=2):
     if not character_name:
-        return None
+        return []
 
     image_root = os.path.join(base_dir, CHARACTER_IMAGE_DIR)
     folder = find_normalized_child(image_root, character_name)
     matches = []
     if folder and os.path.isdir(folder):
-        matches.extend(
+        matches = sorted(
             os.path.join(folder, fname)
             for fname in os.listdir(folder)
             if os.path.isfile(os.path.join(folder, fname))
             and os.path.splitext(fname)[1].lower() in IMAGE_EXTENSIONS
         )
-    matches = sorted(set(matches))
-    if matches:
-        return random.choice(matches)
 
-    direct_matches = []
-    for ext in IMAGE_EXTENSIONS:
-        direct_name = f'{character_name}{ext}'
-        direct_path = find_normalized_child(image_root, direct_name)
-        if direct_path and os.path.isfile(direct_path):
-            direct_matches.append(direct_path)
+    if not matches:
+        for ext in IMAGE_EXTENSIONS:
+            direct_path = find_normalized_child(image_root, f'{character_name}{ext}')
+            if direct_path and os.path.isfile(direct_path):
+                matches.append(direct_path)
 
-    direct_matches = sorted(set(direct_matches))
-    return random.choice(direct_matches) if direct_matches else None
+    if not matches:
+        return []
+    return random.sample(matches, min(count, len(matches)))
 
 
 def extract_adult_scene_block(text):
@@ -216,12 +239,27 @@ def extract_scene_character(text, female_speakers):
     return None
 
 
-def build_illustration_html(image_path, episode_number, output_file, caption_text):
-    rel_path = os.path.relpath(image_path, os.path.dirname(output_file)).replace(os.sep, '/')
+def build_illustration_html(image_paths, episode_number, output_file, caption_text):
+    if not image_paths:
+        return ''
+    alt = f'ep.{episode_number:03d} 성인씬 직전 상황 삽화'
+    output_dir = os.path.dirname(output_file)
+    if len(image_paths) == 1:
+        rel = os.path.relpath(image_paths[0], output_dir).replace(os.sep, '/')
+        return (
+            '<figure class="scene-illustration">'
+            f'<img src="{rel}" alt="{alt}">'
+            f'<figcaption>{caption_text}</figcaption>'
+            '</figure>'
+        )
+    imgs_html = ''.join(
+        f'<img src="{os.path.relpath(p, output_dir).replace(os.sep, "/")}" alt="{alt}">'
+        for p in image_paths
+    )
     return (
-        '<figure class="scene-illustration">'
-        f'<img src="{rel_path}" alt="ep.{episode_number:03d} 성인씬 직전 상황 삽화">'
-        f'<figcaption>{caption_text}</figcaption>'
+        '<figure class="scene-illustration-pair">'
+        + imgs_html
+        + f'<figcaption>{caption_text}</figcaption>'
         '</figure>'
     )
 
@@ -244,9 +282,9 @@ def replace_adult_scene_block(text, illustration_html):
 def find_scene_image(base_dir, episode_number, raw_text, female_speakers):
     prelude_image = find_prelude_image(base_dir, episode_number)
     if prelude_image:
-        return prelude_image
+        return [prelude_image]
     character_name = extract_scene_character(raw_text, female_speakers)
-    return find_character_image(base_dir, character_name)
+    return find_character_images(base_dir, character_name, count=2)
 
 
 def display_episode_name(base_name):
@@ -359,10 +397,10 @@ for arg in args:
     display_title = extract_display_title(raw, base_name)
     m = re.search(r'ep\.(\d+)(_a)?', base_name)
     ep_num = int(m.group(1)) if m else 0
-    scene_image = find_scene_image(base_dir, ep_num, raw, female_speakers)
-    if scene_image:
+    scene_images = find_scene_image(base_dir, ep_num, raw, female_speakers)
+    if scene_images:
         caption_text = extract_scene_caption(raw)
-        raw = replace_adult_scene_block(raw, build_illustration_html(scene_image, ep_num, output_file, caption_text))
+        raw = replace_adult_scene_block(raw, build_illustration_html(scene_images, ep_num, output_file, caption_text))
     else:
         raw = replace_adult_scene_block(raw, '')
 
