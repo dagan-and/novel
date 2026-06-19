@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이하은</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 120%; }
+    body {
+      background: #111417;
+      color: #e8e1d5;
+      font-family: 'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+      font-size: 1.04rem;
+      line-height: 1.82;
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+      word-break: keep-all;
+    }
+    .header {
+      display: flex; flex-direction: column; gap: 1.5rem; align-items: center;
+      margin-bottom: 2.5rem; padding-bottom: 2rem; border-bottom: 1px solid #30383a;
+    }
+    /* ── ViewPager ── */
+    .portrait-pager {
+      width: 90%; max-width: 650px;
+      border: 1px solid #30383a; border-radius: 8px;
+      overflow: hidden; background: #181d20;
+    }
+    .pager-track {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior-x: contain;
+      scrollbar-width: none;
+    }
+    .pager-track::-webkit-scrollbar { display: none; }
+    .pager-slide {
+      flex: 0 0 100%;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+    }
+    .pager-slide img {
+      width: 100%; height: auto; display: block;
+      max-height: 62vh;
+      object-fit: contain; object-position: top;
+      cursor: pointer; transition: opacity 0.15s;
+      background: #0e1215;
+    }
+    .pager-slide img:hover { opacity: 0.85; }
+    .pager-dots {
+      display: flex; justify-content: center; gap: 0.45rem;
+      padding: 0.5rem 0 0.4rem; background: #0e1215;
+    }
+    .dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: #30383a; cursor: pointer;
+      transition: background 0.2s; flex-shrink: 0;
+    }
+    .dot.active { background: #79b8b2; }
+    /* ── 이미지 없음 ── */
+    .portrait-no-img {
+      width: 90%; max-width: 650px; height: 200px;
+      display: flex; align-items: center; justify-content: center;
+      color: #8f9996; font-size: 1.6rem;
+      border: 1px solid #30383a; border-radius: 8px; background: #181d20;
+    }
+    /* ── Lightbox ── */
+    #lightbox {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.88); z-index: 9999;
+      align-items: center; justify-content: center; cursor: zoom-out;
+    }
+    #lightbox.open { display: flex; }
+    #lightbox img {
+      max-width: 90vw; max-height: 90vh; object-fit: contain;
+      border: 1px solid #30383a; border-radius: 8px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.7);
+    }
+    /* ── 헤더 정보 ── */
+    .header-info { text-align: center; }
+    .header-info h1 { font-size: 3rem; color: #79b8b2; letter-spacing: 0.02em; margin-bottom: 0.4rem; }
+    .category-tag {
+      display: inline-block; background: #20282b; color: #8fd0c9;
+      border: 1px solid #3d4a4c; font-size: 0.92rem;
+      padding: 0.18rem 0.62rem; border-radius: 999px; letter-spacing: 0.01em;
+    }
+    .current-age { font-size: 1rem; color: #9faaa6; letter-spacing: 0.01em; margin-top: 0.35rem; }
+    h2 {
+      font-size: 1.18rem; color: #79b8b2; margin: 2rem 0 0.6rem;
+      padding-bottom: 0.3rem; border-bottom: 1px solid #30383a; letter-spacing: 0.01em;
+    }
+    h3 { font-size: 1.08rem; color: #d28a72; margin: 1.2rem 0 0.4rem; }
+    p { margin: 0.5rem 0; }
+    ul { padding-left: 1.4rem; margin: 0.4rem 0; }
+    li { margin: 0.25rem 0; }
+    hr { border: none; border-top: 1px solid #30383a; margin: 1.6rem 0; }
+    strong { color: #d28a72; }
+    code { background: #20282b; color: #8fd0c9; padding: 0.1rem 0.35rem; border-radius: 4px; }
+    .back { display: inline-block; margin-bottom: 2rem; color: #8fd0c9; text-decoration: none; font-size: 1rem; font-weight: 700; }
+    .back:hover { text-decoration: underline; }
+    .emotion-chart { width: 90%; max-width: 380px; display: block; margin: 0 auto; }
+    .adult-scene-block {
+      text-align: center; margin: 1.4rem 0 0.4rem;
+      display: flex; flex-direction: column; align-items: center; gap: 0.55rem;
+    }
+    .adult-scene-hearts { display: flex; gap: 0.3rem; flex-wrap: wrap; justify-content: center; }
+    .heart { font-size: 1.45rem; line-height: 1; }
+    .heart.filled { color: #d97b95; }
+    .heart.empty  { color: #30383a; }
+    .adult-scene-count { margin: 0; color: #d97b95; font-size: 0.95rem; letter-spacing: 0.03em; }
+    @media (max-width: 560px) { .portrait-pager { width: 100%; } .emotion-chart { max-width: 320px; } }
+  </style>
+</head>
+<body>
+  <a class="back" href="../characters.html">← 인물 목록</a>
+  <div class="header">
+    <div class="portrait-pager"><div class="pager-track" id="portraitTrack"></div><div class="pager-dots"  id="portraitDots"></div></div>
+    <svg class="emotion-chart" viewBox="-100 -25 500 360" xmlns="http://www.w3.org/2000/svg"><polygon points="150.0,126.2 172.6,142.7 164.0,169.2 136.0,169.2 127.4,142.7" fill="none" stroke="#3d4a4c" stroke-width="0.8"/><polygon points="150.0,102.5 195.2,135.3 177.9,188.4 122.1,188.4 104.8,135.3" fill="none" stroke="#3d4a4c" stroke-width="0.8"/><polygon points="150.0,78.8 217.8,128.0 191.9,207.6 108.1,207.6 82.2,128.0" fill="none" stroke="#3d4a4c" stroke-width="0.8"/><polygon points="150.0,55.0 240.4,120.6 205.8,226.9 94.2,226.9 59.6,120.6" fill="none" stroke="#3d4a4c" stroke-width="0.8"/><line x1="150" y1="150" x2="150.0" y2="55.0" stroke="#3d4a4c" stroke-width="0.8"/><line x1="150" y1="150" x2="240.4" y2="120.6" stroke="#3d4a4c" stroke-width="0.8"/><line x1="150" y1="150" x2="205.8" y2="226.9" stroke="#3d4a4c" stroke-width="0.8"/><line x1="150" y1="150" x2="94.2" y2="226.9" stroke="#3d4a4c" stroke-width="0.8"/><line x1="150" y1="150" x2="59.6" y2="120.6" stroke="#3d4a4c" stroke-width="0.8"/><polygon points="150.0,147.0 152.9,149.1 151.8,152.4 148.2,152.4 147.1,149.1" fill="rgba(121,184,178,0.2)" stroke="#79b8b2" stroke-width="1.5"/><circle cx="150.0" cy="147.0" r="3" fill="#79b8b2"/><circle cx="152.9" cy="149.1" r="3" fill="#79b8b2"/><circle cx="151.8" cy="152.4" r="3" fill="#79b8b2"/><circle cx="148.2" cy="152.4" r="3" fill="#79b8b2"/><circle cx="147.1" cy="149.1" r="3" fill="#79b8b2"/><text x="150.0" y="25.0" text-anchor="middle" font-size="22" fill="#b7aca0" font-family="Pretendard,Noto Sans KR,Apple SD Gothic Neo,sans-serif">호감도 <tspan fill="#8fd0c9">0</tspan></text><text x="263.2" y="107.2" text-anchor="start" font-size="22" fill="#b7aca0" font-family="Pretendard,Noto Sans KR,Apple SD Gothic Neo,sans-serif">신뢰도 <tspan fill="#8fd0c9">0</tspan></text><text x="219.9" y="258.3" text-anchor="start" font-size="22" fill="#b7aca0" font-family="Pretendard,Noto Sans KR,Apple SD Gothic Neo,sans-serif">질투심 <tspan fill="#8fd0c9">0</tspan></text><text x="80.1" y="258.3" text-anchor="end" font-size="22" fill="#b7aca0" font-family="Pretendard,Noto Sans KR,Apple SD Gothic Neo,sans-serif">독점욕 <tspan fill="#8fd0c9">0</tspan></text><text x="36.8" y="107.2" text-anchor="end" font-size="22" fill="#b7aca0" font-family="Pretendard,Noto Sans KR,Apple SD Gothic Neo,sans-serif">의존도 <tspan fill="#8fd0c9">0</tspan></text></svg>
+    <div class="adult-scene-block"><div class="adult-scene-hearts"><span class="heart empty">♡</span></div><p class="adult-scene-count">♥ 0</p></div>
+    <div class="header-info">
+      <h1>이하은</h1>
+      <span class="category-tag">독립 단편 히로인</span>
+      
+    </div>
+  </div>
+  <div class="profile-body">
+    
+<hr>
+
+<h2>[프로필]</h2>
+
+<h3>고정</h3>
+
+<ul>
+<li>이름: 이하은</li>
+<li>생년월일: 1992년 8월 17일 (2020년 연나이 29세)</li>
+<li>출신: 서울</li>
+<li>배경: 프리랜서 그래픽 디자이너. 용식이 사는 동네 독립 서점과 조용한 카페를 작업 공간으로 쓴다. 같은 동네 주민으로 서점 구석 자리에서 몇 번 마주쳤고, 그 이후로 용식이 신경 쓰이기 시작했다.</li>
+<li>말투: 간결하고 건조한 표준어. 불필요한 말을 하지 않는다. 묻는 말에는 짧고 정확하게 답하지만, 관심이 생기면 자기도 모르게 대화가 길어지는 경향이 있다.</li>
+<li>성격: 겉으로는 냉정하고 독립적이며 주체적인 타입이지만, 사실 감수성이 풍부하고 외로움을 잘 타며 사람을 쉽게 믿지 못한다. 쉽게 상처받는데 그것을 절대 드러내지 않으려 하다가 예상 밖의 말 앞에서 무너진다.</li>
+<li>감정 표현: 기쁠 때는 무표정 위로 입꼬리를 아주 살짝 올린다. 불안하면 시선을 피하고 말이 더 짧아진다. 화가 나면 아무 말 없이 작업에만 집중한다. 좋아하는 사람 앞에서 자기도 모르게 대화를 먼저 이어 가다가 나중에야 당황한다.</li>
+<li>약점: 사람을 쉽게 믿지 못한다. 완벽주의 성향 때문에 작업 마감이 닥쳐야 움직이고, 혼자 떠안은 일이 늘어날수록 서서히 무너진다.</li>
+<li>욕망: 생활 욕망 — 혼자 작업하면서도 가끔 같은 공간에 있어도 되는 사람 하나. 관계 욕망 — 설명하지 않아도 자기 기준을 읽어 주는 사람.</li>
+<li>용식 앞 반응: 평소엔 대화를 먼저 짧게 끊거나 시선을 돌리는 쪽인데, 용식 앞에서는 이상하게 대화가 이어지다 나중에야 스스로 당황한다. 경계를 지우려 하지 않는데 자꾸 무언가가 스며드는 것에 불편함과 흥미를 동시에 느낀다. 티는 내지 않는다.</li>
+<li>용식 호칭 (초기): 처음엔 이름을 부르지 않음</li>
+<li>좋아하는 것:</li>
+</ul>
+<p>  - 아무도 모르는 조용한 카페 구석 자리.</p>
+<p>  - 비 오는 날 창가에서 작업하는 것.</p>
+<p>  - 독립 서점에서 발견하는 얇은 책.</p>
+<p>  - 오래 써서 손에 익은 도구들.</p>
+<p>  - 설명하지 않아도 되는 침묵.</p>
+<ul>
+<li>싫어하는 것:</li>
+</ul>
+<p>  - 갑자기 자리에 앉아도 되냐고 묻는 것.</p>
+<p>  - 작업 중에 말 걸기.</p>
+<p>  - 처음 만난 사람의 과도한 친절.</p>
+<p>  - 마감 전날 연락 두절되는 거래처.</p>
+<ul>
+<li>단편 활용 포인트: 같은 동네 주민으로 시작한다. 하은은 이미 용식이 신경 쓰이고 있으며, 서점이나 카페에서 같은 공간을 공유하는 방식으로 접근한다.</li>
+</ul>
+
+<h3>외형</h3>
+
+<ul>
+<li>체형: 슬림하고 단정한 체형. 과하지 않은 곡선이 자연스럽게 드러나며, 움직임이 조용하고 절제된 인상을 준다. 쇄골이 은은하게 드러나는 어깨.</li>
+<li>얼굴: 갸름한 역삼각형 얼굴형에 고양이상 눈매와 속쌍꺼풀, 흑안의 눈동자가 또렷한 인상을 만든다. 오똑한 콧대와 얇은 입술선, 투명한 피부, 날렵한 턱선, 일자 눈썹이 어우러져 무표정일 때 차갑게 보이지만 간혹 드러나는 눈빛에 온기가 스친다.</li>
+<li>헤어: 시크한 긴 생머리 스타일.</li>
+<li>분위기: 단아하고 신비로운 첫인상과 달리, 혼자 있거나 집중할 때 무의식적으로 감정이 얼굴에 비치는 순간이 있어 그 간격이 묘한 끌림을 만든다.</li>
+</ul>
+
+<hr>
+
+<h2>[주변인]</h2>
+
+<ul>
+<li>강재은 (대학 동기 / 같은 과): 하은의 유일하게 가까운 친구. 하은이 혼자 있는 것을 좋아한다는 걸 알고 굳이 채우려 하지 않는다.</li>
+</ul>
+
+<hr>
+
+<h2>[관계]</h2>
+
+<ul>
+<li>기본 관계: 같은 동네 주민. 독립 서점이나 카페에서 자주 마주치는 사이.</li>
+<li>시작 감정: 하은은 이미 용식을 의식하고 있다. 같은 책을 집으려다 마주쳤고, 이후로 같은 공간에 용식이 있으면 자기도 모르게 시선이 간다.</li>
+<li>단편 트리거: 서점에서 같은 책 집기, 카페 유일한 콘센트 자리, 비 오는 날 출구에서 마주침, 마감 전날 밤 카페, 분리수거 동선 겹치기.</li>
+</ul>
+
+<hr>
+
+<h2>[가변]</h2>
+
+<ul>
+<li>현재 구분: <strong>독립 단편 히로인</strong></li>
+<li>직업: 프리랜서 그래픽 디자이너</li>
+</ul>
+
+
+<ul>
+<li>연애상태: 하은이 용식을 의식 중. 단편 안에서 들킴 직전, 성인씬 컨텍스트, 열린 여운 중 하나로 닫을 수 있다.</li>
+<li>현재 상태: 같은 공간에 용식이 있으면 작업에 집중하는 척하면서 시선이 간다. 먼저 말을 걸지는 않지만, 용식이 먼저 말을 걸면 짧게 답하다가 어느 순간 대화가 길어져 있다.</li>
+<li>김용식 호칭: 처음엔 호칭 없음 → 단편 안에서 자연스럽게 변화</li>
+<li>김용식이 부르는 호칭: 하은 씨</li>
+<li>멤버 간 호칭: 임소율 → <code>소율 씨</code> / 한서진 → <code>서진 씨</code></li>
+<li>보유 소품/기록물: 항상 가지고 다니는 스케치북, 손에 익은 0.3mm 펜</li>
+</ul>
+
+<h3>서사 기능</h3>
+
+<ul>
+<li>담당 생활권: 동네 독립 서점·조용한 카페 (창가 구석 자리)</li>
+<li>담당 압력: 같은 공간 공유, 콘센트 자리, 같은 책 집기, 비 오는 날 출구, 마감 전날 밤 혼자 남은 카페</li>
+<li>장소: 동네 독립 서점 / 조용한 카페 창가 구석 / 서점 앞 골목 / 카페 출구 / 비 오는 날 처마 밑</li>
+<li>장면 키워드: 같은 책에 손이 닿음 / 유일한 콘센트 자리 / 비 오는 날 출구 / 마감 전날 밤 둘만 남은 카페 / 스케치북 위로 시선이 겹치는 순간</li>
+<li>금지 패턴: 먼저 적극적으로 다가가지 않는다. 하은의 접근은 항상 같은 공간에 있음으로 시작한다.</li>
+</ul>
+
+<h3>감정 수치</h3>
+
+<ul>
+<li>호감도: 0/100</li>
+<li>신뢰도: 0/100</li>
+<li>질투심: 0/100</li>
+<li>독점욕: 0/100</li>
+<li>의존도: 0/100</li>
+</ul>
+
+<ul>
+<li>최근 변화: —</li>
+<li>다음 압력: —</li>
+</ul>
+
+<hr>
+
+<h2>[성인씬 기록]</h2>
+
+<ul>
+<li>총 성인씬: 0회</li>
+<li>운영 메모: 성인씬은 직접 묘사하지 않고 <code>setting/성인씬작성규칙.md</code>에 따른 컨텍스트 구역으로만 기록한다. 하은은 마감 전날 밤 카페, 비 오는 날 동선, 서점 안과 결합할 때 사용한다.</li>
+</ul>
+
+  </div>
+  <div id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="">
+  </div>
+  <script>
+    function openLightbox(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').classList.add('open');
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  (function() {
+    var imgs = ["../../images/characters/%EC%9D%B4%ED%95%98%EC%9D%80/%EC%9D%B4%ED%95%98%EC%9D%80.png"];
+    for (var i = imgs.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = imgs[i]; imgs[i] = imgs[j]; imgs[j] = t;
+    }
+    var track  = document.getElementById('portraitTrack');
+    var dotsEl = document.getElementById('portraitDots');
+    imgs.forEach(function(src, idx) {
+      var slide = document.createElement('div');
+      slide.className = 'pager-slide';
+      var img = document.createElement('img');
+      img.src = src; img.alt = '이하은';
+      img.addEventListener('click', function() { openLightbox(src); });
+      slide.appendChild(img); track.appendChild(slide);
+
+      var dot = document.createElement('span');
+      dot.className = 'dot' + (idx === 0 ? ' active' : '');
+      (function(capturedIdx) {
+        dot.addEventListener('click', function() {
+          track.scrollTo({ left: capturedIdx * track.offsetWidth, behavior: 'smooth' });
+        });
+      })(idx);
+      dotsEl.appendChild(dot);
+    });
+    track.addEventListener('scroll', function() {
+      var idx = Math.round(track.scrollLeft / track.offsetWidth);
+      dotsEl.querySelectorAll('.dot').forEach(function(d, i) {
+        d.classList.toggle('active', i === idx);
+      });
+    });
+  })();
+  </script>
+</body>
+</html>

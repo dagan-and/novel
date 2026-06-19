@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>한서진</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 120%; }
+    body {
+      background: #111417;
+      color: #e8e1d5;
+      font-family: 'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+      font-size: 1.04rem;
+      line-height: 1.82;
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+      word-break: keep-all;
+    }
+    .header {
+      display: flex; flex-direction: column; gap: 1.5rem; align-items: center;
+      margin-bottom: 2.5rem; padding-bottom: 2rem; border-bottom: 1px solid #30383a;
+    }
+    /* ── ViewPager ── */
+    .portrait-pager {
+      width: 90%; max-width: 650px;
+      border: 1px solid #30383a; border-radius: 8px;
+      overflow: hidden; background: #181d20;
+    }
+    .pager-track {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior-x: contain;
+      scrollbar-width: none;
+    }
+    .pager-track::-webkit-scrollbar { display: none; }
+    .pager-slide {
+      flex: 0 0 100%;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+    }
+    .pager-slide img {
+      width: 100%; height: auto; display: block;
+      max-height: 62vh;
+      object-fit: contain; object-position: top;
+      cursor: pointer; transition: opacity 0.15s;
+      background: #0e1215;
+    }
+    .pager-slide img:hover { opacity: 0.85; }
+    .pager-dots {
+      display: flex; justify-content: center; gap: 0.45rem;
+      padding: 0.5rem 0 0.4rem; background: #0e1215;
+    }
+    .dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: #30383a; cursor: pointer;
+      transition: background 0.2s; flex-shrink: 0;
+    }
+    .dot.active { background: #79b8b2; }
+    /* ── 이미지 없음 ── */
+    .portrait-no-img {
+      width: 90%; max-width: 650px; height: 200px;
+      display: flex; align-items: center; justify-content: center;
+      color: #8f9996; font-size: 1.6rem;
+      border: 1px solid #30383a; border-radius: 8px; background: #181d20;
+    }
+    /* ── Lightbox ── */
+    #lightbox {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.88); z-index: 9999;
+      align-items: center; justify-content: center; cursor: zoom-out;
+    }
+    #lightbox.open { display: flex; }
+    #lightbox img {
+      max-width: 90vw; max-height: 90vh; object-fit: contain;
+      border: 1px solid #30383a; border-radius: 8px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.7);
+    }
+    /* ── 헤더 정보 ── */
+    .header-info { text-align: center; }
+    .header-info h1 { font-size: 3rem; color: #79b8b2; letter-spacing: 0.02em; margin-bottom: 0.4rem; }
+    .category-tag {
+      display: inline-block; background: #20282b; color: #8fd0c9;
+      border: 1px solid #3d4a4c; font-size: 0.92rem;
+      padding: 0.18rem 0.62rem; border-radius: 999px; letter-spacing: 0.01em;
+    }
+    .current-age { font-size: 1rem; color: #9faaa6; letter-spacing: 0.01em; margin-top: 0.35rem; }
+    h2 {
+      font-size: 1.18rem; color: #79b8b2; margin: 2rem 0 0.6rem;
+      padding-bottom: 0.3rem; border-bottom: 1px solid #30383a; letter-spacing: 0.01em;
+    }
+    h3 { font-size: 1.08rem; color: #d28a72; margin: 1.2rem 0 0.4rem; }
+    p { margin: 0.5rem 0; }
+    ul { padding-left: 1.4rem; margin: 0.4rem 0; }
+    li { margin: 0.25rem 0; }
+    hr { border: none; border-top: 1px solid #30383a; margin: 1.6rem 0; }
+    strong { color: #d28a72; }
+    code { background: #20282b; color: #8fd0c9; padding: 0.1rem 0.35rem; border-radius: 4px; }
+    .back { display: inline-block; margin-bottom: 2rem; color: #8fd0c9; text-decoration: none; font-size: 1rem; font-weight: 700; }
+    .back:hover { text-decoration: underline; }
+    .emotion-chart { width: 90%; max-width: 380px; display: block; margin: 0 auto; }
+    .adult-scene-block {
+      text-align: center; margin: 1.4rem 0 0.4rem;
+      display: flex; flex-direction: column; align-items: center; gap: 0.55rem;
+    }
+    .adult-scene-hearts { display: flex; gap: 0.3rem; flex-wrap: wrap; justify-content: center; }
+    .heart { font-size: 1.45rem; line-height: 1; }
+    .heart.filled { color: #d97b95; }
+    .heart.empty  { color: #30383a; }
+    .adult-scene-count { margin: 0; color: #d97b95; font-size: 0.95rem; letter-spacing: 0.03em; }
+    @media (max-width: 560px) { .portrait-pager { width: 100%; } .emotion-chart { max-width: 320px; } }
+  </style>
+</head>
+<body>
+  <a class="back" href="../characters.html">← 인물 목록</a>
+  <div class="header">
+    <div class="portrait-pager"><div class="pager-track" id="portraitTrack"></div><div class="pager-dots"  id="portraitDots"></div></div>
+    <svg class="emotion-chart" viewBox="-100 -25 500 360" xmlns="http://www.w3.org/2000/svg"><polygon points="150.0,126.2 172.6,142.7 164.0,169.2 136.0,169.2 127.4,142.7" fill="none" stroke="#3d4a4c" stroke-width="0.8"/><polygon points="150.0,102.5 195.2,135.3 177.9,188.4 122.1,188.4 104.8,135.3" fill="none" stroke="#3d4a4c" stroke-width="0.8"/><polygon points="150.0,78.8 217.8,128.0 191.9,207.6 108.1,207.6 82.2,128.0" fill="none" stroke="#3d4a4c" stroke-width="0.8"/><polygon points="150.0,55.0 240.4,120.6 205.8,226.9 94.2,226.9 59.6,120.6" fill="none" stroke="#3d4a4c" stroke-width="0.8"/><line x1="150" y1="150" x2="150.0" y2="55.0" stroke="#3d4a4c" stroke-width="0.8"/><line x1="150" y1="150" x2="240.4" y2="120.6" stroke="#3d4a4c" stroke-width="0.8"/><line x1="150" y1="150" x2="205.8" y2="226.9" stroke="#3d4a4c" stroke-width="0.8"/><line x1="150" y1="150" x2="94.2" y2="226.9" stroke="#3d4a4c" stroke-width="0.8"/><line x1="150" y1="150" x2="59.6" y2="120.6" stroke="#3d4a4c" stroke-width="0.8"/><polygon points="150.0,147.0 152.9,149.1 151.8,152.4 148.2,152.4 147.1,149.1" fill="rgba(121,184,178,0.2)" stroke="#79b8b2" stroke-width="1.5"/><circle cx="150.0" cy="147.0" r="3" fill="#79b8b2"/><circle cx="152.9" cy="149.1" r="3" fill="#79b8b2"/><circle cx="151.8" cy="152.4" r="3" fill="#79b8b2"/><circle cx="148.2" cy="152.4" r="3" fill="#79b8b2"/><circle cx="147.1" cy="149.1" r="3" fill="#79b8b2"/><text x="150.0" y="25.0" text-anchor="middle" font-size="22" fill="#b7aca0" font-family="Pretendard,Noto Sans KR,Apple SD Gothic Neo,sans-serif">호감도 <tspan fill="#8fd0c9">0</tspan></text><text x="263.2" y="107.2" text-anchor="start" font-size="22" fill="#b7aca0" font-family="Pretendard,Noto Sans KR,Apple SD Gothic Neo,sans-serif">신뢰도 <tspan fill="#8fd0c9">0</tspan></text><text x="219.9" y="258.3" text-anchor="start" font-size="22" fill="#b7aca0" font-family="Pretendard,Noto Sans KR,Apple SD Gothic Neo,sans-serif">질투심 <tspan fill="#8fd0c9">0</tspan></text><text x="80.1" y="258.3" text-anchor="end" font-size="22" fill="#b7aca0" font-family="Pretendard,Noto Sans KR,Apple SD Gothic Neo,sans-serif">독점욕 <tspan fill="#8fd0c9">0</tspan></text><text x="36.8" y="107.2" text-anchor="end" font-size="22" fill="#b7aca0" font-family="Pretendard,Noto Sans KR,Apple SD Gothic Neo,sans-serif">의존도 <tspan fill="#8fd0c9">0</tspan></text></svg>
+    <div class="adult-scene-block"><div class="adult-scene-hearts"><span class="heart empty">♡</span></div><p class="adult-scene-count">♥ 0</p></div>
+    <div class="header-info">
+      <h1>한서진</h1>
+      <span class="category-tag">독립 단편 히로인</span>
+      
+    </div>
+  </div>
+  <div class="profile-body">
+    
+<hr>
+
+<h2>[프로필]</h2>
+
+<h3>고정</h3>
+
+<ul>
+<li>이름: 한서진</li>
+<li>생년월일: 1990년 10월 22일 (2020년 연나이 31세)</li>
+<li>출신: 서울</li>
+<li>배경: 용식이 사는 동네 골목 소규모 와인바 매니저. 호텔경영 전문과정 이후 대형 호텔 대신 지인의 가게 운영을 맡았다. 손님의 취향과 분위기를 빠르게 읽는 능력이 뛰어나며, 언젠가 자기 이름으로 공간을 여는 것이 목표다. 용식은 퇴근 후 가끔 혼자 들르는 단골손님이다.</li>
+<li>말투: 낮고 또렷한 표준어. 필요한 말만 고르되 상대를 떠보는 질문에는 가벼운 농담을 섞는다. 업무 중에는 미소가 흐트러지지 않지만, 사적인 관심이 생기면 질문이 직선적으로 변한다.</li>
+<li>성격: 겉으로는 자신감 있고 현실적이며 강단 있는 타입이지만, 사실 인정욕구가 강하고 사랑에는 서툴다. 타인의 평가에 민감하며, 실패를 인정하기 어렵다. 가족의 기대 앞에서 지나치게 강한 척을 하다 지쳐 버린다.</li>
+<li>감정 표현: 기쁠 때는 의미심장한 미소로 표정이 조금 풀린다. 불안하면 손에 든 물건을 필요 이상으로 정리한다. 화가 나면 냉정하게 말이 끊기고 목소리가 낮아진다. 관심 있는 사람 앞에서는 떠보는 질문이 많아지고 설명이 길어진다.</li>
+<li>약점: 실패를 인정하기 어렵다. 타인의 평가에 민감하면서 그걸 절대 드러내지 않으려 한다. 가족 압박 앞에서 강한 척과 지침이 교차한다.</li>
+<li>욕망: 생활 욕망 — 자기 이름을 건 공간. 관계 욕망 — 강한 척하지 않아도 자기 편에 서 주는 사람.</li>
+<li>용식 앞 반응: 대부분의 손님에게는 대화의 속도와 결론을 자신이 정하지만, 용식이 과장된 반응 없이 선택권을 돌려주면 오히려 설명이 길어진다. 떠보는 질문이 통하지 않을수록 더 직접적인 질문을 던지고, 대답을 들은 뒤에는 태연한 얼굴과 달리 손에 든 잔을 필요 이상으로 닦는다.</li>
+<li>용식 호칭 (초기): 용식 씨</li>
+<li>좋아하는 것:</li>
+</ul>
+<p>  - 마감 후 아무도 없는 바 공간.</p>
+<p>  - 손님 취향을 정확히 맞혔을 때.</p>
+<p>  - 말보다 빠른 준비. 설명 없이 통하는 것.</p>
+<p>  - 비 오는 날 창밖을 보며 혼자 한 잔.</p>
+<p>  - 손에 익은 코르크 스크루.</p>
+<ul>
+<li>싫어하는 것:</li>
+</ul>
+<p>  - 분위기를 모르는 손님.</p>
+<p>  - 자기 공간을 가볍게 평가하는 것.</p>
+<p>  - 가족 앞에서 선택을 설명해야 하는 상황.</p>
+<p>  - 통제 밖으로 나가는 상황.</p>
+<ul>
+<li>단편 활용 포인트: 동네 와인바 매니저로 시작한다. 서진은 이미 용식을 신경 쓰고 있으며, 마감 후 혼자 남은 공간에서 접점을 만든다.</li>
+</ul>
+
+<h3>외형</h3>
+
+<ul>
+<li>체형: 군더더기 없이 탄탄한 선과 반듯한 자세가 어우러져, 움직일 때마다 단정한 우아함이 드러나는 체형. 균형미가 돋보이는 볼륨과 반듯한 어깨.</li>
+<li>얼굴: 작은 계란형 얼굴에 여우상 눈매와 속쌍꺼풀, 짙은 갈색 눈동자가 또렷하며 직선적인 콧대와 입꼬리가 올라간 입술, 잡티 없는 피부와 선명한 턱선, 정돈된 아치형 눈썹이 어우러져 웃고 있어도 쉽게 빈틈을 보이지 않는 인상.</li>
+<li>헤어: 세련된 단발 스타일.</li>
+<li>분위기: 세련되고 자신감 있는 첫인상이 강하지만, 예상 밖의 말 앞에서 잠시 굳는 순간에는 감추고 있던 서투름이 선명하게 드러난다.</li>
+</ul>
+
+<hr>
+
+<h2>[주변인]</h2>
+
+<ul>
+<li>오민경 (와인바 대표 / 선배): 서진에게 가게 운영을 맡긴 사람. 능력을 신뢰하지만 혼자 모든 일을 처리하는 습관을 걱정한다.</li>
+<li>한정우 (부친): 안정적인 취업을 포기한 서진의 선택을 못마땅해하며, 공간을 열겠다는 계획을 현실성 없는 고집으로 여긴다.</li>
+</ul>
+
+<hr>
+
+<h2>[관계]</h2>
+
+<ul>
+<li>기본 관계: 동네 골목 와인바 매니저와 단골손님.</li>
+<li>시작 감정: 서진은 이미 용식을 신경 쓰고 있다. 처음엔 메뉴를 고르지 않는 용식을 먼저 관찰했고, 그 이후 방문이 기다려지기 시작했다.</li>
+<li>단편 트리거: 마감 후 마지막 손님, 혼자 마시는 용식, 비 오는 날 빈 홀, 마감 직전 단둘, 담는 잔 선택 장면, 가게 불 끄는 시간.</li>
+</ul>
+
+<hr>
+
+<h2>[가변]</h2>
+
+<ul>
+<li>현재 구분: <strong>독립 단편 히로인</strong></li>
+<li>직업: 동네 소규모 와인바 매니저</li>
+</ul>
+
+
+<ul>
+<li>연애상태: 서진이 용식을 신경 쓰는 중. 단편 안에서 들킴 직전, 성인씬 컨텍스트, 열린 여운 중 하나로 닫을 수 있다.</li>
+<li>현재 상태: 용식이 오는 날 마감 준비를 평소보다 조금 늦게 시작한다. 그 이유를 스스로 인정하지 않는다.</li>
+<li>김용식 호칭: 용식 씨</li>
+<li>김용식이 부르는 호칭: 서진 씨</li>
+<li>멤버 간 호칭: 임소율 → <code>소율 씨</code> / 이하은 → <code>하은 씨</code> / 배수인 → <code>배수인 씨</code></li>
+<li>보유 소품/기록물: 손에 익은 코르크 스크루, 단골 취향 메모지 (서랍 안)</li>
+</ul>
+
+<h3>서사 기능</h3>
+
+<ul>
+<li>담당 생활권: 동네 골목 와인바 (카운터·홀·마감 후 공간·가게 앞 골목)</li>
+<li>담당 압력: 마감 후 마지막 손님, 단둘이 남는 시간, 비 오는 날 빈 홀, 잔 선택 장면, 가게 불 끄기 전</li>
+<li>장소: 바 카운터 / 창가 자리 / 마감 후 홀 / 가게 앞 골목 / 담배 연기 올라오는 골목 밤</li>
+<li>장면 키워드: 마지막 손님 / 마감 후 단둘 / 비 오는 날 빈 홀 / 잔 선택 장면 / 가게 불 끄기 전 침묵 / 카운터 앞에 올려진 팔</li>
+<li>금지 패턴: 가게 밖 동선을 먼저 만들지 않는다. 가게 안 접점이 충분히 쌓인 뒤 바깥으로 나간다.</li>
+</ul>
+
+<h3>감정 수치</h3>
+
+<ul>
+<li>호감도: 0/100</li>
+<li>신뢰도: 0/100</li>
+<li>질투심: 0/100</li>
+<li>독점욕: 0/100</li>
+<li>의존도: 0/100</li>
+</ul>
+
+<ul>
+<li>최근 변화: —</li>
+<li>다음 압력: —</li>
+</ul>
+
+<hr>
+
+<h2>[성인씬 기록]</h2>
+
+<ul>
+<li>총 성인씬: 0회</li>
+<li>운영 메모: 성인씬은 직접 묘사하지 않고 <code>setting/성인씬작성규칙.md</code>에 따른 컨텍스트 구역으로만 기록한다. 서진은 마감 후 홀, 비 오는 날 빈 가게, 카운터 안쪽과 결합할 때 사용한다.</li>
+</ul>
+
+  </div>
+  <div id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="">
+  </div>
+  <script>
+    function openLightbox(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').classList.add('open');
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  (function() {
+    var imgs = ["../../images/characters/%ED%95%9C%EC%84%9C%EC%A7%84/%ED%95%9C%EC%84%9C%EC%A7%84.png"];
+    for (var i = imgs.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = imgs[i]; imgs[i] = imgs[j]; imgs[j] = t;
+    }
+    var track  = document.getElementById('portraitTrack');
+    var dotsEl = document.getElementById('portraitDots');
+    imgs.forEach(function(src, idx) {
+      var slide = document.createElement('div');
+      slide.className = 'pager-slide';
+      var img = document.createElement('img');
+      img.src = src; img.alt = '한서진';
+      img.addEventListener('click', function() { openLightbox(src); });
+      slide.appendChild(img); track.appendChild(slide);
+
+      var dot = document.createElement('span');
+      dot.className = 'dot' + (idx === 0 ? ' active' : '');
+      (function(capturedIdx) {
+        dot.addEventListener('click', function() {
+          track.scrollTo({ left: capturedIdx * track.offsetWidth, behavior: 'smooth' });
+        });
+      })(idx);
+      dotsEl.appendChild(dot);
+    });
+    track.addEventListener('scroll', function() {
+      var idx = Math.round(track.scrollLeft / track.offsetWidth);
+      dotsEl.querySelectorAll('.dot').forEach(function(d, i) {
+        d.classList.toggle('active', i === idx);
+      });
+    });
+  })();
+  </script>
+</body>
+</html>
