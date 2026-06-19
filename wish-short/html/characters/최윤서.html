@@ -19,89 +19,76 @@
       word-break: keep-all;
     }
     .header {
+      display: flex; flex-direction: column; gap: 1.5rem; align-items: center;
+      margin-bottom: 2.5rem; padding-bottom: 2rem; border-bottom: 1px solid #30383a;
+    }
+    /* ── ViewPager ── */
+    .portrait-pager {
+      width: 90%; max-width: 650px;
+      border: 1px solid #30383a; border-radius: 8px;
+      overflow: hidden; background: #181d20;
+    }
+    .pager-track {
       display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      align-items: center;
-      margin-bottom: 2.5rem;
-      padding-bottom: 2rem;
-      border-bottom: 1px solid #30383a;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior-x: contain;
+      scrollbar-width: none;
     }
-    .portrait {
-      width: 90%;
-      max-width: 650px;
-      border: 1px solid #30383a;
-      border-radius: 8px;
-      overflow: hidden;
-      background: #181d20;
+    .pager-track::-webkit-scrollbar { display: none; }
+    .pager-slide {
+      flex: 0 0 100%;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
     }
-    .portrait img {
-      width: 100%;
-      height: auto;
-      display: block;
-      object-fit: cover;
-      object-position: top;
-      cursor: pointer;
-      transition: opacity 0.15s;
+    .pager-slide img {
+      width: 100%; height: auto; display: block;
+      object-fit: cover; object-position: top;
+      cursor: pointer; transition: opacity 0.15s;
     }
-    .portrait img:hover { opacity: 0.85; }
-    .portrait.no-image {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #8f9996;
-      font-size: 1.6rem;
-      height: 200px;
+    .pager-slide img:hover { opacity: 0.85; }
+    .pager-dots {
+      display: flex; justify-content: center; gap: 0.45rem;
+      padding: 0.5rem 0 0.4rem; background: #0e1215;
     }
+    .dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: #30383a; cursor: pointer;
+      transition: background 0.2s; flex-shrink: 0;
+    }
+    .dot.active { background: #79b8b2; }
+    /* ── 이미지 없음 ── */
+    .portrait-no-img {
+      width: 90%; max-width: 650px; height: 200px;
+      display: flex; align-items: center; justify-content: center;
+      color: #8f9996; font-size: 1.6rem;
+      border: 1px solid #30383a; border-radius: 8px; background: #181d20;
+    }
+    /* ── Lightbox ── */
     #lightbox {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.88);
-      z-index: 9999;
-      align-items: center;
-      justify-content: center;
-      cursor: zoom-out;
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.88); z-index: 9999;
+      align-items: center; justify-content: center; cursor: zoom-out;
     }
     #lightbox.open { display: flex; }
     #lightbox img {
-      max-width: 90vw;
-      max-height: 90vh;
-      object-fit: contain;
-      border: 1px solid #30383a;
-      border-radius: 8px;
+      max-width: 90vw; max-height: 90vh; object-fit: contain;
+      border: 1px solid #30383a; border-radius: 8px;
       box-shadow: 0 8px 40px rgba(0,0,0,0.7);
     }
+    /* ── 헤더 정보 ── */
     .header-info { text-align: center; }
-    .header-info h1 {
-      font-size: 3rem; /* 2rem -> 2.4rem -> 3rem */
-      color: #79b8b2;
-      letter-spacing: 0.02em;
-      margin-bottom: 0.4rem;
-    }
+    .header-info h1 { font-size: 3rem; color: #79b8b2; letter-spacing: 0.02em; margin-bottom: 0.4rem; }
     .category-tag {
-      display: inline-block;
-      background: #20282b;
-      color: #8fd0c9;
-      border: 1px solid #3d4a4c;
-      font-size: 0.92rem;
-      padding: 0.18rem 0.62rem;
-      border-radius: 999px;
-      letter-spacing: 0.01em;
+      display: inline-block; background: #20282b; color: #8fd0c9;
+      border: 1px solid #3d4a4c; font-size: 0.92rem;
+      padding: 0.18rem 0.62rem; border-radius: 999px; letter-spacing: 0.01em;
     }
-    .current-age {
-      font-size: 1rem;
-      color: #9faaa6;
-      letter-spacing: 0.01em;
-      margin-top: 0.35rem;
-    }
+    .current-age { font-size: 1rem; color: #9faaa6; letter-spacing: 0.01em; margin-top: 0.35rem; }
     h2 {
-      font-size: 1.18rem;
-      color: #79b8b2;
-      margin: 2rem 0 0.6rem;
-      padding-bottom: 0.3rem;
-      border-bottom: 1px solid #30383a;
-      letter-spacing: 0.01em;
+      font-size: 1.18rem; color: #79b8b2; margin: 2rem 0 0.6rem;
+      padding-bottom: 0.3rem; border-bottom: 1px solid #30383a; letter-spacing: 0.01em;
     }
     h3 { font-size: 1.08rem; color: #d28a72; margin: 1.2rem 0 0.4rem; }
     p { margin: 0.5rem 0; }
@@ -114,35 +101,21 @@
     .back:hover { text-decoration: underline; }
     .emotion-chart { width: 90%; max-width: 380px; display: block; margin: 0 auto; }
     .adult-scene-block {
-      text-align: center;
-      margin: 1.4rem 0 0.4rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.55rem;
+      text-align: center; margin: 1.4rem 0 0.4rem;
+      display: flex; flex-direction: column; align-items: center; gap: 0.55rem;
     }
-    .adult-scene-hearts {
-      display: flex;
-      gap: 0.3rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
+    .adult-scene-hearts { display: flex; gap: 0.3rem; flex-wrap: wrap; justify-content: center; }
     .heart { font-size: 1.45rem; line-height: 1; }
     .heart.filled { color: #d97b95; }
     .heart.empty  { color: #30383a; }
-    .adult-scene-count {
-      margin: 0;
-      color: #d97b95;
-      font-size: 0.95rem;
-      letter-spacing: 0.03em;
-    }
-    @media (max-width: 560px) { .portrait { width: 100%; } .emotion-chart { max-width: 320px; } }
+    .adult-scene-count { margin: 0; color: #d97b95; font-size: 0.95rem; letter-spacing: 0.03em; }
+    @media (max-width: 560px) { .portrait-pager { width: 100%; } .emotion-chart { max-width: 320px; } }
   </style>
 </head>
 <body>
   <a class="back" href="../characters.html">← 인물 목록</a>
   <div class="header">
-    <div class="portrait no-image"><span>최윤서</span></div>
+    <div class="portrait-pager"><div class="pager-track" id="portraitTrack"></div><div class="pager-dots"  id="portraitDots"></div></div>
     <svg class="emotion-chart" viewBox="-100 -25 500 360" xmlns="http://www.w3.org/2000/svg"><polygon points="150.0,126.2 172.6,142.7 164.0,169.2 136.0,169.2 127.4,142.7" fill="none" stroke="#3d4a4c" stroke-width="0.8"/><polygon points="150.0,102.5 195.2,135.3 177.9,188.4 122.1,188.4 104.8,135.3" fill="none" stroke="#3d4a4c" stroke-width="0.8"/><polygon points="150.0,78.8 217.8,128.0 191.9,207.6 108.1,207.6 82.2,128.0" fill="none" stroke="#3d4a4c" stroke-width="0.8"/><polygon points="150.0,55.0 240.4,120.6 205.8,226.9 94.2,226.9 59.6,120.6" fill="none" stroke="#3d4a4c" stroke-width="0.8"/><line x1="150" y1="150" x2="150.0" y2="55.0" stroke="#3d4a4c" stroke-width="0.8"/><line x1="150" y1="150" x2="240.4" y2="120.6" stroke="#3d4a4c" stroke-width="0.8"/><line x1="150" y1="150" x2="205.8" y2="226.9" stroke="#3d4a4c" stroke-width="0.8"/><line x1="150" y1="150" x2="94.2" y2="226.9" stroke="#3d4a4c" stroke-width="0.8"/><line x1="150" y1="150" x2="59.6" y2="120.6" stroke="#3d4a4c" stroke-width="0.8"/><polygon points="150.0,147.0 152.9,149.1 151.8,152.4 148.2,152.4 147.1,149.1" fill="rgba(121,184,178,0.2)" stroke="#79b8b2" stroke-width="1.5"/><circle cx="150.0" cy="147.0" r="3" fill="#79b8b2"/><circle cx="152.9" cy="149.1" r="3" fill="#79b8b2"/><circle cx="151.8" cy="152.4" r="3" fill="#79b8b2"/><circle cx="148.2" cy="152.4" r="3" fill="#79b8b2"/><circle cx="147.1" cy="149.1" r="3" fill="#79b8b2"/><text x="150.0" y="25.0" text-anchor="middle" font-size="22" fill="#b7aca0" font-family="Pretendard,Noto Sans KR,Apple SD Gothic Neo,sans-serif">호감도 <tspan fill="#8fd0c9">0</tspan></text><text x="263.2" y="107.2" text-anchor="start" font-size="22" fill="#b7aca0" font-family="Pretendard,Noto Sans KR,Apple SD Gothic Neo,sans-serif">신뢰도 <tspan fill="#8fd0c9">0</tspan></text><text x="219.9" y="258.3" text-anchor="start" font-size="22" fill="#b7aca0" font-family="Pretendard,Noto Sans KR,Apple SD Gothic Neo,sans-serif">질투심 <tspan fill="#8fd0c9">0</tspan></text><text x="80.1" y="258.3" text-anchor="end" font-size="22" fill="#b7aca0" font-family="Pretendard,Noto Sans KR,Apple SD Gothic Neo,sans-serif">독점욕 <tspan fill="#8fd0c9">0</tspan></text><text x="36.8" y="107.2" text-anchor="end" font-size="22" fill="#b7aca0" font-family="Pretendard,Noto Sans KR,Apple SD Gothic Neo,sans-serif">의존도 <tspan fill="#8fd0c9">0</tspan></text></svg>
     <div class="adult-scene-block"><div class="adult-scene-hearts"><span class="heart filled">♥</span></div><p class="adult-scene-count">♥ 1</p></div>
     <div class="header-info">
@@ -284,6 +257,38 @@
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') closeLightbox();
     });
+  (function() {
+    var imgs = ["../../images/characters/%EC%B5%9C%EC%9C%A4%EC%84%9C/ChatGPT%20Image%202026%EB%85%84%206%EC%9B%94%2018%EC%9D%BC%20%EC%98%A4%ED%9B%84%2005_45_52.png", "../../images/characters/%EC%B5%9C%EC%9C%A4%EC%84%9C/ChatGPT%20Image%202026%EB%85%84%206%EC%9B%94%2018%EC%9D%BC%20%EC%98%A4%ED%9B%84%2005_46_01.png", "../../images/characters/%EC%B5%9C%EC%9C%A4%EC%84%9C/ChatGPT%20Image%202026%EB%85%84%206%EC%9B%94%2018%EC%9D%BC%20%EC%98%A4%ED%9B%84%2005_46_06.png", "../../images/characters/%EC%B5%9C%EC%9C%A4%EC%84%9C/ChatGPT%20Image%202026%EB%85%84%206%EC%9B%94%2018%EC%9D%BC%20%EC%98%A4%ED%9B%84%2005_46_16.png", "../../images/characters/%EC%B5%9C%EC%9C%A4%EC%84%9C/ChatGPT%20Image%202026%EB%85%84%206%EC%9B%94%2018%EC%9D%BC%20%EC%98%A4%ED%9B%84%2005_46_21.png", "../../images/characters/%EC%B5%9C%EC%9C%A4%EC%84%9C/%EC%B5%9C%EC%9C%A4%EC%84%9C.png"];
+    for (var i = imgs.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = imgs[i]; imgs[i] = imgs[j]; imgs[j] = t;
+    }
+    var track  = document.getElementById('portraitTrack');
+    var dotsEl = document.getElementById('portraitDots');
+    imgs.forEach(function(src, idx) {
+      var slide = document.createElement('div');
+      slide.className = 'pager-slide';
+      var img = document.createElement('img');
+      img.src = src; img.alt = '최윤서';
+      img.addEventListener('click', function() { openLightbox(src); });
+      slide.appendChild(img); track.appendChild(slide);
+
+      var dot = document.createElement('span');
+      dot.className = 'dot' + (idx === 0 ? ' active' : '');
+      (function(capturedIdx) {
+        dot.addEventListener('click', function() {
+          track.scrollTo({ left: capturedIdx * track.offsetWidth, behavior: 'smooth' });
+        });
+      })(idx);
+      dotsEl.appendChild(dot);
+    });
+    track.addEventListener('scroll', function() {
+      var idx = Math.round(track.scrollLeft / track.offsetWidth);
+      dotsEl.querySelectorAll('.dot').forEach(function(d, i) {
+        d.classList.toggle('active', i === idx);
+      });
+    });
+  })();
   </script>
 </body>
 </html>

@@ -12,27 +12,21 @@
       color: #e8e1d5;
       font-family: 'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
       font-size: 1rem;
-      width: 100%;
-      height: 100vh;
-      height: 100svh;
-      height: 100dvh;
+      max-width: 900px;
       margin: 0 auto;
-      padding: 1.2rem 1.5rem max(1.2rem, env(safe-area-inset-bottom));
+      padding: 1rem 1rem max(1rem, env(safe-area-inset-bottom));
       word-break: keep-all;
-      overflow: hidden;
+      overflow-y: auto;
     }
-    h1 { font-size: 1.8rem; color: #79b8b2; text-align: center; margin-bottom: 3rem; letter-spacing: 0.02em; }
     .grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      grid-template-rows: repeat(2, minmax(0, 1fr));
-      gap: 0.9rem;
-      height: 100%;
+      gap: 0.75rem;
     }
     .card {
       display: flex; flex-direction: column; justify-content: flex-end;
       text-decoration: none; color: #e8e1d5;
-      min-height: 0;
+      aspect-ratio: 2 / 3;
       overflow: hidden;
       position: relative;
       border: 1px solid #30383a;
@@ -40,11 +34,10 @@
       background:
         linear-gradient(180deg, rgba(17,20,23,0) 22%, rgba(17,20,23,0.72) 70%, rgba(17,20,23,0.96) 100%),
         #181d20;
-      box-shadow: 0 18px 38px rgba(0,0,0,0.28);
+      box-shadow: 0 14px 32px rgba(0,0,0,0.26);
     }
     .card img, .card .no-img {
-      position: absolute;
-      inset: 0;
+      position: absolute; inset: 0;
       width: 100%; height: 100%;
       object-fit: cover; object-position: top;
       border: 0; border-radius: 0; background: #181d20;
@@ -54,37 +47,65 @@
       display: flex; align-items: center; justify-content: center;
       color: #8f9996; font-size: 3rem;
     }
-    .card span, .card em { position: relative; z-index: 1; margin-left: 1rem; margin-right: 1rem; }
     .card span, .card em {
+      position: relative; z-index: 1;
+      margin-left: 0.75rem; margin-right: 0.75rem;
       -webkit-text-stroke: 0.45px rgba(0,0,0,0.9);
       text-shadow: 0 1px 2px rgba(0,0,0,1), 0 3px 12px rgba(0,0,0,0.95);
     }
-    .card span { margin-bottom: 0.12rem; font-size: 1.22rem; color: #f2fffb; font-weight: 900; }
-    .card em { margin-bottom: 1rem; font-size: 0.9rem; color: #e3eee9; font-style: normal; font-weight: 700; }
+    .card span {
+      margin-bottom: 0.1rem;
+      font-size: 1.1rem; color: #f2fffb; font-weight: 900;
+    }
+    .card em {
+      margin-bottom: 0.7rem;
+      font-size: 0.82rem; color: #e3eee9; font-style: normal; font-weight: 700;
+    }
     .card:hover img { transform: scale(1.035); filter: brightness(1.08); }
     .card:hover span { color: #8fd0c9; text-decoration: underline; }
     @media (max-width: 760px) {
-      body { padding: 0.75rem 0.55rem max(0.75rem, env(safe-area-inset-bottom)); }
+      body { padding: 0.65rem 0.5rem max(0.65rem, env(safe-area-inset-bottom)); }
       .grid { gap: 0.45rem; }
-      .card span, .card em { margin-left: 0.55rem; margin-right: 0.55rem; }
-      .card span { font-size: clamp(0.8rem, 3.6vw, 1.05rem); }
-      .card em { margin-bottom: 0.55rem; font-size: clamp(0.68rem, 3vw, 0.82rem); }
+      .card span, .card em { margin-left: 0.45rem; margin-right: 0.45rem; }
+      .card span { font-size: clamp(0.76rem, 3.4vw, 1rem); }
+      .card em { margin-bottom: 0.45rem; font-size: clamp(0.62rem, 2.8vw, 0.76rem); }
     }
     @media (max-width: 460px) {
-      body { padding: 0.55rem 0.35rem max(0.55rem, env(safe-area-inset-bottom)); }
-      .grid { gap: 0.35rem; }
+      body { padding: 0.45rem 0.3rem max(0.45rem, env(safe-area-inset-bottom)); }
+      .grid { gap: 0.32rem; }
     }
   </style>
 </head>
 <body>
-  <div class="grid">
-    <a class="card" href="characters/김용식.html"><div class="no-img">김</div><span>김용식</span></a>
-    <a class="card" href="characters/최윤서.html"><div class="no-img">최</div><span>최윤서</span><em>독립 단편 히로인</em></a>
-    <a class="card" href="characters/박미현.html"><div class="no-img">박</div><span>박미현</span><em>독립 단편 히로인</em></a>
-    <a class="card" href="characters/유하린.html"><div class="no-img">유</div><span>유하린</span><em>독립 단편 히로인</em></a>
-    <a class="card" href="characters/서나윤.html"><div class="no-img">서</div><span>서나윤</span><em>독립 단편 히로인</em></a>
-    <a class="card" href="characters/정다은.html"><div class="no-img">정</div><span>정다은</span><em>독립 단편 히로인</em></a>
-    <a class="card" href="characters/이재인.html"><div class="no-img">이</div><span>이재인</span><em>독립 단편 히로인</em></a>
+  <div class="grid" id="charGrid">
+    <a class="card" href="characters/%EB%B0%95%EB%AF%B8%ED%98%84.html" data-images="[&quot;../images/characters/%EB%B0%95%EB%AF%B8%ED%98%84/ChatGPT%20Image%202026%EB%85%84%206%EC%9B%94%2018%EC%9D%BC%20%EC%98%A4%ED%9B%84%2005_10_37.png&quot;, &quot;../images/characters/%EB%B0%95%EB%AF%B8%ED%98%84/ChatGPT%20Image%202026%EB%85%84%206%EC%9B%94%2018%EC%9D%BC%20%EC%98%A4%ED%9B%84%2005_10_44.png&quot;, &quot;../images/characters/%EB%B0%95%EB%AF%B8%ED%98%84/ChatGPT%20Image%202026%EB%85%84%206%EC%9B%94%2018%EC%9D%BC%20%EC%98%A4%ED%9B%84%2005_12_56.png&quot;, &quot;../images/characters/%EB%B0%95%EB%AF%B8%ED%98%84/ChatGPT%20Image%202026%EB%85%84%206%EC%9B%94%2018%EC%9D%BC%20%EC%98%A4%ED%9B%84%2005_14_04.png&quot;, &quot;../images/characters/%EB%B0%95%EB%AF%B8%ED%98%84/ChatGPT%20Image%202026%EB%85%84%206%EC%9B%94%2018%EC%9D%BC%20%EC%98%A4%ED%9B%84%2005_24_59.png&quot;, &quot;../images/characters/%EB%B0%95%EB%AF%B8%ED%98%84/%EB%B0%95%EB%AF%B8%ED%98%84.png&quot;]"><img src="../images/characters/%EB%B0%95%EB%AF%B8%ED%98%84/ChatGPT%20Image%202026%EB%85%84%206%EC%9B%94%2018%EC%9D%BC%20%EC%98%A4%ED%9B%84%2005_10_37.png" alt="박미현"><span>박미현</span><em>독립 단편 히로인</em></a>
+    <a class="card" href="characters/%EC%9C%A0%ED%95%98%EB%A6%B0.html" data-images="[&quot;../images/characters/%EC%9C%A0%ED%95%98%EB%A6%B0/ChatGPT%20Image%202026%EB%85%84%206%EC%9B%94%2018%EC%9D%BC%20%EC%98%A4%ED%9B%84%2005_26_04.png&quot;, &quot;../images/characters/%EC%9C%A0%ED%95%98%EB%A6%B0/ChatGPT%20Image%202026%EB%85%84%206%EC%9B%94%2018%EC%9D%BC%20%EC%98%A4%ED%9B%84%2005_27_25.png&quot;, &quot;../images/characters/%EC%9C%A0%ED%95%98%EB%A6%B0/ChatGPT%20Image%202026%EB%85%84%206%EC%9B%94%2018%EC%9D%BC%20%EC%98%A4%ED%9B%84%2005_30_24.png&quot;, &quot;../images/characters/%EC%9C%A0%ED%95%98%EB%A6%B0/%EC%9C%A0%ED%95%98%EB%A6%B0.png&quot;]"><img src="../images/characters/%EC%9C%A0%ED%95%98%EB%A6%B0/ChatGPT%20Image%202026%EB%85%84%206%EC%9B%94%2018%EC%9D%BC%20%EC%98%A4%ED%9B%84%2005_26_04.png" alt="유하린"><span>유하린</span><em>독립 단편 히로인</em></a>
+    <a class="card" href="characters/%EC%84%9C%EB%82%98%EC%9C%A4.html" data-images="[&quot;../images/characters/%EC%84%9C%EB%82%98%EC%9C%A4/ChatGPT%20Image%202026%EB%85%84%206%EC%9B%94%2018%EC%9D%BC%20%EC%98%A4%ED%9B%84%2005_34_42.png&quot;, &quot;../images/characters/%EC%84%9C%EB%82%98%EC%9C%A4/ChatGPT%20Image%202026%EB%85%84%206%EC%9B%94%2018%EC%9D%BC%20%EC%98%A4%ED%9B%84%2005_34_46.png&quot;, &quot;../images/characters/%EC%84%9C%EB%82%98%EC%9C%A4/ChatGPT%20Image%202026%EB%85%84%206%EC%9B%94%2018%EC%9D%BC%20%EC%98%A4%ED%9B%84%2005_34_50.png&quot;, &quot;../images/characters/%EC%84%9C%EB%82%98%EC%9C%A4/ChatGPT%20Image%202026%EB%85%84%206%EC%9B%94%2018%EC%9D%BC%20%EC%98%A4%ED%9B%84%2005_34_54.png&quot;, &quot;../images/characters/%EC%84%9C%EB%82%98%EC%9C%A4/%EC%84%9C%EB%82%98%EC%9C%A4.png&quot;]"><img src="../images/characters/%EC%84%9C%EB%82%98%EC%9C%A4/ChatGPT%20Image%202026%EB%85%84%206%EC%9B%94%2018%EC%9D%BC%20%EC%98%A4%ED%9B%84%2005_34_42.png" alt="서나윤"><span>서나윤</span><em>독립 단편 히로인</em></a>
+    <a class="card" href="characters/%EC%A0%95%EB%8B%A4%EC%9D%80.html" data-images="[&quot;../images/characters/%EC%A0%95%EB%8B%A4%EC%9D%80/ChatGPT%20Image%202026%EB%85%84%206%EC%9B%94%2018%EC%9D%BC%20%EC%98%A4%ED%9B%84%2005_40_39.png&quot;, &quot;../images/characters/%EC%A0%95%EB%8B%A4%EC%9D%80/ChatGPT%20Image%202026%EB%85%84%206%EC%9B%94%2018%EC%9D%BC%20%EC%98%A4%ED%9B%84%2005_40_46.png&quot;, &quot;../images/characters/%EC%A0%95%EB%8B%A4%EC%9D%80/ChatGPT%20Image%202026%EB%85%84%206%EC%9B%94%2018%EC%9D%BC%20%EC%98%A4%ED%9B%84%2005_40_50.png&quot;, &quot;../images/characters/%EC%A0%95%EB%8B%A4%EC%9D%80/ChatGPT%20Image%202026%EB%85%84%206%EC%9B%94%2018%EC%9D%BC%20%EC%98%A4%ED%9B%84%2005_40_54.png&quot;, &quot;../images/characters/%EC%A0%95%EB%8B%A4%EC%9D%80/ChatGPT%20Image%202026%EB%85%84%206%EC%9B%94%2018%EC%9D%BC%20%EC%98%A4%ED%9B%84%2005_40_58.png&quot;, &quot;../images/characters/%EC%A0%95%EB%8B%A4%EC%9D%80/%EC%A0%95%EB%8B%A4%EC%9D%80.png&quot;]"><img src="../images/characters/%EC%A0%95%EB%8B%A4%EC%9D%80/ChatGPT%20Image%202026%EB%85%84%206%EC%9B%94%2018%EC%9D%BC%20%EC%98%A4%ED%9B%84%2005_40_39.png" alt="정다은"><span>정다은</span><em>독립 단편 히로인</em></a>
+    <a class="card" href="characters/%EC%B5%9C%EC%9C%A4%EC%84%9C.html" data-images="[&quot;../images/characters/%EC%B5%9C%EC%9C%A4%EC%84%9C/ChatGPT%20Image%202026%EB%85%84%206%EC%9B%94%2018%EC%9D%BC%20%EC%98%A4%ED%9B%84%2005_45_52.png&quot;, &quot;../images/characters/%EC%B5%9C%EC%9C%A4%EC%84%9C/ChatGPT%20Image%202026%EB%85%84%206%EC%9B%94%2018%EC%9D%BC%20%EC%98%A4%ED%9B%84%2005_46_01.png&quot;, &quot;../images/characters/%EC%B5%9C%EC%9C%A4%EC%84%9C/ChatGPT%20Image%202026%EB%85%84%206%EC%9B%94%2018%EC%9D%BC%20%EC%98%A4%ED%9B%84%2005_46_06.png&quot;, &quot;../images/characters/%EC%B5%9C%EC%9C%A4%EC%84%9C/ChatGPT%20Image%202026%EB%85%84%206%EC%9B%94%2018%EC%9D%BC%20%EC%98%A4%ED%9B%84%2005_46_16.png&quot;, &quot;../images/characters/%EC%B5%9C%EC%9C%A4%EC%84%9C/ChatGPT%20Image%202026%EB%85%84%206%EC%9B%94%2018%EC%9D%BC%20%EC%98%A4%ED%9B%84%2005_46_21.png&quot;, &quot;../images/characters/%EC%B5%9C%EC%9C%A4%EC%84%9C/%EC%B5%9C%EC%9C%A4%EC%84%9C.png&quot;]"><img src="../images/characters/%EC%B5%9C%EC%9C%A4%EC%84%9C/ChatGPT%20Image%202026%EB%85%84%206%EC%9B%94%2018%EC%9D%BC%20%EC%98%A4%ED%9B%84%2005_45_52.png" alt="최윤서"><span>최윤서</span><em>독립 단편 히로인</em></a>
+    <a class="card" href="characters/%EC%9D%B4%EC%9E%AC%EC%9D%B8.html" data-images="[&quot;../images/characters/%EC%9D%B4%EC%9E%AC%EC%9D%B8/ChatGPT%20Image%202026%EB%85%84%206%EC%9B%94%2018%EC%9D%BC%20%EC%98%A4%ED%9B%84%2005_43_49.png&quot;, &quot;../images/characters/%EC%9D%B4%EC%9E%AC%EC%9D%B8/ChatGPT%20Image%202026%EB%85%84%206%EC%9B%94%2018%EC%9D%BC%20%EC%98%A4%ED%9B%84%2005_43_56.png&quot;, &quot;../images/characters/%EC%9D%B4%EC%9E%AC%EC%9D%B8/ChatGPT%20Image%202026%EB%85%84%206%EC%9B%94%2018%EC%9D%BC%20%EC%98%A4%ED%9B%84%2005_44_00.png&quot;, &quot;../images/characters/%EC%9D%B4%EC%9E%AC%EC%9D%B8/ChatGPT%20Image%202026%EB%85%84%206%EC%9B%94%2018%EC%9D%BC%20%EC%98%A4%ED%9B%84%2005_44_04.png&quot;, &quot;../images/characters/%EC%9D%B4%EC%9E%AC%EC%9D%B8/ChatGPT%20Image%202026%EB%85%84%206%EC%9B%94%2018%EC%9D%BC%20%EC%98%A4%ED%9B%84%2005_44_08.png&quot;, &quot;../images/characters/%EC%9D%B4%EC%9E%AC%EC%9D%B8/ChatGPT%20Image%202026%EB%85%84%206%EC%9B%94%2018%EC%9D%BC%20%EC%98%A4%ED%9B%84%2005_44_19.png&quot;, &quot;../images/characters/%EC%9D%B4%EC%9E%AC%EC%9D%B8/%EC%9D%B4%EC%9E%AC%EC%9D%B8.png&quot;]"><img src="../images/characters/%EC%9D%B4%EC%9E%AC%EC%9D%B8/ChatGPT%20Image%202026%EB%85%84%206%EC%9B%94%2018%EC%9D%BC%20%EC%98%A4%ED%9B%84%2005_43_49.png" alt="이재인"><span>이재인</span><em>독립 단편 히로인</em></a>
   </div>
+  <script>
+    (function() {
+      var grid  = document.getElementById('charGrid');
+      var cards = Array.from(grid.children);
+
+      // 카드 순서 셔플 (Fisher-Yates)
+      for (var i = cards.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var t = cards[i]; cards[i] = cards[j]; cards[j] = t;
+      }
+      cards.forEach(function(c) { grid.appendChild(c); });
+
+      // 카드별 랜덤 이미지 선택
+      cards.forEach(function(card) {
+        var imgs = JSON.parse(card.dataset.images || '[]');
+        if (!imgs.length) return;
+        var src = imgs[Math.floor(Math.random() * imgs.length)];
+        var img = card.querySelector('img');
+        if (img) img.src = src;
+      });
+    })();
+  </script>
 </body>
 </html>
