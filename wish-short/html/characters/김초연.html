@@ -117,12 +117,12 @@
 <body>
   <a class="back" href="../characters.html">← 인물 목록</a>
   <div class="header">
-    <div class="portrait-no-img"><span>김초연</span></div>
+    <div class="portrait-pager"><div class="pager-track" id="portraitTrack"></div><div class="pager-dots"  id="portraitDots"></div></div>
     
-    <div class="adult-scene-block"><div class="adult-scene-hearts"><span class="heart empty">♡</span></div><p class="adult-scene-count">♥ 0</p></div>
+    <div class="adult-scene-block"><div class="adult-scene-hearts"><span class="heart filled">♥</span><span class="heart filled">♥</span></div><p class="adult-scene-count">♥ 2</p></div>
     <div class="header-info">
       <h1>김초연</h1>
-      
+      <span class="category-tag">독립 단편 히로인</span>
       
     </div>
   </div>
@@ -191,6 +191,38 @@
 <li>헬스장 원장 (고용주): 50대 남성. 초연에게 호의적이고 잘 챙겨 주지만 사생활에는 관심 없다.</li>
 </ul>
 
+<hr>
+
+<h2>[가변]</h2>
+
+<ul>
+<li>현재 구분: <strong>독립 단편 히로인</strong></li>
+<li>직업: PT 트레이너</li>
+</ul>
+
+
+<ul>
+<li>연애상태: 초연이 용식을 짝사랑 중</li>
+<li>현재 상태: 운동 기록표 연장 여부 칸이 아직 비어 있다. 용식이 다음 주에 또 오겠다고 말했다.</li>
+<li>김용식 호칭: 오빠</li>
+</ul>
+
+<ul>
+<li>최근 변화: ep.013 — 이른 아침 개장 직전. 팔꿈치에 손을 댔다. 거울 속 눈 마주침. 기록표 연장 칸을 펴 보이지 않았다</li>
+<li>다음 압력: 기록표 연장 여부 칸이 아직 비어 있다. 이른 아침 시간대에 또 올 수 있다는 것</li>
+</ul>
+
+<hr>
+
+<h2>[성인씬 기록]</h2>
+
+<ul>
+<li>총 성인씬: 2회</li>
+<li>ep.008: 마감 후 헬스장 스트레칭 코너 — 결석 후 재등장, 연장 여부 체크 없이 볼펜을 돌려줬다, 조명 절반 꺼진 채 단둘</li>
+<li>ep.013: 이른 아침 거울 벽 앞 — 팔꿈치 응급처치, 거울 속 눈 마주침, 기록표를 펴 보이지 않음</li>
+<li>운영 메모: 성인씬은 직접 묘사하지 않고 <code>setting/성인씬작성규칙.md</code>에 따른 컨텍스트 구역으로만 기록한다. 초연은 헬스장 마감 후, 거울 벽 앞, 자세 교정, 운동 기록표와 결합할 때 사용한다.</li>
+</ul>
+
   </div>
   <div id="lightbox" onclick="closeLightbox()">
     <img id="lightbox-img" src="" alt="">
@@ -206,6 +238,38 @@
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') closeLightbox();
     });
+  (function() {
+    var imgs = ["../../images/characters/%EA%B9%80%EC%B4%88%EC%97%B0/ChatGPT%20Image%202026%E1%84%82%E1%85%A7%E1%86%AB%206%E1%84%8B%E1%85%AF%E1%86%AF%2019%E1%84%8B%E1%85%B5%E1%86%AF%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2012_24_52.png", "../../images/characters/%EA%B9%80%EC%B4%88%EC%97%B0/ChatGPT%20Image%202026%E1%84%82%E1%85%A7%E1%86%AB%206%E1%84%8B%E1%85%AF%E1%86%AF%2019%E1%84%8B%E1%85%B5%E1%86%AF%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2012_25_59.png", "../../images/characters/%EA%B9%80%EC%B4%88%EC%97%B0/ChatGPT%20Image%202026%E1%84%82%E1%85%A7%E1%86%AB%206%E1%84%8B%E1%85%AF%E1%86%AF%2019%E1%84%8B%E1%85%B5%E1%86%AF%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2012_53_17.png", "../../images/characters/%EA%B9%80%EC%B4%88%EC%97%B0/ChatGPT%20Image%202026%E1%84%82%E1%85%A7%E1%86%AB%206%E1%84%8B%E1%85%AF%E1%86%AF%2019%E1%84%8B%E1%85%B5%E1%86%AF%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2012_56_16.png"];
+    for (var i = imgs.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = imgs[i]; imgs[i] = imgs[j]; imgs[j] = t;
+    }
+    var track  = document.getElementById('portraitTrack');
+    var dotsEl = document.getElementById('portraitDots');
+    imgs.forEach(function(src, idx) {
+      var slide = document.createElement('div');
+      slide.className = 'pager-slide';
+      var img = document.createElement('img');
+      img.src = src; img.alt = '김초연';
+      img.addEventListener('click', function() { openLightbox(src); });
+      slide.appendChild(img); track.appendChild(slide);
+
+      var dot = document.createElement('span');
+      dot.className = 'dot' + (idx === 0 ? ' active' : '');
+      (function(capturedIdx) {
+        dot.addEventListener('click', function() {
+          track.scrollTo({ left: capturedIdx * track.offsetWidth, behavior: 'smooth' });
+        });
+      })(idx);
+      dotsEl.appendChild(dot);
+    });
+    track.addEventListener('scroll', function() {
+      var idx = Math.round(track.scrollLeft / track.offsetWidth);
+      dotsEl.querySelectorAll('.dot').forEach(function(d, i) {
+        d.classList.toggle('active', i === idx);
+      });
+    });
+  })();
   </script>
 </body>
 </html>

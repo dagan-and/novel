@@ -377,7 +377,7 @@ INDEX_CSS = """
     .card {
       display: flex; flex-direction: column; justify-content: flex-end;
       text-decoration: none; color: #e8e1d5;
-      height: clamp(180px, 42vh, 400px);
+      height: clamp(144px, 34vh, 320px);
       overflow: hidden;
       position: relative;
       border: 1px solid #30383a;
