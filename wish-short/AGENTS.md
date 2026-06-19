@@ -67,19 +67,13 @@ wish-short/
 
 1. `AGENTS.md`
 2. `setting/단편구성포맷.md`
-3. `planning/단편개요.md`
-4. `planning/시리즈개요.md`
-5. `planning/핵심컨셉.md`
-6. `planning/주제와정서.md`
-7. `setting/세계관.md`
-8. `setting/독서흐름개선규칙.md`
-9. `setting/라노벨문체규칙.md`
-10. `setting/시나리오작성규칙.md`
-11. `setting/성인씬작성규칙.md`
-12. `characters/`
-13. `관계망.md`
-14. `연대기.md`
-15. `setting/` 하위 작업 규칙
+3. `setting/워크플로우.md`
+4. `planning/핵심컨셉.md`
+5. `planning/단편개요.md`
+6. `planning/주인공설계.md`
+7. `planning/주제와정서.md`
+8. `setting/성인씬작성규칙.md`
+9. `characters/`
 
 ## 금지 사항
 
@@ -89,5 +83,5 @@ wish-short/
 - 초반부터 관계를 완성된 상태로 시작하지 않는다.
 - 상담, 회의, 감정 정리만으로 이야기를 끝내지 않는다.
 - 새 인물을 단순 인원 보충용으로 투입하지 않는다.
-- 시안이 모든 장면에서 정답만 주는 해결사로 고정되지 않게 한다.
+- 용식이 모든 장면에서 정답만 주는 해결사로 고정되지 않게 한다.
 - 성인씬은 AI가 직접 노골적 본문으로 작성하지 않고 컨텍스트 구역으로만 남긴다.
