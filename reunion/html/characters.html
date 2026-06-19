@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>인물</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #1a1a1a;
+      color: #e8e0d0;
+      font-family: 'Nanum Myeongjo', Georgia, serif;
+      font-size: 1.5rem; /* 리스트 페이지 기본 크기 추가 */
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+    }
+    h1 { font-size: 2.4rem; /* 1.6rem -> 1.92rem -> 2.4rem */ color: #c9a0b8; text-align: center; margin-bottom: 3rem; letter-spacing: 0.08em; }
+    .grid { display: flex; flex-wrap: wrap; gap: 1rem; }
+    .card {
+      display: flex; flex-direction: column; align-items: center;
+      text-decoration: none; color: #e8e0d0; width: 110px;
+    }
+    .card img, .card .no-img {
+      width: 110px; height: 140px;
+      object-fit: cover; object-position: top;
+      border: 1px solid #3a2030; border-radius: 3px; background: #111;
+    }
+    .card .no-img {
+      display: flex; align-items: center; justify-content: center;
+      color: #555; font-size: 2.7rem; /* 1.8rem -> 2.16rem -> 2.7rem */
+    }
+    .card span { margin-top: 0.4rem; font-size: 1.33rem; /* 0.88rem -> 1.06rem -> 1.33rem */ color: #c8a8b8; }
+    .card em { font-size: 1.13rem; /* 0.75rem -> 0.9rem -> 1.13rem */ color: #666; font-style: normal; }
+    .card:hover span { color: #c9a0b8; text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="grid">
+    <a class="card" href="characters/임소율.html"><img src="../images/characters/임소율.png" alt="임소율"><span>임소율</span><em>메인</em></a>
+    <a class="card" href="characters/이하은.html"><img src="../images/characters/이하은.png" alt="이하은"><span>이하은</span><em>메인</em></a>
+    <a class="card" href="characters/한서진.html"><img src="../images/characters/한서진.png" alt="한서진"><span>한서진</span><em>메인</em></a>
+    <a class="card" href="characters/박미현.html"><img src="../images/characters/박미현.png" alt="박미현"><span>박미현</span><em>서브</em></a>
+    <a class="card" href="characters/정다온.html"><img src="../images/characters/정다온.png" alt="정다온"><span>정다온</span><em>메인</em></a>
+    <a class="card" href="characters/유하린.html"><img src="../images/characters/유하린.png" alt="유하린"><span>유하린</span><em>서브</em></a>
+    <a class="card" href="characters/서나윤.html"><img src="../images/characters/서나윤.png" alt="서나윤"><span>서나윤</span><em>서브</em></a>
+    <a class="card" href="characters/오연서.html"><img src="../images/characters/오연서.png" alt="오연서"><span>오연서</span><em>서브</em></a>
+    <a class="card" href="characters/배수인.html"><img src="../images/characters/배수인.png" alt="배수인"><span>배수인</span><em>서브</em></a>
+  </div>
+</body>
+</html>
