@@ -1,0 +1,8 @@
+{
+  "detectedAt": "2026-06-19T01:11:45.774Z",
+  "toplevel": "/Users/kys1207/novel-repo",
+  "gitDir": "/Users/kys1207/novel-repo/.git",
+  "gitCommonDir": "/Users/kys1207/.git",
+  "issue": "https://github.com/anthropics/claude-code/issues/46808",
+  "message": "git worktree detected — Claude Code hooks may not fire (issue #46808). Run bkit from the primary repository if hook-driven automation is required."
+}

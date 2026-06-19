@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>김용식</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 120%; }
+    body {
+      background: #111417;
+      color: #e8e1d5;
+      font-family: 'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+      font-size: 1.04rem;
+      line-height: 1.82;
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+      word-break: keep-all;
+    }
+    .header {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      align-items: center;
+      margin-bottom: 2.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid #30383a;
+    }
+    .portrait {
+      width: 90%;
+      max-width: 650px;
+      border: 1px solid #30383a;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #181d20;
+    }
+    .portrait img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      object-position: top;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+    .portrait img:hover { opacity: 0.85; }
+    .portrait.no-image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #8f9996;
+      font-size: 1.6rem;
+      height: 200px;
+    }
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.88);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+    }
+    #lightbox.open { display: flex; }
+    #lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+      border: 1px solid #30383a;
+      border-radius: 8px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.7);
+    }
+    .header-info { text-align: center; }
+    .header-info h1 {
+      font-size: 3rem; /* 2rem -> 2.4rem -> 3rem */
+      color: #79b8b2;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.4rem;
+    }
+    .category-tag {
+      display: inline-block;
+      background: #20282b;
+      color: #8fd0c9;
+      border: 1px solid #3d4a4c;
+      font-size: 0.92rem;
+      padding: 0.18rem 0.62rem;
+      border-radius: 999px;
+      letter-spacing: 0.01em;
+    }
+    .current-age {
+      font-size: 1rem;
+      color: #9faaa6;
+      letter-spacing: 0.01em;
+      margin-top: 0.35rem;
+    }
+    h2 {
+      font-size: 1.18rem;
+      color: #79b8b2;
+      margin: 2rem 0 0.6rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 1px solid #30383a;
+      letter-spacing: 0.01em;
+    }
+    h3 { font-size: 1.08rem; color: #d28a72; margin: 1.2rem 0 0.4rem; }
+    p { margin: 0.5rem 0; }
+    ul { padding-left: 1.4rem; margin: 0.4rem 0; }
+    li { margin: 0.25rem 0; }
+    hr { border: none; border-top: 1px solid #30383a; margin: 1.6rem 0; }
+    strong { color: #d28a72; }
+    code { background: #20282b; color: #8fd0c9; padding: 0.1rem 0.35rem; border-radius: 4px; }
+    .back { display: inline-block; margin-bottom: 2rem; color: #8fd0c9; text-decoration: none; font-size: 1rem; font-weight: 700; }
+    .back:hover { text-decoration: underline; }
+    .emotion-chart { width: 90%; max-width: 380px; display: block; margin: 0 auto; }
+    .adult-scene-block {
+      text-align: center;
+      margin: 1.4rem 0 0.4rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.55rem;
+    }
+    .adult-scene-hearts {
+      display: flex;
+      gap: 0.3rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .heart { font-size: 1.45rem; line-height: 1; }
+    .heart.filled { color: #d97b95; }
+    .heart.empty  { color: #30383a; }
+    .adult-scene-count {
+      margin: 0;
+      color: #d97b95;
+      font-size: 0.95rem;
+      letter-spacing: 0.03em;
+    }
+    @media (max-width: 560px) { .portrait { width: 100%; } .emotion-chart { max-width: 320px; } }
+  </style>
+</head>
+<body>
+  <a class="back" href="../characters.html">← 인물 목록</a>
+  <div class="header">
+    <div class="portrait no-image"><span>김용식</span></div>
+    
+    <div class="adult-scene-block"><div class="adult-scene-hearts"><span class="heart filled">♥</span></div><p class="adult-scene-count">♥ 1</p></div>
+    <div class="header-info">
+      <h1>김용식</h1>
+      
+      
+    </div>
+  </div>
+  <div class="profile-body">
+    
+<p>> 능력은 있는데 진짜 결정은 자꾸 미루는 30살 평범한 직장인.</p>
+
+<hr>
+
+<h2>[프로필]</h2>
+
+<h3>고정</h3>
+
+<ul>
+<li>이름: 김용식</li>
+<li>성별: 남</li>
+<li>생년월일: 1989년 12월 7일</li>
+<li>출신: 서울</li>
+<li>시작 시점: 2020년 3월</li>
+<li>배경: 2020년 3월, 30살 직장인. 회사, 자취방, 자주 가는 카페와 편의점, 같은 아파트 이웃, 출근버스 동선 안에서 사람들을 만난다. 뚜렷한 불만은 없지만 삶에서 뭔가 중요한 결정을 미루며 하루하루를 비슷하게 보내는 중이다.</li>
+<li>말투: 담백하고 짧다. 장난을 섞지만 중요한 순간에는 돌려 말하지 않는다.</li>
+<li>성격: 겉으로는 느긋하고 편한 사람처럼 보이지만, 가까운 사람의 표정이나 말끝을 지나치게 빨리 읽는다. 다만 남의 문제를 잘 처리하는 것과 달리 자기 미래와 관계 이름을 정하는 일은 미루는 경향이 있다.</li>
+<li>감정 표현: 기분이 좋으면 말보다 행동이 먼저 나가고, 불안하면 괜히 실무적인 일을 붙든다. 화가 나면 목소리가 낮아지고, 애정이 깊어질수록 상대가 불편해하지 않는 방식으로 먼저 챙긴다.</li>
+<li>약점: 결정해야 할 순간에 농담이나 현실적인 조언으로 시간을 번다. 가까운 사람은 자신을 이해해 줄 거라고 믿다가 타이밍을 놓칠 수 있다.</li>
+<li>욕망: 지금의 생활을 잃지 않고, 가까운 사람들을 무리 없이 곁에 두고 싶어 한다.</li>
+<li>좋아하는 것:</li>
+</ul>
+<p>  - 연한 아메리카노, 창가 자리, 비 오는 날 조용한 실내.</p>
+<p>  - 누군가의 사소한 습관이 반복되는 순간. 예를 들어 같은 시간의 주문, 같은 말버릇, 같은 손짓.</p>
+<p>  - 정리된 자료보다 손때 묻은 메모. 깔끔한 계획표보다 누가 직접 남긴 짧은 문장을 더 오래 기억한다.</p>
+<p>  - 부담스럽게 챙김받는 것보다, 아무 말 없이 옆에 놓인 컵이나 우산 같은 작은 배려.</p>
+<ul>
+<li>싫어하는 것:</li>
+</ul>
+<p>  - 지금 당장 이름을 붙이라고 압박받는 상황. 마음이 없어서가 아니라 책임이 생기는 순간을 늦추고 싶어 한다.</p>
+<p>  - 여러 사람이 보는 앞에서 속마음을 추궁받는 것.</p>
+<p>  - 자기 때문에 누군가 일정, 돈, 생활 리듬을 망치는 장면.</p>
+<p>  - <code>괜찮다</code>고 말해 놓고 실제로는 혼자 무너지는 사람을 뒤늦게 알아차리는 것.</p>
+<ul>
+<li>단편 활용 포인트: 각 단편은 독립 시작으로 취급한다. 용식은 상대의 호감을 처음부터 다 알지 못하고, 자주 마주친 생활 습관과 작은 배려를 통해 뒤늦게 눈치챈다.</li>
+<li>용식 앞 반응: 해당 없음</li>
+</ul>
+
+<h3>외형</h3>
+
+<ul>
+<li>체형: 178cm 정도의 슬림하지만 잔근육이 있는 평범한 체형. 튀지는 않지만 가까이 있으면 안정감이 느껴진다.</li>
+<li>얼굴: 깔끔한 호감형 얼굴. 잘생겼다는 말을 종종 듣지만 본인은 크게 의식하지 않는다.</li>
+<li>헤어: 단정하게 정리한 짧은 머리.</li>
+<li>분위기: 편하고 무심해 보이지만, 상대를 정확히 보고 있다는 느낌 때문에 쉽게 잊히지 않는다.</li>
+</ul>
+
+<hr>
+
+<h2>[관계]</h2>
+
+<ul>
+<li>첫 등장: 단편별 시작</li>
+</ul>
+
+<ul>
+<li>특이사항: 독립 단편집의 주인공. 이전 단편의 관계 진도나 성인씬 기록을 다음 단편에 자동 계승하지 않는다. 용식은 매 편마다 상대의 생활권에 자주 드나드는 사람으로 시작하고, 상대가 이미 자신을 좋아하고 있다는 사실을 장면 안에서 천천히 알아차린다.</li>
+</ul>
+
+<hr>
+
+<h2>[가변]</h2>
+
+<ul>
+<li>현재 연도: 2020년</li>
+<li>현재 나이: 31세 (연나이)</li>
+<li>직업: 직장인</li>
+<li>거주지: 서울 자취방</li>
+<li>연애상태: 단편별 시작 전</li>
+<li>현재 상태: 하루하루 비슷한 일상을 보내는 중. 자주 가는 생활권에서 자신을 좋아하는 사람들의 신호를 뒤늦게 알아차리며, 한 편 안에서 관계가 가까워지는 선택을 한다.</li>
+</ul>
+
+  </div>
+  <div id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="">
+  </div>
+  <script>
+    function openLightbox(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').classList.add('open');
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  </script>
+</body>
+</html>

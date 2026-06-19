@@ -18,6 +18,8 @@ OUT_FILE  = os.path.join(BASE_DIR, 'html', 'preludes.html')
 
 def collect_preludes():
     """images/preludes/ 에서 NNN.png 목록 수집 → 최신화부터 정렬"""
+    if not Path(IMG_PRE).is_dir():
+        return []
     items = []
     for path in sorted(Path(IMG_PRE).rglob('*.png')):
         m = re.match(r'^ep\.(\d+)(?:_a)?\.png$|^(\d+)\.png$', path.name)
@@ -30,9 +32,10 @@ def collect_preludes():
 
 def collect_ranges(preludes):
     ranges = {}
-    for child in sorted(Path(IMG_PRE).iterdir()):
-        if child.is_dir() and re.match(r'^\d{3}-\d{3}$', child.name):
-            ranges.setdefault(child.name, [])
+    if Path(IMG_PRE).is_dir():
+        for child in sorted(Path(IMG_PRE).iterdir()):
+            if child.is_dir() and re.match(r'^\d{3}-\d{3}$', child.name):
+                ranges.setdefault(child.name, [])
 
     for ep_num, rel_path in preludes:
         start = ((ep_num - 1) // 100) * 100 + 1
