@@ -6,6 +6,7 @@ import re
 import sys
 import unicodedata
 from html import escape
+from urllib.parse import quote as urlquote
 
 from batch_paths import batch_label, html_episode_path, source_episode_path
 
@@ -240,21 +241,29 @@ def extract_scene_characters(text, female_speakers):
     return found
 
 
+def _encode_image_path(abs_path, output_dir):
+    rel = os.path.relpath(abs_path, output_dir).replace(os.sep, '/')
+    parts = rel.split('/')
+    encoded = [p if p in ('..', '.') else urlquote(unicodedata.normalize('NFC', p), safe='')
+               for p in parts]
+    return '/'.join(encoded)
+
+
 def build_illustration_html(image_paths, episode_number, output_file, caption_text):
     if not image_paths:
         return ''
     alt = f'ep.{episode_number:03d} 성인씬 직전 상황 삽화'
     output_dir = os.path.dirname(output_file)
     if len(image_paths) == 1:
-        rel = os.path.relpath(image_paths[0], output_dir).replace(os.sep, '/')
+        src = _encode_image_path(image_paths[0], output_dir)
         return (
             '<figure class="scene-illustration">'
-            f'<img src="{rel}" alt="{alt}">'
+            f'<img src="{src}" alt="{alt}">'
             f'<figcaption>{caption_text}</figcaption>'
             '</figure>'
         )
     imgs_html = ''.join(
-        f'<img src="{os.path.relpath(p, output_dir).replace(os.sep, "/")}" alt="{alt}">'
+        f'<img src="{_encode_image_path(p, output_dir)}" alt="{alt}">'
         for p in image_paths
     )
     return (
