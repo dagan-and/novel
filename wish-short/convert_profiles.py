@@ -284,8 +284,10 @@ PROFILE_CSS = """
     }
     .pager-slide img {
       width: 100%; height: auto; display: block;
-      object-fit: cover; object-position: top;
+      max-height: 62vh;
+      object-fit: contain; object-position: top;
       cursor: pointer; transition: opacity 0.15s;
+      background: #0e1215;
     }
     .pager-slide img:hover { opacity: 0.85; }
     .pager-dots {
@@ -375,7 +377,7 @@ INDEX_CSS = """
     .card {
       display: flex; flex-direction: column; justify-content: flex-end;
       text-decoration: none; color: #e8e1d5;
-      aspect-ratio: 2 / 3;
+      height: clamp(180px, 42vh, 400px);
       overflow: hidden;
       position: relative;
       border: 1px solid #30383a;

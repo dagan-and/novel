@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>노은화</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 120%; }
+    body {
+      background: #111417;
+      color: #e8e1d5;
+      font-family: 'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+      font-size: 1.04rem;
+      line-height: 1.82;
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+      word-break: keep-all;
+    }
+    .header {
+      display: flex; flex-direction: column; gap: 1.5rem; align-items: center;
+      margin-bottom: 2.5rem; padding-bottom: 2rem; border-bottom: 1px solid #30383a;
+    }
+    /* ── ViewPager ── */
+    .portrait-pager {
+      width: 90%; max-width: 650px;
+      border: 1px solid #30383a; border-radius: 8px;
+      overflow: hidden; background: #181d20;
+    }
+    .pager-track {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior-x: contain;
+      scrollbar-width: none;
+    }
+    .pager-track::-webkit-scrollbar { display: none; }
+    .pager-slide {
+      flex: 0 0 100%;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+    }
+    .pager-slide img {
+      width: 100%; height: auto; display: block;
+      max-height: 62vh;
+      object-fit: contain; object-position: top;
+      cursor: pointer; transition: opacity 0.15s;
+      background: #0e1215;
+    }
+    .pager-slide img:hover { opacity: 0.85; }
+    .pager-dots {
+      display: flex; justify-content: center; gap: 0.45rem;
+      padding: 0.5rem 0 0.4rem; background: #0e1215;
+    }
+    .dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: #30383a; cursor: pointer;
+      transition: background 0.2s; flex-shrink: 0;
+    }
+    .dot.active { background: #79b8b2; }
+    /* ── 이미지 없음 ── */
+    .portrait-no-img {
+      width: 90%; max-width: 650px; height: 200px;
+      display: flex; align-items: center; justify-content: center;
+      color: #8f9996; font-size: 1.6rem;
+      border: 1px solid #30383a; border-radius: 8px; background: #181d20;
+    }
+    /* ── Lightbox ── */
+    #lightbox {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.88); z-index: 9999;
+      align-items: center; justify-content: center; cursor: zoom-out;
+    }
+    #lightbox.open { display: flex; }
+    #lightbox img {
+      max-width: 90vw; max-height: 90vh; object-fit: contain;
+      border: 1px solid #30383a; border-radius: 8px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.7);
+    }
+    /* ── 헤더 정보 ── */
+    .header-info { text-align: center; }
+    .header-info h1 { font-size: 3rem; color: #79b8b2; letter-spacing: 0.02em; margin-bottom: 0.4rem; }
+    .category-tag {
+      display: inline-block; background: #20282b; color: #8fd0c9;
+      border: 1px solid #3d4a4c; font-size: 0.92rem;
+      padding: 0.18rem 0.62rem; border-radius: 999px; letter-spacing: 0.01em;
+    }
+    .current-age { font-size: 1rem; color: #9faaa6; letter-spacing: 0.01em; margin-top: 0.35rem; }
+    h2 {
+      font-size: 1.18rem; color: #79b8b2; margin: 2rem 0 0.6rem;
+      padding-bottom: 0.3rem; border-bottom: 1px solid #30383a; letter-spacing: 0.01em;
+    }
+    h3 { font-size: 1.08rem; color: #d28a72; margin: 1.2rem 0 0.4rem; }
+    p { margin: 0.5rem 0; }
+    ul { padding-left: 1.4rem; margin: 0.4rem 0; }
+    li { margin: 0.25rem 0; }
+    hr { border: none; border-top: 1px solid #30383a; margin: 1.6rem 0; }
+    strong { color: #d28a72; }
+    code { background: #20282b; color: #8fd0c9; padding: 0.1rem 0.35rem; border-radius: 4px; }
+    .back { display: inline-block; margin-bottom: 2rem; color: #8fd0c9; text-decoration: none; font-size: 1rem; font-weight: 700; }
+    .back:hover { text-decoration: underline; }
+    .emotion-chart { width: 90%; max-width: 380px; display: block; margin: 0 auto; }
+    .adult-scene-block {
+      text-align: center; margin: 1.4rem 0 0.4rem;
+      display: flex; flex-direction: column; align-items: center; gap: 0.55rem;
+    }
+    .adult-scene-hearts { display: flex; gap: 0.3rem; flex-wrap: wrap; justify-content: center; }
+    .heart { font-size: 1.45rem; line-height: 1; }
+    .heart.filled { color: #d97b95; }
+    .heart.empty  { color: #30383a; }
+    .adult-scene-count { margin: 0; color: #d97b95; font-size: 0.95rem; letter-spacing: 0.03em; }
+    @media (max-width: 560px) { .portrait-pager { width: 100%; } .emotion-chart { max-width: 320px; } }
+  </style>
+</head>
+<body>
+  <a class="back" href="../characters.html">← 인물 목록</a>
+  <div class="header">
+    <div class="portrait-pager"><div class="pager-track" id="portraitTrack"></div><div class="pager-dots"  id="portraitDots"></div></div>
+    
+    <div class="adult-scene-block"><div class="adult-scene-hearts"><span class="heart empty">♡</span></div><p class="adult-scene-count">♥ 0</p></div>
+    <div class="header-info">
+      <h1>노은화</h1>
+      
+      
+    </div>
+  </div>
+  <div class="profile-body">
+    
+<hr>
+
+<h2>[프로필]</h2>
+
+<h3>고정</h3>
+
+<ul>
+<li>이름: 노은화</li>
+<li>생년월일: 2000년 6월 13일 (2020년 연나이 21세)</li>
+<li>출신: 부산</li>
+<li>배경: 용식이 퇴근 후 가끔 들르는 동네 이자카야의 알바생. 자취를 시작한 지 얼마 안 됐고, 학교와 알바를 병행하고 있다. 손님 분위기 파악이 빠르고 카운터 안에서 혼자 가게 전체를 본다. 밝고 말이 많아서 처음 오는 손님도 금방 단골처럼 앉히는 편이지만, 용식 앞에서는 가끔 말이 얽힌다.</li>
+<li>말투: 밝고 빠름. 손님과의 대화는 능숙한데 용식한테만 타이밍이 어긋나거나 말이 의도보다 길어진다. "뭐 드릴까요, 오빠?" (어쩌다 나온 호칭에 스스로 당황) / "그 얼굴로 혼자 마시면 옆 사람이 더 불편하거든요."</li>
+<li>성격: 겉으로는 밝고 수다스럽고 손님한테 잘 웃어서 자리 분위기를 끌어올리는 타입처럼 보이지만, 사실 웃음이 방어막인 경우가 많다. 진짜 감정이 걸리는 순간에는 웃음이 멈추고 말이 확 줄어든다. 나이가 어리다는 걸 의식해서 어른스럽게 굴려 하지만, 좋아하는 사람 앞에서는 그 어설픔이 먼저 드러난다.</li>
+<li>감정 표현: 기쁠 때는 주문 메모를 틀리거나 잔을 서둘러 더 채워 준다. 불안하면 말이 많아지고 다른 손님 쪽으로 자꾸 도망간다. 화가 나면 갑자기 조용해지고 카운터 정리를 시작한다. 애정이 생긴 사람에게는 마감 전에 안주를 하나 더 내놓고, 이유는 묻지 않는다.</li>
+<li>약점: 좋아한다는 걸 숨기려고 더 밝게 굴다가 그냥 밝은 알바생 이상으로 안 보이는 경우가 생긴다. 나이 차이를 의식해서 어른인 척하려 들지만 정작 어설픈 순간이 더 기억에 남는다.</li>
+<li>욕망: 생활 욕망은 지금의 자취 생활을 어떻게든 혼자 유지하는 것이다. 관계 욕망은 누군가에게 <code>웃긴 알바생</code>이 아니라 <code>그날 그 자리에서 옆에 있어 준 사람</code>으로 남는 것이다.</li>
+<li>용식 앞 반응: 용식이 혼자 앉아서 조용히 마실 때 괜히 한 마디 걸고, 반응이 없으면 다른 손님한테 가다가 다시 돌아온다. 용식이 웃어 주면 그날 밤 실수가 한 번쯤 는다. 다른 여자와 함께 오면 평소보다 주문을 한 번 더 확인하고, 그날 마감이 유달리 꼼꼼해진다.</li>
+<li>용식 호칭 (초기): 오빠</li>
+<li>좋아하는 것:</li>
+</ul>
+<p>  - 마감 직전 가게가 텅 빈 시간. 조명이 혼자 켜져 있는 것.</p>
+<p>  - 손님이 아무 말 없이 다음 번에 또 오는 것. 자기가 기억됐다는 증거.</p>
+<p>  - 작은 에어팟, 편의점 아이스크림, 부산에서 가져온 과자.</p>
+<p>  - 카운터에 팔꿈치 얹고 기대는 자세. 알바 중 유일하게 허락된 게으름.</p>
+<p>  - 갑자기 비가 오는 날. 손님이 줄고 가게가 조용해지는 이유가 생겨서.</p>
+<ul>
+<li>싫어하는 것:</li>
+</ul>
+<p>  - 나이 어리다고 반말로 넘기거나 함부로 대하는 손님.</p>
+<p>  - 웃는 게 진심인지 직업인지 구분 못 하고 착각하는 것.</p>
+<p>  - 혼자 마시는 사람한테 <code>왜 혼자예요?</code> 라고 묻는 것.</p>
+<p>  - 어리다고 진지하게 대하지 않는 것.</p>
+<ul>
+<li>단편 활용 포인트: 용식이 퇴근 후 들르는 이자카야의 알바생으로 시작한다. 은화는 이미 용식에게 호감이 있으며, 밝은 말 걸기와 마감 전 안주 한 접시로 존재를 남긴다.</li>
+</ul>
+
+<h3>외형</h3>
+
+<ul>
+<li>체형: 작은키 아담한 체형. 가볍고 볼륨 있는 편이라 이자카야 카운터 안에서 빠르게 움직이는 동선이 눈에 잘 들어온다. 키가 작아도 자세가 무너지지 않고, 카운터 너머에서 두 팔을 올려 뭔가를 꺼낼 때 허리와 옆선이 자연스럽게 드러난다. 가슴과 골반에 은근한 볼륨이 있어 키가 작아도 전체 실루엣이 분명하게 살아 있다.</li>
+<li>얼굴: 작고 동그란 얼굴형에 눈이 크고 아래로 살짝 처진 눈꼬리가 귀여운 인상을 결정한다. 속쌍꺼풀이 부드럽고 눈동자가 커서 웃을 때 눈이 초승달 모양으로 접히고 볼이 둥글게 올라온다. 코는 오동통하게 작고, 입술이 통통한 편이라 굳히고 있어도 뾰로통한 인상이 난다. 웃음이 사라지는 순간 분위기가 예상보다 빠르게 가라앉는데, 그 짧은 변화가 오히려 더 강한 인상을 남긴다.</li>
+<li>헤어: 턱선까지 오는 검은 칼단발. 앞머리가 있고 이마를 반쯤 덮는다. 끝이 일직선으로 정리되어 있어 귀여운 인상에 또렷한 느낌을 더한다. 바쁜 날은 앞머리를 핀으로 올리고, 여유 있는 날은 그냥 내린다.</li>
+<li>분위기: 처음엔 활기차고 붙임성 좋은 알바생 인상이 먼저 온다. 가까워질수록 웃음이 멈추는 순간이 기억에 남고, 그 짧은 표정 때문에 오히려 쉽게 잊히지 않는다.</li>
+</ul>
+
+<h3>서사 기능</h3>
+
+<ul>
+<li>담당 생활권: 동네 이자카야</li>
+<li>담당 압력: 밝음 뒤의 진짜 감정, 나이 차이로 인한 어설픔</li>
+<li>장소: 카운터 안쪽 / 카운터 너머 손님 자리 / 테이블 사이 통로 / 가게 앞 골목 / 마감 후 의자 올려둔 가게 안 / 비 오는 날 창가 / 환기 나온 뒷골목</li>
+<li>장면 키워드: 퇴근 후 혼술 자리 / 마감 직전 단둘이 남기 / 비 오는 날 손님 없는 가게 / 안주 하나 더 내놓기 / 주문 메모 틀리기 / 마지막 주문 마감 타이밍 / 카운터 너머 몸 기울기 / 가게 앞 골목 환기 / 영수증 건네는 손 닿기 / 술잔 채워 주다 눈 마주침</li>
+<li>금지 패턴: 처음부터 감정을 직접 말하는 것, 나이를 내세우거나 철없게 굴기만 하는 것</li>
+</ul>
+
+<hr>
+
+<h2>[주변인]</h2>
+
+<ul>
+<li>이자카야 사장 (고용주): 40대 여성. 은화를 아끼지만 개인사에는 무심하다.</li>
+</ul>
+
+  </div>
+  <div id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="">
+  </div>
+  <script>
+    function openLightbox(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').classList.add('open');
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  (function() {
+    var imgs = ["../../images/characters/%EB%85%B8%EC%9D%80%ED%99%94/ChatGPT%20Image%202026%E1%84%82%E1%85%A7%E1%86%AB%206%E1%84%8B%E1%85%AF%E1%86%AF%2019%E1%84%8B%E1%85%B5%E1%86%AF%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2012_22_57%20%281%29.png", "../../images/characters/%EB%85%B8%EC%9D%80%ED%99%94/ChatGPT%20Image%202026%E1%84%82%E1%85%A7%E1%86%AB%206%E1%84%8B%E1%85%AF%E1%86%AF%2019%E1%84%8B%E1%85%B5%E1%86%AF%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2012_22_57%20%282%29.png"];
+    for (var i = imgs.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = imgs[i]; imgs[i] = imgs[j]; imgs[j] = t;
+    }
+    var track  = document.getElementById('portraitTrack');
+    var dotsEl = document.getElementById('portraitDots');
+    imgs.forEach(function(src, idx) {
+      var slide = document.createElement('div');
+      slide.className = 'pager-slide';
+      var img = document.createElement('img');
+      img.src = src; img.alt = '노은화';
+      img.addEventListener('click', function() { openLightbox(src); });
+      slide.appendChild(img); track.appendChild(slide);
+
+      var dot = document.createElement('span');
+      dot.className = 'dot' + (idx === 0 ? ' active' : '');
+      (function(capturedIdx) {
+        dot.addEventListener('click', function() {
+          track.scrollTo({ left: capturedIdx * track.offsetWidth, behavior: 'smooth' });
+        });
+      })(idx);
+      dotsEl.appendChild(dot);
+    });
+    track.addEventListener('scroll', function() {
+      var idx = Math.round(track.scrollLeft / track.offsetWidth);
+      dotsEl.querySelectorAll('.dot').forEach(function(d, i) {
+        d.classList.toggle('active', i === idx);
+      });
+    });
+  })();
+  </script>
+</body>
+</html>
