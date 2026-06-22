@@ -20,11 +20,11 @@ CSS = """
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { font-size: 120%; }
     body {
-      background: #111417;
-      color: #e8e1d5;
+      background: #1c1a18;
+      color: #bfb9b0;
       font-family: 'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
       font-size: 1.12rem;
-      line-height: 1.9;
+      line-height: 2.0;
       max-width: 760px;
       margin: 0 auto;
       padding: 3rem 1.4rem 5rem;
@@ -33,7 +33,7 @@ CSS = """
     h1 {
       font-size: 1.35rem;
       text-align: center;
-      color: #79b8b2;
+      color: #6a9e98;
       margin-bottom: 2.5rem;
       letter-spacing: 0.02em;
     }
@@ -56,31 +56,31 @@ CSS = """
     .message-line {
       margin: 1rem 0;
       padding: 0.72rem 0.9rem;
-      background: #182023;
-      border: 1px solid #2f3f41;
-      border-left: 4px solid #79b8b2;
+      background: #222220;
+      border: 1px solid #38352f;
+      border-left: 4px solid #6a9e98;
       border-radius: 6px;
-      color: #d8e5df;
+      color: #b2bdb8;
       font-size: 1.02rem;
-      line-height: 1.75;
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+      line-height: 1.8;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
     }
     .message-sender {
       font-weight: 700;
-      color: #8fd0c9;
+      color: #7bbab3;
       margin-right: 0.35rem;
     }
     .time {
       font-weight: bold;
-      color: #d6a15f;
+      color: #b88a52;
       font-size: 1.08rem;
       text-align: center;
       margin: 1.8rem 0 1rem;
     }
-    .thought { color: #9bbac0; font-style: italic; }
+    .thought { color: #8aaab0; font-style: italic; }
     .divider {
       text-align: center;
-      color: #5f6564;
+      color: #575450;
       margin: 2.2rem 0;
       letter-spacing: 0.6em;
     }
@@ -91,14 +91,14 @@ CSS = """
       display: block;
       width: 100%;
       border-radius: 10px;
-      border: 1px solid #30383a;
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.36);
+      border: 1px solid #302e2b;
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.28);
     }
     .scene-illustration figcaption {
       margin-top: 0.8rem;
       text-align: center;
       font-size: 0.92rem;
-      color: #9faaa6;
+      color: #8a918d;
       letter-spacing: 0.02em;
     }
     figure.scene-illustration-pair {
@@ -111,15 +111,15 @@ CSS = """
       display: block;
       width: 100%;
       border-radius: 10px;
-      border: 1px solid #30383a;
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.36);
+      border: 1px solid #302e2b;
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.28);
     }
     .scene-illustration-pair figcaption {
       grid-column: 1 / -1;
       margin-top: 0.5rem;
       text-align: center;
       font-size: 0.92rem;
-      color: #9faaa6;
+      color: #8a918d;
       letter-spacing: 0.02em;
     }
     .nav {
@@ -127,19 +127,19 @@ CSS = """
       justify-content: space-between;
       margin-top: 3.5rem;
       padding-top: 1rem;
-      border-top: 1px solid #30383a;
+      border-top: 1px solid #302e2b;
       font-size: 1rem;
     }
-    .nav a { color: #8fd0c9; text-decoration: none; font-weight: 700; }
+    .nav a { color: #7bbab3; text-decoration: none; font-weight: 700; }
     .nav a:hover { text-decoration: underline; }
 """
 
 PRELUDE_DIR = os.path.join('images', 'preludes')
 CHARACTER_IMAGE_DIR = os.path.join('images', 'characters')
 IMAGE_EXTENSIONS = {'.png', '.jpg', '.jpeg', '.webp', '.gif'}
-MALE_COLOR = '#82aee0'
-FEMALE_COLOR = '#d97b95'
-EXTRA_COLOR = '#b7aca0'
+MALE_COLOR = '#7aa0cc'
+FEMALE_COLOR = '#c07088'
+EXTRA_COLOR = '#a09890'
 
 
 def load_speakers(base_dir):
