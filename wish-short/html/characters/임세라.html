@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>임세라</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 120%; }
+    body {
+      background: #111417;
+      color: #e8e1d5;
+      font-family: 'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+      font-size: 1.04rem;
+      line-height: 1.82;
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+      word-break: keep-all;
+    }
+    .header {
+      display: flex; flex-direction: column; gap: 1.5rem; align-items: center;
+      margin-bottom: 2.5rem; padding-bottom: 2rem; border-bottom: 1px solid #30383a;
+    }
+    /* ── ViewPager ── */
+    .portrait-pager {
+      width: 90%; max-width: 650px;
+      border: 1px solid #30383a; border-radius: 8px;
+      overflow: hidden; background: #181d20;
+    }
+    .pager-track {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior-x: contain;
+      scrollbar-width: none;
+    }
+    .pager-track::-webkit-scrollbar { display: none; }
+    .pager-slide {
+      flex: 0 0 100%;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+    }
+    .pager-slide img {
+      width: 100%; height: auto; display: block;
+      max-height: 62vh;
+      object-fit: contain; object-position: top;
+      cursor: pointer; transition: opacity 0.15s;
+      background: #0e1215;
+    }
+    .pager-slide img:hover { opacity: 0.85; }
+    .pager-dots {
+      display: flex; justify-content: center; gap: 0.45rem;
+      padding: 0.5rem 0 0.4rem; background: #0e1215;
+    }
+    .dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: #30383a; cursor: pointer;
+      transition: background 0.2s; flex-shrink: 0;
+    }
+    .dot.active { background: #79b8b2; }
+    /* ── 이미지 없음 ── */
+    .portrait-no-img {
+      width: 90%; max-width: 650px; height: 200px;
+      display: flex; align-items: center; justify-content: center;
+      color: #8f9996; font-size: 1.6rem;
+      border: 1px solid #30383a; border-radius: 8px; background: #181d20;
+    }
+    /* ── Lightbox ── */
+    #lightbox {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.88); z-index: 9999;
+      align-items: center; justify-content: center; cursor: zoom-out;
+    }
+    #lightbox.open { display: flex; }
+    #lightbox img {
+      max-width: 90vw; max-height: 90vh; object-fit: contain;
+      border: 1px solid #30383a; border-radius: 8px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.7);
+    }
+    /* ── 헤더 정보 ── */
+    .header-info { text-align: center; }
+    .header-info h1 { font-size: 3rem; color: #79b8b2; letter-spacing: 0.02em; margin-bottom: 0.4rem; }
+    .category-tag {
+      display: inline-block; background: #20282b; color: #8fd0c9;
+      border: 1px solid #3d4a4c; font-size: 0.92rem;
+      padding: 0.18rem 0.62rem; border-radius: 999px; letter-spacing: 0.01em;
+    }
+    .current-age { font-size: 1rem; color: #9faaa6; letter-spacing: 0.01em; margin-top: 0.35rem; }
+    h2 {
+      font-size: 1.18rem; color: #79b8b2; margin: 2rem 0 0.6rem;
+      padding-bottom: 0.3rem; border-bottom: 1px solid #30383a; letter-spacing: 0.01em;
+    }
+    h3 { font-size: 1.08rem; color: #d28a72; margin: 1.2rem 0 0.4rem; }
+    p { margin: 0.5rem 0; }
+    ul { padding-left: 1.4rem; margin: 0.4rem 0; }
+    li { margin: 0.25rem 0; }
+    hr { border: none; border-top: 1px solid #30383a; margin: 1.6rem 0; }
+    strong { color: #d28a72; }
+    code { background: #20282b; color: #8fd0c9; padding: 0.1rem 0.35rem; border-radius: 4px; }
+    .back { display: inline-block; margin-bottom: 2rem; color: #8fd0c9; text-decoration: none; font-size: 1rem; font-weight: 700; }
+    .back:hover { text-decoration: underline; }
+    .emotion-chart { width: 90%; max-width: 380px; display: block; margin: 0 auto; }
+    .adult-scene-block {
+      text-align: center; margin: 1.4rem 0 0.4rem;
+      display: flex; flex-direction: column; align-items: center; gap: 0.55rem;
+    }
+    .adult-scene-hearts { display: flex; gap: 0.3rem; flex-wrap: wrap; justify-content: center; }
+    .heart { font-size: 1.45rem; line-height: 1; }
+    .heart.filled { color: #d97b95; }
+    .heart.empty  { color: #30383a; }
+    .adult-scene-count { margin: 0; color: #d97b95; font-size: 0.95rem; letter-spacing: 0.03em; }
+    @media (max-width: 560px) { .portrait-pager { width: 100%; } .emotion-chart { max-width: 320px; } }
+  </style>
+</head>
+<body>
+  <a class="back" href="../characters.html">← 인물 목록</a>
+  <div class="header">
+    <div class="portrait-pager"><div class="pager-track" id="portraitTrack"></div><div class="pager-dots"  id="portraitDots"></div></div>
+    <svg class="emotion-chart" viewBox="-100 -25 500 360" xmlns="http://www.w3.org/2000/svg"><polygon points="150.0,126.2 172.6,142.7 164.0,169.2 136.0,169.2 127.4,142.7" fill="none" stroke="#3d4a4c" stroke-width="0.8"/><polygon points="150.0,102.5 195.2,135.3 177.9,188.4 122.1,188.4 104.8,135.3" fill="none" stroke="#3d4a4c" stroke-width="0.8"/><polygon points="150.0,78.8 217.8,128.0 191.9,207.6 108.1,207.6 82.2,128.0" fill="none" stroke="#3d4a4c" stroke-width="0.8"/><polygon points="150.0,55.0 240.4,120.6 205.8,226.9 94.2,226.9 59.6,120.6" fill="none" stroke="#3d4a4c" stroke-width="0.8"/><line x1="150" y1="150" x2="150.0" y2="55.0" stroke="#3d4a4c" stroke-width="0.8"/><line x1="150" y1="150" x2="240.4" y2="120.6" stroke="#3d4a4c" stroke-width="0.8"/><line x1="150" y1="150" x2="205.8" y2="226.9" stroke="#3d4a4c" stroke-width="0.8"/><line x1="150" y1="150" x2="94.2" y2="226.9" stroke="#3d4a4c" stroke-width="0.8"/><line x1="150" y1="150" x2="59.6" y2="120.6" stroke="#3d4a4c" stroke-width="0.8"/><polygon points="150.0,83.5 199.7,133.9 175.1,184.6 121.0,190.0 122.9,141.2" fill="rgba(121,184,178,0.2)" stroke="#79b8b2" stroke-width="1.5"/><circle cx="150.0" cy="83.5" r="3" fill="#79b8b2"/><circle cx="199.7" cy="133.9" r="3" fill="#79b8b2"/><circle cx="175.1" cy="184.6" r="3" fill="#79b8b2"/><circle cx="121.0" cy="190.0" r="3" fill="#79b8b2"/><circle cx="122.9" cy="141.2" r="3" fill="#79b8b2"/><text x="150.0" y="25.0" text-anchor="middle" font-size="22" fill="#b7aca0" font-family="Pretendard,Noto Sans KR,Apple SD Gothic Neo,sans-serif">호감도 <tspan fill="#8fd0c9">70</tspan></text><text x="263.2" y="107.2" text-anchor="start" font-size="22" fill="#b7aca0" font-family="Pretendard,Noto Sans KR,Apple SD Gothic Neo,sans-serif">신뢰도 <tspan fill="#8fd0c9">55</tspan></text><text x="219.9" y="258.3" text-anchor="start" font-size="22" fill="#b7aca0" font-family="Pretendard,Noto Sans KR,Apple SD Gothic Neo,sans-serif">질투심 <tspan fill="#8fd0c9">45</tspan></text><text x="80.1" y="258.3" text-anchor="end" font-size="22" fill="#b7aca0" font-family="Pretendard,Noto Sans KR,Apple SD Gothic Neo,sans-serif">독점욕 <tspan fill="#8fd0c9">52</tspan></text><text x="36.8" y="107.2" text-anchor="end" font-size="22" fill="#b7aca0" font-family="Pretendard,Noto Sans KR,Apple SD Gothic Neo,sans-serif">의존도 <tspan fill="#8fd0c9">30</tspan></text></svg>
+    <div class="adult-scene-block"><div class="adult-scene-hearts"><span class="heart filled">♥</span><span class="heart filled">♥</span><span class="heart filled">♥</span><span class="heart filled">♥</span><span class="heart filled">♥</span><span class="heart filled">♥</span><span class="heart filled">♥</span><span class="heart filled">♥</span><span class="heart filled">♥</span><span class="heart filled">♥</span><span class="heart filled">♥</span><span class="heart filled">♥</span></div><p class="adult-scene-count">♥ 12</p></div>
+    <div class="header-info">
+      <h1>임세라</h1>
+      <span class="category-tag">독립 단편 히로인</span>
+      
+    </div>
+  </div>
+  <div class="profile-body">
+    
+<hr>
+
+<h2>[프로필]</h2>
+
+<h3>고정</h3>
+
+<ul>
+<li>이름: 임세라</li>
+<li>생년월일: 1993년 5월 16일 (2020년 연나이 28세)</li>
+<li>출신: 서울</li>
+<li>배경: 용식과 같은 회사 다른 팀 직장 동료. 업무상 자주 접점이 생기는 관계. 회사 안팎으로 누구와도 잘 어울리고 소개팅과 미팅을 즐겨 다니지만 실제로 사귄 사람은 없다. 클럽보다는 분위기 있는 바나 레스토랑을 선호하고 겉으로 보이는 것보다 훨씬 속이 차 있다. 여러 남자에게 자연스럽게 여지를 주면서 분위기를 만드는 게 몸에 배어 있는데, 용식에게는 그 방식이 이상하게 잘 안 통한다는 것을 느끼면서부터 유독 오래 신경 쓰이게 됐다.</li>
+<li>말투: 밝고 부드러운 표준어. 상대 이름을 자주 불러 친근감을 준다. 농담처럼 가볍게 던지는 말 사이에 진심이 끼어 있어 어디까지가 장난인지 구분이 안 간다. "그런 사람이 회사에 있었어요?" / "오빠는 진짜 반응이 없네." / "다음 소개팅은 오빠 타입이에요. 참고로."</li>
+<li>성격: 겉으로는 누구에게나 친절하고 붙임성이 좋아서 이 남자 저 남자 에게 자연스럽게 여지를 주는 것처럼 보이지만, 사실 관계에서 지루함이 생기는 게 가장 두려워서 새로운 사람을 만나는 것으로 그 불안을 채우는 타입이다. 그 사실을 스스로는 아직 정확히 알지 못한다. 사무실에서는 유독 눈치가 빠르고 분위기를 잘 읽어 상황에 따라 얼마든지 진지해질 수 있는 여자라는 인상을 준다.</li>
+<li>감정 표현: 기쁠 때는 눈이 먼저 웃고 상대 팔을 가볍게 건드리는 버릇이 있다. 불안하면 더 활발하게 굴며 화제를 바꾸려 한다. 화가 나면 표정은 그대로지만 상대 이름을 부르는 것을 멈춘다. 좋아하는 사람 앞에서는 평소 여지 주는 방식이 맞지 않는다는 걸 느끼면서 오히려 조심스러워지고, 입을 열기 전에 한 박자 늦어진다.</li>
+<li>약점: 여러 사람에게 동시에 호감을 사는 능력 덕분에 정작 한 사람에게 진지해져야 할 때 그 방법을 모른다. 가볍게 시작하는 게 본능이라 무게가 생기는 순간 일단 가볍게 넘기고, 나중에 혼자 오래 곱씹는다. 자신이 여지를 줘서 생긴 관심인지 자기 자신에 대한 관심인지 구분이 안 되는 상황에 익숙해진 탓에, 용식처럼 반응이 없는 사람 앞에서 뭘 해야 하는지 모른다.</li>
+<li>욕망: 생활 욕망은 어디서든 자기 자리가 있는 사람이 되고 싶다는 것. 관계 욕망은 자신이 여지를 줘서가 아니라 그냥 자기라서 좋아해 주는 사람 하나를 갖고 싶다는 것.</li>
+<li>용식 앞 반응: 다른 남자들에게는 자연스럽게 분위기를 만들고 여지를 주는 방식이 습관처럼 통하지만, 용식 앞에서는 그 패턴이 잘 흘러가지 않는다. 가볍게 던진 말이 농담으로 넘어가지 않거나, 용식이 단답이나 침묵으로 받아치면 오히려 다음 말을 생각하게 된다. 소개팅 이야기를 꺼내 용식의 반응을 보려다 오히려 자기가 더 신경 쓰이는 상황이 반복된다.</li>
+<li>용식 호칭 (초기): 오빠</li>
+<li>좋아하는 것:</li>
+</ul>
+<p>  - 소개팅 전날 밤 설레는 기분. 설레는 게 목적이지 그 사람이 목적이 아니라는 걸 본인은 모른다.</p>
+<p>  - 분위기 있는 바나 레스토랑. 특히 다른 테이블에서 자신을 볼 것 같은 자리.</p>
+<p>  - 누군가 자기 이름을 예쁘게 불러줄 때.</p>
+<p>  - 회사 탕비실에서 혼자 잠깐 멍 때리는 시간. 의외로 그 시간을 가장 솔직하게 보낸다.</p>
+<p>  - 주말 오전의 느린 준비 루틴.</p>
+<ul>
+<li>싫어하는 것:</li>
+</ul>
+<p>  - 관계가 지루해지는 것. 그래서 소개팅·미팅을 끊지 못한다.</p>
+<p>  - 자신을 가볍다고 판단하는 것.</p>
+<p>  - 진지하게 좋아하는 감정이 생겼을 때 그 무게를 들키는 것.</p>
+<p>  - 직장에서 사적인 감정이 새어 나오는 순간.</p>
+<ul>
+<li>단편 활용 포인트: 용식의 직장 동료로 시작한다. 세라는 여러 남자에게 여지를 주는 타입이지만 용식에게 평소 방식이 잘 통하지 않는다는 것을 느끼면서 오히려 더 오래 신경 쓰인다. 소개팅 이야기를 자연스럽게 꺼내며 용식의 반응을 보는 것이 진입 방식이다.</li>
+</ul>
+
+<h3>외형</h3>
+
+<ul>
+<li>체형: 키 166~169cm 정도의 늘씬한 체형. 전체적으로 마른 편이지만 지나치게 왜소하지는 않다. 어깨선은 좁고 부드러우며 목선이 길어 상체가 가녀려 보인다. 허리는 잘록하고 골반과 힙 라인이 적당히 살아 있어 옷을 입었을 때 자연스러운 곡선이 드러난다. 다리가 길고 비율이 좋아 평범한 사무실 복장만 입어도 눈에 띄는 편이다. 움직임은 크지 않고 차분하며, 앉거나 서 있을 때도 자세가 비교적 곧아 깔끔한 인상을 준다.</li>
+<li>얼굴: 얼굴 작고 갸름한 계란형. 턱끝은 뾰족하지 않고 부드럽게 모아지는 형태라 여성스러운 인상이 강하다. 피부는 유난히 하얗고 깨끗하며 잡티나 붉은 기가 거의 없어 항상 정돈된 느낌을 준다. 눈은 크기보다는 가로로 길게 뻗은 타입으로, 살짝 처진 듯한 눈꼬리 때문에 부드럽고 나른한 분위기가 난다. 쌍꺼풀은 진하지 않고 자연스럽게 자리 잡아 과하게 화려하지 않으면서도 시선을 끈다. 눈동자는 짙은 갈색이라 빛을 받으면 은은하게 반짝인다. 코는 곧고 매끈한 라인으로 얼굴 중심을 잡아 주며, 입술은 적당히 도톰하고 입꼬리가 살짝 올라가 있어 무표정일 때도 어딘가 미소를 머금은 것처럼 보인다.</li>
+<li>헤어: 밝은 초콜릿 브라운 계열의 긴 머리. 조명 아래에서는 꿀빛이 살짝 도는 따뜻한 갈색으로 보인다. 길이는 가슴 아래까지 내려오며 모발이 가늘고 결이 좋아 부드럽게 흘러내린다. 앞머리는 없는 편이며 자연스럽게 옆으로 넘겨 얼굴선을 드러낸다. 끝부분에는 굵은 C컬이 들어가 있어 단정하면서도 여성스러운 느낌을 준다. 평소에 머리를 한쪽으로 넘기거나 손가락으로 머리카락을 정리하는 습관이 있어 은근히 시선을 끈다.</li>
+<li>분위기: 첫인상은 단정하고 친절한 회사원. 하지만 조금만 대화를 나누면 특유의 나른한 눈빛과 부드러운 미소 때문에 묘하게 사람을 편하게 만드는 매력이 드러난다. 상대방의 눈을 잘 바라보고 리액션도 좋은 편이라 자신도 모르게 호감을 갖게 만드는 타입이다. 목소리는 높지 않고 적당히 부드러우며 말할 때 상대의 이름을 자주 불러 친근감을 준다. 전체적으로 청순한 인상과 은근한 섹시함이 공존하는 분위기이며 특별히 꾸미지 않아도 주변 사람들의 시선을 자연스럽게 모으는 스타일이다.</li>
+</ul>
+
+<h3>서사 기능</h3>
+
+<ul>
+<li>담당 생활권: 회사 (탕비실, 점심 줄, 야근 후 사무실, 회의실, 업무 메신저)</li>
+<li>담당 압력: 소개팅·미팅 이야기를 자연스럽게 꺼내며 용식의 반응을 보는 것 / 평소 여지 주는 방식이 용식에게 통하지 않는다는 걸 느끼는 순간</li>
+<li>장면 트리거: 탕비실 마주침, 야근 후 둘만 남음, 소개팅 이야기, 점심 줄 우연, 회사 밖 우연한 만남, 업무 메신저 대화</li>
+<li>금지 패턴: 세라를 단순한 팜므파탈이나 자극적 캐릭터로만 쓰지 않는다. 여러 남자에게 여지를 주는 것이 지루함에 대한 방어기제라는 내면을 반드시 장면에서 드러내야 한다.</li>
+<li>장면 키워드: 탕비실 나른한 오후 / 점심 줄 대화 / 소개팅 이야기를 꺼내는 순간 / 야근 후 텅 빈 사무실 / 사무실 복도 / 비상계단 / 엘리베이터 단둘</li>
+</ul>
+
+<hr>
+
+<h2>[주변인]</h2>
+
+<ul>
+<li>권지수 (같은 회사 다른 팀 친구): 세라와 가장 친한 직장 동료. 세라가 소개팅 후 돌아와 용식 이야기를 꺼낼 때 제일 먼저 눈치채는 사람.</li>
+<li>오선민 (소개팅 코디): 세라의 소개팅을 계속 연결해 주는 지인. 세라가 만남을 끊지 못하는 이유를 본인보다 잘 알고 있다.</li>
+</ul>
+
+<hr>
+
+<h2>[관계]</h2>
+
+<ul>
+<li>기본 관계: 같은 회사 다른 팀 직장 동료. 업무상 접점이 자주 생긴다.</li>
+<li>시작 감정: 세라는 처음에 용식에게도 다른 남자들처럼 자연스럽게 여지를 줬지만, 용식이 그 패턴에 이상하게 넘어가지 않는다는 걸 느끼면서 마음이 기울기 시작했다.</li>
+<li>단편 트리거: 탕비실 마주침, 소개팅 이야기 꺼내기, 야근 후 단둘이 남는 상황, 점심 줄 우연, 회사 밖 만남.</li>
+<li>용식과의 핵심 질문: 여러 남자에게 자연스럽게 여지를 주는 세라가, 용식에게만 그 방식이 통하지 않는다는 것을 알면서 다른 방법을 찾고 있는가?</li>
+</ul>
+
+<hr>
+
+<h2>[가변]</h2>
+
+<ul>
+<li>현재 구분: <strong>독립 단편 히로인</strong></li>
+<li>직업: 회사 다른 팀 직원</li>
+</ul>
+
+
+<ul>
+<li>연애상태: 세라가 용식을 짝사랑 중. 단편 안에서 소개팅 이야기가 사적인 확인으로 바뀌는 순간, 성인씬 컨텍스트, 열린 여운 중 하나로 닫을 수 있다.</li>
+<li>남자친구: <strong>없음</strong> — 소개팅과 미팅을 즐기지만 사귄 사람은 없다.</li>
+<li>현재 상태: 소개팅과 미팅을 계속 다니면서도 돌아오는 길에 용식 생각이 나는 것을 인정하지 않고 있다.</li>
+<li>김용식 호칭: 오빠</li>
+<li>김용식이 부르는 호칭: 세라 씨</li>
+<li>멤버 간 호칭: 이주희 → <code>주희 씨</code> / 박소연 → <code>소연 씨</code> / 이주은 → <code>주은 씨</code></li>
+<li>보유 소품/기록물: 소개팅 준비 파우치, 미팅 일정 메모, 회사 탕비실 즐겨 쓰는 머그컵</li>
+</ul>
+
+<h3>감정 수치</h3>
+
+<ul>
+<li>호감도: 70/100</li>
+<li>신뢰도: 55/100</li>
+<li>질투심: 45/100</li>
+<li>독점욕: 52/100</li>
+<li>의존도: 30/100</li>
+</ul>
+
+<ul>
+<li>최근 변화: ep.124 — 탕비실 선반에 머그컵을 두고 온 채 복도에 나와 있었다. 주희가 에너지바를 들고 탕비실에 있었다. 용식이 들어왔다. 머그컵을 집지 않은 채 비상계단 방향으로 먼저 걸어갔다</li>
+<li>다음 압력: 비상계단 안에서 머그컵을 손잡이 위에 올려두지 않았다 — 다음 야근 후 탕비실 선반에 머그컵이 남아 있는지</li>
+</ul>
+
+<hr>
+
+<h2>[성인씬 기록]</h2>
+
+<ul>
+<li>총 성인씬: 12회</li>
+<li>남자친구: <strong>없음</strong></li>
+<li>ep.005: 회사 비상계단 야간 — 탕비실 머그컵을 창틀에 두고 계단으로 들어간 뒤 눈높이가 같아진 순간</li>
+<li>ep.017: 비상계단 — 이주희와 함께. 탕비실에서 먼저 나와 계단에 들어가 기다렸고 머그컵을 손잡이 위에 올려둔 채 두고 왔다</li>
+<li>ep.026: 비상계단 — 이주희와 함께. 야근 탕비실에서 셋이 마주쳤고 먼저 탕비실을 나와 비상계단 방향으로 틀었다. 머그컵을 손잡이 위에 올려두지 않았다</li>
+<li>ep.036: 야근 후 비상계단 중간 층 계단참 — 머그컵이 창틀 위에 놓여 있었고 손가락이 손잡이 옆에 닿아 있었다</li>
+<li>ep.048: 비상계단 — 업무 수정 요청 직후. 머그컵을 탕비실 선반에 두고 나온 채 계단으로 들어갔다</li>
+<li>ep.060: 비상계단 — 명분 없이 먼저 부른 뒤. 머그컵도 없이 계단 문을 열었다</li>
+<li>ep.076: 비상계단 — 야근 중 탕비실 입구에 나타났다. 탕비실 종이컵 두 개를 미리 두고 비상계단 방향을 먼저 봤고 용식이 뒤따랐다</li>
+<li>ep.090: 야근 후 1층 로비 → 프론트데스크 안쪽 — 박소연과 함께. 엘리베이터에서 내렸을 때 마감 중인 소연과 마주쳤다. 빈 손으로 멈췄고 용식이 계단 쪽에서 나왔다</li>
+<li>ep.095: 야근 후 비상계단 — 이주은과 함께. 야근 후 빈 손으로 복도로 나왔다가 이주은과 복도 중간에서 마주쳤다. 용식이 엘리베이터 쪽에서 나왔다. 셋이 복도에 남았고 비상계단 방향으로 들어갔다</li>
+<li>ep.111: 야근 후 탕비실 — 머그컵을 들고 탕비실에 먼저 나타났다. 종이컵 두 개를 선반에 미리 올려두고 기다렸다. 용식이 들어왔고 탕비실 문이 닫혔다</li>
+<li>ep.124 (1): 야근 후 탕비실 / 이주희와 함께 — 탕비실 선반에 두고 온 머그컵을 가지러 들어갔다. 주희가 에너지바를 들고 이미 탕비실 안에 있었다. 용식이 들어왔다. 머그컵을 집지 않았다</li>
+<li>ep.124 (2): 야근 후 비상계단 / 이주희와 함께 — 탕비실에서 나와 비상계단 방향으로 먼저 걸어갔다. 용식이 뒤따랐고 주희도 따라왔다. 비상계단 안에서 머그컵을 손잡이 위에 올려두지 않았다</li>
+<li>운영 메모: 성인씬은 직접 묘사하지 않고 <code>setting/성인씬작성규칙.md</code>에 따른 컨텍스트 구역으로만 기록한다. 세라는 야근, 탕비실, 비상계단, 회의실, 점심 시간, 외근과 결합할 때 사용한다.</li>
+</ul>
+
+  </div>
+  <div id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="">
+  </div>
+  <script>
+    function openLightbox(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').classList.add('open');
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  (function() {
+    var imgs = ["../../images/characters/%EC%9E%84%EC%84%B8%EB%9D%BC/ChatGPT%20Image%202026%EB%85%84%206%EC%9B%94%2024%EC%9D%BC%20%EC%98%A4%EC%A0%84%2008_43_06.png"];
+    for (var i = imgs.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = imgs[i]; imgs[i] = imgs[j]; imgs[j] = t;
+    }
+    var track  = document.getElementById('portraitTrack');
+    var dotsEl = document.getElementById('portraitDots');
+    imgs.forEach(function(src, idx) {
+      var slide = document.createElement('div');
+      slide.className = 'pager-slide';
+      var img = document.createElement('img');
+      img.src = src; img.alt = '임세라';
+      img.addEventListener('click', function() { openLightbox(src); });
+      slide.appendChild(img); track.appendChild(slide);
+
+      var dot = document.createElement('span');
+      dot.className = 'dot' + (idx === 0 ? ' active' : '');
+      (function(capturedIdx) {
+        dot.addEventListener('click', function() {
+          track.scrollTo({ left: capturedIdx * track.offsetWidth, behavior: 'smooth' });
+        });
+      })(idx);
+      dotsEl.appendChild(dot);
+    });
+    track.addEventListener('scroll', function() {
+      var idx = Math.round(track.scrollLeft / track.offsetWidth);
+      dotsEl.querySelectorAll('.dot').forEach(function(d, i) {
+        d.classList.toggle('active', i === idx);
+      });
+    });
+  })();
+  </script>
+</body>
+</html>
