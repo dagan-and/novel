@@ -53,23 +53,6 @@ CSS = """
     .speaker-text {
       flex: 1 1 auto;
     }
-    .message-line {
-      margin: 1rem 0;
-      padding: 0.72rem 0.9rem;
-      background: #222220;
-      border: 1px solid #38352f;
-      border-left: 4px solid #6a9e98;
-      border-radius: 6px;
-      color: #b2bdb8;
-      font-size: 1.02rem;
-      line-height: 1.8;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
-    }
-    .message-sender {
-      font-weight: 700;
-      color: #7bbab3;
-      margin-right: 0.35rem;
-    }
     .time {
       font-weight: bold;
       color: #b88a52;
@@ -339,14 +322,6 @@ def build_speaker_line(name, content, male_speakers, female_speakers):
     )
 
 
-def build_message_line(sender, content):
-    return (
-        '<p class="message-line">'
-        f'<span class="message-sender">[{escape(sender)}]</span>'
-        f'{escape(content)}'
-        '</p>'
-    )
-
 def convert_body(text, male_speakers, female_speakers):
     # <time> 태그
     text = re.sub(r'<time>([\s\S]*?)</time>', lambda m: f'<div class="time">{m.group(1).strip()}</div>', text)
@@ -372,10 +347,7 @@ def convert_body(text, male_speakers, female_speakers):
             if speaker_match:
                 name = speaker_match.group(1).strip()
                 content = speaker_match.group(2).strip()
-                if content.startswith('"'):
-                    result.append(build_speaker_line(name, content, male_speakers, female_speakers))
-                else:
-                    result.append(build_message_line(name, content))
+                result.append(build_speaker_line(name, content, male_speakers, female_speakers))
             else:
                 result.append(f'<p>{escape(stripped)}</p>')
     return '\n'.join(result)
