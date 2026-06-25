@@ -6,6 +6,7 @@ game-state.json + events.json + tech-tree.json → chronicle.html
 
 import argparse
 import json
+import re
 import subprocess
 import webbrowser
 from pathlib import Path
@@ -58,14 +59,14 @@ def event_type_color(t):
 def build_relationships(state):
     rels = state.get("key_relationships", [])
     if not rels:
-        return "<p style='color:#4A5568;font-size:12px'>없음</p>"
+        return "<p style='color:#7A8898;font-size:12px'>없음</p>"
     items = []
     for r in rels:
         items.append(f"""
         <div style="padding:8px 10px;background:#1C2535;border-radius:4px;margin-bottom:6px">
           <div style="font-weight:700;color:#EDE5CF;font-size:13px">{escape(r.get('name',''))}</div>
-          <div style="color:#7A6530;font-size:11px">{escape(r.get('role',''))}</div>
-          <div style="color:#8A9BA8;font-size:12px;margin-top:2px">{escape(r.get('status',''))}</div>
+          <div style="color:#C09840;font-size:11px">{escape(r.get('role',''))}</div>
+          <div style="color:#A8BAC8;font-size:12px;margin-top:2px">{escape(r.get('status',''))}</div>
         </div>""")
     return "".join(items)
 
@@ -73,15 +74,15 @@ def build_relationships(state):
 def build_military(state):
     mil = state.get("military", [])
     if not mil:
-        return "<p style='color:#4A5568;font-size:12px'>없음</p>"
+        return "<p style='color:#7A8898;font-size:12px'>없음</p>"
     items = []
     for m in mil:
         items.append(f"""
         <div style="padding:8px 10px;background:#1C2535;border-radius:4px;margin-bottom:6px;border-left:3px solid #8A4E4E">
           <div style="font-weight:700;color:#EDE5CF;font-size:13px">{escape(m.get('name',''))}</div>
           <div style="color:#C8A84B;font-size:12px;margin-top:2px">{m.get('size', 0)}명 · {escape(m.get('status',''))}</div>
-          <div style="color:#8A9BA8;font-size:11px;margin-top:2px">{escape(m.get('equipment',''))}</div>
-          <div style="color:#7A6530;font-size:11px;margin-top:1px">지휘: {escape(m.get('commander',''))}</div>
+          <div style="color:#A8BAC8;font-size:11px;margin-top:2px">{escape(m.get('equipment',''))}</div>
+          <div style="color:#C09840;font-size:11px;margin-top:1px">지휘: {escape(m.get('commander',''))}</div>
         </div>""")
     return "".join(items)
 
@@ -89,7 +90,7 @@ def build_military(state):
 def build_threats(state):
     threats = state.get("threats", [])
     if not threats:
-        return "<p style='color:#4A5568;font-size:12px'>없음</p>"
+        return "<p style='color:#7A8898;font-size:12px'>없음</p>"
     level_color = {"위험": "#8A4E4E", "경계": "#C8A84B", "안전": "#4E8A65"}
     items = []
     for t in threats:
@@ -100,7 +101,7 @@ def build_threats(state):
             <span style="font-weight:700;color:#EDE5CF;font-size:13px">{escape(t.get('name',''))}</span>
             <span style="font-size:10px;color:{color};font-weight:700;letter-spacing:.05em">{escape(t.get('level',''))}</span>
           </div>
-          <div style="color:#8A9BA8;font-size:11px;margin-top:3px">{escape(t.get('reason',''))}</div>
+          <div style="color:#A8BAC8;font-size:11px;margin-top:3px">{escape(t.get('reason',''))}</div>
         </div>""")
     return "".join(items)
 
@@ -108,12 +109,12 @@ def build_threats(state):
 def build_assets(state):
     assets = state.get("assets", [])
     if not assets:
-        return "<p style='color:#4A5568;font-size:12px'>없음</p>"
+        return "<p style='color:#7A8898;font-size:12px'>없음</p>"
     items = []
     for a in assets:
         items.append(f"""
         <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #2A3448;font-size:12px">
-          <span style="color:#8A9BA8">{escape(a.get('name',''))}</span>
+          <span style="color:#A8BAC8">{escape(a.get('name',''))}</span>
           <span style="color:#EDE5CF;font-weight:600">{a.get('count','')}척 · {escape(a.get('status',''))}</span>
         </div>""")
     return "".join(items)
@@ -125,13 +126,13 @@ def build_tech_item(t):
     spread = t.get("spread_rate", 0)
     yr = t.get("introduced_year")
     effect = t.get("effect", "")
-    label_color = {"done": "#EDE5CF", "active": "#C8A84B", "available": "#8A9BA8", "locked": "#3A4558"}.get(status, "#3A4558")
+    label_color = {"done": "#EDE5CF", "active": "#C8A84B", "available": "#B0C4D4", "locked": "#6A7A8A"}.get(status, "#6A7A8A")
     spread_bar = ""
     if status in ("done", "active") and spread > 0:
         bar_color = "#4E8A65" if status == "done" else "#C8A84B"
         spread_bar = f'<div style="height:2px;background:#2A3448;border-radius:1px;margin-top:4px"><div style="height:2px;background:{bar_color};width:{spread}%;border-radius:1px"></div></div>'
-    yr_text = f" <span style='color:#4A5568;font-size:10px'>AD {yr}</span>" if yr else ""
-    effect_text = f'<div style="color:#4A5568;font-size:10px;padding-left:16px">{escape(effect)}</div>' if effect and status != "locked" else ""
+    yr_text = f" <span style='color:#7A8898;font-size:10px'>AD {yr}</span>" if yr else ""
+    effect_text = f'<div style="color:#7A8898;font-size:10px;padding-left:16px">{escape(effect)}</div>' if effect and status != "locked" else ""
     return f"""
     <div style="padding:6px 0;border-bottom:1px solid #1C2535">
       <div style="display:flex;align-items:center">
@@ -194,10 +195,77 @@ def build_tech_rows(techs):
 
     rows = []
     for cat, items in categories.items():
-        rows.append(f'<div style="color:#7A6530;font-size:10px;letter-spacing:.15em;text-transform:uppercase;margin:10px 0 4px">{escape(cat)}</div>')
+        rows.append(f'<div style="color:#C09840;font-size:10px;letter-spacing:.15em;text-transform:uppercase;margin:10px 0 4px">{escape(cat)}</div>')
         for t in items:
             rows.append(build_tech_item(t))
     return "".join(rows)
+
+
+def parse_equipment_list(eq_str):
+    """'A 12 + B 34정 + C' 형식 문자열을 [(이름, 수량|None)] 목록으로 변환."""
+    result = []
+    for part in eq_str.split("+"):
+        part = part.strip()
+        if not part:
+            continue
+        m = re.search(r"(\d[\d,]*)\s*([정기척개명]?)$", part)
+        if m:
+            count = int(m.group(1).replace(",", ""))
+            name = part[: m.start()].strip()
+            result.append((name, count))
+        else:
+            result.append((part, None))
+    return result
+
+
+def build_stockpile(state):
+    mil = state.get("military", [])
+    assets = state.get("assets", [])
+
+    # 병기: 수량이 있는 항목만
+    eq_with = []
+    eq_misc = []
+    for unit in mil:
+        for name, count in parse_equipment_list(unit.get("equipment", "")):
+            if count is not None:
+                eq_with.append((name, count))
+            else:
+                eq_misc.append(name)
+
+    eq_rows = "".join(
+        f'<div style="display:flex;justify-content:space-between;align-items:baseline;'
+        f'padding:7px 0;border-bottom:1px solid #1C2535">'
+        f'<span style="color:#C8D8E8;font-size:13px">{escape(n)}</span>'
+        f'<span style="color:#EDE5CF;font-weight:700;font-size:14px">{c:,}</span></div>'
+        for n, c in eq_with
+    )
+    if eq_misc:
+        eq_rows += (
+            f'<div style="padding:7px 0;font-size:11px;color:#8A9AB0;font-style:italic">'
+            f'기타: {escape(" · ".join(eq_misc))}</div>'
+        )
+
+    # 원자재 비축 (assets 중 숫자가 큰 물자류)
+    MATERIAL_KEYWORDS = ["비축", "원석", "광석", "석탄", "철광", "탄층"]
+    mat_assets = [a for a in assets if any(k in a.get("name", "") for k in MATERIAL_KEYWORDS)]
+    mat_rows = "".join(
+        f'<div style="display:flex;justify-content:space-between;align-items:baseline;'
+        f'padding:7px 0;border-bottom:1px solid #1C2535">'
+        f'<span style="color:#C8D8E8;font-size:13px">{escape(a.get("name",""))}</span>'
+        f'<span style="color:#C8A84B;font-weight:700;font-size:14px">{a.get("count",0):,}</span></div>'
+        for a in mat_assets
+    )
+
+    no_item = "<p style='color:#8A9AB0;font-size:12px;padding:8px 0'>없음</p>"
+    return f"""
+<div style="margin-bottom:20px">
+  <div style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#C09840;margin-bottom:8px;padding-bottom:4px;border-bottom:1px solid #2A3448">⚔ 병기 현황</div>
+  {eq_rows or no_item}
+</div>
+<div>
+  <div style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#C09840;margin-bottom:8px;padding-bottom:4px;border-bottom:1px solid #2A3448">🪨 원자재 비축</div>
+  {mat_rows or no_item}
+</div>"""
 
 
 def nl2br(text):
@@ -206,7 +274,7 @@ def nl2br(text):
 
 def build_events(events):
     if not events:
-        return "<p style='color:#4A5568'>기록 없음</p>"
+        return "<p style='color:#7A8898'>기록 없음</p>"
 
     reversed_events = list(reversed(events))
     items = []
@@ -225,10 +293,10 @@ def build_events(events):
         etype = e.get("type", "")
         type_color = event_type_color(etype)
 
-        narrative_html = f'<p style="color:#8A9BA8;font-size:13px;line-height:1.8">{nl2br(narrative)}</p>' if narrative else ""
+        narrative_html = f'<p style="color:#A8BAC8;font-size:13px;line-height:1.8">{nl2br(narrative)}</p>' if narrative else ""
 
         world_html = (
-            f'<div style="margin-top:10px;padding:7px 10px;background:#0D1117;border-left:2px solid #4A5568;font-size:12px;color:#6A7A8A;font-style:italic">'
+            f'<div style="margin-top:10px;padding:7px 10px;background:#0D1117;border-left:2px solid #4A5568;font-size:12px;color:#8A9AB0;font-style:italic">'
             f'🌍 {escape(world)}</div>'
         ) if world else ""
 
@@ -263,12 +331,12 @@ def build_current_card(state):
     situation = escape(state.get("current_situation", ""))
     world = escape(state.get("world_summary", ""))
     sit_html = f'<div style="margin-top:10px;padding:8px 10px;background:#1C2535;border-left:2px solid #8A4E4E;font-size:12px;color:#EDE5CF">⚠ {situation}</div>' if situation else ""
-    world_html = f'<div style="margin-top:8px;padding:8px 10px;background:#1C2535;border-left:2px solid #4A5568;font-size:12px;color:#6A7A8A;font-style:italic">🌍 {world}</div>' if world else ""
+    world_html = f'<div style="margin-top:8px;padding:8px 10px;background:#1C2535;border-left:2px solid #4A5568;font-size:12px;color:#8A9AB0;font-style:italic">🌍 {world}</div>' if world else ""
     return f"""
     <div style="background:#141B26;border:1px solid #7A6530;border-radius:4px;padding:16px 20px;margin-bottom:32px">
       <div style="font-size:10px;letter-spacing:.2em;color:#C8A84B;text-transform:uppercase;margin-bottom:8px">현재</div>
       <div style="font-size:36px;font-weight:700;color:#EDE5CF;line-height:1;font-variant-numeric:tabular-nums">{era} {yr}</div>
-      <div style="color:#8A9BA8;font-size:12px;margin-top:4px">{escape(state.get('identity',{}).get('location',''))}</div>
+      <div style="color:#A8BAC8;font-size:12px;margin-top:4px">{escape(state.get('identity',{}).get('location',''))}</div>
       {sit_html}
       {world_html}
     </div>"""
@@ -312,7 +380,7 @@ def build_territory_map(state):
         f"""
         <div style="padding:8px 10px;background:#1C2535;border-radius:4px">
           <div style="font-size:11px;color:#C8A84B;font-weight:700;margin-bottom:2px">{escape(title)}</div>
-          <div style="font-size:12px;color:#8A9BA8">{escape(body)}</div>
+          <div style="font-size:12px;color:#A8BAC8">{escape(body)}</div>
         </div>"""
         for title, body in legend
     )
@@ -323,7 +391,7 @@ def build_territory_map(state):
           <div style="font-size:10px;letter-spacing:.2em;color:#C8A84B;text-transform:uppercase;margin-bottom:6px">현재 판도</div>
           <div style="font-size:14px;color:#EDE5CF;font-weight:700">{location}</div>
         </div>
-        <div style="font-size:12px;color:#8A9BA8">통제 영토 {controlled}권 기준 개략도</div>
+        <div style="font-size:12px;color:#A8BAC8">통제 영토 {controlled}권 기준 개략도</div>
       </div>
       <pre style="white-space:pre;overflow:auto;background:#0D1117;border:1px solid #2A3448;border-radius:4px;padding:14px 16px;color:#EDE5CF;font-size:12px;line-height:1.55;margin-bottom:12px">{escape(chr(10).join(lines))}</pre>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px">
@@ -348,7 +416,7 @@ def generate(state, events, techs):
 
     identity_rows = "".join(
         f'<div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #2A3448;font-size:13px">'
-        f'<span style="color:#8A9BA8">{k}</span>'
+        f'<span style="color:#A8BAC8">{k}</span>'
         f'<span style="font-weight:600;color:#EDE5CF">{v}</span></div>'
         for k, v in [("이름", name), ("신분", role), ("위치", location), ("겉나이", f"{apparent_age}세")]
     )
@@ -363,26 +431,34 @@ def generate(state, events, techs):
 *{{box-sizing:border-box;margin:0;padding:0}}
 body{{background:#0D1117;color:#EDE5CF;font-family:"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;font-size:14px;line-height:1.7;min-height:100vh}}
 a{{color:#C8A84B}}
+/* 메인 탭 */
 .tab-btn{{
-  background:none;border:none;color:#8A9BA8;font-family:inherit;font-size:13px;
-  padding:10px 20px;cursor:pointer;border-bottom:2px solid transparent;
+  background:none;border:none;color:#A0B0C0;font-family:inherit;font-size:13px;
+  padding:11px 22px;cursor:pointer;border-bottom:2px solid transparent;
   letter-spacing:.05em;transition:color .15s;white-space:nowrap;
 }}
 .tab-btn:hover{{color:#EDE5CF}}
-.tab-btn.active{{color:#C8A84B;border-bottom-color:#C8A84B}}
+.tab-btn.active{{color:#C8A84B;border-bottom-color:#C8A84B;font-weight:600}}
 .tab-panel{{display:none;padding:28px 32px;max-width:900px}}
 .tab-panel.active{{display:block}}
-.section-label{{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#7A6530;margin-bottom:10px}}
-.card{{background:#141B26;border:1px solid #2A3448;border-radius:4px;padding:16px 20px;margin-bottom:20px}}
+/* 섹션 레이블 */
+.section-label{{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#C09840;margin-bottom:10px}}
+/* 카드 */
+.card{{background:#141B26;border:1px solid #2A3448;border-radius:6px;padding:18px 22px;margin-bottom:20px}}
+/* 서브 탭 */
 .sub-tab-btn{{
-  background:none;border:none;color:#6A7A8A;font-family:inherit;font-size:12px;
-  padding:7px 14px;cursor:pointer;border-bottom:2px solid transparent;
+  background:none;border:none;color:#8A9AB0;font-family:inherit;font-size:12px;
+  padding:8px 15px;cursor:pointer;border-bottom:2px solid transparent;
   letter-spacing:.04em;transition:color .12s;white-space:nowrap;
 }}
 .sub-tab-btn:hover{{color:#EDE5CF}}
-.sub-tab-btn.sub-active{{color:#C8A84B;border-bottom-color:#7A6530}}
+.sub-tab-btn.sub-active{{color:#C8A84B;border-bottom-color:#C09840;font-weight:600}}
 .sub-tab-panel{{display:none}}
-.sub-tab-panel.sub-active{{display:block}}
+.sub-tab-panel.sub-active{{display:block;padding-top:12px}}
+/* 공통 행 */
+.row{{display:flex;justify-content:space-between;align-items:baseline;padding:7px 0;border-bottom:1px solid #1E2A3A;font-size:13px}}
+.row-label{{color:#A8B8C8}}
+.row-value{{color:#EDE5CF;font-weight:600}}
 </style>
 </head>
 <body>
@@ -392,10 +468,10 @@ a{{color:#C8A84B}}
     <div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#C8A84B;margin-bottom:4px">불사자의 기록</div>
     <div style="display:flex;align-items:baseline;gap:12px">
       <span style="font-size:26px;font-weight:700;letter-spacing:.04em">{name}</span>
-      <span style="font-size:14px;color:#7A6530;letter-spacing:.1em">金煇</span>
+      <span style="font-size:14px;color:#C09840;letter-spacing:.1em">金煇</span>
     </div>
   </div>
-  <div style="margin-left:auto;text-align:right;color:#8A9BA8;font-size:12px;line-height:2">
+  <div style="margin-left:auto;text-align:right;color:#A8BAC8;font-size:12px;line-height:2">
     <div>목표 &nbsp;<strong style="color:#C8A84B">{goal}</strong></div>
     <div>시작 <strong style="color:#C8A84B">AD {start_year}년</strong> &nbsp;·&nbsp; 현재 <strong style="color:#C8A84B">AD {state.get('year',1)}년</strong></div>
     <div>총 턴 <strong style="color:#C8A84B">{turn}</strong> &nbsp;·&nbsp; 사망 <strong style="color:#C8A84B">{death_count}</strong>회</div>
@@ -424,10 +500,10 @@ a{{color:#C8A84B}}
   <div class="card">
     <div class="section-label">세력 현황</div>
     <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #2A3448;font-size:13px">
-      <span style="color:#8A9BA8">부족 영향력</span><span>{stars(influence)}</span>
+      <span style="color:#A8BAC8">부족 영향력</span><span>{stars(influence)}</span>
     </div>
     <div style="display:flex;justify-content:space-between;padding:8px 0;font-size:13px">
-      <span style="color:#8A9BA8">영향 인구</span><span style="font-weight:600">{population:,}명</span>
+      <span style="color:#A8BAC8">영향 인구</span><span style="font-weight:600">{population:,}명</span>
     </div>
   </div>
 </div>
@@ -445,7 +521,12 @@ a{{color:#C8A84B}}
   </div>
 
   <div class="card">
-    <div class="section-label">자산</div>
+    <div class="section-label">군수 비축량</div>
+    {build_stockpile(state)}
+  </div>
+
+  <div class="card">
+    <div class="section-label">기타 자산</div>
     {build_assets(state)}
   </div>
 </div>
@@ -461,10 +542,10 @@ a{{color:#C8A84B}}
 <!-- 탭 4: 기술 -->
 <div id="tab-기술" class="tab-panel">
   <div class="card">
-    <div style="font-size:11px;color:#4A5568;margin-bottom:12px">
+    <div style="font-size:11px;color:#7A8898;margin-bottom:12px">
       <span style="color:#4E8A65">●</span> 완료 &nbsp;
       <span style="color:#C8A84B">●</span> 진행 &nbsp;
-      <span style="color:#4A5568">●</span> 가능 &nbsp;
+      <span style="color:#7A8898">●</span> 가능 &nbsp;
       <span style="color:#2A3448">●</span> 잠김
     </div>
     {build_tech_tabs(techs)}
@@ -478,7 +559,7 @@ a{{color:#C8A84B}}
 
 <!-- 탭 6: 연대기 -->
 <div id="tab-연대기" class="tab-panel">
-  <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#7A6530;margin-bottom:16px;padding-bottom:6px;border-bottom:1px solid #2A3448">연대기 (최신순)</div>
+  <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#C09840;margin-bottom:16px;padding-bottom:6px;border-bottom:1px solid #2A3448">연대기 (최신순)</div>
   <div style="position:relative;padding-left:24px;border-left:1px solid #2A3448">
     {build_events(events)}
   </div>

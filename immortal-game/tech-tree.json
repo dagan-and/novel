@@ -94,7 +94,7 @@
     "category": "농업",
     "status": "active",
     "introduced_year": 17,
-    "spread_rate": 25,
+    "spread_rate": 31,
     "region": "영산강 유역",
     "effect": "토지 생산성 30% 향상"
   },
@@ -103,7 +103,7 @@
     "category": "농업",
     "status": "active",
     "introduced_year": 18,
-    "spread_rate": 30,
+    "spread_rate": 36,
     "region": "영산강 유역",
     "effect": "수확 안정성과 토양 회복력 향상"
   },
@@ -139,7 +139,7 @@
     "category": "군사",
     "status": "active",
     "introduced_year": 18,
-    "spread_rate": 80,
+    "spread_rate": 86,
     "region": "정규군·야철장",
     "effect": "강철창·방패·화살촉 규격 생산"
   },
@@ -184,7 +184,7 @@
     "category": "행정",
     "status": "active",
     "introduced_year": 17,
-    "spread_rate": 90,
+    "spread_rate": 96,
     "region": "전체",
     "effect": "부패·누락 감소, 군량 추적"
   },
@@ -193,7 +193,7 @@
     "category": "행정",
     "status": "active",
     "introduced_year": 21,
-    "spread_rate": 65,
+    "spread_rate": 71,
     "region": "복속지 전역",
     "effect": "행정·군수 인력 양성"
   },
@@ -247,7 +247,7 @@
     "category": "교역",
     "status": "active",
     "introduced_year": 22,
-    "spread_rate": 45,
+    "spread_rate": 57,
     "region": "목포 해안권",
     "effect": "어획·염장·건조 효율 상승"
   },
@@ -265,7 +265,7 @@
     "category": "교역",
     "status": "active",
     "introduced_year": 24,
-    "spread_rate": 90,
+    "spread_rate": 100,
     "region": "해안 창고·염장 거점",
     "effect": "해안 물류와 저장 체계 통합"
   },
@@ -301,7 +301,7 @@
     "category": "농업",
     "status": "active",
     "introduced_year": 26,
-    "spread_rate": 18,
+    "spread_rate": 24,
     "region": "영산강 평야",
     "effect": "깊이갈이·경지 확장·파종 속도 향상"
   },
@@ -373,7 +373,7 @@
     "category": "제조",
     "status": "active",
     "introduced_year": 28,
-    "spread_rate": 14,
+    "spread_rate": 26,
     "region": "야철장",
     "effect": "숯 보조 연료로 석탄을 혼합 사용해 장시간 고열 유지"
   },
@@ -382,7 +382,7 @@
     "category": "제조",
     "status": "active",
     "introduced_year": 28,
-    "spread_rate": 18,
+    "spread_rate": 24,
     "region": "화순 분지·상류 산지",
     "effect": "시굴 성공률 향상과 갱도 붕괴 위험 감소"
   },
@@ -409,7 +409,7 @@
     "category": "제조",
     "status": "active",
     "introduced_year": 29,
-    "spread_rate": 20,
+    "spread_rate": 32,
     "region": "화순 분지",
     "effect": "표층 탄층을 안정적으로 채굴해 연료·시편 공급 시작"
   },
@@ -418,7 +418,7 @@
     "category": "건설",
     "status": "active",
     "introduced_year": 29,
-    "spread_rate": 32,
+    "spread_rate": 38,
     "region": "영산 상류↔화순 전초기지",
     "effect": "광물·군량·병력의 상류 수송 속도 대폭 향상"
   },
@@ -427,7 +427,7 @@
     "category": "건설",
     "status": "active",
     "introduced_year": 29,
-    "spread_rate": 28,
+    "spread_rate": 34,
     "region": "상류 보급로",
     "effect": "화순 보급선 보호와 단계별 숙영·집산 체계 확보"
   },
@@ -445,7 +445,7 @@
     "category": "제조",
     "status": "active",
     "introduced_year": 29,
-    "spread_rate": 22,
+    "spread_rate": 34,
     "region": "야철장",
     "effect": "연료 효율과 용광 온도 안정성 향상"
   },
@@ -463,7 +463,7 @@
     "category": "제조",
     "status": "active",
     "introduced_year": 30,
-    "spread_rate": 28,
+    "spread_rate": 40,
     "region": "화순 분지",
     "effect": "얕은 갱도 다중화와 안정적 석탄 공급 확대"
   },
@@ -481,7 +481,7 @@
     "category": "군사",
     "status": "active",
     "introduced_year": 30,
-    "spread_rate": 35,
+    "spread_rate": 47,
     "region": "야철장·훈련소",
     "effect": "부품 교체식 정비와 대량 생산 효율 향상"
   },
@@ -490,7 +490,7 @@
     "category": "농업",
     "status": "active",
     "introduced_year": 30,
-    "spread_rate": 22,
+    "spread_rate": 28,
     "region": "영산강 평야",
     "effect": "종자 건조, 묘상 관리, 조기 파종으로 농업 안정성 향상"
   },
@@ -499,7 +499,7 @@
     "category": "교역",
     "status": "active",
     "introduced_year": 30,
-    "spread_rate": 26,
+    "spread_rate": 38,
     "region": "목포 해안권",
     "effect": "어획 저장 기간 연장과 해상 식량 손실 감소"
   },
@@ -517,7 +517,7 @@
     "category": "농업",
     "status": "active",
     "introduced_year": 31,
-    "spread_rate": 20,
+    "spread_rate": 26,
     "region": "영산강 평야·중심 촌락",
     "effect": "조기 육묘와 한랭기 보온으로 파종 안정성 향상"
   },
@@ -526,7 +526,7 @@
     "category": "건설",
     "status": "active",
     "introduced_year": 31,
-    "spread_rate": 28,
+    "spread_rate": 34,
     "region": "전체 창고권",
     "effect": "곡물·종자 저장 손실과 습기 피해 감소"
   },
@@ -544,7 +544,7 @@
     "category": "제조",
     "status": "active",
     "introduced_year": 31,
-    "spread_rate": 30,
+    "spread_rate": 36,
     "region": "야철장·건조동",
     "effect": "열원 안정성과 작업장 안전성 향상"
   },
@@ -580,7 +580,7 @@
     "category": "제조",
     "status": "active",
     "introduced_year": 32,
-    "spread_rate": 20,
+    "spread_rate": 32,
     "region": "야철장·화순",
     "effect": "더 단단한 병기·기병 장비 생산 기반 확보"
   },
@@ -634,7 +634,7 @@
     "category": "군사",
     "status": "active",
     "introduced_year": 34,
-    "spread_rate": 29,
+    "spread_rate": 34,
     "region": "기병대·마굿간",
     "effect": "장거리 이동에서 말 피로 분산과 지속 기동력 확보"
   },
@@ -643,7 +643,7 @@
     "category": "군사",
     "status": "active",
     "introduced_year": 34,
-    "spread_rate": 35,
+    "spread_rate": 40,
     "region": "정규군·기병대",
     "effect": "원정 속도·휴식·합류 지점의 표준화"
   },
@@ -652,7 +652,7 @@
     "category": "군사",
     "status": "active",
     "introduced_year": 34,
-    "spread_rate": 28,
+    "spread_rate": 34,
     "region": "야철장·기병대",
     "effect": "기병 장비 내구성과 원정 운용 안정성 향상"
   },
@@ -661,7 +661,7 @@
     "category": "군사/물류",
     "status": "active",
     "introduced_year": 35,
-    "spread_rate": 21,
+    "spread_rate": 38,
     "region": "영산강 상류·화순 보급로·남해 포구",
     "effect": "장거리 행군 중 말 교대, 보급, 마구 수리, 화살 보충 가능"
   },
@@ -670,7 +670,7 @@
     "category": "행정/군사",
     "status": "active",
     "introduced_year": 35,
-    "spread_rate": 23,
+    "spread_rate": 34,
     "region": "군정국 문관부·정규군",
     "effect": "수레 이동거리, 말 교대 지점, 창고 배치를 계산해 원정 계획 정확도 향상"
   },
@@ -679,7 +679,7 @@
     "category": "정치",
     "status": "active",
     "introduced_year": 35,
-    "spread_rate": 10,
+    "spread_rate": 15,
     "region": "군정국 핵심부",
     "effect": "금휘의 장기 생존을 숨기기 위한 후계자·친족 위장 기반 마련"
   },
@@ -688,7 +688,7 @@
     "category": "행정/기술",
     "status": "active",
     "introduced_year": 36,
-    "spread_rate": 14,
+    "spread_rate": 25,
     "region": "문관부·교육소·군정 창고",
     "effect": "대나무·나무판 장부 의존을 줄이고 명령서, 지도, 복속 문서의 복제 속도 향상"
   },
@@ -697,7 +697,7 @@
     "category": "경제/군사",
     "status": "active",
     "introduced_year": 36,
-    "spread_rate": 18,
+    "spread_rate": 29,
     "region": "영산강 평야·역참 보급소",
     "effect": "군마 생존율과 번식률 상승, 장거리 운용 안정성 향상"
   },
@@ -706,8 +706,269 @@
     "category": "정치/행정",
     "status": "active",
     "introduced_year": 36,
-    "spread_rate": 20,
+    "spread_rate": 25,
     "region": "목지국 접경 소국권",
     "effect": "복속 조건을 문서화하고 인질·혼인·창고 감사로 배신 비용 상승"
+  },
+  {
+    "name": "금윤 후계자 공개 체계",
+    "category": "정치/신분세탁",
+    "status": "active",
+    "introduced_year": 37,
+    "spread_rate": 18,
+    "region": "영산 본진·복속지 수장 회의",
+    "effect": "금휘의 병사와 재등장 전환을 위한 공식 후계 명분 확보"
+  },
+  {
+    "name": "역참 말 배치표·번식표 군율",
+    "category": "군사/물류",
+    "status": "active",
+    "introduced_year": 37,
+    "spread_rate": 34,
+    "region": "정규군·역참·마굿간",
+    "effect": "군마 교대, 번식, 사료 배급을 군율로 묶어 기동력 안정화"
+  },
+  {
+    "name": "초석 혼합 광산 발파 실험",
+    "category": "기술/위험",
+    "status": "experimental",
+    "introduced_year": 37,
+    "spread_rate": 4,
+    "region": "화순 비밀 갱도",
+    "effect": "갱도 암반 파쇄 가능성 확인. 폭발·화재·비밀 유출 위험 매우 큼"
+  },
+  {
+    "name": "화약 재료 분리 보관 규정",
+    "category": "안전/군사",
+    "status": "active",
+    "introduced_year": 37,
+    "spread_rate": 8,
+    "region": "화순 전초기지·야철장",
+    "effect": "초석·유황·숯 혼합 사고를 줄이기 위한 격리 보관과 작업 순서 표준화"
+  },
+  {
+    "name": "AD 50 북상전 군수 일정표",
+    "category": "전략/군수",
+    "status": "active",
+    "introduced_year": 38,
+    "spread_rate": 18,
+    "region": "문관부·군영·화순",
+    "effect": "AD 45 대량생산 전환, AD 50 공격 개시를 목표로 채굴·제련·수송·병력 확충 시점을 역산"
+  },
+  {
+    "name": "석탄·철 원재료 집적 체계",
+    "category": "제조/군수",
+    "status": "active",
+    "introduced_year": 38,
+    "spread_rate": 28,
+    "region": "화순 분지·야철장·상류 창고",
+    "effect": "대량생산 전환 전 석탄, 철광석, 숯, 목재, 가죽, 힘줄을 분리 축적"
+  },
+  {
+    "name": "광석 선별장·탄석 건조장",
+    "category": "제조",
+    "status": "active",
+    "introduced_year": 38,
+    "spread_rate": 26,
+    "region": "화순 전초기지·야철장",
+    "effect": "철 원재료 품질 편차와 석탄 습기 문제를 줄여 제련 성공률 향상"
+  },
+  {
+    "name": "해안 군량 수송 편제",
+    "category": "어업/물류",
+    "status": "active",
+    "introduced_year": 38,
+    "spread_rate": 24,
+    "region": "목포 항만·영산강 하구·남해 포구",
+    "effect": "어선과 항만 저장 체계를 전시 군량 수송으로 전환할 수 있게 준비"
+  },
+  {
+    "name": "병참 소모량 계산표",
+    "category": "행정/군사",
+    "status": "active",
+    "introduced_year": 38,
+    "spread_rate": 32,
+    "region": "정규군·역참·문관부",
+    "effect": "병사, 말, 수레, 쇠뇌병, 공병 단위별 하루 식량·마초·화살·부품 소모량 표준화"
+  },
+  {
+    "name": "야철장 장인·견습공 계층제",
+    "category": "제조/교육",
+    "status": "active",
+    "introduced_year": 39,
+    "spread_rate": 18,
+    "region": "야철장·교육소",
+    "effect": "숙련 장인, 중견공, 견습공을 나누어 AD 45 대량생산 인력 풀 형성"
+  },
+  {
+    "name": "AD 45 생산 인력 명부",
+    "category": "행정/군수",
+    "status": "active",
+    "introduced_year": 39,
+    "spread_rate": 22,
+    "region": "문관부·야철장·복속지",
+    "effect": "대량생산 전환 때 투입할 제철, 목공, 가죽, 힘줄, 수송 인력 추적"
+  },
+  {
+    "name": "군수 원가·재고 장부",
+    "category": "행정/군수",
+    "status": "active",
+    "introduced_year": 39,
+    "spread_rate": 28,
+    "region": "문관부·화순·야철장·항만",
+    "effect": "석탄, 철광석, 숯, 목재, 가죽, 힘줄, 곡물 흐름과 손실을 계산"
+  },
+  {
+    "name": "복속지 농업 확산령",
+    "category": "농업/행정",
+    "status": "active",
+    "introduced_year": 39,
+    "spread_rate": 26,
+    "region": "영산강 평야·석문·복속지",
+    "effect": "우경, 퇴비, 저장고 단열, 종자 건조를 복속지까지 강제 확산"
+  },
+  {
+    "name": "외래 용병·기술자 선별 고용 원칙",
+    "category": "외교/군사",
+    "status": "active",
+    "introduced_year": 39,
+    "spread_rate": 8,
+    "region": "낙랑 교역로·왜 교역 거점",
+    "effect": "대량 병사 구매 대신 소수 용병, 기술자, 도망민을 선별 흡수해 영산식 훈련으로 재편"
+  },
+  {
+    "name": "직업군인 가족 정착촌",
+    "category": "사회/군사",
+    "status": "active",
+    "introduced_year": 40,
+    "spread_rate": 16,
+    "region": "영산 본진·석문 접경·화순 보급선",
+    "effect": "장기 복무 병사의 가족 정착과 토지 배정으로 충성도와 숙련 유지 향상"
+  },
+  {
+    "name": "군수 원재료 증산령",
+    "category": "제조/군수",
+    "status": "active",
+    "introduced_year": 40,
+    "spread_rate": 18,
+    "region": "화순·야철장·복속지 수송망",
+    "effect": "석탄·철광석·숯·목재·가죽·힘줄 비축 목표를 AD 45 기준으로 상향"
+  },
+  {
+    "name": "항만 수송 정례 훈련",
+    "category": "어업/물류",
+    "status": "active",
+    "introduced_year": 40,
+    "spread_rate": 24,
+    "region": "목포 항만·영산강 하구·남해 포구",
+    "effect": "어선과 염장 창고를 전시 군량 수송으로 빠르게 전환하는 훈련 정례화"
+  },
+  {
+    "name": "대기마 장창·말뚝 방진 연구",
+    "category": "군사",
+    "status": "experimental",
+    "introduced_year": 40,
+    "spread_rate": 10,
+    "region": "정규군 훈련장·석문 접경",
+    "effect": "기마 돌격을 쇠뇌 사거리 전후에서 멈추게 하는 장창 방진, 휴대 말뚝, 도랑 운용 연구"
+  },
+  {
+    "name": "쇠마름·장애물 시험 제작",
+    "category": "군사/제조",
+    "status": "experimental",
+    "introduced_year": 40,
+    "spread_rate": 6,
+    "region": "야철장·접경 방어선",
+    "effect": "말 발굽과 돌격 대형을 흐트러뜨리는 철제 장애물. 생산 단가와 회수 문제가 있음"
+  },
+  {
+    "name": "연속급탄 발리스타",
+    "category": "군사/기계",
+    "status": "experimental",
+    "introduced_year": 41,
+    "spread_rate": 8,
+    "region": "야철장·정규군 공성대",
+    "effect": "체인·기어·캠 구조로 장전과 발사를 반복하는 중거리 연사 발리스타. 분당 6~10발 수준의 현실적 실험 단계"
+  },
+  {
+    "name": "타르 코팅 토션 다발",
+    "category": "군사/재료",
+    "status": "active",
+    "introduced_year": 41,
+    "spread_rate": 14,
+    "region": "공성 병기 공방·야전 포대",
+    "effect": "석탄 건류 타르로 힘줄 다발을 코팅해 습기와 장력 저하를 줄이는 전천후 토션 스프링"
+  },
+  {
+    "name": "가변 두께 투석기 팔",
+    "category": "군사/기계",
+    "status": "experimental",
+    "introduced_year": 41,
+    "spread_rate": 10,
+    "region": "야철장·공성 병기 공방",
+    "effect": "축 쪽은 두껍고 끝은 가볍게 깎아 회전 관성을 줄인 초장거리 투석기 팔 설계"
+  },
+  {
+    "name": "캠 윈치 장전기",
+    "category": "군사/기계",
+    "status": "experimental",
+    "introduced_year": 41,
+    "spread_rate": 8,
+    "region": "공성 병기 공방·정규군 공성대",
+    "effect": "장전 마지막 구간의 저항을 줄이는 가변 지름 윈치로 소수 인원 장전 속도 향상"
+  },
+  {
+    "name": "한강 연해 상륙·보급 계획",
+    "category": "전략/해군",
+    "status": "active",
+    "introduced_year": 41,
+    "spread_rate": 12,
+    "region": "목포 항만·서해 연안·한강 하구",
+    "effect": "목포에서 서해 연안을 따라 거점식으로 병력과 군량을 올려 한강 하구 상륙을 준비하는 계획"
+  },
+  {
+    "name": "기병 유도·측면 쇠뇌 교리",
+    "category": "군사/전술",
+    "status": "active",
+    "introduced_year": 41,
+    "spread_rate": 16,
+    "region": "정규군·기병대·쇠뇌대",
+    "effect": "장창·말뚝 전면 고정 후 가짜 후퇴와 측면 쇠뇌 사격으로 적 기마를 와해시키는 교리"
+  },
+  {
+    "name": "포대 각도표·사거리 표준표",
+    "category": "기하/군사",
+    "status": "active",
+    "introduced_year": 42,
+    "spread_rate": 20,
+    "region": "공성 병기대·정규군 훈련장",
+    "effect": "거리, 각도, 장력, 탄종을 표준화해 초탄 명중률과 포대 간 일관성을 높임"
+  },
+  {
+    "name": "연사 발리스타 정비 규정",
+    "category": "기계/군사",
+    "status": "active",
+    "introduced_year": 42,
+    "spread_rate": 18,
+    "region": "야철장·공성 병기 공방·포대",
+    "effect": "체인·기어·걸쇠 마모 점검과 교환 주기를 정해 연사 발리스타 고장률 감소"
+  },
+  {
+    "name": "초장거리 투석기 포대 교범",
+    "category": "군사/교범",
+    "status": "active",
+    "introduced_year": 42,
+    "spread_rate": 16,
+    "region": "공성 병기대·야전 포대",
+    "effect": "설치, 고정, 장전, 사격, 이탈 순서를 규격화해 초장거리 투석기 운용 시간을 단축"
+  },
+  {
+    "name": "공성 병기 전담병과",
+    "category": "사회/군사",
+    "status": "active",
+    "introduced_year": 42,
+    "spread_rate": 18,
+    "region": "직업군인 정착촌·정규군",
+    "effect": "발리스타·투석기 조준병, 장전병, 정비병, 운반병을 따로 길러 포대 숙련도 향상"
   }
 ]
