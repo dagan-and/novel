@@ -970,5 +970,95 @@
     "spread_rate": 18,
     "region": "직업군인 정착촌·정규군",
     "effect": "발리스타·투석기 조준병, 장전병, 정비병, 운반병을 따로 길러 포대 숙련도 향상"
+  },
+  {
+    "name": "공성 병기 최종 규격서",
+    "category": "군수/기계",
+    "status": "active",
+    "introduced_year": 43,
+    "spread_rate": 18,
+    "region": "야철장·공성 병기 공방·문관부",
+    "effect": "발리스타, 투석기, 부품, 탄종, 수송틀의 표준 치수와 허용 오차를 정해 AD 45 대량생산 준비"
+  },
+  {
+    "name": "포대-기병 합동 돌파 훈련",
+    "category": "군사/훈련",
+    "status": "active",
+    "introduced_year": 43,
+    "spread_rate": 16,
+    "region": "정규군 훈련장·석문 접경",
+    "effect": "포대가 적 대형을 무너뜨린 직후 기병이 안전하게 추격·마무리하는 합동 교리 정착"
+  },
+  {
+    "name": "이동식 방패벽·포대 엄폐물",
+    "category": "공병/군사",
+    "status": "active",
+    "introduced_year": 43,
+    "spread_rate": 14,
+    "region": "공병장·공성 병기대·야전 포대",
+    "effect": "적 화살과 관측으로부터 포대를 가리며 설치와 철수를 버틸 수 있는 이동식 엄폐 체계"
+  },
+  {
+    "name": "서해 연안 중간 거점망",
+    "category": "해군/전략",
+    "status": "active",
+    "introduced_year": 44,
+    "spread_rate": 16,
+    "region": "목포↔서해 연안↔한강 하구",
+    "effect": "한강 상륙 전 군량, 물, 예비 부품, 연락을 나눠 실을 수 있는 연안 거점식 보급망"
+  },
+  {
+    "name": "장거리 포대 기동 훈련",
+    "category": "군사/훈련",
+    "status": "active",
+    "introduced_year": 44,
+    "spread_rate": 18,
+    "region": "정규군·공성 병기대·기병 마무리대",
+    "effect": "먼 거리 이동 후 포대 설치, 사격, 기병 추격까지 한 흐름으로 잇는 합동 기동 훈련"
+  },
+  {
+    "name": "조립식 포대 바닥판·수레 고정 슬롯",
+    "category": "공병/군수",
+    "status": "active",
+    "introduced_year": 44,
+    "spread_rate": 14,
+    "region": "공병장·수레 제작소·공성 병기대",
+    "effect": "상륙 후 젖은 땅에서도 포대를 빨리 수평 고정하고, 수레에서 바로 재조립하는 기준 부품"
+  },
+  {
+    "name": "포대 사격 지휘 신호 체계",
+    "category": "통신/군사",
+    "status": "active",
+    "introduced_year": 44,
+    "spread_rate": 18,
+    "region": "포대·기병대·항만 수송대",
+    "effect": "신호기, 깃발, 북 소리를 묶어 사격 개시, 정지, 기병 투입, 후퇴를 거리별로 지휘"
+  },
+  {
+    "name": "공장식 작업 분업표·공정 시간표",
+    "category": "생산공학/군수",
+    "status": "active",
+    "introduced_year": 45,
+    "spread_rate": 20,
+    "region": "화순 군수 공정장·야철장·문관부",
+    "effect": "공정을 쪼개고 시간표를 붙여 병기와 부품 생산 흐름을 끊기지 않게 하는 공장식 운영"
+  },
+  {
+    "name": "표준 부품 상자·야전 수리 키트",
+    "category": "군수/정비",
+    "status": "active",
+    "introduced_year": 45,
+    "spread_rate": 18,
+    "region": "포대·쇠뇌대·수송대",
+    "effect": "현장에서 포대와 쇠뇌의 마모 부품을 빠르게 교체·정렬해 전투 지속력 향상"
+  },
+  {
+    "name": "AD 45 대량생산 전환",
+    "category": "군수/전략",
+    "status": "active",
+    "introduced_year": 45,
+    "spread_rate": 24,
+    "region": "화순·야철장·공성 병기 공방·항만",
+    "effect": "시제품 체제에서 양산 체제로 넘어가 발리스타, 투석기, 쇠뇌, 장창, 마구를 계획 수량대로 찍어내는 전환점"
   }
 ]
