@@ -10,11 +10,15 @@
   { "name": "고탄소 강철", "category": "제조", "status": "active", "introduced_year": 15, "spread_rate": 15, "region": "야철장", "effect": "철기 강도 2배 — 양산 준비 중" },
   { "name": "표준 도량형", "category": "행정", "status": "active", "introduced_year": 16, "spread_rate": 90, "region": "전체", "effect": "징세·교역·군수 계산 통일" },
   { "name": "심경법 (깊이갈기)", "category": "농업", "status": "active", "introduced_year": 17, "spread_rate": 25, "region": "영산강 유역", "effect": "토지 생산성 30% 향상" },
+  { "name": "퇴비법·작물 순환", "category": "농업", "status": "active", "introduced_year": 18, "spread_rate": 30, "region": "영산강 유역", "effect": "수확 안정성과 토양 회복력 향상" },
   { "name": "저수지 / 수리시설", "category": "건설", "status": "available", "introduced_year": null, "spread_rate": 0, "region": null, "effect": "가뭄 피해 최소화" },
-  { "name": "목책 방어선", "category": "군사", "status": "available", "introduced_year": null, "spread_rate": 0, "region": null, "effect": "방어력 기초 확보" },
+  { "name": "목책 방어선", "category": "군사", "status": "active", "introduced_year": 19, "spread_rate": 40, "region": "영산·구야", "effect": "방어 거점과 야전 진영 표준화" },
   { "name": "봉화 신호 체계", "category": "군사", "status": "active", "introduced_year": 16, "spread_rate": 60, "region": "영산강 유역", "effect": "정보 전달 속도 향상" },
-  { "name": "강철 병기 양산", "category": "군사", "status": "available", "introduced_year": null, "spread_rate": 0, "region": null, "effect": "강철창 대량 생산 가능" },
-  { "name": "회계 장부와 창고 감사", "category": "행정", "status": "active", "introduced_year": 17, "spread_rate": 60, "region": "전체", "effect": "부패·누락 감소, 군량 추적" },
+  { "name": "강철 병기 양산", "category": "군사", "status": "active", "introduced_year": 18, "spread_rate": 80, "region": "정규군·야철장", "effect": "강철창·방패·화살촉 규격 생산" },
+  { "name": "군율·야전 매뉴얼", "category": "군사", "status": "active", "introduced_year": 20, "spread_rate": 85, "region": "정규군", "effect": "진형·봉화·교대·보급의 문서화" },
+  { "name": "기계식 강궁 시제품", "category": "군사", "status": "active", "introduced_year": 21, "spread_rate": 10, "region": "야철장", "effect": "반복 발사를 노린 강궁 연구" },
+  { "name": "회계 장부와 창고 감사", "category": "행정", "status": "active", "introduced_year": 17, "spread_rate": 90, "region": "전체", "effect": "부패·누락 감소, 군량 추적" },
+  { "name": "교육소 (문자·산술·도량형)", "category": "행정", "status": "active", "introduced_year": 21, "spread_rate": 35, "region": "중심 촌락·복속지", "effect": "행정·군수 인력 양성" },
   { "name": "물레방아", "category": "제조", "status": "locked", "introduced_year": null, "spread_rate": 0, "region": null, "effect": "곡물 가공 효율화" },
   { "name": "낙랑 교역로", "category": "교역", "status": "active", "introduced_year": 17, "spread_rate": 20, "region": "낙랑↔영산", "effect": "선진 문물 직수입" }
 ]

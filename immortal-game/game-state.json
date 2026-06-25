@@ -1,32 +1,33 @@
 {
-  "year": 17,
+  "year": 21,
   "era": "AD",
-  "turn": 17,
+  "turn": 21,
   "identity": {
     "name": "금휘 (金煇)",
     "role": "영산 연합 수장",
-    "location": "영산강 유역 (5개 촌락 연합 + 을지 영향권)",
-    "tribe": "영산 연합 (마한 서남부 강자)",
-    "apparent_age": 32,
+    "location": "영산강 유역 (영산-을지-구야 군정 연합권)",
+    "tribe": "영산 연합 (마한 서남부 패권 세력)",
+    "apparent_age": 36,
     "death_count": 0,
     "last_death_year": null
   },
   "stats": {
-    "tribal_influence": 7,
-    "controlled_territory": 5,
-    "population_under_influence": 1190,
-    "military_strength": 5
+    "tribal_influence": 11,
+    "controlled_territory": 8,
+    "population_under_influence": 1630,
+    "military_strength": 9
   },
   "key_relationships": [
     { "name": "막수", "role": "명목상 수장", "status": "안정적. 금휘 보좌" },
     { "name": "돌쇠", "role": "치료사 / 원로", "status": "최고 신망" },
-    { "name": "돌이", "role": "정규군 1대 대장 (돌쇠 아들)", "status": "을지 압박 작전 성공. 군 핵심" },
-    { "name": "갈두", "role": "해촌 소두", "status": "낙랑 교역 사절단 파견 주도" },
-    { "name": "비리", "role": "상류 소두", "status": "안정적. 도로 공사 참여" },
-    { "name": "장철", "role": "철장이", "status": "고탄소 강철 시험 성공" },
-    { "name": "서기", "role": "문관", "status": "성문법·도량형·회계 장부 운영 중" },
+    { "name": "돌이", "role": "정규군 1대 대장 (돌쇠 아들)", "status": "강철 정규군 지휘. 야전 매뉴얼 정착" },
+    { "name": "갈두", "role": "해촌 소두", "status": "낙랑 교역과 군량 수송 핵심" },
+    { "name": "비리", "role": "상류 소두", "status": "도로·수송망 연결 관리" },
+    { "name": "장철", "role": "철장이", "status": "강철 병기 양산과 강궁 시제품 주도" },
+    { "name": "서기", "role": "문관", "status": "성문법·도량형·감사·교육소 운영 총괄" },
     { "name": "의원 (낙랑 출신)", "role": "의원", "status": "체계적 의료 운영 중" },
-    { "name": "토목 기술자 (낙랑 출신)", "role": "토목 기술자", "status": "도로 1차 구간 완성" }
+    { "name": "토목 기술자 (낙랑 출신)", "role": "토목 기술자", "status": "도로 2차 구간과 목책 규격화 진행" },
+    { "name": "구야 수장", "role": "복속 소국 수장", "status": "영산식 장부와 봉화 체계 수용" }
   ],
   "active_techs": [
     { "name": "끓인 물 (기초 위생)", "introduced": 1, "spread_rate": 100, "region": "전체" },
@@ -42,29 +43,36 @@
     { "name": "표준 도량형", "introduced": 16, "spread_rate": 90, "region": "전체" },
     { "name": "심경법", "introduced": 17, "spread_rate": 25, "region": "영산강 유역" },
     { "name": "회계 장부와 창고 감사", "introduced": 17, "spread_rate": 60, "region": "전체" },
-    { "name": "낙랑 교역로", "introduced": 17, "spread_rate": 20, "region": "낙랑↔영산" }
+    { "name": "낙랑 교역로", "introduced": 17, "spread_rate": 20, "region": "낙랑↔영산" },
+    { "name": "퇴비법·작물 순환", "introduced": 18, "spread_rate": 30, "region": "영산강 유역" },
+    { "name": "강철 병기 양산", "introduced": 18, "spread_rate": 80, "region": "정규군·야철장" },
+    { "name": "도로망 (2차 구간)", "introduced": 18, "spread_rate": 55, "region": "상류 나루↔중심 촌락" },
+    { "name": "목책 방어선·해자", "introduced": 19, "spread_rate": 40, "region": "영산·구야" },
+    { "name": "군율·야전 매뉴얼", "introduced": 20, "spread_rate": 85, "region": "정규군" },
+    { "name": "교육소 (문자·산술·도량형)", "introduced": 21, "spread_rate": 35, "region": "중심 촌락·복속지" },
+    { "name": "기계식 강궁 시제품", "introduced": 21, "spread_rate": 10, "region": "야철장" }
   ],
   "military": [
     {
       "name": "영산 정규군",
-      "size": 55,
-      "status": "을지 압박 작전 후 증원",
-      "equipment": "철창 40 + 방패 50",
+      "size": 118,
+      "status": "구야·사로·진목 복속 후 확대. 연합군 체계 편입 시작",
+      "equipment": "강철창 85 + 철판 보강 방패 70 + 강화 화살촉 + 쇠도끼 + 강궁 시제품",
       "commander": "돌이"
     }
   ],
   "assets": [
-    { "name": "어선", "count": 6, "status": "낙랑 교역로 개척에 일부 투입" }
+    { "name": "어선", "count": 6, "status": "낙랑 교역·군량 수송 겸용" }
   ],
   "threats": [
-    { "name": "을지 소국", "level": "경계", "reason": "3국 연대 좌절. 영산에 조공·인질을 보냈으나 원한 잔존" },
-    { "name": "마한 소국 연대", "level": "위험", "reason": "영산의 낙랑 교역 시도와 행정 고도화로 견제 심화" },
-    { "name": "낙랑의 관심", "level": "경계", "reason": "영산을 거래 가능한 세력으로 보기 시작했으나, 동시에 감시 대상이 됨" }
+    { "name": "마한 소국 대연합", "level": "위험", "reason": "구야·사로·진목 복속 이후 영산을 공동으로 막아야 한다는 인식 확산" },
+    { "name": "목지국", "level": "경계", "reason": "영산의 급성장을 마한 질서에 대한 도전으로 보기 시작함" },
+    { "name": "낙랑의 관심", "level": "경계", "reason": "영산이 거래 상대를 넘어 남부의 조직된 세력으로 관측됨" }
   ],
-  "current_situation": "인구 1190명. 낙랑 교역로가 열리기 시작했고, 심경법과 회계 장부 도입으로 식량·행정 기반이 강화됨. 마한 소국들의 견제와 낙랑의 관심이 동시에 커짐.",
-  "world_summary": "후한 낙랑 재건 이후 북방 교역 질서가 살아나고 있음. 영산은 남쪽 촌락 연합을 넘어 낙랑과 거래 가능한 세력으로 인식되기 시작함.",
+  "current_situation": "인구 1630명. 영산은 을지·구야를 묶는 군정 연합을 세우고 교육소와 강궁 시제품까지 손댔다. 내부 질서는 단단해졌지만, 마한 대연합의 가능성도 한층 높아졌다.",
+  "world_summary": "후한 낙랑 재건 이후 남부의 세력 재편이 빨라지고 있다. 영산은 단순한 강자에서 규격화된 군정 세력으로 변하며 목지국과 마한 소국들의 경계를 동시에 자극하고 있다.",
   "long_term_goal": "마한 통일",
-  "last_saved": "AD 17년",
+  "last_saved": "AD 21년",
   "turn_unit": "평시 1년/턴 | 전시 1개월/턴",
   "action_rule": "주행동(서사+결과) + 부행동(한줄결과) | 같은 카테고리 중복 불가"
 }
