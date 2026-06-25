@@ -18,7 +18,9 @@ PUBLISH_FILES = [
     "tech-tree.json",
     "chronicle.md",
     "chronicle.html",
+    "tech-tree.md",
     "RESUME.md",
+    ".gitignore",
     "generate.py",
     "tests/test_generate_git.py",
 ]
