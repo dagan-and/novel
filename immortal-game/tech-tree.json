@@ -22,9 +22,14 @@
   { "name": "회계 장부와 창고 감사", "category": "행정", "status": "active", "introduced_year": 17, "spread_rate": 90, "region": "전체", "effect": "부패·누락 감소, 군량 추적" },
   { "name": "교육소 (문자·산술·도량형)", "category": "행정", "status": "active", "introduced_year": 21, "spread_rate": 65, "region": "복속지 전역", "effect": "행정·군수 인력 양성" },
   { "name": "다자녀 세금 면제", "category": "행정", "status": "active", "introduced_year": 24, "spread_rate": 35, "region": "전체", "effect": "출산 장려와 가구 확대 유도" },
+  { "name": "유아 보호·출산 장려 체계", "category": "행정", "status": "active", "introduced_year": 25, "spread_rate": 30, "region": "전체", "effect": "영아 생존율과 출산 안정성 향상" },
+  { "name": "정보 특공대", "category": "행정", "status": "active", "introduced_year": 25, "spread_rate": 35, "region": "주변 소국권", "effect": "풍요 소문 확산과 정보 수집" },
   { "name": "물레방아", "category": "제조", "status": "locked", "introduced_year": null, "spread_rate": 0, "region": null, "effect": "곡물 가공 효율화" },
   { "name": "낙랑 교역로", "category": "교역", "status": "active", "introduced_year": 17, "spread_rate": 20, "region": "낙랑↔영산", "effect": "선진 문물 직수입" },
   { "name": "해안 어업 체계화", "category": "교역", "status": "active", "introduced_year": 22, "spread_rate": 45, "region": "목포 해안권", "effect": "어획·염장·건조 효율 상승" },
   { "name": "나침반·도르레·원치", "category": "교역", "status": "active", "introduced_year": 23, "spread_rate": 50, "region": "항만·어선", "effect": "항해·하역·조업 효율 향상" },
-  { "name": "항만 체계", "category": "교역", "status": "active", "introduced_year": 24, "spread_rate": 90, "region": "해안 창고·염장 거점", "effect": "해안 물류와 저장 체계 통합" }
+  { "name": "항만 체계", "category": "교역", "status": "active", "introduced_year": 24, "spread_rate": 90, "region": "해안 창고·염장 거점", "effect": "해안 물류와 저장 체계 통합" },
+  { "name": "말 사육·수레 운송 표준화", "category": "교역", "status": "active", "introduced_year": 25, "spread_rate": 40, "region": "내륙 물류망", "effect": "병참과 교역 속도 안정화" },
+  { "name": "상하수도 분리", "category": "의학", "status": "active", "introduced_year": 25, "spread_rate": 25, "region": "중심 촌락", "effect": "수인성 질병 감소" },
+  { "name": "황토 물탱크·모래·자갈·숯 여과", "category": "의학", "status": "active", "introduced_year": 25, "spread_rate": 20, "region": "중심 촌락·항만", "effect": "음용수 품질 개선" }
 ]

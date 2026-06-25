@@ -229,6 +229,64 @@ def build_current_card(state):
     </div>"""
 
 
+def build_territory_map(state):
+    controlled = state.get("stats", {}).get("controlled_territory", 0)
+    location = escape(state.get("identity", {}).get("location", "영산강·목포 해안권"))
+    lines = [
+        "                          [북 / 내륙]",
+        "",
+        "                  사로           진목",
+        "                    \\             /",
+        "                     \\           /",
+        "                      \\         /",
+        "                       \\       /",
+        "                        구야",
+        "                         |",
+        "                         |",
+        "                을지 영향권/완충지대",
+        "                         |",
+        "                         |",
+        "        비리(상류) ---- 영산 본진 ---- 해루(강어귀/북쪽 수로)",
+        "                         |",
+        "                         |",
+        "                    해촌 / 항만 핵심",
+        "                         |",
+        "                    염포(서쪽 연안)",
+        "                         |",
+        "                    목포 해안 / 바다",
+        "",
+        "                          [남 / 해안]",
+    ]
+    legend = [
+        ("직할 중심", "영산 본진, 목포 해안"),
+        ("내륙 축", "비리, 구야, 사로, 진목"),
+        ("연안 축", "해촌, 해루, 염포"),
+        ("완충권", "을지 영향권"),
+    ]
+    legend_html = "".join(
+        f"""
+        <div style="padding:8px 10px;background:#1C2535;border-radius:4px">
+          <div style="font-size:11px;color:#C8A84B;font-weight:700;margin-bottom:2px">{escape(title)}</div>
+          <div style="font-size:12px;color:#8A9BA8">{escape(body)}</div>
+        </div>"""
+        for title, body in legend
+    )
+    return f"""
+    <section style="background:#141B26;border:1px solid #2A3448;border-radius:4px;padding:16px 20px;margin-bottom:32px">
+      <div style="display:flex;justify-content:space-between;gap:12px;align-items:flex-end;flex-wrap:wrap;margin-bottom:12px">
+        <div>
+          <div style="font-size:10px;letter-spacing:.2em;color:#C8A84B;text-transform:uppercase;margin-bottom:6px">현재 판도</div>
+          <div style="font-size:14px;color:#EDE5CF;font-weight:700">{location}</div>
+        </div>
+        <div style="font-size:12px;color:#8A9BA8">통제 영토 {controlled}권 기준 개략도</div>
+      </div>
+      <pre style="white-space:pre;overflow:auto;background:#0D1117;border:1px solid #2A3448;border-radius:4px;padding:14px 16px;color:#EDE5CF;font-size:12px;line-height:1.55;margin-bottom:12px">{escape(chr(10).join(lines))}</pre>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px">
+        {legend_html}
+      </div>
+    </section>"""
+
+
 def generate(state, events, techs):
     identity = state.get("identity", {})
     stats = state.get("stats", {})
@@ -325,6 +383,7 @@ a{{color:#C8A84B}}
   <!-- 메인 -->
   <main style="padding:28px 32px">
     {build_current_card(state)}
+    {build_territory_map(state)}
 
     <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#7A6530;margin-bottom:16px;padding-bottom:6px;border-bottom:1px solid #2A3448">연대기 (최신순)</div>
 

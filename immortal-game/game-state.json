@@ -1,20 +1,20 @@
 {
-  "year": 24,
+  "year": 25,
   "era": "AD",
-  "turn": 24,
+  "turn": 25,
   "identity": {
     "name": "금휘 (金煇)",
     "role": "영산 군정국 수장",
     "location": "영산강·목포 해안권 (10개 복속지 군정권)",
     "tribe": "영산 군정국 (마한 서남부 패권 세력)",
-    "apparent_age": 39,
+    "apparent_age": 40,
     "death_count": 0,
     "last_death_year": null
   },
   "stats": {
-    "tribal_influence": 14,
+    "tribal_influence": 15,
     "controlled_territory": 10,
-    "population_under_influence": 2040,
+    "population_under_influence": 2190,
     "military_strength": 10
   },
   "key_relationships": [
@@ -22,13 +22,14 @@
     { "name": "돌쇠", "role": "치료사 / 원로", "status": "최고 신망" },
     { "name": "돌이", "role": "정규군 1대 대장 (돌쇠 아들)", "status": "강철 정규군과 쇠뇌 부대 지휘" },
     { "name": "갈두", "role": "해촌 소두", "status": "항만 체계와 어업 물류 핵심" },
-    { "name": "비리", "role": "상류 소두", "status": "내륙 도로·저수지 수송망 관리" },
-    { "name": "장철", "role": "철장이", "status": "쇠뇌 규격화와 등자·장비 제작 주도" },
-    { "name": "서기", "role": "문관", "status": "군정 체계·교육소·인구 장려 정책 총괄" },
+    { "name": "비리", "role": "상류 소두", "status": "내륙 도로·수레 운송·물류망 관리" },
+    { "name": "장철", "role": "철장이", "status": "쇠뇌·등자·수레 장비와 여과 설비 제작 주도" },
+    { "name": "서기", "role": "문관", "status": "군정 체계·유아 보호·정보 부서 운영 총괄" },
     { "name": "의원 (낙랑 출신)", "role": "의원", "status": "체계적 의료 운영 중" },
     { "name": "토목 기술자 (낙랑 출신)", "role": "토목 기술자", "status": "저수지·항만 창고·하역 설비 공사 진행" },
     { "name": "구야 수장", "role": "복속 소국 수장", "status": "영산식 장부와 봉화 체계 수용" },
-    { "name": "염포 수장", "role": "연안 복속 소국 수장", "status": "포구와 염장 창고를 영산 체계에 편입" }
+    { "name": "염포 수장", "role": "연안 복속 소국 수장", "status": "포구와 염장 창고를 영산 체계에 편입" },
+    { "name": "현문", "role": "정보 부서 책임자", "status": "주변국 유언비어·소문 공작 총괄" }
   ],
   "active_techs": [
     { "name": "끓인 물 (기초 위생)", "introduced": 1, "spread_rate": 100, "region": "전체" },
@@ -58,7 +59,12 @@
     { "name": "나침반·도르레·원치", "introduced": 23, "spread_rate": 50, "region": "항만·어선" },
     { "name": "항만 체계", "introduced": 24, "spread_rate": 90, "region": "해안 창고·염장 거점" },
     { "name": "기마 등자", "introduced": 24, "spread_rate": 20, "region": "정찰대" },
-    { "name": "다자녀 세금 면제", "introduced": 24, "spread_rate": 35, "region": "전체" }
+    { "name": "다자녀 세금 면제", "introduced": 24, "spread_rate": 35, "region": "전체" },
+    { "name": "유아 보호·출산 장려 체계", "introduced": 25, "spread_rate": 30, "region": "전체" },
+    { "name": "상하수도 분리", "introduced": 25, "spread_rate": 25, "region": "중심 촌락" },
+    { "name": "황토 물탱크·모래·자갈·숯 여과", "introduced": 25, "spread_rate": 20, "region": "중심 촌락·항만" },
+    { "name": "말 사육·수레 운송 표준화", "introduced": 25, "spread_rate": 40, "region": "내륙 물류망" },
+    { "name": "정보 특공대", "introduced": 25, "spread_rate": 35, "region": "주변 소국권" }
   ],
   "military": [
     {
@@ -70,17 +76,22 @@
     }
   ],
   "assets": [
-    { "name": "어선", "count": 8, "status": "어업·낙랑 교역·군량 수송 겸용" }
+    { "name": "어선", "count": 8, "status": "어업·낙랑 교역·군량 수송 겸용" },
+    { "name": "수레", "count": 24, "status": "표준화된 내륙 물류망 투입" },
+    { "name": "황토 물탱크", "count": 12, "status": "중심 촌락 급수용" }
   ],
   "threats": [
     { "name": "마한 소국 대연합", "level": "위험", "reason": "해루·염포까지 복속되며 영산을 공동으로 막아야 한다는 인식이 거의 굳어짐" },
     { "name": "목지국", "level": "위험", "reason": "영산 군정국을 지방 강자가 아니라 질서 경쟁자로 보기 시작함" },
-    { "name": "낙랑의 관심", "level": "경계", "reason": "영산의 해안 물류와 군정 체계가 남부의 새로운 질서로 관측됨" }
+    { "name": "낙랑의 관심", "level": "경계", "reason": "영산의 해안 물류와 군정 체계가 남부의 새로운 질서로 관측됨" },
+    { "name": "주변국 경계심", "level": "경계", "reason": "영산이 소금, 생선, 쌀, 물이 넘친다는 소문이 퍼지며 선망과 경계가 함께 커짐" }
   ],
-  "current_situation": "인구 2040명. 영산은 군정국 형태를 갖추고 항만 체계, 쇠뇌 부대, 등자, 다자녀 세금 면제까지 도입했다. 내부 운영은 강해졌지만 목지국과 마한 대연합의 경계도 정면으로 커졌다.",
-  "world_summary": "후한 낙랑 재건 이후 남부의 패권 경쟁이 더 선명해지고 있다. 영산 군정국은 해안 물류와 규격 군대를 바탕으로 목지국에 맞설 새 질서 후보로 떠오르고 있다.",
+  "current_situation": "인구 2190명. 영산은 중앙 체계를 더 촘촘히 다지고, 유아 보호와 출산 장려, 상하수도 분리와 여과 시설, 수레 물류 표준화까지 손댔다. 겉으로는 풍요의 나라라는 소문이 돌지만, 그만큼 경계의 눈도 짙어졌다.",
+  "world_summary": "남부의 패권 경쟁은 이제 군사력만이 아니라 얼마나 사람을 살리고, 물자를 굴리고, 풍요의 이미지를 퍼뜨릴 수 있느냐의 싸움으로 번지고 있다. 영산 군정국은 그 기준을 바꾸는 중이다.",
   "long_term_goal": "마한 통일",
-  "last_saved": "AD 24년",
+  "last_saved": "AD 25년",
+  "autosave_mode": "turn_json_only",
+  "publish_mode": "manual_html_git",
   "turn_unit": "평시 1년/턴 | 전시 1개월/턴",
   "action_rule": "주행동(서사+결과) + 부행동(한줄결과) | 같은 카테고리 중복 불가"
 }
