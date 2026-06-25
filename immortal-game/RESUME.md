@@ -79,3 +79,4 @@
 1. `game-state.json` 업데이트
 2. `events.json` 이번 턴 사건 추가
 3. `tech-tree.json` 기술 상태 변경 반영
+4. `chronicle.html`은 직접 수정하지 않고, 반드시 `generate.py` 실행으로 재생성
