@@ -1,21 +1,21 @@
 {
-  "year": 25,
+  "year": 28,
   "era": "AD",
-  "turn": 25,
+  "turn": 28,
   "identity": {
     "name": "금휘 (金煇)",
     "role": "영산 군정국 수장",
     "location": "영산강·목포 해안권 (10개 복속지 군정권)",
     "tribe": "영산 군정국 (마한 서남부 패권 세력)",
-    "apparent_age": 40,
+    "apparent_age": 43,
     "death_count": 0,
     "last_death_year": null
   },
   "stats": {
-    "tribal_influence": 15,
+    "tribal_influence": 22,
     "controlled_territory": 10,
-    "population_under_influence": 2190,
-    "military_strength": 10
+    "population_under_influence": 2670,
+    "military_strength": 14
   },
   "key_relationships": [
     { "name": "막수", "role": "명목상 수장", "status": "안정적. 금휘 보좌" },
@@ -64,32 +64,47 @@
     { "name": "상하수도 분리", "introduced": 25, "spread_rate": 25, "region": "중심 촌락" },
     { "name": "황토 물탱크·모래·자갈·숯 여과", "introduced": 25, "spread_rate": 20, "region": "중심 촌락·항만" },
     { "name": "말 사육·수레 운송 표준화", "introduced": 25, "spread_rate": 40, "region": "내륙 물류망" },
-    { "name": "정보 특공대", "introduced": 25, "spread_rate": 35, "region": "주변 소국권" }
+    { "name": "정보 특공대", "introduced": 25, "spread_rate": 35, "region": "주변 소국권" },
+    { "name": "우경·쟁기 개량", "introduced": 26, "spread_rate": 18, "region": "영산강 평야" },
+    { "name": "왜 교역 거점 탐색", "introduced": 26, "spread_rate": 15, "region": "남해 항로" },
+    { "name": "토션 대형 쇠뇌 시제품", "introduced": 26, "spread_rate": 8, "region": "야철장·정규군" },
+    { "name": "목지국 주변 소국 회유망", "introduced": 27, "spread_rate": 25, "region": "마한 중서부 접경" },
+    { "name": "왜 시험 교역", "introduced": 27, "spread_rate": 12, "region": "남해 항로·왜 포구" },
+    { "name": "복합궁 적층 제작법", "introduced": 27, "spread_rate": 16, "region": "정규군·야철장" },
+    { "name": "화순 탄층 정찰", "introduced": 27, "spread_rate": 10, "region": "영산강 상류·화순 분지" },
+    { "name": "화순 전진 거점", "introduced": 28, "spread_rate": 22, "region": "화순 분지 입구" },
+    { "name": "석탄 혼소 야철", "introduced": 28, "spread_rate": 14, "region": "야철장" },
+    { "name": "간이 지질 조사·갱도 지지 표준", "introduced": 28, "spread_rate": 18, "region": "화순 분지·상류 산지" },
+    { "name": "쇠뇌 주력 편제", "introduced": 28, "spread_rate": 45, "region": "정규군" },
+    { "name": "쇠뇌병 1개월 야전훈련", "introduced": 28, "spread_rate": 40, "region": "정규군·복속지 훈련소" }
   ],
   "military": [
     {
       "name": "영산 정규군",
-      "size": 162,
-      "status": "쇠뇌 부대와 기마 정찰 인력을 포함한 군정국 정규군",
-      "equipment": "강철창 110 + 철판 보강 방패 90 + 쇠뇌 + 강화 화살촉 + 쇠도끼 + 등자 장비",
+      "size": 192,
+      "status": "쇠뇌 중심의 주력 편제로 재편된 군정국 정규군. 토션 대형 쇠뇌 운용반, 복합궁 시범 궁사대, 화순 경비대가 포함됨",
+      "equipment": "강철창 128 + 철판 보강 방패 108 + 쇠뇌 96정 + 강화 화살촉 + 쇠도끼 + 등자 장비 + 토션 대형 쇠뇌 시제품 2기 + 복합궁 24정",
       "commander": "돌이"
     }
   ],
   "assets": [
-    { "name": "어선", "count": 8, "status": "어업·낙랑 교역·군량 수송 겸용" },
-    { "name": "수레", "count": 24, "status": "표준화된 내륙 물류망 투입" },
-    { "name": "황토 물탱크", "count": 12, "status": "중심 촌락 급수용" }
+    { "name": "어선", "count": 10, "status": "어업·낙랑 교역·왜 시험 교역·군량 수송 겸용" },
+    { "name": "수레", "count": 28, "status": "표준화된 내륙 물류망과 화순 보급선 투입" },
+    { "name": "황토 물탱크", "count": 12, "status": "중심 촌락 급수용" },
+    { "name": "쟁기용 소", "count": 14, "status": "우경 시험 보급과 깊이갈이 전담" },
+    { "name": "탄층 표본", "count": 16, "status": "화순 전진 거점과 시굴대가 확보한 흑색 암탄 표본" },
+    { "name": "화순 전진 창고", "count": 1, "status": "광물·목재·식량 집산과 상류 경비 거점" }
   ],
   "threats": [
-    { "name": "마한 소국 대연합", "level": "위험", "reason": "해루·염포까지 복속되며 영산을 공동으로 막아야 한다는 인식이 거의 굳어짐" },
-    { "name": "목지국", "level": "위험", "reason": "영산 군정국을 지방 강자가 아니라 질서 경쟁자로 보기 시작함" },
+    { "name": "마한 소국 대연합", "level": "위험", "reason": "영산이 상류 자원 거점과 쇠뇌 주력군까지 갖추자, 시간이 갈수록 전쟁이 불리해진다는 공포가 퍼짐" },
+    { "name": "목지국", "level": "위험", "reason": "영산의 회유망과 광산 거점, 재편된 쇠뇌 주력군이 결합되며 목지국은 이를 사실상의 국가 군대 형성으로 판단함" },
     { "name": "낙랑의 관심", "level": "경계", "reason": "영산의 해안 물류와 군정 체계가 남부의 새로운 질서로 관측됨" },
-    { "name": "주변국 경계심", "level": "경계", "reason": "영산이 소금, 생선, 쌀, 물이 넘친다는 소문이 퍼지며 선망과 경계가 함께 커짐" }
+    { "name": "주변국 경계심", "level": "경계", "reason": "영산이 활보다 훈련이 빠른 쇠뇌병을 대량 양성한다는 소문이 퍼져, 병력 질의 격차가 더 두드러지기 시작함" }
   ],
-  "current_situation": "인구 2190명. 영산은 중앙 체계를 더 촘촘히 다지고, 유아 보호와 출산 장려, 상하수도 분리와 여과 시설, 수레 물류 표준화까지 손댔다. 겉으로는 풍요의 나라라는 소문이 돌지만, 그만큼 경계의 눈도 짙어졌다.",
-  "world_summary": "남부의 패권 경쟁은 이제 군사력만이 아니라 얼마나 사람을 살리고, 물자를 굴리고, 풍요의 이미지를 퍼뜨릴 수 있느냐의 싸움으로 번지고 있다. 영산 군정국은 그 기준을 바꾸는 중이다.",
+  "current_situation": "인구 2670명. 영산은 화순 분지 입구에 전진 거점과 창고를 세우고, 석탄층 주변의 지질 조사와 갱도 지지 규격을 마련했다. 야철장에서는 석탄 혼소 실험이 시작됐고, 군은 활보다 익히기 빠른 쇠뇌를 주력 편제로 재편해 1개월 야전훈련만으로도 대열을 채울 수 있는 체계를 갖추기 시작했다.",
+  "world_summary": "이제 남부의 패권 경쟁은 누가 더 빨리 사람을 병사로 바꾸고, 돌과 흙 밑 자원을 전쟁과 생산의 힘으로 연결하느냐의 싸움이 되었다. 영산 군정국은 농업과 교역을 넘어 군제와 광업의 속도까지 앞서 나가기 시작했다.",
   "long_term_goal": "마한 통일",
-  "last_saved": "AD 25년",
+  "last_saved": "AD 28년",
   "autosave_mode": "turn_json_only",
   "publish_mode": "manual_html_git",
   "turn_unit": "평시 1년/턴 | 전시 1개월/턴",

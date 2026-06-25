@@ -32,4 +32,17 @@
   { "name": "말 사육·수레 운송 표준화", "category": "교역", "status": "active", "introduced_year": 25, "spread_rate": 40, "region": "내륙 물류망", "effect": "병참과 교역 속도 안정화" },
   { "name": "상하수도 분리", "category": "의학", "status": "active", "introduced_year": 25, "spread_rate": 25, "region": "중심 촌락", "effect": "수인성 질병 감소" },
   { "name": "황토 물탱크·모래·자갈·숯 여과", "category": "의학", "status": "active", "introduced_year": 25, "spread_rate": 20, "region": "중심 촌락·항만", "effect": "음용수 품질 개선" }
+  ,
+  { "name": "우경·쟁기 개량", "category": "농업", "status": "active", "introduced_year": 26, "spread_rate": 18, "region": "영산강 평야", "effect": "깊이갈이·경지 확장·파종 속도 향상" },
+  { "name": "왜 교역 거점 탐색", "category": "교역", "status": "active", "introduced_year": 26, "spread_rate": 15, "region": "남해 항로", "effect": "왜 항로 정보 축적과 예비 교역망 개척" },
+  { "name": "토션 대형 쇠뇌 시제품", "category": "군사", "status": "active", "introduced_year": 26, "spread_rate": 8, "region": "야철장·정규군", "effect": "정밀 대물 사격과 방어 거점 파괴력 확보" },
+  { "name": "목지국 주변 소국 회유망", "category": "행정", "status": "active", "introduced_year": 27, "spread_rate": 25, "region": "마한 중서부 접경", "effect": "목지국 대연합 결속 약화와 외교 영향력 확대" },
+  { "name": "왜 시험 교역", "category": "교역", "status": "active", "introduced_year": 27, "spread_rate": 12, "region": "남해 항로·왜 포구", "effect": "시험 교환과 항로 신뢰도 확보" },
+  { "name": "복합궁 적층 제작법", "category": "군사", "status": "active", "introduced_year": 27, "spread_rate": 16, "region": "정규군·야철장", "effect": "짧은 길이 대비 높은 장력과 기동 사격력 확보" },
+  { "name": "화순 탄층 정찰", "category": "제조", "status": "active", "introduced_year": 27, "spread_rate": 10, "region": "영산강 상류·화순 분지", "effect": "석탄층 위치 파악과 향후 야금·연료 전환 가능성 탐색" },
+  { "name": "화순 전진 거점", "category": "건설", "status": "active", "introduced_year": 28, "spread_rate": 22, "region": "화순 분지 입구", "effect": "광물·식량·병력 집산과 상류 보급 거점 확보" },
+  { "name": "석탄 혼소 야철", "category": "제조", "status": "active", "introduced_year": 28, "spread_rate": 14, "region": "야철장", "effect": "숯 보조 연료로 석탄을 혼합 사용해 장시간 고열 유지" },
+  { "name": "간이 지질 조사·갱도 지지 표준", "category": "제조", "status": "active", "introduced_year": 28, "spread_rate": 18, "region": "화순 분지·상류 산지", "effect": "시굴 성공률 향상과 갱도 붕괴 위험 감소" },
+  { "name": "쇠뇌 주력 편제", "category": "군사", "status": "active", "introduced_year": 28, "spread_rate": 45, "region": "정규군", "effect": "주력 원거리 전력을 쇠뇌 중심으로 통일해 훈련 속도와 집단 화력 향상" },
+  { "name": "쇠뇌병 1개월 야전훈련", "category": "군사", "status": "active", "introduced_year": 28, "spread_rate": 40, "region": "정규군·복속지 훈련소", "effect": "장전·교대 사격·방패 연계 훈련을 1개월 주기로 표준화" }
 ]
