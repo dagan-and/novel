@@ -2,93 +2,68 @@
 
 ## Purpose
 
-This playbook is the copy-ready operator guide for the mixed-style wargame flow.
+This playbook is the copy-ready operator guide for the current conquest-campaign flow.
 
-- Base flow stays on `작전 턴`
-- `전술 턴` opens only for decisive clashes or high-risk transitions
-- Results must stay `전과표 우선, 서사 후행`
+- Base flow stays on `간략 턴`
+- `결전 턴` opens only for decisive clashes
+- Choices must always be exactly `1 / 2 / 3`
+- Results must stay `전과표 우선, 압살 포인트 포함`
 - Keep the existing JSON schema unless a change is strictly required
 
-## When to Use Operation Turns
+## Current Rule Priority
 
-Use an operation turn when the player is making front-wide decisions rather than resolving one decisive battle.
+- Treat this playbook and [RESUME.md](/Users/kys1207/novel-repo/immortal-game/RESUME.md) as the active rule set
+- In this repository, a user message like `게임 시작해줘` should be treated as the resume shortcut defined in `RESUME.md`
+- Older operation/tactical multi-input formats are deprecated for live play
+- Never present `A/B/C` or combo inputs such as `1+5+8+11`
 
-- Choose this for ordinary front management, posture shifts, and supply pressure
-- Use it when the map is stable enough that one clash does not need full tactical detail
-- Keep the focus on where to concentrate force, where to hold reserves, and what risk level to accept
+## When to Use Standard Turns
 
-## When to Open Tactical Turns
+Use a standard turn when the player is choosing the next campaign push rather than resolving one decisive battle.
 
-Open a tactical turn only when a specific clash has become decisive enough to warrant direct battlefield control.
+- Choose this for ordinary campaign pressure, posture shifts, and expansion choices
+- Use it when one turn can be resolved through a single 3-choice decision
+- Keep the focus on which enemy to break, where to expand, and how the immortal king applies overwhelming advantage
+
+## When to Open Decisive Turns
+
+Open a decisive turn only when a specific clash becomes important enough to deserve a battle-focused 3-choice prompt.
 
 - Open it for a main-force collision on the primary axis
-- Open it when a key crossing, port, fortress, or supply node is at stake
-- Open it for high-risk commands such as forced advance, night raid, wide flank move, or ordered withdrawal
-- Open it when enemy reserves, surprise reinforcements, or collapse risk make the battle outcome uncertain
-- After a tactical clash, the flow normally returns to `작전 턴`
-- Allow 2~3 chained `전술 턴` only for narrow exceptions such as initial landing sequences, decisive encirclements, or chained counterattacks
+- Open it when a key crossing, port, fortress, or supply node decides the campaign
+- Open it when the player is clearly trying to annihilate an enemy field army
+- After a decisive clash, the flow normally returns to `간략 턴`
 
-## Operation Turn Template
+## Standard Turn Template
 
 ```text
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-AD XX년 X분기  |  전역 작전 턴
-목표: ...
+AD XX년 X분기  |  캠페인 턴
+상황: ...
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-[전선 개요]
-- 구역 1: ...
-- 구역 2: ...
-- 구역 3: ...
-- 구역 4: ...
+[이번 장의 목표]
+- ...
 
-[아군 전력]
-- 보병: ... (`전투 가능 / 주둔 중 / 회복 중 / 후방 대기` 중 택1 또는 조합)
-- 쇠뇌대: ... (`전투 가능 / 주둔 중 / 회복 중 / 후방 대기`)
-- 기병: ... (`전투 가능 / 주둔 중 / 회복 중 / 후방 대기`)
-- 포대병: ... (`전투 가능 / 주둔 중 / 회복 중 / 후방 대기`)
-- 공병: ... (`전투 가능 / 주둔 중 / 회복 중 / 후방 대기`)
-- 예비대: ... (`전투 가능 / 주둔 중 / 회복 중 / 후방 대기`)
-
-[보급]
-- 표기 규칙: `1~7 단계` 또는 `충분 / 긴장 / 위험` 중 한 체계만 사용, 혼용 금지
-- 군량: ...
-- 마초: ...
-- 포대 부품: ...
-- 수송 여력: ...
-
-[적 정세]
-- ... (`확실 / 추정 / 불명` 표식은 필요할 때만 부착)
-
-[이번 턴 명령]
-주공축 (1개)
+[선택지]
 1. ...
 2. ...
 3. ...
-
-보조작전 (1개)
-4. ...
-5. ...
-6. ...
-
-예비대 운용 (1개)
-7. ...
-8. ...
-9. ...
-
-태세 (1개)
-10. ...
-11. ...
-12. ...
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-입력 예시: 1+5+8+11
+입력 예시: 2
 ```
 
-## Tactical Turn Template
+Choice design:
+
+- `1` should usually be the safer or steadier line
+- `2` should usually be the aggressive expansion line
+- `3` should usually be the immortal king / modern-knowledge / decisive-overmatch line
+
+## Decisive Turn Template
 
 ```text
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-AD XX년 X분기  |  전술 턴
+AD XX년 X분기  |  결전 턴
 전투 목표: ...
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -99,38 +74,12 @@ AD XX년 X분기  |  전술 턴
 - 후방: ...
 - 퇴로: ...
 
-[즉응 전력]
-- 중앙 보병: ...
-- 쇠뇌대: ...
-- 기병: ...
-- 포대: ...
-- 예비대: ...
-
-[승리 조건]
-- ...
-- ...
-- ...
-
-[전술 명령]
-주행동 (1개)
+[선택지]
 1. ...
 2. ...
 3. ...
-4. ...
-5. ...
-
-지원행동 (1개)
-6. ...
-7. ...
-8. ...
-9. ...
-
-리스크 규칙 (1개)
-10. ...
-11. ...
-12. ...
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-입력 예시: 2+6+12
+입력 예시: 3
 ```
 
 ## Result Template
@@ -142,14 +91,14 @@ AD XX년 X분기  |  전술 턴
 - 적 손실 추정: ...
 - 보급 소모: ...
 - 확보 지형: ...
-- 사기와 민심: ...
+- 압살 포인트: ...
 - 장기 영향: ...
 
 [전장 기록]
 - 짧은 서사 3~5문장
 ```
 
-The result block should always lead with battlefield effects and only then add a short narrative tail.
+The result block should always lead with battlefield effects, include one vivid `압살 포인트`, and only then add a short narrative tail.
 
 ## State Update Checklist
 

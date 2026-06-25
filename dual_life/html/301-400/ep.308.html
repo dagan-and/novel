@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>308. 여자 동기랑 붙어 다닌다고</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 120%; }
+    body {
+      background: #111417;
+      color: #e8e1d5;
+      font-family: 'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+      font-size: 1.12rem;
+      line-height: 1.9;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3rem 1.4rem 5rem;
+      word-break: keep-all;
+    }
+    h1 {
+      font-size: 1.35rem;
+      text-align: center;
+      color: #79b8b2;
+      margin-bottom: 2.5rem;
+      letter-spacing: 0.02em;
+    }
+    p { margin: 0.75rem 0; }
+    p.speaker-line {
+      display: flex;
+      align-items: baseline;
+      gap: 0.7rem;
+      margin: 0.68rem 0;
+    }
+    .speaker-tag {
+      flex: 0 0 auto;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .speaker-text {
+      flex: 1 1 auto;
+    }
+    .message-line {
+      margin: 1rem 0;
+      padding: 0.72rem 0.9rem;
+      background: #182023;
+      border: 1px solid #2f3f41;
+      border-left: 4px solid #79b8b2;
+      border-radius: 6px;
+      color: #d8e5df;
+      font-size: 1.02rem;
+      line-height: 1.75;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+    }
+    .message-sender {
+      font-weight: 700;
+      color: #8fd0c9;
+      margin-right: 0.35rem;
+    }
+    .time {
+      font-weight: bold;
+      color: #d6a15f;
+      font-size: 1.08rem;
+      text-align: center;
+      margin: 1.8rem 0 1rem;
+    }
+    .thought { color: #9bbac0; font-style: italic; }
+    .divider {
+      text-align: center;
+      color: #5f6564;
+      margin: 2.2rem 0;
+      letter-spacing: 0.6em;
+    }
+    figure.scene-illustration {
+      margin: 2.5rem 0 2.8rem;
+    }
+    .scene-illustration img {
+      display: block;
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid #30383a;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.36);
+    }
+    .scene-illustration figcaption {
+      margin-top: 0.8rem;
+      text-align: center;
+      font-size: 0.92rem;
+      color: #9faaa6;
+      letter-spacing: 0.02em;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 3.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid #30383a;
+      font-size: 1rem;
+    }
+    .nav a { color: #8fd0c9; text-decoration: none; font-weight: 700; }
+    .nav a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <h1>308. 여자 동기랑 붙어 다닌다고</h1>
+  
+
+<p>소문은 늘 문장보다 먼저 온다.</p>
+
+<p>그리고 문장은 대체로 짧다.</p>
+
+<p>`여자 동기랑 붙어 다닌다며?`</p>
+
+<p>문채영이 들은 말은 그 정도였다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;누가요?&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#b7aca0">문채영</span><span class="speaker-text" style="color:#b7aca0">&quot;과방 쪽. 정확한 출처는 아직.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;아직?&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#b7aca0">문채영</span><span class="speaker-text" style="color:#b7aca0">&quot;제가 조사 중이라는 뜻입니다.&quot;</span></p>
+
+<p>이럴 때 문채영은 너무 든든해서 무섭다.</p>
+
+<p>시안은 바로 단체방에 올렸다.</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>학교 쪽에 제가 인턴 회사 여자 동기와 붙어 다닌다는 소문이 도는 것 같습니다. 문채영이 경로 확인 중입니다.</p>
+
+<p>답장은 순식간에 왔다.</p>
+
+<p class="message-line"><span class="message-sender">[정다은]</span>사실관계와 공개 범위를 분리해야 합니다.</p>
+
+<p class="message-line"><span class="message-sender">[서나윤]</span>붙어 다닌다는 말 싫네요.</p>
+
+<p class="message-line"><span class="message-sender">[유하린]</span>학교에서도요?</p>
+
+<p class="message-line"><span class="message-sender">[박미현]</span>지금 카페에 있습니다. 숨기지 않았습니다.</p>
+
+<p>미현이 자기 위치를 직접 적었다.</p>
+
+<p>시안은 그 문장을 봤다.</p>
+
+<p>소문은 사람을 이상하게 만든다.</p>
+<p>있는 일을 숨긴 사람처럼 만들고, 없는 일을 더 크게 만든다.</p>
+
+<p>다음 날 학교에 갔을 때, 과방 공기는 이미 달랐다.</p>
+
+<p>누군가 말을 멈췄다.</p>
+<p>누군가는 너무 크게 인사했다.</p>
+
+<p>둘 다 티가 났다.</p>
+
+<p>문채영이 시안에게 다가왔다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#b7aca0">문채영</span><span class="speaker-text" style="color:#b7aca0">&quot;출처 찾았어요. 회사 인턴 단체 사진이 누가 캡처해서 과방에 돌았어요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;사진?&quot;</span></p>
+
+<p>문채영은 휴대폰을 보여 줬다.</p>
+
+<p>세미나실 단체 사진.</p>
+<p>시안과 이재인이 옆에 앉아 있었다.</p>
+
+<p>그뿐이었다.</p>
+
+<p>하지만 사진은 말보다 게으르다.</p>
+<p>보는 사람이 알아서 이야기를 붙인다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#b7aca0">문채영</span><span class="speaker-text" style="color:#b7aca0">&quot;이거, 미현 씨랑 하린이는 봤어요?&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;지금 보여 줄 겁니다.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#b7aca0">문채영</span><span class="speaker-text" style="color:#b7aca0">&quot;빠르네요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;늦으면 더 커지니까.&quot;</span></p>
+
+<p>시안은 단체방에 사진을 올렸다.</p>
+
+<p>이번엔 손이 조금 떨렸다.</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>소문 사진입니다. 단체 사진이고, 옆자리에 이재인 씨가 있습니다. 숨길 사진은 아니지만, 이런 식으로 돌고 있는 건 문제입니다.</p>
+
+<p>다은의 답이 바로 왔다.</p>
+
+<p class="message-line"><span class="message-sender">[정다은]</span>오늘 저녁 대응 범위 회의 필요합니다.</p>
+
+<p>그리고 나윤.</p>
+
+<p class="message-line"><span class="message-sender">[서나윤]</span>사진은 밥보다 사람을 빨리 망치네요.</p>
+
+<p>짧고 정확했다.</p>
+
+
+  <div class="nav">
+    <a href="ep.307.html">← 이전 화</a>
+    <a href="ep.309.html">다음 화 →</a>
+  </div>
+</body>
+</html>

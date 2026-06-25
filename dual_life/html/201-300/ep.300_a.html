@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>300. 답변 전날의 컵</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 120%; }
+    body {
+      background: #111417;
+      color: #e8e1d5;
+      font-family: 'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+      font-size: 1.12rem;
+      line-height: 1.9;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3rem 1.4rem 5rem;
+      word-break: keep-all;
+    }
+    h1 {
+      font-size: 1.35rem;
+      text-align: center;
+      color: #79b8b2;
+      margin-bottom: 2.5rem;
+      letter-spacing: 0.02em;
+    }
+    p { margin: 0.75rem 0; }
+    p.speaker-line {
+      display: flex;
+      align-items: baseline;
+      gap: 0.7rem;
+      margin: 0.68rem 0;
+    }
+    .speaker-tag {
+      flex: 0 0 auto;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .speaker-text {
+      flex: 1 1 auto;
+    }
+    .message-line {
+      margin: 1rem 0;
+      padding: 0.72rem 0.9rem;
+      background: #182023;
+      border: 1px solid #2f3f41;
+      border-left: 4px solid #79b8b2;
+      border-radius: 6px;
+      color: #d8e5df;
+      font-size: 1.02rem;
+      line-height: 1.75;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+    }
+    .message-sender {
+      font-weight: 700;
+      color: #8fd0c9;
+      margin-right: 0.35rem;
+    }
+    .time {
+      font-weight: bold;
+      color: #d6a15f;
+      font-size: 1.08rem;
+      text-align: center;
+      margin: 1.8rem 0 1rem;
+    }
+    .thought { color: #9bbac0; font-style: italic; }
+    .divider {
+      text-align: center;
+      color: #5f6564;
+      margin: 2.2rem 0;
+      letter-spacing: 0.6em;
+    }
+    figure.scene-illustration {
+      margin: 2.5rem 0 2.8rem;
+    }
+    .scene-illustration img {
+      display: block;
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid #30383a;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.36);
+    }
+    .scene-illustration figcaption {
+      margin-top: 0.8rem;
+      text-align: center;
+      font-size: 0.92rem;
+      color: #9faaa6;
+      letter-spacing: 0.02em;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 3.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid #30383a;
+      font-size: 1rem;
+    }
+    .nav a { color: #8fd0c9; text-decoration: none; font-weight: 700; }
+    .nav a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <h1>300. 답변 전날의 컵</h1>
+  
+
+<p>수요일 오전까지 답변.</p>
+
+<p>그 말은 화요일 밤을 전부 가져갔다.</p>
+
+<p>스터디룸에서는 다은이 표를 만들었다.</p>
+<p>동아리방에서는 하린이 수요일 오전을 자기 날이라고 작게 주장했다.</p>
+<p>편의점에서는 나윤이 저녁 확인 가능성 옆에 빨간 줄을 그었다.</p>
+
+<p>그리고 카페에서는 미현이 컵을 준비했다.</p>
+
+<p>`답변 전날`</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;컵 이름이 시험 전날 같네요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;시험보다 중요할 수도 있죠.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;취업 관련인데요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;그래서요.&quot;</span></p>
+
+<p>미현은 컵을 시안 앞에 놓았다.</p>
+<p>오늘은 장난기가 적었다.</p>
+<p>대신 컵 아래 작은 종이가 있었다.</p>
+
+<p>`좋은 조건이어도 바로 답하지 않기`</p>
+<p>`저녁 확인은 사전 동의`</p>
+<p>`금요일 컵 영향`</p>
+<p>`일요일 하린`</p>
+<p>`밥`</p>
+<p>`다은 씨와 감당`</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;이거 누가 정리했습니까?&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;다 같이요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;단체 제작 컵이군요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;네. 근데 마지막 확인은 제가 해요.&quot;</span></p>
+
+<p>미현은 그렇게 말하고 시안의 맞은편에 앉았다.</p>
+
+<p>마감 전 카페는 조용했다.</p>
+<p>비가 오려는지 창밖이 조금 어두웠다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;시안 씨, 연장하고 싶어요?&quot;</span></p>
+
+<p>질문은 부드러웠다.</p>
+<p>그래서 더 피할 수 없었다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;하고 싶은 마음도 있습니다.&quot;</span></p>
+
+<p>미현의 손끝이 컵 받침을 눌렀다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;좋은 기회니까요. 그런데 저녁을 자꾸 예외로 열면, 제가 또 늦게 말하는 사람이 될 것 같습니다.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;그래서요?&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;조건을 더 좁혀서 답할 겁니다. 정규 시간 안. 저녁 확인은 참여하지 않거나, 사전 조율 없으면 거절. 금요일 저녁은 안 빌림.&quot;</span></p>
+
+<p>미현은 컵 아래 종이를 봤다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;마지막 줄은 제가 넣었어요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;알 것 같았습니다.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;너무 티 났어요?&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;컵 글씨가 조금 독점적이라서요.&quot;</span></p>
+
+<p>미현이 작게 웃었다.</p>
+<p>그 웃음에 긴장이 조금 풀렸다.</p>
+
+<p>하지만 손끝은 아직 컵에서 떨어지지 않았다.</p>
+
+<figure class="scene-illustration"><img src="../../images/preludes/201-300/300.png" alt="ep.300 성인씬 직전 상황 삽화"><figcaption>답변 전날 밤, 마감 후 홍대 카페 창가 자리</figcaption></figure>
+
+<p>카페를 나설 때 비가 시작됐다.</p>
+
+<p>미현은 우산을 하나 내밀었다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;이건 컵 아니니까 돌려줘야 해요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;안 돌려주면요?&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;그럼 다시 오게 만들죠.&quot;</span></p>
+
+<p>시안은 우산을 받았다.</p>
+
+<p>단체방에 마지막 보고를 올렸다.</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>내일 답변 조건 정리. 2주 연장 자체는 검토. 정규 시간 안. 저녁 확인은 사전 조율 없으면 거절. 금요일 저녁은 회사에 빌려 주지 않음.</p>
+
+<p>답장은 차례로 왔다.</p>
+
+<p class="message-line"><span class="message-sender">[정다은]</span>조건 명확.</p>
+
+<p class="message-line"><span class="message-sender">[서나윤]</span>밥 조건 추가 필요.</p>
+
+<p class="message-line"><span class="message-sender">[유하린]</span>수요일 오전에 먼저 말해 주세요.</p>
+
+<p class="message-line"><span class="message-sender">[박미현]</span>우산 돌려주러 오세요.</p>
+
+<p>그리고 조금 늦게, 이재인에게서 메시지가 왔다.</p>
+
+<p class="message-line"><span class="message-sender">[이재인]</span>저도 내일 같은 조건으로 말해 보려고요. 그런데 김시안 씨, 저희 둘 다 연장하면 회사 안 자리가 또 생겨요.</p>
+
+<p>시안은 비 내리는 길에 멈췄다.</p>
+
+<p>우산 끝에서 물방울이 떨어졌다.</p>
+
+<p>회사 안 자리가 또 생긴다.</p>
+
+<p>300번째 약속은 끝이 아니라, 새 자리의 시작이었다.</p>
+
+
+  <div class="nav">
+    <a href="ep.299.html">← 이전 화</a>
+    <a href="../301-400/ep.301.html">다음 화 →</a>
+  </div>
+</body>
+</html>

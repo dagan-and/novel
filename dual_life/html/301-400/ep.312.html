@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>312. 직접 말할 수 있어요?</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 120%; }
+    body {
+      background: #111417;
+      color: #e8e1d5;
+      font-family: 'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+      font-size: 1.12rem;
+      line-height: 1.9;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3rem 1.4rem 5rem;
+      word-break: keep-all;
+    }
+    h1 {
+      font-size: 1.35rem;
+      text-align: center;
+      color: #79b8b2;
+      margin-bottom: 2.5rem;
+      letter-spacing: 0.02em;
+    }
+    p { margin: 0.75rem 0; }
+    p.speaker-line {
+      display: flex;
+      align-items: baseline;
+      gap: 0.7rem;
+      margin: 0.68rem 0;
+    }
+    .speaker-tag {
+      flex: 0 0 auto;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .speaker-text {
+      flex: 1 1 auto;
+    }
+    .message-line {
+      margin: 1rem 0;
+      padding: 0.72rem 0.9rem;
+      background: #182023;
+      border: 1px solid #2f3f41;
+      border-left: 4px solid #79b8b2;
+      border-radius: 6px;
+      color: #d8e5df;
+      font-size: 1.02rem;
+      line-height: 1.75;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+    }
+    .message-sender {
+      font-weight: 700;
+      color: #8fd0c9;
+      margin-right: 0.35rem;
+    }
+    .time {
+      font-weight: bold;
+      color: #d6a15f;
+      font-size: 1.08rem;
+      text-align: center;
+      margin: 1.8rem 0 1rem;
+    }
+    .thought { color: #9bbac0; font-style: italic; }
+    .divider {
+      text-align: center;
+      color: #5f6564;
+      margin: 2.2rem 0;
+      letter-spacing: 0.6em;
+    }
+    figure.scene-illustration {
+      margin: 2.5rem 0 2.8rem;
+    }
+    .scene-illustration img {
+      display: block;
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid #30383a;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.36);
+    }
+    .scene-illustration figcaption {
+      margin-top: 0.8rem;
+      text-align: center;
+      font-size: 0.92rem;
+      color: #9faaa6;
+      letter-spacing: 0.02em;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 3.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid #30383a;
+      font-size: 1rem;
+    }
+    .nav a { color: #8fd0c9; text-decoration: none; font-weight: 700; }
+    .nav a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <h1>312. 직접 말할 수 있어요?</h1>
+  
+
+<p>단체방에 이재인을 초대하는 건 작은 일이 아니었다.</p>
+
+<p>초대 버튼 하나.</p>
+<p>하지만 그 버튼은 문 같았다.</p>
+
+<p>시안은 먼저 단체방에 물었다.</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>이재인 씨가 소문 관련해서 직접 말하고 싶다고 합니다. 초대해도 될까요?</p>
+
+<p>답장은 한 번에 오지 않았다.</p>
+
+<p>미현.</p>
+
+<p class="message-line"><span class="message-sender">[박미현]</span>필요하면요. 다만 여기는 우리 방이라는 건 알고 들어오면 좋겠어요.</p>
+
+<p>하린.</p>
+
+<p class="message-line"><span class="message-sender">[유하린]</span>직접 말하는 건 좋다고 생각해요.</p>
+
+<p>나윤.</p>
+
+<p class="message-line"><span class="message-sender">[서나윤]</span>도망 안 치면요.</p>
+
+<p>다은.</p>
+
+<p class="message-line"><span class="message-sender">[정다은]</span>당사자 발언 필요합니다. 초대 후 발언 범위 안내하세요.</p>
+
+<p>문채영.</p>
+
+<p class="message-line"><span class="message-sender">[문채영]</span>제가 방 이름 잠깐 정상적으로 바꿀게요.</p>
+
+<p>방 이름이 바뀌었다.</p>
+
+<p>`합의방`</p>
+
+<p>평소보다 너무 정상적이라 오히려 어색했다.</p>
+
+<p>이재인이 들어왔다.</p>
+
+<p class="message-line"><span class="message-sender">[시스템]</span>이재인 님이 입장했습니다.</p>
+
+<p>잠깐 조용했다.</p>
+
+<p class="message-line"><span class="message-sender">[이재인]</span>안녕하세요. 이재인입니다. 회사에서 김시안 씨와 같이 연장 실무 보조를 하게 됐습니다. 이번 사진 소문은 저도 당사자라 직접 말하고 싶었습니다.</p>
+
+<p>문장이 반듯했다.</p>
+<p>다은이 좋아할 문장이다.</p>
+
+<p class="message-line"><span class="message-sender">[이재인]</span>작년에 사진이 이상하게 돌았던 일이 있어서, 이번에도 몸이 먼저 겁났습니다. 그런데 그래서 김시안 씨와 같이 하고 싶었다는 말을 없던 일로 하고 싶지는 않습니다.</p>
+
+<p>단체방이 조용해졌다.</p>
+
+<p>나윤이 먼저 답했다.</p>
+
+<p class="message-line"><span class="message-sender">[서나윤]</span>도망은 안 쳤네요.</p>
+
+<p>이재인의 답이 바로 왔다.</p>
+
+<p class="message-line"><span class="message-sender">[이재인]</span>네. 이번엔 안 뛰고 말하려고요.</p>
+
+<p>하린이 보냈다.</p>
+
+<p class="message-line"><span class="message-sender">[유하린]</span>말해 줘서 고마워요.</p>
+
+<p>미현은 조금 늦었다.</p>
+
+<p class="message-line"><span class="message-sender">[박미현]</span>같이 하고 싶다는 말은 들었습니다. 금요일 컵은 그래도 제 쪽입니다.</p>
+
+<p class="message-line"><span class="message-sender">[이재인]</span>네. 그건 빼앗지 않겠습니다.</p>
+
+<p>시안은 그 문장을 보고 숨을 멈췄다.</p>
+
+<p>빼앗지 않겠습니다.</p>
+
+<p>회사 사람이 드디어 컵의 언어를 이해했다.</p>
+
+<p>다은이 마지막으로 정리했다.</p>
+
+<p class="message-line"><span class="message-sender">[정다은]</span>오늘 발언은 여기까지 기록합니다. 유포 대응은 별도입니다.</p>
+
+<p>문채영이 바로 덧붙였다.</p>
+
+<p class="message-line"><span class="message-sender">[문채영]</span>방 이름은 다시 이상하게 바꿔도 돼요?</p>
+
+<p>긴장이 아주 조금 풀렸다.</p>
+
+<p class="message-line"><span class="message-sender">[서나윤]</span>안 돼요.</p>
+
+<p>이번엔 다들 조금 웃었다.</p>
+
+
+  <div class="nav">
+    <a href="ep.311.html">← 이전 화</a>
+    <a href="ep.313.html">다음 화 →</a>
+  </div>
+</body>
+</html>

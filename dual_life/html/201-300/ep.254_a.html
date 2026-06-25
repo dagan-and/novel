@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>254. 컵은 퇴근을 기다린다</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 120%; }
+    body {
+      background: #111417;
+      color: #e8e1d5;
+      font-family: 'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+      font-size: 1.12rem;
+      line-height: 1.9;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3rem 1.4rem 5rem;
+      word-break: keep-all;
+    }
+    h1 {
+      font-size: 1.35rem;
+      text-align: center;
+      color: #79b8b2;
+      margin-bottom: 2.5rem;
+      letter-spacing: 0.02em;
+    }
+    p { margin: 0.75rem 0; }
+    p.speaker-line {
+      display: flex;
+      align-items: baseline;
+      gap: 0.7rem;
+      margin: 0.68rem 0;
+    }
+    .speaker-tag {
+      flex: 0 0 auto;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .speaker-text {
+      flex: 1 1 auto;
+    }
+    .message-line {
+      margin: 1rem 0;
+      padding: 0.72rem 0.9rem;
+      background: #182023;
+      border: 1px solid #2f3f41;
+      border-left: 4px solid #79b8b2;
+      border-radius: 6px;
+      color: #d8e5df;
+      font-size: 1.02rem;
+      line-height: 1.75;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+    }
+    .message-sender {
+      font-weight: 700;
+      color: #8fd0c9;
+      margin-right: 0.35rem;
+    }
+    .time {
+      font-weight: bold;
+      color: #d6a15f;
+      font-size: 1.08rem;
+      text-align: center;
+      margin: 1.8rem 0 1rem;
+    }
+    .thought { color: #9bbac0; font-style: italic; }
+    .divider {
+      text-align: center;
+      color: #5f6564;
+      margin: 2.2rem 0;
+      letter-spacing: 0.6em;
+    }
+    figure.scene-illustration {
+      margin: 2.5rem 0 2.8rem;
+    }
+    .scene-illustration img {
+      display: block;
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid #30383a;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.36);
+    }
+    .scene-illustration figcaption {
+      margin-top: 0.8rem;
+      text-align: center;
+      font-size: 0.92rem;
+      color: #9faaa6;
+      letter-spacing: 0.02em;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 3.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid #30383a;
+      font-size: 1rem;
+    }
+    .nav a { color: #8fd0c9; text-decoration: none; font-weight: 700; }
+    .nav a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <h1>254. 컵은 퇴근을 기다린다</h1>
+  
+
+<p>목요일 5시 18분.</p>
+
+<p>시안은 회의실 앞에 있었다.</p>
+
+<p>회의 시작보다 12분 빨랐다.</p>
+
+<p>이재인은 문고리를 잡고 작게 웃었다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">이재인</span><span class="speaker-text" style="color:#d97b95">&quot;좋아요. 오늘은 도망 성공 확률이 높아요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;퇴근을 도망이라고 부르는 회사 생활, 건강한가요?&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">이재인</span><span class="speaker-text" style="color:#d97b95">&quot;살아남으면 건강한 거예요.&quot;</span></p>
+
+<p>그녀는 회의실 안에 먼저 들어가 노트북 전원을 켰다.</p>
+
+<p>빠른 손.</p>
+
+<p>빠른 발.</p>
+
+<p>빠른 포스트잇.</p>
+
+<p>오늘 포스트잇은 문 옆에 붙었다.</p>
+
+<p>`17:20 입장`</p>
+
+<p>`17:50 종료`</p>
+
+<p>`18:00 밖`</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;밖까지 써야 해요?&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">이재인</span><span class="speaker-text" style="color:#d97b95">&quot;회사 건물 안에 있으면 아직 잡힌 거예요.&quot;</span></p>
+
+<p>회사 철학이 이상하게 점점 맞아 갔다.</p>
+
+<p>회의는 5시 50분에 끝났다.</p>
+
+<p>정확히.</p>
+
+<p>기적 같았다.</p>
+
+<p>담당자가 마지막으로 말했다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#b7aca0">실무담당자</span><span class="speaker-text" style="color:#b7aca0">&quot;좋네요. 금요일 오전에 수정본만 올려 주세요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;네. 금요일 오전에 올리겠습니다.&quot;</span></p>
+
+<p>시안은 바로 메신저로 문장을 남겼다.</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>목요일 회의 17:50 종료. 금요일 오전 수정본 공유로 확인했습니다.</p>
+
+<p>단체방에도 보냈다.</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>목요일 회의 17:50 종료. 회사 밖으로 나갑니다.</p>
+
+<p>나윤의 답.</p>
+
+<p class="message-line"><span class="message-sender">[서나윤]</span>밖.</p>
+
+<p>미현.</p>
+
+<p class="message-line"><span class="message-sender">[박미현]</span>밖이면 이제 올 수 있네요.</p>
+
+<p>하린.</p>
+
+<p class="message-line"><span class="message-sender">[유하린]</span>오늘 줄어들지 않아서 다행이에요.</p>
+
+<p>다은.</p>
+
+<p class="message-line"><span class="message-sender">[정다은]</span>조건 준수 확인.</p>
+
+<p>문채영.</p>
+
+<p class="message-line"><span class="message-sender">[문채영]</span>축하합니다. 퇴근이라는 희귀 업적을 달성했습니다.</p>
+
+<p>시안은 웃으면서 엘리베이터에 탔다.</p>
+
+<p>이재인은 1층 버튼을 눌렀다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">이재인</span><span class="speaker-text" style="color:#d97b95">&quot;오늘은 편의점?&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;먼저 카페요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">이재인</span><span class="speaker-text" style="color:#d97b95">&quot;아. 컵.&quot;</span></p>
+
+<p>그녀가 너무 자연스럽게 말했다.</p>
+
+<p>시안은 잠깐 그녀를 봤다.</p>
+
+<p>이재인은 손을 흔들었다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">이재인</span><span class="speaker-text" style="color:#d97b95">&quot;캐묻는 거 아니에요. 그냥 많이 들어서요. 컵, 포스트잇, 영수증, 기준표.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;제 주변 사물 목록 같네요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">이재인</span><span class="speaker-text" style="color:#d97b95">&quot;사물인데 사람 같아요.&quot;</span></p>
+
+<p>그 말은 가볍게 나왔는데, 이상하게 가볍지 않았다.</p>
+
+<p>1층 문이 열렸다.</p>
+
+<p>이재인은 먼저 밖으로 한 걸음 나갔다가 멈췄다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">이재인</span><span class="speaker-text" style="color:#d97b95">&quot;오늘은 안 뛰어도 돼요. 일찍 끝냈으니까.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;그럼요?&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">이재인</span><span class="speaker-text" style="color:#d97b95">&quot;걸어가요. 직접.&quot;</span></p>
+
+<p>시안은 그 말을 들고 회사 밖으로 나왔다.</p>
+
+<p>저녁 공기가 생각보다 밝았다.</p>
+
+<p>카페에 도착했을 때, 커피는 식지 않았다.</p>
+
+<p>미현은 컵을 들고 있었다.</p>
+
+<p>컵 메모는 한 장.</p>
+
+<p>`퇴근을 기다림`</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;오늘은 안 식었어요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;회의가 제 시간에 끝났습니다.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;회사 사람이 또 도와줬어요?&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;네. 그런데 오늘은 제가 조건도 말했고요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;알아요.&quot;</span></p>
+
+<p>미현은 컵을 내려놓았다.</p>
+
+<p>웃고 있었다.</p>
+
+<p>다만 컵을 놓는 손끝이 느렸다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;그래도 회사 밖으로 보내 준 사람이 있는 거잖아요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;밖으로 보내 준 거랑, 제가 온 건 같이 있어요.&quot;</span></p>
+
+<p>미현은 그 말을 오래 봤다.</p>
+
+<p>말을 보는 사람처럼.</p>
+
+<p>그리고 작게 물었다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;그럼 오늘은 어디예요?&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;여기요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;말보다요?&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;컵이 식기 전에 왔으니까요.&quot;</span></p>
+
+<p>미현은 눈을 내렸다.</p>
+
+<p>컵 메모 아래에 작은 메모를 하나 더 붙였다.</p>
+
+<p>`직접 옴`</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;두 장 됐네요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;오늘은 두 장까지 괜찮아요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;세 장은요?&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;그건 손님이 더 늦게 만들었을 때요.&quot;</span></p>
+
+<p>시안은 웃었다.</p>
+
+<p>미현도 웃었다.</p>
+
+<p>그런데 웃음 뒤로, 그녀가 카운터 밖으로 나왔다.</p>
+
+<p>앞치마 끈이 살짝 풀려 있었다.</p>
+
+<p>마감까지는 아직 시간이 남았다.</p>
+
+<p>미현은 시안의 손목을 가볍게 잡았다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;오늘은 컵만 기다린 거 아니에요.&quot;</span></p>
+
+<p>시안은 손목에 닿은 손끝을 봤다.</p>
+
+<p>카페 조명이 컵 가장자리에 얇게 걸렸다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;마감 후에도요?&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;네.&quot;</span></p>
+
+<p>미현은 고개를 끄덕였다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;퇴근이 기다렸으면, 저는 그다음도 기다렸어요.&quot;</span></p>
+
+<p>시안은 대답 대신 컵을 들어 한 모금 마셨다.</p>
+
+<p>커피는 아직 따뜻했다.</p>
+
+<p>그게 대답을 더 늦추지 못하게 했다.</p>
+
+<figure class="scene-illustration"><img src="../../images/preludes/201-300/254.png" alt="ep.254 성인씬 직전 상황 삽화"><figcaption>마감 후 홍대 카페, 창가 자리와 카운터 안쪽</figcaption></figure>
+
+<p>컵은 창가에 그대로 남았다.</p>
+
+<p>메모 두 장도 그대로였다.</p>
+
+<p>시안이 문을 잠그는 미현을 기다리고 있을 때, 휴대폰이 짧게 울렸다.</p>
+
+<p class="message-line"><span class="message-sender">[정다은]</span>금요일 오전 수정본 제출 후 공유 바랍니다. 그리고 목요일 저녁 변동 여부도 기록 필요합니다.</p>
+
+<p>시안은 화면을 봤다.</p>
+
+<p>미현도 봤다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;기록 필요하대요?&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;네.&quot;</span></p>
+
+<p>미현은 잠깐 생각하다가 컵 메모 하나를 더 떼어 시안의 휴대폰 뒤에 붙였다.</p>
+
+<p>`기록보다 먼저 옴`</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;이렇게 보내요.&quot;</span></p>
+
+<p>시안은 웃었다.</p>
+
+<p>그런데 웃으면서도 알았다.</p>
+
+<p>금요일 오전은 이미 기다리고 있었다.</p>
+
+  <div class="nav">
+    <a href="ep.253.html">← 이전 화</a>
+    <a href="ep.255.html">다음 화 →</a>
+  </div>
+</body>
+</html>

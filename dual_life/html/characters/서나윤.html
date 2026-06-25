@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>서나윤</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 120%; }
+    body {
+      background: #111417;
+      color: #e8e1d5;
+      font-family: 'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+      font-size: 1.04rem;
+      line-height: 1.82;
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+      word-break: keep-all;
+    }
+    .header {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      align-items: center;
+      margin-bottom: 2.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid #30383a;
+    }
+    .portrait {
+      width: 90%;
+      max-width: 650px;
+      border: 1px solid #30383a;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #181d20;
+    }
+    .portrait img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      object-position: top;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+    .portrait img:hover { opacity: 0.85; }
+    .portrait.no-image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #8f9996;
+      font-size: 1.6rem;
+      height: 200px;
+    }
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.88);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+    }
+    #lightbox.open { display: flex; }
+    #lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+      border: 1px solid #30383a;
+      border-radius: 8px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.7);
+    }
+    .header-info { text-align: center; }
+    .header-info h1 {
+      font-size: 3rem; /* 2rem -> 2.4rem -> 3rem */
+      color: #79b8b2;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.4rem;
+    }
+    .category-tag {
+      display: inline-block;
+      background: #20282b;
+      color: #8fd0c9;
+      border: 1px solid #3d4a4c;
+      font-size: 0.92rem;
+      padding: 0.18rem 0.62rem;
+      border-radius: 999px;
+      letter-spacing: 0.01em;
+    }
+    .current-age {
+      font-size: 1rem;
+      color: #9faaa6;
+      letter-spacing: 0.01em;
+      margin-top: 0.35rem;
+    }
+    h2 {
+      font-size: 1.18rem;
+      color: #79b8b2;
+      margin: 2rem 0 0.6rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 1px solid #30383a;
+      letter-spacing: 0.01em;
+    }
+    h3 { font-size: 1.08rem; color: #d28a72; margin: 1.2rem 0 0.4rem; }
+    p { margin: 0.5rem 0; }
+    ul { padding-left: 1.4rem; margin: 0.4rem 0; }
+    li { margin: 0.25rem 0; }
+    hr { border: none; border-top: 1px solid #30383a; margin: 1.6rem 0; }
+    strong { color: #d28a72; }
+    code { background: #20282b; color: #8fd0c9; padding: 0.1rem 0.35rem; border-radius: 4px; }
+    .back { display: inline-block; margin-bottom: 2rem; color: #8fd0c9; text-decoration: none; font-size: 1rem; font-weight: 700; }
+    .back:hover { text-decoration: underline; }
+    .emotion-chart { width: 90%; max-width: 380px; display: block; margin: 0 auto; }
+    .adult-scene-block {
+      text-align: center;
+      margin: 1.4rem 0 0.4rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.55rem;
+    }
+    .adult-scene-hearts {
+      display: flex;
+      gap: 0.3rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .heart { font-size: 1.45rem; line-height: 1; }
+    .heart.filled { color: #d97b95; }
+    .heart.empty  { color: #30383a; }
+    .adult-scene-count {
+      margin: 0;
+      color: #d97b95;
+      font-size: 0.95rem;
+      letter-spacing: 0.03em;
+    }
+    @media (max-width: 560px) { .portrait { width: 100%; } .emotion-chart { max-width: 320px; } }
+  </style>
+</head>
+<body>
+  <a class="back" href="../characters.html">← 인물 목록</a>
+  <div class="header">
+    <div class="portrait"><img src="../../images/characters/서나윤.png" alt="서나윤" onclick="openLightbox(this.src)" /></div>
+    <svg class="emotion-chart" viewBox="-100 -25 500 360" xmlns="http://www.w3.org/2000/svg"><polygon points="150.0,126.2 172.6,142.7 164.0,169.2 136.0,169.2 127.4,142.7" fill="none" stroke="#3d4a4c" stroke-width="0.8"/><polygon points="150.0,102.5 195.2,135.3 177.9,188.4 122.1,188.4 104.8,135.3" fill="none" stroke="#3d4a4c" stroke-width="0.8"/><polygon points="150.0,78.8 217.8,128.0 191.9,207.6 108.1,207.6 82.2,128.0" fill="none" stroke="#3d4a4c" stroke-width="0.8"/><polygon points="150.0,55.0 240.4,120.6 205.8,226.9 94.2,226.9 59.6,120.6" fill="none" stroke="#3d4a4c" stroke-width="0.8"/><line x1="150" y1="150" x2="150.0" y2="55.0" stroke="#3d4a4c" stroke-width="0.8"/><line x1="150" y1="150" x2="240.4" y2="120.6" stroke="#3d4a4c" stroke-width="0.8"/><line x1="150" y1="150" x2="205.8" y2="226.9" stroke="#3d4a4c" stroke-width="0.8"/><line x1="150" y1="150" x2="94.2" y2="226.9" stroke="#3d4a4c" stroke-width="0.8"/><line x1="150" y1="150" x2="59.6" y2="120.6" stroke="#3d4a4c" stroke-width="0.8"/><polygon points="150.0,77.8 206.9,131.5 188.0,202.3 102.0,216.1 120.2,140.3" fill="rgba(121,184,178,0.2)" stroke="#79b8b2" stroke-width="1.5"/><circle cx="150.0" cy="77.8" r="3" fill="#79b8b2"/><circle cx="206.9" cy="131.5" r="3" fill="#79b8b2"/><circle cx="188.0" cy="202.3" r="3" fill="#79b8b2"/><circle cx="102.0" cy="216.1" r="3" fill="#79b8b2"/><circle cx="120.2" cy="140.3" r="3" fill="#79b8b2"/><text x="150.0" y="25.0" text-anchor="middle" font-size="22" fill="#b7aca0" font-family="Pretendard,Noto Sans KR,Apple SD Gothic Neo,sans-serif">호감도 <tspan fill="#8fd0c9">76</tspan></text><text x="263.2" y="107.2" text-anchor="start" font-size="22" fill="#b7aca0" font-family="Pretendard,Noto Sans KR,Apple SD Gothic Neo,sans-serif">신뢰도 <tspan fill="#8fd0c9">63</tspan></text><text x="219.9" y="258.3" text-anchor="start" font-size="22" fill="#b7aca0" font-family="Pretendard,Noto Sans KR,Apple SD Gothic Neo,sans-serif">질투심 <tspan fill="#8fd0c9">68</tspan></text><text x="80.1" y="258.3" text-anchor="end" font-size="22" fill="#b7aca0" font-family="Pretendard,Noto Sans KR,Apple SD Gothic Neo,sans-serif">독점욕 <tspan fill="#8fd0c9">86</tspan></text><text x="36.8" y="107.2" text-anchor="end" font-size="22" fill="#b7aca0" font-family="Pretendard,Noto Sans KR,Apple SD Gothic Neo,sans-serif">의존도 <tspan fill="#8fd0c9">33</tspan></text></svg>
+    <div class="adult-scene-block"><div class="adult-scene-hearts"><span class="heart filled">♥</span><span class="heart filled">♥</span><span class="heart filled">♥</span><span class="heart filled">♥</span><span class="heart filled">♥</span><span class="heart filled">♥</span><span class="heart filled">♥</span><span class="heart filled">♥</span><span class="heart filled">♥</span><span class="heart filled">♥</span><span class="heart filled">♥</span><span class="heart filled">♥</span><span class="heart filled">♥</span><span class="heart filled">♥</span><span class="heart filled">♥</span><span class="heart filled">♥</span><span class="heart filled">♥</span><span class="heart filled">♥</span><span class="heart filled">♥</span><span class="heart filled">♥</span><span class="heart filled">♥</span><span class="heart filled">♥</span></div><p class="adult-scene-count">♥ 22</p></div>
+    <div class="header-info">
+      <h1>서나윤</h1>
+      <span class="category-tag">후보</span>
+      <p class="current-age">2014년 기준 21세</p>
+    </div>
+  </div>
+  <div class="profile-body">
+    
+<hr>
+
+<h2>[프로필]</h2>
+
+<h3>고정</h3>
+
+<ul>
+<li>이름: 서나윤</li>
+<li>생년월일: 1994년 4월 18일 (2014년 연나이 21세)</li>
+<li>출신: 서울</li>
+<li>배경: 고등학교를 졸업한 뒤 바로 생활비를 벌기 시작한 편의점 야간 아르바이트생. 2014년 기준 성인이다. 고등학교 때 단거리 육상부로 뛰었고, 대학 진학은 집안 사정 때문에 미뤄 둔 채 일부터 붙잡고 있다.</li>
+<li>말투: 빠르고 또렷한 표준어. 초면에도 기가 죽지 않고, 장난처럼 툭 던지다가도 자기 감정이 걸리면 훨씬 더 직선적으로 밀어붙인다. "손님, 또 삼각김밥이랑 커피예요?" / "그렇게 아무렇지 않게 웃으면, 괜히 더 신경 쓰이게 하거든요."</li>
+<li>성격: 겉으로는 활기차고 당당하고 털털한 타입이지만, 사실 마음이 꽂히면 상대를 관찰하는 속도와 들이대는 속도가 동시에 빨라지는 승부욕 강한 성격이다. 지고 지나가는 걸 싫어해서 애매한 거리에서 눈치만 보는 걸 못 견디고, 자기 감정이 확실해지는 순간에는 먼저 말을 걸고 먼저 선을 넘고 먼저 자리를 만들려 든다. 그러면서도 속으로는 <code>내가 먼저 기억되고 싶은데 밀리면 어떡하지</code> 하는 불안이 있어, 질투가 올라오면 차분하게 숨기기보다 몸이 먼저 움직여 끼어들거나 확인하려는 식으로 반응한다.</li>
+<li>감정 표현: 기쁠 때는 목소리가 더 밝아지고 계산대 너머에서도 몸이 먼저 앞으로 기운다. 불안하면 괜히 말을 한마디 더 걸고, 상대 동선을 더 또렷하게 기억해 두려 한다. 화가 나면 표정부터 굳고, 돌려 말하기보다 대놓고 따지거나 자기 쪽으로 시선을 돌리게 만든다. 좋아하는 사람 앞에서는 장난처럼 툭 치고 들어가다가도, 결정적인 순간엔 숨김없이 눈을 맞추며 직진한다.</li>
+<li>약점: 좋아하는 사람과 관련해 경쟁심이 자극되면, 상황을 천천히 읽기보다 반사적으로 먼저 몸을 들이밀어 버티려는 경향이 있다. 질투가 심해질수록 <code>먼저 뺏기기 싫다</code>는 마음이 강해져, 아직 자기 자리가 아닌 순간에도 성급하게 자기 존재를 각인시키려 들 수 있다. 감정이 흔들릴 때는 아닌 척 넘기지 못하고 표정과 행동에 티가 너무 빨리 나는 편이다.</li>
+<li>시안 앞 반응: 처음에는 자주 오는 손님 하나를 유독 빨리 외우는 정도지만, 시안 앞에서는 어느새 들어오는 시간과 피곤한 날 표정, 손에 들린 서류봉투나 넥타이 색까지 먼저 읽고 기억해 버린다. 그러다 다른 여자 흔적이 보이거나 누군가의 자리가 느껴지는 순간, 계산만 하던 손이 잠깐 멈추고 눈빛이 먼저 날카로워진다. 그 상태로도 그냥 보내지 못해서, 괜히 하나를 더 권하거나 카운터 밖으로 한 걸음 나와 말을 더 붙이며 자기 존재를 분명히 남기려 든다.</li>
+<li>시안 호칭 (초기): 손님</li>
+<li>좋아하는 것:</li>
+</ul>
+<p>  - 편의점 폐기 직전 따뜻하게 데운 음식, 탄산음료, 매운 컵라면, 새벽 공기.</p>
+<p>  - 승부가 분명한 것. 가위바위보, 달리기, 먼저 잡기, 먼저 기억되기 같은 작은 경쟁.</p>
+<p>  - 말보다 행동으로 바로 따라오는 사람. 늦어도 실제로 오는 쪽을 믿는다.</p>
+<p>  - 영수증, 시간표, 계산 기록처럼 <code>그날 거기 있었다</code>는 증거가 남는 물건.</p>
+<p>  - 운동화 끈을 단단히 묶는 순간, 뛰기 직전의 긴장감.</p>
+<ul>
+<li>싫어하는 것:</li>
+</ul>
+<p>  - 봐주기. 이긴 척도 싫고, 져 준 척도 싫어한다.</p>
+<p>  - 자기 감정을 어린애 장난이나 승부욕으로만 취급하는 것.</p>
+<p>  - 피곤한 걸 들키는 상황. 특히 누가 걱정만 하고 행동하지 않으면 더 날카로워진다.</p>
+<p>  - <code>다음에</code>라고 말하고 실제로는 오지 않는 사람.</p>
+<ul>
+<li>루프 활용 포인트: 2차 루프에서 시안이 나윤의 교대 시간과 좋아하는 야식을 정확히 알면 나윤은 바로 수상해한다. 나윤에게는 기억을 숨기기보다, 일부러 작은 승부를 걸어 스스로 알아낸 것처럼 만드는 편이 좋다.</li>
+</ul>
+
+<h3>외형</h3>
+
+<ul>
+<li>체형: 균형 잡힌 키에 운동으로 다져진 탄탄한 슬림 체형이라, 시원한 어깨선과 자연스럽게 조여드는 허리, 길게 뻗은 다리선이 먼저 눈에 들어온다. 과한 굴곡보다 가볍고 단단한 근육선이 살아 있어, 얇은 옷차림에서도 몸을 쓰던 사람 특유의 탄력과 긴장감이 바로 느껴진다.</li>
+<li>얼굴: 작은 얼굴에 고양이상 눈매와 길게 빠진 아이라인 같은 인상이 먼저 시선을 붙든다. 속쌍꺼풀 아래 짙은 갈색 눈동자가 날카롭게 또렷하고, 오똑하게 선 콧대와 도톰하지만 힘 있게 다문 입술이 만나 어린 나이답지 않은 도도한 분위기를 만든다. 피부는 맑고 환한 편이지만, 무표정으로 돌아보는 순간엔 차갑고 쉽게 안 지는 기세가 먼저 읽힌다.</li>
+<li>헤어: 높게 묶어 올린 하이 포니테일 아래로 짙은 브라운에서 밝은 애시 톤으로 옅어지는 머리카락이 길게 흘러, 움직일 때마다 발랄함보다 날렵한 인상을 더 강하게 남긴다.</li>
+<li>분위기: 처음엔 세련되고 도도한 인상이 먼저 들어오지만, 가까워질수록 건강한 생기와 지고 싶어 하지 않는 공격적인 승부욕이 같이 느껴진다.</li>
+</ul>
+
+<hr>
+
+<h2>[주변인]</h2>
+
+<ul>
+<li>강민주 (편의점 점장): 나윤의 생활력과 싹싹함을 높게 보지만, 마음에 걸리는 손님이 생기면 유독 승부욕이 세지는 건 눈치채고 있다.</li>
+<li>오세린 (고교 육상부 후배): 나윤의 옛 운동부 시절을 아는 후배. 나윤이 겉보기보다 지는 걸 훨씬 싫어하고, 좋아하는 일이 생기면 무리해서라도 끝까지 붙는 성격이라는 걸 잘 안다.</li>
+</ul>
+
+<hr>
+
+<h2>[관계]</h2>
+
+<ul>
+<li>첫 만남: ep.009</li>
+</ul>
+
+<ul>
+<li>특이사항: 야간 생활권 히로인 후보. ep.030, ep.042, ep.062, ep.078 성인씬 컨텍스트를 거치며 <code>늦게 들어와 빨리 뛰는</code> 직진 축에서 기록과 장면을 남기는 축으로 성장했다. 목요일뿐 아니라 빈칸과 토요일도 침범한다.</li>
+</ul>
+
+<hr>
+
+<h2>[가변]</h2>
+
+<ul>
+<li>현재 구분: <strong>후보</strong></li>
+<li>직업: 편의점 야간 아르바이트생</li>
+</ul>
+
+
+<ul>
+<li>연애상태: 시작 전이지만 반복 성인 관계 진입.</li>
+<li>현재 상태: 2024년, 550화 문턱. 가족 행사 밖의 예비 간식, 보호자 도시락, 환승역 영수증을 거치며 기다림보다 생활 기준과 생존 확인을 요구하는 축이 됐다. 멀어져도 붙잡기만 하지 않고, 못 오면 못 온다고 말하라는 현실적인 독점욕을 세운다.</li>
+<li>김시안 호칭: 손님 / 더위, 장난, 독점욕, 사적 응원 순간 오빠</li>
+<li>김시안이 부르는 호칭: 나윤 씨</li>
+<li>멤버 간 호칭: 박미현 → <code>미현 씨</code> / 유하린 → <code>하린 씨</code></li>
+</ul>
+
+<h3>감정 수치</h3>
+
+<ul>
+<li>호감도: 76/100</li>
+<li>신뢰도: 63/100</li>
+<li>질투심: 68/100</li>
+<li>독점욕: 86/100</li>
+<li>의존도: 33/100</li>
+</ul>
+
+<hr>
+
+<h2>[성인씬 기록]</h2>
+
+<ul>
+<li>총 성인씬: 22회</li>
+<li>화수: ep.030, ep.042, ep.062, ep.078, ep.124, ep.149, ep.184, ep.215, ep.235, ep.263, ep.285, ep.320, ep.345, ep.365, ep.380, ep.395, ep.405, ep.440, ep.465, ep.490, ep.515, ep.540</li>
+</ul>
+
+  </div>
+  <div id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="">
+  </div>
+  <script>
+    function openLightbox(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').classList.add('open');
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  </script>
+</body>
+</html>

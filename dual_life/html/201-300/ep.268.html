@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>268. 문 열어 둘게요</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 120%; }
+    body {
+      background: #111417;
+      color: #e8e1d5;
+      font-family: 'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+      font-size: 1.12rem;
+      line-height: 1.9;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3rem 1.4rem 5rem;
+      word-break: keep-all;
+    }
+    h1 {
+      font-size: 1.35rem;
+      text-align: center;
+      color: #79b8b2;
+      margin-bottom: 2.5rem;
+      letter-spacing: 0.02em;
+    }
+    p { margin: 0.75rem 0; }
+    p.speaker-line {
+      display: flex;
+      align-items: baseline;
+      gap: 0.7rem;
+      margin: 0.68rem 0;
+    }
+    .speaker-tag {
+      flex: 0 0 auto;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .speaker-text {
+      flex: 1 1 auto;
+    }
+    .message-line {
+      margin: 1rem 0;
+      padding: 0.72rem 0.9rem;
+      background: #182023;
+      border: 1px solid #2f3f41;
+      border-left: 4px solid #79b8b2;
+      border-radius: 6px;
+      color: #d8e5df;
+      font-size: 1.02rem;
+      line-height: 1.75;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+    }
+    .message-sender {
+      font-weight: 700;
+      color: #8fd0c9;
+      margin-right: 0.35rem;
+    }
+    .time {
+      font-weight: bold;
+      color: #d6a15f;
+      font-size: 1.08rem;
+      text-align: center;
+      margin: 1.8rem 0 1rem;
+    }
+    .thought { color: #9bbac0; font-style: italic; }
+    .divider {
+      text-align: center;
+      color: #5f6564;
+      margin: 2.2rem 0;
+      letter-spacing: 0.6em;
+    }
+    figure.scene-illustration {
+      margin: 2.5rem 0 2.8rem;
+    }
+    .scene-illustration img {
+      display: block;
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid #30383a;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.36);
+    }
+    .scene-illustration figcaption {
+      margin-top: 0.8rem;
+      text-align: center;
+      font-size: 0.92rem;
+      color: #9faaa6;
+      letter-spacing: 0.02em;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 3.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid #30383a;
+      font-size: 1rem;
+    }
+    .nav a { color: #8fd0c9; text-decoration: none; font-weight: 700; }
+    .nav a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <h1>268. 문 열어 둘게요</h1>
+  
+
+<p>동아리방 문은 정말 열려 있었다.</p>
+
+<p>살짝.</p>
+
+<p>닫힌 것도 아니고, 활짝 열린 것도 아니었다.</p>
+
+<p>하린다운 문이었다.</p>
+
+<p>시안이 노크하자 안에서 목소리가 들렸다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;열려 있어요.&quot;</span></p>
+
+<p>책상 위에는 포스트잇이 세 장 있었다.</p>
+
+<p>`바로 말함`</p>
+
+<p>`줄이지 않음`</p>
+
+<p>`지금 옴`</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;오늘 심사표인가요?&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;칭찬표요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;무섭게 들리는데.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;무섭지 않게 쓰려고 했어요.&quot;</span></p>
+
+<p>하린은 웃었다.</p>
+
+<p>하지만 눈 밑이 조금 피곤했다.</p>
+
+<p>기다린 사람의 얼굴이었다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;늦지 않았습니다.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;네.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;바로 말했고요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;네.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;그래도 기다렸죠.&quot;</span></p>
+
+<p>하린은 대답하지 않았다.</p>
+
+<p>손끝으로 포스트잇 모서리만 만졌다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;기다리는 건 괜찮아요.&quot;</span></p>
+
+<p>그 말이 더 이상 그대로 믿기지 않았다.</p>
+
+<p>시안은 의자를 당겨 앉았다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;괜찮지 않은 건요?&quot;</span></p>
+
+<p>하린은 잠깐 웃었다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;기다리는 동안, 제가 괜찮은 척하는 거요.&quot;</span></p>
+
+<p>짧고 조용한 대답이었다.</p>
+
+<p>시안은 입을 다물었다.</p>
+
+<p>하린은 새 포스트잇을 꺼냈다.</p>
+
+<p>`괜찮은 척 금지`</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;그건 저한테도 붙여야겠는데요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;그럼 둘 다요.&quot;</span></p>
+
+<p>그녀는 포스트잇을 반으로 찢었다.</p>
+
+<p>한쪽은 자기 노트에.</p>
+
+<p>한쪽은 시안의 노트북 파우치에 붙였다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;공동 규칙입니까?&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;네. 오늘은 공동이에요.&quot;</span></p>
+
+<p>공동.</p>
+
+<p>그 말이 이상하게 따뜻했다.</p>
+
+<p>하린은 노트북을 켰다.</p>
+
+<p>문서 제목은 짧았다.</p>
+
+<p>`문을 열어 두는 사람`</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;이거 오늘 얘기예요?&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;네.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;회사 얘기도 들어가요?&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;조금요. 근데 선배가 들어오는 장면이 더 중요해요.&quot;</span></p>
+
+<p>시안은 화면을 봤다.</p>
+
+<p>회사 일정이 하루를 흔들었지만, 이 문서 안에서 중요한 건 문을 여는 소리였다.</p>
+
+<p>그 사실이 고마웠다.</p>
+
+<p>휴대폰이 울렸다.</p>
+
+<p>회사 메신저.</p>
+
+<p>시안은 화면을 보지 않았다.</p>
+
+<p>하린도 보지 않았다.</p>
+
+<p>대신 하린이 말했다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;오늘은 제가 먼저 안 물어볼게요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;고마워요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;대신 선배가 먼저 말해요. 나중에.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;알겠습니다.&quot;</span></p>
+
+<p>하린은 고개를 끄덕였다.</p>
+
+<p>문은 아직 열려 있었다.</p>
+
+<p>하지만 이제 시안은 알았다.</p>
+
+<p>열린 문도 계속 기다리면 힘들다.</p>
+
+  <div class="nav">
+    <a href="ep.267.html">← 이전 화</a>
+    <a href="ep.269_a.html">다음 화 →</a>
+  </div>
+</body>
+</html>

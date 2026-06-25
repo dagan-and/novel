@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>207. 무음 규칙</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 120%; }
+    body {
+      background: #111417;
+      color: #e8e1d5;
+      font-family: 'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+      font-size: 1.12rem;
+      line-height: 1.9;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3rem 1.4rem 5rem;
+      word-break: keep-all;
+    }
+    h1 {
+      font-size: 1.35rem;
+      text-align: center;
+      color: #79b8b2;
+      margin-bottom: 2.5rem;
+      letter-spacing: 0.02em;
+    }
+    p { margin: 0.75rem 0; }
+    p.speaker-line {
+      display: flex;
+      align-items: baseline;
+      gap: 0.7rem;
+      margin: 0.68rem 0;
+    }
+    .speaker-tag {
+      flex: 0 0 auto;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .speaker-text {
+      flex: 1 1 auto;
+    }
+    .message-line {
+      margin: 1rem 0;
+      padding: 0.72rem 0.9rem;
+      background: #182023;
+      border: 1px solid #2f3f41;
+      border-left: 4px solid #79b8b2;
+      border-radius: 6px;
+      color: #d8e5df;
+      font-size: 1.02rem;
+      line-height: 1.75;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+    }
+    .message-sender {
+      font-weight: 700;
+      color: #8fd0c9;
+      margin-right: 0.35rem;
+    }
+    .time {
+      font-weight: bold;
+      color: #d6a15f;
+      font-size: 1.08rem;
+      text-align: center;
+      margin: 1.8rem 0 1rem;
+    }
+    .thought { color: #9bbac0; font-style: italic; }
+    .divider {
+      text-align: center;
+      color: #5f6564;
+      margin: 2.2rem 0;
+      letter-spacing: 0.6em;
+    }
+    figure.scene-illustration {
+      margin: 2.5rem 0 2.8rem;
+    }
+    .scene-illustration img {
+      display: block;
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid #30383a;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.36);
+    }
+    .scene-illustration figcaption {
+      margin-top: 0.8rem;
+      text-align: center;
+      font-size: 0.92rem;
+      color: #9faaa6;
+      letter-spacing: 0.02em;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 3.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid #30383a;
+      font-size: 1rem;
+    }
+    .nav a { color: #8fd0c9; text-decoration: none; font-weight: 700; }
+    .nav a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <h1>207. 무음 규칙</h1>
+  
+
+<p>오리엔테이션 시작 10분 전.</p>
+
+<p>담당자가 말했다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#b7aca0">인사담당자</span><span class="speaker-text" style="color:#b7aca0">&quot;교육 중에는 휴대폰을 무음으로 부탁드립니다.&quot;</span></p>
+
+<p>무음.</p>
+
+<p>회사에서 제일 먼저 배운 규칙이었다.</p>
+
+<p>시안은 합의방에 짧게 남겼다.</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>교육 중 무음입니다. 끝나고 답하겠습니다.</p>
+
+<p>전송하자마자 휴대폰을 뒤집었다.</p>
+
+<p>그게 생각보다 어려웠다.</p>
+
+<p>이재인은 옆에서 작은 에너지바를 꺼냈다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">이재인</span><span class="speaker-text" style="color:#d97b95">&quot;무음 전에 먹을래요?&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;교육 중에 먹어도 돼요?&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">이재인</span><span class="speaker-text" style="color:#d97b95">&quot;시작 전이에요. 회사는 시작 전과 시작 후가 완전히 달라요.&quot;</span></p>
+
+<p>묘하게 설득력 있었다.</p>
+
+<p>시안은 에너지바를 받았다.</p>
+
+<p>사진은 찍지 못했다.</p>
+
+<p>그게 바로 마음에 걸렸다.</p>
+
+<p>교육이 시작되자 메시지는 쌓였다.</p>
+
+<p>볼 수는 없었다.</p>
+
+<p>하지만 울리지 않는 휴대폰도 존재감이 있었다.</p>
+
+<p>점심시간이 되어서야 시안은 화면을 켰다.</p>
+
+<p>미현.</p>
+
+<p class="message-line"><span class="message-sender">[박미현]</span>무음이면 컵 사진도 못 보네요.</p>
+
+<p>하린.</p>
+
+<p class="message-line"><span class="message-sender">[유하린]</span>괜찮아요. 끝나고 먼저 말해 주세요.</p>
+
+<p>나윤.</p>
+
+<p class="message-line"><span class="message-sender">[서나윤]</span>에너지바 먹었으면 보고.</p>
+
+<p>다은.</p>
+
+<p class="message-line"><span class="message-sender">[정다은]</span>무음 규칙 확인. 답장 지연 사유로 기록합니다.</p>
+
+<p>문채영.</p>
+
+<p class="message-line"><span class="message-sender">[문채영]</span>회사가 합의방을 이겼다.</p>
+
+<p>시안은 바로 답했다.</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>무음 교육 끝났습니다. 에너지바는 이재인 씨가 줬습니다. 점심 먹으러 갑니다.</p>
+
+<p>나윤의 답이 빨랐다.</p>
+
+<p class="message-line"><span class="message-sender">[서나윤]</span>아침 다음 간식도 회사.</p>
+
+<p>시안은 화면을 보고 멈췄다.</p>
+
+<p>맞았다.</p>
+
+<p>먹는 건 늘 티가 났다.</p>
+
+<p>이재인이 옆에서 물었다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">이재인</span><span class="speaker-text" style="color:#d97b95">&quot;제가 괜히 줬어요?&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;아니요. 먹어야 했어요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">이재인</span><span class="speaker-text" style="color:#d97b95">&quot;근데 복잡하네요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;조금요.&quot;</span></p>
+
+<p>이재인은 더 묻지 않았다.</p>
+
+<p>대신 식당 쪽을 가리켰다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">이재인</span><span class="speaker-text" style="color:#d97b95">&quot;그럼 점심은 직접 골라요. 저는 줄 짧은 데만 알려 줄게요.&quot;</span></p>
+
+<p>그 배려가 더 복잡했다.</p>
+
+<p>캐묻지 않는 사람.</p>
+
+<p>대신 당장 필요한 길을 알려 주는 사람.</p>
+
+<p>나쁘지 않아서 더 설명하기 어려웠다.</p>
+
+<p>점심 줄 앞에서 시안은 메뉴판 사진을 찍었다.</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>점심은 제가 고릅니다.</p>
+
+<p>나윤에게 보내고 나서야 숨이 나왔다.</p>
+
+<p>회사 첫날.</p>
+
+<p>무음보다 어려운 건, 끝나고 빠르게 말하는 일이었다.</p>
+
+  <div class="nav">
+    <a href="ep.206.html">← 이전 화</a>
+    <a href="ep.208.html">다음 화 →</a>
+  </div>
+</body>
+</html>

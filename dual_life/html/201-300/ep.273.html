@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>273. 회사 저녁</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 120%; }
+    body {
+      background: #111417;
+      color: #e8e1d5;
+      font-family: 'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+      font-size: 1.12rem;
+      line-height: 1.9;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3rem 1.4rem 5rem;
+      word-break: keep-all;
+    }
+    h1 {
+      font-size: 1.35rem;
+      text-align: center;
+      color: #79b8b2;
+      margin-bottom: 2.5rem;
+      letter-spacing: 0.02em;
+    }
+    p { margin: 0.75rem 0; }
+    p.speaker-line {
+      display: flex;
+      align-items: baseline;
+      gap: 0.7rem;
+      margin: 0.68rem 0;
+    }
+    .speaker-tag {
+      flex: 0 0 auto;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .speaker-text {
+      flex: 1 1 auto;
+    }
+    .message-line {
+      margin: 1rem 0;
+      padding: 0.72rem 0.9rem;
+      background: #182023;
+      border: 1px solid #2f3f41;
+      border-left: 4px solid #79b8b2;
+      border-radius: 6px;
+      color: #d8e5df;
+      font-size: 1.02rem;
+      line-height: 1.75;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+    }
+    .message-sender {
+      font-weight: 700;
+      color: #8fd0c9;
+      margin-right: 0.35rem;
+    }
+    .time {
+      font-weight: bold;
+      color: #d6a15f;
+      font-size: 1.08rem;
+      text-align: center;
+      margin: 1.8rem 0 1rem;
+    }
+    .thought { color: #9bbac0; font-style: italic; }
+    .divider {
+      text-align: center;
+      color: #5f6564;
+      margin: 2.2rem 0;
+      letter-spacing: 0.6em;
+    }
+    figure.scene-illustration {
+      margin: 2.5rem 0 2.8rem;
+    }
+    .scene-illustration img {
+      display: block;
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid #30383a;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.36);
+    }
+    .scene-illustration figcaption {
+      margin-top: 0.8rem;
+      text-align: center;
+      font-size: 0.92rem;
+      color: #9faaa6;
+      letter-spacing: 0.02em;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 3.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid #30383a;
+      font-size: 1rem;
+    }
+    .nav a { color: #8fd0c9; text-decoration: none; font-weight: 700; }
+    .nav a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <h1>273. 회사 저녁</h1>
+  
+
+<p>회사 저녁은 시끄러웠다.</p>
+
+<p>술잔은 없었지만, 말이 많았다.</p>
+
+<p>선배 인턴의 조언.</p>
+
+<p>담당자의 농담.</p>
+
+<p>다음 주 업무 예고.</p>
+
+<p>그리고 음식.</p>
+
+<p>시안은 식사 사진을 찍어 합의방에 올렸다.</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>간담회 식사 시작. 밥 먹습니다.</p>
+
+<p>나윤.</p>
+
+<p class="message-line"><span class="message-sender">[서나윤]</span>통과. 근데 늦게 먹으면 속 불편해요.</p>
+
+<p>다은.</p>
+
+<p class="message-line"><span class="message-sender">[정다은]</span>업무 예고 내용 별도 기록.</p>
+
+<p>하린.</p>
+
+<p class="message-line"><span class="message-sender">[유하린]</span>지금 괜찮아요?</p>
+
+<p>미현.</p>
+
+<p class="message-line"><span class="message-sender">[박미현]</span>컵은 기다려요.</p>
+
+<p>시안은 답장을 쓰려다 담당자의 말에 고개를 들었다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#b7aca0">실무담당자</span><span class="speaker-text" style="color:#b7aca0">&quot;다음 주엔 중간 평가 전 사전 점검이 있을 겁니다.&quot;</span></p>
+
+<p>중간 평가.</p>
+
+<p>회사 저녁이 또 다음 주를 만들었다.</p>
+
+<p>이재인은 맞은편에서 시안을 봤다.</p>
+
+<p>입모양으로 말했다.</p>
+
+<p>`적어 둬요.`</p>
+
+<p>시안은 냅킨에 적었다.</p>
+
+<p>`중간 평가 전 점검`</p>
+
+<p>그 아래.</p>
+
+<p>`오늘은 21시 전 나가기`</p>
+
+<p>8시 42분.</p>
+
+<p>간담회는 끝날 기미가 없었다.</p>
+
+<p>이재인이 물컵을 들고 시안 쪽으로 살짝 기울었다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">이재인</span><span class="speaker-text" style="color:#d97b95">&quot;9시 넘어요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;알겠습니다.&quot;</span></p>
+
+<p>시안은 바로 합의방에 적었다.</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>간담회 9시 넘을 것 같습니다. 늦습니다. 끝나는 즉시 이동하겠습니다.</p>
+
+<p>미현의 답은 한 줄이었다.</p>
+
+<p class="message-line"><span class="message-sender">[박미현]</span>늦는 컵으로 바꿀게요.</p>
+
+<p>이미 늦는 컵이었는데.</p>
+
+<p>더 늦는 컵이 됐다.</p>
+
+  <div class="nav">
+    <a href="ep.272.html">← 이전 화</a>
+    <a href="ep.274.html">다음 화 →</a>
+  </div>
+</body>
+</html>
