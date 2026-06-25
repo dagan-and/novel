@@ -121,9 +121,9 @@
     "category": "군사",
     "status": "active",
     "introduced_year": 19,
-    "spread_rate": 40,
-    "region": "영산·구야",
-    "effect": "방어 거점과 야전 진영 표준화"
+    "spread_rate": 58,
+    "region": "영산·구야·한강 교두보",
+    "effect": "방어 거점과 야전 진영, 교두보 성채화 표준화"
   },
   {
     "name": "봉화 신호 체계",
@@ -148,8 +148,8 @@
     "category": "군사",
     "status": "active",
     "introduced_year": 20,
-    "spread_rate": 85,
-    "region": "정규군",
+    "spread_rate": 91,
+    "region": "정규군·한강 주둔군",
     "effect": "진형·봉화·교대·보급의 문서화"
   },
   {
@@ -166,8 +166,8 @@
     "category": "군사",
     "status": "active",
     "introduced_year": 23,
-    "spread_rate": 55,
-    "region": "정규군",
+    "spread_rate": 61,
+    "region": "정규군·한강 서안",
     "effect": "원거리 압박력과 반복 발사 효율 상승"
   },
   {
@@ -562,9 +562,18 @@
     "category": "의학",
     "status": "active",
     "introduced_year": 32,
-    "spread_rate": 36,
-    "region": "복속지 전역",
+    "spread_rate": 42,
+    "region": "복속지 전역·한강 점령지",
     "effect": "기초 진료와 산모·영아 보호망 확대"
+  },
+  {
+    "name": "야전 의무소·부상 분류 체계",
+    "category": "의학/군사",
+    "status": "active",
+    "introduced_year": 51,
+    "spread_rate": 24,
+    "region": "한강 교두보·한강 서안·정규군",
+    "effect": "응급 처치 우선순위와 전열 복귀 기준을 세워 전투 손실 회복 속도 향상"
   },
   {
     "name": "한강 진격 장기 군비계획",
@@ -1159,5 +1168,68 @@
     "spread_rate": 12,
     "region": "문관부·교육소·복속지 회의",
     "effect": "점령 직후 호구 조사, 창고 봉인, 항복 문서 접수, 인질 보증, 포구 통제를 곧바로 시작할 수 있는 현장 행정 인력 편성"
+  },
+  {
+    "name": "한강 주공 상륙축 작전도",
+    "category": "전략/상륙",
+    "status": "active",
+    "introduced_year": 49,
+    "spread_rate": 10,
+    "region": "총지휘부·항만·상륙 선단",
+    "effect": "주공 선단이 어느 밀물과 안개 시각에 어떤 축으로 들어가고 어디서 포대를 펼칠지를 하나의 지도와 시간표로 통일"
+  },
+  {
+    "name": "3일 화력 운용표·포대 전개 순서",
+    "category": "군사/포병",
+    "status": "active",
+    "introduced_year": 49,
+    "spread_rate": 16,
+    "region": "포대·기병대·수송대",
+    "effect": "상륙 첫 3일 동안 투석기, 연사 발리스타, 쇠뇌의 사격 우선순위와 전개 순서를 고정해 적 재집결을 막음"
+  },
+  {
+    "name": "기병 추격선·차단선 규정",
+    "category": "군사/기병",
+    "status": "active",
+    "introduced_year": 49,
+    "spread_rate": 14,
+    "region": "기병 마무리대·봉화망",
+    "effect": "기병이 어디까지 추격하고 어디서 도주로를 끊고 어느 시각 이전에 회귀할지를 정해 과도한 돌진으로 대오가 무너지는 일을 막음"
+  },
+  {
+    "name": "포구·창고·나루 인수 순번표",
+    "category": "행정/군정",
+    "status": "active",
+    "introduced_year": 49,
+    "spread_rate": 15,
+    "region": "임시행정관단·문관부·상륙 선발대",
+    "effect": "점령 직후 어느 포구와 창고, 나루를 어떤 순서로 봉인하고 장부를 교체할지 정해 약탈과 혼선을 줄임"
+  },
+  {
+    "name": "한강 하구 총력 상륙전",
+    "category": "전쟁/상륙",
+    "status": "active",
+    "introduced_year": 50,
+    "spread_rate": 22,
+    "region": "한강 하구·주공 상륙축·연안 보급선",
+    "effect": "주공 상륙, 허위 상륙 기만, 포대 선제 사격, 협력 촌락 호응, 기병 차단선, 행정 인수반, 후속 보급을 한 번에 묶어 교두보를 강제로 세움"
+  },
+  {
+    "name": "한강 포구 군정 접수 체계",
+    "category": "군정/행정",
+    "status": "active",
+    "introduced_year": 50,
+    "spread_rate": 18,
+    "region": "점령 포구·창고·나루",
+    "effect": "점령 직후 포구와 창고, 나루를 봉인하고 세곡 장부와 물자 흐름을 영산 체계로 즉시 갈아타게 만드는 군정 절차"
+  },
+  {
+    "name": "7일 유지 후속 상륙 순환",
+    "category": "군수/해상",
+    "status": "active",
+    "introduced_year": 50,
+    "spread_rate": 16,
+    "region": "목포 항만·서해 연안 거점·한강 하구",
+    "effect": "교두보 확보 직후 후속 선단과 수레를 일정 간격으로 밀어 넣어 군량, 마초, 예비 부품이 한 번에 끊기지 않게 유지"
   }
 ]
