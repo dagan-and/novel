@@ -7,7 +7,7 @@ This playbook is the copy-ready operator guide for the mixed-style wargame flow.
 - Base flow stays on `작전 턴`
 - `전술 턴` opens only for decisive clashes or high-risk transitions
 - Results must stay `전과표 우선, 서사 후행`
-- Keep the existing JSON schema unless a real gameplay change requires otherwise
+- Keep the existing JSON schema unless a change is strictly required
 
 ## When to Use Operation Turns
 
@@ -25,6 +25,8 @@ Open a tactical turn only when a specific clash has become decisive enough to wa
 - Open it when a key crossing, port, fortress, or supply node is at stake
 - Open it for high-risk commands such as forced advance, night raid, wide flank move, or ordered withdrawal
 - Open it when enemy reserves, surprise reinforcements, or collapse risk make the battle outcome uncertain
+- After a tactical clash, the flow normally returns to `작전 턴`
+- Allow 2~3 chained `전술 턴` only for narrow exceptions such as initial landing sequences, decisive encirclements, or chained counterattacks
 
 ## Operation Turn Template
 
@@ -153,5 +155,6 @@ The result block should always lead with battlefield effects and only then add a
 
 - Update `events.json` with the turn title, world context, and result line
 - Update `game-state.json` for front-line status, losses, supply strain, and newly held positions
+- Description-style state updates are acceptable when hard numbers do not fit cleanly
 - Update `tech-tree.json` only if doctrine, logistics, or medical practice actually changed
 - Do not regenerate `chronicle.html` unless explicitly requested
