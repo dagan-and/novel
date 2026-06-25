@@ -33,3 +33,6 @@ Focused verification:
 
 Additional concerns:
 - None beyond the previously noted `주행동` false positive in the legacy-format grep check.
+
+Recorded review-fix commit:
+- `c470f4ed` `docs: fix task 1 resume review follow-up`
