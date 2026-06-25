@@ -6,6 +6,14 @@
 
 ---
 
+## 관련 문서
+
+- 빠른 진행 가이드: `RESUME.md`
+- 설계 원본: `docs/superpowers/specs/2026-06-25-wargame-turn-structure-design.md`
+- 진행 템플릿: `docs/wargame-playbook.md`
+
+---
+
 ## 파일 구조
 
 | 파일 | 내용 |
