@@ -119,6 +119,73 @@ def build_assets(state):
     return "".join(items)
 
 
+def build_tech_item(t):
+    status = t.get("status", "locked")
+    name = escape(t.get("name", ""))
+    spread = t.get("spread_rate", 0)
+    yr = t.get("introduced_year")
+    effect = t.get("effect", "")
+    label_color = {"done": "#EDE5CF", "active": "#C8A84B", "available": "#8A9BA8", "locked": "#3A4558"}.get(status, "#3A4558")
+    spread_bar = ""
+    if status in ("done", "active") and spread > 0:
+        bar_color = "#4E8A65" if status == "done" else "#C8A84B"
+        spread_bar = f'<div style="height:2px;background:#2A3448;border-radius:1px;margin-top:4px"><div style="height:2px;background:{bar_color};width:{spread}%;border-radius:1px"></div></div>'
+    yr_text = f" <span style='color:#4A5568;font-size:10px'>AD {yr}</span>" if yr else ""
+    effect_text = f'<div style="color:#4A5568;font-size:10px;padding-left:16px">{escape(effect)}</div>' if effect and status != "locked" else ""
+    return f"""
+    <div style="padding:6px 0;border-bottom:1px solid #1C2535">
+      <div style="display:flex;align-items:center">
+        {tech_dot(status)}
+        <span style="font-size:13px;color:{label_color}">{name}{yr_text}</span>
+      </div>
+      {effect_text}
+      {spread_bar}
+    </div>"""
+
+
+def build_tech_tabs(techs):
+    categories = {}
+    cat_order = []
+    for t in techs:
+        cat = t.get("category", "기타")
+        if cat not in categories:
+            categories[cat] = []
+            cat_order.append(cat)
+        categories[cat].append(t)
+
+    status_counts = {}
+    for cat in cat_order:
+        done = sum(1 for t in categories[cat] if t.get("status") == "done")
+        active = sum(1 for t in categories[cat] if t.get("status") == "active")
+        total = len(categories[cat])
+        status_counts[cat] = (done, active, total)
+
+    btn_html = []
+    panel_html = []
+    for i, cat in enumerate(cat_order):
+        done, active, total = status_counts[cat]
+        is_first = (i == 0)
+        safe_id = f"tech-{cat}"
+        badge_color = "#4E8A65" if done > 0 else "#C8A84B" if active > 0 else "#4A5568"
+        badge = f'<span style="font-size:9px;background:{badge_color};color:#0D1117;border-radius:2px;padding:1px 5px;margin-left:6px;font-weight:700">{done}/{total}</span>'
+        btn_html.append(
+            f'<button class="sub-tab-btn{"  sub-active" if is_first else ""}" '
+            f'onclick="switchSubTab(\'{safe_id}\', this)">'
+            f'{escape(cat)}{badge}</button>'
+        )
+        items_html = "".join(build_tech_item(t) for t in categories[cat])
+        panel_html.append(
+            f'<div id="{safe_id}" class="sub-tab-panel{"  sub-active" if is_first else ""}">'
+            f'{items_html}</div>'
+        )
+
+    return f"""
+<div style="border-bottom:1px solid #2A3448;margin-bottom:16px;display:flex;flex-wrap:wrap;gap:2px">
+  {"".join(btn_html)}
+</div>
+{"".join(panel_html)}"""
+
+
 def build_tech_rows(techs):
     categories = {}
     for t in techs:
@@ -129,29 +196,7 @@ def build_tech_rows(techs):
     for cat, items in categories.items():
         rows.append(f'<div style="color:#7A6530;font-size:10px;letter-spacing:.15em;text-transform:uppercase;margin:10px 0 4px">{escape(cat)}</div>')
         for t in items:
-            status = t.get("status", "locked")
-            name = escape(t.get("name", ""))
-            spread = t.get("spread_rate", 0)
-            yr = t.get("introduced_year")
-            effect = t.get("effect", "")
-
-            label_color = {"done": "#EDE5CF", "active": "#C8A84B", "available": "#8A9BA8", "locked": "#3A4558"}.get(status, "#3A4558")
-            spread_bar = ""
-            if status in ("done", "active") and spread > 0:
-                bar_color = "#4E8A65" if status == "done" else "#C8A84B"
-                spread_bar = f'<div style="height:2px;background:#2A3448;border-radius:1px;margin-top:4px"><div style="height:2px;background:{bar_color};width:{spread}%;border-radius:1px"></div></div>'
-            yr_text = f" <span style='color:#4A5568;font-size:10px'>AD {yr}</span>" if yr else ""
-            effect_text = f'<div style="color:#4A5568;font-size:10px;padding-left:16px">{escape(effect)}</div>' if effect and status != "locked" else ""
-
-            rows.append(f"""
-            <div style="padding:3px 0">
-              <div style="display:flex;align-items:center">
-                {tech_dot(status)}
-                <span style="font-size:12px;color:{label_color}">{name}{yr_text}</span>
-              </div>
-              {effect_text}
-              {spread_bar}
-            </div>""")
+            rows.append(build_tech_item(t))
     return "".join(rows)
 
 
@@ -301,6 +346,13 @@ def generate(state, events, techs):
     apparent_age = identity.get("apparent_age", "?")
     start_year = 1
 
+    identity_rows = "".join(
+        f'<div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #2A3448;font-size:13px">'
+        f'<span style="color:#8A9BA8">{k}</span>'
+        f'<span style="font-weight:600;color:#EDE5CF">{v}</span></div>'
+        for k, v in [("이름", name), ("신분", role), ("위치", location), ("겉나이", f"{apparent_age}세")]
+    )
+
     return f"""<!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -311,17 +363,36 @@ def generate(state, events, techs):
 *{{box-sizing:border-box;margin:0;padding:0}}
 body{{background:#0D1117;color:#EDE5CF;font-family:"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;font-size:14px;line-height:1.7;min-height:100vh}}
 a{{color:#C8A84B}}
+.tab-btn{{
+  background:none;border:none;color:#8A9BA8;font-family:inherit;font-size:13px;
+  padding:10px 20px;cursor:pointer;border-bottom:2px solid transparent;
+  letter-spacing:.05em;transition:color .15s;white-space:nowrap;
+}}
+.tab-btn:hover{{color:#EDE5CF}}
+.tab-btn.active{{color:#C8A84B;border-bottom-color:#C8A84B}}
+.tab-panel{{display:none;padding:28px 32px;max-width:900px}}
+.tab-panel.active{{display:block}}
+.section-label{{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#7A6530;margin-bottom:10px}}
+.card{{background:#141B26;border:1px solid #2A3448;border-radius:4px;padding:16px 20px;margin-bottom:20px}}
+.sub-tab-btn{{
+  background:none;border:none;color:#6A7A8A;font-family:inherit;font-size:12px;
+  padding:7px 14px;cursor:pointer;border-bottom:2px solid transparent;
+  letter-spacing:.04em;transition:color .12s;white-space:nowrap;
+}}
+.sub-tab-btn:hover{{color:#EDE5CF}}
+.sub-tab-btn.sub-active{{color:#C8A84B;border-bottom-color:#7A6530}}
+.sub-tab-panel{{display:none}}
+.sub-tab-panel.sub-active{{display:block}}
 </style>
 </head>
 <body>
 
-<!-- 헤더 -->
-<header style="border-bottom:1px solid #7A6530;padding:24px 32px 18px;display:flex;align-items:baseline;gap:20px;flex-wrap:wrap">
+<header style="border-bottom:1px solid #7A6530;padding:20px 32px 16px;display:flex;align-items:baseline;gap:20px;flex-wrap:wrap">
   <div>
     <div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#C8A84B;margin-bottom:4px">불사자의 기록</div>
     <div style="display:flex;align-items:baseline;gap:12px">
-      <span style="font-size:28px;font-weight:700;letter-spacing:.04em">{name}</span>
-      <span style="font-size:15px;color:#7A6530;letter-spacing:.1em">金煇</span>
+      <span style="font-size:26px;font-weight:700;letter-spacing:.04em">{name}</span>
+      <span style="font-size:14px;color:#7A6530;letter-spacing:.1em">金煇</span>
     </div>
   </div>
   <div style="margin-left:auto;text-align:right;color:#8A9BA8;font-size:12px;line-height:2">
@@ -331,68 +402,103 @@ a{{color:#C8A84B}}
   </div>
 </header>
 
-<!-- 레이아웃 -->
-<div style="display:grid;grid-template-columns:260px 1fr;max-width:1140px;margin:0 auto">
+<!-- 탭 바 -->
+<nav style="border-bottom:1px solid #2A3448;padding:0 24px;display:flex;overflow-x:auto">
+  <button class="tab-btn active" onclick="switchTab('현황', this)">현황</button>
+  <button class="tab-btn" onclick="switchTab('군사위협', this)">군사·위협</button>
+  <button class="tab-btn" onclick="switchTab('인물', this)">인물</button>
+  <button class="tab-btn" onclick="switchTab('기술', this)">기술</button>
+  <button class="tab-btn" onclick="switchTab('판도', this)">판도</button>
+  <button class="tab-btn" onclick="switchTab('연대기', this)">연대기 ({len(events)})</button>
+</nav>
 
-  <!-- 사이드바 -->
-  <aside style="border-right:1px solid #2A3448;padding:24px 20px;display:flex;flex-direction:column;gap:24px">
+<!-- 탭 1: 현황 -->
+<div id="tab-현황" class="tab-panel active">
+  {build_current_card(state)}
 
-    <div>
-      <div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#7A6530;margin-bottom:10px">현재 신분</div>
-      {''.join(f'<div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #2A3448;font-size:13px"><span style="color:#8A9BA8">{k}</span><span style="font-weight:600;color:#EDE5CF">{v}</span></div>' for k, v in [("이름", name), ("신분", role), ("위치", location), ("겉나이", f"{apparent_age}세")])}
+  <div class="card">
+    <div class="section-label">현재 신분</div>
+    {identity_rows}
+  </div>
+
+  <div class="card">
+    <div class="section-label">세력 현황</div>
+    <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #2A3448;font-size:13px">
+      <span style="color:#8A9BA8">부족 영향력</span><span>{stars(influence)}</span>
     </div>
-
-    <div>
-      <div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#7A6530;margin-bottom:10px">세력 현황</div>
-      <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #2A3448;font-size:13px">
-        <span style="color:#8A9BA8">부족 영향력</span><span>{stars(influence)}</span>
-      </div>
-      <div style="display:flex;justify-content:space-between;padding:5px 0;font-size:13px">
-        <span style="color:#8A9BA8">영향 인구</span><span style="font-weight:600">{population:,}명</span>
-      </div>
+    <div style="display:flex;justify-content:space-between;padding:8px 0;font-size:13px">
+      <span style="color:#8A9BA8">영향 인구</span><span style="font-weight:600">{population:,}명</span>
     </div>
-
-    <div>
-      <div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#7A6530;margin-bottom:10px">군사력</div>
-      {build_military(state)}
-    </div>
-
-    <div>
-      <div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#7A6530;margin-bottom:10px">위협</div>
-      {build_threats(state)}
-    </div>
-
-    <div>
-      <div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#7A6530;margin-bottom:10px">자산</div>
-      {build_assets(state)}
-    </div>
-
-    <div>
-      <div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#7A6530;margin-bottom:10px">주요 인물</div>
-      {build_relationships(state)}
-    </div>
-
-    <div>
-      <div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#7A6530;margin-bottom:6px">기술 도입 현황</div>
-      <div style="font-size:11px;color:#4A5568;margin-bottom:8px">● 완료 &nbsp; ◐ 진행 &nbsp; ○ 가능 &nbsp; · 잠김</div>
-      {build_tech_rows(techs)}
-    </div>
-
-  </aside>
-
-  <!-- 메인 -->
-  <main style="padding:28px 32px">
-    {build_current_card(state)}
-    {build_territory_map(state)}
-
-    <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#7A6530;margin-bottom:16px;padding-bottom:6px;border-bottom:1px solid #2A3448">연대기 (최신순)</div>
-
-    <div style="position:relative;padding-left:24px;border-left:1px solid #2A3448">
-      {build_events(events)}
-    </div>
-  </main>
-
+  </div>
 </div>
+
+<!-- 탭 2: 군사·위협 -->
+<div id="tab-군사위협" class="tab-panel">
+  <div class="card">
+    <div class="section-label">군사력</div>
+    {build_military(state)}
+  </div>
+
+  <div class="card">
+    <div class="section-label">위협</div>
+    {build_threats(state)}
+  </div>
+
+  <div class="card">
+    <div class="section-label">자산</div>
+    {build_assets(state)}
+  </div>
+</div>
+
+<!-- 탭 3: 인물 -->
+<div id="tab-인물" class="tab-panel">
+  <div class="card">
+    <div class="section-label">주요 인물</div>
+    {build_relationships(state)}
+  </div>
+</div>
+
+<!-- 탭 4: 기술 -->
+<div id="tab-기술" class="tab-panel">
+  <div class="card">
+    <div style="font-size:11px;color:#4A5568;margin-bottom:12px">
+      <span style="color:#4E8A65">●</span> 완료 &nbsp;
+      <span style="color:#C8A84B">●</span> 진행 &nbsp;
+      <span style="color:#4A5568">●</span> 가능 &nbsp;
+      <span style="color:#2A3448">●</span> 잠김
+    </div>
+    {build_tech_tabs(techs)}
+  </div>
+</div>
+
+<!-- 탭 5: 판도 -->
+<div id="tab-판도" class="tab-panel" style="max-width:780px">
+  {build_territory_map(state)}
+</div>
+
+<!-- 탭 6: 연대기 -->
+<div id="tab-연대기" class="tab-panel">
+  <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#7A6530;margin-bottom:16px;padding-bottom:6px;border-bottom:1px solid #2A3448">연대기 (최신순)</div>
+  <div style="position:relative;padding-left:24px;border-left:1px solid #2A3448">
+    {build_events(events)}
+  </div>
+</div>
+
+<script>
+function switchTab(name, btn) {{
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  btn.classList.add('active');
+}}
+function switchSubTab(id, btn) {{
+  var parent = btn.closest('.card');
+  parent.querySelectorAll('.sub-tab-panel').forEach(p => p.classList.remove('sub-active'));
+  parent.querySelectorAll('.sub-tab-btn').forEach(b => b.classList.remove('sub-active'));
+  document.getElementById(id).classList.add('sub-active');
+  btn.classList.add('sub-active');
+}}
+</script>
 </body>
 </html>"""
 

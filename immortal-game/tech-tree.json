@@ -1,48 +1,713 @@
 [
-  { "name": "끓인 물 (기초 위생)", "category": "의학", "status": "done", "introduced_year": 1, "spread_rate": 100, "region": "전체", "effect": "감염 사망률 감소" },
-  { "name": "이모작 (벼+보리)", "category": "농업", "status": "done", "introduced_year": 2, "spread_rate": 100, "region": "전체", "effect": "수확량 약 2배" },
-  { "name": "소금 생산 (자염)", "category": "교역", "status": "done", "introduced_year": 3, "spread_rate": 90, "region": "영산강 하구", "effect": "교역 핵심 자원 확보" },
-  { "name": "철제 농기구", "category": "농업", "status": "done", "introduced_year": 7, "spread_rate": 100, "region": "전체", "effect": "생산성 2배" },
-  { "name": "개량 야철", "category": "제조", "status": "done", "introduced_year": 8, "spread_rate": 100, "region": "야철장", "effect": "철창·병기 생산" },
-  { "name": "호구 행정", "category": "행정", "status": "done", "introduced_year": 10, "spread_rate": 100, "region": "전체", "effect": "인구 파악·징세" },
-  { "name": "성문법", "category": "행정", "status": "done", "introduced_year": 15, "spread_rate": 100, "region": "전체", "effect": "내부 분쟁 중재·연합 결속" },
-  { "name": "도로망 (1차)", "category": "건설", "status": "active", "introduced_year": 15, "spread_rate": 30, "region": "야철장↔어촌", "effect": "이동·물자 효율 향상" },
-  { "name": "고탄소 강철", "category": "제조", "status": "active", "introduced_year": 15, "spread_rate": 15, "region": "야철장", "effect": "철기 강도 2배 — 양산 준비 중" },
-  { "name": "표준 도량형", "category": "행정", "status": "active", "introduced_year": 16, "spread_rate": 90, "region": "전체", "effect": "징세·교역·군수 계산 통일" },
-  { "name": "심경법 (깊이갈기)", "category": "농업", "status": "active", "introduced_year": 17, "spread_rate": 25, "region": "영산강 유역", "effect": "토지 생산성 30% 향상" },
-  { "name": "퇴비법·작물 순환", "category": "농업", "status": "active", "introduced_year": 18, "spread_rate": 30, "region": "영산강 유역", "effect": "수확 안정성과 토양 회복력 향상" },
-  { "name": "저수지 / 수리시설", "category": "건설", "status": "active", "introduced_year": 22, "spread_rate": 15, "region": "영산·복속지", "effect": "가뭄 피해 최소화" },
-  { "name": "목책 방어선", "category": "군사", "status": "active", "introduced_year": 19, "spread_rate": 40, "region": "영산·구야", "effect": "방어 거점과 야전 진영 표준화" },
-  { "name": "봉화 신호 체계", "category": "군사", "status": "active", "introduced_year": 16, "spread_rate": 60, "region": "영산강 유역", "effect": "정보 전달 속도 향상" },
-  { "name": "강철 병기 양산", "category": "군사", "status": "active", "introduced_year": 18, "spread_rate": 80, "region": "정규군·야철장", "effect": "강철창·방패·화살촉 규격 생산" },
-  { "name": "군율·야전 매뉴얼", "category": "군사", "status": "active", "introduced_year": 20, "spread_rate": 85, "region": "정규군", "effect": "진형·봉화·교대·보급의 문서화" },
-  { "name": "기계식 강궁 시제품", "category": "군사", "status": "active", "introduced_year": 21, "spread_rate": 30, "region": "야철장·정규군", "effect": "반복 발사를 노린 강궁 연구" },
-  { "name": "실전형 쇠뇌", "category": "군사", "status": "active", "introduced_year": 23, "spread_rate": 55, "region": "정규군", "effect": "원거리 압박력과 반복 발사 효율 상승" },
-  { "name": "기마 등자", "category": "군사", "status": "active", "introduced_year": 24, "spread_rate": 20, "region": "정찰대", "effect": "기마 정찰·추격 안정성 향상" },
-  { "name": "회계 장부와 창고 감사", "category": "행정", "status": "active", "introduced_year": 17, "spread_rate": 90, "region": "전체", "effect": "부패·누락 감소, 군량 추적" },
-  { "name": "교육소 (문자·산술·도량형)", "category": "행정", "status": "active", "introduced_year": 21, "spread_rate": 65, "region": "복속지 전역", "effect": "행정·군수 인력 양성" },
-  { "name": "다자녀 세금 면제", "category": "행정", "status": "active", "introduced_year": 24, "spread_rate": 35, "region": "전체", "effect": "출산 장려와 가구 확대 유도" },
-  { "name": "유아 보호·출산 장려 체계", "category": "행정", "status": "active", "introduced_year": 25, "spread_rate": 30, "region": "전체", "effect": "영아 생존율과 출산 안정성 향상" },
-  { "name": "정보 특공대", "category": "행정", "status": "active", "introduced_year": 25, "spread_rate": 35, "region": "주변 소국권", "effect": "풍요 소문 확산과 정보 수집" },
-  { "name": "물레방아", "category": "제조", "status": "locked", "introduced_year": null, "spread_rate": 0, "region": null, "effect": "곡물 가공 효율화" },
-  { "name": "낙랑 교역로", "category": "교역", "status": "active", "introduced_year": 17, "spread_rate": 20, "region": "낙랑↔영산", "effect": "선진 문물 직수입" },
-  { "name": "해안 어업 체계화", "category": "교역", "status": "active", "introduced_year": 22, "spread_rate": 45, "region": "목포 해안권", "effect": "어획·염장·건조 효율 상승" },
-  { "name": "나침반·도르레·원치", "category": "교역", "status": "active", "introduced_year": 23, "spread_rate": 50, "region": "항만·어선", "effect": "항해·하역·조업 효율 향상" },
-  { "name": "항만 체계", "category": "교역", "status": "active", "introduced_year": 24, "spread_rate": 90, "region": "해안 창고·염장 거점", "effect": "해안 물류와 저장 체계 통합" },
-  { "name": "말 사육·수레 운송 표준화", "category": "교역", "status": "active", "introduced_year": 25, "spread_rate": 40, "region": "내륙 물류망", "effect": "병참과 교역 속도 안정화" },
-  { "name": "상하수도 분리", "category": "의학", "status": "active", "introduced_year": 25, "spread_rate": 25, "region": "중심 촌락", "effect": "수인성 질병 감소" },
-  { "name": "황토 물탱크·모래·자갈·숯 여과", "category": "의학", "status": "active", "introduced_year": 25, "spread_rate": 20, "region": "중심 촌락·항만", "effect": "음용수 품질 개선" }
-  ,
-  { "name": "우경·쟁기 개량", "category": "농업", "status": "active", "introduced_year": 26, "spread_rate": 18, "region": "영산강 평야", "effect": "깊이갈이·경지 확장·파종 속도 향상" },
-  { "name": "왜 교역 거점 탐색", "category": "교역", "status": "active", "introduced_year": 26, "spread_rate": 15, "region": "남해 항로", "effect": "왜 항로 정보 축적과 예비 교역망 개척" },
-  { "name": "토션 대형 쇠뇌 시제품", "category": "군사", "status": "active", "introduced_year": 26, "spread_rate": 8, "region": "야철장·정규군", "effect": "정밀 대물 사격과 방어 거점 파괴력 확보" },
-  { "name": "목지국 주변 소국 회유망", "category": "행정", "status": "active", "introduced_year": 27, "spread_rate": 25, "region": "마한 중서부 접경", "effect": "목지국 대연합 결속 약화와 외교 영향력 확대" },
-  { "name": "왜 시험 교역", "category": "교역", "status": "active", "introduced_year": 27, "spread_rate": 12, "region": "남해 항로·왜 포구", "effect": "시험 교환과 항로 신뢰도 확보" },
-  { "name": "복합궁 적층 제작법", "category": "군사", "status": "active", "introduced_year": 27, "spread_rate": 16, "region": "정규군·야철장", "effect": "짧은 길이 대비 높은 장력과 기동 사격력 확보" },
-  { "name": "화순 탄층 정찰", "category": "제조", "status": "active", "introduced_year": 27, "spread_rate": 10, "region": "영산강 상류·화순 분지", "effect": "석탄층 위치 파악과 향후 야금·연료 전환 가능성 탐색" },
-  { "name": "화순 전진 거점", "category": "건설", "status": "active", "introduced_year": 28, "spread_rate": 22, "region": "화순 분지 입구", "effect": "광물·식량·병력 집산과 상류 보급 거점 확보" },
-  { "name": "석탄 혼소 야철", "category": "제조", "status": "active", "introduced_year": 28, "spread_rate": 14, "region": "야철장", "effect": "숯 보조 연료로 석탄을 혼합 사용해 장시간 고열 유지" },
-  { "name": "간이 지질 조사·갱도 지지 표준", "category": "제조", "status": "active", "introduced_year": 28, "spread_rate": 18, "region": "화순 분지·상류 산지", "effect": "시굴 성공률 향상과 갱도 붕괴 위험 감소" },
-  { "name": "쇠뇌 주력 편제", "category": "군사", "status": "active", "introduced_year": 28, "spread_rate": 45, "region": "정규군", "effect": "주력 원거리 전력을 쇠뇌 중심으로 통일해 훈련 속도와 집단 화력 향상" },
-  { "name": "쇠뇌병 1개월 야전훈련", "category": "군사", "status": "active", "introduced_year": 28, "spread_rate": 40, "region": "정규군·복속지 훈련소", "effect": "장전·교대 사격·방패 연계 훈련을 1개월 주기로 표준화" }
+  {
+    "name": "끓인 물 (기초 위생)",
+    "category": "의학",
+    "status": "done",
+    "introduced_year": 1,
+    "spread_rate": 100,
+    "region": "전체",
+    "effect": "감염 사망률 감소"
+  },
+  {
+    "name": "이모작 (벼+보리)",
+    "category": "농업",
+    "status": "done",
+    "introduced_year": 2,
+    "spread_rate": 100,
+    "region": "전체",
+    "effect": "수확량 약 2배"
+  },
+  {
+    "name": "소금 생산 (자염)",
+    "category": "교역",
+    "status": "done",
+    "introduced_year": 3,
+    "spread_rate": 90,
+    "region": "영산강 하구",
+    "effect": "교역 핵심 자원 확보"
+  },
+  {
+    "name": "철제 농기구",
+    "category": "농업",
+    "status": "done",
+    "introduced_year": 7,
+    "spread_rate": 100,
+    "region": "전체",
+    "effect": "생산성 2배"
+  },
+  {
+    "name": "개량 야철",
+    "category": "제조",
+    "status": "done",
+    "introduced_year": 8,
+    "spread_rate": 100,
+    "region": "야철장",
+    "effect": "철창·병기 생산"
+  },
+  {
+    "name": "호구 행정",
+    "category": "행정",
+    "status": "done",
+    "introduced_year": 10,
+    "spread_rate": 100,
+    "region": "전체",
+    "effect": "인구 파악·징세"
+  },
+  {
+    "name": "성문법",
+    "category": "행정",
+    "status": "done",
+    "introduced_year": 15,
+    "spread_rate": 100,
+    "region": "전체",
+    "effect": "내부 분쟁 중재·연합 결속"
+  },
+  {
+    "name": "도로망 (1차)",
+    "category": "건설",
+    "status": "active",
+    "introduced_year": 15,
+    "spread_rate": 30,
+    "region": "야철장↔어촌",
+    "effect": "이동·물자 효율 향상"
+  },
+  {
+    "name": "고탄소 강철",
+    "category": "제조",
+    "status": "active",
+    "introduced_year": 15,
+    "spread_rate": 15,
+    "region": "야철장",
+    "effect": "철기 강도 2배 — 양산 준비 중"
+  },
+  {
+    "name": "표준 도량형",
+    "category": "행정",
+    "status": "active",
+    "introduced_year": 16,
+    "spread_rate": 90,
+    "region": "전체",
+    "effect": "징세·교역·군수 계산 통일"
+  },
+  {
+    "name": "심경법 (깊이갈기)",
+    "category": "농업",
+    "status": "active",
+    "introduced_year": 17,
+    "spread_rate": 25,
+    "region": "영산강 유역",
+    "effect": "토지 생산성 30% 향상"
+  },
+  {
+    "name": "퇴비법·작물 순환",
+    "category": "농업",
+    "status": "active",
+    "introduced_year": 18,
+    "spread_rate": 30,
+    "region": "영산강 유역",
+    "effect": "수확 안정성과 토양 회복력 향상"
+  },
+  {
+    "name": "저수지 / 수리시설",
+    "category": "건설",
+    "status": "active",
+    "introduced_year": 22,
+    "spread_rate": 15,
+    "region": "영산·복속지",
+    "effect": "가뭄 피해 최소화"
+  },
+  {
+    "name": "목책 방어선",
+    "category": "군사",
+    "status": "active",
+    "introduced_year": 19,
+    "spread_rate": 40,
+    "region": "영산·구야",
+    "effect": "방어 거점과 야전 진영 표준화"
+  },
+  {
+    "name": "봉화 신호 체계",
+    "category": "군사",
+    "status": "active",
+    "introduced_year": 16,
+    "spread_rate": 60,
+    "region": "영산강 유역",
+    "effect": "정보 전달 속도 향상"
+  },
+  {
+    "name": "강철 병기 양산",
+    "category": "군사",
+    "status": "active",
+    "introduced_year": 18,
+    "spread_rate": 80,
+    "region": "정규군·야철장",
+    "effect": "강철창·방패·화살촉 규격 생산"
+  },
+  {
+    "name": "군율·야전 매뉴얼",
+    "category": "군사",
+    "status": "active",
+    "introduced_year": 20,
+    "spread_rate": 85,
+    "region": "정규군",
+    "effect": "진형·봉화·교대·보급의 문서화"
+  },
+  {
+    "name": "기계식 강궁 시제품",
+    "category": "군사",
+    "status": "active",
+    "introduced_year": 21,
+    "spread_rate": 30,
+    "region": "야철장·정규군",
+    "effect": "반복 발사를 노린 강궁 연구"
+  },
+  {
+    "name": "실전형 쇠뇌",
+    "category": "군사",
+    "status": "active",
+    "introduced_year": 23,
+    "spread_rate": 55,
+    "region": "정규군",
+    "effect": "원거리 압박력과 반복 발사 효율 상승"
+  },
+  {
+    "name": "기마 등자",
+    "category": "군사",
+    "status": "active",
+    "introduced_year": 24,
+    "spread_rate": 20,
+    "region": "정찰대",
+    "effect": "기마 정찰·추격 안정성 향상"
+  },
+  {
+    "name": "회계 장부와 창고 감사",
+    "category": "행정",
+    "status": "active",
+    "introduced_year": 17,
+    "spread_rate": 90,
+    "region": "전체",
+    "effect": "부패·누락 감소, 군량 추적"
+  },
+  {
+    "name": "교육소 (문자·산술·도량형)",
+    "category": "행정",
+    "status": "active",
+    "introduced_year": 21,
+    "spread_rate": 65,
+    "region": "복속지 전역",
+    "effect": "행정·군수 인력 양성"
+  },
+  {
+    "name": "다자녀 세금 면제",
+    "category": "행정",
+    "status": "active",
+    "introduced_year": 24,
+    "spread_rate": 35,
+    "region": "전체",
+    "effect": "출산 장려와 가구 확대 유도"
+  },
+  {
+    "name": "유아 보호·출산 장려 체계",
+    "category": "행정",
+    "status": "active",
+    "introduced_year": 25,
+    "spread_rate": 30,
+    "region": "전체",
+    "effect": "영아 생존율과 출산 안정성 향상"
+  },
+  {
+    "name": "정보 특공대",
+    "category": "행정",
+    "status": "active",
+    "introduced_year": 25,
+    "spread_rate": 35,
+    "region": "주변 소국권",
+    "effect": "풍요 소문 확산과 정보 수집"
+  },
+  {
+    "name": "물레방아",
+    "category": "제조",
+    "status": "locked",
+    "introduced_year": null,
+    "spread_rate": 0,
+    "region": null,
+    "effect": "곡물 가공 효율화"
+  },
+  {
+    "name": "낙랑 교역로",
+    "category": "교역",
+    "status": "active",
+    "introduced_year": 17,
+    "spread_rate": 20,
+    "region": "낙랑↔영산",
+    "effect": "선진 문물 직수입"
+  },
+  {
+    "name": "해안 어업 체계화",
+    "category": "교역",
+    "status": "active",
+    "introduced_year": 22,
+    "spread_rate": 45,
+    "region": "목포 해안권",
+    "effect": "어획·염장·건조 효율 상승"
+  },
+  {
+    "name": "나침반·도르레·원치",
+    "category": "교역",
+    "status": "active",
+    "introduced_year": 23,
+    "spread_rate": 50,
+    "region": "항만·어선",
+    "effect": "항해·하역·조업 효율 향상"
+  },
+  {
+    "name": "항만 체계",
+    "category": "교역",
+    "status": "active",
+    "introduced_year": 24,
+    "spread_rate": 90,
+    "region": "해안 창고·염장 거점",
+    "effect": "해안 물류와 저장 체계 통합"
+  },
+  {
+    "name": "말 사육·수레 운송 표준화",
+    "category": "교역",
+    "status": "active",
+    "introduced_year": 25,
+    "spread_rate": 40,
+    "region": "내륙 물류망",
+    "effect": "병참과 교역 속도 안정화"
+  },
+  {
+    "name": "상하수도 분리",
+    "category": "의학",
+    "status": "active",
+    "introduced_year": 25,
+    "spread_rate": 25,
+    "region": "중심 촌락",
+    "effect": "수인성 질병 감소"
+  },
+  {
+    "name": "황토 물탱크·모래·자갈·숯 여과",
+    "category": "의학",
+    "status": "active",
+    "introduced_year": 25,
+    "spread_rate": 20,
+    "region": "중심 촌락·항만",
+    "effect": "음용수 품질 개선"
+  },
+  {
+    "name": "우경·쟁기 개량",
+    "category": "농업",
+    "status": "active",
+    "introduced_year": 26,
+    "spread_rate": 18,
+    "region": "영산강 평야",
+    "effect": "깊이갈이·경지 확장·파종 속도 향상"
+  },
+  {
+    "name": "왜 교역 거점 탐색",
+    "category": "교역",
+    "status": "active",
+    "introduced_year": 26,
+    "spread_rate": 15,
+    "region": "남해 항로",
+    "effect": "왜 항로 정보 축적과 예비 교역망 개척"
+  },
+  {
+    "name": "토션 대형 쇠뇌 시제품",
+    "category": "군사",
+    "status": "active",
+    "introduced_year": 26,
+    "spread_rate": 8,
+    "region": "야철장·정규군",
+    "effect": "정밀 대물 사격과 방어 거점 파괴력 확보"
+  },
+  {
+    "name": "목지국 주변 소국 회유망",
+    "category": "행정",
+    "status": "active",
+    "introduced_year": 27,
+    "spread_rate": 30,
+    "region": "마한 중서부 접경",
+    "effect": "목지국 대연합 결속 약화와 외교 영향력 확대"
+  },
+  {
+    "name": "왜 시험 교역",
+    "category": "교역",
+    "status": "active",
+    "introduced_year": 27,
+    "spread_rate": 12,
+    "region": "남해 항로·왜 포구",
+    "effect": "시험 교환과 항로 신뢰도 확보"
+  },
+  {
+    "name": "복합궁 적층 제작법",
+    "category": "군사",
+    "status": "active",
+    "introduced_year": 27,
+    "spread_rate": 16,
+    "region": "정규군·야철장",
+    "effect": "짧은 길이 대비 높은 장력과 기동 사격력 확보"
+  },
+  {
+    "name": "화순 탄층 정찰",
+    "category": "제조",
+    "status": "active",
+    "introduced_year": 27,
+    "spread_rate": 10,
+    "region": "영산강 상류·화순 분지",
+    "effect": "석탄층 위치 파악과 향후 야금·연료 전환 가능성 탐색"
+  },
+  {
+    "name": "화순 전진 거점",
+    "category": "건설",
+    "status": "active",
+    "introduced_year": 28,
+    "spread_rate": 22,
+    "region": "화순 분지 입구",
+    "effect": "광물·식량·병력 집산과 상류 보급 거점 확보"
+  },
+  {
+    "name": "석탄 혼소 야철",
+    "category": "제조",
+    "status": "active",
+    "introduced_year": 28,
+    "spread_rate": 14,
+    "region": "야철장",
+    "effect": "숯 보조 연료로 석탄을 혼합 사용해 장시간 고열 유지"
+  },
+  {
+    "name": "간이 지질 조사·갱도 지지 표준",
+    "category": "제조",
+    "status": "active",
+    "introduced_year": 28,
+    "spread_rate": 18,
+    "region": "화순 분지·상류 산지",
+    "effect": "시굴 성공률 향상과 갱도 붕괴 위험 감소"
+  },
+  {
+    "name": "쇠뇌 주력 편제",
+    "category": "군사",
+    "status": "active",
+    "introduced_year": 28,
+    "spread_rate": 45,
+    "region": "정규군",
+    "effect": "주력 원거리 전력을 쇠뇌 중심으로 통일해 훈련 속도와 집단 화력 향상"
+  },
+  {
+    "name": "쇠뇌병 1개월 야전훈련",
+    "category": "군사",
+    "status": "active",
+    "introduced_year": 28,
+    "spread_rate": 40,
+    "region": "정규군·복속지 훈련소",
+    "effect": "장전·교대 사격·방패 연계 훈련을 1개월 주기로 표준화"
+  },
+  {
+    "name": "화순 얕은 갱도 채굴",
+    "category": "제조",
+    "status": "active",
+    "introduced_year": 29,
+    "spread_rate": 20,
+    "region": "화순 분지",
+    "effect": "표층 탄층을 안정적으로 채굴해 연료·시편 공급 시작"
+  },
+  {
+    "name": "도로망 (3차 구간)",
+    "category": "건설",
+    "status": "active",
+    "introduced_year": 29,
+    "spread_rate": 32,
+    "region": "영산 상류↔화순 전초기지",
+    "effect": "광물·군량·병력의 상류 수송 속도 대폭 향상"
+  },
+  {
+    "name": "전초기지 연쇄망",
+    "category": "건설",
+    "status": "active",
+    "introduced_year": 29,
+    "spread_rate": 28,
+    "region": "상류 보급로",
+    "effect": "화순 보급선 보호와 단계별 숙영·집산 체계 확보"
+  },
+  {
+    "name": "토션 대형 쇠뇌 고정 포좌",
+    "category": "군사",
+    "status": "active",
+    "introduced_year": 29,
+    "spread_rate": 18,
+    "region": "영산 본진·화순 거점",
+    "effect": "협로와 거점 방어에서 높은 정밀 관통력 확보"
+  },
+  {
+    "name": "제철 송풍·입자 선별 최적화",
+    "category": "제조",
+    "status": "active",
+    "introduced_year": 29,
+    "spread_rate": 22,
+    "region": "야철장",
+    "effect": "연료 효율과 용광 온도 안정성 향상"
+  },
+  {
+    "name": "쇠뇌 윈치 장전 장치",
+    "category": "군사",
+    "status": "active",
+    "introduced_year": 29,
+    "spread_rate": 26,
+    "region": "정규군·훈련소",
+    "effect": "장전 속도와 신병 운용 편의성 향상"
+  },
+  {
+    "name": "화순 채굴 확대",
+    "category": "제조",
+    "status": "active",
+    "introduced_year": 30,
+    "spread_rate": 28,
+    "region": "화순 분지",
+    "effect": "얕은 갱도 다중화와 안정적 석탄 공급 확대"
+  },
+  {
+    "name": "왜 정기 교역선",
+    "category": "교역",
+    "status": "active",
+    "introduced_year": 30,
+    "spread_rate": 24,
+    "region": "남해 항로·왜 포구",
+    "effect": "정기 항차로 교역량과 항로 신뢰도 상승"
+  },
+  {
+    "name": "쇠뇌 표준 부품 교환 생산",
+    "category": "군사",
+    "status": "active",
+    "introduced_year": 30,
+    "spread_rate": 35,
+    "region": "야철장·훈련소",
+    "effect": "부품 교체식 정비와 대량 생산 효율 향상"
+  },
+  {
+    "name": "석탄 건조창·온상",
+    "category": "농업",
+    "status": "active",
+    "introduced_year": 30,
+    "spread_rate": 22,
+    "region": "영산강 평야",
+    "effect": "종자 건조, 묘상 관리, 조기 파종으로 농업 안정성 향상"
+  },
+  {
+    "name": "석탄 연막 생선 건조",
+    "category": "교역",
+    "status": "active",
+    "introduced_year": 30,
+    "spread_rate": 26,
+    "region": "목포 해안권",
+    "effect": "어획 저장 기간 연장과 해상 식량 손실 감소"
+  },
+  {
+    "name": "출산·보육 곡물 배급 확대",
+    "category": "행정",
+    "status": "active",
+    "introduced_year": 30,
+    "spread_rate": 32,
+    "region": "전체",
+    "effect": "산모·영아 생존율 상승과 인구 증가 기반 강화"
+  },
+  {
+    "name": "벽돌 온돌형 육묘실",
+    "category": "농업",
+    "status": "active",
+    "introduced_year": 31,
+    "spread_rate": 20,
+    "region": "영산강 평야·중심 촌락",
+    "effect": "조기 육묘와 한랭기 보온으로 파종 안정성 향상"
+  },
+  {
+    "name": "저장고 단열 개수",
+    "category": "건설",
+    "status": "active",
+    "introduced_year": 31,
+    "spread_rate": 28,
+    "region": "전체 창고권",
+    "effect": "곡물·종자 저장 손실과 습기 피해 감소"
+  },
+  {
+    "name": "산모·영아 의료 제도",
+    "category": "의학",
+    "status": "active",
+    "introduced_year": 31,
+    "spread_rate": 38,
+    "region": "전체",
+    "effect": "출산 사망률과 영아 사망률 감소"
+  },
+  {
+    "name": "석탄·숯 혼합 연료 표준",
+    "category": "제조",
+    "status": "active",
+    "introduced_year": 31,
+    "spread_rate": 30,
+    "region": "야철장·건조동",
+    "effect": "열원 안정성과 작업장 안전성 향상"
+  },
+  {
+    "name": "표준 비축량 제도",
+    "category": "행정",
+    "status": "active",
+    "introduced_year": 32,
+    "spread_rate": 34,
+    "region": "전체 창고권",
+    "effect": "곡물·소금·건어물 최소 비축량 유지로 흉년 대응력 향상"
+  },
+  {
+    "name": "복속지 의료소 확대",
+    "category": "의학",
+    "status": "active",
+    "introduced_year": 32,
+    "spread_rate": 36,
+    "region": "복속지 전역",
+    "effect": "기초 진료와 산모·영아 보호망 확대"
+  },
+  {
+    "name": "한강 진격 장기 군비계획",
+    "category": "군사",
+    "status": "active",
+    "introduced_year": 32,
+    "spread_rate": 18,
+    "region": "군정국 핵심부",
+    "effect": "AD 50년 북상 목표에 맞춘 병력·군마·보급 장기 축적"
+  },
+  {
+    "name": "석탄 고급철 제련",
+    "category": "제조",
+    "status": "active",
+    "introduced_year": 32,
+    "spread_rate": 20,
+    "region": "야철장·화순",
+    "effect": "더 단단한 병기·기병 장비 생산 기반 확보"
+  },
+  {
+    "name": "말 교환 교역",
+    "category": "교역",
+    "status": "active",
+    "introduced_year": 32,
+    "spread_rate": 21,
+    "region": "내륙 교역권",
+    "effect": "고급철과 군마를 맞바꿔 기동 전력 축적"
+  },
+  {
+    "name": "기동 정찰·기병대",
+    "category": "군사",
+    "status": "active",
+    "introduced_year": 33,
+    "spread_rate": 35,
+    "region": "정규군·상류 평야",
+    "effect": "정찰·추격·연락 속도 향상"
+  },
+  {
+    "name": "군마 사육 정보 도입",
+    "category": "교역",
+    "status": "active",
+    "introduced_year": 33,
+    "spread_rate": 18,
+    "region": "내륙 마굿간·왜 교역권",
+    "effect": "군마 유지·번식·관리 효율 향상"
+  },
+  {
+    "name": "기병용 안장·재갈·마구 규격화",
+    "category": "군사",
+    "status": "active",
+    "introduced_year": 33,
+    "spread_rate": 22,
+    "region": "정찰대·기병대",
+    "effect": "기병 운용 안정성과 신병 적응 속도 향상"
+  },
+  {
+    "name": "왜 반상설 교역 거점",
+    "category": "교역",
+    "status": "active",
+    "introduced_year": 34,
+    "spread_rate": 26,
+    "region": "남해 항로·왜 포구",
+    "effect": "군마·목재·끈 재료와 정보 교환의 고정 접점 확보"
+  },
+  {
+    "name": "예비마 순환제",
+    "category": "군사",
+    "status": "active",
+    "introduced_year": 34,
+    "spread_rate": 29,
+    "region": "기병대·마굿간",
+    "effect": "장거리 이동에서 말 피로 분산과 지속 기동력 확보"
+  },
+  {
+    "name": "장거리 행군 규정",
+    "category": "군사",
+    "status": "active",
+    "introduced_year": 34,
+    "spread_rate": 35,
+    "region": "정규군·기병대",
+    "effect": "원정 속도·휴식·합류 지점의 표준화"
+  },
+  {
+    "name": "고급철 기병 장비 양산",
+    "category": "군사",
+    "status": "active",
+    "introduced_year": 34,
+    "spread_rate": 28,
+    "region": "야철장·기병대",
+    "effect": "기병 장비 내구성과 원정 운용 안정성 향상"
+  },
+  {
+    "name": "역참·말갈이 보급소",
+    "category": "군사/물류",
+    "status": "active",
+    "introduced_year": 35,
+    "spread_rate": 21,
+    "region": "영산강 상류·화순 보급로·남해 포구",
+    "effect": "장거리 행군 중 말 교대, 보급, 마구 수리, 화살 보충 가능"
+  },
+  {
+    "name": "작전 지도·거리 표준",
+    "category": "행정/군사",
+    "status": "active",
+    "introduced_year": 35,
+    "spread_rate": 23,
+    "region": "군정국 문관부·정규군",
+    "effect": "수레 이동거리, 말 교대 지점, 창고 배치를 계산해 원정 계획 정확도 향상"
+  },
+  {
+    "name": "금씨 가문 신분 세탁 체계",
+    "category": "정치",
+    "status": "active",
+    "introduced_year": 35,
+    "spread_rate": 10,
+    "region": "군정국 핵심부",
+    "effect": "금휘의 장기 생존을 숨기기 위한 후계자·친족 위장 기반 마련"
+  },
+  {
+    "name": "초기 제지술",
+    "category": "행정/기술",
+    "status": "active",
+    "introduced_year": 36,
+    "spread_rate": 14,
+    "region": "문관부·교육소·군정 창고",
+    "effect": "대나무·나무판 장부 의존을 줄이고 명령서, 지도, 복속 문서의 복제 속도 향상"
+  },
+  {
+    "name": "말 사료 재배·마굿간 번식 표준",
+    "category": "경제/군사",
+    "status": "active",
+    "introduced_year": 36,
+    "spread_rate": 18,
+    "region": "영산강 평야·역참 보급소",
+    "effect": "군마 생존율과 번식률 상승, 장거리 운용 안정성 향상"
+  },
+  {
+    "name": "복속 문서·인질 보증 체계",
+    "category": "정치/행정",
+    "status": "active",
+    "introduced_year": 36,
+    "spread_rate": 20,
+    "region": "목지국 접경 소국권",
+    "effect": "복속 조건을 문서화하고 인질·혼인·창고 감사로 배신 비용 상승"
+  }
 ]
