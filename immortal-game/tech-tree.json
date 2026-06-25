@@ -1060,5 +1060,104 @@
     "spread_rate": 24,
     "region": "화순·야철장·공성 병기 공방·항만",
     "effect": "시제품 체제에서 양산 체제로 넘어가 발리스타, 투석기, 쇠뇌, 장창, 마구를 계획 수량대로 찍어내는 전환점"
+  },
+  {
+    "name": "한강 하구 비밀 정찰망",
+    "category": "해군/첩보",
+    "status": "active",
+    "introduced_year": 46,
+    "spread_rate": 14,
+    "region": "서해 연안·한강 하구·중간 거점",
+    "effect": "정찰선과 위장 상인을 써서 수심, 조류, 갯벌, 경비 패턴을 비밀리에 수집"
+  },
+  {
+    "name": "조수표·계절풍표",
+    "category": "항해/전략",
+    "status": "active",
+    "introduced_year": 46,
+    "spread_rate": 18,
+    "region": "목포 항만·서해 연안·한강 하구",
+    "effect": "밀물·썰물, 계절풍, 안개, 얕은 수심을 표로 정리해 상륙 접근 시기 계산"
+  },
+  {
+    "name": "허위 보급 장부·가짜 수송선 기만",
+    "category": "기만/첩보",
+    "status": "active",
+    "introduced_year": 46,
+    "spread_rate": 12,
+    "region": "항만·연안 거점·정보부",
+    "effect": "적 정찰을 다른 항로와 다른 상륙 방향으로 유도해 실제 준비를 숨김"
+  },
+  {
+    "name": "3일 연속 작전 소모 기준표",
+    "category": "군수/행정",
+    "status": "active",
+    "introduced_year": 46,
+    "spread_rate": 20,
+    "region": "문관부·포대·기병대·수송대",
+    "effect": "상륙 후 3일 동안 병사, 말, 포대, 수레, 군량, 마초, 예비 부품의 실제 소모량을 계산해 보급 정확도 향상"
+  },
+  {
+    "name": "은폐 전진 나루·갈대 은닉고",
+    "category": "상륙/첩보",
+    "status": "active",
+    "introduced_year": 47,
+    "spread_rate": 12,
+    "region": "한강 하구 외곽·서해 연안 은밀 거점",
+    "effect": "갈대밭과 얕은 만 안쪽에 비밀 접안처와 소형 은닉고를 숨겨 선발대와 경량 포대 부품의 첫 상륙 속도를 높임"
+  },
+  {
+    "name": "상륙 결속 적재표·순번 하역법",
+    "category": "군수/상륙",
+    "status": "active",
+    "introduced_year": 47,
+    "spread_rate": 16,
+    "region": "목포 항만·수송선·포대병",
+    "effect": "포대 바닥판, 발사부, 예비 부속을 내리는 순서대로 묶고 표시해 상륙 직후 첫 사격까지 걸리는 시간을 단축"
+  },
+  {
+    "name": "5일 포대 정비 순환표",
+    "category": "정비/군수",
+    "status": "active",
+    "introduced_year": 47,
+    "spread_rate": 14,
+    "region": "포대·정비대·문관부",
+    "effect": "상륙 후 닷새 동안 줄, 기어, 축, 걸쇠 교체 순서를 정해 포대 화력이 초반에 꺼지지 않게 유지"
+  },
+  {
+    "name": "한강 협력 촌락 포섭망",
+    "category": "첩보/정치",
+    "status": "active",
+    "introduced_year": 48,
+    "spread_rate": 10,
+    "region": "한강 하구 외곽 촌락·나루터",
+    "effect": "하구 외곽 촌락과 비밀 접선을 맺어 물, 마초, 야간 유도, 적 동향 보고를 받아 상륙 직후 현지 마찰을 줄임"
+  },
+  {
+    "name": "추격 기병 봉쇄 교리",
+    "category": "군사/기병",
+    "status": "active",
+    "introduced_year": 48,
+    "spread_rate": 15,
+    "region": "기병 마무리대·정규군",
+    "effect": "화력으로 무너진 적이 재집결하기 전에 도주로를 끊고, 과도한 추격으로 대오가 무너지지 않게 기병 투입 거리를 규정"
+  },
+  {
+    "name": "7일 상륙 유지 보급 기준표",
+    "category": "군수/행정",
+    "status": "active",
+    "introduced_year": 48,
+    "spread_rate": 18,
+    "region": "문관부·항만·수송대·포대",
+    "effect": "상륙 후 이레 동안 병사, 말, 포대, 수레, 군량, 마초, 예비 부품 소모를 계산해 단기 승부 실패 시에도 버틸 보급 기준을 마련"
+  },
+  {
+    "name": "한강 점령 임시행정관단",
+    "category": "행정/정복",
+    "status": "active",
+    "introduced_year": 48,
+    "spread_rate": 12,
+    "region": "문관부·교육소·복속지 회의",
+    "effect": "점령 직후 호구 조사, 창고 봉인, 항복 문서 접수, 인질 보증, 포구 통제를 곧바로 시작할 수 있는 현장 행정 인력 편성"
   }
 ]
