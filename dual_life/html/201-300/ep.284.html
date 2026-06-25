@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>284. 빈 포스트잇</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 120%; }
+    body {
+      background: #111417;
+      color: #e8e1d5;
+      font-family: 'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+      font-size: 1.12rem;
+      line-height: 1.9;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3rem 1.4rem 5rem;
+      word-break: keep-all;
+    }
+    h1 {
+      font-size: 1.35rem;
+      text-align: center;
+      color: #79b8b2;
+      margin-bottom: 2.5rem;
+      letter-spacing: 0.02em;
+    }
+    p { margin: 0.75rem 0; }
+    p.speaker-line {
+      display: flex;
+      align-items: baseline;
+      gap: 0.7rem;
+      margin: 0.68rem 0;
+    }
+    .speaker-tag {
+      flex: 0 0 auto;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .speaker-text {
+      flex: 1 1 auto;
+    }
+    .message-line {
+      margin: 1rem 0;
+      padding: 0.72rem 0.9rem;
+      background: #182023;
+      border: 1px solid #2f3f41;
+      border-left: 4px solid #79b8b2;
+      border-radius: 6px;
+      color: #d8e5df;
+      font-size: 1.02rem;
+      line-height: 1.75;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+    }
+    .message-sender {
+      font-weight: 700;
+      color: #8fd0c9;
+      margin-right: 0.35rem;
+    }
+    .time {
+      font-weight: bold;
+      color: #d6a15f;
+      font-size: 1.08rem;
+      text-align: center;
+      margin: 1.8rem 0 1rem;
+    }
+    .thought { color: #9bbac0; font-style: italic; }
+    .divider {
+      text-align: center;
+      color: #5f6564;
+      margin: 2.2rem 0;
+      letter-spacing: 0.6em;
+    }
+    figure.scene-illustration {
+      margin: 2.5rem 0 2.8rem;
+    }
+    .scene-illustration img {
+      display: block;
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid #30383a;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.36);
+    }
+    .scene-illustration figcaption {
+      margin-top: 0.8rem;
+      text-align: center;
+      font-size: 0.92rem;
+      color: #9faaa6;
+      letter-spacing: 0.02em;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 3.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid #30383a;
+      font-size: 1rem;
+    }
+    .nav a { color: #8fd0c9; text-decoration: none; font-weight: 700; }
+    .nav a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <h1>284. 빈 포스트잇</h1>
+  
+
+<p>하린은 포스트잇을 아직 쓰지 않았다.</p>
+
+<p>그게 오히려 더 크게 보였다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;월요일 오전으로 밀렸다는 거죠?&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;네. 금요일 저녁 대신 월요일 오전으로요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;그럼 선배는 금요일을 지킨 건가요, 월요일을 뺏긴 건가요?&quot;</span></p>
+
+<p>시안은 바로 답하지 못했다.</p>
+
+<p>질문이 예쁘게 들어왔는데, 안쪽은 날카로웠다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;둘 다요.&quot;</span></p>
+
+<p>하린은 펜을 들었다.</p>
+<p>하지만 포스트잇에는 아무것도 쓰지 않았다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;저는 그게 제일 싫어요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;둘 다라서요?&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;네. 지켰다고 하면 좋아해야 할 것 같고, 뺏겼다고 하면 서운해해야 할 것 같아서요.&quot;</span></p>
+
+<p>하린의 목소리는 작았다.</p>
+<p>그런데 문장 끝은 흐리지 않았다.</p>
+
+<p>시안은 책상 맞은편에 앉았다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;그럼 둘 다 말해도 됩니다.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;선배는 항상 그렇게 쉬운 척 말해요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;쉬워서가 아니라, 하나만 고르면 또 제가 편한 쪽으로 도망갈까 봐요.&quot;</span></p>
+
+<p>하린의 펜끝이 포스트잇 위에 닿았다.</p>
+
+<p>`지킨 금요일`</p>
+
+<p>그 밑에 한 줄.</p>
+
+<p>`밀린 월요일`</p>
+
+<p>하린은 글씨를 다 쓰고도 펜을 내려놓지 않았다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;이거 둘 다 제 거 아니죠.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;네.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;그런데 저도 적어도 돼요?&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;네. 하린 씨가 본 거니까요.&quot;</span></p>
+
+<p>하린은 조금 웃었다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;그럼 선배, 월요일 오전 끝나면 저한테 먼저 말해 주세요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;단체방 말고요?&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;단체방에도요. 그리고 저한테도요.&quot;</span></p>
+
+<p>이 문장은 이미 다른 사람에게서 들은 적이 있었다.</p>
+<p>따로.</p>
+<p>먼저.</p>
+
+<p>그런 말들이 각자의 물건에 붙어 시안의 주머니를 무겁게 했다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;알겠습니다.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;그리고 오늘은...&quot;</span></p>
+
+<p>하린은 포스트잇 아래쪽에 작은 글씨를 더 썼다.</p>
+
+<p>`그래도 선배가 옴`</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;그건 미현 씨 컵이랑 비슷한데요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;컵은 컵이고, 이건 포스트잇이에요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;매체 차이로 권리 주장하는군요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;네. 저도 배웠어요.&quot;</span></p>
+
+<p>시안은 웃었다.</p>
+<p>하린도 따라 웃었다.</p>
+
+<p>그래도 포스트잇을 떼는 손은 조심스러웠다.</p>
+
+<p>그녀는 그걸 시안의 휴대폰 뒷면에 붙였다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;월요일까지 안 떼면 좋겠어요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;회사에서 보이면요?&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;보이면 좋겠어요.&quot;</span></p>
+
+<p>시안의 웃음이 멈췄다.</p>
+
+<p>하린은 이번엔 피하지 않았다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;회사에서도 선배가 어디로 돌아가는지 조금은 보이면 좋겠어요.&quot;</span></p>
+
+<p>휴대폰 뒤에 붙은 작은 종이가 갑자기 무거워졌다.</p>
+
+<p>그때 회사 메신저가 울렸다.</p>
+
+<p class="message-line"><span class="message-sender">[이재인]</span>월요일 오전, 저랑 같이 들어가면 돼요. 로비 8:20 가능?</p>
+
+<p>하린의 시선이 그 알림에 닿았다.</p>
+
+<p>포스트잇 가장자리가 휴대폰 케이스에 살짝 들떠 있었다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;안 떼도 되죠?&quot;</span></p>
+
+<p>시안은 휴대폰을 뒤집어 포스트잇을 다시 눌렀다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;네. 안 뗍니다.&quot;</span></p>
+
+
+  <div class="nav">
+    <a href="ep.283.html">← 이전 화</a>
+    <a href="ep.285_a.html">다음 화 →</a>
+  </div>
+</body>
+</html>

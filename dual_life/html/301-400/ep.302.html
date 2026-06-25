@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>302. 같이 하고 싶었어요</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 120%; }
+    body {
+      background: #111417;
+      color: #e8e1d5;
+      font-family: 'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+      font-size: 1.12rem;
+      line-height: 1.9;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3rem 1.4rem 5rem;
+      word-break: keep-all;
+    }
+    h1 {
+      font-size: 1.35rem;
+      text-align: center;
+      color: #79b8b2;
+      margin-bottom: 2.5rem;
+      letter-spacing: 0.02em;
+    }
+    p { margin: 0.75rem 0; }
+    p.speaker-line {
+      display: flex;
+      align-items: baseline;
+      gap: 0.7rem;
+      margin: 0.68rem 0;
+    }
+    .speaker-tag {
+      flex: 0 0 auto;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .speaker-text {
+      flex: 1 1 auto;
+    }
+    .message-line {
+      margin: 1rem 0;
+      padding: 0.72rem 0.9rem;
+      background: #182023;
+      border: 1px solid #2f3f41;
+      border-left: 4px solid #79b8b2;
+      border-radius: 6px;
+      color: #d8e5df;
+      font-size: 1.02rem;
+      line-height: 1.75;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+    }
+    .message-sender {
+      font-weight: 700;
+      color: #8fd0c9;
+      margin-right: 0.35rem;
+    }
+    .time {
+      font-weight: bold;
+      color: #d6a15f;
+      font-size: 1.08rem;
+      text-align: center;
+      margin: 1.8rem 0 1rem;
+    }
+    .thought { color: #9bbac0; font-style: italic; }
+    .divider {
+      text-align: center;
+      color: #5f6564;
+      margin: 2.2rem 0;
+      letter-spacing: 0.6em;
+    }
+    figure.scene-illustration {
+      margin: 2.5rem 0 2.8rem;
+    }
+    .scene-illustration img {
+      display: block;
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid #30383a;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.36);
+    }
+    .scene-illustration figcaption {
+      margin-top: 0.8rem;
+      text-align: center;
+      font-size: 0.92rem;
+      color: #9faaa6;
+      letter-spacing: 0.02em;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 3.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid #30383a;
+      font-size: 1rem;
+    }
+    .nav a { color: #8fd0c9; text-decoration: none; font-weight: 700; }
+    .nav a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <h1>302. 같이 하고 싶었어요</h1>
+  
+
+<p>점심시간이 끝날 때까지 시안은 보고 문장을 세 번 고쳤다.</p>
+
+<p>첫 문장.</p>
+
+<p>`연장 수락했습니다.`</p>
+
+<p>너무 짧다.</p>
+
+<p>두 번째.</p>
+
+<p>`조건 있는 수락으로 기록됐습니다.`</p>
+
+<p>회사 같다.</p>
+
+<p>세 번째.</p>
+
+<p>`평가 반영 가능성까지 듣고도 조건을 유지했습니다.`</p>
+
+<p>이건 다은이 좋아할 문장이다.</p>
+
+<p>문제는 그 다음이었다.</p>
+
+<p>`이재인 씨가 같이 하고 싶었다고 말했습니다.`</p>
+
+<p>시안은 그 문장을 쓰고 한참 멈췄다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">이재인</span><span class="speaker-text" style="color:#d97b95">&quot;안 보내도 돼요.&quot;</span></p>
+
+<p>옆에서 이재인이 말했다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;숨기면 더 이상해집니다.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">이재인</span><span class="speaker-text" style="color:#d97b95">&quot;알아요. 그래서 안 보내도 된다고 말하는 제가 이상한 거죠.&quot;</span></p>
+
+<p>시안은 단체방을 열었다.</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>2주 연장 조건부 수락했습니다. 정규 근무 시간 안, 저녁 확인은 사전 조율 없으면 거절. 마감 전날 저녁 미참여는 평가에 반영될 수 있다고 들었고, 그래도 조건 유지했습니다. 이재인 씨도 같은 조건입니다. 그리고 이재인 씨가 같이 하고 싶었다고 말했습니다.</p>
+
+<p>전송.</p>
+
+<p>답장은 바로 오지 않았다.</p>
+
+<p>침묵이 더 무서웠다.</p>
+
+<p>가장 먼저 온 건 다은이었다.</p>
+
+<p class="message-line"><span class="message-sender">[정다은]</span>숨기지 않은 점은 좋습니다. 오늘 저녁 확인 필요합니다.</p>
+
+<p>그다음은 나윤.</p>
+
+<p class="message-line"><span class="message-sender">[서나윤]</span>같이 하고 싶었다고요.</p>
+
+<p>문장 끝에 마침표도 없었다.</p>
+
+<p>하린은 조금 늦었다.</p>
+
+<p class="message-line"><span class="message-sender">[유하린]</span>선배, 오늘 저한테 먼저 말해 주세요.</p>
+
+<p>미현은 마지막이었다.</p>
+
+<p class="message-line"><span class="message-sender">[박미현]</span>우산 돌려주러 오세요. 그 얘기도 같이요.</p>
+
+<p>시안은 휴대폰을 내려놓았다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">이재인</span><span class="speaker-text" style="color:#d97b95">&quot;혼났어요?&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;아직 예비심사입니다.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">이재인</span><span class="speaker-text" style="color:#d97b95">&quot;와. 긴장되네요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;본인 이야기입니다.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">이재인</span><span class="speaker-text" style="color:#d97b95">&quot;그러니까요.&quot;</span></p>
+
+<p>이재인은 웃었지만 손끝으로 캔버스백 끈을 꾹 잡고 있었다.</p>
+
+<p>오후 업무가 시작되기 전, 회사 메신저에 새 채널이 생겼다.</p>
+
+<p>`연장 실무 보조 2주`</p>
+
+<p>멤버는 두 명.</p>
+
+<p>김시안.</p>
+<p>이재인.</p>
+
+<p>채널 기본 아이콘은 이상하게 회색 서류철이었다.</p>
+
+<p>이재인이 그걸 보더니 말했다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">이재인</span><span class="speaker-text" style="color:#d97b95">&quot;아이콘이 너무 재미없어요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;회사 채널이니까요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">이재인</span><span class="speaker-text" style="color:#d97b95">&quot;그래도 2주 동안 볼 건데.&quot;</span></p>
+
+<p>그녀는 아이콘 변경 버튼을 눌렀다가 바로 멈췄다.</p>
+
+<p>후보 이미지가 떴다.</p>
+
+<p>별.</p>
+<p>체크.</p>
+<p>불꽃.</p>
+<p>커피잔.</p>
+
+<p>두 사람은 동시에 커피잔에서 멈췄다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;그건 안 됩니다.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">이재인</span><span class="speaker-text" style="color:#d97b95">&quot;저도 방금 위험하다고 생각했어요.&quot;</span></p>
+
+<p>결국 아이콘은 체크 표시가 됐다.</p>
+
+<p>회사 안에서도 컵은 너무 강한 상징이었다.</p>
+
+<p>시안은 그 화면을 바로 캡처하지 않았다.</p>
+
+<p>대신 먼저 단체방에 적었다.</p>
+
+<p class="message-line"><span class="message-sender">[김시안]</span>회사 새 채널 생겼습니다. 멤버는 저와 이재인 씨 둘입니다. 캡처는 필요하면 보여 주겠습니다.</p>
+
+<p>이번엔 하린의 답이 제일 빨랐다.</p>
+
+<p class="message-line"><span class="message-sender">[유하린]</span>보여 주세요.</p>
+
+<p>새 자리는 이미 보이기 시작했다.</p>
+
+  <div class="nav">
+    <a href="ep.301.html">← 이전 화</a>
+    <a href="ep.303.html">다음 화 →</a>
+  </div>
+</body>
+</html>

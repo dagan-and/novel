@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ep.008 - 이름을 저장하는 방식</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 120%; }
+    body {
+      background: #111417;
+      color: #e8e1d5;
+      font-family: 'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+      font-size: 1.12rem;
+      line-height: 1.9;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3rem 1.4rem 5rem;
+      word-break: keep-all;
+    }
+    h1 {
+      font-size: 1.35rem;
+      text-align: center;
+      color: #79b8b2;
+      margin-bottom: 2.5rem;
+      letter-spacing: 0.02em;
+    }
+    p { margin: 0.75rem 0; }
+    p.speaker-line {
+      display: flex;
+      align-items: baseline;
+      gap: 0.7rem;
+      margin: 0.68rem 0;
+    }
+    .speaker-tag {
+      flex: 0 0 auto;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .speaker-text {
+      flex: 1 1 auto;
+    }
+    .message-line {
+      margin: 1rem 0;
+      padding: 0.72rem 0.9rem;
+      background: #182023;
+      border: 1px solid #2f3f41;
+      border-left: 4px solid #79b8b2;
+      border-radius: 6px;
+      color: #d8e5df;
+      font-size: 1.02rem;
+      line-height: 1.75;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+    }
+    .message-sender {
+      font-weight: 700;
+      color: #8fd0c9;
+      margin-right: 0.35rem;
+    }
+    .time {
+      font-weight: bold;
+      color: #d6a15f;
+      font-size: 1.08rem;
+      text-align: center;
+      margin: 1.8rem 0 1rem;
+    }
+    .thought { color: #9bbac0; font-style: italic; }
+    .divider {
+      text-align: center;
+      color: #5f6564;
+      margin: 2.2rem 0;
+      letter-spacing: 0.6em;
+    }
+    figure.scene-illustration {
+      margin: 2.5rem 0 2.8rem;
+    }
+    .scene-illustration img {
+      display: block;
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid #30383a;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.36);
+    }
+    .scene-illustration figcaption {
+      margin-top: 0.8rem;
+      text-align: center;
+      font-size: 0.92rem;
+      color: #9faaa6;
+      letter-spacing: 0.02em;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 3.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid #30383a;
+      font-size: 1rem;
+    }
+    .nav a { color: #8fd0c9; text-decoration: none; font-weight: 700; }
+    .nav a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <h1>ep.008 - 이름을 저장하는 방식</h1>
+  
+
+<p>월요일 아침은 사람을 다시 현실로 돌려놓는다.</p>
+
+<p>주말 동안 카페에서 어떤 말이 오갔든.</p>
+
+<p>월요일 1교시 강의실에는 출석부가 있다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#b7aca0">교수</span><span class="speaker-text" style="color:#b7aca0">&quot;이번 주부터 조별 발표 준비 들어갑니다.&quot;</span></p>
+
+<p>김시안은 펜을 돌리다 멈췄다.</p>
+
+<p>아.</p>
+
+<p>이 단어 싫다.</p>
+
+<p>조별.</p>
+
+<p>발표.</p>
+
+<p>둘 다 혼자 미룰 수 없는 단어다.</p>
+
+<p>교수는 출석부를 넘겼다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#b7aca0">교수</span><span class="speaker-text" style="color:#b7aca0">&quot;4학년은 후배들 좀 챙기고. 신입생들은 선배들한테 많이 물어보세요.&quot;</span></p>
+
+<p>시안은 불길한 예감이 들었다.</p>
+
+<p>불길한 예감은 보통 출석번호 순으로 온다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#b7aca0">교수</span><span class="speaker-text" style="color:#b7aca0">&quot;김시안.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;네.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#b7aca0">교수</span><span class="speaker-text" style="color:#b7aca0">&quot;유하린.&quot;</span></p>
+
+<p>뒤쪽에서 작은 목소리가 났다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;네.&quot;</span></p>
+
+<p>시안은 고개를 돌리지 않았다.</p>
+
+<p>돌리지 않았는데도 알았다.</p>
+
+<p>하린이 지금 자기를 보고 있다.</p>
+
+<p>이건 초능력이 아니다.</p>
+
+<p>주말 동안 생긴 부담감이다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#b7aca0">교수</span><span class="speaker-text" style="color:#b7aca0">&quot;문채영.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#b7aca0">문채영</span><span class="speaker-text" style="color:#b7aca0">&quot;네.&quot;</span></p>
+
+<p>처음 듣는 이름이었다.</p>
+
+<p>강의가 끝나자마자 유하린이 다가왔다.</p>
+
+<p>옆에는 단발머리 여학생이 붙어 있었다.</p>
+
+<p>눈이 빠르고, 웃음이 얇았다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;선배.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#b7aca0">문채영</span><span class="speaker-text" style="color:#b7aca0">&quot;아, 이분이 그 선배?&quot;</span></p>
+
+<p>시안은 하린을 봤다.</p>
+
+<p>하린은 바로 얼굴이 빨개졌다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;채영아.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#b7aca0">문채영</span><span class="speaker-text" style="color:#b7aca0">&quot;왜. 네가 말한 거잖아. 길 알려 주고, 동아리도 같이 가 준 선배.&quot;</span></p>
+
+<p>시안은 조용히 펜을 가방에 넣었다.</p>
+
+<p>도망갈 준비는 언제나 중요하다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;김시안입니다.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#b7aca0">문채영</span><span class="speaker-text" style="color:#b7aca0">&quot;문채영이에요. 하린이 친구요.&quot;</span></p>
+
+<p>채영은 시안을 위아래로 훑었다.</p>
+
+<p>대놓고 무례한 정도는 아니었다.</p>
+
+<p>그냥 아주 솔직했다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#b7aca0">문채영</span><span class="speaker-text" style="color:#b7aca0">&quot;생각보다 평범하시네요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;좋은 평가네요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#b7aca0">문채영</span><span class="speaker-text" style="color:#b7aca0">&quot;하린이가 너무 대단한 사람처럼 말해서요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;그런 적 없어.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#b7aca0">문채영</span><span class="speaker-text" style="color:#b7aca0">&quot;있어. 네가 기억 못 하는 거지.&quot;</span></p>
+
+<p>하린은 입을 다물었다.</p>
+
+<p>귀 끝까지 빨개졌다.</p>
+
+<p>시안은 고개를 끄덕였다.</p>
+
+<p>이 친구는 위험하다.</p>
+
+<p>정보를 너무 쉽게 꺼낸다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#b7aca0">문채영</span><span class="speaker-text" style="color:#b7aca0">&quot;발표 주제 정해야 하죠? 카페 문화 변화 어떠세요?&quot;</span></p>
+
+<p>시안은 멈췄다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;카페요?&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#b7aca0">문채영</span><span class="speaker-text" style="color:#b7aca0">&quot;네. 캠퍼스 근처 카페 이용 방식. 자료 모으기도 쉽고, 인터뷰도 가능하고.&quot;</span></p>
+
+<p>하린이 아주 천천히 시안을 봤다.</p>
+
+<p>하지 마.</p>
+
+<p>그 눈빛은 거의 그렇게 말하고 있었다.</p>
+
+<p>문제는 이미 늦었다는 거다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#b7aca0">문채영</span><span class="speaker-text" style="color:#b7aca0">&quot;하린아, 너 그 카페 있다며. 선배랑 간 곳.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;채영아.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#b7aca0">문채영</span><span class="speaker-text" style="color:#b7aca0">&quot;왜. 좋잖아. 실제 인터뷰 가능하고.&quot;</span></p>
+
+<p>시안은 창밖을 봤다.</p>
+
+<p>월요일 아침부터 금요일 밤이 다시 따라왔다.</p>
+
+<p>진짜 성실한 세계다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;다른 주제도 있잖아요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#b7aca0">문채영</span><span class="speaker-text" style="color:#b7aca0">&quot;선배, 혹시 불편하세요?&quot;</span></p>
+
+<p>정확히 찌른다.</p>
+
+<p>요즘 신입생들은 다 이렇게 무섭나.</p>
+
+<p>하린이 급히 말했다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;아니, 굳이 거기 아니어도 돼. 선배가 자주 가는 곳이면 불편할 수도 있고...&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#b7aca0">문채영</span><span class="speaker-text" style="color:#b7aca0">&quot;자주 가는 곳이면 더 좋죠. 사장님이나 알바분이 얼굴도 알 거고.&quot;</span></p>
+
+<p>시안은 머릿속으로 박미현의 얼굴을 떠올렸다.</p>
+
+<p>`다음엔 혼자 오세요?`</p>
+
+<p>그 말이 아직도 컵 벽면처럼 남아 있었다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;인터뷰는 제가 물어보고요.&quot;</span></p>
+
+<p>하린이 눈을 크게 떴다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;정말요?&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;된다는 보장은 없어요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#b7aca0">문채영</span><span class="speaker-text" style="color:#b7aca0">&quot;오. 선배 멋있다.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;그런 평가도 부담스럽네요.&quot;</span></p>
+
+<p>채영은 웃었다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#b7aca0">문채영</span><span class="speaker-text" style="color:#b7aca0">&quot;하린아, 네 말 맞네. 말투가 좀 웃겨.&quot;</span></p>
+
+<p>하린은 작게 웃었다.</p>
+
+<p>웃었는데, 눈은 계속 시안을 보고 있었다.</p>
+
+<p>기대하는 얼굴.</p>
+
+<p>그리고 걱정하는 얼굴.</p>
+
+<p>둘 다였다.</p>
+
+<p>그날 오후.</p>
+
+<p>시안은 결국 홍대 카페 앞에 섰다.</p>
+
+<p>들어가기 전부터 피곤했다.</p>
+
+<p>이건 커피를 마시러 온 게 아니다.</p>
+
+<p>폭탄을 들고 오는 쪽에 가깝다.</p>
+
+<p>문을 열자 종이 울렸다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;어서 오세요.&quot;</span></p>
+
+<p>박미현은 시안을 보고 웃었다.</p>
+
+<p>오늘은 혼자라는 걸 확인한 얼굴이었다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;오늘은 혼자네요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;네.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;좋네요.&quot;</span></p>
+
+<p>너무 솔직하다.</p>
+
+<p>시안은 메뉴판을 봤다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;아이스 아메리카노. 연하게요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;알아요.&quot;</span></p>
+
+<p>박미현은 컵을 꺼냈다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;오늘은 일찍 오셨네요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;수업 끝나고 바로 왔어요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;저 보러요?&quot;</span></p>
+
+<p>시안은 숨을 한 번 삼켰다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;부탁할 게 있어서요.&quot;</span></p>
+
+<p>박미현의 손이 멈췄다.</p>
+
+<p>웃음도 조금 얇아졌다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;부탁이요?&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;수업 발표 때문에요. 캠퍼스 근처 카페 인터뷰를 해야 할 수도 있어서.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;아.&quot;</span></p>
+
+<p>짧은 대답이었다.</p>
+
+<p>시안은 바로 덧붙였다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;불편하면 안 해도 됩니다.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;누구랑 하는 발표예요?&quot;</span></p>
+
+<p>질문이 빠르다.</p>
+
+<p>예상은 했지만 빨랐다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;조별 발표요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;하린 씨도요?&quot;</span></p>
+
+<p>이름이 바로 나왔다.</p>
+
+<p>시안은 괜히 컵을 봤다.</p>
+
+<p>아직 커피도 안 나왔는데.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;네.&quot;</span></p>
+
+<p>박미현은 고개를 끄덕였다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;그럼 해야겠네요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;정말요?&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;네.&quot;</span></p>
+
+<p>그녀는 커피를 내렸다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;대신 조건 있어요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;조건이요?&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;인터뷰하러 올 때, 손님이 먼저 와서 저한테 알려 주세요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;그건 당연히...&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;그리고.&quot;</span></p>
+
+<p>박미현은 컵 뚜껑을 닫았다.</p>
+
+<p>딸깍.</p>
+
+<p>소리가 이상하게 선명했다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;제 이름도 제대로 소개해 주세요.&quot;</span></p>
+
+<p>시안은 잠깐 멈췄다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;박미현 씨라고요?&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;네.&quot;</span></p>
+
+<p>그녀는 커피를 내밀었다.</p>
+
+<p>컵 옆에는 오늘도 작은 글씨가 있었다.</p>
+
+<p>`박미현. 외워 주세요.`</p>
+
+<p>시안은 컵을 들었다.</p>
+
+<p>커피가 차가웠다.</p>
+
+<p>근데 손끝은 조금 뜨거웠다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;저만 손님 이름 외우면 억울하잖아요.&quot;</span></p>
+
+<p>그 말은 웃으면서 나왔다.</p>
+
+<p>하지만 시안은 알았다.</p>
+
+<p>이번엔 농담이라고 안 했다.</p>
+
+  <div class="nav">
+    <a href="ep.007.html">← 이전 화</a>
+    <a href="ep.009.html">다음 화 →</a>
+  </div>
+</body>
+</html>

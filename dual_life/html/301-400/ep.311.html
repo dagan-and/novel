@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>311. 작년 사진</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 120%; }
+    body {
+      background: #111417;
+      color: #e8e1d5;
+      font-family: 'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+      font-size: 1.12rem;
+      line-height: 1.9;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3rem 1.4rem 5rem;
+      word-break: keep-all;
+    }
+    h1 {
+      font-size: 1.35rem;
+      text-align: center;
+      color: #79b8b2;
+      margin-bottom: 2.5rem;
+      letter-spacing: 0.02em;
+    }
+    p { margin: 0.75rem 0; }
+    p.speaker-line {
+      display: flex;
+      align-items: baseline;
+      gap: 0.7rem;
+      margin: 0.68rem 0;
+    }
+    .speaker-tag {
+      flex: 0 0 auto;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .speaker-text {
+      flex: 1 1 auto;
+    }
+    .message-line {
+      margin: 1rem 0;
+      padding: 0.72rem 0.9rem;
+      background: #182023;
+      border: 1px solid #2f3f41;
+      border-left: 4px solid #79b8b2;
+      border-radius: 6px;
+      color: #d8e5df;
+      font-size: 1.02rem;
+      line-height: 1.75;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+    }
+    .message-sender {
+      font-weight: 700;
+      color: #8fd0c9;
+      margin-right: 0.35rem;
+    }
+    .time {
+      font-weight: bold;
+      color: #d6a15f;
+      font-size: 1.08rem;
+      text-align: center;
+      margin: 1.8rem 0 1rem;
+    }
+    .thought { color: #9bbac0; font-style: italic; }
+    .divider {
+      text-align: center;
+      color: #5f6564;
+      margin: 2.2rem 0;
+      letter-spacing: 0.6em;
+    }
+    figure.scene-illustration {
+      margin: 2.5rem 0 2.8rem;
+    }
+    .scene-illustration img {
+      display: block;
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid #30383a;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.36);
+    }
+    .scene-illustration figcaption {
+      margin-top: 0.8rem;
+      text-align: center;
+      font-size: 0.92rem;
+      color: #9faaa6;
+      letter-spacing: 0.02em;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 3.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid #30383a;
+      font-size: 1rem;
+    }
+    .nav a { color: #8fd0c9; text-decoration: none; font-weight: 700; }
+    .nav a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <h1>311. 작년 사진</h1>
+  
+
+<p>이재인은 회사 옥상으로 시안을 불렀다.</p>
+
+<p>옥상이라고 해도 멋진 곳은 아니었다.</p>
+<p>회색 바닥.</p>
+<p>낮은 난간.</p>
+<p>멀리 보이는 빌딩 유리.</p>
+
+<p>그리고 고장 난 자판기 하나.</p>
+
+<p>`준비 중`</p>
+
+<p>이라고 붙어 있었는데, 그 아래에 누군가 볼펜으로 작게 적어 두었다.</p>
+
+<p>`나도`</p>
+
+<p>이재인이 그걸 보고 아주 작게 웃었다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">이재인</span><span class="speaker-text" style="color:#d97b95">&quot;자판기도 준비 중이래요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;오늘 분위기랑 맞네요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">이재인</span><span class="speaker-text" style="color:#d97b95">&quot;고장 난 게 아니라 준비 중이면 좀 낫죠.&quot;</span></p>
+
+<p>그 말은 농담 같았지만, 절반은 진심 같았다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">이재인</span><span class="speaker-text" style="color:#d97b95">&quot;작년에 프로젝트 발표 망쳤거든요.&quot;</span></p>
+
+<p>그녀는 바로 말했다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;사진이 돌았다고 했죠.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">이재인</span><span class="speaker-text" style="color:#d97b95">&quot;네. 제가 자료 들고 뛰다가 넘어졌어요. 웃긴 사진처럼 돌았어요.&quot;</span></p>
+
+<p>웃긴 사진.</p>
+
+<p>시안은 그 말이 싫었다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">이재인</span><span class="speaker-text" style="color:#d97b95">&quot;다들 악의는 없었다고 했어요. 근데 저는 그 뒤로 사진 찍히는 게 싫어졌어요.&quot;</span></p>
+
+<p>이재인은 캔버스백 끈을 잡았다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">이재인</span><span class="speaker-text" style="color:#d97b95">&quot;그래서 이번엔 먼저 뛰어서 안 망하려고 했는데, 또 사진이 먼저 돌더라고요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;이번 건 이재인 씨가 망한 게 아닙니다.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">이재인</span><span class="speaker-text" style="color:#d97b95">&quot;알아요.&quot;</span></p>
+
+<p>그녀는 작게 웃었다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">이재인</span><span class="speaker-text" style="color:#d97b95">&quot;아는데, 몸이 먼저 기억해요.&quot;</span></p>
+
+<p>시안은 옥상 바람을 맞았다.</p>
+
+<p>몸이 먼저 기억한다.</p>
+
+<p>그건 나윤의 달리기와도 닮았고, 하린의 기다림과도 닮았고, 미현의 컵과 다은의 노트와도 닮았다.</p>
+
+<p>다들 각자 방식으로 먼저 기억한다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;회사 쪽에도 말할까요?&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">이재인</span><span class="speaker-text" style="color:#d97b95">&quot;아니요. 학교에서 도는 거니까요.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;그럼 학교 쪽은 문채영이 경로 확인 중입니다. 유포가 더 커지면 막겠습니다.&quot;</span></p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">이재인</span><span class="speaker-text" style="color:#d97b95">&quot;고마워요.&quot;</span></p>
+
+<p>이재인은 잠깐 망설였다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">이재인</span><span class="speaker-text" style="color:#d97b95">&quot;그리고 저, 같이 하고 싶다고 말한 거 후회 안 해요.&quot;</span></p>
+
+<p>시안은 그녀를 봤다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">이재인</span><span class="speaker-text" style="color:#d97b95">&quot;소문 때문에 없던 말로 하고 싶진 않아요.&quot;</span></p>
+
+<p>그 말은 소문보다 컸다.</p>
+
+<p>시안은 단체방에 공유할 문장을 생각했다.</p>
+<p>하지만 이번엔 이재인이 먼저 말했다.</p>
+
+<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">이재인</span><span class="speaker-text" style="color:#d97b95">&quot;그건 제가 직접 말할 수 있어요?&quot;</span></p>
+
+<p>기존 네 사람에게.</p>
+
+<p>회사 낮 시간의 사람이, 처음으로 자기 목소리로 들어오려 하고 있었다.</p>
+
+  <div class="nav">
+    <a href="ep.310_a.html">← 이전 화</a>
+    <a href="ep.312.html">다음 화 →</a>
+  </div>
+</body>
+</html>
