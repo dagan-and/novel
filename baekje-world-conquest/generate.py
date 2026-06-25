@@ -22,17 +22,26 @@ def render_list(items, empty_message):
     return "".join(f"<li>{escape(item)}</li>" for item in items)
 
 
+def render_paragraphs(items, empty_message):
+    if not items:
+        return f'<p class="empty">{escape(empty_message)}</p>'
+    return "".join(f"<p>{escape(item)}</p>" for item in items)
+
+
 def render_turn(turn):
     turn_number = turn["turn"]
     year = escape(turn["year"])
     codename = escape(turn["codename"])
     headline = escape(turn["headline"])
-    summary = escape(turn["summary"])
     outcome = escape(turn["outcome"])
 
+    summary = render_paragraphs(turn.get("summary", []), "기록된 브리핑 없음")
     actions = render_list(turn.get("actions", []), "기록된 조치 없음")
     state_changes = render_list(turn.get("state_changes", []), "기록된 변화 없음")
     risks = render_list(turn.get("risks", []), "즉시 식별된 위험 없음")
+    frontline = escape(turn.get("frontline", "전선 변화 없음"))
+    court_reaction = escape(turn.get("court_reaction", "궁정 반응 기록 없음"))
+    enemy_reaction = escape(turn.get("enemy_reaction", "적국 반응 기록 없음"))
 
     return f"""
     <section class="turn-card" data-turn="{turn_number}">
@@ -47,7 +56,7 @@ def render_turn(turn):
       <p class="headline">{headline}</p>
       <div class="summary-box">
         <div class="section-label">상황 개요</div>
-        <p>{summary}</p>
+        {summary}
       </div>
       <div class="grid">
         <article class="panel">
@@ -60,6 +69,20 @@ def render_turn(turn):
         </article>
       </div>
       <div class="grid">
+        <article class="panel accent">
+          <div class="section-label">전선 동향</div>
+          <p>{frontline}</p>
+        </article>
+        <article class="panel accent">
+          <div class="section-label">궁정 반응</div>
+          <p>{court_reaction}</p>
+        </article>
+      </div>
+      <div class="grid">
+        <article class="panel accent">
+          <div class="section-label">적국 반응</div>
+          <p>{enemy_reaction}</p>
+        </article>
         <article class="panel">
           <div class="section-label">국가 변화</div>
           <ul>{state_changes}</ul>
@@ -246,6 +269,9 @@ button:disabled {{
 }}
 .panel.warning {{
   border-left: 4px solid #d7a45d;
+}}
+.panel.accent {{
+  border-left: 4px solid #6d88a7;
 }}
 ul {{
   margin: 0;
