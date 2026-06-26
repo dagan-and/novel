@@ -1,177 +1,181 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ep.063 - 중간고사 공지</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dual Life Episode</title>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { font-size: 120%; }
+    :root {
+      color-scheme: dark light;
+      --bg: #1d1b1a;
+      --panel: #262321;
+      --text: #ded6cd;
+      --muted: #aba095;
+      --accent: #d0a07f;
+      --quote: #c9beb3;
+      --quote-border: #6f6257;
+      --divider: #7f7267;
+      --yongsik-blue: #7db8ff;
+      --female-pink: #ff9fca;
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #ece5db;
+        --panel: #f5efe7;
+        --text: #312b27;
+        --muted: #74695f;
+        --accent: #8b5d44;
+        --quote: #5d5046;
+        --quote-border: #cab4a1;
+        --divider: #9e8f80;
+        --yongsik-blue: #1f66c2;
+        --female-pink: #c23f78;
+      }
+    }
     body {
-      background: #111417;
-      color: #e8e1d5;
-      font-family: 'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
-      font-size: 1.12rem;
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Iowan Old Style", "Apple SD Gothic Neo", "Noto Serif KR", serif;
       line-height: 1.9;
+    }
+    main {
       max-width: 760px;
       margin: 0 auto;
-      padding: 3rem 1.4rem 5rem;
-      word-break: keep-all;
+      padding: 48px 20px 80px;
+      background: var(--panel);
     }
     h1 {
-      font-size: 1.35rem;
-      text-align: center;
-      color: #79b8b2;
-      margin-bottom: 2.5rem;
-      letter-spacing: 0.02em;
+      font-size: 2rem;
+      margin: 0 0 2rem;
+      line-height: 1.3;
     }
-    p { margin: 0.75rem 0; }
-    p.speaker-line {
-      display: flex;
-      align-items: baseline;
-      gap: 0.7rem;
-      margin: 0.68rem 0;
+    p, blockquote {
+      font-size: 1.06rem;
+      margin: 0 0 1rem;
+      white-space: normal;
     }
-    .speaker-tag {
-      flex: 0 0 auto;
-      font-size: 0.82rem;
+    .dialogue .speaker {
       font-weight: 700;
-      letter-spacing: 0.02em;
+      color: var(--accent);
     }
-    .speaker-text {
-      flex: 1 1 auto;
+    .dialogue.speaker-yongsik .speaker,
+    .dialogue.speaker-yongsik .line {
+      color: var(--yongsik-blue);
     }
-    .message-line {
-      margin: 1rem 0;
-      padding: 0.72rem 0.9rem;
-      background: #182023;
-      border: 1px solid #2f3f41;
-      border-left: 4px solid #79b8b2;
-      border-radius: 6px;
-      color: #d8e5df;
-      font-size: 1.02rem;
-      line-height: 1.75;
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+    .dialogue.speaker-female .speaker,
+    .dialogue.speaker-female .line {
+      color: var(--female-pink);
     }
-    .message-sender {
-      font-weight: 700;
-      color: #8fd0c9;
-      margin-right: 0.35rem;
+    blockquote {
+      margin-left: 0;
+      padding-left: 1rem;
+      border-left: 3px solid var(--quote-border);
+      color: var(--quote);
     }
-    .time {
-      font-weight: bold;
-      color: #d6a15f;
-      font-size: 1.08rem;
-      text-align: center;
-      margin: 1.8rem 0 1rem;
-    }
-    .thought { color: #9bbac0; font-style: italic; }
     .divider {
       text-align: center;
-      color: #5f6564;
-      margin: 2.2rem 0;
-      letter-spacing: 0.6em;
+      color: var(--divider);
+      margin: 2rem 0;
+      letter-spacing: 0.35rem;
     }
-    figure.scene-illustration {
-      margin: 2.5rem 0 2.8rem;
-    }
-    .scene-illustration img {
-      display: block;
-      width: 100%;
-      border-radius: 10px;
-      border: 1px solid #30383a;
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.36);
-    }
-    .scene-illustration figcaption {
-      margin-top: 0.8rem;
-      text-align: center;
-      font-size: 0.92rem;
-      color: #9faaa6;
-      letter-spacing: 0.02em;
-    }
-    .nav {
+    .episode-nav {
       display: flex;
-      justify-content: space-between;
-      margin-top: 3.5rem;
-      padding-top: 1rem;
-      border-top: 1px solid #30383a;
-      font-size: 1rem;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 3rem;
+      flex-wrap: wrap;
     }
-    .nav a { color: #8fd0c9; text-decoration: none; font-weight: 700; }
-    .nav a:hover { text-decoration: underline; }
+    .nav-link {
+      min-width: 112px;
+      padding: 12px 16px;
+      border: 1px solid var(--quote-border);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      text-align: center;
+      text-decoration: none;
+      font-size: 0.98rem;
+    }
+    .nav-link:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .nav-link.disabled {
+      color: var(--muted);
+      opacity: 0.5;
+      pointer-events: none;
+    }
   </style>
 </head>
 <body>
-  <h1>ep.063 - 중간고사 공지</h1>
-  
-
-<p>중간고사 공지는 언제나 갑자기 온다.</p>
-
-<p>교수님은 말했다.</p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#b7aca0">교수</span><span class="speaker-text" style="color:#b7aca0">&quot;다음 주부터 발표 평가와 필기 평가를 같이 봅니다.&quot;</span></p>
-
-<p>강의실이 조용해졌다.</p>
-
-<p>죽음의 침묵.</p>
-
-<p>문채영만 손을 들었다.</p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#b7aca0">문채영</span><span class="speaker-text" style="color:#b7aca0">&quot;교수님, 같이 보면 두 배로 보는 건가요?&quot;</span></p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#b7aca0">교수</span><span class="speaker-text" style="color:#b7aca0">&quot;그렇죠.&quot;</span></p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#b7aca0">문채영</span><span class="speaker-text" style="color:#b7aca0">&quot;아.&quot;</span></p>
-
-<p>채영은 앉았다.</p>
-
-<p>늦었다.</p>
-
-<p>이미 모두가 절망했다.</p>
-
-<p>시안의 휴대전화가 울렸다.</p>
-
-<p class="message-line"><span class="message-sender">[유하린]</span>선배, 저 발표 자료 같이 봐도 돼요?</p>
-
-<p>곧바로.</p>
-
-<p class="message-line"><span class="message-sender">[박미현]</span>시험 기간에도 카페는 열려요. 창가 자리도요.</p>
-
-<p>또.</p>
-
-<p class="message-line"><span class="message-sender">[서나윤]</span>야식 필요하면 편의점이죠.</p>
-
-<p>마지막.</p>
-
-<p class="message-line"><span class="message-sender">[정다은]</span>시험 기간 시간표를 새로 짜야 합니다.</p>
-
-<p>시험.</p>
-
-<p>그 단어 하나가 모든 요일을 다시 흔들었다.</p>
-
-<p>점심시간.</p>
-
-<p>네 사람이 한 문장씩 올렸다.</p>
-
-<p class="message-line"><span class="message-sender">[박미현]</span>공부하러 오는 건 데이트 아니죠?</p>
-
-<p class="message-line"><span class="message-sender">[유하린]</span>발표 준비는 과제니까 괜찮죠?</p>
-
-<p class="message-line"><span class="message-sender">[서나윤]</span>야식은 생존이죠?</p>
-
-<p class="message-line"><span class="message-sender">[정다은]</span>취업 준비는 시험보다 우선순위가 낮지 않습니다.</p>
-
-<p>시안은 휴대전화를 보다가 웃었다.</p>
-
-<p>이제 모두가 핑계를 배웠다.</p>
-
-<p>그리고 핑계가 생긴 관계는.</p>
-
-<p>생각보다 강하다.</p>
-
-  <div class="nav">
-    <a href="ep.062_a.html">← 이전 화</a>
-    <a href="ep.064.html">다음 화 →</a>
-  </div>
+  <main>
+<h1>63. 체육대회 공지</h1>
+<p>2005년 9월 21일 — 회귀</p>
+<div class="divider">* * *</div>
+<p>종례 시간에 담임이 칠판에 크게 썼다.</p>
+<p>`체육대회`</p>
+<p>그 세 글자만으로 교실 온도가 올라갔다.</p>
+<p class="dialogue"><span class="speaker">[정민]</span> <span class="line">"왔다."</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[박다정]</span> <span class="line">"넌 왜 벌써 땀나?"</span></p>
+<p class="dialogue"><span class="speaker">[정민]</span> <span class="line">"열정."</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[이은주]</span> <span class="line">"아직 앉아 있는데."</span></p>
+<p>담임은 분필가루를 털며 말했다.</p>
+<p class="dialogue"><span class="speaker">[담임]</span> <span class="line">"다음 주 금요일. 반별 종목 정해야 한다."</span></p>
+<p>교실이 바로 떠들썩해졌다.</p>
+<p>축구.<br>
+피구.<br>
+계주.<br>
+줄다리기.</p>
+<p>고등학생은 큰일이 없어도<br>
+이런 걸로 충분히 시끄러워질 수 있다.</p>
+<div class="divider">* * *</div>
+<p>용식은 조용히 앉아 있었다.</p>
+<p>체육대회.</p>
+<p>회사 체육대회는 싫었다.<br>
+억지 응원, 어색한 단체 티, 끝나고 회식.</p>
+<p>하지만 고1 체육대회는 달랐다.</p>
+<p>도시락 냄새.<br>
+운동장 흙먼지.<br>
+반 티셔츠에 매직으로 이름 쓰는 애들.</p>
+<p>그건 아직 조금 기대해도 되는 종류였다.</p>
+<p class="dialogue speaker-female"><span class="speaker">[손한나]</span> <span class="line">"너 뭐 나갈 거야?"</span></p>
+<p>앞자리 한나가 돌아봤다.</p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[용식]</span> <span class="line">"안 다치는 거."</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[손한나]</span> <span class="line">"그게 종목이야?"</span></p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[용식]</span> <span class="line">"내 기준에선 제일 중요해."</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[박다정]</span> <span class="line">"또 아저씨 발언."</span></p>
+<p>다정이 복도 쪽에서 끼어들었다.</p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[용식]</span> <span class="line">"무릎은 소중해."</span></p>
+<p class="dialogue"><span class="speaker">[정민]</span> <span class="line">"김용식은 야구 잘하니까 공 던지는 거 시키자."</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[이은주]</span> <span class="line">"체육대회에 야구 없어."</span></p>
+<p class="dialogue"><span class="speaker">[정민]</span> <span class="line">"왜 없지?"</span></p>
+<p>없으니까 없다.</p>
+<div class="divider">* * *</div>
+<p>결국 용식은 줄다리기와 계주 후보가 됐다.</p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[용식]</span> <span class="line">"계주는 빼."</span></p>
+<p class="dialogue"><span class="speaker">[정민]</span> <span class="line">"왜?"</span></p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[용식]</span> <span class="line">"내가 빠르면 너무 티 나."</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[박다정]</span> <span class="line">"뭐래. 자신감 미쳤다."</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[손한나]</span> <span class="line">"근데 진짜 빠를 것 같긴 해."</span></p>
+<p>한나가 그렇게 말하자<br>
+다정이 바로 눈을 크게 떴다.</p>
+<p class="dialogue speaker-female"><span class="speaker">[박다정]</span> <span class="line">"너 요즘 편 드는 거 티 난다?"</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[손한나]</span> <span class="line">"아니거든."</span></p>
+<p class="dialogue"><span class="speaker">[정민]</span> <span class="line">"나는?"</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[이은주]</span> <span class="line">"넌 시끄러워."</span></p>
+<p>정민이 가슴을 잡았다.</p>
+<p>교실이 웃었다.</p>
+<div class="divider">* * *</div>
+<p>종례가 끝난 뒤,<br>
+담임이 체육부장에게 종목표를 넘겼다.</p>
+<p>종이 한 장이 교실을 돌았다.</p>
+<p>용식 이름 옆에는 결국 이렇게 적혔다.</p>
+<p>`줄다리기 / 계주 예비`</p>
+<p>예비.</p>
+<p>인생도 가끔 예비가 편하다.</p>
+<p>그런데 이상하게,<br>
+이번에는 그냥 뛰어도 괜찮을 것 같았다.</p>
+<nav class="episode-nav" aria-label="Episode navigation"><a class="nav-link" href="/novel/dual_life/html/001-100/ep.062.html">이전화</a><a class="nav-link index-link" href="/novel/">목록</a><a class="nav-link" href="/novel/dual_life/html/001-100/ep.064.html">다음화</a></nav>
+  </main>
 </body>
 </html>

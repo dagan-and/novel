@@ -14,7 +14,7 @@
 |------|------|
 | `states/current_state.json` | 현재 세계·날짜·관계 요약 |
 | `states/investments.json` | 회귀 투자 내역 전용 |
-| `states/연대기.md` | 회귀 연도별 사건 기록 |
+| `states/회귀연대기.md` | 회귀 연도별 사건 기록 |
 | `states/recent_topics.json` | 최근 20화 소재 목록 (패턴 방지) |
 
 ---
@@ -28,7 +28,7 @@
 
   "현실": {
     "date": "2025-12-07",
-    "wife": { "name": "", "relationship": 90 },
+    "wife": { "name": "소영", "relationship": 90 },
     "son": { "age": 3, "relationship": 98 },
     "mother": { "relationship": 88 },
     "job": "앱 개발팀 차장",

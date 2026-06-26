@@ -15,6 +15,8 @@
       --quote: #c9beb3;
       --quote-border: #6f6257;
       --divider: #7f7267;
+      --yongsik-blue: #7db8ff;
+      --female-pink: #ff9fca;
     }
     @media (prefers-color-scheme: light) {
       :root {
@@ -26,6 +28,8 @@
         --quote: #5d5046;
         --quote-border: #cab4a1;
         --divider: #9e8f80;
+        --yongsik-blue: #1f66c2;
+        --female-pink: #c23f78;
       }
     }
     body {
@@ -54,6 +58,14 @@
     .dialogue .speaker {
       font-weight: 700;
       color: var(--accent);
+    }
+    .dialogue.speaker-yongsik .speaker,
+    .dialogue.speaker-yongsik .line {
+      color: var(--yongsik-blue);
+    }
+    .dialogue.speaker-female .speaker,
+    .dialogue.speaker-female .line {
+      color: var(--female-pink);
     }
     blockquote {
       margin-left: 0;
@@ -112,7 +124,7 @@
 <p>문제는 자기 마음이 회식이나 새해 카운트다운 쪽이 아니라,<br>
 오늘 밤 잠드는 순간에 붙어 있다는 거였다.</p>
 <p class="dialogue"><span class="speaker">[팀원]</span> <span class="line">"차장님, 오늘 표정 왜 그래요. 중요한 발표 있어요?"</span></p>
-<p class="dialogue"><span class="speaker">[김용식]</span> <span class="line">"아니. 그냥 연말이라 좀."</span></p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[김용식]</span> <span class="line">"아니. 그냥 연말이라 좀."</span></p>
 <p>연말 탓은 편했다.</p>
 <p>모든 이상한 얼굴에 잘 어울렸다.</p>
 <div class="divider">* * *</div>
@@ -128,9 +140,9 @@
 <p>지후는 소파 위에서 졸고 있었다.</p>
 <p>아직 해도 안 졌는데,<br>
 혼자 먼저 지친 얼굴이었다.</p>
-<p class="dialogue"><span class="speaker">[소영]</span> <span class="line">"오늘은 어디 안 나가?"</span></p>
-<p class="dialogue"><span class="speaker">[김용식]</span> <span class="line">"응. 집에 있을래."</span></p>
-<p class="dialogue"><span class="speaker">[소영]</span> <span class="line">"잘됐다. 지후도 오늘 아빠 붙잡고 안 놓더라."</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[소영]</span> <span class="line">"오늘은 어디 안 나가?"</span></p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[김용식]</span> <span class="line">"응. 집에 있을래."</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[소영]</span> <span class="line">"잘됐다. 지후도 오늘 아빠 붙잡고 안 놓더라."</span></p>
 <p>용식은 소파에 앉아 지후 머리를 쓸어 넘겼다.</p>
 <p>따뜻했다.</p>
 <p>이쪽은 늘 이렇게 바로 만질 수 있는데,<br>
@@ -139,28 +151,28 @@
 <div class="divider">* * *</div>
 <p>밤 열한 시가 넘어서야,<br>
 소영이 용식 옆으로 와 앉았다.</p>
-<p class="dialogue"><span class="speaker">[소영]</span> <span class="line">"이제 말해도 되지 않나."</span></p>
-<p class="dialogue"><span class="speaker">[김용식]</span> <span class="line">"뭘."</span></p>
-<p class="dialogue"><span class="speaker">[소영]</span> <span class="line">"당신 요즘 계속 이상했어."</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[소영]</span> <span class="line">"이제 말해도 되지 않나."</span></p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[김용식]</span> <span class="line">"뭘."</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[소영]</span> <span class="line">"당신 요즘 계속 이상했어."</span></p>
 <p>용식은 잠깐 입을 다물었다.</p>
 <p>끝까지 숨길 생각은 아니었다.</p>
 <p>다만 어디부터 말해야 할지 몰랐다.</p>
-<p class="dialogue"><span class="speaker">[김용식]</span> <span class="line">"나 진짜 이상한 꿈 꿨거든."</span></p>
-<p class="dialogue"><span class="speaker">[소영]</span> <span class="line">"응."</span></p>
-<p class="dialogue"><span class="speaker">[김용식]</span> <span class="line">"오늘 밤 자면... 다른 데서 눈뜰 것 같다는 꿈."</span></p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[김용식]</span> <span class="line">"나 진짜 이상한 꿈 꿨거든."</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[소영]</span> <span class="line">"응."</span></p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[김용식]</span> <span class="line">"오늘 밤 자면... 다른 데서 눈뜰 것 같다는 꿈."</span></p>
 <p>소영은 바로 웃지 않았다.</p>
 <p>그게 더 무서웠다.</p>
-<p class="dialogue"><span class="speaker">[소영]</span> <span class="line">"그래서 그걸 준비한 거야?"</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[소영]</span> <span class="line">"그래서 그걸 준비한 거야?"</span></p>
 <p>거실 구석 박스 쪽으로 눈이 갔다.</p>
 <p>김용식은 천천히 고개를 끄덕였다.</p>
-<p class="dialogue"><span class="speaker">[김용식]</span> <span class="line">"가짜면 그냥 내가 유난 떠는 거고."</span></p>
-<p class="dialogue"><span class="speaker">[소영]</span> <span class="line">"진짜면?"</span></p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[김용식]</span> <span class="line">"가짜면 그냥 내가 유난 떠는 거고."</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[소영]</span> <span class="line">"진짜면?"</span></p>
 <p>그 질문 앞에서,<br>
 용식은 처음으로 선명하게 겁이 났다.</p>
-<p class="dialogue"><span class="speaker">[김용식]</span> <span class="line">"그러면... 다녀와야지."</span></p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[김용식]</span> <span class="line">"그러면... 다녀와야지."</span></p>
 <p>소영은 한동안 아무 말도 안 했다.</p>
 <p>그리고 아주 작게 말했다.</p>
-<p class="dialogue"><span class="speaker">[소영]</span> <span class="line">"내일도 여기로 돌아와."</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[소영]</span> <span class="line">"내일도 여기로 돌아와."</span></p>
 <div class="divider">* * *</div>
 <p>자정이 가까워졌다.</p>
 <p>지후는 이미 깊이 잠들어 있었다.</p>

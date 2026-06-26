@@ -15,6 +15,8 @@
       --quote: #c9beb3;
       --quote-border: #6f6257;
       --divider: #7f7267;
+      --yongsik-blue: #7db8ff;
+      --female-pink: #ff9fca;
     }
     @media (prefers-color-scheme: light) {
       :root {
@@ -26,6 +28,8 @@
         --quote: #5d5046;
         --quote-border: #cab4a1;
         --divider: #9e8f80;
+        --yongsik-blue: #1f66c2;
+        --female-pink: #c23f78;
       }
     }
     body {
@@ -54,6 +58,14 @@
     .dialogue .speaker {
       font-weight: 700;
       color: var(--accent);
+    }
+    .dialogue.speaker-yongsik .speaker,
+    .dialogue.speaker-yongsik .line {
+      color: var(--yongsik-blue);
+    }
+    .dialogue.speaker-female .speaker,
+    .dialogue.speaker-female .line {
+      color: var(--female-pink);
     }
     blockquote {
       margin-left: 0;
@@ -135,7 +147,7 @@
 <p>옆으로 보니<br>
 목도리를 턱까지 올린 애가 서 있었다.</p>
 <p>눈웃음이 먼저 보였다.</p>
-<p class="dialogue"><span class="speaker">[김용식]</span> <span class="line">"응. 방금."</span></p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[김용식]</span> <span class="line">"응. 방금."</span></p>
 <p class="dialogue"><span class="speaker">[여학생]</span> <span class="line">"나도. 다행이다."</span></p>
 <p>그 말만 하고<br>
 그 애는 바로 친구 쪽으로 갔다.</p>

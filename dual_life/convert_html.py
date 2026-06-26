@@ -13,8 +13,20 @@ ROOT = Path(__file__).resolve().parent
 EPISODES_DIR = ROOT / "episodes"
 HTML_DIR = ROOT / "html"
 
-EP_PATTERN = re.compile(r"ep\.(\d+)\.md$")
+EP_PATTERN = re.compile(r"ep\.(\d+)(?:_a)?\.md$")
 DIALOGUE_PATTERN = re.compile(r"^\[(.+?)\]\s+\"(.*)\"$")
+YONGSIK_SPEAKERS = {"김용식", "용식"}
+FEMALE_SPEAKERS = {
+    "소영",
+    "아내",
+    "손한나",
+    "한나",
+    "이은주",
+    "은주",
+    "박다정",
+    "다정",
+    "어머니",
+}
 
 
 def batch_label(ep_num: int) -> str:
@@ -54,6 +66,14 @@ def render_navigation(ep_num: int) -> str:
     )
 
 
+def dialogue_class(speaker: str) -> str:
+    if speaker in YONGSIK_SPEAKERS:
+        return "dialogue speaker-yongsik"
+    if speaker in FEMALE_SPEAKERS:
+        return "dialogue speaker-female"
+    return "dialogue"
+
+
 def render_block(block: list[str]) -> str:
     if not block:
         return ""
@@ -72,10 +92,11 @@ def render_block(block: list[str]) -> str:
     if len(block) == 1:
         matched = DIALOGUE_PATTERN.match(block[0])
         if matched:
-            speaker = html.escape(matched.group(1))
+            speaker_name = matched.group(1)
+            speaker = html.escape(speaker_name)
             line = html.escape(matched.group(2))
             return (
-                '<p class="dialogue">'
+                f'<p class="{dialogue_class(speaker_name)}">'
                 f'<span class="speaker">[{speaker}]</span> '
                 f'<span class="line">"{line}"</span>'
                 "</p>"
@@ -124,6 +145,8 @@ def render_episode(text: str, ep_num: int) -> str:
       --quote: #c9beb3;
       --quote-border: #6f6257;
       --divider: #7f7267;
+      --yongsik-blue: #7db8ff;
+      --female-pink: #ff9fca;
     }}
     @media (prefers-color-scheme: light) {{
       :root {{
@@ -135,6 +158,8 @@ def render_episode(text: str, ep_num: int) -> str:
         --quote: #5d5046;
         --quote-border: #cab4a1;
         --divider: #9e8f80;
+        --yongsik-blue: #1f66c2;
+        --female-pink: #c23f78;
       }}
     }}
     body {{
@@ -163,6 +188,14 @@ def render_episode(text: str, ep_num: int) -> str:
     .dialogue .speaker {{
       font-weight: 700;
       color: var(--accent);
+    }}
+    .dialogue.speaker-yongsik .speaker,
+    .dialogue.speaker-yongsik .line {{
+      color: var(--yongsik-blue);
+    }}
+    .dialogue.speaker-female .speaker,
+    .dialogue.speaker-female .line {{
+      color: var(--female-pink);
     }}
     blockquote {{
       margin-left: 0;
@@ -230,7 +263,12 @@ def convert_episode(ep_num: int) -> Path:
 
 def parse_args(args: list[str]) -> list[int]:
     if not args:
-        return [1, 2, 3, 4, 5]
+        episodes: list[int] = []
+        for path in sorted(EPISODES_DIR.rglob("ep.*.md")):
+            matched = EP_PATTERN.match(path.name)
+            if matched:
+                episodes.append(int(matched.group(1)))
+        return episodes
 
     parsed: list[int] = []
     for arg in args:

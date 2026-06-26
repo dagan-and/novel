@@ -15,6 +15,8 @@
       --quote: #c9beb3;
       --quote-border: #6f6257;
       --divider: #7f7267;
+      --yongsik-blue: #7db8ff;
+      --female-pink: #ff9fca;
     }
     @media (prefers-color-scheme: light) {
       :root {
@@ -26,6 +28,8 @@
         --quote: #5d5046;
         --quote-border: #cab4a1;
         --divider: #9e8f80;
+        --yongsik-blue: #1f66c2;
+        --female-pink: #c23f78;
       }
     }
     body {
@@ -54,6 +58,14 @@
     .dialogue .speaker {
       font-weight: 700;
       color: var(--accent);
+    }
+    .dialogue.speaker-yongsik .speaker,
+    .dialogue.speaker-yongsik .line {
+      color: var(--yongsik-blue);
+    }
+    .dialogue.speaker-female .speaker,
+    .dialogue.speaker-female .line {
+      color: var(--female-pink);
     }
     blockquote {
       margin-left: 0;

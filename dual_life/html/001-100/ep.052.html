@@ -1,177 +1,183 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ep.052 - 월요일의 의미</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dual Life Episode</title>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { font-size: 120%; }
+    :root {
+      color-scheme: dark light;
+      --bg: #1d1b1a;
+      --panel: #262321;
+      --text: #ded6cd;
+      --muted: #aba095;
+      --accent: #d0a07f;
+      --quote: #c9beb3;
+      --quote-border: #6f6257;
+      --divider: #7f7267;
+      --yongsik-blue: #7db8ff;
+      --female-pink: #ff9fca;
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #ece5db;
+        --panel: #f5efe7;
+        --text: #312b27;
+        --muted: #74695f;
+        --accent: #8b5d44;
+        --quote: #5d5046;
+        --quote-border: #cab4a1;
+        --divider: #9e8f80;
+        --yongsik-blue: #1f66c2;
+        --female-pink: #c23f78;
+      }
+    }
     body {
-      background: #111417;
-      color: #e8e1d5;
-      font-family: 'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
-      font-size: 1.12rem;
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Iowan Old Style", "Apple SD Gothic Neo", "Noto Serif KR", serif;
       line-height: 1.9;
+    }
+    main {
       max-width: 760px;
       margin: 0 auto;
-      padding: 3rem 1.4rem 5rem;
-      word-break: keep-all;
+      padding: 48px 20px 80px;
+      background: var(--panel);
     }
     h1 {
-      font-size: 1.35rem;
-      text-align: center;
-      color: #79b8b2;
-      margin-bottom: 2.5rem;
-      letter-spacing: 0.02em;
+      font-size: 2rem;
+      margin: 0 0 2rem;
+      line-height: 1.3;
     }
-    p { margin: 0.75rem 0; }
-    p.speaker-line {
-      display: flex;
-      align-items: baseline;
-      gap: 0.7rem;
-      margin: 0.68rem 0;
+    p, blockquote {
+      font-size: 1.06rem;
+      margin: 0 0 1rem;
+      white-space: normal;
     }
-    .speaker-tag {
-      flex: 0 0 auto;
-      font-size: 0.82rem;
+    .dialogue .speaker {
       font-weight: 700;
-      letter-spacing: 0.02em;
+      color: var(--accent);
     }
-    .speaker-text {
-      flex: 1 1 auto;
+    .dialogue.speaker-yongsik .speaker,
+    .dialogue.speaker-yongsik .line {
+      color: var(--yongsik-blue);
     }
-    .message-line {
-      margin: 1rem 0;
-      padding: 0.72rem 0.9rem;
-      background: #182023;
-      border: 1px solid #2f3f41;
-      border-left: 4px solid #79b8b2;
-      border-radius: 6px;
-      color: #d8e5df;
-      font-size: 1.02rem;
-      line-height: 1.75;
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+    .dialogue.speaker-female .speaker,
+    .dialogue.speaker-female .line {
+      color: var(--female-pink);
     }
-    .message-sender {
-      font-weight: 700;
-      color: #8fd0c9;
-      margin-right: 0.35rem;
+    blockquote {
+      margin-left: 0;
+      padding-left: 1rem;
+      border-left: 3px solid var(--quote-border);
+      color: var(--quote);
     }
-    .time {
-      font-weight: bold;
-      color: #d6a15f;
-      font-size: 1.08rem;
-      text-align: center;
-      margin: 1.8rem 0 1rem;
-    }
-    .thought { color: #9bbac0; font-style: italic; }
     .divider {
       text-align: center;
-      color: #5f6564;
-      margin: 2.2rem 0;
-      letter-spacing: 0.6em;
+      color: var(--divider);
+      margin: 2rem 0;
+      letter-spacing: 0.35rem;
     }
-    figure.scene-illustration {
-      margin: 2.5rem 0 2.8rem;
-    }
-    .scene-illustration img {
-      display: block;
-      width: 100%;
-      border-radius: 10px;
-      border: 1px solid #30383a;
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.36);
-    }
-    .scene-illustration figcaption {
-      margin-top: 0.8rem;
-      text-align: center;
-      font-size: 0.92rem;
-      color: #9faaa6;
-      letter-spacing: 0.02em;
-    }
-    .nav {
+    .episode-nav {
       display: flex;
-      justify-content: space-between;
-      margin-top: 3.5rem;
-      padding-top: 1rem;
-      border-top: 1px solid #30383a;
-      font-size: 1rem;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 3rem;
+      flex-wrap: wrap;
     }
-    .nav a { color: #8fd0c9; text-decoration: none; font-weight: 700; }
-    .nav a:hover { text-decoration: underline; }
+    .nav-link {
+      min-width: 112px;
+      padding: 12px 16px;
+      border: 1px solid var(--quote-border);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      text-align: center;
+      text-decoration: none;
+      font-size: 0.98rem;
+    }
+    .nav-link:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .nav-link.disabled {
+      color: var(--muted);
+      opacity: 0.5;
+      pointer-events: none;
+    }
   </style>
 </head>
 <body>
-  <h1>ep.052 - 월요일의 의미</h1>
-  
-
-<p>월요일은 비워 둔 날이었다.</p>
-
-<p>그런데 카페 앞을 지나가는 건 월요일을 쓰는 게 아니지 않나.</p>
-
-<p>시안은 그렇게 생각했다.</p>
-
-<p>문을 열기 전까지는.</p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;어서 오세요.&quot;</span></p>
-
-<p>미현은 이미 웃고 있었다.</p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;지나가다가요.&quot;</span></p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;네. 지나가다가 정확히 창가 자리까지요.&quot;</span></p>
-
-<p>반박할 말이 없었다.</p>
-
-<p>미현은 컵을 내밀었다.</p>
-
-<p>컵에는 아무것도 적혀 있지 않았다.</p>
-
-<p>그게 더 수상했다.</p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;오늘은 안 잡을게요.&quot;</span></p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;정말요?&quot;</span></p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;대신 확인만 할래요.&quot;</span></p>
-
-<p>그녀는 테이블 맞은편에 앉았다.</p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;월요일은 시안 씨 거예요?&quot;</span></p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;그렇게 정했어요.&quot;</span></p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;그럼 저도 그 안에 들어가면 안 돼요?&quot;</span></p>
-
-<p>시안은 커피를 마셨다.</p>
-
-<p>뜨거웠다.</p>
-
-<p>아니, 대답이 더 뜨거웠다.</p>
-
-<p>그때 단체방이 울렸다.</p>
-
-<p class="message-line"><span class="message-sender">[정다은]</span>현재 위치를 묻지는 않겠습니다.</p>
-
-<p>미현이 화면을 봤다.</p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;안 묻는다는 건 알고 있다는 뜻이죠?&quot;</span></p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;아마요.&quot;</span></p>
-
-<p>미현은 컵을 가져갔다.</p>
-
-<p>그리고 펜으로 한 줄을 적었다.</p>
-
-<p>`월요일: 지나가다가.`</p>
-
-<p>시안은 그걸 보고 알았다.</p>
-
-<p>새 시간표는 첫날부터 낙서가 생겼다.</p>
-
-  <div class="nav">
-    <a href="ep.051.html">← 이전 화</a>
-    <a href="ep.053.html">다음 화 →</a>
-  </div>
+  <main>
+<h1>52. 자리 바꾸는 날</h1>
+<p>2005년 8월 22일 — 회귀</p>
+<div class="divider">* * *</div>
+<p>개학 첫날 교실은 산만했다.</p>
+<p>책상은 삐뚤어져 있고,<br>
+창가에는 아직 여름 냄새가 남아 있었다.<br>
+선풍기는 고개를 돌릴 때마다 끼익 소리를 냈다.</p>
+<p>담임이 출석부를 덮으며 말했다.</p>
+<p class="dialogue"><span class="speaker">[담임]</span> <span class="line">"자리 바꾼다."</span></p>
+<p>그 말 한마디에 교실이 바로 살아났다.</p>
+<p class="dialogue"><span class="speaker">[정민]</span> <span class="line">"야, 나랑 붙자."</span></p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[용식]</span> <span class="line">"네 성적 떨어져."</span></p>
+<p class="dialogue"><span class="speaker">[정민]</span> <span class="line">"너 내 성적 본 적 없잖아."</span></p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[용식]</span> <span class="line">"안 봐도 떨어져."</span></p>
+<p>정민이 억울한 표정을 지었다.</p>
+<div class="divider">* * *</div>
+<p>제비뽑기였다.</p>
+<p>공정하다.<br>
+그리고 항상 누군가에게는 불공정하다.</p>
+<p>용식은 종이를 펼쳤다.</p>
+<p>창가 둘째 줄.</p>
+<p>나쁘지 않았다.<br>
+칠판도 보이고,<br>
+운동장도 보였다.<br>
+졸리면 바람 핑계도 댈 수 있었다.</p>
+<p class="dialogue speaker-female"><span class="speaker">[손한나]</span> <span class="line">"어."</span></p>
+<p>옆에서 한나가 종이를 들고 있었다.</p>
+<p>같은 줄.<br>
+바로 앞자리.</p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[용식]</span> <span class="line">"앞에서 졸면 다 보인다."</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[손한나]</span> <span class="line">"너나 졸지 마."</span></p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[용식]</span> <span class="line">"나는 눈 감고 생각하는 거야."</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[손한나]</span> <span class="line">"그걸 졸음이라고 해."</span></p>
+<p>한나가 웃으며 자기 책상을 끌었다.<br>
+의자 다리가 바닥을 긁는 소리가 났다.</p>
+<div class="divider">* * *</div>
+<p>다정은 복도 쪽이었다.</p>
+<p class="dialogue speaker-female"><span class="speaker">[박다정]</span> <span class="line">"아, 재미없어. 나 왜 저 멀리야."</span></p>
+<p class="dialogue"><span class="speaker">[정민]</span> <span class="line">"나는 뒤야. 인생 끝났다."</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[이은주]</span> <span class="line">"뒤가 왜 끝이야?"</span></p>
+<p class="dialogue"><span class="speaker">[정민]</span> <span class="line">"선생님이 안 보잖아."</span></p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[용식]</span> <span class="line">"그게 끝난 이유냐."</span></p>
+<p>은주가 작게 웃었다.<br>
+그 웃음이 너무 짧아서,<br>
+안 봤으면 지나쳤을 정도였다.</p>
+<div class="divider">* * *</div>
+<p>수업이 시작됐다.</p>
+<p>한나는 앞자리에서 필통을 열었다.<br>
+연필 두 자루, 샤프 하나, 지우개.<br>
+정리가 잘 되어 있었다.</p>
+<p>용식은 그 뒷모습을 봤다.</p>
+<p>목덜미에 머리카락이 조금 붙어 있었다.<br>
+창문으로 들어온 바람이 그걸 살짝 밀었다.</p>
+<p>고등학생이었다.</p>
+<p>정말로.</p>
+<p>이런 걸 다시 보고 있었다.</p>
+<p class="dialogue speaker-female"><span class="speaker">[손한나]</span> <span class="line">"야."</span></p>
+<p>한나가 고개를 살짝 돌렸다.</p>
+<p class="dialogue speaker-female"><span class="speaker">[손한나]</span> <span class="line">"교과서 같이 봐도 돼?"</span></p>
+<p>용식은 책을 앞으로 밀었다.</p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[용식]</span> <span class="line">"대신 졸면 깨워."</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[손한나]</span> <span class="line">"내가 왜?"</span></p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[용식]</span> <span class="line">"앞자리잖아. 책임감."</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[손한나]</span> <span class="line">"진짜 아무 말이나 한다."</span></p>
+<p>그래도 한나는 책을 같이 봤다.</p>
+<p>책상 사이가 조금 가까워졌다.</p>
+<p>창밖에서는 운동장 흙먼지가 천천히 날렸다.</p>
+<p>2학기가 시작됐다.</p>
+<nav class="episode-nav" aria-label="Episode navigation"><a class="nav-link" href="/novel/dual_life/html/001-100/ep.051.html">이전화</a><a class="nav-link index-link" href="/novel/">목록</a><a class="nav-link" href="/novel/dual_life/html/001-100/ep.053.html">다음화</a></nav>
+  </main>
 </body>
 </html>

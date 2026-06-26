@@ -1,9 +1,9 @@
 {
   "note": "회귀 투자 기록 전용. current_state.json과 분리 관리.",
-  "last_updated": "2005-01-01",
+  "last_updated": "2005-02-01",
 
-  "cash_krw": 0,
-  "gold_kg": 0,
+  "cash_krw": 299000,
+  "gold_kg": 0.01,
 
   "real_estate": [],
 

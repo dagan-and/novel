@@ -15,6 +15,8 @@
       --quote: #c9beb3;
       --quote-border: #6f6257;
       --divider: #7f7267;
+      --yongsik-blue: #7db8ff;
+      --female-pink: #ff9fca;
     }
     @media (prefers-color-scheme: light) {
       :root {
@@ -26,6 +28,8 @@
         --quote: #5d5046;
         --quote-border: #cab4a1;
         --divider: #9e8f80;
+        --yongsik-blue: #1f66c2;
+        --female-pink: #c23f78;
       }
     }
     body {
@@ -54,6 +58,14 @@
     .dialogue .speaker {
       font-weight: 700;
       color: var(--accent);
+    }
+    .dialogue.speaker-yongsik .speaker,
+    .dialogue.speaker-yongsik .line {
+      color: var(--yongsik-blue);
+    }
+    .dialogue.speaker-female .speaker,
+    .dialogue.speaker-female .line {
+      color: var(--female-pink);
     }
     blockquote {
       margin-left: 0;
@@ -147,16 +159,16 @@
 <p>셋 다 같은 공간에 들어오니까<br>
 갑자기 교실이 좁아졌다.</p>
 <div class="divider">* * *</div>
-<p class="dialogue"><span class="speaker">[손한나]</span> <span class="line">"어? 너도 5반?"</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[손한나]</span> <span class="line">"어? 너도 5반?"</span></p>
 <p>먼저 말을 건 건 한나였다.</p>
 <p>용식은 잠깐 놀랐다가 고개를 끄덕였다.</p>
-<p class="dialogue"><span class="speaker">[김용식]</span> <span class="line">"응. 방금 봤어."</span></p>
-<p class="dialogue"><span class="speaker">[손한나]</span> <span class="line">"다행이다. 아는 애 한 명도 없으면 좀 뻘쭘하잖아."</span></p>
-<p class="dialogue"><span class="speaker">[김용식]</span> <span class="line">"우리 지금 아는 애 된 거야?"</span></p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[김용식]</span> <span class="line">"응. 방금 봤어."</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[손한나]</span> <span class="line">"다행이다. 아는 애 한 명도 없으면 좀 뻘쭘하잖아."</span></p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[김용식]</span> <span class="line">"우리 지금 아는 애 된 거야?"</span></p>
 <p>말해놓고 스스로 조금 놀랐다.</p>
 <p>너무 능청스러웠나 싶었는데,<br>
 한나는 그냥 웃었다.</p>
-<p class="dialogue"><span class="speaker">[손한나]</span> <span class="line">"방금 됐지."</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[손한나]</span> <span class="line">"방금 됐지."</span></p>
 <p>그 말이 너무 가볍게 떨어져서 좋았다.</p>
 <p>큰 의미도 없고,<br>
 그래서 오히려 더 오래 남는 말.</p>
@@ -179,12 +191,12 @@
 <div class="divider">* * *</div>
 <p>끝나고 계단 내려오는 길에<br>
 한나가 뒤를 돌아봤다.</p>
-<p class="dialogue"><span class="speaker">[손한나]</span> <span class="line">"야, 김용식."</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[손한나]</span> <span class="line">"야, 김용식."</span></p>
 <p>이름을 바로 불리는 건<br>
 생각보다 티가 났다.</p>
-<p class="dialogue"><span class="speaker">[손한나]</span> <span class="line">"입학식 때 늦지 마."</span></p>
-<p class="dialogue"><span class="speaker">[김용식]</span> <span class="line">"너도."</span></p>
-<p class="dialogue"><span class="speaker">[손한나]</span> <span class="line">"나는 안 늦어."</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[손한나]</span> <span class="line">"입학식 때 늦지 마."</span></p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[김용식]</span> <span class="line">"너도."</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[손한나]</span> <span class="line">"나는 안 늦어."</span></p>
 <p>그러고 먼저 내려갔다.</p>
 <p>그 뒷모습을 보다가,<br>
 용식은 괜히 계단에서 한 박자 늦었다.</p>

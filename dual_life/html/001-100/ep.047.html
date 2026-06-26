@@ -1,193 +1,190 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ep.047 - 단체방</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dual Life Episode</title>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { font-size: 120%; }
+    :root {
+      color-scheme: dark light;
+      --bg: #1d1b1a;
+      --panel: #262321;
+      --text: #ded6cd;
+      --muted: #aba095;
+      --accent: #d0a07f;
+      --quote: #c9beb3;
+      --quote-border: #6f6257;
+      --divider: #7f7267;
+      --yongsik-blue: #7db8ff;
+      --female-pink: #ff9fca;
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #ece5db;
+        --panel: #f5efe7;
+        --text: #312b27;
+        --muted: #74695f;
+        --accent: #8b5d44;
+        --quote: #5d5046;
+        --quote-border: #cab4a1;
+        --divider: #9e8f80;
+        --yongsik-blue: #1f66c2;
+        --female-pink: #c23f78;
+      }
+    }
     body {
-      background: #111417;
-      color: #e8e1d5;
-      font-family: 'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
-      font-size: 1.12rem;
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Iowan Old Style", "Apple SD Gothic Neo", "Noto Serif KR", serif;
       line-height: 1.9;
+    }
+    main {
       max-width: 760px;
       margin: 0 auto;
-      padding: 3rem 1.4rem 5rem;
-      word-break: keep-all;
+      padding: 48px 20px 80px;
+      background: var(--panel);
     }
     h1 {
-      font-size: 1.35rem;
-      text-align: center;
-      color: #79b8b2;
-      margin-bottom: 2.5rem;
-      letter-spacing: 0.02em;
+      font-size: 2rem;
+      margin: 0 0 2rem;
+      line-height: 1.3;
     }
-    p { margin: 0.75rem 0; }
-    p.speaker-line {
-      display: flex;
-      align-items: baseline;
-      gap: 0.7rem;
-      margin: 0.68rem 0;
+    p, blockquote {
+      font-size: 1.06rem;
+      margin: 0 0 1rem;
+      white-space: normal;
     }
-    .speaker-tag {
-      flex: 0 0 auto;
-      font-size: 0.82rem;
+    .dialogue .speaker {
       font-weight: 700;
-      letter-spacing: 0.02em;
+      color: var(--accent);
     }
-    .speaker-text {
-      flex: 1 1 auto;
+    .dialogue.speaker-yongsik .speaker,
+    .dialogue.speaker-yongsik .line {
+      color: var(--yongsik-blue);
     }
-    .message-line {
-      margin: 1rem 0;
-      padding: 0.72rem 0.9rem;
-      background: #182023;
-      border: 1px solid #2f3f41;
-      border-left: 4px solid #79b8b2;
-      border-radius: 6px;
-      color: #d8e5df;
-      font-size: 1.02rem;
-      line-height: 1.75;
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+    .dialogue.speaker-female .speaker,
+    .dialogue.speaker-female .line {
+      color: var(--female-pink);
     }
-    .message-sender {
-      font-weight: 700;
-      color: #8fd0c9;
-      margin-right: 0.35rem;
+    blockquote {
+      margin-left: 0;
+      padding-left: 1rem;
+      border-left: 3px solid var(--quote-border);
+      color: var(--quote);
     }
-    .time {
-      font-weight: bold;
-      color: #d6a15f;
-      font-size: 1.08rem;
-      text-align: center;
-      margin: 1.8rem 0 1rem;
-    }
-    .thought { color: #9bbac0; font-style: italic; }
     .divider {
       text-align: center;
-      color: #5f6564;
-      margin: 2.2rem 0;
-      letter-spacing: 0.6em;
+      color: var(--divider);
+      margin: 2rem 0;
+      letter-spacing: 0.35rem;
     }
-    figure.scene-illustration {
-      margin: 2.5rem 0 2.8rem;
-    }
-    .scene-illustration img {
-      display: block;
-      width: 100%;
-      border-radius: 10px;
-      border: 1px solid #30383a;
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.36);
-    }
-    .scene-illustration figcaption {
-      margin-top: 0.8rem;
-      text-align: center;
-      font-size: 0.92rem;
-      color: #9faaa6;
-      letter-spacing: 0.02em;
-    }
-    .nav {
+    .episode-nav {
       display: flex;
-      justify-content: space-between;
-      margin-top: 3.5rem;
-      padding-top: 1rem;
-      border-top: 1px solid #30383a;
-      font-size: 1rem;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 3rem;
+      flex-wrap: wrap;
     }
-    .nav a { color: #8fd0c9; text-decoration: none; font-weight: 700; }
-    .nav a:hover { text-decoration: underline; }
+    .nav-link {
+      min-width: 112px;
+      padding: 12px 16px;
+      border: 1px solid var(--quote-border);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      text-align: center;
+      text-decoration: none;
+      font-size: 0.98rem;
+    }
+    .nav-link:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .nav-link.disabled {
+      color: var(--muted);
+      opacity: 0.5;
+      pointer-events: none;
+    }
   </style>
 </head>
 <body>
-  <h1>ep.047 - 단체방</h1>
-  
-
-<p>문채영이 단체방을 만들었다.</p>
-
-<p class="message-line"><span class="message-sender">[문채영]</span>발표팀 자료 공유방입니다!</p>
-
-<p>멤버는 세 명이어야 했다.</p>
-
-<p>시안.</p>
-
-<p>하린.</p>
-
-<p>채영.</p>
-
-<p>그런데 채영은 실수로 박미현을 초대했다.</p>
-
-<p class="message-line"><span class="message-sender">[박미현]</span>안녕하세요?</p>
-
-<p>5초 뒤.</p>
-
-<p>채영은 정다은도 초대했다.</p>
-
-<p class="message-line"><span class="message-sender">[정다은]</span>여기는 어떤 방입니까?</p>
-
-<p>10초 뒤.</p>
-
-<p>나윤이 들어왔다.</p>
-
-<p class="message-line"><span class="message-sender">[서나윤]</span>저도 왜 들어왔는지 모르겠는데요.</p>
-
-<p>시안은 휴대전화를 내려놓았다.</p>
-
-<p>끝났다.</p>
-
-<p>인생 끝.</p>
-
-<p class="message-line"><span class="message-sender">[문채영]</span>어? 죄송해요. 연락처 정리하다가...</p>
-
-<p class="message-line"><span class="message-sender">[유하린]</span>채영아.</p>
-
-<p class="message-line"><span class="message-sender">[박미현]</span>괜찮아요. 재미있네요.</p>
-
-<p class="message-line"><span class="message-sender">[서나윤]</span>저는 재미있는데요.</p>
-
-<p class="message-line"><span class="message-sender">[정다은]</span>김시안 씨, 설명하세요.</p>
-
-<p>설명.</p>
-
-<p>세상에서 제일 싫은 단어가 됐다.</p>
-
-<p>시안은 한참 고민하다가 보냈다.</p>
-
-<p class="message-line"><span class="message-sender">[김시안]</span>일단 발표 자료방은 새로 만들겠습니다.</p>
-
-<p>나윤이 바로 답했다.</p>
-
-<p class="message-line"><span class="message-sender">[서나윤]</span>그럼 여긴요?</p>
-
-<p>미현도 답했다.</p>
-
-<p class="message-line"><span class="message-sender">[박미현]</span>지우기 아까운데요.</p>
-
-<p>하린은 잠깐 뒤에 보냈다.</p>
-
-<p class="message-line"><span class="message-sender">[유하린]</span>저는... 있어도 돼요.</p>
-
-<p>정다은은 마지막이었다.</p>
-
-<p class="message-line"><span class="message-sender">[정다은]</span>목적이 불분명하지만 관찰 가치는 있습니다.</p>
-
-<p>시안은 머리를 감쌌다.</p>
-
-<p>그날 이후.</p>
-
-<p>그 방 이름은 채영이 멋대로 바꿨다.</p>
-
-<p>`시안 선배 일정 공유방`</p>
-
-<p>정말.</p>
-
-<p>문채영은 큰일을 했다.</p>
-
-  <div class="nav">
-    <a href="ep.046.html">← 이전 화</a>
-    <a href="ep.048_a.html">다음 화 →</a>
-  </div>
+  <main>
+<h1>47. 여름의 정민</h1>
+<p>2005년 7월 22일 — 회귀</p>
+<div class="divider">* * *</div>
+<p>정민이 연락이 왔다.</p>
+<p>알바 쉬는 날이라고.</p>
+<div class="divider">* * *</div>
+<p>동네 수영장 앞에서 만났다.</p>
+<p>정민이 수건을 목에 걸고 있었다.</p>
+<p>&quot;야, 진짜 오랜만이다.&quot;</p>
+<p>&quot;한 달도 안 됐는데.&quot;</p>
+<p>&quot;그러니까. 방학인데 알바 하니까<br>
+이상하게 더 못 보는 것 같아.&quot;</p>
+<div class="divider">* * *</div>
+<p>수영장 안으로 들어갔다.</p>
+<p>탈의실에서 갈아입으면서<br>
+정민이 말했다.</p>
+<p>&quot;알바 생각보다 재미있어.&quot;</p>
+<p>&quot;어.&quot;</p>
+<p>&quot;아줌마들이 막 반말로 이것저것 시키는데<br>
+그게 또 익숙해지니까.&quot;</p>
+<p>&quot;강해지는 거지.&quot;</p>
+<p>&quot;맞아. 근데 힘들긴 해.&quot;</p>
+<div class="divider">* * *</div>
+<p>물 안에 들어가자마자<br>
+정민이 먼저 뛰었다.</p>
+<p>용식은 천천히 들어갔다.</p>
+<p>차가운 물이 허리까지 올라올 때<br>
+갑자기 이상한 기분이 들었다.</p>
+<p>*이 몸이 15살이구나.*</p>
+<p>36살 때도 수영을 간 적이 있었는데.<br>
+소영이랑 지후 데리고 여름에 한 번 갔었다.</p>
+<p>지후가 튜브를 붙잡고<br>
+발을 차면서 좋아했다.</p>
+<div class="divider">* * *</div>
+<p>&quot;야! 뭐해 거기서!&quot;</p>
+<p>정민이 물을 끼얹었다.</p>
+<p>용식이 눈을 피했다.</p>
+<p>&quot;임마.&quot;</p>
+<p>&quot;어, 맞았지? 반응 늦었어.&quot;</p>
+<p>&quot;일부러 맞아줬거든.&quot;</p>
+<p>&quot;거짓말.&quot;</p>
+<div class="divider">* * *</div>
+<p>한 시간쯤 놀고<br>
+퇴장해서 자판기 앞에 앉았다.</p>
+<p>정민이 이온음료를 뽑으며 물었다.</p>
+<p>&quot;이은주가 너한테 삼성전자 물어봤다고 하던데.&quot;</p>
+<p>&quot;어.&quot;</p>
+<p>&quot;걔가 먼저 말 건다는 게 좀 신기하더라고.&quot;</p>
+<p>&quot;왜.&quot;</p>
+<p>&quot;그냥 조용한 애잖아.&quot;</p>
+<div class="divider">* * *</div>
+<p>용식이 음료를 받아 마셨다.</p>
+<p>&quot;조용한 사람도 관심 있는 건 물어봐.&quot;</p>
+<p>&quot;그건 그렇지.&quot;</p>
+<p>정민이 이온음료를 반쯤 비우고</p>
+<p>&quot;걔 부모님이 진짜 사줬대.&quot;</p>
+<p>&quot;알아.&quot;</p>
+<p>&quot;몰랐는데.&quot;</p>
+<p>용식이 고개를 끄덕였다.</p>
+<p>&quot;이은주 집 괜찮거든.<br>
+아버지가 빠른 사람이야.&quot;</p>
+<p>&quot;어떻게 알아.&quot;</p>
+<p>&quot;그냥 느낌.&quot;</p>
+<div class="divider">* * *</div>
+<p>정민이 자판기에 기대며 말했다.</p>
+<p>&quot;나는 진짜 모르겠다. 주식이든 뭐든.&quot;</p>
+<p>&quot;그래도 돼.&quot;</p>
+<p>&quot;진짜?&quot;</p>
+<p>&quot;응. 다 같은 거 할 필요 없어.&quot;</p>
+<p>정민이 잠깐 봤다.</p>
+<p>&quot;너 왜 그런 말을 하면 편하지.&quot;</p>
+<p>용식이 웃었다.</p>
+<p>&quot;나이 때문에.&quot;</p>
+<p>&quot;고1인데.&quot;</p>
+<p>&quot;그래, 고1인데.&quot;</p>
+<nav class="episode-nav" aria-label="Episode navigation"><a class="nav-link" href="/novel/dual_life/html/001-100/ep.046.html">이전화</a><a class="nav-link index-link" href="/novel/">목록</a><a class="nav-link" href="/novel/dual_life/html/001-100/ep.048.html">다음화</a></nav>
+  </main>
 </body>
 </html>

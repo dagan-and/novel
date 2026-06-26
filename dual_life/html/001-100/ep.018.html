@@ -15,6 +15,8 @@
       --quote: #c9beb3;
       --quote-border: #6f6257;
       --divider: #7f7267;
+      --yongsik-blue: #7db8ff;
+      --female-pink: #ff9fca;
     }
     @media (prefers-color-scheme: light) {
       :root {
@@ -26,6 +28,8 @@
         --quote: #5d5046;
         --quote-border: #cab4a1;
         --divider: #9e8f80;
+        --yongsik-blue: #1f66c2;
+        --female-pink: #c23f78;
       }
     }
     body {
@@ -54,6 +58,14 @@
     .dialogue .speaker {
       font-weight: 700;
       color: var(--accent);
+    }
+    .dialogue.speaker-yongsik .speaker,
+    .dialogue.speaker-yongsik .line {
+      color: var(--yongsik-blue);
+    }
+    .dialogue.speaker-female .speaker,
+    .dialogue.speaker-female .line {
+      color: var(--female-pink);
     }
     blockquote {
       margin-left: 0;
@@ -110,13 +122,13 @@
 <div class="divider">* * *</div>
 <p>종례 끝나고 교문 쪽으로 내려오는데<br>
 한나가 계단 중간에서 멈춰 섰다.</p>
-<p class="dialogue"><span class="speaker">[손한나]</span> <span class="line">"야, 진짜 오네."</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[손한나]</span> <span class="line">"야, 진짜 오네."</span></p>
 <p>눈발이 생각보다 굵었다.</p>
 <p>다정은 벌써 손을 내밀고 있었고,<br>
 은주는 가방에서 우산을 꺼낼까 말까 고민하고 있었다.</p>
-<p class="dialogue"><span class="speaker">[박다정]</span> <span class="line">"우리 그냥 좀 걷다 갈래?"</span></p>
-<p class="dialogue"><span class="speaker">[이은주]</span> <span class="line">"넌 감기 안 걸려?"</span></p>
-<p class="dialogue"><span class="speaker">[박다정]</span> <span class="line">"젊잖아."</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[박다정]</span> <span class="line">"우리 그냥 좀 걷다 갈래?"</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[이은주]</span> <span class="line">"넌 감기 안 걸려?"</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[박다정]</span> <span class="line">"젊잖아."</span></p>
 <p>그 말에 용식은 잠깐 웃다가 멈췄다.</p>
 <p>그렇지.</p>
 <p>지금은 젊다.</p>
@@ -128,24 +140,24 @@
 눈 뭉쳐서 던질 각만 보고 있었고,<br>
 은주는 그런 다정을 경계하면서도 웃고 있었고,<br>
 한나는 옆에서 자꾸 하늘만 봤다.</p>
-<p class="dialogue"><span class="speaker">[손한나]</span> <span class="line">"눈 오는 날 좋아해?"</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[손한나]</span> <span class="line">"눈 오는 날 좋아해?"</span></p>
 <p>갑자기 물어왔다.</p>
-<p class="dialogue"><span class="speaker">[김용식]</span> <span class="line">"전엔 별생각 없었는데."</span></p>
-<p class="dialogue"><span class="speaker">[손한나]</span> <span class="line">"지금은?"</span></p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[김용식]</span> <span class="line">"전엔 별생각 없었는데."</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[손한나]</span> <span class="line">"지금은?"</span></p>
 <p>용식은 잠깐 앞을 봤다.</p>
 <p>하얀 운동화,<br>
 교복 소매,<br>
 숨결,<br>
 옆사람 웃는 얼굴.</p>
-<p class="dialogue"><span class="speaker">[김용식]</span> <span class="line">"조금 좋은 것 같아."</span></p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[김용식]</span> <span class="line">"조금 좋은 것 같아."</span></p>
 <p>한나가 고개를 끄덕였다.</p>
-<p class="dialogue"><span class="speaker">[손한나]</span> <span class="line">"나도."</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[손한나]</span> <span class="line">"나도."</span></p>
 <p>별거 아닌 동의인데<br>
 그날은 그게 좀 오래 갔다.</p>
 <div class="divider">* * *</div>
 <p>버스정류장 앞에서 다정이 결국<br>
 눈을 뭉쳐 던졌다.</p>
-<p class="dialogue"><span class="speaker">[박다정]</span> <span class="line">"받아라!"</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[박다정]</span> <span class="line">"받아라!"</span></p>
 <p>정민이었다.</p>
 <p>어디선가 튀어나온 정민이<br>
 정확히 어깨로 맞고 소리쳤다.</p>
@@ -154,8 +166,8 @@
 은주도 결국 웃었다.</p>
 <p>정민이 반격하려고 숙이자<br>
 다정이 바로 용식 뒤로 숨었다.</p>
-<p class="dialogue"><span class="speaker">[박다정]</span> <span class="line">"막아!"</span></p>
-<p class="dialogue"><span class="speaker">[김용식]</span> <span class="line">"왜 내가."</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[박다정]</span> <span class="line">"막아!"</span></p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[김용식]</span> <span class="line">"왜 내가."</span></p>
 <p class="dialogue"><span class="speaker">[정민]</span> <span class="line">"너도 공범이야."</span></p>
 <p>이런 건 순식간이다.</p>
 <p>눈 한 번 던지고,<br>

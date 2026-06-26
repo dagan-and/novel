@@ -15,6 +15,8 @@
       --quote: #c9beb3;
       --quote-border: #6f6257;
       --divider: #7f7267;
+      --yongsik-blue: #7db8ff;
+      --female-pink: #ff9fca;
     }
     @media (prefers-color-scheme: light) {
       :root {
@@ -26,6 +28,8 @@
         --quote: #5d5046;
         --quote-border: #cab4a1;
         --divider: #9e8f80;
+        --yongsik-blue: #1f66c2;
+        --female-pink: #c23f78;
       }
     }
     body {
@@ -54,6 +58,14 @@
     .dialogue .speaker {
       font-weight: 700;
       color: var(--accent);
+    }
+    .dialogue.speaker-yongsik .speaker,
+    .dialogue.speaker-yongsik .line {
+      color: var(--yongsik-blue);
+    }
+    .dialogue.speaker-female .speaker,
+    .dialogue.speaker-female .line {
+      color: var(--female-pink);
     }
     blockquote {
       margin-left: 0;
@@ -102,7 +114,7 @@
 <div class="divider">* * *</div>
 <p>퇴근하고 돌아오니 거실이 어두웠다.</p>
 <p>불을 켜려던 참에 안방에서 소리가 났다.</p>
-<p class="dialogue"><span class="speaker">[소영]</span> <span class="line">"잠깐만."</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[소영]</span> <span class="line">"잠깐만."</span></p>
 <p>1초도 안 됐다.</p>
 <p class="dialogue"><span class="speaker">[지후]</span> <span class="line">"아빠!"</span></p>
 <p>세 살짜리가 비틀비틀 뛰어왔다.</p>
@@ -112,8 +124,8 @@
 <p>테이블 위에 케이크가 있었다.<br>
 초는 세 개.<br>
 아들 것과 합쳐놓은 거다.</p>
-<p class="dialogue"><span class="speaker">[소영]</span> <span class="line">"올해도 같이 쓰는 거 싫어?"</span></p>
-<p class="dialogue"><span class="speaker">[김용식]</span> <span class="line">"아니."</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[소영]</span> <span class="line">"올해도 같이 쓰는 거 싫어?"</span></p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[김용식]</span> <span class="line">"아니."</span></p>
 <p>싫을 리 없다.</p>
 <div class="divider">* * *</div>
 <p>밤에 꿈을 꿨다.</p>
@@ -127,7 +139,7 @@
 <p>김용식은 한동안 천장을 봤다.</p>
 <p>꿈이었다.</p>
 <p>그런데 꿈치고는 너무 선명했다.</p>
-<p class="dialogue"><span class="speaker">[소영]</span> <span class="line">"왜 그래?"</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[소영]</span> <span class="line">"왜 그래?"</span></p>
 <p>김용식은 바로 대답하지 못했다.</p>
 <p>12월 31일.</p>
 <p>그 날짜가 괜히 머리에 남았다.</p>

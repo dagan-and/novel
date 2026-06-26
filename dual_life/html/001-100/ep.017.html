@@ -15,6 +15,8 @@
       --quote: #c9beb3;
       --quote-border: #6f6257;
       --divider: #7f7267;
+      --yongsik-blue: #7db8ff;
+      --female-pink: #ff9fca;
     }
     @media (prefers-color-scheme: light) {
       :root {
@@ -26,6 +28,8 @@
         --quote: #5d5046;
         --quote-border: #cab4a1;
         --divider: #9e8f80;
+        --yongsik-blue: #1f66c2;
+        --female-pink: #c23f78;
       }
     }
     body {
@@ -54,6 +58,14 @@
     .dialogue .speaker {
       font-weight: 700;
       color: var(--accent);
+    }
+    .dialogue.speaker-yongsik .speaker,
+    .dialogue.speaker-yongsik .line {
+      color: var(--yongsik-blue);
+    }
+    .dialogue.speaker-female .speaker,
+    .dialogue.speaker-female .line {
+      color: var(--female-pink);
     }
     blockquote {
       margin-left: 0;
@@ -112,40 +124,40 @@
 <p>그날은 우연히 거기서 마주쳤다.</p>
 <p>용식은 손 씻고 교실로 돌아가는 길이었고,<br>
 은주는 창문 잠금쇠를 만지고 있었다.</p>
-<p class="dialogue"><span class="speaker">[김용식]</span> <span class="line">"안 추워?"</span></p>
-<p class="dialogue"><span class="speaker">[이은주]</span> <span class="line">"조금."</span></p>
-<p class="dialogue"><span class="speaker">[김용식]</span> <span class="line">"근데 왜 여기 있어."</span></p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[김용식]</span> <span class="line">"안 추워?"</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[이은주]</span> <span class="line">"조금."</span></p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[김용식]</span> <span class="line">"근데 왜 여기 있어."</span></p>
 <p>은주는 잠깐 생각하다가 말했다.</p>
-<p class="dialogue"><span class="speaker">[이은주]</span> <span class="line">"조용해서."</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[이은주]</span> <span class="line">"조용해서."</span></p>
 <p>그 한마디면 다 설명됐다.</p>
 <p>사람 많은 교실이 싫다는 뜻도 아니고,<br>
 혼자 있고 싶다는 선언도 아니다.</p>
 <p>그냥 조용한 쪽이 필요한 사람.</p>
-<p class="dialogue"><span class="speaker">[김용식]</span> <span class="line">"그건 좋네."</span></p>
-<p class="dialogue"><span class="speaker">[이은주]</span> <span class="line">"넌 안 시끄러운 쪽이야."</span></p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[김용식]</span> <span class="line">"그건 좋네."</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[이은주]</span> <span class="line">"넌 안 시끄러운 쪽이야."</span></p>
 <p>뜻밖의 평가였다.</p>
-<p class="dialogue"><span class="speaker">[김용식]</span> <span class="line">"칭찬이야?"</span></p>
-<p class="dialogue"><span class="speaker">[이은주]</span> <span class="line">"아마."</span></p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[김용식]</span> <span class="line">"칭찬이야?"</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[이은주]</span> <span class="line">"아마."</span></p>
 <p>은주는 말끝을 흐리면서도<br>
 눈은 안 피했다.</p>
 <p>묘하게 정직한 방식이었다.</p>
 <div class="divider">* * *</div>
 <p>교실로 돌아오니 다정이 바로 물었다.</p>
-<p class="dialogue"><span class="speaker">[박다정]</span> <span class="line">"너 어디 갔다 왔냐."</span></p>
-<p class="dialogue"><span class="speaker">[김용식]</span> <span class="line">"손 씻고."</span></p>
-<p class="dialogue"><span class="speaker">[박다정]</span> <span class="line">"왜 이렇게 오래."</span></p>
-<p class="dialogue"><span class="speaker">[손한나]</span> <span class="line">"너 질투하냐."</span></p>
-<p class="dialogue"><span class="speaker">[박다정]</span> <span class="line">"아니, 궁금하지."</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[박다정]</span> <span class="line">"너 어디 갔다 왔냐."</span></p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[김용식]</span> <span class="line">"손 씻고."</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[박다정]</span> <span class="line">"왜 이렇게 오래."</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[손한나]</span> <span class="line">"너 질투하냐."</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[박다정]</span> <span class="line">"아니, 궁금하지."</span></p>
 <p>다정은 숨기는 게 별로 없는 애였다.</p>
 <p>그래서 편한 것도 있고,<br>
 가끔은 너무 빠른 것도 있다.</p>
-<p class="dialogue"><span class="speaker">[박다정]</span> <span class="line">"은주랑 있었지?"</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[박다정]</span> <span class="line">"은주랑 있었지?"</span></p>
 <p>정답이다.</p>
 <p>용식은 웃었다.</p>
-<p class="dialogue"><span class="speaker">[김용식]</span> <span class="line">"잠깐."</span></p>
-<p class="dialogue"><span class="speaker">[박다정]</span> <span class="line">"오."</span></p>
-<p class="dialogue"><span class="speaker">[손한나]</span> <span class="line">"왜 오야."</span></p>
-<p class="dialogue"><span class="speaker">[박다정]</span> <span class="line">"그냥. 의외 조합."</span></p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[김용식]</span> <span class="line">"잠깐."</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[박다정]</span> <span class="line">"오."</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[손한나]</span> <span class="line">"왜 오야."</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[박다정]</span> <span class="line">"그냥. 의외 조합."</span></p>
 <p>의외.</p>
 <p>듣고 보니 맞았다.</p>
 <p>한나 쪽은 자연스럽고,<br>
@@ -157,15 +169,15 @@
 <div class="divider">* * *</div>
 <p>방과 후 자습 시간엔<br>
 한나가 뒤에서 책상을 툭 찼다.</p>
-<p class="dialogue"><span class="speaker">[손한나]</span> <span class="line">"야."</span></p>
-<p class="dialogue"><span class="speaker">[김용식]</span> <span class="line">"왜."</span></p>
-<p class="dialogue"><span class="speaker">[손한나]</span> <span class="line">"오늘 너 좀 바빴다."</span></p>
-<p class="dialogue"><span class="speaker">[김용식]</span> <span class="line">"뭐가."</span></p>
-<p class="dialogue"><span class="speaker">[손한나]</span> <span class="line">"피시방 랭커에, 복도 친구에."</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[손한나]</span> <span class="line">"야."</span></p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[김용식]</span> <span class="line">"왜."</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[손한나]</span> <span class="line">"오늘 너 좀 바빴다."</span></p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[김용식]</span> <span class="line">"뭐가."</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[손한나]</span> <span class="line">"피시방 랭커에, 복도 친구에."</span></p>
 <p>복도 친구.</p>
 <p>표현이 웃겼다.</p>
-<p class="dialogue"><span class="speaker">[김용식]</span> <span class="line">"그건 또 뭐야."</span></p>
-<p class="dialogue"><span class="speaker">[손한나]</span> <span class="line">"몰라. 내가 방금 만듦."</span></p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[김용식]</span> <span class="line">"그건 또 뭐야."</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[손한나]</span> <span class="line">"몰라. 내가 방금 만듦."</span></p>
 <p>한나는 웃었고,<br>
 용식도 따라 웃었다.</p>
 <p>이런 식으로 사람 사이 별명이 생긴다.</p>

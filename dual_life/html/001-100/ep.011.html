@@ -15,6 +15,8 @@
       --quote: #c9beb3;
       --quote-border: #6f6257;
       --divider: #7f7267;
+      --yongsik-blue: #7db8ff;
+      --female-pink: #ff9fca;
     }
     @media (prefers-color-scheme: light) {
       :root {
@@ -26,6 +28,8 @@
         --quote: #5d5046;
         --quote-border: #cab4a1;
         --divider: #9e8f80;
+        --yongsik-blue: #1f66c2;
+        --female-pink: #c23f78;
       }
     }
     body {
@@ -54,6 +58,14 @@
     .dialogue .speaker {
       font-weight: 700;
       color: var(--accent);
+    }
+    .dialogue.speaker-yongsik .speaker,
+    .dialogue.speaker-yongsik .line {
+      color: var(--yongsik-blue);
+    }
+    .dialogue.speaker-female .speaker,
+    .dialogue.speaker-female .line {
+      color: var(--female-pink);
     }
     blockquote {
       margin-left: 0;
@@ -133,9 +145,9 @@
 <p>이런 걸 열다섯이 너무 능숙하게 하면 이상하다.</p>
 <p>그래서 일부러 한 번 떨어뜨렸다.</p>
 <p>쾅.</p>
-<p class="dialogue"><span class="speaker">[어머니]</span> <span class="line">"뭐 하냐?"</span></p>
-<p class="dialogue"><span class="speaker">[김용식]</span> <span class="line">"정리 좀요!"</span></p>
-<p class="dialogue"><span class="speaker">[어머니]</span> <span class="line">"정리하다가 집 부수지 마라."</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[어머니]</span> <span class="line">"뭐 하냐?"</span></p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[김용식]</span> <span class="line">"정리 좀요!"</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[어머니]</span> <span class="line">"정리하다가 집 부수지 마라."</span></p>
 <p>좋다.</p>
 <p>이 정도는 자연스럽다.</p>
 <p>너무 조심스러운 애보다<br>
@@ -143,16 +155,16 @@
 <div class="divider">* * *</div>
 <p>저녁엔 정민이 전화했다.</p>
 <p class="dialogue"><span class="speaker">[정민]</span> <span class="line">"야, 내일 야구장 갈래?"</span></p>
-<p class="dialogue"><span class="speaker">[김용식]</span> <span class="line">"이 겨울에?"</span></p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[김용식]</span> <span class="line">"이 겨울에?"</span></p>
 <p class="dialogue"><span class="speaker">[정민]</span> <span class="line">"학교 운동장. 공이나 던지자."</span></p>
 <p>잠깐 고민했다.</p>
 <p>집에만 있으면 생각이 너무 많아지고,<br>
 나가면 적어도 지금 나이에 맞는 리듬을 탈 수 있다.</p>
-<p class="dialogue"><span class="speaker">[김용식]</span> <span class="line">"가자."</span></p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[김용식]</span> <span class="line">"가자."</span></p>
 <p class="dialogue"><span class="speaker">[정민]</span> <span class="line">"오케이. 너 글러브 있지?"</span></p>
-<p class="dialogue"><span class="speaker">[김용식]</span> <span class="line">"어."</span></p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[김용식]</span> <span class="line">"어."</span></p>
 <p class="dialogue"><span class="speaker">[정민]</span> <span class="line">"근데 너 목소리 왜 이렇게 진지하냐?"</span></p>
-<p class="dialogue"><span class="speaker">[김용식]</span> <span class="line">"새해라서."</span></p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[김용식]</span> <span class="line">"새해라서."</span></p>
 <p class="dialogue"><span class="speaker">[정민]</span> <span class="line">"새해면 보통 더 풀어지지 않냐?"</span></p>
 <p>맞는 말이다.</p>
 <p>나는 아직 새해가 두 번 겹쳐 있어서 그렇다.</p>
