@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dual Life Episode</title>
+  <style>
+    :root {
+      color-scheme: dark light;
+      --bg: #1d1b1a;
+      --panel: #262321;
+      --text: #ded6cd;
+      --muted: #aba095;
+      --accent: #d0a07f;
+      --quote: #c9beb3;
+      --quote-border: #6f6257;
+      --divider: #7f7267;
+      --yongsik-blue: #7db8ff;
+      --female-pink: #ff9fca;
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #ece5db;
+        --panel: #f5efe7;
+        --text: #312b27;
+        --muted: #74695f;
+        --accent: #8b5d44;
+        --quote: #5d5046;
+        --quote-border: #cab4a1;
+        --divider: #9e8f80;
+        --yongsik-blue: #1f66c2;
+        --female-pink: #c23f78;
+      }
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Iowan Old Style", "Apple SD Gothic Neo", "Noto Serif KR", serif;
+      line-height: 1.9;
+    }
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 48px 20px 80px;
+      background: var(--panel);
+    }
+    h1 {
+      font-size: 2rem;
+      margin: 0 0 2rem;
+      line-height: 1.3;
+    }
+    p, blockquote {
+      font-size: 1.06rem;
+      margin: 0 0 1rem;
+      white-space: normal;
+    }
+    .dialogue .speaker {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .dialogue.speaker-yongsik .speaker,
+    .dialogue.speaker-yongsik .line {
+      color: var(--yongsik-blue);
+    }
+    .dialogue.speaker-female .speaker,
+    .dialogue.speaker-female .line {
+      color: var(--female-pink);
+    }
+    blockquote {
+      margin-left: 0;
+      padding-left: 1rem;
+      border-left: 3px solid var(--quote-border);
+      color: var(--quote);
+    }
+    .divider {
+      text-align: center;
+      color: var(--divider);
+      margin: 2rem 0;
+      letter-spacing: 0.35rem;
+    }
+    .episode-nav {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+    }
+    .nav-link {
+      min-width: 112px;
+      padding: 12px 16px;
+      border: 1px solid var(--quote-border);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      text-align: center;
+      text-decoration: none;
+      font-size: 0.98rem;
+    }
+    .nav-link:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .nav-link.disabled {
+      color: var(--muted);
+      opacity: 0.5;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <main>
+<h1>148. 새해 첫 문자</h1>
+<p>2006년 1월 1일 — 회귀</p>
+<div class="divider">* * *</div>
+<p>한나의 문자는 점심쯤 다시 왔다.</p>
+<p>[손한나] 새해 첫 약속 잡자.</p>
+<p>용식은 귤을 까다 말고 휴대폰을 들었다.</p>
+<p>[용식] 언제?</p>
+<p>[손한나] 오늘.</p>
+<p>[용식] 빠르네.</p>
+<p>[손한나] 새해는 빠르게.</p>
+<p>어머니는 식탁 맞은편에서 신문을 접었다.</p>
+<p class="dialogue speaker-female"><span class="speaker">[어머니]</span> <span class="line">"누구야?"</span></p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[용식]</span> <span class="line">"친구."</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[어머니]</span> <span class="line">"좋아하는 친구?"</span></p>
+<p>귤껍질이 손에서 끊어졌다.</p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[용식]</span> <span class="line">"응."</span></p>
+<p>어머니는 더 묻지 않았다.<br>
+대신 귤 하나를 더 밀어줬다.</p>
+<p class="dialogue speaker-female"><span class="speaker">[어머니]</span> <span class="line">"갖고 가."</span></p>
+<p>용식은 귤 두 개를 주머니에 넣었다.<br>
+주머니가 둥글어졌다.</p>
+<p>동네 놀이터 앞에서 한나를 만났다.<br>
+새해 첫날이라 길은 조용했다.<br>
+미끄럼틀 아래에는 녹다 만 눈이 조금 남아 있었다.</p>
+<p class="dialogue speaker-female"><span class="speaker">[손한나]</span> <span class="line">"진짜 귤 가져왔네."</span></p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[용식]</span> <span class="line">"새해 선물."</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[손한나]</span> <span class="line">"너무 실용적이다."</span></p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[용식]</span> <span class="line">"먹을 수 있잖아."</span></p>
+<p>한나는 귤을 받아 들고 웃었다.</p>
+<p>둘은 놀이터 벤치에 앉아 귤을 까먹었다.<br>
+손끝에 귤 냄새가 묻었다.</p>
+<p class="dialogue speaker-female"><span class="speaker">[손한나]</span> <span class="line">"올해 목표."</span></p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[용식]</span> <span class="line">"벌써?"</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[손한나]</span> <span class="line">"말해."</span></p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[용식]</span> <span class="line">"방학 잘 보내기."</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[손한나]</span> <span class="line">"너무 작아."</span></p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[용식]</span> <span class="line">"작은 게 오래 가."</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[손한나]</span> <span class="line">"또 어른 말."</span></p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[용식]</span> <span class="line">"그럼 고등학생 말로."</span></p>
+<p>용식은 귤 한 조각을 입에 넣었다.</p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[용식]</span> <span class="line">"피시방에서 정민 이기기."</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[손한나]</span> <span class="line">"그건 이미 하잖아."</span></p>
+<p>한나는 자기 귤 조각을 내밀었다.</p>
+<p class="dialogue speaker-female"><span class="speaker">[손한나]</span> <span class="line">"내 목표는 네가 덜 숨는 거."</span></p>
+<p>용식은 그 귤을 받았다.</p>
+<p>달았다.<br>
+그리고 조금 시었다.</p>
+<p>그때 다정의 문자가 왔다.</p>
+<p>[박다정] 새해 떡볶이. 전원 집합.</p>
+<p>새해 첫 약속은,<br>
+둘만의 약속으로 끝나지 않을 모양이었다.</p>
+<nav class="episode-nav" aria-label="Episode navigation"><a class="nav-link" href="/novel/dual_life/html/101-200/ep.147.html">이전화</a><a class="nav-link index-link" href="/novel/">목록</a><a class="nav-link" href="/novel/dual_life/html/101-200/ep.149.html">다음화</a></nav>
+  </main>
+</body>
+</html>

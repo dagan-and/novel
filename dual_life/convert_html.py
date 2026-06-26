@@ -300,9 +300,43 @@ def push_current_branch() -> str:
     return branch
 
 
+def stage_html_dir() -> None:
+    subprocess.run(["git", "add", "-A", "html"], cwd=ROOT, check=True)
+
+
+def has_staged_html_changes() -> bool:
+    result = subprocess.run(
+        ["git", "diff", "--cached", "--quiet", "--", "html"],
+        cwd=ROOT,
+        check=False,
+    )
+    if result.returncode == 0:
+        return False
+    if result.returncode == 1:
+        return True
+    raise RuntimeError("HTML 변경 사항 확인에 실패했습니다.")
+
+
+def commit_staged_html_changes() -> bool:
+    if not has_staged_html_changes():
+        return False
+    subprocess.run(
+        ["git", "commit", "-m", "chore: update generated html"],
+        cwd=ROOT,
+        check=True,
+    )
+    return True
+
+
+def publish_html_changes() -> str:
+    stage_html_dir()
+    commit_staged_html_changes()
+    return push_current_branch()
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="에피소드 Markdown을 HTML로 변환하고 현재 브랜치를 원격에 푸시합니다."
+        description="에피소드 Markdown을 HTML로 변환하고 html 폴더 전체를 원격에 푸시합니다."
     )
     parser.add_argument("episodes", nargs="*", help="변환할 에피소드 번호")
     parsed_args = parser.parse_args(sys.argv[1:])
@@ -312,7 +346,7 @@ def main() -> int:
         dest = convert_episode(ep_num)
         print(dest.relative_to(ROOT))
 
-    branch = push_current_branch()
+    branch = publish_html_changes()
     print(f"pushed origin/{branch}")
     return 0
 

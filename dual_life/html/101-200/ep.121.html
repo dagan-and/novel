@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dual Life Episode</title>
+  <style>
+    :root {
+      color-scheme: dark light;
+      --bg: #1d1b1a;
+      --panel: #262321;
+      --text: #ded6cd;
+      --muted: #aba095;
+      --accent: #d0a07f;
+      --quote: #c9beb3;
+      --quote-border: #6f6257;
+      --divider: #7f7267;
+      --yongsik-blue: #7db8ff;
+      --female-pink: #ff9fca;
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #ece5db;
+        --panel: #f5efe7;
+        --text: #312b27;
+        --muted: #74695f;
+        --accent: #8b5d44;
+        --quote: #5d5046;
+        --quote-border: #cab4a1;
+        --divider: #9e8f80;
+        --yongsik-blue: #1f66c2;
+        --female-pink: #c23f78;
+      }
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Iowan Old Style", "Apple SD Gothic Neo", "Noto Serif KR", serif;
+      line-height: 1.9;
+    }
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 48px 20px 80px;
+      background: var(--panel);
+    }
+    h1 {
+      font-size: 2rem;
+      margin: 0 0 2rem;
+      line-height: 1.3;
+    }
+    p, blockquote {
+      font-size: 1.06rem;
+      margin: 0 0 1rem;
+      white-space: normal;
+    }
+    .dialogue .speaker {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .dialogue.speaker-yongsik .speaker,
+    .dialogue.speaker-yongsik .line {
+      color: var(--yongsik-blue);
+    }
+    .dialogue.speaker-female .speaker,
+    .dialogue.speaker-female .line {
+      color: var(--female-pink);
+    }
+    blockquote {
+      margin-left: 0;
+      padding-left: 1rem;
+      border-left: 3px solid var(--quote-border);
+      color: var(--quote);
+    }
+    .divider {
+      text-align: center;
+      color: var(--divider);
+      margin: 2rem 0;
+      letter-spacing: 0.35rem;
+    }
+    .episode-nav {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+    }
+    .nav-link {
+      min-width: 112px;
+      padding: 12px 16px;
+      border: 1px solid var(--quote-border);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      text-align: center;
+      text-decoration: none;
+      font-size: 0.98rem;
+    }
+    .nav-link:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .nav-link.disabled {
+      color: var(--muted);
+      opacity: 0.5;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <main>
+<h1>121. 내일도 있어</h1>
+<p>2005년 12월 2일 — 회귀</p>
+<div class="divider">* * *</div>
+<p>한나는 교문 앞에 또 있었다.</p>
+<p>어제처럼 빵 봉지는 없었다.<br>
+대신 손을 주머니에 넣고, 발끝으로 바닥의 얼룩을 긁고 있었다.</p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[용식]</span> <span class="line">"출석 체크야?"</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[손한나]</span> <span class="line">"응."</span></p>
+<p>너무 바로 대답해서 용식이 먼저 멈췄다.</p>
+<p class="dialogue speaker-female"><span class="speaker">[손한나]</span> <span class="line">"나한텐 그래."</span></p>
+<p>한나는 그렇게 말하고 먼저 걸었다.<br>
+용식은 옆에 붙었다.</p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[용식]</span> <span class="line">"김용식, 출석."</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[손한나]</span> <span class="line">"지각 1회."</span></p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[용식]</span> <span class="line">"오늘은 안 늦었는데."</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[손한나]</span> <span class="line">"어제 3분."</span></p>
+<p>계산이 정확하다.<br>
+연애에도 출결부가 있다.</p>
+<p>교실에 들어가자 다정이 칠판 앞에서 종이를 흔들고 있었다.</p>
+<p class="dialogue speaker-female"><span class="speaker">[박다정]</span> <span class="line">"기말 범위 떴다!"</span></p>
+<p class="dialogue"><span class="speaker">[정민]</span> <span class="line">"왜 그렇게 신나?"</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[박다정]</span> <span class="line">"신난 게 아니라 미친 거야."</span></p>
+<p>종이가 게시판에 붙었다.<br>
+국어, 영어, 수학, 사회, 과학.<br>
+글씨가 빽빽했다.</p>
+<p>반 전체에서 낮은 비명이 났다.</p>
+<p class="dialogue"><span class="speaker">[정민]</span> <span class="line">"야, 이건 범위가 아니라 영토 확장 아니냐?"</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[이은주]</span> <span class="line">"말하면서도 웃기네."</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[박다정]</span> <span class="line">"나 이번 생 망했어."</span></p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[용식]</span> <span class="line">"아직 열다섯인데 이번 생까지 걸 필요는 없지."</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[박다정]</span> <span class="line">"넌 왜 이렇게 여유로워?"</span></p>
+<p>다정이 눈을 가늘게 떴다.</p>
+<p class="dialogue speaker-female"><span class="speaker">[박다정]</span> <span class="line">"고등학생 맞아?"</span></p>
+<p>한나도 용식을 봤다.<br>
+놀리는 얼굴은 아니었다.</p>
+<p>용식은 게시판의 시험 범위를 다시 봤다.<br>
+크게 어렵진 않다.<br>
+그렇게 생각하는 순간, 스스로가 조금 얄미웠다.</p>
+<p>나는 이걸 한 번 넘긴 사람이다.<br>
+쟤들은 처음이다.</p>
+<p>점심시간,<br>
+한나는 용식의 책상 위에 노트를 톡 올렸다.</p>
+<p class="dialogue speaker-female"><span class="speaker">[손한나]</span> <span class="line">"스터디."</span></p>
+<p class="dialogue speaker-yongsik"><span class="speaker">[용식]</span> <span class="line">"명령이야?"</span></p>
+<p class="dialogue speaker-female"><span class="speaker">[손한나]</span> <span class="line">"출석 체크 다음 단계."</span></p>
+<p>용식은 노트를 펼쳤다.<br>
+첫 줄에 날짜가 적혀 있었다.</p>
+<p>`12월 5일. 도서관. 도망 금지.`</p>
+<p>기말고사는 생각보다 빨리 왔다.<br>
+그리고 한나는 생각보다 꼼꼼했다.</p>
+<nav class="episode-nav" aria-label="Episode navigation"><a class="nav-link" href="/novel/dual_life/html/101-200/ep.120.html">이전화</a><a class="nav-link index-link" href="/novel/">목록</a><a class="nav-link" href="/novel/dual_life/html/101-200/ep.122.html">다음화</a></nav>
+  </main>
+</body>
+</html>
