@@ -1,331 +1,112 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ep.004 - 창가 자리와 신입생</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dual Life Episode</title>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { font-size: 120%; }
     body {
-      background: #111417;
-      color: #e8e1d5;
-      font-family: 'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
-      font-size: 1.12rem;
+      margin: 0;
+      background: #f7f1e8;
+      color: #1f1a17;
+      font-family: "Iowan Old Style", "Apple SD Gothic Neo", "Noto Serif KR", serif;
       line-height: 1.9;
+    }
+    main {
       max-width: 760px;
       margin: 0 auto;
-      padding: 3rem 1.4rem 5rem;
-      word-break: keep-all;
+      padding: 48px 20px 80px;
     }
     h1 {
-      font-size: 1.35rem;
-      text-align: center;
-      color: #79b8b2;
-      margin-bottom: 2.5rem;
-      letter-spacing: 0.02em;
+      font-size: 2rem;
+      margin: 0 0 2rem;
+      line-height: 1.3;
     }
-    p { margin: 0.75rem 0; }
-    p.speaker-line {
-      display: flex;
-      align-items: baseline;
-      gap: 0.7rem;
-      margin: 0.68rem 0;
+    p, blockquote {
+      font-size: 1.06rem;
+      margin: 0 0 1rem;
+      white-space: normal;
     }
-    .speaker-tag {
-      flex: 0 0 auto;
-      font-size: 0.82rem;
+    .dialogue .speaker {
       font-weight: 700;
-      letter-spacing: 0.02em;
+      color: #8a3b12;
     }
-    .speaker-text {
-      flex: 1 1 auto;
+    blockquote {
+      margin-left: 0;
+      padding-left: 1rem;
+      border-left: 3px solid #d7b486;
+      color: #5b4634;
     }
-    .message-line {
-      margin: 1rem 0;
-      padding: 0.72rem 0.9rem;
-      background: #182023;
-      border: 1px solid #2f3f41;
-      border-left: 4px solid #79b8b2;
-      border-radius: 6px;
-      color: #d8e5df;
-      font-size: 1.02rem;
-      line-height: 1.75;
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
-    }
-    .message-sender {
-      font-weight: 700;
-      color: #8fd0c9;
-      margin-right: 0.35rem;
-    }
-    .time {
-      font-weight: bold;
-      color: #d6a15f;
-      font-size: 1.08rem;
-      text-align: center;
-      margin: 1.8rem 0 1rem;
-    }
-    .thought { color: #9bbac0; font-style: italic; }
     .divider {
       text-align: center;
-      color: #5f6564;
-      margin: 2.2rem 0;
-      letter-spacing: 0.6em;
+      color: #9e8b76;
+      margin: 2rem 0;
+      letter-spacing: 0.35rem;
     }
-    figure.scene-illustration {
-      margin: 2.5rem 0 2.8rem;
-    }
-    .scene-illustration img {
-      display: block;
-      width: 100%;
-      border-radius: 10px;
-      border: 1px solid #30383a;
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.36);
-    }
-    .scene-illustration figcaption {
-      margin-top: 0.8rem;
-      text-align: center;
-      font-size: 0.92rem;
-      color: #9faaa6;
-      letter-spacing: 0.02em;
-    }
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 3.5rem;
-      padding-top: 1rem;
-      border-top: 1px solid #30383a;
-      font-size: 1rem;
-    }
-    .nav a { color: #8fd0c9; text-decoration: none; font-weight: 700; }
-    .nav a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
-  <h1>ep.004 - 창가 자리와 신입생</h1>
-  
-
-<p>박미현은 웃는 얼굴로 무서운 질문을 잘했다.</p>
-
-<p>그걸 김시안은 조금 늦게 알았다.</p>
-
-<p>아니, 그렇게 거창한 건 아니고.</p>
-
-<p>목요일 오후 2시쯤.</p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;여자분?&quot;</span></p>
-
-<p>카페 안은 조용했다.</p>
-
-<p>창가에는 시안.</p>
-
-<p>카운터에는 박미현.</p>
-
-<p>그리고 테이블 위에는 말차 쿠키.</p>
-
-<p>이렇게 평화로운 구성인데 질문 하나로 공기가 이상해졌다.</p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;신입생이요.&quot;</span></p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;여자 신입생이요?&quot;</span></p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;그렇죠.&quot;</span></p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;예쁘세요?&quot;</span></p>
-
-<p>와.</p>
-
-<p>직선이다.</p>
-
-<p>시안은 커피를 마셨다.</p>
-
-<p>대답을 미루는 가장 오래된 방법.</p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;대답 늦으시네요.&quot;</span></p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;그걸 체크해요?&quot;</span></p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;손님은 미루면 표정이 똑같아져요.&quot;</span></p>
-
-<p>이 사람, 관찰력이 너무 좋다.</p>
-
-<p>박미현은 컵을 내려놓고 웃었다.</p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;농담이에요.&quot;</span></p>
-
-<p>농담이라고 하기엔 눈이 별로 안 웃었다.</p>
-
-<p>그때 카페 문이 열렸다.</p>
-
-<p>종이 울렸다.</p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;어...&quot;</span></p>
-
-<p>시안은 고개를 들었다.</p>
-
-<p>유하린이 문 앞에 서 있었다.</p>
-
-<p>품에는 또 서류 봉투가 있었다.</p>
-
-<p>이번엔 길을 잃은 얼굴이 아니었다.</p>
-
-<p>사람을 찾은 얼굴이었다.</p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;선배.&quot;</span></p>
-
-<p>박미현의 시선이 조용히 움직였다.</p>
-
-<p>선배.</p>
-
-<p>한 단어가 카페 안에 떨어졌다.</p>
-
-<p>생각보다 소리가 컸다.</p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;하린 씨?&quot;</span></p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;죄송해요. 과방에 안 계셔서...&quot;</span></p>
-
-<p>유하린은 말하다가 카운터 쪽을 봤다.</p>
-
-<p>박미현이 웃고 있었다.</p>
-
-<p>그 웃음이 너무 예뻐서, 오히려 하린이 조금 움찔했다.</p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;주문 도와드릴까요?&quot;</span></p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;아, 네. 저는...&quot;</span></p>
-
-<p>하린은 메뉴판을 봤다.</p>
-
-<p>메뉴가 많았다.</p>
-
-<p>그녀의 눈이 바로 흔들렸다.</p>
-
-<p>시안은 익숙하게 말했다.</p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;단 거 괜찮으면 바닐라 라떼요. 처음이면 그게 제일 무난해요.&quot;</span></p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;아. 그럼 그걸로 할게요.&quot;</span></p>
-
-<p>박미현의 손이 컵으로 갔다.</p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;따뜻하게요?&quot;</span></p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;네.&quot;</span></p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;선배님 추천이니까요?&quot;</span></p>
-
-<p>말투는 밝았다.</p>
-
-<p>끝이 살짝 달랐다.</p>
-
-<p>시안은 이마를 짚고 싶었다.</p>
-
-<p>오늘 커피 맛이 갑자기 진해졌다.</p>
-
-<p>유하린은 시안 맞은편에 조심스럽게 앉았다. 서류 봉투를 테이블 위에 내려놓고, 양손으로 무릎을 잡았다.</p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;선배, 저 동아리 설명회 신청서를 냈는데요.&quot;</span></p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;네.&quot;</span></p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;제가 시간을 잘못 봤나 봐요.&quot;</span></p>
-
-<p>왜 사람은 자기가 잘할 수 있는 장르의 사람을 자꾸 만나게 될까.</p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;몇 시인데요?&quot;</span></p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;오늘 5시요.&quot;</span></p>
-
-<p>시안은 휴대전화를 봤다.</p>
-
-<p class="message-line"><span class="message-sender">[커리어개발센터]</span>오늘 17:00 대기 상담 가능. 참석 시 예약 패널티 해제.</p>
-
-<p>완벽하다.</p>
-
-<p>우주는 참 성실하게 사람을 괴롭힌다.</p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;근데 혼자 가기 좀 그래서요. 혹시 선배도 그 시간에 학교 가세요?&quot;</span></p>
-
-<p>박미현이 바닐라 라떼를 들고 왔다.</p>
-
-<p>정확히 그 타이밍에.</p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;주문하신 바닐라 라떼 나왔습니다.&quot;</span></p>
-
-<p>컵을 내려놓는 소리가 작게 났다.</p>
-
-<p>유하린이 고개를 숙였다.</p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;감사합니다.&quot;</span></p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;천천히 드세요.&quot;</span></p>
-
-<p>박미현은 돌아서려다 멈췄다.</p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;손님은 오늘 상담 가셔야 하는 날 아니에요?&quot;</span></p>
-
-<p>유하린이 시안을 봤다.</p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;상담이요?&quot;</span></p>
-
-<p>시안은 커피를 내려놓았다.</p>
-
-<p>이거 그냥 카페였는데.</p>
-
-<p>왜 갑자기 면접장이 됐지.</p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;둘 다 5시네요.&quot;</span></p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;아...&quot;</span></p>
-
-<p>하린의 어깨가 바로 내려갔다.</p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;그럼 괜찮아요. 저 혼자 갈 수 있어요.&quot;</span></p>
-
-<p>말은 괜찮다고 했다.</p>
-
-<p>손은 컵을 너무 꽉 잡고 있었다.</p>
-
-<p>박미현은 그 손을 봤다.</p>
-
-<p>그리고 시안을 봤다.</p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;손님.&quot;</span></p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;네.&quot;</span></p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;이번에도 미루시면, 다음엔 제가 진짜 뭐라고 할지도 몰라요.&quot;</span></p>
-
-<p>웃으면서 하는 말이었다.</p>
-
-<p>근데 이상하게.</p>
-
-<p>조금 기대하는 것처럼 들렸다.</p>
-
-<p>시안은 휴대전화를 봤다.</p>
-
-<p>상담 5시.</p>
-
-<p>동아리 설명회 5시.</p>
-
-<p>창가 자리.</p>
-
-<p>바닐라 라떼.</p>
-
-<p>그리고 카운터 안에서 웃고 있는 박미현.</p>
-
-<p>하나를 고르면 다른 하나가 남는다.</p>
-
-<p>그제야 조금 실감이 났다.</p>
-
-<p>미루면, 사라지는 게 아니라.</p>
-
-<p>겹친다.</p>
-
-  <div class="nav">
-    <a href="ep.003.html">← 이전 화</a>
-    <a href="ep.005.html">다음 화 →</a>
-  </div>
+  <main>
+<h1>4. 잘하는 것</h1>
+<p>2025년 12월 14일 — 현실</p>
+<div class="divider">* * *</div>
+<p>주말 오후,<br>
+하준이 먼저 야구공 장난감을 들고 왔다.</p>
+<p class="dialogue"><span class="speaker">[하준]</span> <span class="line">"아빠, 던져."</span></p>
+<p>진짜 야구공은 아니고,<br>
+스펀지 공이었다.</p>
+<p>그래도 던지는 흉내는 낼 수 있었다.</p>
+<p>용식은 거실 소파를 피해 조심조심 공을 넘겼다.</p>
+<p>하준은 두 손으로 안고 웃었다.</p>
+<p>그걸 세 번쯤 반복하다가,<br>
+지연이 결국 웃었다.</p>
+<p class="dialogue"><span class="speaker">[지연]</span> <span class="line">"당신 은근 저런 건 잘하네."</span></p>
+<p class="dialogue"><span class="speaker">[김용식]</span> <span class="line">"은근이 아니라 원래 잘해."</span></p>
+<p class="dialogue"><span class="speaker">[지연]</span> <span class="line">"뭐를?"</span></p>
+<p class="dialogue"><span class="speaker">[김용식]</span> <span class="line">"게임도 잘했고, 탁구도 좀 쳤고, 야구도 좋아했지."</span></p>
+<p class="dialogue"><span class="speaker">[지연]</span> <span class="line">"좋아한 거랑 잘한 거는 달라."</span></p>
+<p>그건 맞았다.</p>
+<p>그래도 반박은 안 했다.</p>
+<p>괜히 하준 앞에서 지면 좀 그렇다.</p>
+<div class="divider">* * *</div>
+<p>저녁엔 근처 마트에 같이 갔다.</p>
+<p>연말 장보는 사람들로 복잡했다.</p>
+<p>계산대 줄을 서 있는데,<br>
+용식은 무심코 금은방 쪽을 봤다.</p>
+<p>작은 골드바 광고판이 걸려 있었다.</p>
+<p>손바닥보다 훨씬 작았다.</p>
+<p>그 정도면,<br>
+품에 안고 자는 상상까지는 가능했다.</p>
+<p>문제는 상상 이후였다.</p>
+<p>진짜 그런 일이 생기면,<br>
+그걸 현실에서 어떻게 설명하지.</p>
+<p>어디서 샀고,<br>
+어떻게 팔고,<br>
+계좌에는 뭐라고 찍히고.</p>
+<p>꿈보다 그쪽이 더 현실적이었다.</p>
+<div class="divider">* * *</div>
+<p>집으로 돌아오는 길,<br>
+지연이 물었다.</p>
+<p class="dialogue"><span class="speaker">[지연]</span> <span class="line">"아까부터 왜 자꾸 금은방 봐?"</span></p>
+<p class="dialogue"><span class="speaker">[김용식]</span> <span class="line">"그랬어?"</span></p>
+<p class="dialogue"><span class="speaker">[지연]</span> <span class="line">"응. 엄청."</span></p>
+<p>용식은 잠깐 웃었다.</p>
+<p class="dialogue"><span class="speaker">[김용식]</span> <span class="line">"그냥... 돈 있으면 저런 거 한 번 사보나 싶어서."</span></p>
+<p>지연이 카트를 밀다가 고개를 기울였다.</p>
+<p class="dialogue"><span class="speaker">[지연]</span> <span class="line">"당신 그런 취향 아니잖아."</span></p>
+<p>정확했다.</p>
+<p>원래 취향은 아니었다.</p>
+<p>필요해질지도 모른다는 쪽이 더 가까웠다.</p>
+<div class="divider">* * *</div>
+<p>밤에 하준이 먼저 잠들고,<br>
+지연은 소파에 앉아 휴대폰을 보고 있었다.</p>
+<p>용식은 전자상가 주문 내역을 다시 확인했다.</p>
+<p>배송 완료.</p>
+<p>거실 구석 박스 네 개.</p>
+<p>이제 SSD는 준비됐다.</p>
+<p>남은 건 금이었다.</p>
+<p>그리고 12월 31일까지,<br>
+자기가 어디까지 진심이 되는지 보는 일이었다.</p>
+  </main>
 </body>
 </html>
