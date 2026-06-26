@@ -6,26 +6,26 @@
   <title>Dual Life Episode</title>
   <style>
     :root {
-      color-scheme: light dark;
-      --bg: #efe9df;
-      --panel: #f7f2ea;
-      --text: #2b2622;
-      --muted: #776b60;
-      --accent: #8f5b3e;
-      --quote: #5a4d42;
-      --quote-border: #c8b29a;
-      --divider: #a19180;
+      color-scheme: dark light;
+      --bg: #1d1b1a;
+      --panel: #262321;
+      --text: #ded6cd;
+      --muted: #aba095;
+      --accent: #d0a07f;
+      --quote: #c9beb3;
+      --quote-border: #6f6257;
+      --divider: #7f7267;
     }
-    @media (prefers-color-scheme: dark) {
+    @media (prefers-color-scheme: light) {
       :root {
-        --bg: #1d1b1a;
-        --panel: #262321;
-        --text: #ded6cd;
-        --muted: #aba095;
-        --accent: #d0a07f;
-        --quote: #c9beb3;
-        --quote-border: #6f6257;
-        --divider: #7f7267;
+        --bg: #ece5db;
+        --panel: #f5efe7;
+        --text: #312b27;
+        --muted: #74695f;
+        --accent: #8b5d44;
+        --quote: #5d5046;
+        --quote-border: #cab4a1;
+        --divider: #9e8f80;
       }
     }
     body {
@@ -66,6 +66,32 @@
       color: var(--divider);
       margin: 2rem 0;
       letter-spacing: 0.35rem;
+    }
+    .episode-nav {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+    }
+    .nav-link {
+      min-width: 112px;
+      padding: 12px 16px;
+      border: 1px solid var(--quote-border);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      text-align: center;
+      text-decoration: none;
+      font-size: 0.98rem;
+    }
+    .nav-link:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .nav-link.disabled {
+      color: var(--muted);
+      opacity: 0.5;
+      pointer-events: none;
     }
   </style>
 </head>
@@ -134,6 +160,7 @@
 <p>확인 메일이 도착했다.</p>
 <p>이제 웃고 넘기기엔,<br>
 조금 비싸졌다.</p>
+<nav class="episode-nav" aria-label="Episode navigation"><a class="nav-link" href="/novel/dual_life/html/001-100/ep.002.html">이전화</a><a class="nav-link index-link" href="/novel/">목록</a><a class="nav-link" href="/novel/dual_life/html/001-100/ep.004.html">다음화</a></nav>
   </main>
 </body>
 </html>

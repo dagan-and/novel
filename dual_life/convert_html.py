@@ -31,6 +31,29 @@ def output_path(ep_num: int) -> Path:
     return HTML_DIR / batch_label(ep_num) / f"ep.{ep_num:03d}.html"
 
 
+def html_link_path(ep_num: int) -> str:
+    return f"/novel/dual_life/html/{batch_label(ep_num)}/ep.{ep_num:03d}.html"
+
+
+def nav_item(label: str, ep_num: int | None) -> str:
+    if ep_num is None:
+        return f'<span class="nav-link disabled">{html.escape(label)}</span>'
+    return f'<a class="nav-link" href="{html_link_path(ep_num)}">{html.escape(label)}</a>'
+
+
+def render_navigation(ep_num: int) -> str:
+    prev_ep = ep_num - 1 if episode_path(ep_num - 1).exists() else None
+    next_ep = ep_num + 1 if episode_path(ep_num + 1).exists() else None
+    index_href = "/novel/"
+    return (
+        '<nav class="episode-nav" aria-label="Episode navigation">'
+        f"{nav_item('이전화', prev_ep)}"
+        f'<a class="nav-link index-link" href="{index_href}">목록</a>'
+        f"{nav_item('다음화', next_ep)}"
+        "</nav>"
+    )
+
+
 def render_block(block: list[str]) -> str:
     if not block:
         return ""
@@ -62,7 +85,7 @@ def render_block(block: list[str]) -> str:
     return f"<p>{escaped}</p>"
 
 
-def render_episode(text: str) -> str:
+def render_episode(text: str, ep_num: int) -> str:
     lines = text.splitlines()
     if lines and lines[0].strip() == "---":
         lines = lines[1:]
@@ -83,6 +106,7 @@ def render_episode(text: str) -> str:
         blocks.append(current)
 
     rendered = "\n".join(render_block(block) for block in blocks if block)
+    nav = render_navigation(ep_num)
     return f"""<!doctype html>
 <html lang="ko">
 <head>
@@ -152,11 +176,38 @@ def render_episode(text: str) -> str:
       margin: 2rem 0;
       letter-spacing: 0.35rem;
     }}
+    .episode-nav {{
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+    }}
+    .nav-link {{
+      min-width: 112px;
+      padding: 12px 16px;
+      border: 1px solid var(--quote-border);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      text-align: center;
+      text-decoration: none;
+      font-size: 0.98rem;
+    }}
+    .nav-link:hover {{
+      background: rgba(255, 255, 255, 0.08);
+    }}
+    .nav-link.disabled {{
+      color: var(--muted);
+      opacity: 0.5;
+      pointer-events: none;
+    }}
   </style>
 </head>
 <body>
   <main>
 {rendered}
+{nav}
   </main>
 </body>
 </html>
@@ -170,7 +221,10 @@ def convert_episode(ep_num: int) -> Path:
 
     dest = output_path(ep_num)
     dest.parent.mkdir(parents=True, exist_ok=True)
-    dest.write_text(render_episode(src.read_text(encoding="utf-8")), encoding="utf-8")
+    dest.write_text(
+        render_episode(src.read_text(encoding="utf-8"), ep_num),
+        encoding="utf-8",
+    )
     return dest
 
 
