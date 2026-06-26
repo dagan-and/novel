@@ -91,26 +91,26 @@ def render_episode(text: str) -> str:
   <title>Dual Life Episode</title>
   <style>
     :root {{
-      color-scheme: light dark;
-      --bg: #efe9df;
-      --panel: #f7f2ea;
-      --text: #2b2622;
-      --muted: #776b60;
-      --accent: #8f5b3e;
-      --quote: #5a4d42;
-      --quote-border: #c8b29a;
-      --divider: #a19180;
+      color-scheme: dark light;
+      --bg: #1d1b1a;
+      --panel: #262321;
+      --text: #ded6cd;
+      --muted: #aba095;
+      --accent: #d0a07f;
+      --quote: #c9beb3;
+      --quote-border: #6f6257;
+      --divider: #7f7267;
     }}
-    @media (prefers-color-scheme: dark) {{
+    @media (prefers-color-scheme: light) {{
       :root {{
-        --bg: #1d1b1a;
-        --panel: #262321;
-        --text: #ded6cd;
-        --muted: #aba095;
-        --accent: #d0a07f;
-        --quote: #c9beb3;
-        --quote-border: #6f6257;
-        --divider: #7f7267;
+        --bg: #ece5db;
+        --panel: #f5efe7;
+        --text: #312b27;
+        --muted: #74695f;
+        --accent: #8b5d44;
+        --quote: #5d5046;
+        --quote-border: #cab4a1;
+        --divider: #9e8f80;
       }}
     }}
     body {{
