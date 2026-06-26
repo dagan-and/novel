@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import argparse
 import html
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -88,10 +90,33 @@ def render_episode(text: str) -> str:
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Dual Life Episode</title>
   <style>
+    :root {{
+      color-scheme: light dark;
+      --bg: #efe9df;
+      --panel: #f7f2ea;
+      --text: #2b2622;
+      --muted: #776b60;
+      --accent: #8f5b3e;
+      --quote: #5a4d42;
+      --quote-border: #c8b29a;
+      --divider: #a19180;
+    }}
+    @media (prefers-color-scheme: dark) {{
+      :root {{
+        --bg: #1d1b1a;
+        --panel: #262321;
+        --text: #ded6cd;
+        --muted: #aba095;
+        --accent: #d0a07f;
+        --quote: #c9beb3;
+        --quote-border: #6f6257;
+        --divider: #7f7267;
+      }}
+    }}
     body {{
       margin: 0;
-      background: #f7f1e8;
-      color: #1f1a17;
+      background: var(--bg);
+      color: var(--text);
       font-family: "Iowan Old Style", "Apple SD Gothic Neo", "Noto Serif KR", serif;
       line-height: 1.9;
     }}
@@ -99,6 +124,7 @@ def render_episode(text: str) -> str:
       max-width: 760px;
       margin: 0 auto;
       padding: 48px 20px 80px;
+      background: var(--panel);
     }}
     h1 {{
       font-size: 2rem;
@@ -112,17 +138,17 @@ def render_episode(text: str) -> str:
     }}
     .dialogue .speaker {{
       font-weight: 700;
-      color: #8a3b12;
+      color: var(--accent);
     }}
     blockquote {{
       margin-left: 0;
       padding-left: 1rem;
-      border-left: 3px solid #d7b486;
-      color: #5b4634;
+      border-left: 3px solid var(--quote-border);
+      color: var(--quote);
     }}
     .divider {{
       text-align: center;
-      color: #9e8b76;
+      color: var(--divider);
       margin: 2rem 0;
       letter-spacing: 0.35rem;
     }}
@@ -162,11 +188,40 @@ def parse_args(args: list[str]) -> list[int]:
     return parsed
 
 
+def current_branch() -> str:
+    result = subprocess.run(
+        ["git", "branch", "--show-current"],
+        cwd=ROOT,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+    branch = result.stdout.strip()
+    if not branch:
+        raise RuntimeError("현재 브랜치를 확인할 수 없습니다.")
+    return branch
+
+
+def push_current_branch() -> str:
+    branch = current_branch()
+    subprocess.run(["git", "push", "origin", branch], cwd=ROOT, check=True)
+    return branch
+
+
 def main() -> int:
-    episode_numbers = parse_args(sys.argv[1:])
+    parser = argparse.ArgumentParser(
+        description="에피소드 Markdown을 HTML로 변환하고 현재 브랜치를 원격에 푸시합니다."
+    )
+    parser.add_argument("episodes", nargs="*", help="변환할 에피소드 번호")
+    parsed_args = parser.parse_args(sys.argv[1:])
+
+    episode_numbers = parse_args(parsed_args.episodes)
     for ep_num in episode_numbers:
         dest = convert_episode(ep_num)
         print(dest.relative_to(ROOT))
+
+    branch = push_current_branch()
+    print(f"pushed origin/{branch}")
     return 0
 
 

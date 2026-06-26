@@ -6,8 +6,8 @@
   "현실": {
     "date": "2025-12-31",
     "age": 36,
-    "wife": { "name": "지연", "relationship": 91 },
-    "son": { "name": "하준", "age": 3, "relationship": 99 },
+    "wife": { "name": "소영", "relationship": 91 },
+    "son": { "name": "지후", "age": 3, "relationship": 99 },
     "mother": { "relationship": 88, "note": "가끔 연락하는 가족." },
     "job": "앱 개발팀 차장",
     "assets_krw": 0,
@@ -33,5 +33,5 @@
 
   "transferred_items": [],
 
-  "last_episode_summary": "12월 31일 밤, 지연에게 꿈 이야기를 털어놓고 첫 이동 직전까지 왔다."
+  "last_episode_summary": "12월 31일 밤, 소영에게 꿈 이야기를 털어놓고 첫 이동 직전까지 왔다."
 }
