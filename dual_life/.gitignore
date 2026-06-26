@@ -1,0 +1,7 @@
+.DS_Store
+.idea/
+.bkit/audit/2026-06-26.jsonl
+.bkit/runtime/agent-state.json
+.bkit/runtime/control-state.json
+.bkit/snapshots/
+.bkit/state/session-history.json
