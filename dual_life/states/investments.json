@@ -1,0 +1,21 @@
+{
+  "note": "회귀 투자 기록 전용. current_state.json과 분리 관리.",
+  "last_updated": "2005-01-01",
+
+  "cash_krw": 0,
+  "gold_kg": 0,
+
+  "real_estate": [],
+
+  "stocks": [],
+
+  "bitcoin": {
+    "quantity": 0,
+    "avg_price_usd": 0,
+    "first_buy_date": null
+  },
+
+  "transferred_to_현실": [],
+
+  "history": []
+}
