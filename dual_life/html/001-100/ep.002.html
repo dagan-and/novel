@@ -5,10 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Dual Life Episode</title>
   <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #efe9df;
+      --panel: #f7f2ea;
+      --text: #2b2622;
+      --muted: #776b60;
+      --accent: #8f5b3e;
+      --quote: #5a4d42;
+      --quote-border: #c8b29a;
+      --divider: #a19180;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #1d1b1a;
+        --panel: #262321;
+        --text: #ded6cd;
+        --muted: #aba095;
+        --accent: #d0a07f;
+        --quote: #c9beb3;
+        --quote-border: #6f6257;
+        --divider: #7f7267;
+      }
+    }
     body {
       margin: 0;
-      background: #f7f1e8;
-      color: #1f1a17;
+      background: var(--bg);
+      color: var(--text);
       font-family: "Iowan Old Style", "Apple SD Gothic Neo", "Noto Serif KR", serif;
       line-height: 1.9;
     }
@@ -16,6 +39,7 @@
       max-width: 760px;
       margin: 0 auto;
       padding: 48px 20px 80px;
+      background: var(--panel);
     }
     h1 {
       font-size: 2rem;
@@ -29,17 +53,17 @@
     }
     .dialogue .speaker {
       font-weight: 700;
-      color: #8a3b12;
+      color: var(--accent);
     }
     blockquote {
       margin-left: 0;
       padding-left: 1rem;
-      border-left: 3px solid #d7b486;
-      color: #5b4634;
+      border-left: 3px solid var(--quote-border);
+      color: var(--quote);
     }
     .divider {
       text-align: center;
-      color: #9e8b76;
+      color: var(--divider);
       margin: 2rem 0;
       letter-spacing: 0.35rem;
     }
@@ -71,25 +95,25 @@
 <p>그건 사실이었다.</p>
 <p>다만 이유까지 말하면 이상한 사람이 된다.</p>
 <div class="divider">* * *</div>
-<p>퇴근하고 집에 오니 하준이 거실 바닥에 엎드려 있었다.</p>
+<p>퇴근하고 집에 오니 지후가 거실 바닥에 엎드려 있었다.</p>
 <p>장난감 자동차 두 대를 나란히 세워놓고,<br>
 혼자 중얼거리고 있었다.</p>
-<p class="dialogue"><span class="speaker">[하준]</span> <span class="line">"이거 아빠 차."</span></p>
+<p class="dialogue"><span class="speaker">[지후]</span> <span class="line">"이거 아빠 차."</span></p>
 <p class="dialogue"><span class="speaker">[김용식]</span> <span class="line">"아빠 차는 이렇게 안 귀여운데."</span></p>
-<p>하준이 고개를 번쩍 들었다.</p>
-<p class="dialogue"><span class="speaker">[하준]</span> <span class="line">"귀여워."</span></p>
+<p>지후가 고개를 번쩍 들었다.</p>
+<p class="dialogue"><span class="speaker">[지후]</span> <span class="line">"귀여워."</span></p>
 <p>용식은 웃었다.</p>
 <p>하루 종일 머리를 붙잡고 있던 날짜가,<br>
 그 말 한마디에 잠깐 밀렸다.</p>
 <div class="divider">* * *</div>
-<p>저녁 먹고 설거지를 마친 지연이 물었다.</p>
-<p class="dialogue"><span class="speaker">[지연]</span> <span class="line">"근데 진짜 무슨 일 있어?"</span></p>
+<p>저녁 먹고 설거지를 마친 소영이 물었다.</p>
+<p class="dialogue"><span class="speaker">[소영]</span> <span class="line">"근데 진짜 무슨 일 있어?"</span></p>
 <p class="dialogue"><span class="speaker">[김용식]</span> <span class="line">"꿈을 하나 꿨는데."</span></p>
-<p class="dialogue"><span class="speaker">[지연]</span> <span class="line">"좋은 꿈?"</span></p>
+<p class="dialogue"><span class="speaker">[소영]</span> <span class="line">"좋은 꿈?"</span></p>
 <p>용식은 잠깐 멈췄다.</p>
 <p class="dialogue"><span class="speaker">[김용식]</span> <span class="line">"이상한 꿈."</span></p>
-<p>지연은 웃으면서 행주를 널었다.</p>
-<p class="dialogue"><span class="speaker">[지연]</span> <span class="line">"복권 번호 나오는 거 아니면 너무 진지하게 믿지 마."</span></p>
+<p>소영은 웃으면서 행주를 널었다.</p>
+<p class="dialogue"><span class="speaker">[소영]</span> <span class="line">"복권 번호 나오는 거 아니면 너무 진지하게 믿지 마."</span></p>
 <p>복권은 아니었다.</p>
 <p>오히려 더 질이 나빴다.</p>
 <p>번호 여섯 개면 웃고 넘기면 그만인데,<br>
