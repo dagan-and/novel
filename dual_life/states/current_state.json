@@ -1,7 +1,7 @@
 {
-  "last_updated": "2025-12-31",
-  "episode_count": 5,
-  "current_world": "현실",
+  "last_updated": "2005-01-06",
+  "episode_count": 10,
+  "current_world": "회귀",
 
   "현실": {
     "date": "2025-12-31",
@@ -11,27 +11,31 @@
     "mother": { "relationship": 88, "note": "가끔 연락하는 가족." },
     "job": "앱 개발팀 차장",
     "assets_krw": 0,
-    "notes": "12월 31일 밤 첫 이동을 앞두고 SSD 10개, 소형 골드바, 현금을 준비했다. 아직 현실 세계에 있다."
+    "notes": "2025년 12월 31일 밤에서 시간이 멈춘 상태. 소영과 지후는 아직 마지막 밤 직전에 머물러 있다."
   },
 
   "회귀": {
-    "date": "2005-01-01",
+    "date": "2005-01-06",
     "age": 15,
     "school": "고등학교 1학년",
-    "assets_krw": 0,
-    "happiness": 80,
-    "health": 95,
+    "assets_krw": 300000,
+    "happiness": 77,
+    "health": 96,
     "investments": {
       "bitcoin": { "quantity": 0, "avg_price_usd": 0 },
       "real_estate": [],
       "stocks": [],
-      "gold_kg": 0
+      "gold_kg": 0.01
     },
-    "relationships": [],
-    "notes": "아직 시작 전. 2025년 12월 31일 밤 첫 도착 직전."
+    "relationships": [
+      { "name": "손한나", "type": "classmate", "closeness": 6 },
+      { "name": "이은주", "type": "classmate", "closeness": 2 },
+      { "name": "박다정", "type": "classmate", "closeness": 2 }
+    ],
+    "notes": "2005년 1월 1일에 첫 도착. 동네와 몸의 감각을 확인했고, 고등학교 예비소집에서 손한나·이은주·박다정을 처음 마주쳤다. 한 달 단위 이동 규칙을 체감했다."
   },
 
-  "transferred_items": [],
+  "transferred_items": ["1TB SSD 10개", "소형 골드바 1개", "현금 봉투"],
 
-  "last_episode_summary": "12월 31일 밤, 소영에게 꿈 이야기를 털어놓고 첫 이동 직전까지 왔다."
+  "last_episode_summary": "첫 회귀 후 예비소집까지 마쳤고, 현실로 바로 돌아가려 했지만 한 달 이동 제한 때문에 2005년 2월 전까지는 회귀에 머물러야 한다는 걸 확인했다."
 }
