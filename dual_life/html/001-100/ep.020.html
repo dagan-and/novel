@@ -1,219 +1,230 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ep.020 - 제출 순서 1번</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dual Life Episode</title>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { font-size: 120%; }
+    :root {
+      color-scheme: dark light;
+      --bg: #1d1b1a;
+      --panel: #262321;
+      --text: #ded6cd;
+      --muted: #aba095;
+      --accent: #d0a07f;
+      --quote: #c9beb3;
+      --quote-border: #6f6257;
+      --divider: #7f7267;
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #ece5db;
+        --panel: #f5efe7;
+        --text: #312b27;
+        --muted: #74695f;
+        --accent: #8b5d44;
+        --quote: #5d5046;
+        --quote-border: #cab4a1;
+        --divider: #9e8f80;
+      }
+    }
     body {
-      background: #111417;
-      color: #e8e1d5;
-      font-family: 'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
-      font-size: 1.12rem;
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Iowan Old Style", "Apple SD Gothic Neo", "Noto Serif KR", serif;
       line-height: 1.9;
+    }
+    main {
       max-width: 760px;
       margin: 0 auto;
-      padding: 3rem 1.4rem 5rem;
-      word-break: keep-all;
+      padding: 48px 20px 80px;
+      background: var(--panel);
     }
     h1 {
-      font-size: 1.35rem;
-      text-align: center;
-      color: #79b8b2;
-      margin-bottom: 2.5rem;
-      letter-spacing: 0.02em;
+      font-size: 2rem;
+      margin: 0 0 2rem;
+      line-height: 1.3;
     }
-    p { margin: 0.75rem 0; }
-    p.speaker-line {
-      display: flex;
-      align-items: baseline;
-      gap: 0.7rem;
-      margin: 0.68rem 0;
+    p, blockquote {
+      font-size: 1.06rem;
+      margin: 0 0 1rem;
+      white-space: normal;
     }
-    .speaker-tag {
-      flex: 0 0 auto;
-      font-size: 0.82rem;
+    .dialogue .speaker {
       font-weight: 700;
-      letter-spacing: 0.02em;
+      color: var(--accent);
     }
-    .speaker-text {
-      flex: 1 1 auto;
+    blockquote {
+      margin-left: 0;
+      padding-left: 1rem;
+      border-left: 3px solid var(--quote-border);
+      color: var(--quote);
     }
-    .message-line {
-      margin: 1rem 0;
-      padding: 0.72rem 0.9rem;
-      background: #182023;
-      border: 1px solid #2f3f41;
-      border-left: 4px solid #79b8b2;
-      border-radius: 6px;
-      color: #d8e5df;
-      font-size: 1.02rem;
-      line-height: 1.75;
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
-    }
-    .message-sender {
-      font-weight: 700;
-      color: #8fd0c9;
-      margin-right: 0.35rem;
-    }
-    .time {
-      font-weight: bold;
-      color: #d6a15f;
-      font-size: 1.08rem;
-      text-align: center;
-      margin: 1.8rem 0 1rem;
-    }
-    .thought { color: #9bbac0; font-style: italic; }
     .divider {
       text-align: center;
-      color: #5f6564;
-      margin: 2.2rem 0;
-      letter-spacing: 0.6em;
+      color: var(--divider);
+      margin: 2rem 0;
+      letter-spacing: 0.35rem;
     }
-    figure.scene-illustration {
-      margin: 2.5rem 0 2.8rem;
-    }
-    .scene-illustration img {
-      display: block;
-      width: 100%;
-      border-radius: 10px;
-      border: 1px solid #30383a;
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.36);
-    }
-    .scene-illustration figcaption {
-      margin-top: 0.8rem;
-      text-align: center;
-      font-size: 0.92rem;
-      color: #9faaa6;
-      letter-spacing: 0.02em;
-    }
-    .nav {
+    .episode-nav {
       display: flex;
-      justify-content: space-between;
-      margin-top: 3.5rem;
-      padding-top: 1rem;
-      border-top: 1px solid #30383a;
-      font-size: 1rem;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 3rem;
+      flex-wrap: wrap;
     }
-    .nav a { color: #8fd0c9; text-decoration: none; font-weight: 700; }
-    .nav a:hover { text-decoration: underline; }
+    .nav-link {
+      min-width: 112px;
+      padding: 12px 16px;
+      border: 1px solid var(--quote-border);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      text-align: center;
+      text-decoration: none;
+      font-size: 0.98rem;
+    }
+    .nav-link:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .nav-link.disabled {
+      color: var(--muted);
+      opacity: 0.5;
+      pointer-events: none;
+    }
   </style>
 </head>
 <body>
-  <h1>ep.020 - 제출 순서 1번</h1>
-  
-
-<p>오전 8시 47분.</p>
-
-<p>김시안은 이력서 파일을 열어 놓고 있었다.</p>
-
-<p>파일명은 `최종`.</p>
-
-<p>문제는 최종이 네 개였다.</p>
-
-<p class="message-line"><span class="message-sender">[정다은]</span>제출 13분 전입니다.</p>
-
-<p>문자는 짧았다.</p>
-
-<p>사람을 찌르는 데 길이가 필요하진 않다.</p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;무섭네.&quot;</span></p>
-
-<p>시안은 파일 하나를 골라 보냈다.</p>
-
-<p>전송 시간 8시 58분.</p>
-
-<p>기적이다.</p>
-
-<p>바로 답장이 왔다.</p>
-
-<p class="message-line"><span class="message-sender">[정다은]</span>받았습니다. 늦지는 않았네요.</p>
-
-<p>칭찬인지 판결인지 애매했다.</p>
-
-<p>점심에 하린이 찾아왔다.</p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;선배, 오늘 피곤해 보여요.&quot;</span></p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;과제를 냈거든요.&quot;</span></p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;와. 선배가요?&quot;</span></p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;반응이 너무 솔직한데요.&quot;</span></p>
-
-<p>하린은 웃다가 멈췄다.</p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;그분 때문이에요?&quot;</span></p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;그분?&quot;</span></p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;스터디 진행자분.&quot;</span></p>
-
-<p>이미 퍼졌다.</p>
-
-<p>누가 말했는지는 중요하지 않다.</p>
-
-<p>대체로 문채영이다.</p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;네. 좀 빡세요.&quot;</span></p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">유하린</span><span class="speaker-text" style="color:#d97b95">&quot;좋은 분 같네요.&quot;</span></p>
-
-<p>하린은 그렇게 말하고, 바로 가방끈을 만졌다.</p>
-
-<p>좋은 분이라는 말은 꼭 좋게만 나오지 않는다.</p>
-
-<p>저녁.</p>
-
-<p>시안은 카페에 갔다.</p>
-
-<p>혼자.</p>
-
-<p>우산은 창가에 있었다.</p>
-
-<p>미현은 그걸 보고 먼저 웃었다.</p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;약속 지키셨네요.&quot;</span></p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;네.&quot;</span></p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">박미현</span><span class="speaker-text" style="color:#d97b95">&quot;오늘은 혼자.&quot;</span></p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;오늘은 혼자.&quot;</span></p>
-
-<p>그 말이 카페 안에서 조용히 놓였다.</p>
-
-<p>문이 열렸다.</p>
-
-<p>종이 울렸다.</p>
-
-<p>정다은이 들어왔다.</p>
-
-<p>시안은 굳었다.</p>
-
-<p>미현도 굳었다.</p>
-
-<p>정다은은 둘을 보고 잠깐 멈췄다.</p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">정다은</span><span class="speaker-text" style="color:#d97b95">&quot;김시안 씨.&quot;</span></p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#82aee0">김시안</span><span class="speaker-text" style="color:#82aee0">&quot;네.&quot;</span></p>
-
-<p class="speaker-line"><span class="speaker-tag" style="color:#d97b95">정다은</span><span class="speaker-text" style="color:#d97b95">&quot;여기가 그 카페군요.&quot;</span></p>
-
-<p>미현의 손이 우산 손잡이 위로 갔다.</p>
-
-<p>시안은 깨달았다.</p>
-
-<p>20화 끝은.</p>
-
-<p>혼자 오겠다는 약속이 얼마나 약한지 확인하는 날이었다.</p>
-
-  <div class="nav">
-    <a href="ep.019_a.html">← 이전 화</a>
-    <a href="ep.021.html">다음 화 →</a>
-  </div>
+  <main>
+<h1>20. 돌아온 밤</h1>
+<p>2005년 2월 1일 — 회귀 / 현실</p>
+<div class="divider">* * *</div>
+<p>아침부터 날짜를 세 번은 확인했다.</p>
+<p>2005년 2월 1일.</p>
+<p>이제 된다.</p>
+<p>적어도 규칙대로라면.</p>
+<p>한 달.</p>
+<p>길었다.</p>
+<p>생각보다 훨씬.</p>
+<div class="divider">* * *</div>
+<p>학교에선 평소처럼 시간이 갔다.</p>
+<p>다정은 오늘도 먼저 말 걸었고,<br>
+은주는 오늘도 차분했고,<br>
+한나는 쉬는 시간에 뒤돌아보며 물었다.</p>
+<p class="dialogue"><span class="speaker">[손한나]</span> <span class="line">"왜 오늘 좀 이상해."</span></p>
+<p>심장이 잠깐 걸렸다.</p>
+<p class="dialogue"><span class="speaker">[김용식]</span> <span class="line">"내가?"</span></p>
+<p class="dialogue"><span class="speaker">[손한나]</span> <span class="line">"응. 괜히 자꾸 시계 봐."</span></p>
+<p>들켰다기보다,<br>
+보였다는 쪽이 맞았다.</p>
+<p>한나는 이런 걸 잘 봤다.</p>
+<p class="dialogue"><span class="speaker">[김용식]</span> <span class="line">"오늘 빨리 집 가고 싶어서."</span></p>
+<p>거짓말은 아니었다.</p>
+<p>다만 집이 어디냐가 좀 복잡할 뿐이다.</p>
+<p class="dialogue"><span class="speaker">[손한나]</span> <span class="line">"너 가끔 되게 어른 같다."</span></p>
+<p>그 말이 농담처럼 나왔는데,<br>
+용식은 바로 대답을 못 했다.</p>
+<p>한나는 금방 웃으며 덧붙였다.</p>
+<p class="dialogue"><span class="speaker">[손한나]</span> <span class="line">"좋은 뜻으로."</span></p>
+<p>좋은 뜻이면 더 곤란하다.</p>
+<p>그래도 그 표정이 가벼워서<br>
+겨우 숨이 돌아왔다.</p>
+<div class="divider">* * *</div>
+<p>집에 오자마자<br>
+가방부터 확인했다.</p>
+<p>메모 몇 장.<br>
+천 원짜리 지폐 한 장.</p>
+<p>그리고 원래 가져왔던 물건들.</p>
+<p>이번엔 반대로,<br>
+현실로 가져갈 걸 다시 품에 안았다.</p>
+<p>너무 많이 챙기고 싶진 않았다.</p>
+<p>첫 복귀는 확인이 먼저다.</p>
+<p>증명만 되면 된다.</p>
+<div class="divider">* * *</div>
+<p>밤.</p>
+<p>이불 안은 조용했고,<br>
+겨울 냄새가 약하게 남아 있었다.</p>
+<p>용식은 눈을 감고<br>
+마음속으로 아주 천천히 정했다.</p>
+<p>현실.</p>
+<p>이번엔 분명하게.</p>
+<p>현실.</p>
+<p>그리고 잠이 왔다.</p>
+<div class="divider">* * *</div>
+<p>눈을 뜨자<br>
+불 꺼진 거실 냄새가 먼저 났다.</p>
+<p>익숙했다.</p>
+<p>너무 익숙해서,<br>
+오히려 숨이 멎을 뻔했다.</p>
+<p>천장은 높았다.</p>
+<p>침대 매트리스도 달랐다.</p>
+<p>현실이었다.</p>
+<div class="divider">* * *</div>
+<p>용식은 바로 몸을 일으켰다.</p>
+<p>옆을 봤다.</p>
+<p>소영이 자고 있었다.</p>
+<p>조금 떨어진 쪽엔<br>
+지후가 이불을 반쯤 차낸 채 자고 있었다.</p>
+<p>그 모습이 너무 그대로라서,<br>
+가슴이 먼저 아팠다.</p>
+<p>회귀에선 한 달이 지났는데<br>
+이쪽은 정말 한순간도 안 흘렀다.</p>
+<p>용식은 손을 뻗어<br>
+지후 이불 끝을 조심히 올려줬다.</p>
+<p>따뜻했다.</p>
+<p>똑같았다.</p>
+<p>그게 미치게 반가웠다.</p>
+<div class="divider">* * *</div>
+<p>심장이 좀 진정된 뒤에야<br>
+가방을 확인했다.</p>
+<p>메모 몇 장.<br>
+접힌 천 원짜리 한 장.</p>
+<p>다 있었다.</p>
+<p>용식은 입을 다물고 한참 앉아 있었다.</p>
+<p>증거는 충분했다.</p>
+<p>기쁜데,<br>
+이상하게 웃음은 안 났다.</p>
+<p>교실도 떠오르고,<br>
+한나 문자도 생각나고,<br>
+은주가 복도 끝에 서 있던 장면도 남아 있었다.</p>
+<p>여길 그리워해야 맞는데,<br>
+저쪽도 이미 쉽게 접히지 않았다.</p>
+<p>둘 다 진짜면<br>
+사람 마음이 이렇게 된다.</p>
+<div class="divider">* * *</div>
+<p>그때 소영이 아주 천천히 눈을 떴다.</p>
+<p class="dialogue"><span class="speaker">[소영]</span> <span class="line">"…왜 안 자?"</span></p>
+<p>목소리가 잠긴 채로 나왔다.</p>
+<p>그 한마디에<br>
+용식은 거의 웃을 뻔했다가 참았다.</p>
+<p class="dialogue"><span class="speaker">[김용식]</span> <span class="line">"나 왔어."</span></p>
+<p>소영이 눈을 조금 더 떴다.</p>
+<p class="dialogue"><span class="speaker">[소영]</span> <span class="line">"어디 갔다 왔는데."</span></p>
+<p>농담처럼 한 말인데,<br>
+용식은 대답을 못 흘렸다.</p>
+<p>손에 쥔 메모와 천 원짜리를 보여주자<br>
+소영 표정이 아주 천천히 바뀌었다.</p>
+<p>잠이 덜 깬 얼굴에서,<br>
+그날 밤의 기억을 따라가는 얼굴로.</p>
+<p class="dialogue"><span class="speaker">[소영]</span> <span class="line">"…진짜야?"</span></p>
+<p>김용식은 이번엔 바로 고개를 끄덕였다.</p>
+<p class="dialogue"><span class="speaker">[김용식]</span> <span class="line">"응."</span></p>
+<p>짧은 대답이었는데<br>
+그 뒤가 길었다.</p>
+<p>소영은 한참 말이 없었다.</p>
+<p>그리고 아주 작게 물었다.</p>
+<p class="dialogue"><span class="speaker">[소영]</span> <span class="line">"거긴 어땠어?"</span></p>
+<p>용식은 그 질문 앞에서<br>
+오히려 더 조심스러워졌다.</p>
+<p>좋았다고 하기엔 미안하고,<br>
+힘들었다고 하기엔 틀렸다.</p>
+<p class="dialogue"><span class="speaker">[김용식]</span> <span class="line">"진짜였어."</span></p>
+<p>그 말밖엔 먼저 안 나왔다.</p>
+<p>그리고 그 순간,<br>
+다음에 다시 가야 한다는 사실도<br>
+같이 선명해졌다.</p>
+<nav class="episode-nav" aria-label="Episode navigation"><a class="nav-link" href="/novel/dual_life/html/001-100/ep.019.html">이전화</a><a class="nav-link index-link" href="/novel/">목록</a><a class="nav-link" href="/novel/dual_life/html/001-100/ep.021.html">다음화</a></nav>
+  </main>
 </body>
 </html>

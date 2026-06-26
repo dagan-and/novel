@@ -1,7 +1,7 @@
 {
-  "last_updated": "2005-01-06",
-  "episode_count": 10,
-  "current_world": "회귀",
+  "last_updated": "2025-12-31",
+  "episode_count": 20,
+  "current_world": "현실",
 
   "현실": {
     "date": "2025-12-31",
@@ -11,15 +11,15 @@
     "mother": { "relationship": 88, "note": "가끔 연락하는 가족." },
     "job": "앱 개발팀 차장",
     "assets_krw": 0,
-    "notes": "2025년 12월 31일 밤에서 시간이 멈춘 상태. 소영과 지후는 아직 마지막 밤 직전에 머물러 있다."
+    "notes": "첫 회귀 한 달을 마치고 같은 밤으로 복귀했다. 소영에게 2005년 메모와 천 원짜리를 보여주며 이동이 진짜였음을 확인했다."
   },
 
   "회귀": {
-    "date": "2005-01-06",
+    "date": "2005-02-01",
     "age": 15,
     "school": "고등학교 1학년",
-    "assets_krw": 300000,
-    "happiness": 77,
+    "assets_krw": 299000,
+    "happiness": 82,
     "health": 96,
     "investments": {
       "bitcoin": { "quantity": 0, "avg_price_usd": 0 },
@@ -28,14 +28,15 @@
       "gold_kg": 0.01
     },
     "relationships": [
-      { "name": "손한나", "type": "classmate", "closeness": 6 },
-      { "name": "이은주", "type": "classmate", "closeness": 2 },
-      { "name": "박다정", "type": "classmate", "closeness": 2 }
+      { "name": "손한나", "type": "classmate", "closeness": 15 },
+      { "name": "이은주", "type": "classmate", "closeness": 8 },
+      { "name": "박다정", "type": "classmate", "closeness": 11 },
+      { "name": "정민", "type": "friend", "closeness": 16 }
     ],
-    "notes": "2005년 1월 1일에 첫 도착. 동네와 몸의 감각을 확인했고, 고등학교 예비소집에서 손한나·이은주·박다정을 처음 마주쳤다. 한 달 단위 이동 규칙을 체감했다."
+    "notes": "1월 동안 입학식과 첫 학교 적응을 마쳤다. 한나·은주·다정과 각기 다른 속도로 가까워졌고, 2월 1일 밤 현실로 첫 복귀했다. 회귀 시간은 2005-02-01에서 정지 중."
   },
 
-  "transferred_items": ["1TB SSD 10개", "소형 골드바 1개", "현금 봉투"],
+  "transferred_items": ["1TB SSD 10개", "소형 골드바 1개", "현금 봉투", "2005년 메모", "2005년 천 원짜리 1장"],
 
-  "last_episode_summary": "첫 회귀 후 예비소집까지 마쳤고, 현실로 바로 돌아가려 했지만 한 달 이동 제한 때문에 2005년 2월 전까지는 회귀에 머물러야 한다는 걸 확인했다."
+  "last_episode_summary": "회귀에서 1월 한 달을 보내고 2005년 2월 1일 밤 처음 현실로 복귀했다. 멈춰 있던 소영과 지후를 다시 보았고, 소영도 이동의 증거를 확인했다."
 }
