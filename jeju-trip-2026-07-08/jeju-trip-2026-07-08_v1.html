@@ -1,0 +1,725 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>제주도 가족 여행</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f7f2;
+      --paper: #fffdf7;
+      --ink: #202124;
+      --muted: #63635f;
+      --line: #dedbd0;
+      --sea: #247c91;
+      --leaf: #4e7f4d;
+      --sand: #e8d9b9;
+      --warn: #a15c22;
+      --soft-blue: #e7f2f5;
+      --soft-green: #edf5e8;
+      --soft-yellow: #fbf0d2;
+      --shadow: 0 10px 28px rgba(43, 44, 40, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      width: min(1120px, calc(100% - 28px));
+      margin: 0 auto;
+      padding: 28px 0 56px;
+    }
+
+    .hero {
+      min-height: 260px;
+      display: grid;
+      align-content: end;
+      padding: 34px;
+      border-radius: 8px;
+      background:
+        linear-gradient(180deg, rgba(16, 51, 57, 0.16), rgba(16, 51, 57, 0.72)),
+        url("https://images.unsplash.com/photo-1590395239321-6efbd3f97b0f?auto=format&fit=crop&w=1800&q=80") center/cover;
+      color: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .hero p {
+      max-width: 680px;
+      margin: 8px 0 0;
+      font-size: 1.02rem;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 5vw, 4rem);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin: 0 0 18px;
+      font-size: 1.45rem;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 0 0 12px;
+      font-size: 1.05rem;
+      letter-spacing: 0;
+    }
+
+    .nav {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 18px 0 26px;
+    }
+
+    .nav a {
+      min-height: 40px;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 253, 247, 0.82);
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 0.92rem;
+    }
+
+    .section {
+      margin-top: 22px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .info-list {
+      display: grid;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .info-list li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .label {
+      flex: 0 0 auto;
+      min-width: 64px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .value {
+      font-weight: 650;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 620px;
+    }
+
+    th,
+    td {
+      padding: 13px 14px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+      white-space: nowrap;
+    }
+
+    th {
+      background: #f1efe5;
+      color: #47443d;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .money {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .total-row td {
+      background: var(--soft-yellow);
+      font-weight: 800;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 14px;
+    }
+
+    .day {
+      display: grid;
+      grid-template-columns: 96px 1fr;
+      gap: 16px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .date {
+      color: var(--sea);
+      font-weight: 800;
+    }
+
+    .steps {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .step {
+      position: relative;
+      padding-left: 18px;
+    }
+
+    .step::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.72em;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--sea);
+    }
+
+    .sub {
+      margin: 6px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .pill {
+      display: inline-block;
+      margin-right: 6px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: var(--soft-blue);
+      color: #215b69;
+      font-size: 0.78rem;
+      font-weight: 700;
+      vertical-align: 1px;
+    }
+
+    .note {
+      padding: 14px 16px;
+      border-left: 4px solid var(--warn);
+      border-radius: 8px;
+      background: #fff7ec;
+      color: #4d351d;
+    }
+
+    .weather-list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .weather-list li {
+      padding: 12px 14px;
+      border-radius: 8px;
+      background: var(--soft-blue);
+    }
+
+    .checklist {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .checklist li {
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .decision {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+
+    .decision-card {
+      padding: 16px;
+      border-radius: 8px;
+      background: var(--soft-green);
+      border: 1px solid #d8e7d0;
+    }
+
+    .decision-card.warning {
+      background: #fff1df;
+      border-color: #efd3ad;
+    }
+
+    footer {
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    @media (max-width: 720px) {
+      .page {
+        width: min(100% - 18px, 1120px);
+        padding-top: 10px;
+      }
+
+      .hero {
+        min-height: 230px;
+        padding: 24px;
+      }
+
+      .section {
+        padding: 18px;
+      }
+
+      .day {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      table {
+        min-width: 540px;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .page {
+        width: 100%;
+        padding: 0;
+      }
+
+      .hero,
+      .section,
+      .card,
+      .day {
+        box-shadow: none;
+      }
+
+      .nav {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <h1>제주도 가족 여행</h1>
+      <p>2026년 7월 8일 ~ 7월 10일, 40개월 아이와 함께하는 제주 일정 정리</p>
+    </header>
+
+    <nav class="nav" aria-label="문서 바로가기">
+      <a href="#booking">예약 정보</a>
+      <a href="#child">아이 메모</a>
+      <a href="#weather">날씨 판단</a>
+      <a href="#schedule">일정 흐름</a>
+      <a href="#airport">공항 이동</a>
+      <a href="#cost">비용 정리</a>
+    </nav>
+
+    <section class="section" id="summary">
+      <h2>기본 정보</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>여행 기간</h3>
+          <ul class="info-list">
+            <li><span class="label">기간</span><span class="value">2026년 7월 8일 ~ 2026년 7월 10일</span></li>
+            <li><span class="label">동행</span><span class="value">아이 40개월</span></li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>전체 방향</h3>
+          <ul class="info-list">
+            <li><span class="label">첫날</span><span>협재 근처 식사, 카페, 날씨 좋으면 해수욕장</span></li>
+            <li><span class="label">둘째날</span><span>중간 카페를 들러 아쿠아플라넷 제주 중심으로 이동</span></li>
+            <li><span class="label">셋째날</span><span>렌터카 반납 후 김포 도착, 이후 일정은 현장 결정</span></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="booking">
+      <h2>예약 정보</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>항공권</h3>
+          <ul class="info-list">
+            <li><span class="label">가는 편</span><span><strong>이스타 항공 YDKH7H</strong><br>김포 -> 제주, 11:30 ~ 12:45</span></li>
+            <li><span class="label">오는 편</span><span><strong>아시아나 항공 FXMV65</strong><br>제주 -> 김포, 10:20 ~ 11:35</span></li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>숙소</h3>
+          <ul class="info-list">
+            <li><span class="label">첫날</span><span><strong>제주쉼127키즈팬션 협재점</strong><br>제주 제주시 한림읍 옹포남2길 25</span></li>
+            <li><span class="label">둘째날</span><span><strong>호텔 휘슬락 제주</strong><br>제주 제주시 서부두2길 26</span></li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>렌터카</h3>
+          <ul class="info-list">
+            <li><span class="label">업체</span><span><strong>롯데렌터카</strong>, 셀토스</span></li>
+            <li><span class="label">장소</span><span>제주 오토하우스, 제주시 용해로 92</span></li>
+            <li><span class="label">시간</span><span>7월 8일 12:00 ~ 7월 10일 10:00</span></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="child">
+      <h2>아이 메모</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>식사</h3>
+          <ul class="checklist">
+            <li>뚝배기불고기: 아이 그릇에 덜어 충분히 식힌 뒤 고기와 밥 위주</li>
+            <li>고기국수: 양념 빼고 국물은 적게</li>
+            <li>전복죽, 보말죽, 미역국: 간 약하게 요청</li>
+            <li>생선구이: 가시를 완전히 발라서 주기</li>
+            <li>흑돼지구이: 양념 없이 잘게 잘라 주기</li>
+            <li>피하기: 회, 물회, 날해산물, 매운 조림, 너무 짠 국물</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>준비물</h3>
+          <ul class="checklist">
+            <li>물티슈</li>
+            <li>비닐봉투</li>
+            <li>지퍼백</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="weather">
+      <h2>날씨 판단</h2>
+      <div class="note">
+        확인 기준일은 2026년 6월 30일입니다. 현재 흐름상 첫날 협재 해수욕장은 확정 일정이 아니라 당일 오전 기상청 레이더와 초단기예보를 보고 결정하는 조건부 일정입니다.
+      </div>
+
+      <div class="grid" style="margin-top: 16px;">
+        <article class="card">
+          <h3>현재 예보 흐름</h3>
+          <ul class="weather-list">
+            <li><strong>7월 8일</strong> 흐리고 습함, 비 가능성 있음</li>
+            <li><strong>7월 9일</strong> 대체로 흐리고 습함, 오전 약한 비 가능성 있음</li>
+            <li><strong>7월 10일</strong> 흐리고 습함, 지나가는 소나기 가능성 있음</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>출발 2일 전 재확인</h3>
+          <ul class="checklist">
+            <li>확인일: 2026년 7월 6일</li>
+            <li>기상청에서 7월 8~10일 제주 예보 다시 확인</li>
+            <li>7월 8일 16:00~19:00 협재 강수확률 확인</li>
+            <li>협재 쪽 풍속 확인</li>
+            <li>Windy에서 제주 서쪽 바람과 비구름 흐름 확인</li>
+            <li>AccuWeather에서 시간대별 체감 날씨 확인</li>
+          </ul>
+        </article>
+      </div>
+
+      <h3 style="margin-top: 20px;">날씨 확인 사이트</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>사이트</th>
+              <th>확인할 내용</th>
+              <th>용도</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>기상청 날씨누리</td>
+              <td>제주 시간대별 예보, 강수확률, 풍속, 특보</td>
+              <td>최종 판단 기준</td>
+            </tr>
+            <tr>
+              <td>기상청 레이더/초단기예보</td>
+              <td>현재 비구름, 6시간 이내 강수 흐름</td>
+              <td>당일 해수욕장 가능 여부 판단</td>
+            </tr>
+            <tr>
+              <td>Windy</td>
+              <td>바람, 강수 모델 비교</td>
+              <td>제주 바람/비 흐름 보조 확인</td>
+            </tr>
+            <tr>
+              <td>AccuWeather</td>
+              <td>시간대별 날씨, 체감온도, 비 가능성</td>
+              <td>보기 쉬운 보조 예보</td>
+            </tr>
+            <tr>
+              <td>네이버 날씨</td>
+              <td>빠른 확인, 가족 공유</td>
+              <td>간단 확인용</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="margin-top: 20px;">협재 해수욕장 판단 기준</h3>
+      <div class="decision">
+        <div class="decision-card"><strong>해수욕 가능</strong><br>비가 오지 않고 바람이 약하며 아이 컨디션이 좋을 때</div>
+        <div class="decision-card"><strong>짧게 가능</strong><br>흐리지만 비가 거의 없고 바람이 심하지 않을 때</div>
+        <div class="decision-card"><strong>모래놀이/산책만</strong><br>흐리거나 바람이 조금 있을 때</div>
+        <div class="decision-card warning"><strong>취소 권장</strong><br>비가 오거나 바람이 강하거나 아이가 피곤할 때</div>
+      </div>
+    </section>
+
+    <section class="section" id="schedule">
+      <h2>일정 흐름</h2>
+      <div class="timeline">
+        <article class="day">
+          <div class="date">7월 8일</div>
+          <ul class="steps">
+            <li class="step"><span class="pill">08:30</span>안산 출발 권장</li>
+            <li class="step"><span class="pill">10:00</span>김포공항 국내선 도착 권장, 주차대행 접수 및 짐 정리</li>
+            <li class="step"><span class="pill">11:30</span>김포 출발</li>
+            <li class="step"><span class="pill">12:45</span>제주 도착</li>
+            <li class="step"><span class="pill">13:20</span>제주 오토하우스 도착 예상, 렌터카 예약 시작 12:00</li>
+            <li class="step">협재 해수욕장 근처로 이동 후 점심 식사
+              <ul class="sub">
+                <li>아이가 먹기 좋은 메뉴 우선</li>
+                <li>후보 메뉴: 고기국수, 뚝배기불고기, 생선구이, 전복죽/보말죽</li>
+              </ul>
+            </li>
+            <li class="step">협재 해수욕장 근처 카페
+              <ul class="sub">
+                <li>아이 간식/음료</li>
+                <li>부모 커피와 휴식</li>
+              </ul>
+            </li>
+            <li class="step">날씨가 좋으면 협재 해수욕장
+              <ul class="sub">
+                <li>16:00 전후 도착</li>
+                <li>18:00~19:00 전후까지 물놀이/모래놀이</li>
+              </ul>
+            </li>
+            <li class="step">날씨가 안 좋으면 협재 근처 대체 일정
+              <ul class="sub">
+                <li>비가 약하면 한림공원</li>
+                <li>비가 많이 오면 협재 근처 카페에서 케이크/간식 시간</li>
+                <li>아이가 피곤하면 저녁 포장 후 숙소에서 쉬기</li>
+                <li>조금 더 움직일 수 있으면 제주현대미술관도 후보</li>
+              </ul>
+            </li>
+            <li class="step">협재 해수욕장 근처 저녁 식사, 필요하면 포장해서 숙소에서 먹기</li>
+            <li class="step">첫날 숙소: 제주쉼127키즈팬션 협재점</li>
+          </ul>
+        </article>
+
+        <article class="day">
+          <div class="date">7월 9일</div>
+          <ul class="steps">
+            <li class="step">둘째날 후보 일정: 제주 동쪽</li>
+            <li class="step"><span class="pill">11:00</span>첫날 숙소 출발</li>
+            <li class="step">중간 카페 들르기
+              <ul class="sub">
+                <li>아이 케이크/간식 시간</li>
+                <li>부모도 커피와 휴식</li>
+                <li>30~40분 정도 쉬어가기</li>
+              </ul>
+            </li>
+            <li class="step"><span class="pill">13:00~13:30</span>성산/섭지코지 쪽 도착, 점심 식사</li>
+            <li class="step"><span class="pill">14:30</span>아쿠아플라넷 제주 도착</li>
+            <li class="step">아쿠아플라넷 관람</li>
+            <li class="step">아이 컨디션에 따라 카페/차 안 낮잠 시간 확보</li>
+            <li class="step">잠수함은 다음 여행으로 보류</li>
+            <li class="step"><span class="pill">17:00~18:00</span>제주시 방향 이동</li>
+            <li class="step">둘째날 숙소: 호텔 휘슬락 제주</li>
+          </ul>
+        </article>
+
+        <article class="day">
+          <div class="date">7월 10일</div>
+          <ul class="steps">
+            <li class="step"><span class="pill">08:00</span>호텔 휘슬락 제주 출발 권장</li>
+            <li class="step"><span class="pill">08:30~08:40</span>제주 오토하우스 렌터카 반납 권장</li>
+            <li class="step"><span class="pill">09:00</span>제주공항 도착 권장</li>
+            <li class="step"><span class="pill">10:20</span>제주 출발</li>
+            <li class="step"><span class="pill">11:35</span>김포 도착</li>
+            <li class="step">김포 도착 후 일정 미정</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="airport">
+      <h2>공항 이동 메모</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>김포공항 가는 날</h3>
+          <ul class="checklist">
+            <li>항공편: 7월 8일 11:30 김포 -> 제주</li>
+            <li>아이 동반, 주차대행 접수, 짐 정리를 고려해 김포공항에는 10:00까지 도착 권장</li>
+            <li>안산에서 김포공항까지 60~80분, 여유 10~20분을 더해 08:30 출발 권장</li>
+            <li>늦어도 09:00 전에는 출발하는 것이 좋음</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>제주공항 가는 날</h3>
+          <ul class="checklist">
+            <li>항공편: 7월 10일 10:20 제주 -> 김포</li>
+            <li>렌터카 반납과 공항 이동을 고려해 제주공항에는 09:00 전후 도착 권장</li>
+            <li>호텔 휘슬락 제주에서 제주 오토하우스까지 이동 후 반납해야 하므로 08:00 출발 권장</li>
+            <li>렌터카 예약은 10:00까지지만 실제로는 08:30~08:40 반납이 안전함</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>김포공항 주차대행</h3>
+          <ul class="checklist">
+            <li>공식 주차대행: 김포공항 공식 주차대행 투루발렛</li>
+            <li>접수 장소: 김포국제공항 국내선 청사 2층 주차대행서비스 접수장</li>
+            <li>주차대행 확정 금액: 31,000원</li>
+            <li>주차대행 예약 시간은 7월 8일 10:00 전후 권장</li>
+            <li>차량 인수 시간은 김포 도착 후 일정에 따라 조정</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="cost">
+      <h2>비용 정리</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>항목</th>
+              <th class="money">금액</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>김포 -> 제주 항공권</td>
+              <td class="money">146,800원</td>
+            </tr>
+            <tr>
+              <td>제주 -> 김포 항공권</td>
+              <td class="money">198,100원</td>
+            </tr>
+            <tr>
+              <td>첫날 숙소</td>
+              <td class="money">130,480원</td>
+            </tr>
+            <tr>
+              <td>둘째날 숙소</td>
+              <td class="money">117,150원</td>
+            </tr>
+            <tr>
+              <td>렌터카</td>
+              <td class="money">119,800원</td>
+            </tr>
+            <tr>
+              <td>김포공항 주차대행</td>
+              <td class="money">31,000원</td>
+            </tr>
+            <tr class="total-row">
+              <td>총합</td>
+              <td class="money">743,330원</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="margin-top: 20px;">항목별 합계</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>항목</th>
+              <th class="money">금액</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>항공권</td>
+              <td class="money">344,900원</td>
+            </tr>
+            <tr>
+              <td>숙소</td>
+              <td class="money">247,630원</td>
+            </tr>
+            <tr>
+              <td>렌터카</td>
+              <td class="money">119,800원</td>
+            </tr>
+            <tr>
+              <td>김포공항 주차대행</td>
+              <td class="money">31,000원</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer>
+      제주 여행 정리 문서. 날씨와 아이 컨디션에 따라 첫날 해수욕장 일정은 현장에서 조정.
+    </footer>
+  </main>
+</body>
+</html>
