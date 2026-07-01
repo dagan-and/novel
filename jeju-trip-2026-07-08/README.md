@@ -8,8 +8,10 @@
 
 ## 현재 파일
 
-- `jeju-trip-2026-07-08_v5.html`: 최신 보기용 HTML 문서
-- `jeju-trip-2026-07-08_v5.md`: 최신 원본 정리용 Markdown 문서
+- `jeju-trip-2026-07-08_v6.html`: 최신 보기용 HTML 문서
+- `jeju-trip-2026-07-08_v6.md`: 최신 원본 정리용 Markdown 문서
+- `jeju-trip-2026-07-08_v5.html`: 이전 보기용 HTML 문서
+- `jeju-trip-2026-07-08_v5.md`: 이전 원본 정리용 Markdown 문서
 - `jeju-trip-2026-07-08_v4.html`: 이전 보기용 HTML 문서
 - `jeju-trip-2026-07-08_v4.md`: 이전 원본 정리용 Markdown 문서
 - `jeju-trip-2026-07-08_v3.html`: 이전 보기용 HTML 문서
