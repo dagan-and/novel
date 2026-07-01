@@ -8,8 +8,12 @@
 
 ## 현재 파일
 
-- `jeju-trip-2026-07-08_v6.html`: 최신 보기용 HTML 문서
-- `jeju-trip-2026-07-08_v6.md`: 최신 원본 정리용 Markdown 문서
+- `jeju-trip-2026-07-08_v7_sun.html`: 최신 보기용 HTML 문서, 첫날 맑음/협재 플랜
+- `jeju-trip-2026-07-08_v7_sun.md`: 최신 원본 정리용 Markdown 문서, 첫날 맑음/협재 플랜
+- `jeju-trip-2026-07-08_v7_rain.html`: 최신 보기용 HTML 문서, 첫날 비/아쿠아플라넷 플랜
+- `jeju-trip-2026-07-08_v7_rain.md`: 최신 원본 정리용 Markdown 문서, 첫날 비/아쿠아플라넷 플랜
+- `jeju-trip-2026-07-08_v6.html`: 이전 보기용 HTML 문서
+- `jeju-trip-2026-07-08_v6.md`: 이전 원본 정리용 Markdown 문서
 - `jeju-trip-2026-07-08_v5.html`: 이전 보기용 HTML 문서
 - `jeju-trip-2026-07-08_v5.md`: 이전 원본 정리용 Markdown 문서
 - `jeju-trip-2026-07-08_v4.html`: 이전 보기용 HTML 문서
