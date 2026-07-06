@@ -8,8 +8,16 @@
 
 ## 현재 파일
 
-- `jeju-trip-2026-07-08_v10_sun.html`: 최신 보기용 HTML 문서, 예약 확인/좌석/셔틀/카시트 포함 맑음 플랜
-- `jeju-trip-2026-07-08_v10_sun.md`: 최신 원본 정리용 Markdown 문서, 예약 확인/좌석/셔틀/카시트 포함 맑음 플랜
+- `jeju-trip-2026-07-08_v12_sun_hyeopjae.html`: 최신 보기용 HTML 문서, 7월 7일 날씨 반영 협재 예비 맑음 플랜
+- `jeju-trip-2026-07-08_v12_sun_hyeopjae.md`: 최신 원본 정리용 Markdown 문서, 7월 7일 날씨 반영 협재 예비 맑음 플랜
+- `jeju-trip-2026-07-08_v12_sun_ihoteu.html`: 최신 보기용 HTML 문서, 7월 7일 날씨 반영 이호테우 우선 맑음 플랜
+- `jeju-trip-2026-07-08_v12_sun_ihoteu.md`: 최신 원본 정리용 Markdown 문서, 7월 7일 날씨 반영 이호테우 우선 맑음 플랜
+- `jeju-trip-2026-07-08_v11_sun_hyeopjae.html`: 이전 보기용 HTML 문서, 첫날 협재 해수욕장 맑음 플랜
+- `jeju-trip-2026-07-08_v11_sun_hyeopjae.md`: 이전 원본 정리용 Markdown 문서, 첫날 협재 해수욕장 맑음 플랜
+- `jeju-trip-2026-07-08_v11_sun_ihoteu.html`: 이전 보기용 HTML 문서, 첫날 이호테우 해수욕장 맑음 플랜
+- `jeju-trip-2026-07-08_v11_sun_ihoteu.md`: 이전 원본 정리용 Markdown 문서, 첫날 이호테우 해수욕장 맑음 플랜
+- `jeju-trip-2026-07-08_v10_sun.html`: 이전 보기용 HTML 문서, 예약 확인/좌석/셔틀/카시트 포함 맑음 플랜
+- `jeju-trip-2026-07-08_v10_sun.md`: 이전 원본 정리용 Markdown 문서, 예약 확인/좌석/셔틀/카시트 포함 맑음 플랜
 - `jeju-trip-2026-07-08_v10_rain.html`: 최신 보기용 HTML 문서, 예약 확인/좌석/셔틀/카시트 포함 비 플랜
 - `jeju-trip-2026-07-08_v10_rain.md`: 최신 원본 정리용 Markdown 문서, 예약 확인/좌석/셔틀/카시트 포함 비 플랜
 - `jeju-trip-2026-07-08_v9_sun.html`: 이전 보기용 HTML 문서, 전체 일정 포함 맑음/협재 플랜 + 식당/카페 후보 풀 확장
