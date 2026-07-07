@@ -8,10 +8,14 @@
 
 ## 현재 파일
 
-- `jeju-trip-2026-07-08_v12_sun_hyeopjae.html`: 최신 보기용 HTML 문서, 7월 7일 날씨 반영 협재 예비 맑음 플랜
-- `jeju-trip-2026-07-08_v12_sun_hyeopjae.md`: 최신 원본 정리용 Markdown 문서, 7월 7일 날씨 반영 협재 예비 맑음 플랜
-- `jeju-trip-2026-07-08_v12_sun_ihoteu.html`: 최신 보기용 HTML 문서, 7월 7일 날씨 반영 이호테우 우선 맑음 플랜
-- `jeju-trip-2026-07-08_v12_sun_ihoteu.md`: 최신 원본 정리용 Markdown 문서, 7월 7일 날씨 반영 이호테우 우선 맑음 플랜
+- `jeju-trip-2026-07-08_v13_sun_hyeopjae.html`: 최신 보기용 HTML 문서, 7월 9일 유니클로 이후 차 낮잠 + 귤귤스토어 도두점 반영 협재 예비 맑음 플랜
+- `jeju-trip-2026-07-08_v13_sun_hyeopjae.md`: 최신 원본 정리용 Markdown 문서, 7월 9일 유니클로 이후 차 낮잠 + 귤귤스토어 도두점 반영 협재 예비 맑음 플랜
+- `jeju-trip-2026-07-08_v13_sun_ihoteu.html`: 최신 보기용 HTML 문서, 7월 9일 유니클로 이후 차 낮잠 + 귤귤스토어 도두점 반영 이호테우 우선 맑음 플랜
+- `jeju-trip-2026-07-08_v13_sun_ihoteu.md`: 최신 원본 정리용 Markdown 문서, 7월 9일 유니클로 이후 차 낮잠 + 귤귤스토어 도두점 반영 이호테우 우선 맑음 플랜
+- `jeju-trip-2026-07-08_v12_sun_hyeopjae.html`: 이전 보기용 HTML 문서, 7월 7일 날씨 반영 협재 예비 맑음 플랜
+- `jeju-trip-2026-07-08_v12_sun_hyeopjae.md`: 이전 원본 정리용 Markdown 문서, 7월 7일 날씨 반영 협재 예비 맑음 플랜
+- `jeju-trip-2026-07-08_v12_sun_ihoteu.html`: 이전 보기용 HTML 문서, 7월 7일 날씨 반영 이호테우 우선 맑음 플랜
+- `jeju-trip-2026-07-08_v12_sun_ihoteu.md`: 이전 원본 정리용 Markdown 문서, 7월 7일 날씨 반영 이호테우 우선 맑음 플랜
 - `jeju-trip-2026-07-08_v11_sun_hyeopjae.html`: 이전 보기용 HTML 문서, 첫날 협재 해수욕장 맑음 플랜
 - `jeju-trip-2026-07-08_v11_sun_hyeopjae.md`: 이전 원본 정리용 Markdown 문서, 첫날 협재 해수욕장 맑음 플랜
 - `jeju-trip-2026-07-08_v11_sun_ihoteu.html`: 이전 보기용 HTML 문서, 첫날 이호테우 해수욕장 맑음 플랜
