@@ -1,14 +1,14 @@
 {
   "currency": "KRW",
   "owner": "김용식",
-  "as_of_episode": 20,
-  "as_of_date": "2008-03-18",
+  "as_of_episode": 25,
+  "as_of_date": "2008-03-22",
   "timeline_base_date": "2008-01-01",
   "timeline_counting_rule": "month_index_from_time_leap은 2008년 1월을 0개월차로 보는 달력 기준이다. elapsed_* 값은 실제 날짜 차이를 개월+일로 표시한다.",
   "cash_on_hand": 0,
-  "bank_balance": 2161144741,
-  "hidden_funds": 2161144741,
-  "available_after_committed_purchases": 2161144741,
+  "bank_balance": 2160758741,
+  "hidden_funds": 2160758741,
+  "available_after_committed_purchases": 2160758741,
   "spending_rules": {
     "monthly_tracking_required": true,
     "rule": "원고에서 돈을 쓴 장면은 월별 지출 요약과 transactions에 반영하고, bank_balance와 hidden_funds에서 차감한다.",
@@ -46,11 +46,11 @@
     },
     {
       "month": "2008-03",
-      "episode_range": "005-020",
-      "ordinary_spending": 2490000,
+      "episode_range": "005-025",
+      "ordinary_spending": 2876000,
       "capital_spending": 52000000,
-      "total_spending": 54490000,
-      "notes": "BMW 320i 구매와 등록/보험 초기비, 신학기 의류 쇼핑, 식사/카페/주차비, 일본어 학원 3개월 수강료와 교재비, 3월 초 차량 운행비 예비분, 16-20화의 PC방/학생식당/카페/매점/주차/주유 생활 지출을 반영했다."
+      "total_spending": 54876000,
+      "notes": "BMW 320i 구매와 등록/보험 초기비, 신학기 의류 쇼핑, 식사/카페/주차비, 일본어 학원 3개월 수강료와 교재비, 3월 초 차량 운행비 예비분, 16-25화의 PC방/학생식당/카페/매점/주차/주유/도서관/술자리 귀가 생활 지출을 반영했다."
     }
   ],
   "projected_events": [
@@ -286,6 +286,51 @@
       "type": "relationship_and_vehicle_spending",
       "amount": -103000,
       "description": "수원역 왕복 주유, 주차, 카페 비용과 김초연 귀가 동선 지출",
+      "visibility": "low_profile",
+      "related_event_id": null
+    },
+    {
+      "episode": 21,
+      "date": "2008-03-19",
+      "type": "campus_daily_spending",
+      "amount": -38000,
+      "description": "조별 과제 단톡 초대 이후 학생식당, PC방, 주차비 등 학교 생활 지출",
+      "visibility": "low_profile",
+      "related_event_id": null
+    },
+    {
+      "episode": 22,
+      "date": "2008-03-20",
+      "type": "campus_daily_spending",
+      "amount": -49000,
+      "description": "정다은의 차 부탁을 거절한 날의 학생식당, 음료, 주차비 등 생활 지출",
+      "visibility": "low_profile",
+      "related_event_id": null
+    },
+    {
+      "episode": 23,
+      "date": "2008-03-21",
+      "type": "relationship_and_pc_room_spending",
+      "amount": -71000,
+      "description": "김초연과 PC방 게임, 음료, 식사, 주차비 등 관계 장면 생활 지출",
+      "visibility": "low_profile",
+      "related_event_id": null
+    },
+    {
+      "episode": 24,
+      "date": "2008-03-22",
+      "type": "campus_project_and_pickup_spending",
+      "amount": -132000,
+      "description": "조별 과제 도서관 이동, 식사와 음료, 평택대 근처 술자리 픽업 왕복 주유/주차 지출",
+      "visibility": "visible_as_student_spending",
+      "related_event_id": null
+    },
+    {
+      "episode": 25,
+      "date": "2008-03-22",
+      "type": "relationship_and_vehicle_spending",
+      "amount": -96000,
+      "description": "김초연 수원 귀가 동선의 주유, 주차, 심야 음료와 간식 등 생활 지출",
       "visibility": "low_profile",
       "related_event_id": null
     }
