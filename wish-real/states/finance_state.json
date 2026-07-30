@@ -1,19 +1,19 @@
 {
   "currency": "KRW",
   "owner": "김용식",
-  "as_of_episode": 0,
-  "as_of_date": "2008-01-01",
+  "as_of_episode": 6,
+  "as_of_date": "2008-03-03",
   "timeline_base_date": "2008-01-01",
   "timeline_counting_rule": "month_index_from_time_leap은 2008년 1월을 0개월차로 보는 달력 기준이다. elapsed_* 값은 실제 날짜 차이를 개월+일로 표시한다.",
   "cash_on_hand": 0,
-  "bank_balance": 0,
-  "hidden_funds": 0,
+  "bank_balance": 2215634741,
+  "hidden_funds": 2215634741,
   "assets": [],
   "liabilities": [],
   "projected_events": [
     {
       "event_id": "lotto-267-first-prize",
-      "episode": null,
+      "episode": 4,
       "date": "2008-01-12",
       "timeline": {
         "month_index_from_time_leap": 0,
@@ -21,7 +21,7 @@
         "elapsed_from_previous_finance_event": "0개월 11일"
       },
       "type": "lottery_win",
-      "status": "known_future_event",
+      "status": "claimed",
       "description": "로또 267회 1등 당첨 예정",
       "gross_amount": 3257663300,
       "ticket_cost": 1000,
@@ -122,5 +122,26 @@
       "notes": "정확한 고점 맞히기보다 2,000억 원 평가액 도달 시 욕심을 줄이고 단계적으로 현금화한다."
     }
   ],
-  "transactions": []
+  "transactions": [
+    {
+      "episode": 2,
+      "date": "2008-01-01",
+      "type": "lottery_ticket_purchase",
+      "amount": -1000,
+      "description": "로또 267회 수동 1게임 구매",
+      "visibility": "secret",
+      "related_event_id": "lotto-267-first-prize"
+    },
+    {
+      "episode": 4,
+      "date": "2008-01-14",
+      "type": "lottery_prize_received",
+      "gross_amount": 3257663300,
+      "tax": 1042028559,
+      "amount": 2215634741,
+      "description": "로또 267회 1등 당첨금 세후 수령",
+      "visibility": "secret",
+      "related_event_id": "lotto-267-first-prize"
+    }
+  ]
 }
