@@ -1,15 +1,58 @@
 {
   "currency": "KRW",
   "owner": "김용식",
-  "as_of_episode": 6,
-  "as_of_date": "2008-03-03",
+  "as_of_episode": 15,
+  "as_of_date": "2008-03-11",
   "timeline_base_date": "2008-01-01",
   "timeline_counting_rule": "month_index_from_time_leap은 2008년 1월을 0개월차로 보는 달력 기준이다. elapsed_* 값은 실제 날짜 차이를 개월+일로 표시한다.",
   "cash_on_hand": 0,
-  "bank_balance": 2215634741,
-  "hidden_funds": 2215634741,
-  "assets": [],
+  "bank_balance": 2161432741,
+  "hidden_funds": 2161432741,
+  "available_after_committed_purchases": 2161432741,
+  "spending_rules": {
+    "monthly_tracking_required": true,
+    "rule": "원고에서 돈을 쓴 장면은 월별 지출 요약과 transactions에 반영하고, bank_balance와 hidden_funds에서 차감한다.",
+    "visibility_rule": "20억대 자산을 가진 사실은 가족에게 숨기되, 학교에서는 BMW 3시리즈처럼 매력과 존재감을 만드는 소비를 일부러 보여줄 수 있다.",
+    "overspending_guardrail": "새내기 생활권에서 눈에 띄는 소비는 BMW 3시리즈처럼 서사 압력이 있는 물건으로 제한하고, 반복 사치나 무의미한 과시 소비는 피한다.",
+    "vehicle_rule": "차량은 집 근처에서는 떨어진 곳에 주차해 가족에게 숨기고, 학교에서는 적당히 자랑하며 관계와 평판을 움직이는 소품으로 쓴다."
+  },
+  "assets": [
+    {
+      "asset_id": "bmw-320i-2008",
+      "type": "vehicle",
+      "name": "BMW 320i 3시리즈",
+      "acquired_episode": 11,
+      "acquired_date": "2008-03-06",
+      "purchase_price": 45200000,
+      "visibility": "secret_to_family_visible_at_school",
+      "notes": "수지 집 근처에서는 떨어진 상가 지하주차장에 숨기고, 평택대학교에서는 일부러 보여 주며 허세와 평판의 소품으로 쓴다."
+    }
+  ],
   "liabilities": [],
+  "monthly_spending_summary": [
+    {
+      "month": "2008-01",
+      "episode_range": "001-004",
+      "ordinary_spending": 1000,
+      "capital_spending": 0,
+      "notes": "로또 수동 1게임 구매 외 명시 지출 없음."
+    },
+    {
+      "month": "2008-02",
+      "episode_range": "005 이전 압축 구간",
+      "ordinary_spending": 0,
+      "capital_spending": 0,
+      "notes": "원고상 명시 지출 없음. 일상 교통비와 식비는 아직 자본금 계산에 반영하지 않음."
+    },
+    {
+      "month": "2008-03",
+      "episode_range": "005-015",
+      "ordinary_spending": 2202000,
+      "capital_spending": 52000000,
+      "total_spending": 54202000,
+      "notes": "BMW 320i 구매와 등록/보험 초기비, 신학기 의류 쇼핑, 식사/카페/주차비, 일본어 학원 3개월 수강료와 교재비, 3월 초 차량 운행비 예비분을 반영했다."
+    }
+  ],
   "projected_events": [
     {
       "event_id": "lotto-267-first-prize",
@@ -39,6 +82,31 @@
       "expected_profit_after_ticket": 2215633741,
       "visibility": "secret",
       "notes": "당첨금 수령 시점 전까지 현재 보유 자산에는 반영하지 않는다."
+    },
+    {
+      "event_id": "bmw-320i-commute-car",
+      "episode": 11,
+      "date": "2008-03-06",
+      "timeline": {
+        "month_index_from_time_leap": 2,
+        "elapsed_from_time_leap": "2개월 5일",
+        "elapsed_from_previous_finance_event": "1개월 21일"
+      },
+      "type": "vehicle_purchase",
+      "status": "purchased",
+      "description": "수지 집에서 평택대학교까지 통학하기 위해 BMW 320i 3시리즈를 구매",
+      "estimated_vehicle_price": 45200000,
+      "estimated_registration_insurance_initial_cost": 6800000,
+      "estimated_total_initial_outflow": 52000000,
+      "estimated_recurring_monthly_cost": {
+        "fuel": 450000,
+        "parking": 150000,
+        "insurance_allocated": 250000,
+        "maintenance_reserve": 200000,
+        "total": 1050000
+      },
+      "visibility": "secret_to_family_visible_at_school",
+      "notes": "집에서 떨어진 곳에 주차해 가족에게 숨기고, 학교에서는 일부러 보여 주며 자랑과 관심을 만든다. 김초연의 수원-평택 동선에서는 차가 편의, 설렘, 소문을 동시에 만드는 소품으로 작동한다."
     },
     {
       "event_id": "btc-2009-mining-target",
@@ -142,6 +210,39 @@
       "description": "로또 267회 1등 당첨금 세후 수령",
       "visibility": "secret",
       "related_event_id": "lotto-267-first-prize"
+    },
+    {
+      "episode": 11,
+      "date": "2008-03-06",
+      "type": "vehicle_purchase",
+      "amount": -52000000,
+      "description": "BMW 320i 차량가 45,200,000원과 등록/보험/초기비 6,800,000원",
+      "visibility": "secret_to_family_visible_at_school",
+      "related_event_id": "bmw-320i-commute-car"
+    },
+    {
+      "episode": 12,
+      "date": "2008-03-06",
+      "type": "clothing_and_date_spending",
+      "amount": -1334000,
+      "description": "김초연과 죽전 근처 쇼핑몰에서 신학기 옷 구매 1,286,000원, 식사 28,000원, 카페 14,000원, 주차 6,000원",
+      "visibility": "visible_to_kim_choyeon"
+    },
+    {
+      "episode": 14,
+      "date": "2008-03-10",
+      "type": "japanese_academy_registration",
+      "amount": -722000,
+      "description": "수원 일본어 학원 3개월 수강료 660,000원, 교재비 42,000원, 등록비 20,000원",
+      "visibility": "private"
+    },
+    {
+      "episode": 15,
+      "date": "2008-03-11",
+      "type": "vehicle_running_cost_reserve",
+      "amount": -146000,
+      "description": "3월 초 수지-평택-수원 이동과 학교 통학에 따른 주유/주차 예비분",
+      "visibility": "private"
     }
   ]
 }
