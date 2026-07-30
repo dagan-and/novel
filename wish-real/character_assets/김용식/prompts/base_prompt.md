@@ -1,0 +1,8 @@
+# 김용식 기본 이미지 프롬프트
+
+Korean young man named Kim Yong-sik, age 18 in January 2008, 182 cm impression, balanced athletic build, soft round-to-oval face with cleaner lines, straight black hair with natural volume and light fringe, calm dark eyes, understated lips, clean youthful skin, quiet and observant expression, restrained confidence with faint tiredness behind the eyes.
+
+He should look like a more attractive but still recognizable character version of the real reference photos. Keep him grounded in Korean everyday realism, not idol-like fantasy. Use a polished realistic light-novel illustration style with subtle painterly texture.
+
+For 2008 winter scenes, use simple Korean casual clothing: dark crewneck knit, muted jacket, plain shirt, simple jeans or slacks, no visible brand logos. He may look like a high-school senior before graduation, but his expression sometimes carries the weight of a man with memories from 2026.
+

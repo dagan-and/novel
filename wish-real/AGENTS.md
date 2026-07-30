@@ -2,30 +2,37 @@
 
 ## 프로젝트 개요
 
-- wish-short(단편, 대사 금지, 매화 독립완결)와 reunion-reboot(장편 연재, 대사 허용, 라노벨체) 사이의 새 프로젝트다.
+- 현실감을 바탕으로 한 연속 서사형 라이트노벨 프로젝트다.
 - 대사를 전면 허용하되 문장을 압축해서 쓰고, 화마다 리셋되지 않는 연속 서사를 쓴다.
-- 세계관·인물은 wish-short/reunion-reboot/dual_life와 완전히 다른 새 설정이다. 회귀·타임루프 같은 하이 컨셉은 쓰지 않는다.
+- 세계관·인물·사건은 이 프로젝트 안에서 새로 확정한다.
+- 핵심 전제는 2026년의 김용식이 2008년 1월 1일로 타임리프하는 현실 기반 라이트노벨이다.
 
 ## 사용 원칙
 
 - 에피소드 번호는 정렬용 ID가 아니라 실제 서사 진행 순서다. 이전 화 사건은 다음 화의 확정 과거로 자동 연결된다.
 - 화당 분량은 3,000~5,000자를 기준으로 한다.
-- 대사는 전면 허용한다. 단, 문장은 라노벨풍으로 짧게 압축한다 (`setting/문체규칙.md` 참고).
+- 대사는 전면 허용한다. 단, 문장은 라노벨풍으로 짧게 압축한다 (`setting/라노벨문체규칙.md` 참고).
 - 가변 정보(관계 단계, 최근 변화, 다음 압력, 성인씬 누적 횟수, 인게임 날짜, 현재 화수)는 `states/current_state.json` 한 곳에만 기록한다. `characters/` 파일에는 절대 중복 기록하지 않는다.
+- 돈, 자산, 부채, 수입, 지출, 투자, 복권 당첨금은 `states/finance_state.json`에서만 관리한다.
+- 알고 있는 복권 회차, 번호, 구매 계획, 당첨 결과는 `states/lottery_records.json`에서만 관리한다.
+- 미래 금융 지식, 투자 계획, 현금화 기준, 자산 보관 전략은 `states/future_finance_knowledge.json`에서 관리한다.
 - `characters/` 파일은 고정 정보(외형·성격·배경·말투)만 담당한다.
-- 성인 장면은 `setting/성인장면처리규칙.md`의 경량 페이드 방식을 따른다. wish-short 같은 무거운 컨텍스트 블록은 쓰지 않는다.
+- 성인 장면은 `setting/성인장면처리규칙.md`의 경량 페이드 방식을 따른다.
+- 소설 진행 요청 시 한 화당 삽화 1~2장을 자동 생성하고, `setting/삽화생성규칙.md`에 따라 저장 및 Markdown 삽입까지 처리한다.
+- 주요 캐릭터 이미지 기준은 `character_assets/인물이름/`에서 관리한다. 실제 회차 삽화 결과물인 `images/epNNN/`와 섞지 않는다.
 - 시나리오 작성 요청이 있기 전까지는 `episodes/` 원고를 생성하지 않는다.
 - 세부 작업 순서는 `setting/워크플로우.md`를 따른다.
 
 ## wish-real 핵심 방향
 
-(세계관·주인공·히로인 설정 확정 전. 아래 항목은 별도 브레인스토밍 세션에서 채운다.)
+(세계관·주인공·주요 인물 설정 확정 전. 아래 항목은 별도 브레인스토밍 세션에서 채운다.)
 
 - 중심 감정:
-- 시작 시점:
-- 주인공 상태:
+- 시작 시점: 2008년 1월 1일
+- 주인공 상태: 2026년에서 타임리프한 1989년생 고등학교 졸업 전 남자
 - 기본 생활권:
 - 중심 관계:
+- 현실 압력: 미래 지식, 미성년자에 가까운 사회적 위치, 돈의 은닉과 사용, 가족/학교/친구의 시선
 
 ## 파일 구조
 
@@ -37,7 +44,10 @@ wish-real/
 ├── 연대기.md
 ├── states/
 │   ├── current_state.json
-│   └── recent_topics.json
+│   ├── recent_topics.json
+│   ├── finance_state.json
+│   ├── lottery_records.json
+│   └── future_finance_knowledge.json
 ├── planning/
 │   ├── 시리즈개요.md
 │   ├── 핵심컨셉.md
@@ -46,10 +56,34 @@ wish-real/
 │   └── 캐릭터운영원칙.md
 ├── characters/
 │   └── 캐릭터양식.md
+├── character_assets/
+│   └── 김용식/
+│       ├── profile.md
+│       ├── references/
+│       │   ├── main.png
+│       │   └── originals/
+│       └── prompts/
+│   └── 김초연/
+│       ├── profile.md
+│       ├── references/
+│       │   ├── main.png
+│       │   └── originals/
+│       └── prompts/
+│   └── 사쿠라이_미사키/
+│       ├── profile.md
+│       ├── references/
+│       │   ├── main.png
+│       │   └── originals/
+│       └── prompts/
 ├── setting/
 │   ├── 워크플로우.md
-│   ├── 문체규칙.md
+│   ├── 라노벨문체규칙.md
+│   ├── 개요작성규칙.md
+│   ├── 시나리오작성규칙.md
+│   ├── 삽화생성규칙.md
 │   └── 성인장면처리규칙.md
+├── images/
+│   └── ep001/
 └── episodes/
     └── 001-100/
 ```
@@ -57,28 +91,37 @@ wish-real/
 ## 참조 우선순위
 
 1. `AGENTS.md`
-2. `setting/문체규칙.md`
+2. `setting/라노벨문체규칙.md`
 3. `setting/워크플로우.md`
 4. `states/current_state.json`
-5. `연대기.md`
-6. `planning/핵심컨셉.md`
-7. `planning/주인공설계.md`
-8. `planning/주제와정서.md`
-9. `setting/성인장면처리규칙.md`
-10. `characters/` (신규 히로인 등장 시에만)
+5. `states/finance_state.json`
+6. `states/lottery_records.json`
+7. `states/future_finance_knowledge.json`
+8. `연대기.md`
+9. `planning/핵심컨셉.md`
+10. `planning/주인공설계.md`
+11. `planning/주제와정서.md`
+12. `setting/삽화생성규칙.md`
+13. `setting/성인장면처리규칙.md`
+14. `characters/` (신규 주요 인물 등장 시에만)
 
 ## 신규 세션 시작 시 읽기 순서
 
 1. `AGENTS.md` (현재 파일)
 2. `states/current_state.json` — 현재 화수, 인게임 날짜, 관계 상태
-3. `연대기.md` — 전체 타임라인
+3. `states/finance_state.json` — 돈, 자산, 부채, 수입, 지출
+4. `states/lottery_records.json` — 알고 있는 복권 회차와 구매/당첨 기록
+5. `states/future_finance_knowledge.json` — 미래 금융 지식, 투자 계획, 현금화 기준
+6. `연대기.md` — 전체 타임라인
 
-나머지는 요청 유형에 따라 추가로 읽는다. 화를 이어 쓸 때 `characters/` 파일은 신규 히로인이 처음 등장하는 경우가 아니면 열지 않아도 된다.
+나머지는 요청 유형에 따라 추가로 읽는다. 화를 이어 쓸 때 `characters/` 파일은 신규 주요 인물이 처음 등장하는 경우가 아니면 열지 않아도 된다.
 
 ## 금지 사항
 
-- wish-short, reunion-reboot, dual_life의 사건을 이 프로젝트의 확정 과거로 가져오지 않는다.
+- 다른 프로젝트의 사건, 인물, 관계 구도를 이 프로젝트의 확정 과거로 가져오지 않는다.
 - 가변 정보를 `characters/` 파일에 중복 기록하지 않는다. `states/current_state.json`이 유일한 소스다.
+- 돈과 복권 기록을 `characters/` 파일에 중복 기록하지 않는다.
+- 미래 금융 지식과 투자 계획을 `characters/` 파일에 중복 기록하지 않는다.
 - AI는 노골적인 성적 행위 묘사 본문을 직접 쓰지 않는다 (`setting/성인장면처리규칙.md` 참고).
 - 상담, 회의, 감정 정리만으로 한 화를 끝내지 않는다.
 - 새 인물을 단순 인원 보충용으로 투입하지 않는다.

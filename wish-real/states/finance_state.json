@@ -1,0 +1,126 @@
+{
+  "currency": "KRW",
+  "owner": "김용식",
+  "as_of_episode": 0,
+  "as_of_date": "2008-01-01",
+  "timeline_base_date": "2008-01-01",
+  "timeline_counting_rule": "month_index_from_time_leap은 2008년 1월을 0개월차로 보는 달력 기준이다. elapsed_* 값은 실제 날짜 차이를 개월+일로 표시한다.",
+  "cash_on_hand": 0,
+  "bank_balance": 0,
+  "hidden_funds": 0,
+  "assets": [],
+  "liabilities": [],
+  "projected_events": [
+    {
+      "event_id": "lotto-267-first-prize",
+      "episode": null,
+      "date": "2008-01-12",
+      "timeline": {
+        "month_index_from_time_leap": 0,
+        "elapsed_from_time_leap": "0개월 11일",
+        "elapsed_from_previous_finance_event": "0개월 11일"
+      },
+      "type": "lottery_win",
+      "status": "known_future_event",
+      "description": "로또 267회 1등 당첨 예정",
+      "gross_amount": 3257663300,
+      "ticket_cost": 1000,
+      "taxable_amount": 3257662300,
+      "tax_breakdown": {
+        "first_300m_taxable_amount": 300000000,
+        "first_300m_rate": 0.22,
+        "excess_taxable_amount": 2957662300,
+        "excess_rate": 0.33,
+        "income_tax": 947298690,
+        "local_income_tax": 94729869,
+        "total_tax": 1042028559
+      },
+      "expected_received_amount": 2215634741,
+      "expected_profit_after_ticket": 2215633741,
+      "visibility": "secret",
+      "notes": "당첨금 수령 시점 전까지 현재 보유 자산에는 반영하지 않는다."
+    },
+    {
+      "event_id": "btc-2009-mining-target",
+      "episode": null,
+      "date": "2009-01-09",
+      "timeline": {
+        "month_index_from_time_leap": 12,
+        "elapsed_from_time_leap": "12개월 8일",
+        "elapsed_from_previous_finance_event": "11개월 28일"
+      },
+      "type": "crypto_mining",
+      "status": "known_future_plan",
+      "description": "비트코인 초기 공개 클라이언트 이후 채굴을 시작해 10,000 BTC 확보 목표",
+      "target_btc": 10000,
+      "expected_cash_value_at_acquisition": 0,
+      "visibility": "secret",
+      "notes": "2009년 1월 1일에는 아직 비트코인 네트워크가 시작되지 않았으므로, 공개 클라이언트 확인 후 조용히 채굴한다."
+    },
+    {
+      "event_id": "btc-2013-partial-sale",
+      "episode": null,
+      "date": "2013-11-01",
+      "timeline": {
+        "month_index_from_time_leap": 70,
+        "elapsed_from_time_leap": "70개월 0일",
+        "elapsed_from_previous_finance_event": "57개월 23일"
+      },
+      "type": "crypto_sale",
+      "status": "known_future_plan",
+      "description": "2013년 1차 상승기에 2,000 BTC를 분할 매도",
+      "btc_to_sell": 2000,
+      "target_gross_amount": 1000000000,
+      "average_krw_per_btc": 500000,
+      "remaining_btc_after_event": 8000,
+      "visibility": "low_profile",
+      "notes": "국내 초기 거래소, 해외 거래소, 개인 OTC를 섞어 몇 주에서 몇 달간 나눠 매도한다."
+    },
+    {
+      "event_id": "btc-2017-major-sale",
+      "episode": null,
+      "date": "2017-12-01",
+      "timeline": {
+        "month_index_from_time_leap": 119,
+        "elapsed_from_time_leap": "119개월 0일",
+        "elapsed_from_previous_finance_event": "49개월 0일"
+      },
+      "type": "crypto_sale",
+      "status": "known_future_plan",
+      "description": "2017년 상승기에 4,000 BTC를 약 700억 원에 분할 매도",
+      "btc_to_sell": 4000,
+      "target_gross_amount": 70000000000,
+      "average_krw_per_btc": 17500000,
+      "remaining_btc_after_event": 4000,
+      "allocation_plan": {
+        "nvidia_long_term_investment": 25000000000,
+        "korean_real_estate": 15000000000,
+        "us_diversified_investment": 10000000000,
+        "safe_assets": 15000000000,
+        "free_capital": 5000000000
+      },
+      "visibility": "requires_professional_handling",
+      "notes": "거액 현금화는 은행 자금출처 소명, 거래소 한도, 세무 검토, 법무 검토를 장면 압력으로 사용한다."
+    },
+    {
+      "event_id": "nvidia-exit-target",
+      "episode": null,
+      "date": "2024-01-01",
+      "timeline": {
+        "month_index_from_time_leap": 192,
+        "elapsed_from_time_leap": "192개월 0일",
+        "elapsed_from_previous_finance_event": "73개월 0일"
+      },
+      "type": "stock_exit_rule",
+      "status": "known_future_plan",
+      "description": "2017년 엔비디아 장기투자금이 약 2,000억 원 평가액에 도달하면 현금화",
+      "initial_investment": 25000000000,
+      "target_valuation": 200000000000,
+      "target_multiple": 8.0,
+      "exit_method": "분할 매도",
+      "visibility": "managed",
+      "notes": "정확한 고점 맞히기보다 2,000억 원 평가액 도달 시 욕심을 줄이고 단계적으로 현금화한다."
+    }
+  ],
+  "transactions": []
+}

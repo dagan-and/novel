@@ -1,0 +1,22 @@
+{
+  "owner": "김용식",
+  "known_draws": [
+    {
+      "draw": 267,
+      "draw_date": "2008-01-12",
+      "numbers": [7, 8, 24, 34, 36, 41],
+      "bonus": 1,
+      "first_prize_per_game": 3257663300,
+      "first_prize_winning_games": 3,
+      "ticket_price": 1000,
+      "protagonist_action": "planned_to_buy",
+      "protagonist_winning_games": 1,
+      "tax_assumption": "당첨금에서 복권 구입비 1,000원을 필요경비로 차감한 뒤, 3억 원까지 22%, 초과분 33% 적용",
+      "taxable_amount": 3257662300,
+      "total_tax": 1042028559,
+      "expected_received_amount": 2215634741,
+      "expected_profit_after_ticket": 2215633741,
+      "story_status": "known_future_event"
+    }
+  ]
+}
