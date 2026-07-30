@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>김초연</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #171717;
+      color: #ece5dc;
+      font-family: "Apple SD Gothic Neo", "Noto Sans KR", system-ui, sans-serif;
+      line-height: 1.82;
+      word-break: keep-all;
+    }
+    main {
+      max-width: 840px;
+      min-height: 100vh;
+      margin: 0 auto;
+      padding: 34px 18px 72px;
+      background: #22201f;
+    }
+    .back {
+      display: inline-block;
+      margin-bottom: 24px;
+      color: #d7a36c;
+      font-weight: 800;
+      text-decoration: none;
+    }
+    .header {
+      display: grid;
+      gap: 22px;
+      margin-bottom: 32px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid #473f39;
+    }
+    .portrait {
+      overflow: hidden;
+      border: 1px solid #473f39;
+      border-radius: 8px;
+      background: #171717;
+    }
+    .portrait img {
+      display: block;
+      width: 100%;
+      max-height: 72vh;
+      object-fit: contain;
+      object-position: top;
+      cursor: zoom-in;
+    }
+    .portrait.no-image {
+      min-height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #afa69d;
+      font-size: 2rem;
+    }
+    h1 {
+      margin: 0;
+      color: #d7a36c;
+      font-size: 2.4rem;
+      line-height: 1.25;
+      letter-spacing: 0;
+      text-align: center;
+    }
+    h2 {
+      margin: 2rem 0 0.7rem;
+      padding-bottom: 0.35rem;
+      border-bottom: 1px solid #473f39;
+      color: #d7a36c;
+      font-size: 1.25rem;
+      letter-spacing: 0;
+    }
+    h3 {
+      margin: 1.25rem 0 0.45rem;
+      color: #e1b98d;
+      font-size: 1.08rem;
+      letter-spacing: 0;
+    }
+    p, ul {
+      margin: 0 0 0.85rem;
+      font-size: 1.04rem;
+    }
+    ul { padding-left: 1.3rem; }
+    li { margin: 0.28rem 0; }
+    hr {
+      margin: 1.8rem 0;
+      border: 0;
+      border-top: 1px solid #473f39;
+    }
+    strong { color: #e1b98d; }
+    code {
+      padding: 0.08rem 0.3rem;
+      border-radius: 4px;
+      background: rgba(215, 163, 108, 0.12);
+      color: #e1b98d;
+    }
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 10;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.9);
+      cursor: zoom-out;
+    }
+    #lightbox.open { display: flex; }
+    #lightbox img {
+      max-width: 92vw;
+      max-height: 92vh;
+      border: 1px solid #473f39;
+      border-radius: 8px;
+      object-fit: contain;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back" href="../characters.html">인물 목록</a>
+    <section class="header">
+      <div class="portrait"><img src="../../character_assets/김초연/references/main.png" alt="김초연" onclick="openLightbox(this.src)"></div>
+      <h1>김초연</h1>
+    </section>
+    <section class="profile-body">
+<h2>기본 정보</h2>
+<ul>
+<li>이름: 김초연</li>
+<li>출생연도: 1989년</li>
+<li>국적: 대한민국</li>
+<li>2008년 나이: 김용식과 동갑인 스무 살</li>
+<li>키: 약 164cm</li>
+<li>체형: 슬렌더 체형</li>
+<li>가슴: A컵 정도</li>
+<li>주인공과의 접점: 평택대학교 대학 시절 첫 공식 여자친구.</li>
+<li>교제 시기: 2008년 봄부터 2009년 초 전후.</li>
+<li>만남: 평택대학교 입학 후 수업, 공강, PC방을 함께 다니며 가까워진다.</li>
+<li>집/통학권: 수원 집에서 평택대학교로 통학한다.</li>
+<li>핵심 역할: 김용식의 가장 젊고 미숙하며 충동적인 첫 연애를 상징하는 인물.</li>
+</ul>
+<p>김초연은 김용식에게 처음 사랑을 가르친 완벽한 연인이 아니다. 돈과 자유를 얻은 김용식이 처음으로 누리는 대학생활, 연애, 질투, 욕망, 배신과 상실을 한꺼번에 경험하게 만드는 인물이다.</p>
+<h3>외형</h3>
+<ul>
+<li>체형: 키 164cm의 가늘고 길어 보이는 슬렌더 체형이다. 전체적으로 마른 편이지만 병약하거나 지나치게 앙상하지 않다.</li>
+<li>얼굴: 작고 부드러운 타원형 얼굴이다. 둥근 느낌이 조금 섞여 동안 인상이 남고, 턱선은 날카롭지 않으며 매끄럽다.</li>
+<li>눈: 중간보다 약간 큰 또렷한 눈이다. 둥글고 맑은 인상이며, 자연스러운 쌍꺼풀과 은은한 애교살이 있다. 웃을 때 눈매가 부드럽게 접히고, 화가 나면 눈빛이 금방 날카로워진다.</li>
+<li>코: 크지 않고 단정하다. 콧대가 지나치게 높지 않고 코끝은 둥글고 자연스럽다.</li>
+<li>입술: 작거나 중간 정도의 입이다. 입술선이 깔끔하고 아랫입술이 아주 약간 더 도톰하다. 삐치거나 화가 났을 때 입술을 내밀거나 꽉 다무는 습관이 있다.</li>
+<li>피부와 메이크업: 밝고 깨끗한 피부톤이다. 두꺼운 화장보다 얇은 베이스, 아이라인, 연한 코랄·핑크·로즈 계열 립처럼 가벼운 메이크업이 잘 어울린다.</li>
+<li>헤어: 검은색 또는 짙은 흑갈색의 긴 머리. 가슴 아래까지 내려오는 긴 생머리가 기본이며, 앞머리가 있을 때 동안과 귀여운 분위기가 가장 잘 살아난다.</li>
+<li>대표 헤어스타일: 긴 생머리, 자연스럽게 내려오는 풀뱅 또는 가벼운 시스루 앞머리, 낮은 포니테일, 양갈래 머리, 게임하거나 공부할 때 대충 묶은 머리, 데이트할 때 자연스러운 웨이브.</li>
+<li>분위기: 화려하고 강렬한 미인보다, 작고 맑은 얼굴과 동안 인상이 강한 청순형 미인이다. 가까이서 볼수록 귀엽고 예쁘다고 느껴지는 타입이다.</li>
+</ul>
+<h3>체형 세부</h3>
+<ul>
+<li>어깨가 좁고 부드럽다.</li>
+<li>목선과 쇄골이 가늘게 드러난다.</li>
+<li>팔과 손목이 얇다.</li>
+<li>허리는 자연스럽게 잘록하다.</li>
+<li>골반과 하체도 과장되지 않고 슬림하다.</li>
+<li>과장된 볼륨보다 작은 얼굴, 긴 머리, 가는 팔다리가 어우러진 청순하고 슬림한 인상이 핵심이다.</li>
+</ul>
+<h3>패션</h3>
+<ul>
+<li>평상복: 긴 티셔츠, 얇은 니트, 스키니진, 반바지, 플레어스커트, 단정한 원피스, 후드티, 검은색 또는 흰색 기본 티셔츠, 운동화, 작은 크로스백.</li>
+<li>데이트 복장: 밝은색 블라우스, 단정한 원피스, 니트와 스커트, 자연스러운 웨이브 헤어, 작은 귀걸이나 심플한 액세서리, 낮은 굽의 구두나 플랫슈즈.</li>
+<li>게임이나 PC방: 후드티, 편한 티셔츠, 청바지, 대충 묶은 머리, 거의 하지 않거나 아주 옅은 화장.</li>
+<li>패션 인상: 겉보기에는 조용하고 여성스러운 옷을 입지만, 입을 열면 게임 욕설과 거침없는 말투가 나오는 대비가 매력이다.</li>
+</ul>
+<h3>성격</h3>
+<ul>
+<li>성격 키워드: 직선적, 승부욕, 질투, 적극적인 애정 표현, 강한 자존심, 감정의 즉시 표출, 게임 몰입, 집착과 미련</li>
+<li>감정 표현 방식: 감정과 욕구를 숨기지 않는다. 화가 나면 바로 말하고, 기분이 얼굴과 말투에 금방 드러난다.</li>
+<li>주인공 앞에서의 반응 패턴: 김용식이 다른 여자와 연락하면 바로 따지고, 자신이 기분 나쁘면 참지 않는다. 하지만 크게 화를 낸 뒤에도 다시 가까워지고 싶은 마음이 빨리 올라온다.</li>
+<li>관계 성향: 좋아하는 사람에게 관심과 집착이 많아지고, 사랑받고 있다는 확신을 자주 확인하고 싶어 한다.</li>
+<li>갈등 성향: “헤어져” 같은 말을 충동적으로 할 수 있지만, 실제로는 김용식이 자신을 붙잡고 애정을 보여주길 바라는 경우가 많다.</li>
+<li>대인관계: 친구가 아주 많은 인싸형은 아니지만 친한 사람들과는 편하게 어울린다. 게임 친구가 많고, 친해지면 욕과 농담이 많아진다.</li>
+</ul>
+<h3>게임 성향</h3>
+<ul>
+<li>대표 취미: 온라인게임, PC방, 콘솔게임, 친구들과 파티플레이, 경쟁형 게임, 캐릭터 꾸미기, 게임 아이템, 커뮤니티와 인터넷 문화.</li>
+<li>게임할 때의 태도: 평소보다 말이 훨씬 거칠어진다. 욕설을 자주 쓰지만 사람을 악의적으로 모욕하려는 성격은 아니다. 게임에 몰입하고 흥분하면 말이 강해지는 편이다.</li>
+<li>게임 말투 예시:</li>
+</ul>
+<p>  - “야, 그걸 왜 거기서 죽어?”</p>
+<p>  - “아, 씨. 진짜 답답하네.”</p>
+<p>  - “한 판만 더 해. 이대로는 못 끝내.”</p>
+<p>  - “너 아까부터 왜 이렇게 못해?”</p>
+<p>  - “이겼다. 봤지? 내가 캐리했잖아.”</p>
+<h3>말투</h3>
+<ul>
+<li>기본 말투: 빠르고 직접적이다.</li>
+<li>평소:</li>
+</ul>
+<p>  - “뭐 먹을 건데?”</p>
+<p>  - “나는 그거 싫어.”</p>
+<p>  - “그냥 솔직하게 말하면 되잖아.”</p>
+<p>  - “너 또 혼자 결정했지?”</p>
+<ul>
+<li>게임할 때:</li>
+</ul>
+<p>  - “야, 뒤 봐!”</p>
+<p>  - “아, 씨. 너 때문에 죽었잖아.”</p>
+<p>  - “됐어. 내가 할게.”</p>
+<p>  - “진짜 마지막 한 판이다.”</p>
+<ul>
+<li>장난칠 때:</li>
+</ul>
+<p>  - “왜? 나 보고 싶었어?”</p>
+<p>  - “말은 잘하네.”</p>
+<p>  - “너 나 없으면 심심하지?”</p>
+<p>  - “웃지 마. 아직 안 풀렸어.”</p>
+<ul>
+<li>화가 났을 때:</li>
+</ul>
+<p>  - “내가 바보인 줄 알아?”</p>
+<p>  - “그 여자랑 연락하지 말라고 했잖아.”</p>
+<p>  - “너는 꼭 사람 화나게 말해.”</p>
+<p>  - “됐어. 오늘은 보기 싫어.”</p>
+<p>  - “헤어져. 나도 더는 못 해.”</p>
+<h3>배경</h3>
+<ul>
+<li>소속/생활권: 수원 집, 평택대학교 패션디자인및브랜딩학과, 학교 근처 PC방.</li>
+<li>김용식과의 접점: 김용식이 평택대학교 정보통신학과에 진학한 뒤, 같은 대학 생활권에서 수업, 공강, PC방을 통해 가까워진다.</li>
+<li>현재 관계 상태: 2008년 1월 1일 현재는 아직 만나기 전이다.</li>
+<li>고정 메모: 김용식의 첫 공식 여자친구이지만, 완성된 사랑의 상대가 아니라 20대 김용식의 미숙함과 충동성을 드러내는 첫 연애의 상징이다.</li>
+</ul>
+    </section>
+  </main>
+  <div id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="">
+  </div>
+  <script>
+    function openLightbox(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').classList.add('open');
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+    }
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') closeLightbox();
+    });
+  </script>
+</body>
+</html>

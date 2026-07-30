@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>wish-real 인물</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #171717;
+      color: #ece5dc;
+      font-family: "Apple SD Gothic Neo", "Noto Sans KR", system-ui, sans-serif;
+      word-break: keep-all;
+    }
+    main {
+      max-width: 980px;
+      min-height: 100vh;
+      margin: 0 auto;
+      padding: 28px 16px 56px;
+    }
+    .top-link {
+      display: inline-block;
+      margin-bottom: 18px;
+      color: #d7a36c;
+      font-weight: 800;
+      text-decoration: none;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 12px;
+    }
+    .card {
+      position: relative;
+      display: flex;
+      min-height: 260px;
+      align-items: flex-end;
+      overflow: hidden;
+      border: 1px solid #473f39;
+      border-radius: 8px;
+      background: #22201f;
+      color: #ece5dc;
+      text-decoration: none;
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.24);
+    }
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(23,23,23,0) 30%, rgba(23,23,23,0.9) 100%);
+    }
+    .card img, .no-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      transition: transform 0.2s ease, filter 0.2s ease;
+    }
+    .no-image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #afa69d;
+      font-size: 3rem;
+      background: #22201f;
+    }
+    .card:hover img {
+      transform: scale(1.035);
+      filter: brightness(1.08);
+    }
+    .card-text {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      padding: 16px;
+      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.9);
+    }
+    .card strong {
+      display: block;
+      font-size: 1.16rem;
+      line-height: 1.25;
+    }
+    .card span {
+      display: block;
+      margin-top: 4px;
+      color: #d7a36c;
+      font-size: 0.88rem;
+      font-weight: 800;
+    }
+    @media (max-width: 560px) {
+      main { padding: 16px 10px 44px; }
+      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+      .card { min-height: 210px; }
+      .card-text { padding: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="top-link" href="index.html">목차</a>
+    <div class="grid">
+      <a class="card" href="characters/김용식.html"><img src="../character_assets/김용식/references/main.png" alt="김용식" loading="lazy"><span class="card-text"><strong>김용식</strong><span>인물 설정</span></span></a>
+      <a class="card" href="characters/김용식_어머니.html"><div class="no-image">김</div><span class="card-text"><strong>김용식_어머니</strong><span>김용식의 어머니. 2008년 현재 용인 수지에서 김용식, 남편과 함께 산다.</span></span></a>
+      <a class="card" href="characters/김종규.html"><div class="no-image">김</div><span class="card-text"><strong>김종규</strong><span>고등학교 시절 친구. 김용식, 송기훈과 함께 PC방에서 스타크래프트 3:3을 자주 했다.</span></span></a>
+      <a class="card" href="characters/김초연.html"><img src="../character_assets/김초연/references/main.png" alt="김초연" loading="lazy"><span class="card-text"><strong>김초연</strong><span>김용식의 가장 젊고 미숙하며 충동적인 첫 연애를 상징하는 인물.</span></span></a>
+      <a class="card" href="characters/사쿠라이_미사키.html"><img src="../character_assets/사쿠라이_미사키/references/main.png" alt="사쿠라이_미사키" loading="lazy"><span class="card-text"><strong>사쿠라이_미사키</strong><span>김용식이 긴 방황과 관계의 미숙함을 지나 도달하는 안정된 가정과 정서적 안착을 상징하는 인물.</span></span></a>
+      <a class="card" href="characters/송기훈.html"><div class="no-image">송</div><span class="card-text"><strong>송기훈</strong><span>고등학교 시절 친구. 김용식, 김종규와 함께 PC방에서 스타크래프트 3:3을 자주 했다.</span></span></a>
+      <a class="card" href="characters/정다은.html"><img src="../character_assets/정다은/references/main.png" alt="정다은" loading="lazy"><span class="card-text"><strong>정다은</strong><span>평택대학교 정보통신학과 같은 과 새내기.</span></span></a>
+      <a class="card" href="characters/한서윤.html"><img src="../character_assets/한서윤/references/main.png" alt="한서윤" loading="lazy"><span class="card-text"><strong>한서윤</strong><span>수원 일본어 학원에서 만나는 한 살 연상 여성.</span></span></a>
+    </div>
+  </main>
+</body>
+</html>

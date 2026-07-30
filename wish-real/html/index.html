@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>wish-real 목차</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #171717;
+      color: #ece5dc;
+      font-family: "Apple SD Gothic Neo", "Noto Sans KR", system-ui, sans-serif;
+      word-break: keep-all;
+    }
+    main {
+      max-width: 920px;
+      min-height: 100vh;
+      margin: 0 auto;
+      padding: 34px 18px 72px;
+    }
+    .subtitle {
+      margin: 0 0 22px;
+      color: #afa69d;
+      text-align: center;
+      font-weight: 800;
+    }
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 170px;
+      gap: 18px;
+      align-items: start;
+    }
+    .batch {
+      margin-bottom: 14px;
+      padding: 16px;
+      border: 1px solid #473f39;
+      border-radius: 8px;
+      background: #22201f;
+    }
+    .batch h2 {
+      margin: 0 0 12px;
+      color: #d7a36c;
+      font-size: 1rem;
+      letter-spacing: 0;
+    }
+    .episode-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .episode-links a, .utility a {
+      border: 1px solid #473f39;
+      border-radius: 8px;
+      color: #ece5dc;
+      text-decoration: none;
+      background: rgba(215, 163, 108, 0.08);
+    }
+    .episode-links a {
+      min-width: 42px;
+      padding: 8px 10px;
+      text-align: center;
+      font-weight: 800;
+    }
+    .utility {
+      display: grid;
+      gap: 10px;
+    }
+    .utility a {
+      padding: 12px 14px;
+      color: #d7a36c;
+      font-weight: 900;
+      text-align: center;
+    }
+    a:hover {
+      border-color: #d7a36c;
+      text-decoration: underline;
+    }
+    @media (max-width: 700px) {
+      main { padding: 20px 10px 54px; }
+      .layout { grid-template-columns: 1fr; }
+      .utility { order: -1; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="subtitle">총 20화</p>
+    <div class="layout">
+      <div>
+      <section class="batch"><h2>001-100</h2><div class="episode-links"><a href="001-100/ep.001.html">1</a>
+          <a href="001-100/ep.002.html">2</a>
+          <a href="001-100/ep.003.html">3</a>
+          <a href="001-100/ep.004.html">4</a>
+          <a href="001-100/ep.005.html">5</a>
+          <a href="001-100/ep.006.html">6</a>
+          <a href="001-100/ep.007.html">7</a>
+          <a href="001-100/ep.008.html">8</a>
+          <a href="001-100/ep.009.html">9</a>
+          <a href="001-100/ep.010.html">10</a>
+          <a href="001-100/ep.011.html">11</a>
+          <a href="001-100/ep.012.html">12</a>
+          <a href="001-100/ep.013.html">13</a>
+          <a href="001-100/ep.014.html">14</a>
+          <a href="001-100/ep.015.html">15</a>
+          <a href="001-100/ep.016.html">16</a>
+          <a href="001-100/ep.017.html">17</a>
+          <a href="001-100/ep.018.html">18</a>
+          <a href="001-100/ep.019.html">19</a>
+          <a href="001-100/ep.020.html">20</a></div></section>
+      </div>
+      <nav class="utility" aria-label="바로가기">
+        <a href="characters.html">인물</a>
+      </nav>
+    </div>
+  </main>
+</body>
+</html>

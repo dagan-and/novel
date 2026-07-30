@@ -1,14 +1,14 @@
 {
   "currency": "KRW",
   "owner": "김용식",
-  "as_of_episode": 15,
-  "as_of_date": "2008-03-11",
+  "as_of_episode": 20,
+  "as_of_date": "2008-03-18",
   "timeline_base_date": "2008-01-01",
   "timeline_counting_rule": "month_index_from_time_leap은 2008년 1월을 0개월차로 보는 달력 기준이다. elapsed_* 값은 실제 날짜 차이를 개월+일로 표시한다.",
   "cash_on_hand": 0,
-  "bank_balance": 2161432741,
-  "hidden_funds": 2161432741,
-  "available_after_committed_purchases": 2161432741,
+  "bank_balance": 2161144741,
+  "hidden_funds": 2161144741,
+  "available_after_committed_purchases": 2161144741,
   "spending_rules": {
     "monthly_tracking_required": true,
     "rule": "원고에서 돈을 쓴 장면은 월별 지출 요약과 transactions에 반영하고, bank_balance와 hidden_funds에서 차감한다.",
@@ -46,11 +46,11 @@
     },
     {
       "month": "2008-03",
-      "episode_range": "005-015",
-      "ordinary_spending": 2202000,
+      "episode_range": "005-020",
+      "ordinary_spending": 2490000,
       "capital_spending": 52000000,
-      "total_spending": 54202000,
-      "notes": "BMW 320i 구매와 등록/보험 초기비, 신학기 의류 쇼핑, 식사/카페/주차비, 일본어 학원 3개월 수강료와 교재비, 3월 초 차량 운행비 예비분을 반영했다."
+      "total_spending": 54490000,
+      "notes": "BMW 320i 구매와 등록/보험 초기비, 신학기 의류 쇼핑, 식사/카페/주차비, 일본어 학원 3개월 수강료와 교재비, 3월 초 차량 운행비 예비분, 16-20화의 PC방/학생식당/카페/매점/주차/주유 생활 지출을 반영했다."
     }
   ],
   "projected_events": [
@@ -243,6 +243,51 @@
       "amount": -146000,
       "description": "3월 초 수지-평택-수원 이동과 학교 통학에 따른 주유/주차 예비분",
       "visibility": "private"
+    },
+    {
+      "episode": 16,
+      "date": "2008-03-12",
+      "type": "daily_relationship_spending",
+      "amount": -42000,
+      "description": "PC방 이용료, 음료, 수원 귀가 동선의 주차와 간식 지출",
+      "visibility": "low_profile",
+      "related_event_id": null
+    },
+    {
+      "episode": 17,
+      "date": "2008-03-13",
+      "type": "campus_daily_spending",
+      "amount": -27000,
+      "description": "강의실 창가 자리 이후 매점, 학생식당, 주차비 등 학교 생활 지출",
+      "visibility": "low_profile",
+      "related_event_id": null
+    },
+    {
+      "episode": 18,
+      "date": "2008-03-14",
+      "type": "academy_and_vehicle_spending",
+      "amount": -64000,
+      "description": "수원 일본어 학원 귀가 동선의 주유, 주차, 카페와 간식 지출",
+      "visibility": "low_profile",
+      "related_event_id": null
+    },
+    {
+      "episode": 19,
+      "date": "2008-03-17",
+      "type": "campus_daily_spending",
+      "amount": -52000,
+      "description": "같은 과 동기들과의 식사, 캔커피, 주차비 등 학교 생활 지출",
+      "visibility": "visible_as_student_spending",
+      "related_event_id": null
+    },
+    {
+      "episode": 20,
+      "date": "2008-03-18",
+      "type": "relationship_and_vehicle_spending",
+      "amount": -103000,
+      "description": "수원역 왕복 주유, 주차, 카페 비용과 김초연 귀가 동선 지출",
+      "visibility": "low_profile",
+      "related_event_id": null
     }
   ]
 }

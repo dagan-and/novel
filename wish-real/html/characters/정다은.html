@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>정다은</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #171717;
+      color: #ece5dc;
+      font-family: "Apple SD Gothic Neo", "Noto Sans KR", system-ui, sans-serif;
+      line-height: 1.82;
+      word-break: keep-all;
+    }
+    main {
+      max-width: 840px;
+      min-height: 100vh;
+      margin: 0 auto;
+      padding: 34px 18px 72px;
+      background: #22201f;
+    }
+    .back {
+      display: inline-block;
+      margin-bottom: 24px;
+      color: #d7a36c;
+      font-weight: 800;
+      text-decoration: none;
+    }
+    .header {
+      display: grid;
+      gap: 22px;
+      margin-bottom: 32px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid #473f39;
+    }
+    .portrait {
+      overflow: hidden;
+      border: 1px solid #473f39;
+      border-radius: 8px;
+      background: #171717;
+    }
+    .portrait img {
+      display: block;
+      width: 100%;
+      max-height: 72vh;
+      object-fit: contain;
+      object-position: top;
+      cursor: zoom-in;
+    }
+    .portrait.no-image {
+      min-height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #afa69d;
+      font-size: 2rem;
+    }
+    h1 {
+      margin: 0;
+      color: #d7a36c;
+      font-size: 2.4rem;
+      line-height: 1.25;
+      letter-spacing: 0;
+      text-align: center;
+    }
+    h2 {
+      margin: 2rem 0 0.7rem;
+      padding-bottom: 0.35rem;
+      border-bottom: 1px solid #473f39;
+      color: #d7a36c;
+      font-size: 1.25rem;
+      letter-spacing: 0;
+    }
+    h3 {
+      margin: 1.25rem 0 0.45rem;
+      color: #e1b98d;
+      font-size: 1.08rem;
+      letter-spacing: 0;
+    }
+    p, ul {
+      margin: 0 0 0.85rem;
+      font-size: 1.04rem;
+    }
+    ul { padding-left: 1.3rem; }
+    li { margin: 0.28rem 0; }
+    hr {
+      margin: 1.8rem 0;
+      border: 0;
+      border-top: 1px solid #473f39;
+    }
+    strong { color: #e1b98d; }
+    code {
+      padding: 0.08rem 0.3rem;
+      border-radius: 4px;
+      background: rgba(215, 163, 108, 0.12);
+      color: #e1b98d;
+    }
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 10;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.9);
+      cursor: zoom-out;
+    }
+    #lightbox.open { display: flex; }
+    #lightbox img {
+      max-width: 92vw;
+      max-height: 92vh;
+      border: 1px solid #473f39;
+      border-radius: 8px;
+      object-fit: contain;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back" href="../characters.html">인물 목록</a>
+    <section class="header">
+      <div class="portrait"><img src="../../character_assets/정다은/references/main.png" alt="정다은" onclick="openLightbox(this.src)"></div>
+      <h1>정다은</h1>
+    </section>
+    <section class="profile-body">
+<h2>기본 정보</h2>
+<ul>
+<li>이름: 정다은</li>
+<li>출생연도: 1989년</li>
+<li>국적: 대한민국</li>
+<li>2008년 나이: 김용식과 동갑인 스무 살</li>
+<li>주인공과의 접점: 평택대학교 정보통신학과 같은 과 새내기.</li>
+</ul>
+<h3>외형</h3>
+<ul>
+<li>전체 인상: 첫눈에 강하게 튀는 미인이라기보다, 가까이 앉아 몇 마디 나누면 계속 시선이 가는 타입이다. 얼굴이 밝고 반응이 빨라서 강의실 분위기를 금방 자기 쪽으로 끌어온다.</li>
+<li>키와 체형: 키는 160cm 초반대. 평균보다 약간 마른 체형이지만 지나치게 가냘프지는 않다. 어깨선은 좁고 허리는 얇으며, 다리는 곧고 가벼워 보인다. 걸을 때 보폭이 짧고 빠르다.</li>
+<li>몸선: 전체적으로 둥글기보다 가볍고 산뜻한 선이다. 교복 느낌이 남은 새내기 몸매에 가깝고, 후드집업이나 니트를 입으면 작은 체구가 더 도드라진다. 앉을 때 한쪽 다리를 안쪽으로 살짝 모으는 버릇이 있다.</li>
+<li>얼굴형: 둥근 계란형에 볼살이 조금 남아 있다. 턱선은 날카롭지 않고 부드럽다. 웃으면 볼이 먼저 올라가서 어려 보인다.</li>
+<li>피부: 밝은 편의 자연스러운 피부톤. 두꺼운 화장보다 파우더와 틴트 정도가 어울린다. 2008년 새내기답게 피부 표현이 완벽하기보다는 생기 있는 쪽이다.</li>
+<li>눈: 눈은 크고 둥근 편이며, 눈꼬리가 살짝 내려가 있어 친근한 인상을 준다. 정면으로 볼 때보다 옆에서 눈웃음을 칠 때 매력이 살아난다. 궁금한 것이 생기면 눈을 조금 크게 뜨고 고개를 기울인다.</li>
+<li>눈썹: 진하고 반듯하기보다 자연스럽고 짧게 정리된 눈썹. 표정 변화가 많아 눈썹도 자주 움직인다.</li>
+<li>코: 작고 단정한 코. 콧대가 높다기보다는 얼굴 전체의 밝은 인상에 잘 묻어나는 형태다.</li>
+<li>입: 입술은 작지 않고 말할 때 모양이 또렷하다. 웃을 때 입꼬리가 빨리 올라가고, 장난칠 때는 아랫입술을 살짝 깨물거나 입을 삐죽이는 버릇이 있다.</li>
+<li>헤어: 검은색에 가까운 짙은 갈색 머리. 턱 아래에서 어깨 위로 떨어지는 짧은 단발 또는 단발에 가까운 레이어드컷이다. 앞머리는 눈썹을 살짝 덮거나 옆으로 넘긴다. 머리끝이 안쪽으로 말려 있어 고개를 돌릴 때 가볍게 튄다.</li>
+<li>손과 제스처: 손이 작고 움직임이 많다. 말하면서 볼펜을 돌리거나, 폴더폰 고리를 만지거나, 책상 위를 손끝으로 톡톡 치는 버릇이 있다.</li>
+<li>옷차림: 후드집업, 얇은 니트, 프린트 티셔츠, 청바지, 미니스커트에 레깅스, 편한 운동화가 잘 어울린다. 브랜드를 과시하기보다 색감과 귀여운 소품으로 눈에 띄는 편이다. 가방에는 작은 키링이나 휴대폰 고리가 달려 있다.</li>
+<li>색감: 흰색, 연회색, 하늘색, 연두색, 밝은 노란색처럼 가벼운 색이 잘 맞는다. 어두운 옷을 입어도 머리핀이나 가방 장식으로 밝은 포인트를 둔다.</li>
+<li>분위기: 친근하고 말 붙이기 쉬운 같은 과 새내기 분위기. 가까운 거리에서 장난치면 상대가 쉽게 방심한다. 밝고 가벼운 표정 때문에 선을 넘었는지 아닌지 애매하게 만드는 힘이 있다. 남자 동기들 사이에 섞여도 어색하지 않은 털털함이 있고, 그 털털함 때문에 오히려 시선이 오래 간다.</li>
+</ul>
+<h3>성격</h3>
+<ul>
+<li>성격 키워드: 사교성, 호기심, 눈웃음, 빠른 접근, 가벼운 장난, 털털한 스킨십</li>
+<li>감정 표현 방식: 호감이나 궁금증을 숨기지 않고 먼저 말을 건다.</li>
+<li>주인공 앞에서의 반응 패턴: 김용식의 차와 옷, 묘하게 여유 있는 태도에 흥미를 보인다. 부담스럽게 밀어붙이기보다 가벼운 부탁으로 거리를 좁힌다.</li>
+<li>말투: 반말 전환이 빠르고 문장이 짧다. 놀릴 때는 끝을 살짝 올려 말한다. &quot;진짜?&quot;, &quot;뭐야, 너 좀 이상하다?&quot;, &quot;나도 태워 주면 안 돼?&quot;처럼 가벼운 말로 상대 반응을 본다.</li>
+<li>장난 방식: 대놓고 유혹하기보다 별것 아닌 부탁, 옆자리 앉기, 노트 빌리기, 매점 같이 가기처럼 빠져나갈 구멍이 있는 행동을 자주 한다. 거절당해도 민망해하지 않고 웃으며 넘길 수 있다.</li>
+<li>스킨십: 남녀를 크게 가리지 않고 손목을 잡아 끌거나, 팔을 툭 치거나, 어깨에 팔을 걸거나, 뒤에서 가볍게 등을 미는 행동을 서슴지 않는다. 본인은 친한 동기끼리의 장난이라고 생각하지만, 받는 쪽은 괜히 의식하게 되는 거리감이다.</li>
+<li>남자 동기들과의 거리: 여러 남자 동기와도 금방 친해진다. 과제 얘기를 하다 손등을 톡 치고, 웃으면서 어깨동무를 하고, 매점 갈 사람을 손목 잡고 끌고 가는 식이다. 그래서 특정 남자에게만 노골적으로 들이대는 느낌은 적지만, 주변 여자들이 보기에는 충분히 거슬릴 수 있다.</li>
+<li>거리감: 사람과 빨리 친해지는 편이라 물리적 거리도 자연스럽게 가깝다. 다만 진심을 바로 꺼내지는 않고, 장난처럼 던진 말과 가벼운 접촉에 상대가 어떻게 반응하는지 먼저 본다.</li>
+<li>약점: 가벼워 보이는 인상 때문에 진지한 감정을 장난으로 오해받기 쉽다. 자신도 분위기를 망치기 싫어 진심을 장난 뒤에 숨기는 버릇이 있다.</li>
+<li>오해 유발 방식: 정다은이 보기에는 자연스러운 친근함이지만, 연애 감정이 걸린 사람에게는 충분히 자극적이다. 특히 김초연 입장에서는 정다은이 김용식에게만 그러는지, 원래 모두에게 그러는지 구분하기 어려워 더 신경 쓰이게 된다.</li>
+<li>장면 기능: 같은 과 생활권 안에서 김용식에게 반복적으로 말을 걸 수 있는 인물이다. 김초연과 별개로 강의실, 학생식당, 조별 과제, 주차장, 매점 동선에서 계속 마주치며 김용식의 애매한 친절과 학교 평판을 흔든다. 김초연과 관계가 진전된 뒤에도 같은 과 여자 동기로 계속 남아, 장난과 스킨십으로 관계의 느슨한 압력을 만든다.</li>
+</ul>
+<h3>배경</h3>
+<ul>
+<li>소속/생활권: 평택대학교 정보통신학과, 학과 강의실, 학생식당, 학교 근처 편의점.</li>
+<li>현재 관계 상태: 2008년 3월 기준 같은 과 새내기로 처음 말을 걸 수 있는 초기 접점이다.</li>
+</ul>
+    </section>
+  </main>
+  <div id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="">
+  </div>
+  <script>
+    function openLightbox(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').classList.add('open');
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+    }
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') closeLightbox();
+    });
+  </script>
+</body>
+</html>
