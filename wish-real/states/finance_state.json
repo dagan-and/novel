@@ -1,14 +1,14 @@
 {
   "currency": "KRW",
   "owner": "김용식",
-  "as_of_episode": 90,
-  "as_of_date": "2008-09-23",
+  "as_of_episode": 100,
+  "as_of_date": "2008-10-07",
   "timeline_base_date": "2008-01-01",
   "timeline_counting_rule": "month_index_from_start은 2008년 1월을 0개월차로 보는 달력 기준이다. elapsed_* 값은 실제 날짜 차이를 개월+일로 표시한다.",
   "cash_on_hand": 0,
-  "bank_balance": 2144400741,
-  "hidden_funds": 2144400741,
-  "available_after_committed_purchases": 2144400741,
+  "bank_balance": 2144375741,
+  "hidden_funds": 2144375741,
+  "available_after_committed_purchases": 2144375741,
   "spending_rules": {
     "monthly_tracking_required": true,
     "rule": "원고에서 돈을 쓴 장면은 월별 지출 요약과 transactions에 반영하고, bank_balance와 hidden_funds에서 차감한다.",
@@ -199,6 +199,14 @@
       "capital_spending": 0,
       "total_spending": 14000,
       "notes": "분식집 라볶이 데이트 등 평범한 하루의 소액 생활 지출을 반영했다."
+    },
+    {
+      "month": "2008-09",
+      "episode_range": "091-095",
+      "ordinary_spending": 25000,
+      "capital_spending": 0,
+      "total_spending": 25000,
+      "notes": "학원 휴강 뒤 감시가 촘촘해지는 구간의 캔커피, 김밥집 식사, 수원역 카페 공부, 도서관 앞 포장마차 어묵 등 소액 생활 지출을 반영했다. 정다은이 용식의 답답함을 알아채고 다시 접근하는 흔적으로 남는다."
     }
   ],
   "projected_events": [
@@ -349,7 +357,7 @@
       "description": "2017년 엔비디아 장기투자금이 약 2,000억 원 평가액에 도달하면 현금화",
       "initial_investment": 25000000000,
       "target_valuation": 200000000000,
-      "target_multiple": 8.0,
+      "target_multiple": 8,
       "exit_method": "분할 매도",
       "visibility": "managed",
       "notes": "정확한 고점 맞히기보다 2,000억 원 평가액 도달 시 욕심을 줄이고 단계적으로 현금화한다."
@@ -1018,6 +1026,42 @@
       "type": "relationship_date_spending",
       "amount": -14000,
       "description": "분식집 라볶이 데이트 등 평범한 하루의 소액 생활 지출.",
+      "visibility": "visible_to_kim_choyeon",
+      "related_event_id": null
+    },
+    {
+      "episode": 91,
+      "date": "2008-09-24",
+      "type": "campus_snack_spending",
+      "amount": -1000,
+      "description": "매점 앞 자판기 캔커피. 초연의 답장 확인과 정다은의 첫 관찰이 겹친 날의 소액 지출.",
+      "visibility": "ordinary",
+      "related_event_id": null
+    },
+    {
+      "episode": 93,
+      "date": "2008-09-25",
+      "type": "relationship_meal_spending",
+      "amount": -12000,
+      "description": "김초연을 작업실 앞에서 데려온 뒤 학교 근처 김밥집에서 라면과 김밥을 먹은 저녁 지출.",
+      "visibility": "visible_to_kim_choyeon",
+      "related_event_id": null
+    },
+    {
+      "episode": 94,
+      "date": "2008-09-27",
+      "type": "cafe_study_spending",
+      "amount": -8000,
+      "description": "수원역 근처 카페 공부 중 아메리카노 등. 정다은과 우연히 같은 카페에 앉아 9월 초 입맞춤 이야기가 다시 나온 자리다.",
+      "visibility": "secret_from_kim_choyeon",
+      "related_event_id": null
+    },
+    {
+      "episode": 95,
+      "date": "2008-09-29",
+      "type": "relationship_snack_spending",
+      "amount": -4000,
+      "description": "도서관 앞 포장마차 어묵과 국물. 초연이 학원 보강일을 다이어리에 표시하며 확인 행동을 굳힌 장면이다.",
       "visibility": "visible_to_kim_choyeon",
       "related_event_id": null
     }
