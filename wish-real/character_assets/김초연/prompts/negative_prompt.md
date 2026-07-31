@@ -4,4 +4,4 @@ Avoid westernized features, repeating the same outfit as the reference image, fi
 
 Avoid plain or unattractive face, unflattering facial proportions, tired dull eyes, harsh jaw, awkward smile, swollen face, masculine face, old-looking face, bad candid photo expression.
 
-Do not make her look unrelated to the provided AI reference images. She should remain a realistic Korean university student with a cute, clear, slender, long-haired look, and she must still read as a pretty first-love heroine.
+Do not make her look unrelated to `character_assets/김초연/references/main.png`. Do not change her into a different actress from episode to episode. She should remain a realistic Korean university student with a cute, clear, slender, long-haired look, and she must still read as a pretty first-love heroine in a photorealistic drama still.

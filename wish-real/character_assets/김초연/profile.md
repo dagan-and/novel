@@ -7,7 +7,7 @@
 
 ## 기준 이미지
 
-- `references/main.png`: 삽화 생성 시 우선 참고하는 김초연 기준 이미지. 사용자가 AI로 만든 이미지를 그대로 사용한다.
+- `references/main.png`: 삽화 생성 시 우선 참고하는 김초연 기준 이미지. 사용자가 AI로 만든 이미지를 그대로 사용하며, 회차 삽화 생성 호출에서는 반드시 `referenced_image_paths`에 포함한다.
 - `references/originals/cafe-street.png`: 카페 앞 거리, 흰 니트와 스커트 분위기.
 - `references/originals/cafe-smile.png`: 카페 실내, 김초연의 대표 얼굴과 미소 기준.
 - `references/originals/winter-vsign.png`: 겨울 패딩, 장난스러운 셀카 표정.
