@@ -1,14 +1,14 @@
 {
   "currency": "KRW",
   "owner": "김용식",
-  "as_of_episode": 50,
-  "as_of_date": "2008-05-09",
+  "as_of_episode": 65,
+  "as_of_date": "2008-06-19",
   "timeline_base_date": "2008-01-01",
   "timeline_counting_rule": "month_index_from_start은 2008년 1월을 0개월차로 보는 달력 기준이다. elapsed_* 값은 실제 날짜 차이를 개월+일로 표시한다.",
   "cash_on_hand": 0,
-  "bank_balance": 2153560741,
-  "hidden_funds": 2153560741,
-  "available_after_committed_purchases": 2153560741,
+  "bank_balance": 2146389741,
+  "hidden_funds": 2146389741,
+  "available_after_committed_purchases": 2146389741,
   "spending_rules": {
     "monthly_tracking_required": true,
     "rule": "원고에서 돈을 쓴 장면은 월별 지출 요약과 transactions에 반영하고, bank_balance와 hidden_funds에서 차감한다.",
@@ -79,6 +79,30 @@
       "capital_spending": 0,
       "total_spending": 53000,
       "notes": "수원역 심야 이동 주차비, 일요일 카페 데이트, 조별과제 스터디룸 매점 간식, 학원 왕복 주유/주차 등 소액 생활 지출을 반영했다. 금액은 작지만 한서윤·정다은·김초연 세 관계가 동시에 흔들리는 구간의 배경 지출이다."
+    },
+    {
+      "month": "2008-05",
+      "episode_range": "051-055",
+      "ordinary_spending": 1587000,
+      "capital_spending": 0,
+      "total_spending": 1587000,
+      "notes": "일요일 떡볶이 데이트, 분당 백화점 진주 귀걸이(한서윤 선물), 수원 술집·모텔 지출, 토요일 카페 데이트를 반영했다. 귀걸이와 모텔 지출은 한서윤과의 비밀 관계가 재점화된 흔적이며, 초연에게는 완전히 숨겨진 상태다."
+    },
+    {
+      "month": "2008-05_06",
+      "episode_range": "056-060",
+      "ordinary_spending": 46000,
+      "capital_spending": 0,
+      "total_spending": 46000,
+      "notes": "일월저수지 데이트, 여권 사진 촬영비, 한서윤과 일본 동행 일정을 조율한 식사비를 반영했다. 어학연수 발설과 한서윤의 비밀 동행 결정이 이 구간에서 확정됐다."
+    },
+    {
+      "month": "2008-06",
+      "episode_range": "061-065",
+      "ordinary_spending": 338000,
+      "capital_spending": 5200000,
+      "total_spending": 5538000,
+      "notes": "에버랜드 데이트, 어학원 2개월 수강료·기숙사비 일괄 결제, 공항버스, 도쿄 현지 생활비(라멘·이자카야·기념품·편의점, 엔화 환산)를 반영했다. 항공권과 한서윤의 숙박비는 한서윤 본인이 전액 부담해 이 파일에는 반영하지 않는다."
     }
   ],
   "projected_events": [
@@ -135,6 +159,23 @@
       },
       "visibility": "secret_to_family_visible_at_school",
       "notes": "집에서 떨어진 곳에 주차해 가족에게 숨기고, 학교에서는 일부러 보여 주며 자랑과 관심을 만든다. 김초연의 수원-평택 동선에서는 차가 편의, 설렘, 소문을 동시에 만드는 소품으로 작동한다."
+    },
+    {
+      "event_id": "japan-language-program-2008",
+      "episode": 62,
+      "date": "2008-06-14",
+      "timeline": {
+        "month_index_from_start": 5,
+        "elapsed_from_start": "5개월 13일",
+        "elapsed_from_previous_finance_event": "3개월 8일"
+      },
+      "type": "study_abroad",
+      "status": "in_progress",
+      "description": "6월 15일부터 8월 중순까지 두 달간 도쿄 인근 어학원 단기 연수",
+      "program_cost": 5200000,
+      "duration": "2개월",
+      "visibility": "visible_to_family",
+      "notes": "가족에게는 알바비로 마련했다고 둘러댔다. 실제로는 숨겨 둔 자산에서 지출했다."
     },
     {
       "event_id": "btc-2009-mining-target",
@@ -576,6 +617,114 @@
       "amount": -5000,
       "description": "수원 일본어 학원 왕복 주유와 주차. 김초연이 처음으로 동행한 날의 생활 지출이다.",
       "visibility": "visible_to_kim_choyeon",
+      "related_event_id": null
+    },
+    {
+      "episode": 52,
+      "date": "2008-05-11",
+      "type": "relationship_date_spending",
+      "amount": -19000,
+      "description": "수원역 떡볶이집 식사와 편의점 아이스크림 등 일요일 데이트 지출",
+      "visibility": "visible_to_kim_choyeon",
+      "related_event_id": null
+    },
+    {
+      "episode": 54,
+      "date": "2008-05-16",
+      "type": "secret_relationship_gift_and_spending",
+      "amount": -1555000,
+      "description": "분당 백화점 진주 귀걸이 1,380,000원, 수원 술집 계산 95,000원, 모텔 숙박비 75,000원, 아침 생수 5,000원. 한서윤과의 비밀 관계가 재점화된 지출이다.",
+      "visibility": "secret_from_kim_choyeon",
+      "related_event_id": null
+    },
+    {
+      "episode": 55,
+      "date": "2008-05-17",
+      "type": "relationship_date_spending",
+      "amount": -13000,
+      "description": "수원 카페에서 김초연과 나눈 토요일 데이트 음료값",
+      "visibility": "visible_to_kim_choyeon",
+      "related_event_id": null
+    },
+    {
+      "episode": 57,
+      "date": "2008-05-24",
+      "type": "relationship_date_spending",
+      "amount": -18000,
+      "description": "일월저수지 데이트 캔음료와 왕복 주유비. 어학연수 소식을 처음 알린 날의 지출이다.",
+      "visibility": "visible_to_kim_choyeon",
+      "related_event_id": null
+    },
+    {
+      "episode": 59,
+      "date": "2008-05-28",
+      "type": "study_abroad_prep_spending",
+      "amount": -15000,
+      "description": "어학연수 서류용 여권 사진 촬영비",
+      "visibility": "visible_to_family",
+      "related_event_id": null
+    },
+    {
+      "episode": 60,
+      "date": "2008-06-01",
+      "type": "secret_relationship_spending",
+      "amount": -13000,
+      "description": "한서윤과 일본 동행 일정을 조율한 패스트푸드점 식사비",
+      "visibility": "secret_from_kim_choyeon",
+      "related_event_id": null
+    },
+    {
+      "episode": 61,
+      "date": "2008-06-07",
+      "type": "relationship_date_spending",
+      "amount": -130000,
+      "description": "에버랜드 자유이용권 2인, 간식과 사진, 저녁 삼겹살 등 출국 전 데이트 지출",
+      "visibility": "visible_to_kim_choyeon",
+      "related_event_id": null
+    },
+    {
+      "episode": 62,
+      "date": "2008-06-14",
+      "type": "study_abroad_program_payment",
+      "amount": -5200000,
+      "description": "도쿄 인근 어학원 2개월 수강료와 기숙사비 일괄 결제",
+      "visibility": "visible_to_family",
+      "related_event_id": "japan-language-program-2008"
+    },
+    {
+      "episode": 62,
+      "date": "2008-06-15",
+      "type": "airport_transport_spending",
+      "amount": -30000,
+      "description": "인천공항 리무진 버스 2인 왕복 비용",
+      "visibility": "visible_to_kim_choyeon",
+      "related_event_id": null
+    },
+    {
+      "episode": 63,
+      "date": "2008-06-15",
+      "type": "japan_daily_spending",
+      "amount": -20000,
+      "description": "도쿄 라멘집 식사와 편의점 캔맥주 등 첫날 생활 지출 (엔화 환산)",
+      "visibility": "secret_from_kim_choyeon",
+      "related_event_id": null
+    },
+    {
+      "episode": 64,
+      "date": "2008-06-16",
+      "type": "japan_travel_spending",
+      "amount": -150000,
+      "description": "아사쿠사·스미다강 관광 중 식사, 이자카야, 기념품 등 3일간 지출 (엔화 환산)",
+      "visibility": "secret_from_kim_choyeon",
+      "related_event_id": null
+    },
+    {
+      "episode": 65,
+      "date": "2008-06-19",
+      "type": "daily_living_spending",
+      "amount": -8000,
+      "description": "학원 근처 편의점 도시락 등 혼자 남은 뒤의 생활 지출 (엔화 환산)",
+      "visibility": "low_profile",
       "related_event_id": null
     }
   ]
