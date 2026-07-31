@@ -2,5 +2,6 @@
 
 Avoid westernized features, sharp mature model face, heavy glamour makeup, oversized anime eyes, exaggerated body curves, large bust, luxury idol styling, fantasy costume, visible brand logos, text, watermark, explicit nudity, sexualized framing, childlike body proportions.
 
-Do not make her look unrelated to the provided AI reference images. She should remain a realistic Korean university student with a cute, clear, slender, long-haired look.
+Avoid plain or unattractive face, unflattering facial proportions, tired dull eyes, harsh jaw, awkward smile, swollen face, masculine face, old-looking face, bad candid photo expression.
 
+Do not make her look unrelated to the provided AI reference images. She should remain a realistic Korean university student with a cute, clear, slender, long-haired look, and she must still read as a pretty first-love heroine.
