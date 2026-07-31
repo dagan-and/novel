@@ -1,14 +1,14 @@
 {
   "currency": "KRW",
   "owner": "김용식",
-  "as_of_episode": 80,
-  "as_of_date": "2008-08-17",
+  "as_of_episode": 90,
+  "as_of_date": "2008-09-23",
   "timeline_base_date": "2008-01-01",
   "timeline_counting_rule": "month_index_from_start은 2008년 1월을 0개월차로 보는 달력 기준이다. elapsed_* 값은 실제 날짜 차이를 개월+일로 표시한다.",
   "cash_on_hand": 0,
-  "bank_balance": 2144758741,
-  "hidden_funds": 2144758741,
-  "available_after_committed_purchases": 2144758741,
+  "bank_balance": 2144400741,
+  "hidden_funds": 2144400741,
+  "available_after_committed_purchases": 2144400741,
   "spending_rules": {
     "monthly_tracking_required": true,
     "rule": "원고에서 돈을 쓴 장면은 월별 지출 요약과 transactions에 반영하고, bank_balance와 hidden_funds에서 차감한다.",
@@ -143,6 +143,62 @@
       "capital_spending": 0,
       "total_spending": 662000,
       "notes": "귀국 첫날 동네 삼겹살집 회식, 수원역 지하상가 원피스·은발찌 선물, 서해안 당일 나들이와 펜션 1박을 반영했다. 두 달 공백을 채우는 김초연과의 밀린 데이트 지출이다."
+    },
+    {
+      "month": "2008-08",
+      "episode_range": "081",
+      "ordinary_spending": 8000,
+      "capital_spending": 0,
+      "total_spending": 8000,
+      "notes": "펜션에서 복귀하는 길 휴게소 호두과자 등 소액 지출을 반영했다."
+    },
+    {
+      "month": "2008-08",
+      "episode_range": "082-083",
+      "ordinary_spending": 52000,
+      "capital_spending": 0,
+      "total_spending": 52000,
+      "notes": "일본어 학원 복귀 후 한서윤과의 술자리 계산과 편의점 생수를 반영했다. 한서윤이 대담해진 흐름과 함께 다시 시작된 비밀 지출이다."
+    },
+    {
+      "month": "2008-08_09",
+      "episode_range": "084",
+      "ordinary_spending": 128000,
+      "capital_spending": 0,
+      "total_spending": 128000,
+      "notes": "죽전 문구점 폴라로이드 카메라와 필름, 분식집 데이트를 반영했다. 개강 전 김초연과의 다정한 지출이다."
+    },
+    {
+      "month": "2008-09",
+      "episode_range": "085",
+      "ordinary_spending": 68000,
+      "capital_spending": 0,
+      "total_spending": 68000,
+      "notes": "개강 후 정다은과의 조별과제 뒤 저녁 삼겹살·소주 계산을 반영했다. 취중 입맞춤이 있었던 날의 지출이다."
+    },
+    {
+      "month": "2008-09",
+      "episode_range": "087",
+      "ordinary_spending": 42000,
+      "capital_spending": 0,
+      "total_spending": 42000,
+      "notes": "수목원 나들이 - 입장료, 카페 아이스티, 포장마차 어묵과 꼬치를 반영했다. 김초연과의 평온한 주말 데이트 지출이다."
+    },
+    {
+      "month": "2008-09",
+      "episode_range": "089",
+      "ordinary_spending": 46000,
+      "capital_spending": 0,
+      "total_spending": 46000,
+      "notes": "일본어 학원 뒤 한서윤과의 이자카야풍 술집 계산을 반영했다. 그녀가 더 대담해진 흐름과 함께 이어진 비밀 지출이다."
+    },
+    {
+      "month": "2008-09",
+      "episode_range": "090",
+      "ordinary_spending": 14000,
+      "capital_spending": 0,
+      "total_spending": 14000,
+      "notes": "분식집 라볶이 데이트 등 평범한 하루의 소액 생활 지출을 반영했다."
     }
   ],
   "projected_events": [
@@ -899,6 +955,69 @@
       "type": "reunion_overnight_trip_spending",
       "amount": -280000,
       "description": "서해안 당일 나들이 겸 펜션 1박 - 팥빙수, 저녁 회와 매운탕, 숙박비. 두 달 공백을 채우는 외박 여행이다.",
+      "visibility": "visible_to_kim_choyeon",
+      "related_event_id": null
+    },
+    {
+      "episode": 81,
+      "date": "2008-08-17",
+      "type": "travel_snack_spending",
+      "amount": -8000,
+      "description": "서해안 펜션에서 복귀하는 길 휴게소 호두과자 등 소액 간식 지출",
+      "visibility": "visible_to_kim_choyeon",
+      "related_event_id": null
+    },
+    {
+      "episode": 83,
+      "date": "2008-08-21",
+      "type": "secret_relationship_spending",
+      "amount": -52000,
+      "description": "일본어 학원 복귀 후 한서윤과의 술집 계산과 편의점 생수. 한서윤이 밖에서도 대담해진 흐름과 함께 다시 시작된 비밀 지출이다.",
+      "visibility": "secret_from_kim_choyeon",
+      "related_event_id": null
+    },
+    {
+      "episode": 84,
+      "date": "2008-08-31",
+      "type": "relationship_date_and_supplies_spending",
+      "amount": -128000,
+      "description": "죽전 문구점 폴라로이드 카메라와 필름 구매, 분식집 떡볶이·김밥. 개강 전 김초연과의 다정한 데이트 지출이다.",
+      "visibility": "visible_to_kim_choyeon",
+      "related_event_id": null
+    },
+    {
+      "episode": 85,
+      "date": "2008-09-04",
+      "type": "campus_dinner_spending",
+      "amount": -68000,
+      "description": "조별과제 뒤 정다은과의 삼겹살·소주 저녁 계산. 취중 입맞춤이 있었던 날의 생활 지출이다.",
+      "visibility": "secret_from_kim_choyeon",
+      "related_event_id": null
+    },
+    {
+      "episode": 87,
+      "date": "2008-09-13",
+      "type": "relationship_date_spending",
+      "amount": -42000,
+      "description": "수목원 나들이 입장료, 카페 아이스티, 포장마차 어묵과 꼬치. 김초연과의 평온한 주말 데이트 지출이다.",
+      "visibility": "visible_to_kim_choyeon",
+      "related_event_id": null
+    },
+    {
+      "episode": 89,
+      "date": "2008-09-18",
+      "type": "secret_relationship_spending",
+      "amount": -46000,
+      "description": "일본어 학원 뒤 한서윤과의 이자카야풍 술집 계산. 그녀가 더 대담해진 흐름과 함께 이어진 비밀 지출이다.",
+      "visibility": "secret_from_kim_choyeon",
+      "related_event_id": null
+    },
+    {
+      "episode": 90,
+      "date": "2008-09-23",
+      "type": "relationship_date_spending",
+      "amount": -14000,
+      "description": "분식집 라볶이 데이트 등 평범한 하루의 소액 생활 지출.",
       "visibility": "visible_to_kim_choyeon",
       "related_event_id": null
     }
