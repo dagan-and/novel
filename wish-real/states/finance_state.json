@@ -1,14 +1,14 @@
 {
   "currency": "KRW",
   "owner": "김용식",
-  "as_of_episode": 35,
-  "as_of_date": "2008-04-13",
+  "as_of_episode": 40,
+  "as_of_date": "2008-04-18",
   "timeline_base_date": "2008-01-01",
   "timeline_counting_rule": "month_index_from_start은 2008년 1월을 0개월차로 보는 달력 기준이다. elapsed_* 값은 실제 날짜 차이를 개월+일로 표시한다.",
   "cash_on_hand": 0,
-  "bank_balance": 2158805741,
-  "hidden_funds": 2158805741,
-  "available_after_committed_purchases": 2158805741,
+  "bank_balance": 2158283741,
+  "hidden_funds": 2158283741,
+  "available_after_committed_purchases": 2158283741,
   "spending_rules": {
     "monthly_tracking_required": true,
     "rule": "원고에서 돈을 쓴 장면은 월별 지출 요약과 transactions에 반영하고, bank_balance와 hidden_funds에서 차감한다.",
@@ -58,11 +58,11 @@
     },
     {
       "month": "2008-04",
-      "episode_range": "032-035",
-      "ordinary_spending": 1298000,
+      "episode_range": "032-040",
+      "ordinary_spending": 1820000,
       "capital_spending": 0,
-      "total_spending": 1298000,
-      "notes": "4월 초 벚꽃 데이트와 학교 생활 지출, 김초연에게 주려다 보류한 목걸이, 일본어 학원 왕복 동선, 수원 주말 데이트와 숙박 지출을 반영했다. 목걸이와 숙박비는 관계 진도와 발각 압력을 만드는 흔적으로 남는다."
+      "total_spending": 1820000,
+      "notes": "4월 초 벚꽃 데이트와 학교 생활 지출, 김초연에게 주려다 보류한 목걸이, 일본어 학원 왕복 동선, 수원 주말 데이트와 숙박 지출에 더해 36~40화의 편의점 아침, 조별과제 제본/복사, 학원 왕복 주유와 주차, 조별과제 뒤풀이 계산, 연락 확인 위기 중 생활 지출을 반영했다. 목걸이와 숙박비, 뒤풀이 계산과 폰 기록은 관계 진도와 발각 압력을 만드는 흔적으로 남는다."
     }
   ],
   "projected_events": [
@@ -434,6 +434,51 @@
       "amount": -348000,
       "description": "김초연과 수원역 영화, 스티커사진, 지하상가 데이트, 분식, 숙박과 다음 날 아침 이동 지출. 공식 연인으로 첫 깊은 밤을 보낸 관계 전환점이 되었다.",
       "visibility": "visible_to_kim_choyeon",
+      "related_event_id": null
+    },
+    {
+      "episode": 36,
+      "date": "2008-04-13",
+      "type": "official_relationship_morning_spending",
+      "amount": -64000,
+      "description": "김초연과 첫 깊은 밤 다음 날 체크아웃 이후 편의점 아침, 주차, 수원 귀가 동선의 주유와 간식 지출. 한서윤 전화 위기의 직후 생활 흔적으로 남았다.",
+      "visibility": "visible_to_kim_choyeon",
+      "related_event_id": null
+    },
+    {
+      "episode": 37,
+      "date": "2008-04-14",
+      "type": "campus_project_printing_spending",
+      "amount": -89000,
+      "description": "조별과제 발표 자료 제본/복사, 캔커피, 학생식당, 주차비 등 학교 생활 지출. 정다은이 한서윤 문자를 보게 되는 장면의 배경 지출이다.",
+      "visibility": "visible_as_student_spending",
+      "related_event_id": null
+    },
+    {
+      "episode": 38,
+      "date": "2008-04-15",
+      "type": "academy_overlap_spending",
+      "amount": -72000,
+      "description": "수원 일본어 학원 왕복 주유와 주차, 김초연이 가져온 코코아와 귀가 동선의 생활 지출. 학원 앞에서 초연과 한서윤 동선이 겹친 날이다.",
+      "visibility": "low_profile",
+      "related_event_id": null
+    },
+    {
+      "episode": 39,
+      "date": "2008-04-17",
+      "type": "project_afterparty_spending",
+      "amount": -214000,
+      "description": "조별과제 발표 뒤풀이 술자리 계산, 주차와 수원 귀가 주유비. 정다은이 한서윤 문자 이야기를 꺼내 김초연의 연락 공개 요구로 이어진 지출이다.",
+      "visibility": "visible_as_student_spending",
+      "related_event_id": null
+    },
+    {
+      "episode": 40,
+      "date": "2008-04-18",
+      "type": "contact_check_and_academy_spending",
+      "amount": -83000,
+      "description": "평택대 학생회관 매점과 수원 일본어 학원 왕복 주유/주차, 간식 지출. 김초연의 폰 확인 요구와 한서윤 가짜 저장명 위기의 생활 배경이다.",
+      "visibility": "relationship_pressure",
       "related_event_id": null
     }
   ]
