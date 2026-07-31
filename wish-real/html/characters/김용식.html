@@ -1,131 +1,160 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>김용식</title>
   <style>
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 120%; }
     body {
-      margin: 0;
-      background: #171717;
-      color: #ece5dc;
-      font-family: "Apple SD Gothic Neo", "Noto Sans KR", system-ui, sans-serif;
+      background: #111417;
+      color: #e8e1d5;
+      font-family: 'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+      font-size: 1.04rem;
       line-height: 1.82;
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
       word-break: keep-all;
     }
-    main {
-      max-width: 840px;
-      min-height: 100vh;
-      margin: 0 auto;
-      padding: 34px 18px 72px;
-      background: #22201f;
-    }
-    .back {
-      display: inline-block;
-      margin-bottom: 24px;
-      color: #d7a36c;
-      font-weight: 800;
-      text-decoration: none;
-    }
     .header {
-      display: grid;
-      gap: 22px;
-      margin-bottom: 32px;
-      padding-bottom: 28px;
-      border-bottom: 1px solid #473f39;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      align-items: center;
+      margin-bottom: 2.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid #30383a;
     }
     .portrait {
-      overflow: hidden;
-      border: 1px solid #473f39;
+      width: 90%;
+      max-width: 650px;
+      border: 1px solid #30383a;
       border-radius: 8px;
-      background: #171717;
+      overflow: hidden;
+      background: #181d20;
     }
     .portrait img {
-      display: block;
       width: 100%;
-      max-height: 72vh;
-      object-fit: contain;
+      height: auto;
+      display: block;
+      object-fit: cover;
       object-position: top;
-      cursor: zoom-in;
+      cursor: pointer;
+      transition: opacity 0.15s;
     }
+    .portrait img:hover { opacity: 0.85; }
     .portrait.no-image {
-      min-height: 220px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #afa69d;
-      font-size: 2rem;
-    }
-    h1 {
-      margin: 0;
-      color: #d7a36c;
-      font-size: 2.4rem;
-      line-height: 1.25;
-      letter-spacing: 0;
-      text-align: center;
-    }
-    h2 {
-      margin: 2rem 0 0.7rem;
-      padding-bottom: 0.35rem;
-      border-bottom: 1px solid #473f39;
-      color: #d7a36c;
-      font-size: 1.25rem;
-      letter-spacing: 0;
-    }
-    h3 {
-      margin: 1.25rem 0 0.45rem;
-      color: #e1b98d;
-      font-size: 1.08rem;
-      letter-spacing: 0;
-    }
-    p, ul {
-      margin: 0 0 0.85rem;
-      font-size: 1.04rem;
-    }
-    ul { padding-left: 1.3rem; }
-    li { margin: 0.28rem 0; }
-    hr {
-      margin: 1.8rem 0;
-      border: 0;
-      border-top: 1px solid #473f39;
-    }
-    strong { color: #e1b98d; }
-    code {
-      padding: 0.08rem 0.3rem;
-      border-radius: 4px;
-      background: rgba(215, 163, 108, 0.12);
-      color: #e1b98d;
+      color: #8f9996;
+      font-size: 1.6rem;
+      height: 200px;
     }
     #lightbox {
       display: none;
       position: fixed;
       inset: 0;
-      z-index: 10;
+      background: rgba(0,0,0,0.88);
+      z-index: 9999;
       align-items: center;
       justify-content: center;
-      background: rgba(0, 0, 0, 0.9);
       cursor: zoom-out;
     }
     #lightbox.open { display: flex; }
     #lightbox img {
-      max-width: 92vw;
-      max-height: 92vh;
-      border: 1px solid #473f39;
-      border-radius: 8px;
+      max-width: 90vw;
+      max-height: 90vh;
       object-fit: contain;
+      border: 1px solid #30383a;
+      border-radius: 8px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.7);
     }
+    .header-info { text-align: center; }
+    .header-info h1 {
+      font-size: 3rem; /* 2rem -> 2.4rem -> 3rem */
+      color: #79b8b2;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.4rem;
+    }
+    .category-tag {
+      display: inline-block;
+      background: #20282b;
+      color: #8fd0c9;
+      border: 1px solid #3d4a4c;
+      font-size: 0.92rem;
+      padding: 0.18rem 0.62rem;
+      border-radius: 999px;
+      letter-spacing: 0.01em;
+    }
+    .current-age {
+      font-size: 1rem;
+      color: #9faaa6;
+      letter-spacing: 0.01em;
+      margin-top: 0.35rem;
+    }
+    h2 {
+      font-size: 1.18rem;
+      color: #79b8b2;
+      margin: 2rem 0 0.6rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 1px solid #30383a;
+      letter-spacing: 0.01em;
+    }
+    h3 { font-size: 1.08rem; color: #d28a72; margin: 1.2rem 0 0.4rem; }
+    p { margin: 0.5rem 0; }
+    ul { padding-left: 1.4rem; margin: 0.4rem 0; }
+    li { margin: 0.25rem 0; }
+    hr { border: none; border-top: 1px solid #30383a; margin: 1.6rem 0; }
+    strong { color: #d28a72; }
+    code { background: #20282b; color: #8fd0c9; padding: 0.1rem 0.35rem; border-radius: 4px; }
+    .back { display: inline-block; margin-bottom: 2rem; color: #8fd0c9; text-decoration: none; font-size: 1rem; font-weight: 700; }
+    .back:hover { text-decoration: underline; }
+    .emotion-chart { width: 90%; max-width: 380px; display: block; margin: 0 auto; }
+    .adult-scene-block {
+      text-align: center;
+      margin: 1.4rem 0 0.4rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.55rem;
+    }
+    .adult-scene-hearts {
+      display: flex;
+      gap: 0.3rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .heart { font-size: 1.45rem; line-height: 1; }
+    .heart.filled { color: #d97b95; }
+    .heart.empty  { color: #30383a; }
+    .adult-scene-count {
+      margin: 0;
+      color: #d97b95;
+      font-size: 0.95rem;
+      letter-spacing: 0.03em;
+    }
+    @media (max-width: 560px) { .portrait { width: 100%; } .emotion-chart { max-width: 320px; } }
   </style>
 </head>
 <body>
-  <main>
-    <a class="back" href="../characters.html">인물 목록</a>
-    <section class="header">
-      <div class="portrait"><img src="../../character_assets/김용식/references/main.png" alt="김용식" onclick="openLightbox(this.src)"></div>
+  <a class="back" href="../characters.html">← 인물 목록</a>
+  <div class="header">
+    <div class="portrait no-image"><span>김용식</span></div>
+
+    <div class="adult-scene-block"><div class="adult-scene-hearts"><span class="heart empty">♡</span></div><p class="adult-scene-count">♥ 0</p></div>
+    <div class="header-info">
       <h1>김용식</h1>
-    </section>
-    <section class="profile-body">
+
+
+    </div>
+  </div>
+  <div class="profile-body">
+
 <h2>기본 정보</h2>
+
 <ul>
 <li>이름: 김용식</li>
 <li>생일: 1989년 12월 7일</li>
@@ -133,23 +162,27 @@
 <li>2026년 기준 나이: 만 36세</li>
 <li>2008년 1월 1일 기준 나이: 만 18세</li>
 <li>2008년 1월 1일 기준 상태: 고등학교 졸업 전, 겨울방학 중</li>
-<li>핵심 전제: 2026년 현재에서 2008년 1월 1일로 타임리프했다.</li>
+<li>핵심 전제: 2008년 1월 1일부터 자신의 삶을 다시 선택하기 시작한 남자다. 회귀 장치는 작가용 내부 설정으로만 두고, 원고 표면에서는 우연, 충동, 선택, 운이 겹친 사람처럼 읽히게 한다.</li>
 </ul>
+
 <h3>외형</h3>
+
 <ul>
 <li>키: 182cm</li>
 <li>체형: 고등학생치고는 어깨와 등, 팔의 선이 뚜렷한 탄탄한 근육형이다. 과하게 벌크업된 몸이 아니라 생활 속에서 균형 있게 단련된 몸처럼 보인다.</li>
 <li>얼굴: 원래 김용식의 인상을 크게 벗어나지 않지만, 얼굴선이 정리되고 눈매가 깊어져 이전보다 확실히 매력적으로 보인다.</li>
 <li>헤어: 검은 직모에 자연스러운 볼륨이 있고, 앞머리가 가볍게 내려온다. 너무 꾸민 머리보다 2008년 또래 남학생다운 단정한 인상이다.</li>
 <li>목소리: 낮고 안정적인 톤이다. 말을 길게 하지 않아도 상대가 귀를 기울이게 만드는 힘이 있다.</li>
-<li>분위기: 겉으로는 또래 고등학생처럼 웃을 수 있지만, 가끔 30대 남자의 피로와 계산이 새어 나온다.</li>
+<li>분위기: 겉으로는 또래 고등학생처럼 웃을 수 있지만, 돈과 관계 앞에서는 가끔 또래보다 빨리 계산하려는 기색이 나온다. 그것을 어른스러움의 증거처럼 강조하지 않는다.</li>
 </ul>
+
 <h3>성격</h3>
+
 <ul>
 <li>성격 키워드: 현실적, 계산적, 감정 억압, 욕망의 해방, 자기결정권, 관계의 대등함, 책임 회피와 성장 가능성</li>
 <li>겉으로 보이는 태도: 말수가 아주 많지는 않지만 단답형으로만 말하는 사람은 아니다. 여유 있어 보이려 애쓰고, 상황을 빨리 읽으려 하지만 낯선 현실이 닥치면 말이 길어지거나 괜히 설명을 덧붙인다.</li>
-<li>속으로 숨기는 감정: 자신이 가족과 주변 사람에게 어떤 의미였는지에 대한 허기, 오래 눌러온 인정 욕구, 2026년까지 쌓인 후회와 피로를 숨긴다.</li>
-<li>미래 기억을 대하는 방식: 미래 지식을 감정적으로 과시하지 않고 필요한 순간까지 감춘다. 다만 미래 기억은 객관적 사건과 숫자에 강할 뿐, 현재 사람의 감정과 즉석 반응까지 맞히는 능력이 아니다. 사람의 마음까지 계산할 수 있다고 착각하는 약점이 있다.</li>
+<li>속으로 숨기는 감정: 자신이 가족과 주변 사람에게 어떤 의미였는지에 대한 허기, 오래 눌러온 인정 욕구, 설명하기 어려운 후회와 피로를 숨긴다.</li>
+<li>장기 선택을 대하는 방식: 투자, 돈, 진학, 관계에서 남들보다 과감한 선택을 할 수 있지만, 원고에서는 미리 정답을 안다는 확신보다 호기심, 충동, 계산, 우연, 운이 겹친 결과처럼 보이게 한다. 사람의 마음까지 계산할 수 있다고 착각하는 약점이 있다.</li>
 <li>돈과 기회를 대하는 태도: 돈은 잃으면 끝이라는 감각이 강해 신중하게 다루려 한다. 그러나 큰돈을 실제로 쓰는 순간에는 손이 굳고, 서류와 시선과 가족에게 숨겨야 하는 동선 때문에 긴장한다. 차갑게 계산하려다가도 20살의 허세와 해방감이 먼저 튀어나올 수 있다.</li>
 <li>사람과 관계를 대하는 태도: 초반에는 사람, 특히 여자 관계를 돈보다 가볍게 여긴다. 다가오는 사람을 굳이 밀어내지 않고, 새로운 관계를 찾는 욕망을 잘 억제하지 못한다.</li>
 <li>자기결정권과 주도권: 상대를 지배하거나 굴복시키려 하지 않지만, 자신도 상대에게 끌려다니거나 삶의 주도권을 넘기지 않는다. 관계는 이기고 지는 문제가 아니라 서로 자발적으로 함께하는 것이라고 본다.</li>
@@ -160,19 +193,23 @@
 <li>핵심 결함: 돈은 통제하지만 욕망은 통제하지 못한다. 사람은 바꿀 수 있다고 여기며 관계의 무게를 늦게 깨닫는다.</li>
 <li>성장 방향: 시간이 지나며 사람은 쉽게 바꿀 수 있는 대상이 아니라, 자신의 선택 속에 남는 존재라는 사실을 배워간다.</li>
 </ul>
+
 <h3>배경</h3>
+
 <ul>
-<li>가족: 2008년에는 어머니, 아버지와 함께 산다. 다만 2026년의 김용식에게 아버지는 오래 연락을 끊고 산, 언급하고 싶지 않은 사람이다.</li>
+<li>가족: 2008년에는 어머니, 아버지와 함께 산다. 아버지는 가까이 있어도 언급하고 싶지 않은 사람처럼 다룬다.</li>
 <li>가족 운용: 아버지와의 문제는 초반 원고에서 직접 설명하지 않는다. 아버지는 존재하지만 그림자처럼 두고, 김용식의 반응과 침묵으로만 암시한다.</li>
-<li>미래 가족 사건: 2015년에 어머니와 김용식이 따로 나와 살게 된다. 이 사건은 초반에 공개하지 않고 장기 서사 카드로 둔다.</li>
+<li>가족 장기 사건: 2015년에 어머니와 김용식이 따로 나와 살게 되는 흐름이 있다. 이 사건은 초반에 공개하지 않고 장기 서사 카드로 둔다.</li>
 <li>학교: 2008년 1월 1일 기준 고등학교 졸업 전 겨울방학 상태다. 학교 세부 설정은 아직 확정하지 않는다.</li>
 <li>친구 관계: 같이 PC방에 가고, 게임을 하고, 별다른 거창한 사연 없이 어울리던 평범한 친구들이 있다.</li>
-<li>대학: 평택대학교 정보통신학과에 진학하는 흐름을 기본 미래 경로로 둔다.</li>
+<li>대학: 평택대학교 정보통신학과에 진학하는 흐름을 기본 경로로 둔다.</li>
 <li>생활권: 용인 수지를 주요 생활권으로 둔다.</li>
-<li>2026년의 직업/생활 상태: 구체적으로 언급하지 않는다. 2026년의 세부 생활보다 억눌려 있던 감정과 관계 욕망이 2008년 이후 폭발하는 흐름을 우선한다.</li>
-<li>2026년에서 가져온 가장 큰 후회: 가족 안에서 자신이 어떤 의미였는지, 자신이 감당한 희생이 제대로 전해졌는지에 대한 감정이 남아 있다.</li>
+<li>이후의 직업/생활 상태: 구체적으로 언급하지 않는다. 억눌려 있던 감정과 관계 욕망이 2008년 이후 폭발하는 흐름을 우선한다.</li>
+<li>가장 큰 후회: 가족 안에서 자신이 어떤 의미였는지, 자신이 감당한 희생이 제대로 전해졌는지에 대한 감정이 남아 있다.</li>
 </ul>
+
 <h3>취미와 특기</h3>
+
 <ul>
 <li>야구: 야구 관람을 좋아하고 사회인야구도 한다. 사회인야구 기준 투수와 3루수를 맡을 수 있다.</li>
 <li>투수 스타일: 한국 사회인야구 3부리그에서 적당한 에이스 수준이다. 평균자책점은 팀 수비력에 따라 흔들리지만 대체로 2~3점대가 가능하다.</li>
@@ -194,27 +231,31 @@
 <li>사진: 하고 싶은 취미에 가깝다. 건축물, 도시의 선, 거리 풍경을 찍는 것에 관심이 있다.</li>
 <li>우주: 우주와 천문에 대한 호기심이 있다. 거대한 시간과 거리, 인간의 작은 삶을 함께 떠올리게 하는 소재로 반응한다.</li>
 </ul>
+
 <h3>말투</h3>
+
 <ul>
 <li>기본 말투: 담백하지만 단답형만 쓰지 않는다. 짧게 받을 때도 있고, 숨기고 싶은 게 있으면 설명이 길어지거나 질문을 되받으며 시간을 번다.</li>
 <li>여유를 연기할 때: 낮은 톤으로 농담처럼 흘리지만, 속으로는 상대 반응을 살핀다. 말이 매끄럽게 나와도 손이나 시선이 먼저 흔들릴 수 있다.</li>
 <li>당황했을 때: 말이 잠깐 끊기거나, 일부러 웃으며 넘긴다. 완전히 침착한 척하다가 필요 없는 말을 덧붙여 스스로 티를 낼 수 있다.</li>
-<li>어른처럼 굴다가 들킬 때: 또래가 쓰지 않을 표현이나 지나치게 현실적인 판단을 내뱉은 뒤, 뒤늦게 장난처럼 포장한다.</li>
+<li>숨기는 게 있을 때: 질문을 바로 받지 못하고 설명을 길게 하거나, 웃으며 넘기려다 필요 없는 말을 덧붙인다.</li>
 </ul>
+
 <h3>고정 운용 메모</h3>
+
 <ul>
 <li>2008년의 몸과 사회적 위치는 고등학교 졸업 전 남자다.</li>
-<li>2026년의 기억과 판단력을 갖고 있지만, 주변 사람에게는 갑자기 성숙해진 고3으로 보인다.</li>
-<li>미래 지식은 객관적 사실에만 강하게 작동한다. 사람의 반응, 연애 감정, 소문, 즉석 선택까지 다 아는 듯이 쓰지 않는다.</li>
+<li>주변 사람에게는 갑자기 돈과 선택의 기준이 달라진 고3으로 보인다. 이 변화를 어른스러움이나 초월성으로 설명하지 않는다.</li>
+<li>투자와 큰 선택은 미리 정답을 맞힌 것처럼 쓰지 않는다. 호기심, 충동, 검색, 우연, 운, 뒤늦은 합리화가 겹친 결과처럼 보이게 한다. 사람의 반응, 연애 감정, 소문, 즉석 선택까지 정확히 예측하는 식으로 쓰지 않는다.</li>
 <li>큰돈을 쓰거나 비싼 물건을 살 때 담담한 초인처럼 보이지 않게 한다. 계산, 흥분, 죄책감, 숨길 방법, 판매자의 시선, 가족에게 들킬 불안을 함께 보여준다.</li>
 <li>외형과 목소리는 매력적으로 보정되었지만, 기존 김용식의 인상을 완전히 벗어나지는 않는다.</li>
 <li>초반 김용식은 매력적이지만 반드시 좋은 사람은 아니다. 관계에서의 미숙함과 욕망의 과잉이 장기 성장축이 된다.</li>
 <li>취미는 현실적인 생활감과 관계 장면을 만드는 데 사용한다. 단, 게임은 김용식이 실제로 재능형에 가까운 영역이다.</li>
 <li>로또 당첨 사실은 아무에게도 말하지 않는다.</li>
-<li>돈, 자산, 복권 기록은 이 파일에 적지 않고 <code>states/finance_state.json</code>, <code>states/lottery_records.json</code>에서 관리한다.</li>
+<li>돈, 자산, 복권 기록은 이 파일에 적지 않고 <code>states/finance<em>state.json</code>, <code>states/lottery</em>records.json</code>에서 관리한다.</li>
 </ul>
-    </section>
-  </main>
+
+  </div>
   <div id="lightbox" onclick="closeLightbox()">
     <img id="lightbox-img" src="" alt="">
   </div>
@@ -226,8 +267,8 @@
     function closeLightbox() {
       document.getElementById('lightbox').classList.remove('open');
     }
-    document.addEventListener('keydown', function(event) {
-      if (event.key === 'Escape') closeLightbox();
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeLightbox();
     });
   </script>
 </body>

@@ -4,7 +4,7 @@
   "as_of_episode": 25,
   "as_of_date": "2008-03-22",
   "timeline_base_date": "2008-01-01",
-  "timeline_counting_rule": "month_index_from_time_leap은 2008년 1월을 0개월차로 보는 달력 기준이다. elapsed_* 값은 실제 날짜 차이를 개월+일로 표시한다.",
+  "timeline_counting_rule": "month_index_from_start은 2008년 1월을 0개월차로 보는 달력 기준이다. elapsed_* 값은 실제 날짜 차이를 개월+일로 표시한다.",
   "cash_on_hand": 0,
   "bank_balance": 2160758741,
   "hidden_funds": 2160758741,
@@ -63,8 +63,8 @@
       "episode": 4,
       "date": "2008-01-12",
       "timeline": {
-        "month_index_from_time_leap": 0,
-        "elapsed_from_time_leap": "0개월 11일",
+        "month_index_from_start": 0,
+        "elapsed_from_start": "0개월 11일",
         "elapsed_from_previous_finance_event": "0개월 11일"
       },
       "type": "lottery_win",
@@ -92,8 +92,8 @@
       "episode": 11,
       "date": "2008-03-06",
       "timeline": {
-        "month_index_from_time_leap": 2,
-        "elapsed_from_time_leap": "2개월 5일",
+        "month_index_from_start": 2,
+        "elapsed_from_start": "2개월 5일",
         "elapsed_from_previous_finance_event": "1개월 21일"
       },
       "type": "vehicle_purchase",
@@ -117,12 +117,12 @@
       "episode": null,
       "date": "2009-01-09",
       "timeline": {
-        "month_index_from_time_leap": 12,
-        "elapsed_from_time_leap": "12개월 8일",
+        "month_index_from_start": 12,
+        "elapsed_from_start": "12개월 8일",
         "elapsed_from_previous_finance_event": "11개월 28일"
       },
       "type": "crypto_mining",
-      "status": "known_future_plan",
+      "status": "long_term_plan",
       "description": "비트코인 초기 공개 클라이언트 이후 채굴을 시작해 10,000 BTC 확보 목표",
       "target_btc": 10000,
       "expected_cash_value_at_acquisition": 0,
@@ -134,12 +134,12 @@
       "episode": null,
       "date": "2013-11-01",
       "timeline": {
-        "month_index_from_time_leap": 70,
-        "elapsed_from_time_leap": "70개월 0일",
+        "month_index_from_start": 70,
+        "elapsed_from_start": "70개월 0일",
         "elapsed_from_previous_finance_event": "57개월 23일"
       },
       "type": "crypto_sale",
-      "status": "known_future_plan",
+      "status": "long_term_plan",
       "description": "2013년 1차 상승기에 2,000 BTC를 분할 매도",
       "btc_to_sell": 2000,
       "target_gross_amount": 1000000000,
@@ -153,12 +153,12 @@
       "episode": null,
       "date": "2017-12-01",
       "timeline": {
-        "month_index_from_time_leap": 119,
-        "elapsed_from_time_leap": "119개월 0일",
+        "month_index_from_start": 119,
+        "elapsed_from_start": "119개월 0일",
         "elapsed_from_previous_finance_event": "49개월 0일"
       },
       "type": "crypto_sale",
-      "status": "known_future_plan",
+      "status": "long_term_plan",
       "description": "2017년 상승기에 4,000 BTC를 약 700억 원에 분할 매도",
       "btc_to_sell": 4000,
       "target_gross_amount": 70000000000,
@@ -179,12 +179,12 @@
       "episode": null,
       "date": "2024-01-01",
       "timeline": {
-        "month_index_from_time_leap": 192,
-        "elapsed_from_time_leap": "192개월 0일",
+        "month_index_from_start": 192,
+        "elapsed_from_start": "192개월 0일",
         "elapsed_from_previous_finance_event": "73개월 0일"
       },
       "type": "stock_exit_rule",
-      "status": "known_future_plan",
+      "status": "long_term_plan",
       "description": "2017년 엔비디아 장기투자금이 약 2,000억 원 평가액에 도달하면 현금화",
       "initial_investment": 25000000000,
       "target_valuation": 200000000000,
