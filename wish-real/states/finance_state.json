@@ -1,14 +1,14 @@
 {
   "currency": "KRW",
   "owner": "김용식",
-  "as_of_episode": 40,
-  "as_of_date": "2008-04-18",
+  "as_of_episode": 50,
+  "as_of_date": "2008-05-09",
   "timeline_base_date": "2008-01-01",
   "timeline_counting_rule": "month_index_from_start은 2008년 1월을 0개월차로 보는 달력 기준이다. elapsed_* 값은 실제 날짜 차이를 개월+일로 표시한다.",
   "cash_on_hand": 0,
-  "bank_balance": 2158283741,
-  "hidden_funds": 2158283741,
-  "available_after_committed_purchases": 2158283741,
+  "bank_balance": 2153560741,
+  "hidden_funds": 2153560741,
+  "available_after_committed_purchases": 2153560741,
   "spending_rules": {
     "monthly_tracking_required": true,
     "rule": "원고에서 돈을 쓴 장면은 월별 지출 요약과 transactions에 반영하고, bank_balance와 hidden_funds에서 차감한다.",
@@ -63,6 +63,22 @@
       "capital_spending": 0,
       "total_spending": 1820000,
       "notes": "4월 초 벚꽃 데이트와 학교 생활 지출, 김초연에게 주려다 보류한 목걸이, 일본어 학원 왕복 동선, 수원 주말 데이트와 숙박 지출에 더해 36~40화의 편의점 아침, 조별과제 제본/복사, 학원 왕복 주유와 주차, 조별과제 뒤풀이 계산, 연락 확인 위기 중 생활 지출을 반영했다. 목걸이와 숙박비, 뒤풀이 계산과 폰 기록은 관계 진도와 발각 압력을 만드는 흔적으로 남는다."
+    },
+    {
+      "month": "2008-04",
+      "episode_range": "041-044",
+      "ordinary_spending": 4670000,
+      "capital_spending": 0,
+      "total_spending": 4670000,
+      "notes": "중간고사 종료 축하 저녁, 강릉 경포대 1박 커플 여행(숙박/식사/기름값/기념품), 분당 백화점에서 혼자 구매한 손목시계, 조별과제 성적 발표 뒤 매점 소액 지출을 반영했다. 시계는 가족과 김초연 모두에게 비공개로 남는다."
+    },
+    {
+      "month": "2008-05",
+      "episode_range": "046-050",
+      "ordinary_spending": 53000,
+      "capital_spending": 0,
+      "total_spending": 53000,
+      "notes": "수원역 심야 이동 주차비, 일요일 카페 데이트, 조별과제 스터디룸 매점 간식, 학원 왕복 주유/주차 등 소액 생활 지출을 반영했다. 금액은 작지만 한서윤·정다은·김초연 세 관계가 동시에 흔들리는 구간의 배경 지출이다."
     }
   ],
   "projected_events": [
@@ -479,6 +495,87 @@
       "amount": -83000,
       "description": "평택대 학생회관 매점과 수원 일본어 학원 왕복 주유/주차, 간식 지출. 김초연의 폰 확인 요구와 한서윤 가짜 저장명 위기의 생활 배경이다.",
       "visibility": "relationship_pressure",
+      "related_event_id": null
+    },
+    {
+      "episode": 41,
+      "date": "2008-04-25",
+      "type": "exam_end_dinner_spending",
+      "amount": -24000,
+      "description": "중간고사 마지막 날 학교 앞 치킨집에서 김초연과 나눈 축하 저녁",
+      "visibility": "visible_to_kim_choyeon",
+      "related_event_id": null
+    },
+    {
+      "episode": 42,
+      "date": "2008-04-26",
+      "type": "couple_trip_spending",
+      "amount": -820000,
+      "description": "강릉 경포대 1박 2일 여행 - 숙박비, 저녁 회와 소주, 기름값과 통행료, 카페와 기념품 지출. 김초연과의 관계 회복을 상징하는 지출이다.",
+      "visibility": "visible_to_kim_choyeon",
+      "related_event_id": null
+    },
+    {
+      "episode": 43,
+      "date": "2008-04-29",
+      "type": "personal_luxury_purchase",
+      "amount": -3820000,
+      "description": "분당 백화점에서 혼자 구매한 스위스산 손목시계. 가족과 김초연 모두에게 비공개로 서랍에 보관한다.",
+      "visibility": "secret",
+      "related_event_id": null
+    },
+    {
+      "episode": 44,
+      "date": "2008-04-30",
+      "type": "campus_daily_spending",
+      "amount": -6000,
+      "description": "조별과제 성적 발표 뒤 매점 캔커피 등 소액 생활 지출",
+      "visibility": "low_profile",
+      "related_event_id": null
+    },
+    {
+      "episode": 46,
+      "date": "2008-05-02",
+      "type": "late_night_secret_meeting_spending",
+      "amount": -3000,
+      "description": "심야 수원역 공영주차장 주차비. 한서윤과의 심야 만남 흔적이다.",
+      "visibility": "secret_from_kim_choyeon",
+      "related_event_id": null
+    },
+    {
+      "episode": 47,
+      "date": "2008-05-04",
+      "type": "relationship_date_spending",
+      "amount": -20000,
+      "description": "일요일 수원역 근처 카페에서 김초연과 나눈 데이트 비용",
+      "visibility": "visible_to_kim_choyeon",
+      "related_event_id": null
+    },
+    {
+      "episode": 48,
+      "date": "2008-05-06",
+      "type": "campus_daily_spending",
+      "amount": -15000,
+      "description": "매점 컵라면과 캔커피 등 조별과제 동기들과의 점심 생활 지출",
+      "visibility": "visible_as_student_spending",
+      "related_event_id": null
+    },
+    {
+      "episode": 49,
+      "date": "2008-05-07",
+      "type": "campus_daily_spending",
+      "amount": -10000,
+      "description": "도서관 스터디룸 자료 정리 중 간식비",
+      "visibility": "low_profile",
+      "related_event_id": null
+    },
+    {
+      "episode": 50,
+      "date": "2008-05-09",
+      "type": "academy_and_vehicle_spending",
+      "amount": -5000,
+      "description": "수원 일본어 학원 왕복 주유와 주차. 김초연이 처음으로 동행한 날의 생활 지출이다.",
+      "visibility": "visible_to_kim_choyeon",
       "related_event_id": null
     }
   ]
