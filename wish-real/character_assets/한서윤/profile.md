@@ -7,7 +7,8 @@
 
 ## 기준 이미지
 
-- `references/main.png`: 삽화 생성 시 우선 참고하는 한서윤 기준 이미지. 회차 삽화 생성 호출에서는 반드시 `referenced_image_paths`에 포함한다.
+- `references/main.png`: 82화 `images/ep082/scene-01.png`를 기준으로 교체한 한서윤 대표 이미지. 회차 삽화 생성 호출에서는 반드시 `referenced_image_paths`에 포함한다.
+- `references/originals/main-before-ep082.png`: 82화 이미지로 교체하기 전 대표 이미지 백업.
 
 ## 사용 우선순위
 
