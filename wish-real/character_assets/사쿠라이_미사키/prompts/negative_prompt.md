@@ -1,6 +1,6 @@
 # 사쿠라이 미사키 네거티브 프롬프트
 
-Avoid exact celebrity likeness, Korean idol face, westernized features, overly sharp face, cold model expression, heavy makeup, huge anime eyes, excessive skin smoothing, exaggerated bust, unrealistic hourglass body, sexualized framing, deep cleavage, fantasy costume, visible brand logos, text, watermark, fixed glasses, tattoos, prominent scars.
+Avoid exact celebrity likeness, repeating the same outfit as the reference image, fixed uniform-like styling, Korean idol face, westernized features, overly sharp face, cold model expression, heavy makeup, huge anime eyes, excessive skin smoothing, exaggerated bust, unrealistic hourglass body, sexualized framing, overly deep cleavage, fantasy costume, visible brand logos, text, watermark, fixed glasses, tattoos, prominent scars.
 
 Avoid plain or unattractive face, dull tired eyes, harsh facial lines, awkward smile, old-looking face, bad candid photo face, masculine features, lifeless expression.
 

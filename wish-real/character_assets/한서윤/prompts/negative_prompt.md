@@ -1,6 +1,6 @@
 # 한서윤 네거티브 프롬프트
 
-Avoid westernized features, round cute cheerful face like Kim Choyeon, sharp mature model face, heavy glamour makeup, oversized anime eyes, exaggerated body curves, large bust, exposed clothing, luxury idol styling, fantasy costume, visible brand logos, readable text, watermark, explicit nudity, sexualized framing, smartphone.
+Avoid westernized features, repeating the same outfit as the reference image, fixed uniform-like styling, round cute cheerful face like Kim Choyeon, sharp mature model face, heavy glamour makeup, oversized anime eyes, exaggerated body curves, large bust, overly revealing clothing, luxury idol styling, fantasy costume, visible brand logos, readable text, watermark, explicit nudity, sexualized framing, smartphone.
 
 Avoid plain or unattractive face, tired dull eyes, sickly face, harsh aging, masculine face, awkward expression, bad candid photo face, overly long horse face, severe jawline.
 

@@ -6,4 +6,6 @@ She should be clearly pretty in a realistic first-love way: a small clear face, 
 
 Use the provided AI reference images in `character_assets/김초연/references/` as the visual identity source. Preserve her broad face type, long hair with bangs, slim silhouette, clean youthful styling, and the contrast between innocent appearance and assertive personality.
 
+Do not lock her to one outfit or repeat the reference outfit as a fixed uniform. Choose a season-appropriate 2008 campus/date outfit for each scene, feminine and figure-flattering in a natural first-love way: a lightly fitted knit, blouse, summer dress with a defined waist, skirt, shorts, cardigan, or another scene-appropriate combination that shows her slender waistline and clean body line without explicit exposure.
+
 Style for story illustrations: realistic Korean light-novel illustration, grounded 2008 university-life atmosphere, natural clothing, PC room/cafe/campus/date scenes, subtle painterly finish, pretty but not idol-glamour, charming but not artificial.

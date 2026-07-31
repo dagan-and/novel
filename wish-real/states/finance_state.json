@@ -1,14 +1,14 @@
 {
   "currency": "KRW",
   "owner": "김용식",
-  "as_of_episode": 75,
-  "as_of_date": "2008-07-30",
+  "as_of_episode": 80,
+  "as_of_date": "2008-08-17",
   "timeline_base_date": "2008-01-01",
   "timeline_counting_rule": "month_index_from_start은 2008년 1월을 0개월차로 보는 달력 기준이다. elapsed_* 값은 실제 날짜 차이를 개월+일로 표시한다.",
   "cash_on_hand": 0,
-  "bank_balance": 2145542741,
-  "hidden_funds": 2145542741,
-  "available_after_committed_purchases": 2145542741,
+  "bank_balance": 2144758741,
+  "hidden_funds": 2144758741,
+  "available_after_committed_purchases": 2144758741,
   "spending_rules": {
     "monthly_tracking_required": true,
     "rule": "원고에서 돈을 쓴 장면은 월별 지출 요약과 transactions에 반영하고, bank_balance와 hidden_funds에서 차감한다.",
@@ -127,6 +127,22 @@
       "capital_spending": 0,
       "total_spending": 117000,
       "notes": "가마쿠라 단체 견학 개인 지출, 유즈키 생일 서프라이즈(나고야산 우이로·케이크), 하나비 마츠리 데이트, 7월 후반 반동거 생활비를 반영했다 (엔화 환산)."
+    },
+    {
+      "month": "2008-08",
+      "episode_range": "076-078",
+      "ordinary_spending": 122000,
+      "capital_spending": 0,
+      "total_spending": 122000,
+      "notes": "오다이바 당일 나들이(전철·프리쿠라·UFO캐처·파르페), 마지막 주 반동거 생활비(두부조림 재료 등 장보기), 나리타 공항 면세점에서 김초연에게 줄 선물 구매를 반영했다 (엔화 환산). 남은 열엿새 동안 유즈키와 이별을 준비하는 지출이다."
+    },
+    {
+      "month": "2008-08",
+      "episode_range": "079-080",
+      "ordinary_spending": 662000,
+      "capital_spending": 0,
+      "total_spending": 662000,
+      "notes": "귀국 첫날 동네 삼겹살집 회식, 수원역 지하상가 원피스·은발찌 선물, 서해안 당일 나들이와 펜션 1박을 반영했다. 두 달 공백을 채우는 김초연과의 밀린 데이트 지출이다."
     }
   ],
   "projected_events": [
@@ -830,6 +846,60 @@
       "amount": -15000,
       "description": "하나비 마츠리 데이트 - 야키소바, 초코바나나, 킨교스쿠이 뜰채 등 (엔화 환산)",
       "visibility": "secret_from_kim_choyeon",
+      "related_event_id": null
+    },
+    {
+      "episode": 76,
+      "date": "2008-08-02",
+      "type": "secret_relationship_date_spending",
+      "amount": -48000,
+      "description": "오다이바 당일 나들이 - 전철 왕복, 프리쿠라, UFO캐처 인형뽑기, 창가 자리 파르페 (엔화 환산). 유즈키의 하고 싶은 것 리스트를 채우는 이별 카운트다운 데이트다.",
+      "visibility": "secret_from_kim_choyeon",
+      "related_event_id": null
+    },
+    {
+      "episode": 77,
+      "date": "2008-08-09",
+      "type": "cohabitation_living_spending",
+      "amount": -9000,
+      "description": "마지막 주 반동거 생활비 - 두부조림 재료 등 장보기 (엔화 환산)",
+      "visibility": "secret_from_kim_choyeon",
+      "related_event_id": null
+    },
+    {
+      "episode": 78,
+      "date": "2008-08-14",
+      "type": "airport_farewell_gift_spending",
+      "amount": -65000,
+      "description": "나리타 공항 면세점에서 김초연에게 줄 립밤과 화과자 구매, 공항 이동 교통비 (엔화 환산). 유즈키 앞에서 다른 사람 선물을 사는 장면이다.",
+      "visibility": "visible_to_kim_choyeon",
+      "related_event_id": null
+    },
+    {
+      "episode": 79,
+      "date": "2008-08-14",
+      "type": "homecoming_dinner_spending",
+      "amount": -42000,
+      "description": "귀국 첫날 저녁 동네 삼겹살집 회식 - 고기, 소주 등. 초연의 여자관계 캐묻기가 이어진 자리다.",
+      "visibility": "visible_to_kim_choyeon",
+      "related_event_id": null
+    },
+    {
+      "episode": 80,
+      "date": "2008-08-15",
+      "type": "reunion_shopping_and_gift_spending",
+      "amount": -340000,
+      "description": "수원역 지하상가 원피스 구매와 은발찌 선물, 영화 관람, 떡볶이 등 밀린 데이트 지출",
+      "visibility": "visible_to_kim_choyeon",
+      "related_event_id": null
+    },
+    {
+      "episode": 80,
+      "date": "2008-08-16",
+      "type": "reunion_overnight_trip_spending",
+      "amount": -280000,
+      "description": "서해안 당일 나들이 겸 펜션 1박 - 팥빙수, 저녁 회와 매운탕, 숙박비. 두 달 공백을 채우는 외박 여행이다.",
+      "visibility": "visible_to_kim_choyeon",
       "related_event_id": null
     }
   ]
