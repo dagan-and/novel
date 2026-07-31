@@ -1,14 +1,14 @@
 {
   "currency": "KRW",
   "owner": "김용식",
-  "as_of_episode": 25,
-  "as_of_date": "2008-03-22",
+  "as_of_episode": 30,
+  "as_of_date": "2008-03-28",
   "timeline_base_date": "2008-01-01",
   "timeline_counting_rule": "month_index_from_start은 2008년 1월을 0개월차로 보는 달력 기준이다. elapsed_* 값은 실제 날짜 차이를 개월+일로 표시한다.",
   "cash_on_hand": 0,
-  "bank_balance": 2160758741,
-  "hidden_funds": 2160758741,
-  "available_after_committed_purchases": 2160758741,
+  "bank_balance": 2160346741,
+  "hidden_funds": 2160346741,
+  "available_after_committed_purchases": 2160346741,
   "spending_rules": {
     "monthly_tracking_required": true,
     "rule": "원고에서 돈을 쓴 장면은 월별 지출 요약과 transactions에 반영하고, bank_balance와 hidden_funds에서 차감한다.",
@@ -50,11 +50,11 @@
     },
     {
       "month": "2008-03",
-      "episode_range": "005-025",
-      "ordinary_spending": 2876000,
+      "episode_range": "005-030",
+      "ordinary_spending": 3288000,
       "capital_spending": 52000000,
-      "total_spending": 54876000,
-      "notes": "BMW 320i 구매와 등록/보험 초기비, 신학기 의류 쇼핑, 식사/카페/주차비, 일본어 학원 3개월 수강료와 교재비, 3월 초 차량 운행비 예비분, 16-25화의 PC방/학생식당/카페/매점/주차/주유/도서관/술자리 귀가 생활 지출을 반영했다."
+      "total_spending": 55288000,
+      "notes": "BMW 320i 구매와 등록/보험 초기비, 신학기 의류 쇼핑, 식사/카페/주차비, 일본어 학원 3개월 수강료와 교재비, 3월 초 차량 운행비 예비분, 16-30화의 PC방/학생식당/카페/매점/주차/주유/도서관/술자리 귀가 생활 지출을 반영했다."
     }
   ],
   "projected_events": [
@@ -335,6 +335,51 @@
       "type": "relationship_and_vehicle_spending",
       "amount": -96000,
       "description": "김초연 수원 귀가 동선의 주유, 주차, 심야 음료와 간식 등 생활 지출",
+      "visibility": "low_profile",
+      "related_event_id": null
+    },
+    {
+      "episode": 26,
+      "date": "2008-03-24",
+      "type": "campus_project_and_vehicle_spending",
+      "amount": -41000,
+      "description": "정다은의 차 안 과제 제안을 거절한 날의 학생식당, 편의점, 세미나실 예약 동선, 주차비 등 생활 지출",
+      "visibility": "low_profile",
+      "related_event_id": null
+    },
+    {
+      "episode": 27,
+      "date": "2008-03-25",
+      "type": "relationship_date_spending",
+      "amount": -128000,
+      "description": "김초연과 수원역 뒤쪽 우동집 식사, 주차, 왕복 주유, 간식 등 데이트와 귀가 동선 지출",
+      "visibility": "visible_to_kim_choyeon",
+      "related_event_id": null
+    },
+    {
+      "episode": 28,
+      "date": "2008-03-26",
+      "type": "campus_rumor_daily_spending",
+      "amount": -57000,
+      "description": "학생식당, 매점 캔커피와 초코바, 주차비, 학교 생활 지출. BMW와 돈 소문이 커지는 단서가 되었다.",
+      "visibility": "visible_as_student_spending",
+      "related_event_id": null
+    },
+    {
+      "episode": 29,
+      "date": "2008-03-27",
+      "type": "academy_and_vehicle_spending",
+      "amount": -74000,
+      "description": "도서관 세미나실 조별 과제 뒤 수원 일본어 학원 이동, 주유, 주차, 음료와 간식 등 생활 지출",
+      "visibility": "low_profile",
+      "related_event_id": null
+    },
+    {
+      "episode": 30,
+      "date": "2008-03-28",
+      "type": "academy_and_relationship_conflict_spending",
+      "amount": -112000,
+      "description": "금요일 평택-수원 일본어 학원 왕복 주유와 주차, 식사와 음료, 수원역 동선 지출. 한서윤 목격으로 김초연과 갈등이 생겼다.",
       "visibility": "low_profile",
       "related_event_id": null
     }
