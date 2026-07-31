@@ -692,40 +692,35 @@ def character_image_path(name: str) -> Path | None:
     return None
 
 
-def character_summary(markdown: str) -> str:
-    for pattern in (
-        r"^- 핵심 역할:\s*(.+)$",
-        r"^- 주인공과의 접점:\s*(.+)$",
-        r"^- 현재 관계 상태:\s*(.+)$",
-    ):
-        match = re.search(pattern, markdown, re.MULTILINE)
-        if match:
-            return re.sub(r"[*_`]", "", match.group(1)).strip()
-    return "인물 설정"
-
-
 def render_character_card(source: Path) -> str:
     name = source.stem
-    raw = source.read_text(encoding="utf-8")
     detail_href = f"characters/{name}.html"
     image = character_image_path(name)
-    if image:
-        src = f"../{image.relative_to(ROOT)}"
-        media = f'<img src="{html.escape(src, quote=True)}" alt="{html.escape(name, quote=True)}" loading="lazy">'
-    else:
-        media = f'<div class="no-image">{html.escape(name[:1])}</div>'
+    src = f"../{image.relative_to(ROOT)}"
+    media = f'<img src="{html.escape(src, quote=True)}" alt="{html.escape(name, quote=True)}" loading="lazy">'
     return (
         f'<a class="card" href="{html.escape(detail_href, quote=True)}">'
         f"{media}"
         '<span class="card-text">'
         f"<strong>{html.escape(name)}</strong>"
-        f"<span>{html.escape(character_summary(raw))}</span>"
         "</span>"
         "</a>"
     )
 
 
+CHARACTER_INDEX_EXCLUDES = {"김용식"}
+
+
+def characters_for_index(character_files: list[Path]) -> list[Path]:
+    return [
+        path
+        for path in character_files
+        if path.stem not in CHARACTER_INDEX_EXCLUDES and character_image_path(path.stem) is not None
+    ]
+
+
 def render_character_index(character_files: list[Path]) -> str:
+    character_files = characters_for_index(character_files)
     cards = "\n      ".join(render_character_card(path) for path in character_files)
     if not cards:
         cards = '<p class="empty">등록된 인물 설정이 없습니다.</p>'
