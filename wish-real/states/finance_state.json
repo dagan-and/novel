@@ -1,14 +1,14 @@
 {
   "currency": "KRW",
   "owner": "김용식",
-  "as_of_episode": 70,
-  "as_of_date": "2008-07-15",
+  "as_of_episode": 75,
+  "as_of_date": "2008-07-30",
   "timeline_base_date": "2008-01-01",
   "timeline_counting_rule": "month_index_from_start은 2008년 1월을 0개월차로 보는 달력 기준이다. elapsed_* 값은 실제 날짜 차이를 개월+일로 표시한다.",
   "cash_on_hand": 0,
-  "bank_balance": 2145659741,
-  "hidden_funds": 2145659741,
-  "available_after_committed_purchases": 2145659741,
+  "bank_balance": 2145542741,
+  "hidden_funds": 2145542741,
+  "available_after_committed_purchases": 2145542741,
   "spending_rules": {
     "monthly_tracking_required": true,
     "rule": "원고에서 돈을 쓴 장면은 월별 지출 요약과 transactions에 반영하고, bank_balance와 hidden_funds에서 차감한다.",
@@ -119,6 +119,14 @@
       "capital_spending": 0,
       "total_spending": 95000,
       "notes": "7월 첫 2주 유즈키와의 반동거 생활비 - 슈퍼마켓 장보기, 외식, 생활용품 공동 부담분을 반영했다 (엔화 환산)."
+    },
+    {
+      "month": "2008-07",
+      "episode_range": "071-075",
+      "ordinary_spending": 117000,
+      "capital_spending": 0,
+      "total_spending": 117000,
+      "notes": "가마쿠라 단체 견학 개인 지출, 유즈키 생일 서프라이즈(나고야산 우이로·케이크), 하나비 마츠리 데이트, 7월 후반 반동거 생활비를 반영했다 (엔화 환산)."
     }
   ],
   "projected_events": [
@@ -785,6 +793,42 @@
       "type": "cohabitation_living_spending",
       "amount": -95000,
       "description": "7월 첫 2주 유즈키와의 반동거 생활비 - 슈퍼마켓 장보기, 외식, 생활용품 공동 부담분 (엔화 환산)",
+      "visibility": "secret_from_kim_choyeon",
+      "related_event_id": null
+    },
+    {
+      "episode": 71,
+      "date": "2008-07-18",
+      "type": "excursion_personal_spending",
+      "amount": -5000,
+      "description": "가마쿠라 단체 견학 개인 지출 - 음료, 사진 인화비 등 (엔화 환산)",
+      "visibility": "low_profile",
+      "related_event_id": null
+    },
+    {
+      "episode": 72,
+      "date": "2008-07-24",
+      "type": "secret_relationship_gift_spending",
+      "amount": -42000,
+      "description": "유즈키 생일 서프라이즈 - 나고야산 우이로, 작은 케이크 (엔화 환산)",
+      "visibility": "secret_from_kim_choyeon",
+      "related_event_id": null
+    },
+    {
+      "episode": 73,
+      "date": "2008-07-25",
+      "type": "cohabitation_living_spending",
+      "amount": -55000,
+      "description": "7월 후반 유즈키와의 반동거 생활비 - 장보기, 외식 등 (엔화 환산)",
+      "visibility": "secret_from_kim_choyeon",
+      "related_event_id": null
+    },
+    {
+      "episode": 74,
+      "date": "2008-07-27",
+      "type": "secret_relationship_date_spending",
+      "amount": -15000,
+      "description": "하나비 마츠리 데이트 - 야키소바, 초코바나나, 킨교스쿠이 뜰채 등 (엔화 환산)",
       "visibility": "secret_from_kim_choyeon",
       "related_event_id": null
     }
