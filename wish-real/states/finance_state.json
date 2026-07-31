@@ -1,14 +1,14 @@
 {
   "currency": "KRW",
   "owner": "김용식",
-  "as_of_episode": 100,
-  "as_of_date": "2008-10-07",
+  "as_of_episode": 110,
+  "as_of_date": "2008-10-17",
   "timeline_base_date": "2008-01-01",
   "timeline_counting_rule": "month_index_from_start은 2008년 1월을 0개월차로 보는 달력 기준이다. elapsed_* 값은 실제 날짜 차이를 개월+일로 표시한다.",
   "cash_on_hand": 0,
-  "bank_balance": 2144375741,
-  "hidden_funds": 2144375741,
-  "available_after_committed_purchases": 2144375741,
+  "bank_balance": 2139941741,
+  "hidden_funds": 2139941741,
+  "available_after_committed_purchases": 2139941741,
   "spending_rules": {
     "monthly_tracking_required": true,
     "rule": "원고에서 돈을 쓴 장면은 월별 지출 요약과 transactions에 반영하고, bank_balance와 hidden_funds에서 차감한다.",
@@ -207,6 +207,22 @@
       "capital_spending": 0,
       "total_spending": 25000,
       "notes": "학원 휴강 뒤 감시가 촘촘해지는 구간의 캔커피, 김밥집 식사, 수원역 카페 공부, 도서관 앞 포장마차 어묵 등 소액 생활 지출을 반영했다. 정다은이 용식의 답답함을 알아채고 다시 접근하는 흔적으로 남는다."
+    },
+    {
+      "month": "2008-10",
+      "episode_range": "099",
+      "ordinary_spending": 1260000,
+      "capital_spending": 0,
+      "total_spending": 1260000,
+      "notes": "김초연의 10월 4일 생일에 베이지색 가죽 숄더백, 얇은 은색 목걸이, 예약 식사와 케이크 지출을 반영했다. 선물은 크게 챙겼지만 폰을 숨기는 작은 움직임 때문에 불안이 완전히 사라지지 않은 생일이다."
+    },
+    {
+      "month": "2008-10",
+      "episode_range": "101-110",
+      "ordinary_spending": 3174000,
+      "capital_spending": 0,
+      "total_spending": 3174000,
+      "notes": "101~110화의 일본어 학원 보강일 소액 지출, 한서윤 서울 백화점 면접 정장·가방·구두 풀세트, 서울 저녁·주차, 숙박성 지출, 김초연과의 우동집 저녁을 반영했다. 백화점 영수증과 주차권은 한서윤에게는 주도권의 흔적, 김초연에게는 발각 단서가 된다."
     }
   ],
   "projected_events": [
@@ -1062,6 +1078,60 @@
       "type": "relationship_snack_spending",
       "amount": -4000,
       "description": "도서관 앞 포장마차 어묵과 국물. 초연이 학원 보강일을 다이어리에 표시하며 확인 행동을 굳힌 장면이다.",
+      "visibility": "visible_to_kim_choyeon",
+      "related_event_id": null
+    },
+    {
+      "episode": 99,
+      "date": "2008-10-04",
+      "type": "birthday_relationship_spending",
+      "amount": -1260000,
+      "description": "김초연 생일에 베이지색 가죽 숄더백, 얇은 은색 목걸이, 예약 식사와 케이크를 준비했다. 선물은 크게 챙겼지만 폰을 숨기는 작은 움직임 때문에 불안이 완전히 사라지지 않았다.",
+      "visibility": "visible_to_kim_choyeon",
+      "related_event_id": null
+    },
+    {
+      "episode": 101,
+      "date": "2008-10-09",
+      "type": "academy_parking_and_snack_spending",
+      "amount": -9000,
+      "description": "일본어 학원 보강일 주차와 캔커피. 한서윤의 관계 질문이 다시 돌아온 날의 소액 지출이다.",
+      "visibility": "private",
+      "related_event_id": null
+    },
+    {
+      "episode": 103,
+      "date": "2008-10-10",
+      "type": "secret_gift_spending",
+      "amount": -2870000,
+      "description": "서울 대형 백화점에서 한서윤에게 취업 면접용 정장, 블라우스, 구두, 가방 풀세트를 구매. 영수증과 수선 접수 흔적이 남은 비밀 선물이다.",
+      "visibility": "secret_from_kim_choyeon",
+      "related_event_id": null
+    },
+    {
+      "episode": 103,
+      "date": "2008-10-10",
+      "type": "seoul_date_meal_and_parking_spending",
+      "amount": -124000,
+      "description": "한서윤과 서울 백화점 쇼핑 뒤 저녁 식사와 백화점 주차비. 수원·분당을 피한 동선의 흔적이다.",
+      "visibility": "secret_from_kim_choyeon",
+      "related_event_id": null
+    },
+    {
+      "episode": 104,
+      "date": "2008-10-10",
+      "type": "secret_overnight_spending",
+      "amount": -153000,
+      "description": "서울에서 한서윤과 보낸 밤의 숙박비와 편의점 생수 등 소액 지출. 초연의 전화를 받지 않은 시간대와 겹친다.",
+      "visibility": "secret_from_kim_choyeon",
+      "related_event_id": null
+    },
+    {
+      "episode": 107,
+      "date": "2008-10-14",
+      "type": "relationship_meal_spending",
+      "amount": -18000,
+      "description": "김초연과 수원역 근처 우동집 저녁. 조수석 냄새와 백화점 포장지 조각이 의심 단서로 남은 자리다.",
       "visibility": "visible_to_kim_choyeon",
       "related_event_id": null
     }
