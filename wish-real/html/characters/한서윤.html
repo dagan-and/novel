@@ -1,160 +1,131 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>한서윤</title>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { font-size: 120%; }
+    * { box-sizing: border-box; }
     body {
-      background: #111417;
-      color: #e8e1d5;
-      font-family: 'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
-      font-size: 1.04rem;
+      margin: 0;
+      background: #171717;
+      color: #ece5dc;
+      font-family: "Apple SD Gothic Neo", "Noto Sans KR", system-ui, sans-serif;
       line-height: 1.82;
-      max-width: 820px;
-      margin: 0 auto;
-      padding: 3rem 1.5rem 5rem;
       word-break: keep-all;
     }
+    main {
+      max-width: 840px;
+      min-height: 100vh;
+      margin: 0 auto;
+      padding: 34px 18px 72px;
+      background: #22201f;
+    }
+    .back {
+      display: inline-block;
+      margin-bottom: 24px;
+      color: #d7a36c;
+      font-weight: 800;
+      text-decoration: none;
+    }
     .header {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      align-items: center;
-      margin-bottom: 2.5rem;
-      padding-bottom: 2rem;
-      border-bottom: 1px solid #30383a;
+      display: grid;
+      gap: 22px;
+      margin-bottom: 32px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid #473f39;
     }
     .portrait {
-      width: 90%;
-      max-width: 650px;
-      border: 1px solid #30383a;
-      border-radius: 8px;
       overflow: hidden;
-      background: #181d20;
+      border: 1px solid #473f39;
+      border-radius: 8px;
+      background: #171717;
     }
     .portrait img {
-      width: 100%;
-      height: auto;
       display: block;
-      object-fit: cover;
+      width: 100%;
+      max-height: 72vh;
+      object-fit: contain;
       object-position: top;
-      cursor: pointer;
-      transition: opacity 0.15s;
+      cursor: zoom-in;
     }
-    .portrait img:hover { opacity: 0.85; }
     .portrait.no-image {
+      min-height: 220px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #8f9996;
-      font-size: 1.6rem;
-      height: 200px;
+      color: #afa69d;
+      font-size: 2rem;
+    }
+    h1 {
+      margin: 0;
+      color: #d7a36c;
+      font-size: 2.4rem;
+      line-height: 1.25;
+      letter-spacing: 0;
+      text-align: center;
+    }
+    h2 {
+      margin: 2rem 0 0.7rem;
+      padding-bottom: 0.35rem;
+      border-bottom: 1px solid #473f39;
+      color: #d7a36c;
+      font-size: 1.25rem;
+      letter-spacing: 0;
+    }
+    h3 {
+      margin: 1.25rem 0 0.45rem;
+      color: #e1b98d;
+      font-size: 1.08rem;
+      letter-spacing: 0;
+    }
+    p, ul {
+      margin: 0 0 0.85rem;
+      font-size: 1.04rem;
+    }
+    ul { padding-left: 1.3rem; }
+    li { margin: 0.28rem 0; }
+    hr {
+      margin: 1.8rem 0;
+      border: 0;
+      border-top: 1px solid #473f39;
+    }
+    strong { color: #e1b98d; }
+    code {
+      padding: 0.08rem 0.3rem;
+      border-radius: 4px;
+      background: rgba(215, 163, 108, 0.12);
+      color: #e1b98d;
     }
     #lightbox {
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.88);
-      z-index: 9999;
+      z-index: 10;
       align-items: center;
       justify-content: center;
+      background: rgba(0, 0, 0, 0.9);
       cursor: zoom-out;
     }
     #lightbox.open { display: flex; }
     #lightbox img {
-      max-width: 90vw;
-      max-height: 90vh;
-      object-fit: contain;
-      border: 1px solid #30383a;
+      max-width: 92vw;
+      max-height: 92vh;
+      border: 1px solid #473f39;
       border-radius: 8px;
-      box-shadow: 0 8px 40px rgba(0,0,0,0.7);
+      object-fit: contain;
     }
-    .header-info { text-align: center; }
-    .header-info h1 {
-      font-size: 3rem; /* 2rem -> 2.4rem -> 3rem */
-      color: #79b8b2;
-      letter-spacing: 0.02em;
-      margin-bottom: 0.4rem;
-    }
-    .category-tag {
-      display: inline-block;
-      background: #20282b;
-      color: #8fd0c9;
-      border: 1px solid #3d4a4c;
-      font-size: 0.92rem;
-      padding: 0.18rem 0.62rem;
-      border-radius: 999px;
-      letter-spacing: 0.01em;
-    }
-    .current-age {
-      font-size: 1rem;
-      color: #9faaa6;
-      letter-spacing: 0.01em;
-      margin-top: 0.35rem;
-    }
-    h2 {
-      font-size: 1.18rem;
-      color: #79b8b2;
-      margin: 2rem 0 0.6rem;
-      padding-bottom: 0.3rem;
-      border-bottom: 1px solid #30383a;
-      letter-spacing: 0.01em;
-    }
-    h3 { font-size: 1.08rem; color: #d28a72; margin: 1.2rem 0 0.4rem; }
-    p { margin: 0.5rem 0; }
-    ul { padding-left: 1.4rem; margin: 0.4rem 0; }
-    li { margin: 0.25rem 0; }
-    hr { border: none; border-top: 1px solid #30383a; margin: 1.6rem 0; }
-    strong { color: #d28a72; }
-    code { background: #20282b; color: #8fd0c9; padding: 0.1rem 0.35rem; border-radius: 4px; }
-    .back { display: inline-block; margin-bottom: 2rem; color: #8fd0c9; text-decoration: none; font-size: 1rem; font-weight: 700; }
-    .back:hover { text-decoration: underline; }
-    .emotion-chart { width: 90%; max-width: 380px; display: block; margin: 0 auto; }
-    .adult-scene-block {
-      text-align: center;
-      margin: 1.4rem 0 0.4rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.55rem;
-    }
-    .adult-scene-hearts {
-      display: flex;
-      gap: 0.3rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .heart { font-size: 1.45rem; line-height: 1; }
-    .heart.filled { color: #d97b95; }
-    .heart.empty  { color: #30383a; }
-    .adult-scene-count {
-      margin: 0;
-      color: #d97b95;
-      font-size: 0.95rem;
-      letter-spacing: 0.03em;
-    }
-    @media (max-width: 560px) { .portrait { width: 100%; } .emotion-chart { max-width: 320px; } }
   </style>
 </head>
 <body>
-  <a class="back" href="../characters.html">← 인물 목록</a>
-  <div class="header">
-    <div class="portrait no-image"><span>한서윤</span></div>
-
-    <div class="adult-scene-block"><div class="adult-scene-hearts"><span class="heart empty">♡</span></div><p class="adult-scene-count">♥ 0</p></div>
-    <div class="header-info">
+  <main>
+    <a class="back" href="../characters.html">인물 목록</a>
+    <section class="header">
+      <div class="portrait"><img src="../../character_assets/한서윤/references/main.png" alt="한서윤" onclick="openLightbox(this.src)"></div>
       <h1>한서윤</h1>
-
-
-    </div>
-  </div>
-  <div class="profile-body">
-
+    </section>
+    <section class="profile-body">
 <h2>기본 정보</h2>
-
 <ul>
 <li>이름: 한서윤</li>
 <li>출생연도: 1988년</li>
@@ -162,9 +133,7 @@
 <li>2008년 나이: 스물한 살</li>
 <li>주인공과의 접점: 수원 일본어 학원에서 만나는 한 살 연상 여성.</li>
 </ul>
-
 <h3>외형</h3>
-
 <ul>
 <li>체형: 키 약 166cm의 마른 편이지만 빈약하지 않다. 목선이 길고 쇄골이 얇게 드러나는 타입이다. 어깨는 좁고 곧으며, 허리는 가늘고 골반은 과하게 넓지 않아 전체 실루엣이 길게 떨어진다. 팔과 다리가 길어 같은 니트와 스커트를 입어도 단정하고 어른스럽게 보인다. 움직임은 크지 않고, 의자에 앉을 때도 무릎과 발끝이 가지런하다.</li>
 <li>얼굴형: 달걀형에 가까운 긴 얼굴. 턱선은 뾰족하기보다 얇게 정리된 느낌이고, 볼살이 많지 않아 무표정일 때 차분하고 살짝 차가워 보인다. 웃으면 얼굴 전체가 확 밝아지기보다 입가와 눈 밑이 먼저 부드러워진다.</li>
@@ -177,24 +146,20 @@
 <li>옷차림: 얇은 니트, 무릎선 근처의 단정한 스커트, 짙은 남색이나 회색 계열 코트가 잘 어울린다. 색은 튀지 않지만 소재와 핏이 깔끔하다. 작은 가방, 정리된 필통, 일본 잡지, 캔커피 같은 소품이 곁에 있으면 생활감보다 취향이 먼저 보인다.</li>
 <li>분위기: 또래보다 어른스럽고 말수가 적다. 화려하게 꾸민 얼굴은 아닌데, 눈 아래 점과 긴 눈매, 낮게 묶은 흑갈색 머리 때문에 한 번 보면 다시 확인하게 되는 타입이다. 김초연이 따뜻하고 바로 다가오는 인상이라면, 한서윤은 조용히 옆자리에 앉아 있다가 뒤늦게 신경 쓰이기 시작하는 인상이다.</li>
 </ul>
-
 <h3>성격</h3>
-
 <ul>
 <li>성격 키워드: 차분함, 관찰력, 독립성, 일본 문화 취향, 은근한 직구, 거리 유지</li>
 <li>감정 표현 방식: 크게 들뜨지 않고 짧은 말과 오래 남는 시선으로 표현한다.</li>
 <li>주인공 앞에서의 반응 패턴: 김용식이 또래 같지 않은 말을 하면 바로 캐묻기보다 웃고 넘기지만, 다음 대화에서 기억해 둔 내용을 꺼낸다.</li>
 </ul>
-
 <h3>배경</h3>
-
 <ul>
 <li>소속/생활권: 수원 일본어 학원, 수원역 주변, 일본 유학 준비 생활권.</li>
 <li>현재 관계 상태: 2008년 3월 기준 김용식과 아직 만나기 전이다.</li>
 <li>고정 메모: 초연과 다른 결의 여성 접점이다. 적극적으로 들이대기보다, 용식이 일본어와 일본 생활 이야기를 편하게 꺼내게 만드는 인물이다.</li>
 </ul>
-
-  </div>
+    </section>
+  </main>
   <div id="lightbox" onclick="closeLightbox()">
     <img id="lightbox-img" src="" alt="">
   </div>
@@ -206,8 +171,8 @@
     function closeLightbox() {
       document.getElementById('lightbox').classList.remove('open');
     }
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') closeLightbox();
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') closeLightbox();
     });
   </script>
 </body>
