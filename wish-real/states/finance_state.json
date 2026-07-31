@@ -1,14 +1,14 @@
 {
   "currency": "KRW",
   "owner": "김용식",
-  "as_of_episode": 30,
-  "as_of_date": "2008-03-28",
+  "as_of_episode": 31,
+  "as_of_date": "2008-03-29",
   "timeline_base_date": "2008-01-01",
   "timeline_counting_rule": "month_index_from_start은 2008년 1월을 0개월차로 보는 달력 기준이다. elapsed_* 값은 실제 날짜 차이를 개월+일로 표시한다.",
   "cash_on_hand": 0,
-  "bank_balance": 2160346741,
-  "hidden_funds": 2160346741,
-  "available_after_committed_purchases": 2160346741,
+  "bank_balance": 2160103741,
+  "hidden_funds": 2160103741,
+  "available_after_committed_purchases": 2160103741,
   "spending_rules": {
     "monthly_tracking_required": true,
     "rule": "원고에서 돈을 쓴 장면은 월별 지출 요약과 transactions에 반영하고, bank_balance와 hidden_funds에서 차감한다.",
@@ -51,10 +51,10 @@
     {
       "month": "2008-03",
       "episode_range": "005-030",
-      "ordinary_spending": 3288000,
+      "ordinary_spending": 3531000,
       "capital_spending": 52000000,
-      "total_spending": 55288000,
-      "notes": "BMW 320i 구매와 등록/보험 초기비, 신학기 의류 쇼핑, 식사/카페/주차비, 일본어 학원 3개월 수강료와 교재비, 3월 초 차량 운행비 예비분, 16-30화의 PC방/학생식당/카페/매점/주차/주유/도서관/술자리 귀가 생활 지출을 반영했다."
+      "total_spending": 55531000,
+      "notes": "BMW 320i 구매와 등록/보험 초기비, 신학기 의류 쇼핑, 식사/카페/주차비, 일본어 학원 3개월 수강료와 교재비, 3월 초 차량 운행비 예비분, 16-31화의 PC방/학생식당/카페/매점/주차/주유/도서관/술자리/숙박/귀가 생활 지출을 반영했다."
     }
   ],
   "projected_events": [
@@ -381,6 +381,15 @@
       "amount": -112000,
       "description": "금요일 평택-수원 일본어 학원 왕복 주유와 주차, 식사와 음료, 수원역 동선 지출. 한서윤 목격으로 김초연과 갈등이 생겼다.",
       "visibility": "low_profile",
+      "related_event_id": null
+    },
+    {
+      "episode": 31,
+      "date": "2008-03-29",
+      "type": "secret_relationship_spending",
+      "amount": -243000,
+      "description": "수원역 뒤쪽 술집 맥주와 안주, 모텔 숙박비, 차량을 두고 다음 날 찾는 주차/이동/아침 편의점 지출. 한서윤과 비밀 관계가 시작되는 발각 단서가 되었다.",
+      "visibility": "secret_from_kim_choyeon",
       "related_event_id": null
     }
   ]
