@@ -1,14 +1,14 @@
 {
   "currency": "KRW",
   "owner": "김용식",
-  "as_of_episode": 65,
-  "as_of_date": "2008-06-19",
+  "as_of_episode": 70,
+  "as_of_date": "2008-07-15",
   "timeline_base_date": "2008-01-01",
   "timeline_counting_rule": "month_index_from_start은 2008년 1월을 0개월차로 보는 달력 기준이다. elapsed_* 값은 실제 날짜 차이를 개월+일로 표시한다.",
   "cash_on_hand": 0,
-  "bank_balance": 2146389741,
-  "hidden_funds": 2146389741,
-  "available_after_committed_purchases": 2146389741,
+  "bank_balance": 2145659741,
+  "hidden_funds": 2145659741,
+  "available_after_committed_purchases": 2145659741,
   "spending_rules": {
     "monthly_tracking_required": true,
     "rule": "원고에서 돈을 쓴 장면은 월별 지출 요약과 transactions에 반영하고, bank_balance와 hidden_funds에서 차감한다.",
@@ -92,9 +92,9 @@
       "month": "2008-05_06",
       "episode_range": "056-060",
       "ordinary_spending": 46000,
-      "capital_spending": 0,
-      "total_spending": 46000,
-      "notes": "일월저수지 데이트, 여권 사진 촬영비, 한서윤과 일본 동행 일정을 조율한 식사비를 반영했다. 어학연수 발설과 한서윤의 비밀 동행 결정이 이 구간에서 확정됐다."
+      "capital_spending": 450000,
+      "total_spending": 496000,
+      "notes": "일월저수지 데이트, 여권 사진 촬영비, 한서윤과 일본 동행 일정을 조율한 식사비, 도쿄 호텔 3박 사전 결제(한서윤 몫, 김용식 부담)를 반영했다. 어학연수 발설과 한서윤의 비밀 동행 결정이 이 구간에서 확정됐다. 항공권은 한서윤이 직접 결제해 이 파일에 반영하지 않는다."
     },
     {
       "month": "2008-06",
@@ -102,7 +102,23 @@
       "ordinary_spending": 338000,
       "capital_spending": 5200000,
       "total_spending": 5538000,
-      "notes": "에버랜드 데이트, 어학원 2개월 수강료·기숙사비 일괄 결제, 공항버스, 도쿄 현지 생활비(라멘·이자카야·기념품·편의점, 엔화 환산)를 반영했다. 항공권과 한서윤의 숙박비는 한서윤 본인이 전액 부담해 이 파일에는 반영하지 않는다."
+      "notes": "에버랜드 데이트, 어학원 2개월 수강료·기숙사비 일괄 결제, 공항버스, 도쿄 현지 생활비(라멘·이자카야·기념품·편의점, 엔화 환산)를 반영했다. 한서윤의 항공권은 본인이 직접 부담해 이 파일에는 반영하지 않는다."
+    },
+    {
+      "month": "2008-06",
+      "episode_range": "066-069",
+      "ordinary_spending": 185000,
+      "capital_spending": 0,
+      "total_spending": 185000,
+      "notes": "생활 멘토 나카타 유즈키 배정 이후 은행 계좌 개설·교통카드 발급, 온천 마을 당일 여행(기차·유카타 대여·온천 만주·저녁 식사·급하게 잡은 료칸 1박)을 반영했다 (엔화 환산). 온천 여행 지출은 유즈키와의 관계가 깊어진 흔적이다."
+    },
+    {
+      "month": "2008-07",
+      "episode_range": "070",
+      "ordinary_spending": 95000,
+      "capital_spending": 0,
+      "total_spending": 95000,
+      "notes": "7월 첫 2주 유즈키와의 반동거 생활비 - 슈퍼마켓 장보기, 외식, 생활용품 공동 부담분을 반영했다 (엔화 환산)."
     }
   ],
   "projected_events": [
@@ -674,6 +690,15 @@
       "related_event_id": null
     },
     {
+      "episode": 60,
+      "date": "2008-06-01",
+      "type": "hotel_reservation_payment",
+      "amount": -450000,
+      "description": "도쿄 어학원 근처 비즈니스호텔 3박 사전 예약·결제. 한서윤이 3박 이상은 부담이라며 스스로 선을 그었고, 항공권은 본인이 따로 결제했다.",
+      "visibility": "secret_from_kim_choyeon",
+      "related_event_id": null
+    },
+    {
       "episode": 61,
       "date": "2008-06-07",
       "type": "relationship_date_spending",
@@ -725,6 +750,42 @@
       "amount": -8000,
       "description": "학원 근처 편의점 도시락 등 혼자 남은 뒤의 생활 지출 (엔화 환산)",
       "visibility": "low_profile",
+      "related_event_id": null
+    },
+    {
+      "episode": 66,
+      "date": "2008-06-20",
+      "type": "daily_living_spending",
+      "amount": -2000,
+      "description": "생활 멘토 배정 발표 날 자판기 캔음료 등 소소한 지출 (엔화 환산)",
+      "visibility": "low_profile",
+      "related_event_id": null
+    },
+    {
+      "episode": 67,
+      "date": "2008-06-23",
+      "type": "banking_and_transit_setup",
+      "amount": -18000,
+      "description": "은행 계좌 개설(수수료 없음), 교통카드 발급 보증금·충전, 캔커피·소프트크림 등 생활 정착 지출 (엔화 환산)",
+      "visibility": "visible_to_family",
+      "related_event_id": null
+    },
+    {
+      "episode": 69,
+      "date": "2008-06-28",
+      "type": "secret_relationship_trip_spending",
+      "amount": -165000,
+      "description": "온천 마을 당일 여행 - 기차 왕복, 유카타 대여, 온천 만주, 저녁 식사, 급하게 잡은 료칸 1박 2인분 (엔화 환산). 유즈키와의 관계가 깊어진 지출이다.",
+      "visibility": "secret_from_kim_choyeon",
+      "related_event_id": null
+    },
+    {
+      "episode": 70,
+      "date": "2008-07-05",
+      "type": "cohabitation_living_spending",
+      "amount": -95000,
+      "description": "7월 첫 2주 유즈키와의 반동거 생활비 - 슈퍼마켓 장보기, 외식, 생활용품 공동 부담분 (엔화 환산)",
+      "visibility": "secret_from_kim_choyeon",
       "related_event_id": null
     }
   ]
