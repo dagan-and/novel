@@ -1,14 +1,14 @@
 {
   "currency": "KRW",
   "owner": "김용식",
-  "as_of_episode": 31,
-  "as_of_date": "2008-03-29",
+  "as_of_episode": 35,
+  "as_of_date": "2008-04-13",
   "timeline_base_date": "2008-01-01",
   "timeline_counting_rule": "month_index_from_start은 2008년 1월을 0개월차로 보는 달력 기준이다. elapsed_* 값은 실제 날짜 차이를 개월+일로 표시한다.",
   "cash_on_hand": 0,
-  "bank_balance": 2160103741,
-  "hidden_funds": 2160103741,
-  "available_after_committed_purchases": 2160103741,
+  "bank_balance": 2158805741,
+  "hidden_funds": 2158805741,
+  "available_after_committed_purchases": 2158805741,
   "spending_rules": {
     "monthly_tracking_required": true,
     "rule": "원고에서 돈을 쓴 장면은 월별 지출 요약과 transactions에 반영하고, bank_balance와 hidden_funds에서 차감한다.",
@@ -50,11 +50,19 @@
     },
     {
       "month": "2008-03",
-      "episode_range": "005-030",
+      "episode_range": "005-031",
       "ordinary_spending": 3531000,
       "capital_spending": 52000000,
       "total_spending": 55531000,
       "notes": "BMW 320i 구매와 등록/보험 초기비, 신학기 의류 쇼핑, 식사/카페/주차비, 일본어 학원 3개월 수강료와 교재비, 3월 초 차량 운행비 예비분, 16-31화의 PC방/학생식당/카페/매점/주차/주유/도서관/술자리/숙박/귀가 생활 지출을 반영했다."
+    },
+    {
+      "month": "2008-04",
+      "episode_range": "032-035",
+      "ordinary_spending": 1298000,
+      "capital_spending": 0,
+      "total_spending": 1298000,
+      "notes": "4월 초 벚꽃 데이트와 학교 생활 지출, 김초연에게 주려다 보류한 목걸이, 일본어 학원 왕복 동선, 수원 주말 데이트와 숙박 지출을 반영했다. 목걸이와 숙박비는 관계 진도와 발각 압력을 만드는 흔적으로 남는다."
     }
   ],
   "projected_events": [
@@ -390,6 +398,42 @@
       "amount": -243000,
       "description": "수원역 뒤쪽 술집 맥주와 안주, 모텔 숙박비, 차량을 두고 다음 날 찾는 주차/이동/아침 편의점 지출. 한서윤과 비밀 관계가 시작되는 발각 단서가 되었다.",
       "visibility": "secret_from_kim_choyeon",
+      "related_event_id": null
+    },
+    {
+      "episode": 32,
+      "date": "2008-04-01",
+      "type": "campus_reconciliation_spending",
+      "amount": -138000,
+      "description": "벚꽃 아래 김초연과 분위기상 봉합한 날의 매점 식사, 캔커피, 수원 귀가 주유와 주차, 생활 지출",
+      "visibility": "visible_to_kim_choyeon",
+      "related_event_id": null
+    },
+    {
+      "episode": 33,
+      "date": "2008-04-04",
+      "type": "rumor_and_gift_spending",
+      "amount": -726000,
+      "description": "BMW 와이퍼에 붙은 돈 소문 쪽지 이후 김초연에게 주려다 보류한 목걸이 구매, 학교 생활 지출, 버스정류장 귀가 동선 지출",
+      "visibility": "relationship_pressure",
+      "related_event_id": null
+    },
+    {
+      "episode": 34,
+      "date": "2008-04-11",
+      "type": "academy_secret_contact_spending",
+      "amount": -86000,
+      "description": "수원 일본어 학원 왕복 주유와 주차, 캔커피와 간식, 김초연 귀가 동선 생활 지출",
+      "visibility": "low_profile",
+      "related_event_id": null
+    },
+    {
+      "episode": 35,
+      "date": "2008-04-12",
+      "type": "official_relationship_date_spending",
+      "amount": -348000,
+      "description": "김초연과 수원역 영화, 스티커사진, 지하상가 데이트, 분식, 숙박과 다음 날 아침 이동 지출. 공식 연인으로 첫 깊은 밤을 보낸 관계 전환점이 되었다.",
+      "visibility": "visible_to_kim_choyeon",
       "related_event_id": null
     }
   ]
