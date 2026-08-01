@@ -1,14 +1,14 @@
 {
   "currency": "KRW",
   "owner": "김용식",
-  "as_of_episode": 110,
-  "as_of_date": "2008-10-17",
+  "as_of_episode": 130,
+  "as_of_date": "2008-12-26",
   "timeline_base_date": "2008-01-01",
   "timeline_counting_rule": "month_index_from_start은 2008년 1월을 0개월차로 보는 달력 기준이다. elapsed_* 값은 실제 날짜 차이를 개월+일로 표시한다.",
   "cash_on_hand": 0,
-  "bank_balance": 2145602741,
-  "hidden_funds": 2145602741,
-  "available_after_committed_purchases": 2145602741,
+  "bank_balance": 2141802741,
+  "hidden_funds": 2141802741,
+  "available_after_committed_purchases": 2141802741,
   "spending_rules": {
     "monthly_tracking_required": false,
     "tracking_mode": "major_events_only",
@@ -69,6 +69,12 @@
       "episode_range": "099-103",
       "tracked_major_spending": 4130000,
       "notes": "김초연 생일 고가 선물과 한서윤 서울 백화점 면접용 풀세트만 유지한다. 101~110화의 주차·저녁·숙박성 소액 지출은 원고 단서로만 남긴다."
+    },
+    {
+      "period": "2008-12",
+      "episode_range": "126-130",
+      "tracked_major_spending": 3800000,
+      "notes": "한서윤과의 겨울 일본 동행을 위한 인천-도쿄 왕복 항공권 2장과 도쿄 보름 호텔 예약 추정치를 큰 여행 결제로 반영한다. 학교 프로그램 관련 서류는 초연에게 보이는 명분이고, 실제 동행과 개인 이동은 숨겨진다."
     }
   ],
   "projected_events": [
