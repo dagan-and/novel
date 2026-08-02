@@ -1,14 +1,14 @@
 {
   "currency": "KRW",
   "owner": "김용식",
-  "as_of_episode": 130,
-  "as_of_date": "2008-12-26",
+  "as_of_episode": 141,
+  "as_of_date": "2008-12-24",
   "timeline_base_date": "2008-01-01",
   "timeline_counting_rule": "month_index_from_start은 2008년 1월을 0개월차로 보는 달력 기준이다. elapsed_* 값은 실제 날짜 차이를 개월+일로 표시한다.",
   "cash_on_hand": 0,
-  "bank_balance": 2141802741,
-  "hidden_funds": 2141802741,
-  "available_after_committed_purchases": 2141802741,
+  "bank_balance": 2140002741,
+  "hidden_funds": 2140002741,
+  "available_after_committed_purchases": 2140002741,
   "spending_rules": {
     "monthly_tracking_required": false,
     "tracking_mode": "major_events_only",
@@ -72,9 +72,15 @@
     },
     {
       "period": "2008-12",
-      "episode_range": "126-130",
+      "episode_range": "126-132",
       "tracked_major_spending": 3800000,
-      "notes": "한서윤과의 겨울 일본 동행을 위한 인천-도쿄 왕복 항공권 2장과 도쿄 보름 호텔 예약 추정치를 큰 여행 결제로 반영한다. 학교 프로그램 관련 서류는 초연에게 보이는 명분이고, 실제 동행과 개인 이동은 숨겨진다."
+      "notes": "한서윤과의 겨울 일본 동행을 위한 인천-도쿄 왕복 항공권 2장과 도쿄 보름 호텔 예약 추정치를 큰 여행 결제로 반영한다. 130화 수정 뒤 실제 출국은 2008년 12월 10일이며, 학교 프로그램은 초연에게 보이는 명분이고 실제 동행은 숨겨진다."
+    },
+    {
+      "period": "2008-12_tokyo",
+      "episode_range": "134-139",
+      "tracked_major_spending": 1800000,
+      "notes": "도쿄 보름 동행 중 한서윤에게 산 긴자 코트·니트·구두·장갑 등 100만 원 이상 고가 선물성 쇼핑 추정치를 큰 관계 지출로 반영한다. 일반 식사·택시·편의점·소액 관광비는 장부에서 제외한다."
     }
   ],
   "projected_events": [
