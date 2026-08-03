@@ -248,15 +248,15 @@ def render_episode(text: str, ep_num: int) -> str:
     }}
     h1 {{
       margin: 0 0 2rem;
-      font-size: 1.9rem;
+      font-size: 2.38rem;
     }}
     h2 {{
       margin: 2rem 0 1rem;
-      font-size: 1.35rem;
+      font-size: 1.69rem;
     }}
     p, blockquote {{
       margin: 0 0 1rem;
-      font-size: 1.06rem;
+      font-size: 1.33rem;
     }}
     blockquote {{
       padding-left: 1rem;
@@ -387,7 +387,7 @@ CHARACTER_INDEX_CSS = """
       align-items: center;
       justify-content: center;
       color: #afa69d;
-      font-size: 3rem;
+      font-size: 3.75rem;
       background: #22201f;
     }
     .card:hover img {
@@ -403,14 +403,14 @@ CHARACTER_INDEX_CSS = """
     }
     .card strong {
       display: block;
-      font-size: 1.16rem;
+      font-size: 1.45rem;
       line-height: 1.25;
     }
     .card span {
       display: block;
       margin-top: 4px;
       color: #d7a36c;
-      font-size: 0.88rem;
+      font-size: 1.1rem;
       font-weight: 800;
     }
     @media (max-width: 560px) {
@@ -473,12 +473,12 @@ CHARACTER_PROFILE_CSS = """
       align-items: center;
       justify-content: center;
       color: #afa69d;
-      font-size: 2rem;
+      font-size: 2.5rem;
     }
     h1 {
       margin: 0;
       color: #d7a36c;
-      font-size: 2.4rem;
+      font-size: 3rem;
       line-height: 1.25;
       letter-spacing: 0;
       text-align: center;
@@ -488,18 +488,18 @@ CHARACTER_PROFILE_CSS = """
       padding-bottom: 0.35rem;
       border-bottom: 1px solid #473f39;
       color: #d7a36c;
-      font-size: 1.25rem;
+      font-size: 1.56rem;
       letter-spacing: 0;
     }
     h3 {
       margin: 1.25rem 0 0.45rem;
       color: #e1b98d;
-      font-size: 1.08rem;
+      font-size: 1.35rem;
       letter-spacing: 0;
     }
     p, ul {
       margin: 0 0 0.85rem;
-      font-size: 1.04rem;
+      font-size: 1.3rem;
     }
     ul { padding-left: 1.3rem; }
     li { margin: 0.28rem 0; }
@@ -573,7 +573,7 @@ INDEX_CSS = """
     .batch h2 {
       margin: 0 0 12px;
       color: #d7a36c;
-      font-size: 1rem;
+      font-size: 1.25rem;
       letter-spacing: 0;
     }
     .episode-links {
