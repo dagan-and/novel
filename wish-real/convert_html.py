@@ -13,8 +13,11 @@ EPISODES_DIR = ROOT / "episodes"
 HTML_DIR = ROOT / "html"
 CHARACTERS_DIR = ROOT / "characters"
 CHARACTER_ASSETS_DIR = ROOT / "character_assets"
+IMAGES_DIR = ROOT / "images"
 
 EP_PATTERN = re.compile(r"^ep\.(\d+)(?P<suffix>_a|\.sample)?\.md$")
+GALLERY_DIR_PATTERN = re.compile(r"^ep(\d+)$")
+GALLERY_SCENE_PATTERN = re.compile(r"scene-(\d+)")
 DIALOGUE_PATTERN = re.compile(r'^\[(?P<speaker>.+?)\]\s+"(?P<line>.*)"$')
 MESSAGE_PATTERN = re.compile(r"^\[(?P<sender>.+?)\]\s+(?P<body>.+)$")
 IMAGE_PATTERN = re.compile(r"^!\[(?P<alt>[^\]]*)\]\((?P<src>[^)]+)\)$")
@@ -616,6 +619,364 @@ INDEX_CSS = """
 """
 
 
+GALLERY_CSS = """
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #171717;
+      color: #ece5dc;
+      font-family: "Apple SD Gothic Neo", "Noto Sans KR", system-ui, sans-serif;
+      word-break: keep-all;
+    }
+    main {
+      max-width: 1100px;
+      min-height: 100vh;
+      margin: 0 auto;
+      padding: 28px 16px 56px;
+    }
+    .top-link {
+      display: inline-block;
+      margin-bottom: 18px;
+      color: #d7a36c;
+      font-weight: 800;
+      text-decoration: none;
+    }
+    h1 {
+      margin: 0 0 8px;
+      color: #d7a36c;
+      font-size: 2.38rem;
+    }
+    .subtitle {
+      margin: 0 0 22px;
+      color: #afa69d;
+      font-weight: 800;
+    }
+    .batch {
+      margin-bottom: 28px;
+    }
+    .batch h2 {
+      margin: 0 0 12px;
+      color: #d7a36c;
+      font-size: 1.35rem;
+      letter-spacing: 0;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px;
+    }
+    .tile {
+      position: relative;
+      display: block;
+      overflow: hidden;
+      aspect-ratio: 3 / 4;
+      border: 1px solid #473f39;
+      border-radius: 8px;
+      background: #22201f;
+      text-decoration: none;
+    }
+    .tile img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.2s ease, filter 0.2s ease;
+    }
+    .tile:hover img {
+      transform: scale(1.035);
+      filter: brightness(1.08);
+    }
+    .tile span {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 6px 8px;
+      background: linear-gradient(180deg, rgba(23,23,23,0) 0%, rgba(23,23,23,0.85) 100%);
+      color: #ece5dc;
+      font-size: 0.95rem;
+      font-weight: 800;
+    }
+    @media (max-width: 560px) {
+      main { padding: 16px 10px 44px; }
+      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+    }
+"""
+
+
+UTILITY_TEXT_CSS = """
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #171717;
+      color: #ece5dc;
+      font-family: "Apple SD Gothic Neo", "Noto Sans KR", system-ui, sans-serif;
+      line-height: 1.82;
+      word-break: keep-all;
+    }
+    main {
+      max-width: 900px;
+      min-height: 100vh;
+      margin: 0 auto;
+      padding: 34px 18px 72px;
+    }
+    .back {
+      display: inline-block;
+      margin-bottom: 24px;
+      color: #d7a36c;
+      font-weight: 800;
+      text-decoration: none;
+    }
+    h1 {
+      margin: 0 0 1.5rem;
+      color: #d7a36c;
+      font-size: 3rem;
+      letter-spacing: 0;
+    }
+    h2 {
+      margin: 2rem 0 0.7rem;
+      padding-bottom: 0.35rem;
+      border-bottom: 1px solid #473f39;
+      color: #d7a36c;
+      font-size: 1.56rem;
+      letter-spacing: 0;
+    }
+    h3 {
+      margin: 1.25rem 0 0.45rem;
+      color: #e1b98d;
+      font-size: 1.35rem;
+      letter-spacing: 0;
+    }
+    p, ul {
+      margin: 0 0 0.85rem;
+      font-size: 1.3rem;
+    }
+    ul { padding-left: 1.3rem; }
+    li { margin: 0.28rem 0; }
+    hr {
+      margin: 1.8rem 0;
+      border: 0;
+      border-top: 1px solid #473f39;
+    }
+    strong { color: #e1b98d; }
+    code {
+      padding: 0.08rem 0.3rem;
+      border-radius: 4px;
+      background: rgba(215, 163, 108, 0.12);
+      color: #e1b98d;
+    }
+"""
+
+
+CHRONOLOGY_TABLE_CSS = """
+    .table-wrap { overflow-x: auto; }
+    table {
+      width: 100%;
+      min-width: 640px;
+      border-collapse: collapse;
+      margin: 0 0 1rem;
+      font-size: 1.06rem;
+    }
+    th, td {
+      padding: 10px 12px;
+      border: 1px solid #473f39;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #22201f;
+      color: #d7a36c;
+      white-space: nowrap;
+    }
+    td:first-child {
+      white-space: nowrap;
+      text-align: center;
+      font-weight: 800;
+    }
+    td:first-child a { color: #d7a36c; text-decoration: none; }
+    td:first-child a:hover { text-decoration: underline; }
+    tbody tr:nth-child(even) td { background: rgba(215, 163, 108, 0.04); }
+"""
+
+
+def discover_gallery_images() -> list[tuple[int, Path]]:
+    if not IMAGES_DIR.exists():
+        return []
+
+    images: list[tuple[int, Path]] = []
+    for ep_dir in sorted(IMAGES_DIR.iterdir()):
+        if not ep_dir.is_dir():
+            continue
+        matched = GALLERY_DIR_PATTERN.match(ep_dir.name)
+        if not matched:
+            continue
+        ep_num = int(matched.group(1))
+        for image in sorted(p for p in ep_dir.iterdir() if p.is_file() and p.stem.startswith("scene-")):
+            images.append((ep_num, image))
+    return images
+
+
+def render_gallery_tile(ep_num: int, image: Path) -> str:
+    href = html.escape(str(output_path(ep_num).relative_to(HTML_DIR)), quote=True)
+    src = html.escape(f"../{image.relative_to(ROOT)}", quote=True)
+    scene_match = GALLERY_SCENE_PATTERN.search(image.stem)
+    scene_no = scene_match.group(1) if scene_match else "01"
+    alt = html.escape(f"ep.{ep_num:03d} 삽화 {scene_no}", quote=True)
+    return (
+        f'<a class="tile" href="{href}">'
+        f'<img src="{src}" alt="{alt}" loading="lazy">'
+        f"<span>{ep_num:03d}화 · {scene_no}</span>"
+        "</a>"
+    )
+
+
+def render_gallery_page() -> str:
+    images = discover_gallery_images()
+
+    batches: dict[str, list[tuple[int, Path]]] = {}
+    for ep_num, image in images:
+        batches.setdefault(batch_label(ep_num), []).append((ep_num, image))
+
+    batch_blocks = []
+    for label, items in batches.items():
+        tiles = "\n      ".join(render_gallery_tile(ep_num, image) for ep_num, image in items)
+        batch_blocks.append(
+            '<section class="batch">'
+            f"<h2>{html.escape(label)}</h2>"
+            f'<div class="grid">{tiles}</div>'
+            "</section>"
+        )
+
+    content = "\n      ".join(batch_blocks) if batch_blocks else "<p>등록된 삽화가 없습니다.</p>"
+    return f"""<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>wish-real 삽화</title>
+  <style>{GALLERY_CSS}  </style>
+</head>
+<body>
+  <main>
+    <a class="top-link" href="index.html">목차</a>
+    <h1>삽화</h1>
+    <p class="subtitle">총 {len(images)}장</p>
+    {content}
+  </main>
+</body>
+</html>
+"""
+
+
+def convert_gallery() -> Path:
+    dest = HTML_DIR / "gallery.html"
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    dest.write_text(render_gallery_page(), encoding="utf-8")
+    return dest
+
+
+def parse_markdown_table(text: str) -> tuple[list[str], list[list[str]]]:
+    table_lines = [line.strip() for line in text.splitlines() if line.strip().startswith("|")]
+    if not table_lines:
+        return [], []
+
+    rows = [[cell.strip() for cell in line.strip("|").split("|")] for line in table_lines]
+
+    def is_separator(row: list[str]) -> bool:
+        return all(re.fullmatch(r":?-{2,}:?", cell) for cell in row)
+
+    header, *rest = rows
+    body = [row for row in rest if not is_separator(row)]
+    return header, body
+
+
+def render_chronology_row(row: list[str]) -> str:
+    cells = []
+    for index, value in enumerate(row):
+        if index == 0:
+            matched = re.fullmatch(r"\d+", value)
+            if matched and episode_path(int(value)).exists():
+                ep_num = int(value)
+                href = html.escape(str(output_path(ep_num).relative_to(HTML_DIR)), quote=True)
+                cells.append(f'<td><a href="{href}">{html.escape(value)}</a></td>')
+                continue
+        cells.append(f"<td>{html.escape(value)}</td>")
+    return "<tr>" + "".join(cells) + "</tr>"
+
+
+def render_chronology_page() -> str:
+    source = ROOT / "연대기.md"
+    header, rows = parse_markdown_table(source.read_text(encoding="utf-8")) if source.exists() else ([], [])
+
+    if header and rows:
+        thead = "<tr>" + "".join(f"<th>{html.escape(cell)}</th>" for cell in header) + "</tr>"
+        tbody = "\n      ".join(render_chronology_row(row) for row in rows)
+        table_block = (
+            '<div class="table-wrap">'
+            f"<table><thead>{thead}</thead><tbody>\n      {tbody}\n      </tbody></table>"
+            "</div>"
+        )
+    else:
+        table_block = "<p>기록된 연대기가 없습니다.</p>"
+
+    return f"""<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>wish-real 연대기</title>
+  <style>{UTILITY_TEXT_CSS}{CHRONOLOGY_TABLE_CSS}  </style>
+</head>
+<body>
+  <main>
+    <a class="back" href="index.html">목차</a>
+    <h1>연대기</h1>
+    {table_block}
+  </main>
+</body>
+</html>
+"""
+
+
+def convert_chronology() -> Path:
+    dest = HTML_DIR / "chronology.html"
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    dest.write_text(render_chronology_page(), encoding="utf-8")
+    return dest
+
+
+def render_relationships_page() -> str:
+    source = ROOT / "관계망.md"
+    body = render_profile_markdown(source.read_text(encoding="utf-8")) if source.exists() else "<p>기록된 관계망이 없습니다.</p>"
+
+    return f"""<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>wish-real 관계망</title>
+  <style>{UTILITY_TEXT_CSS}  </style>
+</head>
+<body>
+  <main>
+    <a class="back" href="index.html">목차</a>
+    <h1>관계망</h1>
+    <section class="profile-body">
+{body}
+    </section>
+  </main>
+</body>
+</html>
+"""
+
+
+def convert_relationships() -> Path:
+    dest = HTML_DIR / "relationships.html"
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    dest.write_text(render_relationships_page(), encoding="utf-8")
+    return dest
+
+
 def render_site_index(episode_files: list[Path]) -> str:
     episodes: list[tuple[int, Path]] = []
     for source in episode_files:
@@ -658,6 +1019,9 @@ def render_site_index(episode_files: list[Path]) -> str:
       </div>
       <nav class="utility" aria-label="바로가기">
         <a href="characters.html">인물</a>
+        <a href="gallery.html">삽화</a>
+        <a href="chronology.html">연대기</a>
+        <a href="relationships.html">관계망</a>
       </nav>
     </div>
   </main>
@@ -874,6 +1238,12 @@ def main(argv: list[str] | None = None) -> int:
     print(index_dest.relative_to(ROOT))
     for dest in convert_characters():
         print(dest.relative_to(ROOT))
+    gallery_dest = convert_gallery()
+    print(gallery_dest.relative_to(ROOT))
+    chronology_dest = convert_chronology()
+    print(chronology_dest.relative_to(ROOT))
+    relationships_dest = convert_relationships()
+    print(relationships_dest.relative_to(ROOT))
     return 0
 
 
