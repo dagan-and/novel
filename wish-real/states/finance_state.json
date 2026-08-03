@@ -1,14 +1,14 @@
 {
   "currency": "KRW",
   "owner": "김용식",
-  "as_of_episode": 147,
-  "as_of_date": "2009-01-06",
+  "as_of_episode": 172,
+  "as_of_date": "2009-03-12",
   "timeline_base_date": "2008-01-01",
   "timeline_counting_rule": "month_index_from_start은 2008년 1월을 0개월차로 보는 달력 기준이다. elapsed_* 값은 실제 날짜 차이를 개월+일로 표시한다.",
   "cash_on_hand": 0,
-  "bank_balance": 2138352741,
-  "hidden_funds": 2138352741,
-  "available_after_committed_purchases": 2138352741,
+  "bank_balance": 2038352741,
+  "hidden_funds": 2038352741,
+  "available_after_committed_purchases": 2038352741,
   "spending_rules": {
     "monthly_tracking_required": false,
     "tracking_mode": "major_events_only",
@@ -34,7 +34,23 @@
       "acquired_date": "2008-03-06",
       "purchase_price": 45200000,
       "visibility": "secret_to_family_visible_at_school",
-      "notes": "수지 집 근처에서는 떨어진 상가 지하주차장에 숨기고, 평택대학교에서는 일부러 보여 주며 허세와 평판의 소품으로 쓴다."
+      "notes": "수지 집 근처에서는 떨어진 상가 지하주차장에 숨기고, 평택대학교에서는 일부러 보여 주며 허세와 평판의 소품으로 쓴다. 170화에서 파란색 BMW 7시리즈 인수를 위해 처분했다.",
+      "status": "sold",
+      "disposed_episode": 170,
+      "disposed_date": "2009-03-12",
+      "estimated_resale_price": 30000000
+    },
+    {
+      "asset_id": "bmw-7series-blue-2009",
+      "type": "vehicle",
+      "name": "파란색 BMW 7시리즈",
+      "acquired_episode": 170,
+      "acquired_date": "2009-03-12",
+      "purchase_price_estimate": 118000000,
+      "registration_insurance_initial_cost_estimate": 12000000,
+      "estimated_total_initial_outflow": 130000000,
+      "visibility": "secret_to_family_highly_visible_at_school",
+      "notes": "BMW 320i를 처분한 뒤 개강 초 평택대 캠퍼스에서 보란 듯이 과시하기 위해 인수했다. 정다은 축에서는 조수석과 공개 소문을 키우는 소품으로 작동하고, 가족에게는 계속 숨겨야 한다."
     }
   ],
   "liabilities": [],
@@ -87,6 +103,12 @@
       "episode_range": "144-146",
       "tracked_major_spending": 1650000,
       "notes": "게로온천 료칸 1박 여행 예약·숙박비와 유즈키 면접용 정장·블라우스·구두 구매만 큰 기록으로 반영한다. 나고야 시내 식사, 지하철, 카페, 일반 호텔 소액 숙박비와 생활비는 원고 단서로만 남기고 장부에서 제외한다."
+    },
+    {
+      "period": "2009-03_vehicle_upgrade",
+      "episode_range": "170",
+      "tracked_major_spending": 100000000,
+      "notes": "BMW 320i 예상 처분가 3,000만 원을 반영하고, 파란색 BMW 7시리즈 인수·등록 초기비 추정 1억 3,000만 원을 반영해 순유출 1억 원으로 기록한다. 의류·식사·장보기·소액 데이트 비용은 장부에서 제외한다."
     }
   ],
   "projected_events": [
@@ -369,6 +391,24 @@
       "description": "나고야 시내 정장 매장에서 유즈키의 면접용 정장, 블라우스, 구두를 구매했다. 한서윤의 서울 백화점 지원과 달리 비밀 유지 조건이나 알리바이 거래 없이 유즈키의 취업 준비를 돕는 순수한 관계 지원이다.",
       "visibility": "secret_from_kim_choyeon",
       "related_event_id": null
+    },
+    {
+      "episode": 170,
+      "date": "2009-03-12",
+      "type": "vehicle_sale",
+      "amount": 30000000,
+      "description": "BMW 320i 3시리즈 처분 추정 유입",
+      "visibility": "secret_to_family_visible_as_vehicle_change_at_school",
+      "related_event_id": "bmw-7series-blue-2009"
+    },
+    {
+      "episode": 170,
+      "date": "2009-03-12",
+      "type": "vehicle_purchase",
+      "amount": -130000000,
+      "description": "파란색 BMW 7시리즈 인수 및 등록 초기비 추정 지출",
+      "visibility": "secret_to_family_highly_visible_at_school",
+      "related_event_id": "bmw-7series-blue-2009"
     }
   ]
 }
