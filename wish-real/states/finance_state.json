@@ -1,14 +1,14 @@
 {
   "currency": "KRW",
   "owner": "김용식",
-  "as_of_episode": 141,
-  "as_of_date": "2008-12-24",
+  "as_of_episode": 147,
+  "as_of_date": "2009-01-06",
   "timeline_base_date": "2008-01-01",
   "timeline_counting_rule": "month_index_from_start은 2008년 1월을 0개월차로 보는 달력 기준이다. elapsed_* 값은 실제 날짜 차이를 개월+일로 표시한다.",
   "cash_on_hand": 0,
-  "bank_balance": 2140002741,
-  "hidden_funds": 2140002741,
-  "available_after_committed_purchases": 2140002741,
+  "bank_balance": 2138352741,
+  "hidden_funds": 2138352741,
+  "available_after_committed_purchases": 2138352741,
   "spending_rules": {
     "monthly_tracking_required": false,
     "tracking_mode": "major_events_only",
@@ -81,6 +81,12 @@
       "episode_range": "134-139",
       "tracked_major_spending": 1800000,
       "notes": "도쿄 보름 동행 중 한서윤에게 산 긴자 코트·니트·구두·장갑 등 100만 원 이상 고가 선물성 쇼핑 추정치를 큰 관계 지출로 반영한다. 일반 식사·택시·편의점·소액 관광비는 장부에서 제외한다."
+    },
+    {
+      "period": "2008-12_2009-01_nagoya",
+      "episode_range": "144-146",
+      "tracked_major_spending": 1650000,
+      "notes": "게로온천 료칸 1박 여행 예약·숙박비와 유즈키 면접용 정장·블라우스·구두 구매만 큰 기록으로 반영한다. 나고야 시내 식사, 지하철, 카페, 일반 호텔 소액 숙박비와 생활비는 원고 단서로만 남기고 장부에서 제외한다."
     }
   ],
   "projected_events": [
@@ -343,6 +349,24 @@
       "type": "secret_gift_spending",
       "amount": -2870000,
       "description": "서울 대형 백화점에서 한서윤에게 취업 면접용 정장, 블라우스, 구두, 가방 풀세트를 구매. 영수증과 수선 접수 흔적이 남은 비밀 선물이다.",
+      "visibility": "secret_from_kim_choyeon",
+      "related_event_id": null
+    },
+    {
+      "episode": 144,
+      "date": "2008-12-28",
+      "type": "relationship_trip_lodging",
+      "amount": -450000,
+      "description": "유즈키와 게로온천 1박 여행을 위해 료칸 숙박을 예약·결제했다. 리스트 마지막 줄 '도쿄에서 눈'은 지우지 못했지만 겨울의 정서적 정점이 된 여행 지출이다.",
+      "visibility": "secret_from_kim_choyeon",
+      "related_event_id": null
+    },
+    {
+      "episode": 146,
+      "date": "2009-01-03",
+      "type": "relationship_support_gift",
+      "amount": -1200000,
+      "description": "나고야 시내 정장 매장에서 유즈키의 면접용 정장, 블라우스, 구두를 구매했다. 한서윤의 서울 백화점 지원과 달리 비밀 유지 조건이나 알리바이 거래 없이 유즈키의 취업 준비를 돕는 순수한 관계 지원이다.",
       "visibility": "secret_from_kim_choyeon",
       "related_event_id": null
     }
