@@ -13,6 +13,7 @@
 - 화당 분량은 최소 3,000자 이상을 기준으로 한다. 3,000자 미만이면 보강 대상이지만, 5,000자를 넘어가는 것은 문제로 보지 않고 장면 흐름이 좋으면 그대로 진행한다.
 - 대사는 전면 허용한다. 단, 문장은 고정된 짧은 호흡이 아니라 장면에 따라 길게 쌓고 짧게 내려치는 감성적인 청춘 연애소설 문체를 따른다 (`setting/문체규칙.md` 참고).
 - 가변 정보(관계 단계, 최근 변화, 다음 압력, 인게임 날짜, 현재 화수)는 `states/current_state.json` 한 곳에만 기록한다. `characters/` 파일에는 절대 중복 기록하지 않는다.
+- 캐릭터별 정보 접근(누가 무엇을 알고 모르는지, 누가 어떤 단어를 말하면 안 되는지)은 `states/knowledge_state.json`에서 관리한다. 이것도 가변 정보이므로 `characters/` 파일에 중복 기록하지 않는다.
 - 돈, 자산, 부채, 수입, 지출, 투자, 복권 당첨금은 `states/finance_state.json`에서만 관리한다. 단, 110화 이후부터는 큰 기록만 남긴다. 식비, 카페, 주차비, 주유비, 편의점, 일반 데이트 비용 같은 소액 생활비는 장부에 반영하지 않는다.
 - 알고 있는 복권 회차, 번호, 구매 계획, 당첨 결과는 `states/lottery_records.json`에서만 관리한다.
 - 장기 금융 계획, 투자 계획, 현금화 기준, 자산 보관 전략은 `states/future_finance_knowledge.json`에서 관리한다. 원고에서는 미리 정답을 알고 움직이는 사람처럼 보이지 않게 쓴다.
@@ -102,26 +103,28 @@ wish-real/
 3. `setting/워크플로우.md`
 4. `setting/정보접근잠금규칙.md`
 5. `states/current_state.json`
-6. `states/finance_state.json`
-7. `states/lottery_records.json`
-8. `states/future_finance_knowledge.json`
-9. `연대기.md`
-10. `planning/핵심컨셉.md`
-11. `planning/주인공설계.md`
-12. `planning/주제와정서.md`
-13. `setting/삽화생성규칙.md`
-14. `setting/욕망관계서스펜스규칙.md`
-15. `setting/성인장면처리규칙.md`
-16. `characters/` (신규 주요 인물 등장 시에만)
+6. `states/knowledge_state.json`
+7. `states/finance_state.json`
+8. `states/lottery_records.json`
+9. `states/future_finance_knowledge.json`
+10. `연대기.md`
+11. `planning/핵심컨셉.md`
+12. `planning/주인공설계.md`
+13. `planning/주제와정서.md`
+14. `setting/삽화생성규칙.md`
+15. `setting/욕망관계서스펜스규칙.md`
+16. `setting/성인장면처리규칙.md`
+17. `characters/` (신규 주요 인물 등장 시에만)
 
 ## 신규 세션 시작 시 읽기 순서
 
 1. `AGENTS.md` (현재 파일)
 2. `states/current_state.json` — 현재 화수, 인게임 날짜, 관계 상태
-3. `states/finance_state.json` — 돈, 자산, 부채, 수입, 지출
-4. `states/lottery_records.json` — 알고 있는 복권 회차와 구매/당첨 기록
-5. `states/future_finance_knowledge.json` — 장기 금융 계획, 투자 계획, 현금화 기준
-6. `연대기.md` — 전체 타임라인
+3. `states/knowledge_state.json` — 캐릭터별 아는 것, 모르는 것, 대사 금지 정보
+4. `states/finance_state.json` — 돈, 자산, 부채, 수입, 지출
+5. `states/lottery_records.json` — 알고 있는 복권 회차와 구매/당첨 기록
+6. `states/future_finance_knowledge.json` — 장기 금융 계획, 투자 계획, 현금화 기준
+7. `연대기.md` — 전체 타임라인
 
 나머지는 요청 유형에 따라 추가로 읽는다. 화를 이어 쓸 때 `characters/` 파일은 신규 주요 인물이 처음 등장하는 경우가 아니면 열지 않아도 된다.
 
@@ -131,6 +134,7 @@ wish-real/
 - 원고 작성 중 설정 파일에 없는 재수 경험, 학력 변동, 가족사, 과거 연애, 오래된 인연, 숨겨진 재산, 투자 성과, 큰 구매 이력, 알고 있을 수 없는 정보를 새로 확정하지 않는다.
 - 캐릭터가 알 수 없는 지명, 이름, 관계 진실, 날짜, 숙박 여부, 동행자 정보를 추측만으로 맞히게 하지 않는다. 물증은 표면 단서에서 출발해 질문을 만들 수 있을 뿐, 정답을 자동으로 만들 수 없다.
 - 가변 정보를 `characters/` 파일에 중복 기록하지 않는다. `states/current_state.json`이 유일한 소스다.
+- 캐릭터별 지식 상태를 `characters/` 파일에 중복 기록하지 않는다. `states/knowledge_state.json`이 유일한 소스다.
 - 돈과 복권 기록을 `characters/` 파일에 중복 기록하지 않는다.
 - 장기 금융 계획과 투자 계획을 `characters/` 파일에 중복 기록하지 않는다.
 - AI는 노골적인 성적 행위 묘사 본문을 직접 쓰지 않는다 (`setting/성인장면처리규칙.md` 참고).

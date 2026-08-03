@@ -13,6 +13,7 @@ Use it as a guardrail before HTML conversion and push.
 from __future__ import annotations
 
 import argparse
+import json
 import re
 import sys
 from pathlib import Path
@@ -54,15 +55,47 @@ def scan_file(path: Path, rules: dict[str, list[str]]) -> list[str]:
     return findings
 
 
+def load_rules_from_knowledge(path: Path) -> dict[str, list[str]]:
+    data = json.loads(path.read_text(encoding="utf-8"))
+    rules: dict[str, list[str]] = {}
+    for entry in data.get("characters", {}).values():
+        speaker = entry.get("display_name")
+        terms = entry.get("forbidden_dialogue_terms", [])
+        if not speaker or not isinstance(terms, list):
+            continue
+        clean_terms = [str(term).strip() for term in terms if str(term).strip()]
+        if clean_terms:
+            rules.setdefault(speaker, []).extend(clean_terms)
+    return rules
+
+
+def merge_rules(*rule_sets: dict[str, list[str]]) -> dict[str, list[str]]:
+    merged: dict[str, list[str]] = {}
+    for rules in rule_sets:
+        for speaker, terms in rules.items():
+            merged.setdefault(speaker, [])
+            for term in terms:
+                if term not in merged[speaker]:
+                    merged[speaker].append(term)
+    return merged
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("paths", nargs="+", type=Path)
     parser.add_argument("--forbid", action="append", default=[], help="Forbidden speaker knowledge as 'speaker:term'.")
+    parser.add_argument(
+        "--knowledge-state",
+        type=Path,
+        help="Load forbidden_dialogue_terms from states/knowledge_state.json.",
+    )
     args = parser.parse_args()
 
     rules = parse_forbid(args.forbid)
+    if args.knowledge_state:
+        rules = merge_rules(load_rules_from_knowledge(args.knowledge_state), rules)
     if not rules:
-        parser.error("At least one --forbid rule is required.")
+        parser.error("At least one --forbid rule or --knowledge-state is required.")
 
     findings: list[str] = []
     for path in args.paths:
