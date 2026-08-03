@@ -662,14 +662,14 @@ GALLERY_CSS = """
     }
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 12px;
+      grid-template-columns: 1fr;
+      gap: 20px;
     }
     .tile {
       position: relative;
       display: block;
       overflow: hidden;
-      aspect-ratio: 3 / 4;
+      aspect-ratio: 16 / 9;
       border: 1px solid #473f39;
       border-radius: 8px;
       background: #22201f;
@@ -699,7 +699,7 @@ GALLERY_CSS = """
     }
     @media (max-width: 560px) {
       main { padding: 16px 10px 44px; }
-      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+      .grid { gap: 12px; }
     }
 """
 
