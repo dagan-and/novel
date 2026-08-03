@@ -22,7 +22,7 @@
 - 장기 관계극에서는 작가·독자·주인공이 아는 정보와 각 캐릭터가 아는 정보를 반드시 분리한다. 소설 진행 전 `setting/정보접근잠금규칙.md`의 정보 접근 잠금표를 내부 기준으로 만들고, 캐릭터가 직접 보거나 들은 적 없는 지명·이름·관계·날짜·물증 의미를 대사나 행동 근거로 사용하지 않는다.
 - 성인 장면은 `setting/성인장면처리규칙.md`의 경량 페이드 방식을 따른다. 노골적 행위 묘사는 쓰지 않지만, 진입 전의 유혹, 합의, 죄책감, 다음 날의 흔적과 관계 비용은 분명히 남긴다.
 - 소설 진행 요청 시 원고 작성과 기록 업데이트를 우선 완료하고, 각 화마다 삽화 후보 장면 1~3개와 생성용 메모를 남긴다. 실제 삽화 생성, 저장, Markdown 삽입은 사용자가 삽화 작업을 별도로 요청했을 때 `setting/삽화생성규칙.md`에 따라 묶음 단위로 처리한다.
-- 소설 진행 요청 시 원고 작성 직후 반드시 `setting/원고검토훅.md`에 따라 세계관 설정, 캐릭터 성격, 호칭, 정보 접근, 시간 흐름, 문체, 화말 훅을 검토한다. 충돌이나 붕괴가 발견되면 기록 업데이트·HTML 변환·푸시 전에 원고를 먼저 수정하고 다시 검토한다.
+- 소설 진행 요청 시 먼저 `setting/원고진행핵심체크.md`를 확인하고, 원고 작성 직후 반드시 `setting/원고검토훅.md`에 따라 세계관 설정, 캐릭터 성격, 호칭, 정보 접근, 시간 흐름, 문체, 화말 훅을 검토한다. 충돌이나 붕괴가 발견되면 기록 업데이트·HTML 변환·푸시 전에 원고를 먼저 수정하고 다시 검토한다.
 - 주요 캐릭터 이미지 기준은 `character_assets/인물이름/`에서 관리한다. 실제 회차 삽화 결과물인 `images/epNNN/`와 섞지 않는다.
 - 설치·사용 가능한 창작 보조 플러그인과 스킬은 역할을 분리해 사용한다. Creative Production은 장면 콘셉트, 감정 연출, 비주얼 방향 보강에 사용하고, Product Design은 실사풍 삽화·캐릭터 기준 이미지·표지 콘셉트의 시각 설계에 사용하며, Superpowers는 작업 흐름 점검, 계획, 검토, 디버깅 같은 절차 보조에 사용한다. 실제 이미지 생성과 편집은 `imagegen` 스킬/도구를 우선 사용한다.
 - 시나리오 작성 요청이 있기 전까지는 `episodes/` 원고를 생성하지 않는다.
@@ -51,6 +51,7 @@ wish-real/
 ├── 연대기.md
 ├── states/
 │   ├── current_state.json
+│   ├── knowledge_state.json
 │   ├── recent_topics.json
 │   ├── finance_state.json
 │   ├── lottery_records.json
@@ -84,10 +85,12 @@ wish-real/
 │       └── prompts/
 ├── setting/
 │   ├── 워크플로우.md
+│   ├── 원고진행핵심체크.md
 │   ├── 문체규칙.md
 │   ├── 개요작성규칙.md
 │   ├── 시나리오작성규칙.md
 │   ├── 삽화생성규칙.md
+│   ├── 정보접근잠금규칙.md
 │   ├── 욕망관계서스펜스규칙.md
 │   └── 성인장면처리규칙.md
 ├── images/
@@ -99,22 +102,25 @@ wish-real/
 ## 참조 우선순위
 
 1. `AGENTS.md`
-2. `setting/문체규칙.md`
+2. `setting/원고진행핵심체크.md`
 3. `setting/워크플로우.md`
-4. `setting/정보접근잠금규칙.md`
-5. `states/current_state.json`
-6. `states/knowledge_state.json`
-7. `states/finance_state.json`
-8. `states/lottery_records.json`
-9. `states/future_finance_knowledge.json`
-10. `연대기.md`
-11. `planning/핵심컨셉.md`
-12. `planning/주인공설계.md`
-13. `planning/주제와정서.md`
-14. `setting/삽화생성규칙.md`
-15. `setting/욕망관계서스펜스규칙.md`
-16. `setting/성인장면처리규칙.md`
-17. `characters/` (신규 주요 인물 등장 시에만)
+4. `states/current_state.json`
+5. `states/knowledge_state.json`
+6. `연대기.md`
+7. `관계망.md`
+8. `setting/문체규칙.md`
+9. `setting/정보접근잠금규칙.md`
+10. `setting/욕망관계서스펜스규칙.md`
+11. `setting/시나리오작성규칙.md`
+12. `states/finance_state.json`
+13. `states/lottery_records.json`
+14. `states/future_finance_knowledge.json`
+15. `planning/핵심컨셉.md`
+16. `planning/주인공설계.md`
+17. `planning/주제와정서.md`
+18. `setting/삽화생성규칙.md`
+19. `setting/성인장면처리규칙.md`
+20. `characters/` (신규 주요 인물 등장 시에만)
 
 ## 신규 세션 시작 시 읽기 순서
 
