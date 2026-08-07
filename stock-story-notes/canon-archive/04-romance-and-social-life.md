@@ -88,6 +88,14 @@ The relationships are best framed as:
 - Each girl senses Yongsik is special and soon leaving for Seoul.
 - The mood is "last winter before university."
 
+After March:
+
+- They fade naturally.
+- Yongsik does not create dramatic breakup scenes.
+- He simply replies late, answers shorter, and stops making time.
+- "Out of sight, out of mind" becomes the emotional rule.
+- This is cold, but it matches Yongsik's movement into the new Seoul life.
+
 ## Weekday Schedule
 
 Final idea:
@@ -223,6 +231,7 @@ It is for:
 From March 2008:
 
 - Yonsei opens a wider social field.
+- Yongsik is in the architecture track, class of 2008.
 - He meets:
   - Same department students.
   - Other departments.
@@ -240,6 +249,15 @@ Tone:
 
 - March-April:
   - Awkwardness, orientation, first drinking gatherings.
+  - A 22-year-old third-year architecture senior approaches him first.
+  - He is attracted to her older-woman ease and studio-world confidence.
+  - He also meets a 20-year-old same-generation girl through a club, keeping the freshman freshness alive.
+  - He keeps male classmates at a polite distance.
+  - If they ask about his place, he says he lives with a cousin hyung who goes to Hongdae.
+  - March dating rhythm:
+    - Monday/Thursday: Choi Seo-yoon.
+    - Tuesday/Friday: Han Yu-ri.
+    - Weekend: whichever of the two is available.
 - May-June:
   - Festivals, group dates, first stronger campus crushes.
 - July-August:
@@ -301,4 +319,3 @@ Useful tension:
 - A woman in Japan shows interest.
 - Misaki worries.
 - Yongsik realizes he is not losing freedom; he is choosing the home he wants to return to.
-

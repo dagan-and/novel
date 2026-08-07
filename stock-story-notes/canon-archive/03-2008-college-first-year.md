@@ -20,8 +20,36 @@ This year should feel like:
 - First car.
 - First adult dating radius.
 - First Seoul lifestyle.
+- First independent three-room place near Yonsei.
 - First taste of living like a young rich man.
 - Last year before KATUSA service.
+
+## Major
+
+Final major:
+
+- Yonsei University architecture track, class of 2008.
+
+Reason:
+
+- Architecture is one of Yongsik's real alternate-life interests.
+- It connects to his later real estate, parents' house, Kanazawa home, and desire to build spaces he wants to live in.
+- It is less obvious than business administration and gives the character more personality.
+- Yongsik is not studying architecture to get a job. He studies it because he genuinely likes buildings, space, light, plans, and the idea of creating a place for loved ones.
+
+Story meaning:
+
+- In real life, he became interested in computer science because he was good at games, spent all day on computers, and eventually became a programmer.
+- In the alternate life, if he did not choose computer science, architecture is the field he would have wanted.
+- Yongsik still invests using future memory, but his university identity is not "money student." It is "architecture student who already understands the value of space."
+
+Future connections:
+
+- Parents' two-story countryside house.
+- His own Seoul and Japan homes.
+- Kanazawa newlywed home with Misaki.
+- Conversation with professional architecture offices as a wealthy client who understands design.
+- His later belief that money should create good spaces, not just more money.
 
 ## Starting Capital In January 2008
 
@@ -47,7 +75,7 @@ Recommended monthly spending feel:
   - 3-5 million KRW per month for ordinary life and dating.
   - Around 10 million KRW in a heavy month if car setup/initial costs are included.
 - March-May:
-  - Around 4-5 million KRW per month.
+  - Around 6-8 million KRW per month after the Yonsei-area three-room rent begins.
   - Rich student feeling, but not absurd.
 - June-August:
   - Around 7-10 million KRW per month.
@@ -64,6 +92,130 @@ Average for 2008:
 - About 7 million KRW per month is the best story balance.
 - Low months: 3 million KRW.
 - High months: 15 million KRW.
+
+## Yonsei-Area Three-Room Housing
+
+Yongsik lives in a three-room monthly rental near Yonsei instead of a normal student one-room.
+
+Reason:
+
+- He wants privacy.
+- He wants a place where friends or girlfriends can visit without the cramped feeling of a student room.
+- It becomes his first adult base in Seoul.
+- Architecture major makes the space itself part of his identity.
+- He does not want male classmates casually asking to come over, sleep over, drink there, or use it as a hangout.
+
+Realism:
+
+- Exact 2008 Sinchon three-room rent data is hard to pin down from surviving public listings.
+- Current Yonsei/Sinchon student rooms and officetels range widely, and modern one-room/officetel rents can easily approach or exceed 1 million KRW in the area.
+- For 2008 story realism, a decent older villa/multiplex three-room near Yonsei can be estimated at:
+  - Deposit: 30-50 million KRW.
+  - Monthly rent: 1.2-1.8 million KRW.
+  - Maintenance/utilities: 300,000-500,000 KRW.
+  - Initial furniture/electronics: 8-15 million KRW.
+
+Recommended canon:
+
+- Location:
+  - Yeonhui-dong, Changcheon-dong, or a quiet side street between Yonsei and Sinchon.
+- Type:
+  - Older but well-kept villa/multiplex, three rooms plus living room.
+- Deposit:
+  - 50 million KRW.
+- Monthly rent:
+  - 1.5 million KRW.
+- Maintenance/utilities:
+  - 400,000 KRW.
+- Initial setup:
+  - About 12 million KRW for bed, sofa, desk, computer, appliances, curtains, lighting, and basic interior.
+
+Financial feasibility:
+
+- January 2008 total capital is about 309 million KRW.
+- 150 million KRW is used for parents' housing stability.
+- 50 million KRW is used for mother's business/support.
+- 100 million KRW remains as stock operation capital.
+- Ready cash is tight if he also pays a 50 million KRW housing deposit.
+
+Canon solution:
+
+- Use a lower-pressure structure:
+  - Parents' housing support remains, but part of it is treated as family housing deposit rather than fully spent cash.
+  - The Yonsei three-room deposit is recoverable, not consumed.
+  - Yongsik keeps 100 million KRW stock capital untouched.
+  - He uses withdrawn/safety funds and small realized stock gains for deposit and setup.
+- Monthly burden after moving:
+  - Rent/utilities: about 1.9 million KRW.
+  - Grandeur total car cost: about 1.7 million KRW.
+  - Food/dates/social/clothes: about 3-4 million KRW.
+  - Total ordinary March monthly spend: about 6.5-7.5 million KRW.
+
+Conclusion:
+
+- Financially possible.
+- A normal student could not do it.
+- For Yongsik, it is possible but still meaningful enough to feel like a major adult step.
+- It should not be described as effortless billionaire spending yet. It is his first deliberately luxurious Seoul base.
+
+Boundary explanation:
+
+- If classmates ask about the place, he does not say he lives alone in a large three-room.
+- He says something like:
+
+> "I live with a cousin hyung who goes to Hongdae."
+
+- This makes it harder for male classmates to ask to come over.
+- It also keeps the room from becoming a drinking/hangout spot.
+- He uses the house as a private adult base, not as a public student den.
+
+## Male Classmate Distance
+
+Yongsik does not completely avoid male classmates, but he keeps a careful distance.
+
+Reason:
+
+- He does not want his home discovered and turned into a gathering place.
+- He knows the common 20-year-old male social routine:
+  - Drinking.
+  - PC room.
+  - Billiards.
+  - Karaoke.
+  - Cheap late-night food.
+- In his real emotional frame, those are not the experiences he most wants to recover.
+- They feel noisy and forgettable compared to the male-female tenderness he missed.
+
+Behavior:
+
+- Polite in class.
+- Pays for drinks sometimes but not too much.
+- Does not become the guy everyone depends on financially.
+- Joins some department events, then leaves before the night becomes messy.
+- Avoids inviting men home.
+- If pressured, uses the cousin-hyung excuse.
+- Does not act like he only likes women; he simply protects his privacy and emotional focus.
+
+Architecture attitude:
+
+- He keeps distance socially, but takes architecture seriously.
+- He listens to design/studio lectures with genuine focus.
+- He is interested in:
+  - Light.
+  - Space.
+  - Plans.
+  - Materials.
+  - How people live inside a building.
+- This separates him from a pure playboy. He is serious about what he came to study.
+
+Emotional meaning:
+
+- Yongsik is not trying to relive 20 as endless male drinking nights.
+- He wants the fragile, once-in-a-life feeling of being twenty:
+  - A same-age girl becoming shy in his room.
+  - A slightly older woman leading him with confidence.
+  - First adult tension.
+  - Fresh spring dates.
+  - The feeling he cannot recover at 37.
 
 ## Car Setup
 
@@ -157,22 +309,94 @@ March should show:
 - New campus.
 - Sinchon.
 - Orientation.
-- Department people.
+- Architecture department people.
+- Studio/workroom culture.
 - First university drinking gatherings.
 - His Suji relationships still messaging him.
+- Moving into the Yonsei-area three-room.
 - He is not fully free yet, but the world suddenly becomes wider.
 
 Spending:
 
-- Around 4 million KRW.
+- Around 6-8 million KRW, excluding recoverable housing deposit and one-time furniture setup.
 
 Possible scenes:
 
 - Buys clothes and university supplies.
+- Sets up the three-room with a good desk, bed, sofa, lighting, and computer.
 - Pays for drinks quietly.
 - Does not overdo luxury.
 - Drives the Grandeur but sometimes hides it.
 - First hints that female classmates notice him.
+
+## March Romance Setup
+
+March adds two new women around Yonsei.
+
+### Architecture Senior
+
+- Age: 22.
+- Year: third-year architecture student.
+- Relationship dynamic:
+  - Yongsik is a 20-year-old freshman.
+  - She is a capable older woman who approaches him first.
+  - He is drawn to her because she feels more practiced and adult than the Suji girls.
+- Her appeal:
+  - Knows studio culture.
+  - Dresses more maturely.
+  - Speaks with confidence.
+  - Can tease a freshman without seeming childish.
+  - Notices that Yongsik is not an ordinary freshman.
+- First hook:
+  - During orientation or a studio/workroom introduction, she sees that he understands drawings and space faster than expected.
+  - She starts giving him advice, but the tone gradually becomes personal.
+- Function in the story:
+  - She introduces Yongsik to the allure of an older woman.
+  - She makes him realize college romance is different from high school/local dating.
+  - She is the first woman in March who makes him feel like a freshman despite his money and future memory.
+
+### Club/Classmate Same-Age Girl
+
+- Age: 20.
+- Same freshman generation.
+- Met through a club, not necessarily the architecture department.
+- Personality:
+  - Fresh, bright, and closer to ordinary college-student excitement.
+  - Different from the older senior's practiced charm.
+- Possible club:
+  - Photography club.
+  - Architecture/urban exploration club.
+  - Film appreciation club.
+  - Wine/culture club would be too mature for March, so better saved for later.
+- Function in the story:
+  - Keeps Yongsik connected to 20-year-old freshness.
+  - Shows that he can move between mature older-woman tension and same-age campus innocence.
+
+March romantic contrast:
+
+- The senior makes him feel pulled upward into adult college life.
+- The club girl makes him feel like a real 20-year-old freshman.
+- Suji girls remain in the background through messages, jealousy, and fading winter ties.
+
+### March Dating Schedule
+
+Yongsik focuses March on Seo-yoon and Yu-ri rather than broad male group socializing.
+
+Weekly rhythm:
+
+- Monday: Choi Seo-yoon.
+- Tuesday: Han Yu-ri.
+- Wednesday: architecture classes, studio work, asset check, rest.
+- Thursday: Choi Seo-yoon.
+- Friday: Han Yu-ri.
+- Saturday/Sunday: flexible, whichever of Seo-yoon or Yu-ri is available.
+
+Meaning:
+
+- Seo-yoon gets the more adult night/studio rhythm.
+- Yu-ri gets the fresh same-age campus rhythm.
+- Weekends create natural uncertainty and light tension.
+- Yongsik's Seoul life fills so quickly that the Suji girls fade naturally.
 
 ## April
 
@@ -303,4 +527,3 @@ Mood:
 
 - One door closes.
 - Another major future-money door opens.
-

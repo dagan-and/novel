@@ -1,0 +1,13 @@
+Strict Oct 2010 result: 1B KRW buy-and-hold from 2008-12-01 open to 2010-10-29 close.
+Costs: buy commission 0.025%, sell commission 0.025%, sell tax 0.3%.
+
+041510.KQ SM Entertainment: 1244.868408203125 -> 18406.267578125, final 14,733,959,591, return 1373.396%
+000270.KS Kia: 7100.0 -> 44900.0, final 6,301,782,711, return 530.1783%
+035760.KQ CJ ENM: 43483.10546875 -> 253800.0, final 5,816,181,666, return 481.6182%
+036570.KS NCsoft: 44300.0 -> 247500.0, final 5,567,212,140, return 456.7212%
+051910.KS LG Chem: 68800.0 -> 347000.0, final 5,025,886,932, return 402.5887%
+012330.KS Hyundai Mobis: 62100.0 -> 280000.0, final 4,493,072,073, return 349.3072%
+010130.KS Korea Zinc: 64000.0 -> 283500.0, final 4,414,166,765, return 341.4167%
+005380.KS Hyundai Motor: 42500.0 -> 170000.0, final 3,985,936,111, return 298.5936%
+009150.KS Samsung Electro-Mechanics: 35150.0 -> 123500.0, final 3,501,184,858, return 250.1185%
+000660.KS SK Hynix: 7510.0 -> 23150.0, final 3,071,762,377, return 207.1762%

@@ -1,0 +1,19 @@
+2004 Aug-Dec moderated Korean stock simulation
+Rules: odd months target 10-20%, even months target 5-10%, daily 300,000 KRW withdrawal, move 30,000,000 KRW to safety whenever stock account exceeds 80,000,000 KRW.
+Start account: 67,413,930 KRW
+Start safety cash: 30,000,000 KRW
+
+Monthly summary:
+Aug: start 67,413,930, target 7.5%, effective return 7.95%, trades 11 (9W/2L, 81.8%), withdrawn 6,600,000, safety moved 0, end account 66,170,579, safety 30,000,000
+Sep: start 66,170,579, target 15.0%, effective return 10.93%, trades 9 (8W/1L, 88.9%), withdrawn 6,600,000, safety moved 0, end account 66,801,509, safety 30,000,000
+Oct: start 66,801,509, target 7.5%, effective return 7.25%, trades 11 (9W/2L, 81.8%), withdrawn 6,300,000, safety moved 0, end account 65,341,647, safety 30,000,000
+Nov: start 65,341,647, target 15.0%, effective return 14.36%, trades 11 (9W/2L, 81.8%), withdrawn 6,600,000, safety moved 0, end account 68,123,302, safety 30,000,000
+Dec: start 68,123,302, target 7.5%, effective return 6.04%, trades 11 (9W/2L, 81.8%), withdrawn 6,900,000, safety moved 0, end account 65,335,201, safety 30,000,000
+
+Final totals:
+Final stock account: 65,335,201 KRW
+Final safety cash: 30,000,000 KRW
+Aug-Dec withdrawals: 33,000,000 KRW
+Final account + safety cash: 95,335,201 KRW
+Final account + safety cash + Aug-Dec withdrawn cash: 128,335,201 KRW
+Cost assumptions: buy commission 0.025%, sell commission 0.025%, sell tax 0.3%

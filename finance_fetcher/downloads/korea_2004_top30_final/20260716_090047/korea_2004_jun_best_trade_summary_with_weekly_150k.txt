@@ -1,0 +1,8 @@
+2004 Jun Korean stock hindsight trade simulation with weekly 150,000 KRW spending
+Period: 2004-06-01 to 2004-06-30 (22 trading days)
+Start cash: 23,655,951 KRW
+Weekly spending: 150,000 KRW, withdrawn every Monday before trading
+Total spending: 600,000 KRW
+Final account cash: 81,829,923 KRW
+Final account + monthly spent money: 82,429,923 KRW
+Cost assumptions: buy commission 0.025%, sell commission 0.025%, sell tax 0.3%

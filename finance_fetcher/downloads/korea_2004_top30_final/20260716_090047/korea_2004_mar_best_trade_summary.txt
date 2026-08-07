@@ -1,0 +1,20 @@
+2004 Mar Korean stock hindsight trade simulation
+Period: 2004-03-01 to 2004-03-31 (23 trading days)
+Cost assumptions: buy commission 0.025%, sell commission 0.025%, sell tax 0.3%
+Mar-only start cash: 100,000 KRW -> 377,311 KRW (277.31%)
+Continue from Feb cash: 887,717 KRW -> 3,518,230 KRW (296.32% in Mar)
+Combined Jan+Feb+Mar from original 100,000 KRW -> 3,518,230 KRW (3418.23%)
+
+Best single buy-and-hold in Mar, 100K start:
+000660.KS SK Hynix: 11 shares, 8970.0 -> 12250.0, final 135,617 KRW
+035420.KS Naver: 16 shares, 5989.6923828125 -> 6888.5546875, final 114,000 KRW
+000270.KS Kia: 9 shares, 10900.0 -> 11800.0, final 107,730 KRW
+060250.KQ NHN KCP: 186 shares, 534.930419921875 -> 572.7244262695312, final 106,659 KRW
+010950.KS S-Oil: 2 shares, 42600.0 -> 46000.0, final 106,480 KRW
+
+Best single buy-and-hold in Mar, from Feb cash:
+000660.KS SK Hynix: 98 shares, 8970.0 -> 12250.0, final 1,205,035 KRW
+035420.KS Naver: 148 shares, 5989.6923828125 -> 6888.5546875, final 1,017,213 KRW
+000270.KS Kia: 81 shares, 10900.0 -> 11800.0, final 957,289 KRW
+010950.KS S-Oil: 20 shares, 42600.0 -> 46000.0, final 952,514 KRW
+060250.KQ NHN KCP: 1659 shares, 534.930419921875 -> 572.7244262695312, final 947,107 KRW

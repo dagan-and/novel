@@ -1,0 +1,12 @@
+2010-2014 college asset projection
+Start after discharge: 13B KRW allocated as 9.5B real estate, 2B stocks, 0.5B bitcoin, 1B cash.
+Lifestyle spend: 25M KRW/month. Ordinary income includes net rent/dividends/interest. BTC uses approximate historical anchor prices for story projection.
+
+2010-11: total 12,998,875,000, RE 9,500,000,000, stocks 2,000,000,000, BTC 500,000,000, cash 998,875,000, ordinary income 23,875,000
+2010-12: total 13,097,747,656, RE 9,500,000,000, stocks 2,000,000,000, BTC 600,000,000, cash 997,747,656, ordinary income 23,872,656
+2011-06: total 72,408,978,214, RE 9,500,000,000, stocks 1,918,332,609, BTC 60,000,000,000, cash 990,645,605, ordinary income 23,776,393
+2011-12: total 21,722,973,531, RE 9,500,000,000, stocks 1,840,000,000, BTC 9,400,000,000, cash 982,973,531, ordinary income 23,682,273
+2012-12: total 39,299,531,876, RE 9,310,000,000, stocks 2,024,000,000, BTC 27,000,000,000, cash 965,531,876, ordinary income 23,434,619
+2013-11: total 2,012,652,722,740, RE 9,565,708,383, stocks 2,135,047,548, BTC 2,000,000,000,000, cash 951,966,809, ordinary income 24,048,852
+2013-12: total 1,520,685,813,222, RE 9,589,300,000, stocks 2,145,440,000, BTC 1,508,000,000,000, cash 951,073,222, ordinary income 24,106,413
+2014-12: total 653,096,115,713, RE 10,068,765,000, stocks 2,081,076,800, BTC 640,000,000,000, cash 946,273,913, ordinary income 25,029,014

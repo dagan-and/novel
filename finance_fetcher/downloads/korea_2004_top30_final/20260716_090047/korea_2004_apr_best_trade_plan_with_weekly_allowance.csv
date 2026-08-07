@@ -1,0 +1,23 @@
+Date,Withdrawal,Ticker,Name,Shares,BuyOpen,SellClose,BuyCost,Profit,CashAfter,SpentTotal,Note
+2004-04-01,0.0,010130.KS,Korea Zinc,103,22700.0,25000.0,2338684.525,227946.725,2588547.6959,0.0,Monday withdrawal before trade when applicable
+2004-04-02,0.0,025980.KQ,Ananti,13339,194.0,212.0,2588412.9415,230264.4875,2818812.1834,0.0,Monday withdrawal before trade when applicable
+2004-04-05,100000.0,CASH,,0,,,,,2718812.1834,100000.0,cash hold
+2004-04-06,0.0,000660.KS,SK Hynix,207,13100.0,13750.0,2712377.925,124621.7625,2843433.9459,100000.0,Monday withdrawal before trade when applicable
+2004-04-07,0.0,028300.KQ,HLB,312,9084.0078125,9553.8701171875,2834918.9901,136200.8622,2979634.8081,100000.0,Monday withdrawal before trade when applicable
+2004-04-08,0.0,010950.KS,S-Oil,66,45050.0,48200.0,2974043.325,196817.775,3176452.5831,100000.0,Monday withdrawal before trade when applicable
+2004-04-09,0.0,000660.KS,SK Hynix,239,13250.0,13600.0,3167541.6875,72294.5125,3248747.0956,100000.0,Monday withdrawal before trade when applicable
+2004-04-12,100000.0,010950.KS,S-Oil,64,48700.0,54000.0,3117579.2,327188.8,3475935.8956,200000.0,Monday withdrawal before trade when applicable
+2004-04-13,0.0,036570.KS,NCsoft,44,77300.0,79200.0,3402050.3,71424.1,3547359.9956,200000.0,Monday withdrawal before trade when applicable
+2004-04-14,0.0,035720.KS,Kakao,395,8970.0,9360.0,3544035.7875,141148.3125,3688508.3081,200000.0,Monday withdrawal before trade when applicable
+2004-04-15,0.0,CASH,,0,,,,,3688508.3081,200000.0,cash hold
+2004-04-16,0.0,060250.KQ,NHN KCP,7007,526.208740234375,581.4461059570312,3688066.429,372885.3086,4061393.6167,200000.0,Monday withdrawal before trade when applicable
+2004-04-19,100000.0,000660.KS,SK Hynix,323,12250.0,12650.0,3957739.1875,114931.475,4076325.0917,300000.0,Monday withdrawal before trade when applicable
+2004-04-20,0.0,000810.KS,Samsung Fire & Marine Insurance,50,80200.0,86000.0,4011002.5,275022.5,4351347.5917,300000.0,Monday withdrawal before trade when applicable
+2004-04-21,0.0,036200.KQ,Unlisted/renamed Yahoo ticker,3359,1295.0,1450.0,4350992.4763,503728.2363,4855075.828,300000.0,Monday withdrawal before trade when applicable
+2004-04-22,0.0,025980.KQ,Ananti,30527,159.0,175.0,4855006.4483,469856.3205,5324932.1485,300000.0,Monday withdrawal before trade when applicable
+2004-04-23,0.0,025980.KQ,Ananti,29907,178.0,184.0,5324776.8615,160226.7525,5485158.901,300000.0,Monday withdrawal before trade when applicable
+2004-04-26,100000.0,036200.KQ,Unlisted/renamed Yahoo ticker,3166,1700.0,1752.5,5383545.55,146837.1012,5531996.0022,400000.0,Monday withdrawal before trade when applicable
+2004-04-27,0.0,035420.KS,Naver,641,8620.9072265625,9103.0244140625,5527383.0326,288691.7412,5820687.7434,400000.0,Monday withdrawal before trade when applicable
+2004-04-28,0.0,010130.KS,Korea Zinc,271,21400.0,21950.0,5800849.85,128267.6875,5948955.4309,400000.0,Monday withdrawal before trade when applicable
+2004-04-29,0.0,017670.KS,SK Telecom,138,42800.59375,44377.45703125,5907958.558,196227.2228,6145182.6538,400000.0,Monday withdrawal before trade when applicable
+2004-04-30,0.0,036200.KQ,Unlisted/renamed Yahoo ticker,4567,1345.0,1492.5,6144150.6538,649944.0419,6795126.6956,400000.0,Monday withdrawal before trade when applicable

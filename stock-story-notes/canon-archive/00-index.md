@@ -30,12 +30,20 @@ This folder splits the full canon into focused files so each part of the story c
 - `08-data-and-generated-files.md`
   - Local downloader, CSV files, projections, generated images, and saved setting files already created in the workspace.
 
+- `09-2008-march-yonsei-romance-cast.md`
+  - March 2008 Yonsei romance cast: Choi Seo-yoon, Han Yu-ri, male-classmate boundaries, and the weekly dating rhythm.
+
 ## Current Canon Anchors
 
 - Main character: Kim Yongsik, born 1989.
 - Future memory begins paying off in 2004, middle school third year.
 - First stock trading day: 2004-01-05, starting with 100,000 KRW.
 - Yonsei University entrance: 2008.
+- Yonsei major: architecture track, class of 2008.
+- First Seoul base: three-room monthly rental near Yonsei, financially possible but still a meaningful adult step.
+- March 2008 romance:
+  - 22-year-old third-year architecture senior approaches him first.
+  - 20-year-old same-generation girl is met through a club.
 - KATUSA service: late 2008 to around October 2010.
 - SM Entertainment investment before enlistment: 1 billion KRW -> about 14 billion KRW by discharge.
 - Bitcoin early investment: about 100 million KRW, staged sale capped at about 100 billion KRW by late 2013.
@@ -54,4 +62,3 @@ This folder splits the full canon into focused files so each part of the story c
   - Age gap: 10 years.
 - Married base: Kanazawa, Japan.
 - Child: late 2024 pregnancy or 2025 onward is the natural timing.
-

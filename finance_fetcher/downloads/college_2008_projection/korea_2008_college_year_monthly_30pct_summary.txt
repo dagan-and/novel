@@ -1,0 +1,15 @@
+2008 college freshman stock simulation, 100m KRW start, monthly 30 percent target
+2008-01: start 100,000,000, end 122,797,639, return 22.80%, trades 11 (9W/2L)
+2008-02: start 122,797,639, end 150,280,247, return 22.38%, trades 9 (8W/1L)
+2008-03: start 150,280,247, end 184,775,874, return 22.95%, trades 11 (9W/2L)
+2008-04: start 184,775,874, end 228,391,074, return 23.60%, trades 11 (9W/2L)
+2008-05: start 228,391,074, end 275,316,470, return 20.55%, trades 9 (7W/2L)
+2008-06: start 275,316,470, end 333,738,062, return 21.22%, trades 10 (8W/2L)
+2008-07: start 333,738,062, end 407,808,508, return 22.19%, trades 12 (10W/2L)
+2008-08: start 407,808,508, end 476,665,067, return 16.88%, trades 10 (8W/2L)
+2008-09: start 476,665,067, end 575,678,342, return 20.77%, trades 10 (8W/2L)
+2008-10: start 575,678,342, end 730,716,071, return 26.93%, trades 11 (9W/2L)
+2008-11: start 730,716,071, end 939,296,835, return 28.54%, trades 10 (8W/2L)
+2008-12: start 939,296,835, end 1,144,861,754, return 21.88%, trades 10 (9W/1L)
+Final: 1,144,861,754 KRW
+Simple 1.3^12 reference: 2,329,808,512 KRW

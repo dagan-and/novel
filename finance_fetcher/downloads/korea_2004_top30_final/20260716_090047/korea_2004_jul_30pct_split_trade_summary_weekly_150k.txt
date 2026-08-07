@@ -1,0 +1,11 @@
+2004 Jul Korean stock 30 percent moderated split-trade simulation
+Start stock account after 30,000,000 KRW bank transfer: 51,829,923 KRW
+Bank safety cash from June transfer: 30,000,000 KRW
+Weekly spending: 150,000 KRW, withdrawn every Monday before trading
+Total July spending: 600,000 KRW
+Trades: 16, wins: 13, losses: 3, win rate: 81.25%
+Tranche rule: each trade uses about 58% of available cash
+Final stock account cash: 67,413,930 KRW
+Monthly stock-account return after withdrawals: 30.07%
+Final account + bank safety cash + July spending: 98,013,930 KRW
+Cost assumptions: buy commission 0.025%, sell commission 0.025%, sell tax 0.3%

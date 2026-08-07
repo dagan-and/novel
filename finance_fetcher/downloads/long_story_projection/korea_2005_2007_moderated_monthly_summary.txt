@@ -1,0 +1,44 @@
+2005-2007 moderated stock progression for story setting
+Rules: odd months 10-20%, even months 5-10%, 30m moved to safety whenever stock account exceeds 80m, irregular monthly cash withdrawals added to stash.
+2005-01 High1: start 65,335,201, return 11.91%, withdraw 1,800,000, safety move 0, end account 71,315,502, safety 30,000,000, stash 34,800,000, trades 11 (9W/2L)
+2005-02 High1: start 71,315,502, return 4.55%, withdraw 2,400,000, safety move 0, end account 72,157,916, safety 30,000,000, stash 37,200,000, trades 9 (7W/2L)
+2005-03 High1: start 72,157,916, return 9.08%, withdraw 1,600,000, safety move 0, end account 77,111,011, safety 30,000,000, stash 38,800,000, trades 7 (6W/1L)
+2005-04 High1: start 77,111,011, return 7.45%, withdraw 3,000,000, safety move 0, end account 79,855,665, safety 30,000,000, stash 41,800,000, trades 10 (8W/2L)
+2005-05 High1: start 79,855,665, return 9.75%, withdraw 2,200,000, safety move 30,000,000, end account 55,441,357, safety 60,000,000, stash 44,000,000, trades 7 (6W/1L)
+2005-06 High1: start 55,441,357, return 5.33%, withdraw 2,600,000, safety move 0, end account 55,798,520, safety 60,000,000, stash 46,600,000, trades 7 (6W/1L)
+2005-07 High1: start 55,798,520, return 11.15%, withdraw 2,000,000, safety move 0, end account 60,022,070, safety 60,000,000, stash 48,600,000, trades 11 (9W/2L)
+2005-08 High1: start 60,022,070, return 6.43%, withdraw 2,800,000, safety move 0, end account 61,081,620, safety 60,000,000, stash 51,400,000, trades 8 (7W/1L)
+2005-09 High1: start 61,081,620, return 13.14%, withdraw 1,800,000, safety move 0, end account 67,308,201, safety 60,000,000, stash 53,200,000, trades 7 (7W/0L)
+2005-10 High1: start 67,308,201, return 4.88%, withdraw 2,500,000, safety move 0, end account 68,093,834, safety 60,000,000, stash 55,700,000, trades 10 (8W/2L)
+2005-11 High1: start 68,093,834, return 10.58%, withdraw 2,200,000, safety move 0, end account 73,095,777, safety 60,000,000, stash 57,900,000, trades 8 (7W/1L)
+2005-12 High1: start 73,095,777, return 7.38%, withdraw 3,200,000, safety move 0, end account 75,288,036, safety 60,000,000, stash 61,100,000, trades 11 (9W/2L)
+2006-01 High2: start 75,288,036, return 10.21%, withdraw 2,200,000, safety move 30,000,000, end account 50,771,464, safety 90,000,000, stash 63,300,000, trades 11 (9W/2L)
+2006-02 High2: start 50,771,464, return 7.28%, withdraw 2,600,000, safety move 0, end account 51,867,329, safety 90,000,000, stash 65,900,000, trades 10 (8W/2L)
+2006-03 High2: start 51,867,329, return 8.89%, withdraw 2,000,000, safety move 0, end account 54,477,173, safety 90,000,000, stash 67,900,000, trades 8 (7W/1L)
+2006-04 High2: start 54,477,173, return 5.26%, withdraw 3,400,000, safety move 0, end account 53,943,645, safety 90,000,000, stash 71,300,000, trades 10 (8W/2L)
+2006-05 High2: start 53,943,645, return 10.57%, withdraw 2,400,000, safety move 0, end account 57,245,888, safety 90,000,000, stash 73,700,000, trades 11 (9W/2L)
+2006-06 High2: start 57,245,888, return 6.52%, withdraw 3,000,000, safety move 0, end account 57,979,275, safety 90,000,000, stash 76,700,000, trades 11 (9W/2L)
+2006-07 High2: start 57,979,275, return 9.71%, withdraw 2,300,000, safety move 0, end account 61,311,324, safety 90,000,000, stash 79,000,000, trades 10 (8W/2L)
+2006-08 High2: start 61,311,324, return 4.39%, withdraw 3,600,000, safety move 0, end account 60,400,955, safety 90,000,000, stash 82,600,000, trades 8 (7W/1L)
+2006-09 High2: start 60,400,955, return 9.97%, withdraw 2,500,000, safety move 0, end account 63,922,395, safety 90,000,000, stash 85,100,000, trades 11 (9W/2L)
+2006-10 High2: start 63,922,395, return 4.75%, withdraw 3,200,000, safety move 0, end account 63,759,979, safety 90,000,000, stash 88,300,000, trades 10 (8W/2L)
+2006-11 High2: start 63,759,979, return 7.82%, withdraw 2,800,000, safety move 0, end account 65,945,129, safety 90,000,000, stash 91,100,000, trades 8 (7W/1L)
+2006-12 High2: start 65,945,129, return 3.98%, withdraw 4,200,000, safety move 0, end account 64,368,598, safety 90,000,000, stash 95,300,000, trades 10 (8W/2L)
+2007-01 High3: start 64,368,598, return 7.53%, withdraw 2,500,000, safety move 0, end account 66,718,434, safety 90,000,000, stash 97,800,000, trades 8 (7W/1L)
+2007-02 High3: start 66,718,434, return 5.94%, withdraw 3,000,000, safety move 0, end account 67,682,570, safety 90,000,000, stash 100,800,000, trades 10 (8W/2L)
+2007-03 High3: start 67,682,570, return 8.73%, withdraw 2,200,000, safety move 0, end account 71,390,460, safety 90,000,000, stash 103,000,000, trades 10 (8W/2L)
+2007-04 High3: start 71,390,460, return 6.73%, withdraw 3,800,000, safety move 0, end account 72,394,501, safety 90,000,000, stash 106,800,000, trades 11 (9W/2L)
+2007-05 High3: start 72,394,501, return 11.44%, withdraw 2,600,000, safety move 0, end account 78,075,382, safety 90,000,000, stash 109,400,000, trades 11 (9W/2L)
+2007-06 High3: start 78,075,382, return 4.81%, withdraw 3,400,000, safety move 0, end account 78,432,564, safety 90,000,000, stash 112,800,000, trades 10 (8W/2L)
+2007-07 High3: start 78,432,564, return 10.54%, withdraw 2,400,000, safety move 30,000,000, end account 54,301,475, safety 120,000,000, stash 115,200,000, trades 11 (9W/2L)
+2007-08 High3: start 54,301,475, return 5.57%, withdraw 4,000,000, safety move 0, end account 53,326,409, safety 120,000,000, stash 119,200,000, trades 8 (7W/1L)
+2007-09 High3: start 53,326,409, return 9.21%, withdraw 2,800,000, safety move 0, end account 55,436,652, safety 120,000,000, stash 122,000,000, trades 9 (8W/1L)
+2007-10 High3: start 55,436,652, return 5.47%, withdraw 3,600,000, safety move 0, end account 54,868,142, safety 120,000,000, stash 125,600,000, trades 8 (7W/1L)
+2007-11 High3: start 54,868,142, return 10.05%, withdraw 3,000,000, safety move 0, end account 57,383,681, safety 120,000,000, stash 128,600,000, trades 8 (7W/1L)
+2007-12 High3: start 57,383,681, return 6.05%, withdraw 5,000,000, safety move 0, end account 55,857,242, safety 120,000,000, stash 133,600,000, trades 9 (8W/1L)
+
+Final
+Stock account: 55,857,242
+Safety cash/account: 120,000,000
+Cash stash/withdrawn pool: 133,600,000
+Combined: 309,457,242

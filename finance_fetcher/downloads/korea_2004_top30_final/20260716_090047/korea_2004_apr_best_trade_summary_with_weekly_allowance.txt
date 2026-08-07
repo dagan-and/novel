@@ -1,0 +1,16 @@
+2004 Apr Korean stock hindsight trade simulation with weekly dating/living spending
+Period: 2004-04-01 to 2004-04-30 (22 trading days)
+Start cash from Mar: 2,360,601 KRW
+Weekly spending: 100,000 KRW, withdrawn every Monday before trading
+Total April spending: 400,000 KRW
+Final account cash: 6,795,127 KRW
+Final account + April spent money: 7,195,127 KRW
+Combined from original 100,000 KRW, account only: 6,795,127 KRW (6695.13%)
+Cost assumptions: buy commission 0.025%, sell commission 0.025%, sell tax 0.3%
+
+Best single buy-and-hold in Apr, no weekly withdrawals:
+036200.KQ Unlisted/renamed Yahoo ticker: 2097 shares, 1125.0 -> 1492.5, final 3,120,487 KRW
+035420.KS Naver: 341 shares, 6913.0693359375 -> 8547.3642578125, final 2,907,834 KRW
+036570.KS NCsoft: 33 shares, 70900.0 -> 84000.0, final 2,783,307 KRW
+035720.KS Kakao: 268 shares, 8780.0 -> 10100.0, final 2,704,976 KRW
+033780.KS KT&G: 90 shares, 26100.0 -> 29800.0, final 2,684,297 KRW

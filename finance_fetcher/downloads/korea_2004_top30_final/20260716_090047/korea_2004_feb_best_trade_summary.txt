@@ -1,0 +1,20 @@
+2004 Feb Korean stock hindsight trade simulation
+Period: 2004-02-02 to 2004-02-27 (20 trading days)
+Cost assumptions: buy commission 0.025%, sell commission 0.025%, sell tax 0.3%
+Feb-only start cash: 100,000 KRW -> 297,170 KRW (197.17%)
+Continue from Jan cash: 286,003 KRW -> 887,717 KRW (210.39% in Feb)
+Combined Jan+Feb from original 100,000 KRW -> 887,717 KRW (787.72%)
+
+Best single buy-and-hold in Feb, 100K start:
+010950.KS S-Oil: 3 shares, 33200.0 -> 42600.0, final 127,760 KRW
+000720.KS Hyundai Engineering & Construction: 9 shares, 10150.0 -> 11450.0, final 111,342 KRW
+005940.KS NH Investment & Securities: 11 shares, 8469.9091796875 -> 9428.9462890625, final 110,189 KRW
+036200.KQ Unlisted/renamed Yahoo ticker: 99 shares, 1000.0 -> 1105.0, final 110,015 KRW
+055550.KS Shinhan Financial Group: 5 shares, 18736.263671875 -> 20590.8671875, final 108,915 KRW
+
+Best single buy-and-hold in Feb, from Jan cash:
+010950.KS S-Oil: 8 shares, 33200.0 -> 42600.0, final 360,029 KRW
+000720.KS Hyundai Engineering & Construction: 28 shares, 10150.0 -> 11450.0, final 321,290 KRW
+005940.KS NH Investment & Securities: 33 shares, 8469.9091796875 -> 9428.9462890625, final 316,570 KRW
+036200.KQ Unlisted/renamed Yahoo ticker: 285 shares, 1000.0 -> 1105.0, final 314,834 KRW
+055550.KS Shinhan Financial Group: 15 shares, 18736.263671875 -> 20590.8671875, final 312,748 KRW

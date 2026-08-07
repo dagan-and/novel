@@ -1,0 +1,9 @@
+2004 Mar Korean stock hindsight trade simulation with weekly allowance spending
+Period: 2004-03-01 to 2004-03-31 (23 trading days)
+Start cash from Feb: 887,717 KRW
+Weekly spending: 100,000 KRW, withdrawn every Monday before trading
+Total March spending: 500,000 KRW
+Final account cash: 2,360,601 KRW
+Final account + spent money: 2,860,601 KRW
+Combined from original 100,000 KRW, account only: 2,360,601 KRW (2260.60%)
+Cost assumptions: buy commission 0.025%, sell commission 0.025%, sell tax 0.3%

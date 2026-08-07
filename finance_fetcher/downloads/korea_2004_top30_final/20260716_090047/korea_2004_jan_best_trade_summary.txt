@@ -1,0 +1,13 @@
+2004 Jan Korean stock hindsight trade simulation
+Period: 2004-01-05 to 2004-01-30 (20 trading days)
+Start cash: 100,000 KRW
+No-cost daily final: 302,546 KRW
+Cost-aware daily final: 286,003 KRW
+Cost assumptions: buy commission 0.025%, sell commission 0.025%, sell tax 0.3%
+
+Best single buy-and-hold with costs:
+000660.KS: 17 shares, 5610.0 -> 8950.0, net final 156,262 KRW, gross final 156,780 KRW
+028300.KQ: 7 shares, 13704.3212890625 -> 18481.255859375, net final 132,994 KRW, gross final 133,439 KRW
+036200.KQ: 120 shares, 830.0 -> 992.5, net final 119,088 KRW, gross final 119,500 KRW
+005930.KS: 11 shares, 8980.0 -> 10480.0, net final 116,101 KRW, gross final 116,500 KRW
+033780.KS: 4 shares, 21250.0 -> 24700.0, net final 113,458 KRW, gross final 113,800 KRW
