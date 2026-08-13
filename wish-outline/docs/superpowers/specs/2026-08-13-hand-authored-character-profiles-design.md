@@ -71,6 +71,18 @@ sensual without depicting explicit sexual acts.
 
 ## Character Differentiation
 
+Every outfit description names at least one body characteristic established in
+the character file and explains how the garment's cut, fit, weight, or exposure
+interacts with it. Body language stays exact: generic glamour traits such as
+long legs, a tall silhouette, or an extremely narrow waist may not replace the
+source profile's compact proportions, straight legs, soft volume, athletic
+density, or other distinct build.
+
+Styling also carries character behavior through posture, habitual movement,
+professional self-presentation, guardedness, confidence, or the contrast between
+public and private appearance. A sentence that remains plausible after replacing
+only the character name is not sufficiently authored and must be rewritten.
+
 Every character receives her own material palette, color range, makeup intensity,
 shoe language, accessory scale, and relationship to formality. Examples include
 노은화's attempted maturity over lively small-scale details, 박다정's clean and
