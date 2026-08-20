@@ -6,40 +6,50 @@ from __future__ import annotations
 import argparse
 from dataclasses import dataclass
 from pathlib import Path
+import subprocess
 import sys
 from typing import Any
 import re
+import random
+import unicodedata
+from urllib.parse import quote
 
-from profiles import get_common_arcs, get_profile
+from profiles import get_common_scene_config
 
 
 REPO_ROOT = Path(__file__).resolve().parent
 CHARACTER_DIR = REPO_ROOT / "characters"
 OUTLINE_DIR = REPO_ROOT / "outlines"
+IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp"}
 
 
-CHARACTER_ORDER = [
-    "김민정",
-    "노은화",
-    "도하영",
-    "문아영",
-    "박다정",
-    "박미현",
-    "박세연",
-    "서나윤",
-    "서지수",
-    "오유림",
-    "유하린",
-    "이주은",
-    "이주희",
-    "이채영",
-    "이하은",
-    "임세라",
-    "차소연",
-    "최유진",
-    "최윤서",
-    "한서진",
-]
+def character_profile_paths() -> list[Path]:
+    paths: dict[str, Path] = {}
+
+    for path in CHARACTER_DIR.glob("*.txt"):
+        if path.is_file():
+            paths[unicodedata.normalize("NFC", path.stem)] = path
+
+    folders = CHARACTER_DIR.iterdir() if CHARACTER_DIR.exists() else []
+    for folder in folders:
+        if not folder.is_dir():
+            continue
+        profile_path = folder / f"{folder.name}.txt"
+        if not profile_path.is_file():
+            txt_files = sorted(path for path in folder.glob("*.txt") if path.is_file())
+            if not txt_files:
+                continue
+            profile_path = txt_files[0]
+        paths[unicodedata.normalize("NFC", profile_path.stem)] = profile_path
+
+    return [paths[name] for name in sorted(paths)]
+
+
+def character_names() -> list[str]:
+    return [unicodedata.normalize("NFC", path.stem) for path in character_profile_paths()]
+
+
+CHARACTER_ORDER = character_names()
 
 
 @dataclass(frozen=True)
@@ -47,10 +57,12 @@ class Character:
     name: str
     profile: str
     position: str
+    body_type: str
     speech: str
     personality: str
     appearance: str
     points: str
+    image_links: list[str]
 
 
 def section(text: str, heading: str) -> str:
@@ -70,6 +82,10 @@ def first_sentence(text: str) -> str:
         return ""
     parts = re.split(r"(?<=[.!?])\s+|(?<=다\.)\s+", clean)
     return parts[0].strip()
+
+
+def compact_whitespace(text: str) -> str:
+    return re.sub(r"\s+", " ", text.strip())
 
 
 def has_final_consonant(text: str) -> bool:
@@ -115,48 +131,194 @@ def pick(items: list[dict[str, str]] | list[str], ep: int, salt: int):
     return items[(ep * 7 + salt * 11) % len(items)]
 
 
-def select_scene(ep: int, char: Character) -> dict[str, Any]:
-    profile = get_profile(char.name)
-    if not profile or "events" not in profile:
-        raise ValueError(f"character JSON profile not found: {char.name}")
+def outfit_pool_for(char: Character, outfits: dict[str, Any]) -> dict[str, list[str]]:
+    outfit_pool = outfits.get(char.body_type)
+    if outfit_pool is None:
+        raise ValueError(
+            f"unsupported character body type: {char.name}: {char.body_type}"
+        )
+    return outfit_pool
 
-    character_index = (
-        CHARACTER_ORDER.index(char.name) if char.name in CHARACTER_ORDER else 0
+
+def git_output(args: list[str], repo_root: Path = REPO_ROOT) -> str:
+    result = subprocess.run(
+        ["git", *args],
+        cwd=repo_root,
+        text=True,
+        capture_output=True,
+        check=True,
     )
-    event = pick(profile["events"], ep, character_index)
-    arc = pick(get_common_arcs(), ep, character_index + 7)
+    return result.stdout.strip()
+
+
+def github_repo_slug(remote_url: str) -> str | None:
+    remote_url = remote_url.strip()
+    if remote_url.startswith("git@github.com:"):
+        slug = remote_url.removeprefix("git@github.com:")
+    elif remote_url.startswith("https://github.com/"):
+        slug = remote_url.removeprefix("https://github.com/")
+    else:
+        return None
+    return slug.removesuffix(".git").strip("/") or None
+
+
+def github_blob_base(repo_root: Path = REPO_ROOT) -> str | None:
+    try:
+        remote_url = git_output(["config", "--get", "remote.origin.url"], repo_root)
+        branch = git_output(["branch", "--show-current"], repo_root)
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        return None
+
+    slug = github_repo_slug(remote_url)
+    if not slug or not branch:
+        return None
+    return f"https://github.com/{slug}/blob/{branch}"
+
+
+def git_relative_path(path: Path, repo_root: Path = REPO_ROOT) -> Path:
+    try:
+        top_level = Path(git_output(["rev-parse", "--show-toplevel"], repo_root))
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        top_level = repo_root
+    return path.resolve().relative_to(top_level.resolve())
+
+
+def github_image_link(path: Path, repo_root: Path = REPO_ROOT) -> str | None:
+    base = github_blob_base(repo_root)
+    if not base:
+        return None
+    relative = git_relative_path(path, repo_root)
+    return f"{base}/{quote(relative.as_posix(), safe='/')}"
+
+
+def character_image_links(profile_path: Path) -> list[str]:
+    links: list[str] = []
+    for path in sorted(profile_path.parent.iterdir()):
+        if not path.is_file() or path.suffix.lower() not in IMAGE_EXTENSIONS:
+            continue
+        link = github_image_link(path)
+        if link:
+            links.append(link)
+    return links
+
+
+def location_driven_arc(char: Character, place: str) -> dict[str, str]:
+    return {
+        "type": "location_driven",
+        "start": f"{place}에서 외부 시선이 줄어든 틈에 현실적인 대화가 시작된다",
+        "turn": (
+            f"{char.name}의 성격과 말투를 유지한 채 두 사람 사이의 거리와 "
+            "주도권이 달라진다"
+        ),
+        "after": "장면이 끝난 뒤에도 다음 만남으로 이어질 감정과 작은 단서가 남는다",
+    }
+
+
+def select_arousal_elements(
+    location: dict[str, Any],
+) -> list[dict[str, Any]]:
+    """Return every arousal element configured for the selected location."""
+    elements = location.get("arousal_elements") or []
+    return [dict(element) for element in elements]
+
+
+def select_entry_approach(
+    location: dict[str, Any],
+    rng: random.Random,
+    recent_approaches: dict[str, str] | None = None,
+) -> dict[str, Any] | None:
+    """Return a randomly selected entry approach for the location.
+
+    최근에 같은 장소에서 뽑힌 도입은 제외하고 선택한다.
+    """
+    approaches = location.get("entry_approaches") or []
+    if not approaches:
+        return None
+
+    location_id = location.get("id", "")
+    recent = None
+    if recent_approaches is not None:
+        recent = recent_approaches.get(location_id)
+
+    # 최근에 뽑힌 건 제외하고 선택
+    candidates = [a for a in approaches if a.get("id") != recent]
+    if not candidates:
+        candidates = approaches
+
+    selected = dict(rng.choice(candidates))
+
+    if recent_approaches is not None:
+        recent_approaches[location_id] = selected.get("id", "")
+
+    return selected
+
+
+def select_scene(
+    ep: int,
+    char: Character,
+    rng: random.Random | None = None,
+    recent_approaches: dict[str, str] | None = None,
+) -> dict[str, Any]:
+    chooser = rng or random.Random()
+    config = get_common_scene_config()
+    names = character_names()
+    character_index = names.index(char.name) if char.name in names else 0
+    weights = config["scene_type_weights"]
+    scene_types = ["work", "indoor"]
+    scene_type = chooser.choices(
+        scene_types,
+        weights=[weights[name] for name in scene_types],
+        k=1,
+    )[0]
+    location = chooser.choice(config["locations"][scene_type])
+    outfit_pool = outfit_pool_for(char, config["outfits"])
+    arcs = config["arcs"]
+    arc = (
+        pick(arcs, ep, character_index + 7)
+        if arcs
+        else location_driven_arc(char, location["place"])
+    )
+    arousal_elements = select_arousal_elements(location)
+    entry_approach = select_entry_approach(location, chooser, recent_approaches)
 
     return {
-        "place": event["place"],
-        "weather": event["weather"],
-        "pressure": event["pressure"],
-        "place_details": event["place_details"],
-        "clothes": pick(event["outfit_pool"], ep, character_index + 13),
-        "hair": pick(event["hair_pool"], ep, character_index + 19),
+        # 선택된 work/indoor location의 값을 빠뜨리지 않고 scene으로 전달한다.
+        **location,
+        "scene_type": scene_type,
+        "weather": chooser.choice(location["weather_pool"]),
+        "clothes": chooser.choice(outfit_pool[scene_type]),
+        "hair": "캐릭터 프로필에 명시된 고유 헤어스타일을 유지한다",
         "arc_type": arc["type"],
         "start": arc["start"],
         "turn": arc["turn"],
         "after": arc["after"],
-        "profile_name": profile["name"],
-        "event_id": event["id"],
-        "event_set_id": event["id"],
+        "profile_name": char.name,
+        "event_id": location["id"],
+        "event_set_id": location["id"],
+        "arousal_elements": arousal_elements,
+        "entry_approach": entry_approach,
     }
 
 
 def load_characters() -> list[Character]:
     characters: list[Character] = []
-    for name in CHARACTER_ORDER:
-        path = CHARACTER_DIR / f"{name}.txt"
+    for path in character_profile_paths():
+        name = unicodedata.normalize("NFC", path.stem)
         profile = path.read_text(encoding="utf-8").strip()
+        body_type = bullet_value(profile, "체형")
+        if not body_type:
+            raise ValueError(f"character body type not found: {name}")
         characters.append(
             Character(
                 name=name,
                 profile=profile,
                 position=bullet_value(profile, "리부트 포지션"),
+                body_type=body_type,
                 speech=first_sentence(section(profile, "말투")),
                 personality=first_sentence(section(profile, "성격")),
                 appearance=first_sentence(section(profile, "외형")),
                 points=section(profile, "장면 활용 포인트").replace("\n", " "),
+                image_links=character_image_links(path),
             )
         )
     return characters
@@ -171,27 +333,55 @@ def positive_count(value: str) -> int:
 
 def parse_args(argv: list[str]) -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Generate outline files using character JSON profiles."
+        description="Generate outline files using character text profiles."
     )
     parser.add_argument("count", type=positive_count, help="Number of outlines to generate.")
-    parser.add_argument("--character", help="Use one JSON-profiled character only.")
+    parser.add_argument("--character", help="Use one text-profiled character only.")
     return parser.parse_args(argv)
 
 
-def profiled_characters(
+def selectable_characters(
     characters: list[Character],
     character_name: str | None = None,
 ) -> list[Character]:
-    available = [character for character in characters if get_profile(character.name)]
     if character_name is None:
-        if not available:
-            raise ValueError("no character JSON profiles found")
-        return available
+        if not characters:
+            raise ValueError("no character text profiles found")
+        return characters
 
-    selected = [character for character in available if character.name == character_name]
+    selected = [character for character in characters if character.name == character_name]
     if not selected:
-        raise ValueError(f"character JSON profile not found: {character_name}")
+        raise ValueError(f"character text profile not found: {character_name}")
     return selected
+
+
+def arousal_elements_text(elements: list[dict[str, Any]]) -> str:
+    if not elements:
+        return ""
+    lines = ["\n긴장 요소:"]
+    for element in elements:
+        trigger = element.get("trigger", "")
+        timing = element.get("timing", "")
+        effect = element.get("effect", "")
+        line = f"- {trigger} — {timing}."
+        if effect:
+            line += f" {effect}."
+        lines.append(line)
+    return "\n".join(lines)
+
+
+def entry_approach_text(approach: dict[str, Any] | None) -> str:
+    if not approach:
+        return ""
+    lines = [
+        "\n도입 접근 방식:",
+        f"- 유형: {approach.get('type', '')}",
+        f"- 시작 트리거: {approach.get('trigger', '')}",
+        "- 단계별 전개:",
+    ]
+    for index, step in enumerate(approach.get("steps", []), start=1):
+        lines.append(f"  {index}. {step}")
+    return "\n".join(lines)
 
 
 def outline_text(ep: int, char: Character, scene: dict[str, Any]) -> str:
@@ -201,7 +391,6 @@ def outline_text(ep: int, char: Character, scene: dict[str, Any]) -> str:
     appearance = char.appearance or f"{char.name}은 장면 안에서 선명한 인상을 남기는 인물이다."
     points = char.points or char.position
 
-    place_obj = f"{scene['place']}{object_particle(scene['place'])}"
     name_topic = f"{char.name}{subject_particle(char.name)}"
     name_nom = f"{char.name}{nominative_particle(char.name)}"
     visual_clothes = as_visual_sentence(scene["clothes"], " 차림이다.")
@@ -210,11 +399,17 @@ def outline_text(ep: int, char: Character, scene: dict[str, Any]) -> str:
     place_detail_line = (
         f"- 장소 디테일: {', '.join(place_details)}.\n" if place_details else ""
     )
+    arousal_elements = arousal_elements_text(scene.get("arousal_elements") or [])
+    entry_approach = entry_approach_text(scene.get("entry_approach"))
+    appearance_links = ", ".join(char.image_links) if char.image_links else "프로필 외형 설명 참고"
 
     return f"""{title}
 
 이미지 프롬프트:
-2026년 여름, {place_obj} 배경으로 한 은밀한 영화 스틸. {appearance} {name_topic} {visual_clothes} 헤어는 {visual_hair} 장소의 공기감은 {scene['weather']}. 카메라는 노골적인 노출이나 행위가 아니라, 표정과 시선, 젖은 바닥이나 낮은 조명, 잠시 멈춘 자세가 만드는 긴장을 포착한다.
+외형정보: {appearance_links}
+2026년 여름, {scene['place']}에서 스마트폰으로 세로로 찍은 듯한 실제 사진 느낌의 고해상도 인물 중심 사진, 화면에는 성인 여성 {char.name} 한 명만 단독으로 등장하며 {appearance} {visual_clothes}, 헤어 스타일은 {visual_hair}, 장소의 공기감은 {scene['weather']}이고, 9:16 세로 구도에서 얼굴과 상반신이 크게 잡히며, 살짝 아래에서 위로 올려다보거나 비스듬한 3/4 각도로 목선과 쇄골, 허리에서 골반으로 이어지는 라인이 자연스럽게 돋보이는 이쁜 각도, 과한 영화 조명이나 화보식 포즈 없이 실제 순간을 포착한 듯한 분위기 안에서도 나른하고 관능적인 눈빛과 살짝 벌어지거나 촉촉한 입술로 은근한 섹시함이 느껴지는 표정, 옷깃이나 헤어 사이로 쇄골·어깨선이 살짝 드러나는 디테일, 현장 조명과 주변광이 섞인 자연스러운 빛, 현실적인 피부 질감과 머리카락, 옷감 디테일, 배경은 살짝 흐릿하지만 {scene['place']}의 공간감이 자연스럽게 드러나고, 카메라를 의식하지 않은 듯하면서도 은근히 시선을 끄는 미세한 눈빛, 약간의 스마트폰 사진 노이즈와 자연스러운 색감, 남성이나 다른 사람은 일절 등장하지 않는 여성 단독 세로 사진, cinematic film still, 35mm film, studio photoshoot, fashion editorial, CGI, illustration, anime, overly perfect skin, male, other people, crowd 제외.
+
+
 
 인물:
 - 김용식
@@ -233,6 +428,7 @@ def outline_text(ep: int, char: Character, scene: dict[str, Any]) -> str:
 - {scene['pressure']}.
 {place_detail_line}\
 - 장면은 외부 시선이 줄어든 시간대와 좁아진 동선을 활용해, 두 사람이 같은 공간에 남는 선택을 선명하게 만든다.
+{arousal_elements}
 
 이번 씬 복장:
 - {name_topic} {scene['clothes']}.
@@ -243,7 +439,6 @@ def outline_text(ep: int, char: Character, scene: dict[str, Any]) -> str:
 관계 구도:
 - {name_topic} {personality}
 - 말투는 {speech}
-- 이 화의 핵심은 연애 고백보다, 서로가 이미 선택한 분위기를 더는 모른 척하지 못하는 데 있다.
 - {scene['start']}.
 
 장면 톤:
@@ -259,6 +454,7 @@ def outline_text(ep: int, char: Character, scene: dict[str, Any]) -> str:
 - 용식은 {scene['place']}에서 {char.name}과 마주친다.
 - 처음 대화는 사소하고 현실적인 이유에서 시작된다. 비, 늦은 시간, 닫힌 문, 남은 일, 기다리는 차 같은 요소가 둘을 조금 더 머물게 한다.
 - {name_topic} 평소의 말투와 태도를 유지하려 하지만, 헤어와 복장의 작은 변화 때문에 이미 사적인 얼굴이 드러난다.
+{entry_approach}
 - {scene['start']}.
 
 관계 전환:
@@ -275,16 +471,34 @@ def generate_outlines(
     count: int,
     character_name: str | None = None,
     output_dir: Path = OUTLINE_DIR,
+    rng: random.Random | None = None,
 ) -> list[Path]:
-    characters = profiled_characters(load_characters(), character_name)
+    chooser = rng or random.Random()
+    characters = selectable_characters(load_characters(), character_name)
+    config = get_common_scene_config()
+    for char in characters:
+        outfit_pool_for(char, config["outfits"])
     output_dir.mkdir(parents=True, exist_ok=True)
     written: list[Path] = []
+
+    shuffled_pool: list[Character] = []
+    recent_approaches: dict[str, str] = {}
+
     for ep in range(1, count + 1):
-        char = characters[(ep - 1) % len(characters)]
-        scene = select_scene(ep, char)
+        # 특정 캐릭터 지정(--character)이 아닐 때만 셔플 루프 적용
+        if character_name is None:
+            if not shuffled_pool:
+                shuffled_pool = characters.copy()
+                chooser.shuffle(shuffled_pool)  # 무작위 셔플
+            char = shuffled_pool.pop(0)
+        else:
+            char = characters[0]
+
+        scene = select_scene(ep, char, chooser, recent_approaches)
         path = output_dir / f"{ep:03d}화.txt"
         path.write_text(outline_text(ep, char, scene), encoding="utf-8")
         written.append(path)
+
     return written
 
 

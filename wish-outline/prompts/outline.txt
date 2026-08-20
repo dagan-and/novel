@@ -19,16 +19,16 @@
 
 ```bash
 python3 generate_outlines.py 10
-python3 generate_outlines.py 10 --character 김민정
+python3 generate_outlines.py 10 --character 윤수빈
 python3 tools/append_footer.py
 python3 tools/remove_footer.py
 python3 tools/push_outlines.py
 ```
 
 첫 번째 숫자는 생성할 개요 수다. JSON 프로필이 있는 캐릭터만 기본 생성 대상이 되며,
-현재처럼 `profiles/김민정.json` 하나만 있으면 요청한 모든 화가 김민정으로 생성된다.
+현재처럼 `profiles/윤수빈.json` 하나만 있으면 요청한 모든 화가 윤수빈으로 생성된다.
 요청 범위 뒤에 이미 존재하는 개요 파일은 자동으로 삭제하지 않는다.
 
 캐릭터 전용 장면을 추가할 때는 캐릭터 파일과 같은 이름으로 JSON을 만든다.
-예: `characters/김민정.txt`와 `profiles/김민정.json`.
+예: `characters/윤수빈.txt`와 `profiles/윤수빈.json`.
 별도의 파일명 등록은 필요하지 않다.

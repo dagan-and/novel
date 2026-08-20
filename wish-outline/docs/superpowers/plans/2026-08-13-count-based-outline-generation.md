@@ -34,9 +34,9 @@
 ```python
 def test_parse_args_accepts_requested_count_and_character(self):
     module = load_generator()
-    args = module.parse_args(["10", "--character", "김민정"])
+    args = module.parse_args(["10", "--character", "윤수빈"])
     self.assertEqual(args.count, 10)
-    self.assertEqual(args.character, "김민정")
+    self.assertEqual(args.character, "윤수빈")
 
 def test_parse_args_rejects_non_positive_count(self):
     module = load_generator()
@@ -46,7 +46,7 @@ def test_parse_args_rejects_non_positive_count(self):
 def test_profiled_characters_uses_only_json_profiles(self):
     module = load_generator()
     characters = module.profiled_characters(module.load_characters())
-    self.assertEqual([character.name for character in characters], ["김민정"])
+    self.assertEqual([character.name for character in characters], ["윤수빈"])
 
 def test_profiled_characters_rejects_character_without_json(self):
     module = load_generator()
@@ -125,7 +125,7 @@ def test_generate_outlines_writes_requested_count_with_only_profiled_character(s
         self.assertFalse((output_dir / "004화.txt").exists())
         self.assertEqual(later_file.read_text(encoding="utf-8"), "keep")
         for path in written:
-            self.assertIn("- 김민정", path.read_text(encoding="utf-8"))
+            self.assertIn("- 윤수빈", path.read_text(encoding="utf-8"))
 ```
 
 - [ ] **Step 2: Run the test and verify generation API is missing**
@@ -167,7 +167,7 @@ def main(argv: list[str] | None = None) -> int:
 
 ```markdown
 python3 generate_outlines.py 10
-python3 generate_outlines.py 10 --character 김민정
+python3 generate_outlines.py 10 --character 윤수빈
 ```
 
 Document that only JSON-profiled characters are selected by default and later existing files are preserved.
@@ -180,7 +180,7 @@ Expected: all tests PASS.
 
 - [ ] **Step 6: Verify the real command without touching existing output**
 
-Run in a temporary directory through the Python API and verify exactly three paths are returned, each uses 김민정, and a pre-existing later file remains unchanged.
+Run in a temporary directory through the Python API and verify exactly three paths are returned, each uses 윤수빈, and a pre-existing later file remains unchanged.
 
 - [ ] **Step 7: Commit implementation**
 

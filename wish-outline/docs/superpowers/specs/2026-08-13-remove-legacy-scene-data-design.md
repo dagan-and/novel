@@ -44,4 +44,4 @@ fixed at its source.
 - Direct scene selection rejects a character without a JSON profile.
 - Profile events use `place_details` and contain no legacy `place_rules`.
 - Scene results no longer include `group`.
-- The full test suite and a sample 김민정 outline generation pass after removal.
+- The full test suite and a sample 윤수빈 outline generation pass after removal.

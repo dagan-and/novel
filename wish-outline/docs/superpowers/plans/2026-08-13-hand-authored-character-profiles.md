@@ -4,7 +4,7 @@
 
 **Goal:** Add complete, individually authored JSON scene profiles for the remaining 19 adult characters.
 
-**Architecture:** Each character receives a standalone `profiles/<name>.json` matching the existing 김민정 schema. Content is authored directly from the corresponding character file and requested place list; no builder, shared styling template, or runtime generator is added.
+**Architecture:** Each character receives a standalone `profiles/<name>.json` matching the existing 윤수빈 schema. Content is authored directly from the corresponding character file and requested place list; no builder, shared styling template, or runtime generator is added.
 
 **Tech Stack:** JSON, Python 3 standard library, `unittest`, `jq`
 
@@ -16,7 +16,7 @@
 - Respect each character's established haircut, color, personality, occupation, and proportions.
 - Customize shared hotel locations independently for every character.
 - Do not add `arcs`, `place_rules`, a builder script, or shared styling templates.
-- Do not modify `profiles/김민정.json`.
+- Do not modify `profiles/윤수빈.json`.
 
 ---
 
@@ -40,7 +40,7 @@
 - Create: `profiles/박미현.json`
 - Create: `profiles/차소연.json`
 - Create: `profiles/최윤서.json`
-- Create: `profiles/한서진.json`
+- Create: `profiles/한소희.json`
 
 **Interfaces:**
 - Produces: six standalone profiles with ten authored events each

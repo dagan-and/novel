@@ -103,7 +103,7 @@ Replace assertions against `module.SCENE_ARCS` with assertions against `get_comm
 selected_arc = module.pick(
     get_common_arcs(),
     10,
-    module.CHARACTER_ORDER.index("김민정") + 7,
+    module.CHARACTER_ORDER.index("윤수빈") + 7,
 )
 self.assertEqual(scene["arc_type"], selected_arc["type"])
 self.assertEqual(scene["start"], selected_arc["start"])
@@ -140,6 +140,6 @@ Run: `python3 -m unittest discover -s tests`
 
 Expected: all tests PASS.
 
-Run: `python3 generate_outlines.py 1 --character 김민정`
+Run: `python3 generate_outlines.py 1 --character 윤수빈`
 
 Expected: one outline is generated successfully using a common JSON arc.

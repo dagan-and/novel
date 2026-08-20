@@ -25,7 +25,7 @@ characters.
 ## Profile Schema
 
 Each file at `profiles/<character>.json` has the same structure as the existing
-김민정 profile:
+윤수빈 profile:
 
 ```json
 {
@@ -88,7 +88,7 @@ shoe language, accessory scale, and relationship to formality. Examples include
 노은화's attempted maturity over lively small-scale details, 박다정's clean and
 controlled minimalism, 문아영's tactile painterly layers, 서나윤's athletic
 confidence, 서지수's restrained luxury, 임세라's fashion-forward glamour, and
-한서진's precise managerial polish.
+한소희's precise managerial polish.
 
 Exact outfit and hair description strings are not duplicated across events or
 characters. Repeated garment categories such as a slip dress are rewritten with
@@ -100,9 +100,9 @@ Create one JSON profile for each of the following characters:
 
 `노은화`, `도하영`, `문아영`, `박다정`, `박미현`, `박세연`, `서나윤`,
 `서지수`, `오유림`, `유하린`, `이주은`, `이주희`, `이채영`, `이하은`,
-`임세라`, `차소연`, `최유진`, `최윤서`, `한서진`.
+`임세라`, `차소연`, `최유진`, `최윤서`, `한소희`.
 
-Do not alter the existing 김민정 profile except where a test must read it as the
+Do not alter the existing 윤수빈 profile except where a test must read it as the
 reference schema.
 
 ## Validation

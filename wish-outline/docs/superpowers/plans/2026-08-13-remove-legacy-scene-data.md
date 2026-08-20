@@ -33,7 +33,7 @@
 
 Add one test asserting direct `select_scene()` use for `노은화` raises
 `ValueError("character JSON profile not found: 노은화")`. Add one assertion to
-the existing 김민정 selection test that the returned scene has no `group` key.
+the existing 윤수빈 selection test that the returned scene has no `group` key.
 
 ```python
 def test_select_scene_rejects_character_without_json_profile(self):
@@ -48,7 +48,7 @@ def test_select_scene_rejects_character_without_json_profile(self):
 
 Run: `python3 -m unittest tests.test_profiles.CharacterProfileTests.test_select_scene_rejects_character_without_json_profile tests.test_profiles.CharacterProfileTests.test_select_scene_prefers_events_without_requiring_arcs`
 
-Expected: FAIL because the legacy branch returns a scene for 노은화 and 김민정's result still contains `group`.
+Expected: FAIL because the legacy branch returns a scene for 노은화 and 윤수빈's result still contains `group`.
 
 - [x] **Step 3: Remove legacy data and simplify selection**
 
@@ -101,6 +101,6 @@ Run: `rg -n "SCENE_SETS|CHARACTER_GROUPS|LUXURY_HOTEL_LOCATIONS|LOCATION_POOLS|O
 
 Expected: no matches.
 
-Run: `python3 generate_outlines.py 1 --character 김민정`
+Run: `python3 generate_outlines.py 1 --character 윤수빈`
 
 Expected: one outline file is generated successfully.

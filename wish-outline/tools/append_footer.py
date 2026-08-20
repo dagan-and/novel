@@ -16,7 +16,9 @@ from pathlib import Path
 TEXT_EXTENSIONS = {".txt"}
 FOOTER_MARKER_TEXT = "outline-random-footer-v1"
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-KEYWORDS_JSON_DEFAULT = "tools/footer_keywords.json"
+CHARACTER_JSON_DEFAULT = "tools/character_traits.json"
+KEYWORDS_JSON_DEFAULT = "tools/common_keywords.json"
+TEMPLATES_DEFAULT = "tools/common_templates.txt"
 
 
 @dataclass(frozen=True)
@@ -45,6 +47,33 @@ def load_keyword_pool(json_path: Path) -> dict:
         return json.load(f)
 
 
+def load_footer_pool(keywords_path: Path, character_path: Path) -> dict:
+    pool = load_keyword_pool(keywords_path)
+    character_pool = load_keyword_pool(character_path)
+    return {**pool, **character_pool}
+
+
+def load_templates(path: Path) -> dict:
+    templates = {}
+    current_key = None
+    current_lines = []
+
+    with path.open(encoding="utf-8") as f:
+        for line in f:
+            line = line.rstrip("\n")
+            if line.startswith("===") and line.endswith("==="):
+                if current_key is not None:
+                    templates[current_key] = "\n".join(current_lines).strip()
+                current_key = line.strip("=")
+                current_lines = []
+            else:
+                current_lines.append(line)
+        if current_key is not None:
+            templates[current_key] = "\n".join(current_lines).strip()
+
+    return templates
+
+
 def pick(chooser: random.Random, pool: list[str], n: int = 1) -> list[str]:
     if not pool:
         return []
@@ -52,13 +81,152 @@ def pick(chooser: random.Random, pool: list[str], n: int = 1) -> list[str]:
     return chooser.sample(pool, n)
 
 
-def build_footer_text(pool: dict, content: str = "", rng: random.Random | None = None) -> str:
+def build_footer_text(
+    pool: dict,
+    templates: dict,
+    content: str = "",
+    rng: random.Random | None = None,
+) -> str:
     chooser = rng or random.Random()
     cats = pool.get("categories", {})
 
-    climax_count = chooser.randint(3, 6)
-    cum_count = chooser.randint(2, 4)
+    # 라운드 수 랜덤 (4~6)
+    round_count = chooser.randint(4, 6)
 
+    # 사정 동반 라운드 수 랜덤 (2~3)
+    cum_rounds = chooser.randint(2, 3)
+
+    content_lower = content.lower()
+
+    # 체형 감지
+    body_type_keywords = pool.get("body_type_keywords", {})
+    body_type_order = pool.get("body_type_order", list(body_type_keywords.keys()))
+    detected_body_type = None
+
+    for body_type in body_type_order:
+        keywords = body_type_keywords.get(body_type, [])
+        if any(kw.lower() in content_lower for kw in keywords):
+            detected_body_type = body_type
+            break
+
+    # 명시된 성향만 감지하고, 태그가 없으면 기존 기본 동작을 유지한다.
+    personality_type_keywords = pool.get("personality_type_keywords", {})
+    detected_personality_type = "보통"
+
+    for personality_type, keywords in personality_type_keywords.items():
+        if any(kw.lower() in content_lower for kw in keywords):
+            detected_personality_type = personality_type
+            break
+
+    trait_key_by_personality_type = {
+        "강함": "aggressive",
+        "여림": "submissive",
+        "보통": "default",
+    }
+    trait_key = trait_key_by_personality_type.get(detected_personality_type, "default")
+    is_aggressive = trait_key == "aggressive"
+    is_submissive = trait_key == "submissive"
+
+    # 강제성 수준
+    if is_aggressive:
+        force_level = chooser.choices([
+            "[능욕형] 손목을 한 손으로 묶어 머리 위에 고정하고, 다른 손으로 허벅지를 벌린다. 반항하면 입에 양말을 쑤셔 넣거나 속옷을 물려 소리를 막는다. 몸을 눌러 움직이지 못하게 한 채 삽입한다. 거칠게 다루되 폭력적인 구타는 하지 않는다.",
+            "[제압형] 뺨을 손바닥으로 갈기고 머리채를 움켜잡아 침대에 얼굴을 처박는다. 반항하면 목을 졸라 숨을 막거나 가슴을 주먹으로 때린다. 섹스 도중에도 몸부림치면 따귀를 올려붙이고, 울거나 빌어도 멈추지 않는다.",
+            "[파괴형] 배를 발로 걷어차 쓰러뜨리고 멱살을 잡아 벽에 내던진다. 비명을 지르면 머리를 바닥에 찍는다. 섹스 중에도 조금이라도 저항하는 기미가 보이면 즉시 얼굴을 때리고 목을 졸라 의식을 오가게 만든다. 완전히 성노예나 인간 오나홀 취급하며, 상대가 죽지 않을 정도의 폭력은 서슴지 않는다."
+        ], weights=[1, 4, 5], k=1)[0]
+    elif is_submissive:
+        force_level = chooser.choices([
+            "[능욕형] 손목을 한 손으로 묶어 머리 위에 고정하고, 다른 손으로 허벅지를 벌린다. 반항하면 입에 양말을 쑤셔 넣거나 속옷을 물려 소리를 막는다. 몸을 눌러 움직이지 못하게 한 채 삽입한다. 거칠게 다루되 폭력적인 구타는 하지 않는다.",
+            "[제압형] 뺨을 손바닥으로 갈기고 머리채를 움켜잡아 침대에 얼굴을 처박는다. 반항하면 목을 졸라 숨을 막거나 가슴을 주먹으로 때린다. 섹스 도중에도 몸부림치면 따귀를 올려붙이고, 울거나 빌어도 멈추지 않는다.",
+            "[파괴형]  배를 발로 걷어차 쓰러뜨리고 멱살을 잡아 벽에 내던진다. 비명을 지르면 머리를 바닥에 찍는다. 섹스 중에도 조금이라도 저항하는 기미가 보이면 즉시 얼굴을 때리고 목을 졸라 의식을 오가게 만든다. 완전히 성노예나 인간 오나홀 취급하며, 상대가 죽지 않을 정도의 폭력은 서슴지 않는다."
+        ], weights=[2, 7, 1], k=1)[0]
+    else:
+        force_level = chooser.choices([
+            "[능욕형] 손목을 한 손으로 묶어 머리 위에 고정하고, 다른 손으로 허벅지를 벌린다. 반항하면 입에 양말을 쑤셔 넣거나 속옷을 물려 소리를 막는다. 몸을 눌러 움직이지 못하게 한 채 삽입한다. 거칠게 다루되 폭력적인 구타는 하지 않는다.",
+            "[제압형] 뺨을 손바닥으로 갈기고 머리채를 움켜잡아 침대에 얼굴을 처박는다. 반항하면 목을 졸라 숨을 막거나 가슴을 주먹으로 때린다. 섹스 도중에도 몸부림치면 따귀를 올려붙이고, 울거나 빌어도 멈추지 않는다.",
+            "[파괴형] 배를 발로 걷어차 쓰러뜨리고 멱살을 잡아 벽에 내던진다. 비명을 지르면 머리를 바닥에 찍는다. 섹스 중에도 조금이라도 저항하는 기미가 보이면 즉시 얼굴을 때리고 목을 졸라 의식을 오가게 만든다. 완전히 성노예나 인간 오나홀 취급하며, 상대가 죽지 않을 정도의 폭력은 서슴지 않는다."
+        ], weights=[3, 5, 2], k=1)[0]
+
+    # 남성 제압 방식
+    male_response_pool = pool.get("male_response", {})
+    if is_aggressive:
+        male_response = pick(chooser, male_response_pool.get("aggressive", []), chooser.randint(1, 2))
+    elif is_submissive:
+        male_response = pick(chooser, male_response_pool.get("submissive", []), chooser.randint(1, 2))
+    else:
+        male_response = pick(chooser, male_response_pool.get("default", []), chooser.randint(1, 2))
+
+    # 여성 저항 방식 선택
+    female_resistance_pool = pool.get("female_resistance", {})
+    if is_aggressive:
+        female_resistance = pick(chooser, female_resistance_pool.get("aggressive", []), chooser.randint(2, 3))
+    elif is_submissive:
+        female_resistance = pick(chooser, female_resistance_pool.get("submissive", []), chooser.randint(2, 3))
+    else:
+        female_resistance = pick(chooser, female_resistance_pool.get("default", []), chooser.randint(2, 3))
+
+    # 체형별 지시
+    body_type_instructions = pool.get("body_type_instructions", {})
+    body_type_instruction = ""
+    if detected_body_type and detected_body_type in body_type_instructions:
+        instructions = body_type_instructions[detected_body_type]
+        if instructions:
+            body_type_instruction = chooser.choice(instructions)
+
+    # ============================================================
+    # 라운드 세트 선택
+    # ============================================================
+    female_climax_sets = pool.get("female_climax_sets", [])
+    simultaneous_sets = pool.get("simultaneous_climax_sets", [])
+
+    selected_rounds = []
+
+    if female_climax_sets and simultaneous_sets:
+        # 사정 동반 라운드 위치 랜덤
+        cum_positions = set(chooser.sample(range(round_count), cum_rounds))
+
+        # 마지막 라운드는 무조건 동시절정사정으로 고정
+        last_round_index = round_count - 1
+        cum_positions.add(last_round_index)
+
+        # cum_positions 크기가 cum_rounds를 초과하면, 마지막을 제외한 나머지 중에서 랜덤 제거
+        while len(cum_positions) > cum_rounds:
+            removable = [p for p in cum_positions if p != last_round_index]
+            if not removable:
+                break
+            remove_target = chooser.choice(removable)
+            cum_positions.remove(remove_target)
+
+        used_female_sets = []
+        used_simultaneous_sets = []
+
+        for i in range(round_count):
+            if i in cum_positions:
+                # 동시절정사정 세트에서 선택 (중복 방지)
+                available = [s for s in simultaneous_sets if s not in used_simultaneous_sets]
+                if not available:
+                    available = simultaneous_sets
+                chosen = chooser.choice(available)
+                used_simultaneous_sets.append(chosen)
+                selected_rounds.append({
+                    "round": i + 1,
+                    "type": "동시절정사정",
+                    "text": chosen
+                })
+            else:
+                # 여성절정 세트에서 선택 (중복 방지)
+                available = [s for s in female_climax_sets if s not in used_female_sets]
+                if not available:
+                    available = female_climax_sets
+                chosen = chooser.choice(available)
+                used_female_sets.append(chosen)
+                selected_rounds.append({
+                    "round": i + 1,
+                    "type": "여성절정",
+                    "text": chosen
+                })
+
+    # 키워드 뽑기
     buildup = pick(chooser, cats.get("전조빌드업", []), chooser.randint(2, 4))
     positions = pick(chooser, cats.get("체위기동", []), chooser.randint(3, 6))
 
@@ -66,139 +234,139 @@ def build_footer_text(pool: dict, content: str = "", rng: random.Random | None =
     core_acts = pick(chooser, core_pool, chooser.randint(4, 7))
 
     body = pick(chooser, cats.get("신체반응", []), chooser.randint(3, 5))
-    gaze = pick(chooser, cats.get("시선", []), chooser.randint(1, 2))
-    audio = pick(chooser, cats.get("청각세분", []), chooser.randint(2, 3))
-    tempo = pick(chooser, cats.get("템포리듬", []), chooser.randint(2, 3))
-    edge = pick(chooser, cats.get("경계선", []), chooser.randint(1, 2))
     mind = pick(chooser, cats.get("정신파멸", []), chooser.randint(2, 4))
     shame = pick(chooser, cats.get("굴욕수치", []), chooser.randint(1, 3))
-    sense_shift = pick(chooser, cats.get("감각전환", []), chooser.randint(1, 3))
-    aftermath = pick(chooser, cats.get("사후여파", []), chooser.randint(2, 4))
-    timing = pick(chooser, cats.get("시간지속", []), chooser.randint(1, 2))
-    fluids = pick(chooser, cats.get("체액배설", []), chooser.randint(2, 4))
 
-    # 추가 항목 (JSON 풀에 존재하는 경우 무작위 추출)
     piston_steps = pick(chooser, cats.get("피스톤단계", []), chooser.randint(3, 5))
-    piston_details = pick(chooser, cats.get("피스톤디테일", []), chooser.randint(2, 4))
-    edge_delay = pick(chooser, cats.get("절정지연", []), chooser.randint(1, 3))
 
-    character_traits = pool.get("character_traits", {})
-    matched_characters = [
-        name for name in character_traits
-        if name in content
-    ]
+    # 체형별 체위 포인트
+    body_type_position_points = pool.get("body_type_position_points", {})
+    selected_position_points = []
+
+    if detected_body_type and detected_body_type in body_type_position_points:
+        points_map = body_type_position_points[detected_body_type]
+        for pos in positions:
+            pos_key = pos.replace(" ", "").replace("-", "").replace("/", "")
+            if pos_key in points_map:
+                point_options = points_map[pos_key]
+                if isinstance(point_options, list):
+                    if point_options:
+                        selected_position_points.append(chooser.choice(point_options))
+                elif isinstance(point_options, str):
+                    selected_position_points.append(point_options)
+
+    # 템플릿에서 절정 지시 선택
+    if round_count <= 4:
+        climax_instruction = templates.get("CLIMAX_LOW", "")
+    elif round_count <= 6:
+        climax_instruction = templates.get("CLIMAX_MID", "")
+    else:
+        climax_instruction = templates.get("CLIMAX_HIGH", "")
 
     closing = chooser.choice(pool.get("closing_lines", ["상세하게 묘사할 것."]))
 
     lines = [
         "**********",
-        f"절정/분수 {climax_count}번",
-        f"사정 {cum_count}번",
+        f"라운드 {round_count}번 (여성 절정 {round_count}회, 남성 사정 {cum_rounds}회)",
+        f"강제성: {force_level}",
+    ]
+
+    if detected_body_type:
+        body_type_outputs = pool.get("body_type_outputs", {})
+        body_type_output = body_type_outputs.get(detected_body_type, detected_body_type)
+        lines.append(f"체형: {body_type_output}")
+    lines.append(f"성향: {detected_personality_type}")
+
+    lines.extend([
         "",
         f"[전조] {', '.join(buildup)}",
         f"[체위 전환] {' → '.join(positions)}",
         f"[핵심 자극] {', '.join(core_acts)}",
         f"[신체 반응] {', '.join(body)}",
-        f"[체액] {', '.join(fluids)}",
-        f"[시선] {', '.join(gaze)}",
-        f"[음성 변화] {', '.join(audio)}",
-        f"[템포] {', '.join(tempo)}",
-        f"[절정 직전 밀당] {', '.join(edge)}",
         f"[정신 파멸] {', '.join(mind)}",
         f"[수치] {', '.join(shame)}",
-        f"[감각 전환] {', '.join(sense_shift)}",
-        f"[사후 여파] {', '.join(aftermath)}",
-    ]
-
-    # 옵션 카테고리가 있는 경우 상단 요소 리스트에 추가
-    for name in matched_characters:
-        traits = character_traits.get(name, [])
-        if traits:
-            lines.append(f"[캐릭터 특성 - {name}] {', '.join(traits)}")
+    ])
 
     if piston_steps:
         lines.append(f"[피스톤 전개 단계] {' → '.join(piston_steps)}")
-    if piston_details:
-        lines.append(f"[피스톤 디테일] {', '.join(piston_details)}")
-    if edge_delay:
-        lines.append(f"[절정 직전 지연] {', '.join(edge_delay)}")
 
-    # 신규 지시사항 세트 추가
+    if male_response:
+        lines.append(f"[남성 제압 방식] {', '.join(male_response)}")
+
+    if female_resistance:
+        lines.append(f"[여성 저항 방식] {', '.join(female_resistance)}")
+
+    if body_type_instruction:
+        lines.append(f"[체형별 지시] {body_type_instruction}")
+
+    if selected_position_points:
+        lines.append(f"[체형별 체위 포인트] {', '.join(selected_position_points)}")
+
+    # ============================================================
+    # 라운드 세트 출력
+    # ============================================================
+    if selected_rounds:
+        lines.append("")
+        for round_data in selected_rounds:
+            round_num = round_data["round"]
+            round_type = round_data["type"]
+            round_text = round_data["text"]
+            if round_type == "동시절정사정":
+                lines.append(f"[{round_num}라운드] 여성 절정 + 남성 사정 동시")
+                lines.append(f"→ {round_text}")
+            else:
+                lines.append(f"[{round_num}라운드] 여성 절정")
+                lines.append(f"→ {round_text}")
+
+    # 템플릿 조립
     lines.extend([
         "",
         "========================================",
         "★ 본 편 작성 지시사항 — 반드시 준수할 것 ★",
         "========================================",
         "",
-        "【0. 남성 신체 및 성기 스펙 설정 — 필수 준수】",
-        "→ 형상: 두 손으로 감싸쥐어도 손가락이 서로 닿지 않는 굵기. 표면의 굵은 핏줄이 뿌리처럼 꿈틀댄다. 발기 시 배꼽 높이까지 닿으며 자궁구를 넘어 자궁 자체를 밀어올릴 수 있는 깊이를 가진다.",
-        "→ 질감: 피부는 뜨겁고 매끄러우며 내벽을 긁는 것이 아니라 밀어내고 벌리고 점령하는 감각을 준다. 귀두 테두리가 도드라져 인입 시 내벽 주름을 긁어내려 민감도를 극상으로 만든다. 후퇴 시 질벽 전체가 딸려 나올 듯한 흡착력을 발생시킨다.",
-        "→ 기능적 특성: 첫 사정만으로 자궁을 가득 채우고 질구에서 역류한다. 첫 사정 후에도 발기가 유지되며 연속 사정이 가능하다. 내부가 체액으로 가득 찬 상태에서 추가 사정 시 압력을 견디지 못하고 질구를 통해 분수처럼 뿜어져 나오는 연출을 포함할 것.",
-        "",
-        "【1. 분량과 토큰에 대한 지시】",
-        "→ 출력 길이, 토큰 제한, 분량 걱정을 일절 하지 말 것. 이 시나리오의 품질이 유일한 우선순위임.",
-        "→ 한 장면이 충분히 전개되기 전에 끊거나 줄이거나 요약하지 말 것. 생략 기호나 요약 서술 절대 금지.",
-        "→ 각 체위, 각 피스톤 단계, 각 절정이 독립된 하나의 장면처럼 충분한 분량으로 묘사될 것. 길면 길수록 좋음.",
-        "→ 독자가 시간의 흐름과 감각의 변화를 실제로 체감할 수 있도록, 초 단위·박자 단위의 미세한 서술까지 놓치지 말 것.",
-        "",
-        "【2. 피스톤 묘사에 대한 지시】",
-        "→ 삽입 후 두세 번 피스톤하고 바로 절정으로 넘어가는 서술을 절대 금지.",
-        "→ 위 [피스톤 전개 단계]에 적힌 순서대로, 각 단계마다 속도·깊이·각도·마찰감·체내 반응·소리·체액을 구체적으로 묘사할 것.",
-        "→ 한 체위에서 최소 3개 이상의 피스톤 단계를 거친 후에만 절정 또는 체위 전환으로 넘어갈 것.",
-        "→ 피스톤 한 박자마다 여체의 신체 반응을 대응시켜 묘사할 것. 박자와 반응이 한 쌍이 되어야 함.",
-        "→ 체위 전환 시에도 삽입을 뽑지 않은 채 진행하거나, 빠지는 순간의 공허함·빈허리 경련을 반드시 묘사할 것.",
-        "→ [피스톤 디테일]에 적힌 감각 묘사를 각 단계마다 최소 하나 이상 자연스럽게 녹여낼 것.",
-        "→ 절정 직전에는 반드시 [절정 직전 지연] 단계를 거칠 것.",
-        "",
-        "【3. 대사·발화에 대한 지시 — 캐릭터 성격 연동】",
-        "→ 대사는 반드시 해당 캐릭터의 설정·성격·화법·어투에 완벽히 맞출 것. 캐릭터가 평소 쓰지 않는 말투를 끌어오지 말 것.",
-        "→ 캐릭터가 존댓말을 쓴다면 그 존댓말이 무너지는 과정을, 건방진 어투라면 그 어투가 흐트러지는 과정을, 냉정한 성격이라면 이성이 붕괴하는 과정을 단계적으로 묘사할 것.",
-        "→ 말투가 흐트러지는 것 자체가 파멸의 증거임. 발음이 흐려지고, 단어가 끊기고, 완성된 문장이 안 나오는 과정을 구체적으로 묘사할 것.",
-        "→ 같은 말이라도 장면 초반과 후반의 뉘앙스가 달라야 함. 시간이 지나면서 동일 발화의 의미가 변질되는 과정을 추적할 것.",
-        "→ 신음을 단순한 간접호로 처리하지 말고, 그 소리가 어떤 맥락에서 나왔는지 서술로 뒷받침할 것.",
-        "→ 남성의 대사도 성격에 맞춰 일관되게 유지하면서 상황에 따라 변주할 것.",
-        "",
-        "【4. 심리 묘사에 대한 지시】",
-        "→ 겉으로 드러나는 반응뿐 아니라, 여체의 내면에서 일어나는 사고 과정을 지속적으로 추적할 것.",
-        "→ 합리화가 무너지고, 자기 반응에 대한 자각이 들고, 그 자각에 대한 혐오와 동시에 쾌락이 밀려오는 모순적 심리를 단계적으로 그릴 것.",
-        "→ 저항→체념→반응→갈구→백지화의 심리 곡선을 전체 장면에 걸쳐 추적할 것. 이 곡선이 직선이 아니라 굴곡이 있어야 함.",
-        "→ 여체가 자기 상태를 객관적으로 인식하는 순간의 정신적 충격을 놓치지 말 것.",
-        "",
-        "【5. 감각 묘사에 대한 지시 — 오감 전동원】",
-        "→ 시각·청각·촉각·후각·미각을 균형 있게 동원할 것.",
-        "→ 기계적으로 나열하지 말고 장면의 자연스러운 흐름 속에 교차시킬 것.",
-        " ",
-        "【6. 체위 전환 묘사에 대한 지시】",
-        "→ 체위가 바뀔 때마다 그 자체가 하나의 이벤트임. 전환 과정의 물리적 묘사와 심리적 묘사를 반드시 넣을 것.",
-        "→ 새 체위에서의 결합 상태 변화를 구체적으로 묘사하고, 이전 체위와의 감각 차이를 여체가 인식하는 과정을 그릴 것.",
-        "",
-        "【7. 절정 묘사에 대한 지시】",
-        "→ 절정은 한 문장으로 끝내지 말 것. 전조→정점→잔여의 3단계 구조로 묘사할 것.",
-        "→ 절정 횟수가 명시된 만큼, 각 절정이 서로 다른 양상으로 묘사되도록 할 것.",
-        "",
-        "【8. 사후 묘사에 대한 지시】",
-        "→ 행위 종료 후의 여체 상태를 최소 한 단락 이상으로 묘사할 것. [사후 여파] 키워드를 전부 활용.",
-        "",
-        "【9. 전체 서술 톤에 대한 지시】",
-        "→ 끈적하고, 몰입감 있고, 감각에 몰입하는 서술. 독자가 현장에 있는 것처럼 총체적 체감을 유도할 것.",
-        "→ 감정은 직접 서술하지 말고 감각·행동·대사로 우회 표현할 것.",
-        "→ 위 키워드와 지시를 전부 기계적으로 나열하지 말 것. 서사의 흐름 속에 자연스럽게 녹여낼 것.",
-        "",
-        f"→ {closing}",
     ])
+
+    # 남성 스펙
+    male_spec = templates.get("MALE_SPEC", "")
+    if male_spec:
+        lines.append(male_spec)
+        lines.append("")
+
+    # 공통 지시
+    common = templates.get("COMMON_INSTRUCTIONS", "")
+    if common:
+        lines.append(common)
+        lines.append("")
+
+    # 라운드 지시
+    if selected_rounds:
+        lines.append("【7. 라운드 묘사에 대한 지시】")
+        lines.append("→ 절정 횟수와 사정 횟수는 서술의 기준점일 뿐, 실제 서사에서는 절대로 구분하거나 표기하지 말 것.")
+        lines.append("→ '1라운드', '2라운드' 같은 장면 구분, 소제목, 문단 나눔, 전환 표시를 절대 넣지 말 것.")
+        lines.append("→ 여성 절정과 남성 사정은 피스톤의 연장선 위에서 자연스럽게 발생하며, 절정이 끝난 직후에도 피스톤이 멈추지 않고 다음 절정으로 이어질 것.")
+        lines.append("→ 절정과 절정 사이의 간격은 체위 전환, 대화, 공간 묘사로 채우되, 서사가 끊기지 않도록 전환 과정 자체를 피스톤의 연장선으로 쓸 것.")
+        lines.append("→ 체위 전환은 성기를 뽑는 순간의 공허감, 빼는 동안의 질벽 흡착, 재삽입 시의 각도 변화를 모두 서술해 전환이 곧 삽입의 연장이 되도록 할 것.")
+        lines.append("→ 절정 직전에 피스톤을 멈추지 말 것. 절정이 밀려오면 오히려 더 강하게 몰아붙일 것.")
+        lines.append("→ 절정 묘사 직후에는 반드시 다음 문장에서 피스톤이 이어지고 있어야 한다. 절정으로 문단이 끝나지 말 것. 절정 → 과민 반응 → 다음 체위 전환 or 다음 피스톤 단계가 한 호흡으로 연결되어야 한다.")
+        lines.append("→ 비성적 대화나 공간 묘사는 피스톤이 계속되는 와중에 삽입할 것. 피스톤을 멈추고 대화하는 장면을 만들지 말 것.")
+        lines.append("")
+
+    # 마무리
+    lines.append(f"→ {closing}")
 
     return "\n".join(lines)
 
 
-def append_footer(path: Path, pool: dict, rng: random.Random | None = None) -> FileResult:
+def append_footer(path: Path, pool: dict, templates: dict, rng: random.Random | None = None) -> FileResult:
     marker = footer_marker(FOOTER_MARKER_TEXT)
     content = path.read_text(encoding="utf-8")
 
     if marker in content:
         return FileResult(path=path, changed=False)
 
-    footer_text = build_footer_text(pool, content, rng)
-    separator = "\n\n"
+    footer_text = build_footer_text(pool, templates, content, rng)
+    separator = "\n"
     updated = f"{content}{separator}{marker}\n{footer_text}\n"
     path.write_text(updated, encoding="utf-8")
     return FileResult(path=path, changed=True)
@@ -213,7 +381,10 @@ def iter_outline_files(outline_dir: Path) -> list[Path]:
 
 
 def append_to_outline_dir(
-    outline_dir: Path, pool: dict, rng: random.Random | None = None
+    outline_dir: Path,
+    pool: dict,
+    templates: dict,
+    rng: random.Random | None = None,
 ) -> DirResult:
     if not outline_dir.exists():
         raise FileNotFoundError(f"outline directory not found: {outline_dir}")
@@ -221,7 +392,7 @@ def append_to_outline_dir(
     changed_paths: list[Path] = []
     files = iter_outline_files(outline_dir)
     for path in files:
-        result = append_footer(path, pool, rng)
+        result = append_footer(path, pool, templates, rng)
         if result.changed:
             changed_paths.append(path)
 
@@ -273,6 +444,16 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
         default=KEYWORDS_JSON_DEFAULT,
         help="Path to the JSON file holding the keyword pool.",
     )
+    parser.add_argument(
+        "--character-json",
+        default=CHARACTER_JSON_DEFAULT,
+        help="Path to the JSON file holding the keyword pool.",
+    )
+    parser.add_argument(
+        "--templates",
+        default=TEMPLATES_DEFAULT,
+        help="Path to the text file holding instruction templates.",
+    )
     parser.add_argument("--commit", action="store_true")
     parser.add_argument("--push", action="store_true")
     parser.add_argument(
@@ -288,8 +469,12 @@ def main(argv: list[str] | None = None) -> int:
     repo_root = PROJECT_ROOT
 
     try:
-        pool = load_keyword_pool((repo_root / args.keywords_json).resolve())
-        result = append_to_outline_dir((repo_root / args.outline_dir).resolve(), pool)
+        pool = load_footer_pool(
+            (repo_root / args.keywords_json).resolve(),
+            (repo_root / args.character_json).resolve(),
+        )
+        templates = load_templates((repo_root / args.templates).resolve())
+        result = append_to_outline_dir((repo_root / args.outline_dir).resolve(), pool, templates)
 
         print(f"Scanned: {result.scanned_count}")
         print(f"Changed: {result.changed_count}")
