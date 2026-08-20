@@ -177,10 +177,28 @@ def github_blob_base(repo_root: Path = REPO_ROOT) -> str | None:
 
 def git_relative_path(path: Path, repo_root: Path = REPO_ROOT) -> Path:
     try:
+        tracked = git_output(
+            [
+                "-c",
+                "core.quotePath=false",
+                "ls-files",
+                "--full-name",
+                "--",
+                str(path),
+            ],
+            repo_root,
+        )
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        tracked = ""
+    if tracked:
+        return Path(tracked.splitlines()[0])
+
+    try:
         top_level = Path(git_output(["rev-parse", "--show-toplevel"], repo_root))
     except (subprocess.CalledProcessError, FileNotFoundError):
         top_level = repo_root
-    return path.resolve().relative_to(top_level.resolve())
+    relative = path.resolve().relative_to(top_level.resolve())
+    return Path(unicodedata.normalize("NFC", relative.as_posix()))
 
 
 def github_image_link(path: Path, repo_root: Path = REPO_ROOT) -> str | None:
@@ -406,8 +424,8 @@ def outline_text(ep: int, char: Character, scene: dict[str, Any]) -> str:
     return f"""{title}
 
 이미지 프롬프트:
-외형정보: {appearance_links}
-2026년 여름, {scene['place']}에서 스마트폰으로 세로로 찍은 듯한 실제 사진 느낌의 고해상도 인물 중심 사진, 화면에는 성인 여성 {char.name} 한 명만 단독으로 등장하며 {appearance} {visual_clothes}, 헤어 스타일은 {visual_hair}, 장소의 공기감은 {scene['weather']}이고, 9:16 세로 구도에서 얼굴과 상반신이 크게 잡히며, 살짝 아래에서 위로 올려다보거나 비스듬한 3/4 각도로 목선과 쇄골, 허리에서 골반으로 이어지는 라인이 자연스럽게 돋보이는 이쁜 각도, 과한 영화 조명이나 화보식 포즈 없이 실제 순간을 포착한 듯한 분위기 안에서도 나른하고 관능적인 눈빛과 살짝 벌어지거나 촉촉한 입술로 은근한 섹시함이 느껴지는 표정, 옷깃이나 헤어 사이로 쇄골·어깨선이 살짝 드러나는 디테일, 현장 조명과 주변광이 섞인 자연스러운 빛, 현실적인 피부 질감과 머리카락, 옷감 디테일, 배경은 살짝 흐릿하지만 {scene['place']}의 공간감이 자연스럽게 드러나고, 카메라를 의식하지 않은 듯하면서도 은근히 시선을 끄는 미세한 눈빛, 약간의 스마트폰 사진 노이즈와 자연스러운 색감, 남성이나 다른 사람은 일절 등장하지 않는 여성 단독 세로 사진, cinematic film still, 35mm film, studio photoshoot, fashion editorial, CGI, illustration, anime, overly perfect skin, male, other people, crowd 제외.
+외형 참조: {appearance_links}
+실사 스마트폰 사진 느낌의 고해상도 세로 인물 사진. 화면에는 성인 여성 {char.name} 한 명만 단독으로 등장한다. 얼굴, 눈매, 헤어스타일, 전체 분위기는 외형 참조 이미지를 기준으로 유지한다. {appearance} 헤어 스타일은 {visual_hair}. 2026년 여름, {scene['place']}에서 촬영된 장면이며 {visual_clothes} 차림이다. 장소의 공기감은 {scene['weather']}이다. 9:16 세로 구도, 얼굴과 상반신 중심의 인물 사진으로, 살짝 아래에서 올려다보거나 비스듬한 3/4 각도에서 목선과 쇄골, 상체 라인이 자연스럽게 드러난다. 과한 영화 조명이나 화보식 포즈 없이 실제 순간을 포착한 듯한 분위기 속에서, 담담하면서도 나른하고 은근한 관능미가 느껴지는 눈빛과 살짝 촉촉한 입술을 표현한다. 옷깃이나 헤어 사이로 쇄골과 어깨선이 살짝 드러난다. 현장 조명과 주변광이 섞인 자연스러운 빛, 현실적인 피부 질감과 머리카락, 옷감 디테일, 약간의 스마트폰 사진 노이즈와 자연스러운 색감을 유지한다. 배경은 살짝 흐릿하지만 {scene['place']}의 공간감이 자연스럽게 드러난다. 남성이나 다른 사람은 등장하지 않는다. no male, no other people, no crowd, no illustration, no anime, no CGI.
 
 
 

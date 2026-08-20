@@ -49,6 +49,8 @@ class CommonOutlineGenerationTests(unittest.TestCase):
                 return "main"
             if args == ["rev-parse", "--show-toplevel"]:
                 return str(generate_outlines.REPO_ROOT.parent)
+            if args[:4] == ["-c", "core.quotePath=false", "ls-files", "--full-name"]:
+                return ""
             raise AssertionError(args)
 
         with patch.object(generate_outlines, "git_output", fake_git_output):
@@ -57,6 +59,33 @@ class CommonOutlineGenerationTests(unittest.TestCase):
         self.assertEqual(
             link,
             "https://github.com/dagan-and/novel/blob/main/wish-outline/characters/%EC%9D%B4%EC%A3%BC%EC%9D%80/image%20%281%29.png",
+        )
+
+    def test_github_image_link_uses_git_tracked_unicode_path(self):
+        image_path = (
+            generate_outlines.REPO_ROOT
+            / "characters"
+            / "이주은"
+            / "1744440997553344.webp"
+        )
+
+        def fake_git_output(args, repo_root=generate_outlines.REPO_ROOT):
+            if args == ["config", "--get", "remote.origin.url"]:
+                return "git@github.com:dagan-and/novel.git"
+            if args == ["branch", "--show-current"]:
+                return "main"
+            if args == ["rev-parse", "--show-toplevel"]:
+                return str(generate_outlines.REPO_ROOT.parent)
+            if args[:4] == ["-c", "core.quotePath=false", "ls-files", "--full-name"]:
+                return "wish-outline/characters/이주은/1744440997553344.webp"
+            raise AssertionError(args)
+
+        with patch.object(generate_outlines, "git_output", fake_git_output):
+            link = generate_outlines.github_image_link(image_path)
+
+        self.assertEqual(
+            link,
+            "https://github.com/dagan-and/novel/blob/main/wish-outline/characters/%EC%9D%B4%EC%A3%BC%EC%9D%80/1744440997553344.webp",
         )
 
     def test_load_characters_reads_profiles_inside_character_folders(self):
