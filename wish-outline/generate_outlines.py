@@ -162,7 +162,7 @@ def github_repo_slug(remote_url: str) -> str | None:
     return slug.removesuffix(".git").strip("/") or None
 
 
-def github_blob_base(repo_root: Path = REPO_ROOT) -> str | None:
+def github_raw_base(repo_root: Path = REPO_ROOT) -> str | None:
     try:
         remote_url = git_output(["config", "--get", "remote.origin.url"], repo_root)
         branch = git_output(["branch", "--show-current"], repo_root)
@@ -172,7 +172,7 @@ def github_blob_base(repo_root: Path = REPO_ROOT) -> str | None:
     slug = github_repo_slug(remote_url)
     if not slug or not branch:
         return None
-    return f"https://github.com/{slug}/blob/{branch}"
+    return f"https://raw.githubusercontent.com/{slug}/{branch}"
 
 
 def git_relative_path(path: Path, repo_root: Path = REPO_ROOT) -> Path:
@@ -202,7 +202,7 @@ def git_relative_path(path: Path, repo_root: Path = REPO_ROOT) -> Path:
 
 
 def github_image_link(path: Path, repo_root: Path = REPO_ROOT) -> str | None:
-    base = github_blob_base(repo_root)
+    base = github_raw_base(repo_root)
     if not base:
         return None
     relative = git_relative_path(path, repo_root)
@@ -402,6 +402,38 @@ def entry_approach_text(approach: dict[str, Any] | None) -> str:
     return "\n".join(lines)
 
 
+def image_generation_prompt(char: Character, scene: dict[str, Any]) -> str:
+    appearance_links = ", ".join(char.image_links) if char.image_links else "프로필 외형 설명 참고"
+    appearance = char.appearance or f"{char.name}은 장면 안에서 선명한 인상을 남기는 인물이다."
+    visual_clothes = as_visual_sentence(scene["clothes"], " 차림이다.")
+    visual_hair = as_visual_sentence(scene["hair"], " 상태다.")
+
+    prompt = (
+        "GPT 이미지 생성 요청입니다. 아래 내용을 분석하거나 설명하지 말고 반드시 새 이미지를 생성해줘. "
+        "자동화 주의: 참조 이미지 URL은 자동화 코드가 GPT 이미지 입력으로 함께 전달해야 한다. "
+        "모델은 URL 문자열만 보고 상상하지 말고, 함께 전달된 이미지 입력을 visual reference로 사용한다. "
+        "이미지 입력이 없거나 접근할 수 없으면 임의 생성하지 말고 참조 이미지가 필요하다고 요청한다. "
+        f"외형 참조 URL: {appearance_links}. "
+        f"실사 스마트폰 사진 느낌의 고해상도 세로 인물 사진. 화면에는 성인 여성 {char.name} 한 명만 단독으로 등장한다. "
+        "참조 이미지의 얼굴 비율을 최우선으로 유지한다. 얼굴형, 눈매, 코 폭, 입 모양, 코 아래부터 턱까지의 세로 비율, 하관 비율, 피부 톤, 전체 분위기는 첨부된 참조 이미지들을 기준으로 유지한다. "
+        "눈을 크게 만들거나 또렷하게 확대 보정하지 않는다. 턱과 하관을 더 가늘거나 뾰족한 V라인으로 보정하지 않는다. 코-입-턱 라인을 인위적으로 정리하지 않는다. "
+        "피부를 뷰티 필터처럼 매끈하게 만들지 않는다. 눈, 볼, 입 주변에 실제 사람 사진에서 보이는 미세한 비대칭과 자연스러운 표정 변화를 남긴다. "
+        "입만 웃는 표정이 아니라 입꼬리, 볼, 눈 주변이 함께 움직이는 자연스러운 미소를 만든다. "
+        "잔머리와 앞머리는 계산된 뷰티 이미지처럼 정리하지 않는다. 실제 스마트폰 사진처럼 약간 흐트러진 머리카락과 자연스러운 헤어 질감을 유지한다. "
+        f"{appearance} 헤어 스타일은 {visual_hair} "
+        f"2026년 여름, {scene['place']}에서 촬영된 자연스러운 순간이며 {visual_clothes} "
+        f"장소의 공기감은 {scene['weather']}이다. "
+        "9:16 세로 구도, 얼굴과 상반신 중심의 인물 사진. 살짝 아래에서 올려다보는 각도 또는 비스듬한 3/4 각도. "
+        "목선, 쇄골, 어깨선, 상체 라인이 자연스럽게 보이되 과장하거나 선정적으로 강조하지 않는다. "
+        "화보식 포즈가 아니라 실제 스마트폰으로 순간을 찍은 듯 자연스럽고 담백한 분위기. "
+        "현장 조명과 주변광이 섞인 자연스러운 빛, 현실적인 피부 질감과 머리카락, 옷감 디테일, 약간의 스마트폰 사진 노이즈와 자연스러운 색감을 유지한다. "
+        f"배경은 살짝 흐릿하지만 {scene['place']}의 공간감이 자연스럽게 드러난다. "
+        "남성이나 다른 사람은 등장하지 않는다. "
+        "no male, no other people, no crowd, no explicit pose, no excessive exposure, no lingerie-shoot mood, no illustration, no anime, no CGI, no watermark, no text."
+    )
+    return compact_whitespace(prompt)
+
+
 def outline_text(ep: int, char: Character, scene: dict[str, Any]) -> str:
     title = f"[{ep}화 성인씬 개요]"
     speech = char.speech or "가까워질수록 말투의 온도가 달라진다."
@@ -411,21 +443,17 @@ def outline_text(ep: int, char: Character, scene: dict[str, Any]) -> str:
 
     name_topic = f"{char.name}{subject_particle(char.name)}"
     name_nom = f"{char.name}{nominative_particle(char.name)}"
-    visual_clothes = as_visual_sentence(scene["clothes"], " 차림이다.")
-    visual_hair = as_visual_sentence(scene["hair"], " 상태다.")
     place_details = scene.get("place_details") or []
     place_detail_line = (
         f"- 장소 디테일: {', '.join(place_details)}.\n" if place_details else ""
     )
     arousal_elements = arousal_elements_text(scene.get("arousal_elements") or [])
     entry_approach = entry_approach_text(scene.get("entry_approach"))
-    appearance_links = ", ".join(char.image_links) if char.image_links else "프로필 외형 설명 참고"
 
     return f"""{title}
 
 이미지 프롬프트:
-외형 참조: {appearance_links}
-실사 스마트폰 사진 느낌의 고해상도 세로 인물 사진. 화면에는 성인 여성 {char.name} 한 명만 단독으로 등장한다. 얼굴, 눈매, 헤어스타일, 전체 분위기는 외형 참조 이미지를 기준으로 유지한다. {appearance} 헤어 스타일은 {visual_hair}. 2026년 여름, {scene['place']}에서 촬영된 장면이며 {visual_clothes} 차림이다. 장소의 공기감은 {scene['weather']}이다. 9:16 세로 구도, 얼굴과 상반신 중심의 인물 사진으로, 살짝 아래에서 올려다보거나 비스듬한 3/4 각도에서 목선과 쇄골, 상체 라인이 자연스럽게 드러난다. 과한 영화 조명이나 화보식 포즈 없이 실제 순간을 포착한 듯한 분위기 속에서, 담담하면서도 나른하고 은근한 관능미가 느껴지는 눈빛과 살짝 촉촉한 입술을 표현한다. 옷깃이나 헤어 사이로 쇄골과 어깨선이 살짝 드러난다. 현장 조명과 주변광이 섞인 자연스러운 빛, 현실적인 피부 질감과 머리카락, 옷감 디테일, 약간의 스마트폰 사진 노이즈와 자연스러운 색감을 유지한다. 배경은 살짝 흐릿하지만 {scene['place']}의 공간감이 자연스럽게 드러난다. 남성이나 다른 사람은 등장하지 않는다. no male, no other people, no crowd, no illustration, no anime, no CGI.
+{image_generation_prompt(char, scene)}
 
 
 

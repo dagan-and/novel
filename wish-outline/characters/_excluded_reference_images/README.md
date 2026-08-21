@@ -14,3 +14,7 @@ This folder keeps images that were removed from active character reference folde
   - Excluded because it is a collage-style image; replaced with a single-frame stadium reference.
 - `정예인/images (1)_kei_misidentified.jpeg`
   - Excluded because the watermark and visual match Lovelyz Kei, not Jeong Yein.
+- `_original_oversize_or_format_mismatch/이루다/202108191649390253_d.jpg`
+  - Original backup kept before resizing the active reference from 5.58MB to a smaller JPEG for reliable image-reference loading.
+- `_original_oversize_or_format_mismatch/이은빈/lee_eunbin_nate_20240827.jpg`
+  - Original backup kept before replacing the active `.jpg` path that actually contained a 10.31MB PNG/RGBA image with a smaller real JPEG.

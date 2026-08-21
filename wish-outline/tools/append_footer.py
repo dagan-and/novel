@@ -74,11 +74,180 @@ def load_templates(path: Path) -> dict:
     return templates
 
 
-def pick(chooser: random.Random, pool: list[str], n: int = 1) -> list[str]:
+def pick(chooser: random.Random, pool: list, n: int = 1) -> list:
     if not pool:
         return []
     n = min(n, len(pool))
     return chooser.sample(pool, n)
+
+
+def item_at(items: list, index: int):
+    if not items:
+        return ""
+    return items[index % len(items)]
+
+
+def join_nonempty(items: list[str]) -> str:
+    return ", ".join(item for item in items if item)
+
+
+def round_result_label(round_type: str) -> str:
+    if round_type == "동시절정사정":
+        return "여성 절정 + 남성 사정 동시"
+    if round_type == "첫질내사정":
+        return "여성 절정 + 첫 질내 사정"
+    if round_type == "중간질내사정":
+        return "여성 절정 + 중간 질내 사정"
+    if round_type == "굴욕사정":
+        return "여성 절정 + 남성 굴욕 사정"
+    return "여성 절정"
+
+
+def get_trait_key(trait: str) -> str:
+    trait_lower = trait.lower()
+    if "강함" in trait_lower or "aggressive" in trait_lower or "dominant" in trait_lower:
+        return "aggressive"
+    if (
+        "여림" in trait_lower
+        or "순종" in trait_lower
+        or "submissive" in trait_lower
+        or "약함" in trait_lower
+    ):
+        return "submissive"
+    return "default"
+
+
+def trait_pool(pool: list | dict, trait_key: str) -> list:
+    if isinstance(pool, dict):
+        return pool.get(trait_key, pool.get("default", []))
+    return pool
+
+
+def pick_from_position_pool(
+    positions: list[dict],
+    round_count: int,
+    chooser: random.Random,
+) -> list[dict]:
+    if not positions:
+        return []
+
+    selected = chooser.sample(positions, min(round_count, len(positions)))
+    while len(selected) < round_count:
+        remaining = [p for p in positions if p not in selected]
+        if not remaining:
+            remaining = positions
+        selected.append(chooser.choice(remaining))
+    return selected
+
+
+def pick_unique_from_list(
+    pool: list[str],
+    used: list[str],
+    chooser: random.Random,
+) -> str:
+    candidates = [item for item in pool if item not in used]
+    if not candidates:
+        candidates = pool
+    if not candidates:
+        return ""
+    return chooser.choice(candidates)
+
+
+def build_fallback_resistance_pairs(pool: dict, trait_key: str) -> list[dict]:
+    resistance_pool = pool.get("female_resistance", {})
+    response_pool = pool.get("male_response", {})
+    resistances = resistance_pool.get(trait_key, resistance_pool.get("default", []))
+    responses = response_pool.get(trait_key, response_pool.get("default", []))
+
+    return [
+        {"저항": resistance, "제압": response}
+        for resistance, response in zip(resistances, responses)
+    ]
+
+
+def pick_resistance_pairs(
+    pool: dict,
+    trait_key: str,
+    round_count: int,
+    chooser: random.Random,
+) -> list[dict]:
+    pair_pool = pool.get("저항제압", {})
+    trait_pairs = pair_pool.get(trait_key, pair_pool.get("default", []))
+    if not trait_pairs:
+        trait_pairs = build_fallback_resistance_pairs(pool, trait_key)
+    if not trait_pairs:
+        return []
+
+    selected_pairs = chooser.sample(trait_pairs, min(len(trait_pairs), round_count))
+    while len(selected_pairs) < round_count:
+        remaining = [pair for pair in trait_pairs if pair not in selected_pairs]
+        if not remaining:
+            remaining = trait_pairs
+        selected_pairs.append(chooser.choice(remaining))
+
+    return selected_pairs
+
+
+def build_position_pool_from_categories(cats: dict) -> list[dict]:
+    positions = cats.get("체위기동", [])
+    pistons = cats.get("피스톤단계", [])
+    cores = cats.get("질자궁", []) + cats.get("구강인후", []) + cats.get("목호흡", [])
+    bodies = cats.get("신체반응", [])
+
+    if not any((positions, pistons, cores, bodies)):
+        return []
+
+    base_positions = positions or [""]
+    return [
+        {
+            "name": position,
+            "피스톤": pistons,
+            "코어자극": cores,
+            "신체반응": bodies,
+        }
+        for position in base_positions
+    ]
+
+
+def build_round_data(
+    positions: list[dict],
+    round_count: int,
+    chooser: random.Random,
+) -> list[dict]:
+    selected_positions = pick_from_position_pool(positions, round_count, chooser)
+
+    used_pistons: list[str] = []
+    used_cores: list[str] = []
+    used_bodies: list[str] = []
+
+    round_data = []
+
+    for pos in selected_positions:
+        piston = pick_unique_from_list(pos.get("피스톤", []), used_pistons, chooser)
+        used_pistons.append(piston)
+
+        core = pick_unique_from_list(pos.get("코어자극", []), used_cores, chooser)
+        used_cores.append(core)
+
+        body = pick_unique_from_list(pos.get("신체반응", []), used_bodies, chooser)
+        used_bodies.append(body)
+
+        round_data.append({
+            "position": pos["name"],
+            "piston": piston,
+            "core": core,
+            "body": body,
+        })
+
+    while len(round_data) < round_count:
+        round_data.append({
+            "position": "",
+            "piston": "",
+            "core": "",
+            "body": "",
+        })
+
+    return round_data
 
 
 def build_footer_text(
@@ -90,10 +259,7 @@ def build_footer_text(
     chooser = rng or random.Random()
     cats = pool.get("categories", {})
 
-    # 라운드 수 랜덤 (4~6)
     round_count = chooser.randint(4, 6)
-
-    # 사정 동반 라운드 수 랜덤 (2~3)
     cum_rounds = chooser.randint(2, 3)
 
     content_lower = content.lower()
@@ -109,7 +275,7 @@ def build_footer_text(
             detected_body_type = body_type
             break
 
-    # 명시된 성향만 감지하고, 태그가 없으면 기존 기본 동작을 유지한다.
+    # 성향 감지
     personality_type_keywords = pool.get("personality_type_keywords", {})
     detected_personality_type = "보통"
 
@@ -118,12 +284,7 @@ def build_footer_text(
             detected_personality_type = personality_type
             break
 
-    trait_key_by_personality_type = {
-        "강함": "aggressive",
-        "여림": "submissive",
-        "보통": "default",
-    }
-    trait_key = trait_key_by_personality_type.get(detected_personality_type, "default")
+    trait_key = get_trait_key(detected_personality_type)
     is_aggressive = trait_key == "aggressive"
     is_submissive = trait_key == "submissive"
 
@@ -138,7 +299,7 @@ def build_footer_text(
         force_level = chooser.choices([
             "[능욕형] 손목을 한 손으로 묶어 머리 위에 고정하고, 다른 손으로 허벅지를 벌린다. 반항하면 입에 양말을 쑤셔 넣거나 속옷을 물려 소리를 막는다. 몸을 눌러 움직이지 못하게 한 채 삽입한다. 거칠게 다루되 폭력적인 구타는 하지 않는다.",
             "[제압형] 뺨을 손바닥으로 갈기고 머리채를 움켜잡아 침대에 얼굴을 처박는다. 반항하면 목을 졸라 숨을 막거나 가슴을 주먹으로 때린다. 섹스 도중에도 몸부림치면 따귀를 올려붙이고, 울거나 빌어도 멈추지 않는다.",
-            "[파괴형]  배를 발로 걷어차 쓰러뜨리고 멱살을 잡아 벽에 내던진다. 비명을 지르면 머리를 바닥에 찍는다. 섹스 중에도 조금이라도 저항하는 기미가 보이면 즉시 얼굴을 때리고 목을 졸라 의식을 오가게 만든다. 완전히 성노예나 인간 오나홀 취급하며, 상대가 죽지 않을 정도의 폭력은 서슴지 않는다."
+            "[파괴형] 배를 발로 걷어차 쓰러뜨리고 멱살을 잡아 벽에 내던진다. 비명을 지르면 머리를 바닥에 찍는다. 섹스 중에도 조금이라도 저항하는 기미가 보이면 즉시 얼굴을 때리고 목을 졸라 의식을 오가게 만든다. 완전히 성노예나 인간 오나홀 취급하며, 상대가 죽지 않을 정도의 폭력은 서슴지 않는다."
         ], weights=[2, 7, 1], k=1)[0]
     else:
         force_level = chooser.choices([
@@ -147,23 +308,8 @@ def build_footer_text(
             "[파괴형] 배를 발로 걷어차 쓰러뜨리고 멱살을 잡아 벽에 내던진다. 비명을 지르면 머리를 바닥에 찍는다. 섹스 중에도 조금이라도 저항하는 기미가 보이면 즉시 얼굴을 때리고 목을 졸라 의식을 오가게 만든다. 완전히 성노예나 인간 오나홀 취급하며, 상대가 죽지 않을 정도의 폭력은 서슴지 않는다."
         ], weights=[3, 5, 2], k=1)[0]
 
-    # 남성 제압 방식
-    male_response_pool = pool.get("male_response", {})
-    if is_aggressive:
-        male_response = pick(chooser, male_response_pool.get("aggressive", []), chooser.randint(1, 2))
-    elif is_submissive:
-        male_response = pick(chooser, male_response_pool.get("submissive", []), chooser.randint(1, 2))
-    else:
-        male_response = pick(chooser, male_response_pool.get("default", []), chooser.randint(1, 2))
-
-    # 여성 저항 방식 선택
-    female_resistance_pool = pool.get("female_resistance", {})
-    if is_aggressive:
-        female_resistance = pick(chooser, female_resistance_pool.get("aggressive", []), chooser.randint(2, 3))
-    elif is_submissive:
-        female_resistance = pick(chooser, female_resistance_pool.get("submissive", []), chooser.randint(2, 3))
-    else:
-        female_resistance = pick(chooser, female_resistance_pool.get("default", []), chooser.randint(2, 3))
+    selected_pairs = pick_resistance_pairs(pool, trait_key, round_count, chooser)
+    resistance_rounds = set(range(0, round_count, 2))
 
     # 체형별 지시
     body_type_instructions = pool.get("body_type_instructions", {})
@@ -173,36 +319,50 @@ def build_footer_text(
         if instructions:
             body_type_instruction = chooser.choice(instructions)
 
-    # ============================================================
-    # 라운드 세트 선택
-    # ============================================================
+    # 체위별 풀에서 라운드 데이터 구성
+    positions_pool = pool.get("체위", []) or build_position_pool_from_categories(cats)
+    round_data = build_round_data(positions_pool, round_count, chooser)
+
+    # 라운드 세트 선택 (절정/사정)
     female_climax_sets = pool.get("female_climax_sets", [])
+    female_pool = trait_pool(female_climax_sets, trait_key)
     simultaneous_sets = pool.get("simultaneous_climax_sets", [])
+    mid_cum_sets = pool.get("mid_cum_sets", []) or simultaneous_sets
+    facial_cum_sets = pool.get("facial_cum_sets", []) or simultaneous_sets
 
     selected_rounds = []
 
-    if female_climax_sets and simultaneous_sets:
-        # 사정 동반 라운드 위치 랜덤
-        cum_positions = set(chooser.sample(range(round_count), cum_rounds))
-
-        # 마지막 라운드는 무조건 동시절정사정으로 고정
+    if female_pool and simultaneous_sets:
         last_round_index = round_count - 1
-        cum_positions.add(last_round_index)
-
-        # cum_positions 크기가 cum_rounds를 초과하면, 마지막을 제외한 나머지 중에서 랜덤 제거
-        while len(cum_positions) > cum_rounds:
-            removable = [p for p in cum_positions if p != last_round_index]
-            if not removable:
-                break
-            remove_target = chooser.choice(removable)
-            cum_positions.remove(remove_target)
+        other_positions = [i for i in range(round_count - 1)]
+        internal_positions = sorted(
+            chooser.sample(other_positions, min(max(0, cum_rounds - 1), len(other_positions)))
+        )
+        first_internal = internal_positions[0] if internal_positions else None
+        mid_internal = (
+            set(internal_positions[1:])
+            if len(internal_positions) > 1
+            else set()
+        )
 
         used_female_sets = []
         used_simultaneous_sets = []
+        used_mid_cum_sets = []
+        used_facial_sets = []
 
         for i in range(round_count):
-            if i in cum_positions:
-                # 동시절정사정 세트에서 선택 (중복 방지)
+            if i == last_round_index:
+                available = [s for s in facial_cum_sets if s not in used_facial_sets]
+                if not available:
+                    available = facial_cum_sets
+                chosen = chooser.choice(available)
+                used_facial_sets.append(chosen)
+                selected_rounds.append({
+                    "round": i + 1,
+                    "type": "굴욕사정",
+                    "text": chosen
+                })
+            elif i == first_internal:
                 available = [s for s in simultaneous_sets if s not in used_simultaneous_sets]
                 if not available:
                     available = simultaneous_sets
@@ -210,14 +370,24 @@ def build_footer_text(
                 used_simultaneous_sets.append(chosen)
                 selected_rounds.append({
                     "round": i + 1,
-                    "type": "동시절정사정",
+                    "type": "첫질내사정",
+                    "text": chosen
+                })
+            elif i in mid_internal:
+                available = [s for s in mid_cum_sets if s not in used_mid_cum_sets]
+                if not available:
+                    available = mid_cum_sets
+                chosen = chooser.choice(available)
+                used_mid_cum_sets.append(chosen)
+                selected_rounds.append({
+                    "round": i + 1,
+                    "type": "중간질내사정",
                     "text": chosen
                 })
             else:
-                # 여성절정 세트에서 선택 (중복 방지)
-                available = [s for s in female_climax_sets if s not in used_female_sets]
+                available = [s for s in female_pool if s not in used_female_sets]
                 if not available:
-                    available = female_climax_sets
+                    available = female_pool
                 chosen = chooser.choice(available)
                 used_female_sets.append(chosen)
                 selected_rounds.append({
@@ -226,45 +396,13 @@ def build_footer_text(
                     "text": chosen
                 })
 
-    # 키워드 뽑기
+    # 기타 키워드
     buildup = pick(chooser, cats.get("전조빌드업", []), chooser.randint(2, 4))
-    positions = pick(chooser, cats.get("체위기동", []), chooser.randint(3, 6))
-
-    core_pool = cats.get("질자궁", []) + cats.get("구강인후", []) + cats.get("목호흡", [])
-    core_acts = pick(chooser, core_pool, chooser.randint(4, 7))
-
-    body = pick(chooser, cats.get("신체반응", []), chooser.randint(3, 5))
-    mind = pick(chooser, cats.get("정신파멸", []), chooser.randint(2, 4))
     shame = pick(chooser, cats.get("굴욕수치", []), chooser.randint(1, 3))
-
-    piston_steps = pick(chooser, cats.get("피스톤단계", []), chooser.randint(3, 5))
-
-    # 체형별 체위 포인트
-    body_type_position_points = pool.get("body_type_position_points", {})
-    selected_position_points = []
-
-    if detected_body_type and detected_body_type in body_type_position_points:
-        points_map = body_type_position_points[detected_body_type]
-        for pos in positions:
-            pos_key = pos.replace(" ", "").replace("-", "").replace("/", "")
-            if pos_key in points_map:
-                point_options = points_map[pos_key]
-                if isinstance(point_options, list):
-                    if point_options:
-                        selected_position_points.append(chooser.choice(point_options))
-                elif isinstance(point_options, str):
-                    selected_position_points.append(point_options)
-
-    # 템플릿에서 절정 지시 선택
-    if round_count <= 4:
-        climax_instruction = templates.get("CLIMAX_LOW", "")
-    elif round_count <= 6:
-        climax_instruction = templates.get("CLIMAX_MID", "")
-    else:
-        climax_instruction = templates.get("CLIMAX_HIGH", "")
 
     closing = chooser.choice(pool.get("closing_lines", ["상세하게 묘사할 것."]))
 
+    # 출력 조립
     lines = [
         "**********",
         f"라운드 {round_count}번 (여성 절정 {round_count}회, 남성 사정 {cum_rounds}회)",
@@ -277,46 +415,75 @@ def build_footer_text(
         lines.append(f"체형: {body_type_output}")
     lines.append(f"성향: {detected_personality_type}")
 
-    lines.extend([
-        "",
-        f"[전조] {', '.join(buildup)}",
-        f"[체위 전환] {' → '.join(positions)}",
-        f"[핵심 자극] {', '.join(core_acts)}",
-        f"[신체 반응] {', '.join(body)}",
-        f"[정신 파멸] {', '.join(mind)}",
-        f"[수치] {', '.join(shame)}",
-    ])
-
-    if piston_steps:
-        lines.append(f"[피스톤 전개 단계] {' → '.join(piston_steps)}")
-
-    if male_response:
-        lines.append(f"[남성 제압 방식] {', '.join(male_response)}")
-
-    if female_resistance:
-        lines.append(f"[여성 저항 방식] {', '.join(female_resistance)}")
-
     if body_type_instruction:
-        lines.append(f"[체형별 지시] {body_type_instruction}")
+        lines.extend(["", f"[체형별 지시] {body_type_instruction}"])
 
-    if selected_position_points:
-        lines.append(f"[체형별 체위 포인트] {', '.join(selected_position_points)}")
-
-    # ============================================================
-    # 라운드 세트 출력
-    # ============================================================
     if selected_rounds:
-        lines.append("")
-        for round_data in selected_rounds:
-            round_num = round_data["round"]
-            round_type = round_data["type"]
-            round_text = round_data["text"]
-            if round_type == "동시절정사정":
-                lines.append(f"[{round_num}라운드] 여성 절정 + 남성 사정 동시")
-                lines.append(f"→ {round_text}")
-            else:
-                lines.append(f"[{round_num}라운드] 여성 절정")
-                lines.append(f"→ {round_text}")
+        lines.extend(["", "[순차 진행표]"])
+        late_round_note = templates.get("ROUND_NOTE_LATE", "").strip()
+        last_round_note = templates.get("ROUND_NOTE_LAST", "").strip()
+
+        for index, round_info in enumerate(selected_rounds):
+            round_num = round_info["round"]
+            rd = round_data[index]
+            next_rd = round_data[index + 1] if index + 1 < len(round_data) else None
+
+            position = rd["position"]
+            next_position = next_rd["position"] if next_rd else None
+            piston = rd["piston"]
+            core = rd["core"]
+            body_reaction = rd["body"]
+            shame_point = item_at(shame, index)
+            result = round_result_label(round_info["type"])
+
+            lines.extend(["", f"[{round_num}구간: {position or '구도 지정'}]"])
+
+            if round_num == 1 and buildup:
+                lines.append(f"도입은 {join_nonempty(buildup)} 흐름으로 시작한다.")
+
+            if position:
+                if next_position and round_num < round_count:
+                    lines.append(
+                        f"이 구간은 {position} 구도로 진행하고, 다음 구간의 {next_position} 전환을 염두에 둔다."
+                    )
+                else:
+                    lines.append(f"이 구간은 {position} 구도로 진행한다.")
+
+            if piston or core:
+                parts = []
+                if piston:
+                    parts.append(f"피스톤 전개는 {piston}을 중심으로 잡는다")
+                if core:
+                    parts.append(f"핵심 자극은 {core}를 배치한다")
+                lines.append(" ".join(parts) + ".")
+
+            if index in resistance_rounds and selected_pairs:
+                response_parts = []
+                pair = selected_pairs[index]
+                resistance = pair.get("저항", "")
+                response = pair.get("제압", "")
+                if resistance:
+                    response_parts.append(f"여성 저항은 {resistance}로 잡는다")
+                if response:
+                    response_parts.append(f"남성 제압 방식은 {response}를 사용한다")
+                if response_parts:
+                    lines.append(" ".join(response_parts) + ".")
+
+            if body_reaction:
+                lines.append(f"신체 반응은 {body_reaction}을 중심으로 묘사한다.")
+
+            if shame_point and round_num == round_count:
+                lines.append(f"수치 요소는 {shame_point}를 이 구간에 섞는다.")
+
+            if round_num == 3 and late_round_note:
+                lines.append(late_round_note)
+
+            if round_num == round_count and last_round_note:
+                lines.append(last_round_note)
+
+            lines.append(f"결과: {result}.")
+            if round_info["text"]:
+                lines.append(f"세부 결과 메모: {round_info['text']}")
 
     # 템플릿 조립
     lines.extend([
@@ -327,19 +494,16 @@ def build_footer_text(
         "",
     ])
 
-    # 남성 스펙
     male_spec = templates.get("MALE_SPEC", "")
     if male_spec:
         lines.append(male_spec)
         lines.append("")
 
-    # 공통 지시
     common = templates.get("COMMON_INSTRUCTIONS", "")
     if common:
         lines.append(common)
         lines.append("")
 
-    # 라운드 지시
     if selected_rounds:
         lines.append("【7. 라운드 묘사에 대한 지시】")
         lines.append("→ 절정 횟수와 사정 횟수는 서술의 기준점일 뿐, 실제 서사에서는 절대로 구분하거나 표기하지 말 것.")
@@ -352,7 +516,6 @@ def build_footer_text(
         lines.append("→ 비성적 대화나 공간 묘사는 피스톤이 계속되는 와중에 삽입할 것. 피스톤을 멈추고 대화하는 장면을 만들지 말 것.")
         lines.append("")
 
-    # 마무리
     lines.append(f"→ {closing}")
 
     return "\n".join(lines)

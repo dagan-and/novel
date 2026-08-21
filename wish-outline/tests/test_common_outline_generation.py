@@ -34,7 +34,7 @@ class SingleReadPath:
 
 
 class CommonOutlineGenerationTests(unittest.TestCase):
-    def test_github_image_link_uses_blob_page_url(self):
+    def test_github_image_link_uses_raw_file_url(self):
         image_path = (
             generate_outlines.REPO_ROOT
             / "characters"
@@ -58,7 +58,7 @@ class CommonOutlineGenerationTests(unittest.TestCase):
 
         self.assertEqual(
             link,
-            "https://github.com/dagan-and/novel/blob/main/wish-outline/characters/%EC%9D%B4%EC%A3%BC%EC%9D%80/image%20%281%29.png",
+            "https://raw.githubusercontent.com/dagan-and/novel/main/wish-outline/characters/%EC%9D%B4%EC%A3%BC%EC%9D%80/image%20%281%29.png",
         )
 
     def test_github_image_link_uses_git_tracked_unicode_path(self):
@@ -85,7 +85,7 @@ class CommonOutlineGenerationTests(unittest.TestCase):
 
         self.assertEqual(
             link,
-            "https://github.com/dagan-and/novel/blob/main/wish-outline/characters/%EC%9D%B4%EC%A3%BC%EC%9D%80/1744440997553344.webp",
+            "https://raw.githubusercontent.com/dagan-and/novel/main/wish-outline/characters/%EC%9D%B4%EC%A3%BC%EC%9D%80/1744440997553344.webp",
         )
 
     def test_load_characters_reads_profiles_inside_character_folders(self):
@@ -110,7 +110,7 @@ class CommonOutlineGenerationTests(unittest.TestCase):
         self.assertEqual([character.name for character in characters], ["이주은"])
         self.assertEqual(characters[0].body_type, "슬림글래머")
 
-    def test_outline_image_prompt_includes_character_image_links(self):
+    def test_image_generation_prompt_is_single_line_gpt_generation_request(self):
         char = generate_outlines.Character(
             name="이주은",
             profile="# 이주은",
@@ -121,8 +121,8 @@ class CommonOutlineGenerationTests(unittest.TestCase):
             appearance="긴 흑발이 돋보인다.",
             points="치어 퍼포먼스",
             image_links=[
-                "https://github.com/dagan-and/novel/blob/main/wish-outline/characters/%EC%9D%B4%EC%A3%BC%EC%9D%80/image%20%281%29.png",
-                "https://github.com/dagan-and/novel/blob/main/wish-outline/characters/%EC%9D%B4%EC%A3%BC%EC%9D%80/1744440997553344.webp",
+                "https://raw.githubusercontent.com/dagan-and/novel/main/wish-outline/characters/%EC%9D%B4%EC%A3%BC%EC%9D%80/image%20%281%29.png",
+                "https://raw.githubusercontent.com/dagan-and/novel/main/wish-outline/characters/%EC%9D%B4%EC%A3%BC%EC%9D%80/1744440997553344.webp",
             ],
         )
         scene = {
@@ -137,13 +137,88 @@ class CommonOutlineGenerationTests(unittest.TestCase):
             "after": "감정이 남는다.",
         }
 
-        outline = generate_outlines.outline_text(1, char, scene)
+        prompt = generate_outlines.image_generation_prompt(char, scene)
 
+        self.assertNotIn("\n", prompt)
+        self.assertTrue(prompt.startswith("GPT 이미지 생성 요청입니다."))
+        self.assertIn("분석하거나 설명하지 말고 반드시 새 이미지를 생성해줘", prompt)
         self.assertIn(
-            "외형정보: https://github.com/dagan-and/novel/blob/main/wish-outline/characters/%EC%9D%B4%EC%A3%BC%EC%9D%80/image%20%281%29.png, https://github.com/dagan-and/novel/blob/main/wish-outline/characters/%EC%9D%B4%EC%A3%BC%EC%9D%80/1744440997553344.webp",
-            outline,
+            "참조 이미지 URL은 자동화 코드가 GPT 이미지 입력으로 함께 전달해야 한다",
+            prompt,
         )
-        self.assertLess(outline.index("외형정보:"), outline.index("2026년 여름"))
+        self.assertIn(
+            "외형 참조 URL: https://raw.githubusercontent.com/dagan-and/novel/main/wish-outline/characters/%EC%9D%B4%EC%A3%BC%EC%9D%80/image%20%281%29.png, https://raw.githubusercontent.com/dagan-and/novel/main/wish-outline/characters/%EC%9D%B4%EC%A3%BC%EC%9D%80/1744440997553344.webp",
+            prompt,
+        )
+        self.assertLess(prompt.index("외형 참조 URL:"), prompt.index("2026년 여름"))
+
+    def test_outline_uses_single_line_image_generation_prompt(self):
+        char = generate_outlines.Character(
+            name="이주은",
+            profile="# 이주은",
+            position="치어리더",
+            body_type="슬림글래머",
+            speech="차분하게 말한다.",
+            personality="도도하다.",
+            appearance="긴 흑발이 돋보인다.",
+            points="치어 퍼포먼스",
+            image_links=[],
+        )
+        scene = {
+            "place": "비상계단",
+            "weather": "냉방 소리가 멀어진 늦은 밤",
+            "pressure": "둘의 동선을 고립시킨다",
+            "place_details": [],
+            "clothes": "팀 유니폼과 플리츠 스커트",
+            "hair": "고유 헤어스타일을 유지한다",
+            "start": "둘만 남는다.",
+            "turn": "관계가 전환된다.",
+            "after": "감정이 남는다.",
+        }
+
+        outline = generate_outlines.outline_text(1, char, scene)
+        prompt_block = outline.split("이미지 프롬프트:\n", 1)[1].split(
+            "\n\n\n\n인물:",
+            1,
+        )[0]
+
+        self.assertEqual(prompt_block, generate_outlines.image_generation_prompt(char, scene))
+
+    def test_image_generation_prompt_preserves_reference_face_proportions(self):
+        char = generate_outlines.Character(
+            name="이주은",
+            profile="# 이주은",
+            position="치어리더",
+            body_type="슬림글래머",
+            speech="차분하게 말한다.",
+            personality="도도하다.",
+            appearance="긴 흑발이 돋보인다.",
+            points="치어 퍼포먼스",
+            image_links=[],
+        )
+        scene = {
+            "place": "호텔 침실",
+            "weather": "새벽 공기가 서늘하게 가라앉은 밤",
+            "pressure": "둘의 동선을 고립시킨다",
+            "place_details": [],
+            "clothes": "불투명한 민소매 톱과 캐주얼한 호텔 룸웨어",
+            "hair": "고유 헤어스타일을 유지한다",
+            "start": "둘만 남는다.",
+            "turn": "관계가 전환된다.",
+            "after": "감정이 남는다.",
+        }
+
+        prompt = generate_outlines.image_generation_prompt(char, scene)
+
+        self.assertIn("참조 이미지의 얼굴 비율을 최우선으로 유지한다", prompt)
+        self.assertIn("눈을 크게 만들거나 또렷하게 확대 보정하지 않는다", prompt)
+        self.assertIn("턱과 하관을 더 가늘거나 뾰족한 V라인으로 보정하지 않는다", prompt)
+        self.assertIn("피부를 뷰티 필터처럼 매끈하게 만들지 않는다", prompt)
+        self.assertIn("입만 웃는 표정이 아니라 입꼬리, 볼, 눈 주변이 함께 움직이는 자연스러운 미소", prompt)
+        self.assertIn("잔머리와 앞머리는 계산된 뷰티 이미지처럼 정리하지 않는다", prompt)
+        self.assertNotIn("beautiful Korean woman", prompt)
+        self.assertNotIn("delicate youthful features", prompt)
+        self.assertNotIn("small defined face", prompt)
 
     def test_outline_image_prompt_uses_natural_place_and_name_particles(self):
         char = generate_outlines.Character(
