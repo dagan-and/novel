@@ -19,7 +19,7 @@ from profiles import get_common_scene_config
 
 REPO_ROOT = Path(__file__).resolve().parent
 CHARACTER_DIR = REPO_ROOT / "characters"
-OUTLINE_DIR = REPO_ROOT / "outlines"
+OUTLINE_DIR = REPO_ROOT / "episodes"
 IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp"}
 
 
@@ -351,9 +351,9 @@ def positive_count(value: str) -> int:
 
 def parse_args(argv: list[str]) -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Generate outline files using character text profiles."
+        description="Generate episode folders using character text profiles."
     )
-    parser.add_argument("count", type=positive_count, help="Number of outlines to generate.")
+    parser.add_argument("count", type=positive_count, help="Number of episodes to generate.")
     parser.add_argument("--character", help="Use one text-profiled character only.")
     return parser.parse_args(argv)
 
@@ -452,11 +452,6 @@ def outline_text(ep: int, char: Character, scene: dict[str, Any]) -> str:
 
     return f"""{title}
 
-이미지 프롬프트:
-{image_generation_prompt(char, scene)}
-
-
-
 인물:
 - 김용식
 - {char.name}
@@ -524,7 +519,6 @@ def generate_outlines(
     config = get_common_scene_config()
     for char in characters:
         outfit_pool_for(char, config["outfits"])
-    output_dir.mkdir(parents=True, exist_ok=True)
     written: list[Path] = []
 
     shuffled_pool: list[Character] = []
@@ -541,9 +535,15 @@ def generate_outlines(
             char = characters[0]
 
         scene = select_scene(ep, char, chooser, recent_approaches)
-        path = output_dir / f"{ep:03d}화.txt"
-        path.write_text(outline_text(ep, char, scene), encoding="utf-8")
-        written.append(path)
+        episode_id = f"{ep:03d}"
+        episode_dir = output_dir / episode_id
+        episode_dir.mkdir(parents=True, exist_ok=True)
+
+        text_path = episode_dir / f"{episode_id}.txt"
+        prompt_path = episode_dir / f"{episode_id}_prompt.txt"
+        text_path.write_text(outline_text(ep, char, scene), encoding="utf-8")
+        prompt_path.write_text(image_generation_prompt(char, scene), encoding="utf-8")
+        written.extend([text_path, prompt_path])
 
     return written
 
@@ -556,8 +556,9 @@ def main(argv: list[str] | None = None) -> int:
         raise SystemExit(str(error)) from error
 
     print(
-        f"Generated {len(written)} outline files: "
-        f"{written[0].name} - {written[-1].name}."
+        f"Generated {len(written)} episode files: "
+        f"{written[0].parent.name}/{written[0].name} - "
+        f"{written[-1].parent.name}/{written[-1].name}."
     )
     return 0
 

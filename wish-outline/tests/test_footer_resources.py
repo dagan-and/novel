@@ -344,6 +344,19 @@ class FooterResourceTests(unittest.TestCase):
             self.assertIn("[1구간:", updated)
             self.assertIn("남성 사정", updated)
 
+    def test_iter_outline_files_skips_image_prompt_files(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            episode_dir = Path(temp_dir) / "001"
+            episode_dir.mkdir()
+            text_path = episode_dir / "001.txt"
+            prompt_path = episode_dir / "001_prompt.txt"
+            text_path.write_text("본문", encoding="utf-8")
+            prompt_path.write_text("이미지 프롬프트", encoding="utf-8")
+
+            files = append_footer.iter_outline_files(Path(temp_dir))
+
+            self.assertEqual(files, [text_path])
+
     def test_body_type_detection_uses_canonical_key_but_outputs_description(self):
         pool = append_footer.load_footer_pool(
             append_footer.PROJECT_ROOT / append_footer.KEYWORDS_JSON_DEFAULT,

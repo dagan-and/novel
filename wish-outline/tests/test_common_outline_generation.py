@@ -152,7 +152,7 @@ class CommonOutlineGenerationTests(unittest.TestCase):
         )
         self.assertLess(prompt.index("외형 참조 URL:"), prompt.index("2026년 여름"))
 
-    def test_outline_uses_single_line_image_generation_prompt(self):
+    def test_episode_generation_writes_text_and_prompt_side_by_side(self):
         char = generate_outlines.Character(
             name="이주은",
             profile="# 이주은",
@@ -176,13 +176,32 @@ class CommonOutlineGenerationTests(unittest.TestCase):
             "after": "감정이 남는다.",
         }
 
-        outline = generate_outlines.outline_text(1, char, scene)
-        prompt_block = outline.split("이미지 프롬프트:\n", 1)[1].split(
-            "\n\n\n\n인물:",
-            1,
-        )[0]
+        with tempfile.TemporaryDirectory() as temp_dir:
+            with (
+                patch.object(generate_outlines, "load_characters", return_value=[char]),
+                patch.object(generate_outlines, "select_scene", return_value=scene),
+            ):
+                written = generate_outlines.generate_outlines(
+                    1,
+                    output_dir=Path(temp_dir),
+                    rng=random.Random(3),
+                )
 
-        self.assertEqual(prompt_block, generate_outlines.image_generation_prompt(char, scene))
+            episode_dir = Path(temp_dir) / "001"
+            text_path = episode_dir / "001.txt"
+            prompt_path = episode_dir / "001_prompt.txt"
+
+            self.assertEqual(written, [text_path, prompt_path])
+            self.assertTrue(text_path.is_file())
+            self.assertTrue(prompt_path.is_file())
+            self.assertEqual(
+                prompt_path.read_text(encoding="utf-8"),
+                generate_outlines.image_generation_prompt(char, scene),
+            )
+            self.assertNotIn(
+                "이미지 프롬프트:",
+                text_path.read_text(encoding="utf-8"),
+            )
 
     def test_image_generation_prompt_preserves_reference_face_proportions(self):
         char = generate_outlines.Character(
@@ -245,12 +264,14 @@ class CommonOutlineGenerationTests(unittest.TestCase):
         }
 
         outline = generate_outlines.outline_text(1, char, scene)
+        prompt = generate_outlines.image_generation_prompt(char, scene)
 
         self.assertIn("비상계단에서", outline)
-        self.assertIn("성인 여성 박다정 한 명만", outline)
-        self.assertIn("비상계단의 공간감", outline)
+        self.assertIn("성인 여성 박다정 한 명만", prompt)
+        self.assertIn("비상계단의 공간감", prompt)
         self.assertNotIn("비상계단을에서", outline)
-        self.assertNotIn("박다정은 한 명", outline)
+        self.assertNotIn("비상계단을에서", prompt)
+        self.assertNotIn("박다정은 한 명", prompt)
 
     def test_outline_preserves_full_profile_line_breaks(self):
         char = generate_outlines.Character(
@@ -395,9 +416,16 @@ class CommonOutlineGenerationTests(unittest.TestCase):
                 rng=random.Random(7),
             )
 
-            self.assertEqual([path.name for path in written], ["001화.txt", "002화.txt"])
+            self.assertEqual(
+                [path.relative_to(temp_dir).as_posix() for path in written],
+                ["001/001.txt", "001/001_prompt.txt", "002/002.txt", "002/002_prompt.txt"],
+            )
             self.assertTrue(
-                all("이번 씬 복장:" in path.read_text(encoding="utf-8") for path in written)
+                all(
+                    "이번 씬 복장:" in path.read_text(encoding="utf-8")
+                    for path in written
+                    if path.name.endswith(".txt") and not path.name.endswith("_prompt.txt")
+                )
             )
 
     def test_seeded_generation_is_byte_identical_in_separate_directories(self):

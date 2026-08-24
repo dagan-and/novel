@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Commit and push every change under outlines."""
+"""Commit and push every change under generated episode files."""
 
 from __future__ import annotations
 
@@ -11,7 +11,7 @@ from pathlib import Path
 from typing import Callable
 
 
-DEFAULT_OUTLINE_DIR = "outlines"
+DEFAULT_OUTLINE_DIR = "episodes"
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_MESSAGE = "Update outline files"
 DEFAULT_REMOTE = "origin"
@@ -119,7 +119,7 @@ def push_outlines(
 
 def parse_args(argv: list[str]) -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Commit and push every git change under outlines only."
+        description="Commit and push every git change under generated episode files only."
     )
     parser.add_argument("--repo-root", default=str(PROJECT_ROOT))
     parser.add_argument("--outline-dir", default=DEFAULT_OUTLINE_DIR)

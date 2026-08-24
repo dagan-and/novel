@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""outlines 생성, 푸터 추가, Git 푸시까지 한 번에 실행하는 원클릭 스크립트"""
+"""episodes 생성, 푸터 추가, Git 푸시까지 한 번에 실행하는 원클릭 스크립트"""
 
 import argparse
 import sys
@@ -21,21 +21,22 @@ def run_pipeline(
     character: Optional[str] = None,
     commit_msg: str = "Update outline files",
 ):
-    print(f"=== 1. 개요 파일 {count}개 생성 시작 ===")
+    print(f"=== 1. 화수 파일 {count}개 생성 시작 ===")
     written = generate_outlines.generate_outlines(
         count,
         character_name=character,
     )
     print(
         f"생성 완료: {len(written)}개 파일 "
-        f"({written[0].name} ~ {written[-1].name})"
+        f"({written[0].parent.name}/{written[0].name} ~ "
+        f"{written[-1].parent.name}/{written[-1].name})"
     )
 
     print("\n=== 2. 푸터(Footer) 추가 작업 시작 ===")
     keywords_path = REPO_ROOT / "tools" / "common_keywords.json"
     character_traits_path = REPO_ROOT / "tools" / "character_traits.json"
     templates_path = REPO_ROOT / "tools" / "common_templates.txt"
-    outline_dir = REPO_ROOT / "outlines"
+    outline_dir = REPO_ROOT / "episodes"
 
     pool = append_footer.load_footer_pool(keywords_path, character_traits_path)
     templates = append_footer.load_templates(templates_path)
@@ -54,7 +55,7 @@ def run_pipeline(
     print("\n=== 3. Git Commit & Push 시작 ===")
     push_result = push_outlines.push_outlines(
         repo_root=REPO_ROOT,
-        outline_dir="outlines",
+        outline_dir="episodes",
         message=commit_msg,
     )
 

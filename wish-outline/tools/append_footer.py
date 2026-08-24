@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Append a one-time footer to outline files and optionally commit/push it."""
+"""Append a one-time footer to episode text files and optionally commit/push it."""
 
 from __future__ import annotations
 
@@ -539,7 +539,11 @@ def iter_outline_files(outline_dir: Path) -> list[Path]:
     return sorted(
         path
         for path in outline_dir.rglob("*")
-        if path.is_file() and path.suffix.lower() in TEXT_EXTENSIONS
+        if (
+            path.is_file()
+            and path.suffix.lower() in TEXT_EXTENSIONS
+            and not path.stem.endswith("_prompt")
+        )
     )
 
 
@@ -599,9 +603,9 @@ def commit_and_push(repo_root: Path, paths: tuple[Path, ...], message: str, push
 
 def parse_args(argv: list[str]) -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Append the random footer block to every .txt file in outlines once."
+        description="Append the random footer block to every episode text file once."
     )
-    parser.add_argument("--outline-dir", default="outlines")
+    parser.add_argument("--outline-dir", default="episodes")
     parser.add_argument(
         "--keywords-json",
         default=KEYWORDS_JSON_DEFAULT,
