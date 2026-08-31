@@ -4,12 +4,14 @@ import com.kys.videomanager.hls.HlsDownloadStatus
 
 object MainScreenUiModel {
     const val title = "영상 관리자"
-    val tabs = listOf("영상", "다운로드")
+    val tabs = listOf("브라우저", "영상", "다운로드")
     const val selectedTab = "영상"
     val pageCount: Int
         get() = tabs.size
     val defaultPageIndex: Int
         get() = tabs.indexOf(selectedTab).coerceAtLeast(0)
+    val browserPageIndex: Int
+        get() = tabs.indexOf("브라우저").coerceAtLeast(0)
     val downloadPageIndex: Int
         get() = tabs.indexOf("다운로드").coerceAtLeast(defaultPageIndex)
     val settingsOptions = arrayOf("가져오기", "편집하기", "파일명 변경", "플레이어 변경", "플레이어 초기화")

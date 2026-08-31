@@ -2,6 +2,8 @@ package com.kys.videomanager.main
 import com.kys.videomanager.video.filterVideos
 import com.kys.videomanager.video.ratingPreferenceKey
 
+import com.kys.videomanager.browser.BrowserPreferenceManager
+import com.kys.videomanager.browser.BrowserWebViewController
 import com.kys.videomanager.downloadstatus.DownloadStatusController
 import com.kys.videomanager.ffmpeg.FfmpegImportCommand
 import com.kys.videomanager.ffmpeg.FfmpegRuntimeAvailability
@@ -165,6 +167,7 @@ class MainActivity : AppCompatActivity() {
     private var currentImportTempFile: File? = null
     private var isUnlocked = false
     private var stopDownloadStatusListening: (() -> Unit)? = null
+    private var browserController: BrowserWebViewController? = null
     private var downloadController: DownloadStatusController? = null
     private var importChangedReceiverRegistered = false
     private val importChangedReceiver = object : BroadcastReceiver() {
@@ -200,6 +203,7 @@ class MainActivity : AppCompatActivity() {
 
         VideoPreferenceManager.init(this)
         RatingBackupManager.init(this)
+        BrowserPreferenceManager.init(this)
         HlsDownloadStore.initialize(applicationContext)
         requestAllFilesAccessIfNeeded()
         requestNotificationPermissionIfNeeded()
@@ -223,6 +227,7 @@ class MainActivity : AppCompatActivity() {
         currentImportTempFile?.delete()
         stopDownloadStatusListening?.invoke()
         stopDownloadStatusListening = null
+        browserController?.destroy()
         downloadController?.destroy()
         scope.cancel()
     }
@@ -274,9 +279,10 @@ class MainActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.tv_main_title).text = MainScreenUiModel.title
 
         val inflater = LayoutInflater.from(this)
+        val browserPage = inflater.inflate(R.layout.page_browser, mainPager, false)
         val videoPage = inflater.inflate(R.layout.page_video_library, mainPager, false)
         val downloadPage = inflater.inflate(R.layout.page_download_status, mainPager, false)
-        setupMainPager(listOf(videoPage, downloadPage))
+        setupMainPager(listOf(browserPage, videoPage, downloadPage))
 
         progressBar      = videoPage.findViewById(R.id.progress_bar)
         tvEmpty          = videoPage.findViewById(R.id.tv_empty)
@@ -292,6 +298,11 @@ class MainActivity : AppCompatActivity() {
         downloadStatusProgress = videoPage.findViewById(R.id.download_status_progress)
         recyclerView     = videoPage.findViewById(R.id.recycler_view)
 
+        browserController = BrowserWebViewController(
+            activity = this,
+            root = browserPage,
+            onOpenDownloads = { mainPager.currentItem = MainScreenUiModel.downloadPageIndex }
+        ).also { it.start() }
         downloadController = DownloadStatusController(
             activity = this,
             root = downloadPage,
@@ -307,6 +318,8 @@ class MainActivity : AppCompatActivity() {
             override fun handleOnBackPressed() {
                 if (selectionAction != null) {
                     setVideoSelectionAction(null)
+                } else if (mainPager.currentItem == MainScreenUiModel.browserPageIndex && browserController?.handleBack() == true) {
+                    return
                 } else if (mainPager.currentItem != MainScreenUiModel.defaultPageIndex) {
                     mainPager.currentItem = MainScreenUiModel.defaultPageIndex
                 } else {
