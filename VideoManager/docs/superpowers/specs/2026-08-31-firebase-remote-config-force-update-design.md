@@ -77,6 +77,18 @@ MainActivity.onCreate()
 상태(최초 실행, 캐시 없음)에서도 `min_supported_version_code`가 0으로 남아 있다가 실수로 차단되는
 일이 없다.
 
+### 운영 시 주의사항 (콘솔 설정, 코드 변경 아님)
+
+- **이 Firebase 프로젝트(`test1-1f100`)는 `com.kys.myhome` 앱도 함께 등록돼 있다.** Remote Config
+  파라미터는 프로젝트 단위이지 앱 단위가 아니므로, 콘솔에서 위 세 파라미터에 `app.id ==
+  '<videomanager app id>'` 조건을 반드시 걸어야 한다. 조건 없이 값을 바꾸면 같은 프로젝트의 다른 앱도
+  같이 영향을 받는다.
+- **`update_url` 기본값(Play 스토어 링크)은 아직 유효하지 않을 수 있다.** 이 앱은 현재 사이드로드/
+  Firebase App Distribution으로만 배포 중이고(`AndroidManifest.xml` 주석 참고) Play 스토어에 등록되지
+  않았다. `min_supported_version_code`를 실제로 올려서 강제 업데이트를 발동시키기 전에, 콘솔에서
+  `update_url`을 실제로 열리는 주소(App Distribution 링크 등)로 먼저 설정해 둬야 한다 — 그렇지 않으면
+  사용자는 차단된 채 "업데이트" 버튼을 눌러도 존재하지 않는 Play 스토어 페이지로 이동하게 된다.
+
 ## 컴포넌트별 변경
 
 - **`ForceUpdateDecision`** (신규, enum): `ALLOW`, `BLOCK`.

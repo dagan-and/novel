@@ -31,6 +31,10 @@ import com.kys.videomanager.videotrim.VideoTrimTime
 import com.kys.videomanager.videotrim.VideoTrimValidationResult
 import com.kys.videomanager.videotrim.VideoTrimValidator
 import com.kys.videomanager.R
+import com.kys.videomanager.BuildConfig
+import com.kys.videomanager.update.ForceUpdateDecision
+import com.kys.videomanager.update.ForceUpdateGate
+import com.kys.videomanager.update.ForceUpdateResult
 import com.kys.videomanager.video.RatingFilter
 import com.kys.videomanager.video.VideoSortMode
 import com.kys.videomanager.video.VideoSourceDeletionSummary
@@ -79,6 +83,9 @@ import androidx.biometric.BiometricPrompt
 import androidx.core.content.FileProvider
 import androidx.core.content.ContextCompat
 import androidx.core.view.setPadding
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleEventObserver
+import androidx.lifecycle.LifecycleOwner
 import androidx.media3.common.Effect
 import androidx.media3.common.MediaItem
 import androidx.media3.common.MimeTypes
@@ -193,7 +200,59 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        authenticateBeforeOpening()
+        checkForceUpdate()
+    }
+
+    private fun checkForceUpdate() {
+        scope.launch {
+            val result = ForceUpdateGate(applicationContext).check(BuildConfig.VERSION_CODE)
+            runWhenStarted {
+                if (result.decision == ForceUpdateDecision.BLOCK) {
+                    showForceUpdateDialog(result)
+                } else {
+                    authenticateBeforeOpening()
+                }
+            }
+        }
+    }
+
+    private fun runWhenStarted(action: () -> Unit) {
+        if (lifecycle.currentState.isAtLeast(Lifecycle.State.STARTED)) {
+            action()
+            return
+        }
+        lifecycle.addObserver(object : LifecycleEventObserver {
+            override fun onStateChanged(source: LifecycleOwner, event: Lifecycle.Event) {
+                when (event) {
+                    Lifecycle.Event.ON_START -> {
+                        lifecycle.removeObserver(this)
+                        action()
+                    }
+                    Lifecycle.Event.ON_DESTROY -> lifecycle.removeObserver(this)
+                    else -> Unit
+                }
+            }
+        })
+    }
+
+    private fun showForceUpdateDialog(result: ForceUpdateResult) {
+        MaterialAlertDialogBuilder(this)
+            .setTitle("업데이트 필요")
+            .setMessage(result.message)
+            .setCancelable(false)
+            .setPositiveButton("업데이트") { _, _ ->
+                try {
+                    startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(result.updateUrl)))
+                } catch (e: Exception) {
+                    Toast.makeText(
+                        this,
+                        "스토어를 열 수 없습니다: ${e.message ?: e.javaClass.simpleName}",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+                finish()
+            }
+            .show()
     }
 
     private fun openUnlockedApp() {
