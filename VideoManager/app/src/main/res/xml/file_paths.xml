@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    FileProvider 경로 설정
+    외부 저장소 전체(.)와 루트(/)를 허용하여 어떤 위치의 영상이든 공유 가능하도록 합니다.
+-->
+<paths>
+    <!-- /storage/emulated/0/... 경로 -->
+    <external-path
+        name="external_files"
+        path="." />
+    <!-- /data, /sdcard 등 기타 경로 -->
+    <root-path
+        name="root"
+        path="/" />
+</paths>

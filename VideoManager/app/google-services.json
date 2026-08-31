@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "678554509202",
+    "firebase_url": "https://test1-1f100.firebaseio.com",
+    "project_id": "test1-1f100",
+    "storage_bucket": "test1-1f100.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:678554509202:android:431514787ae01e2bb6eb4b",
+        "android_client_info": {
+          "package_name": "com.kys.myhome"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALhMeBX1YvfimjgJNThbfkzuD8huuDX0o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:678554509202:android:647fb64535447207b6eb4b",
+        "android_client_info": {
+          "package_name": "com.kys.videomanager"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALhMeBX1YvfimjgJNThbfkzuD8huuDX0o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

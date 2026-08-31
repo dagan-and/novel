@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="color_primary">#1565C0</color>
+    <color name="color_primary_dark">#0D47A1</color>
+    <color name="color_accent">#FFA000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="surface_muted">#F5F7FA</color>
+    <color name="surface_tint">#EAF4FF</color>
+    <color name="surface_warm">#FFF8E6</color>
+    <color name="text_primary">#1F2933</color>
+    <color name="text_secondary">#52606D</color>
+    <color name="text_muted">#829AB1</color>
+    <color name="divider_soft">#E4E7EB</color>
+    <color name="danger">#D14343</color>
+    <color name="dialog_scrim">#990B1220</color>
+</resources>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+        앱 기본 테마.
+        MaterialComponents 기반으로 ActionBar 없이 사용하고,
+        툴바는 레이아웃에서 직접 구성합니다.
+    -->
+    <style name="Theme.VideoManager" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary 계열 색상 -->
+        <item name="colorPrimary">@color/color_primary</item>
+        <item name="colorPrimaryVariant">@color/color_primary_dark</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary 계열 색상 -->
+        <item name="colorSecondary">@color/color_accent</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <!-- 상태바 색상 -->
+        <item name="android:statusBarColor">@color/black</item>
+        <item name="android:fontFamily">sans</item>
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.VideoManager.Dialog</item>
+        <item name="alertDialogTheme">@style/ThemeOverlay.VideoManager.Dialog</item>
+    </style>
+
+    <style name="ThemeOverlay.VideoManager.Dialog" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="android:windowBackground">@drawable/bg_dialog_window</item>
+        <item name="android:colorAccent">@color/color_accent</item>
+        <item name="android:backgroundDimAmount">0.5</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="colorAccent">@color/color_accent</item>
+        <item name="colorControlActivated">@color/color_accent</item>
+        <item name="colorControlHighlight">#1F1E6F5C</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.VideoManager.Dialog</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/TextAppearance.VideoManager.Dialog.Title</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/TextAppearance.VideoManager.Dialog.Body</item>
+        <item name="buttonBarPositiveButtonStyle">@style/Widget.VideoManager.Dialog.PositiveButton</item>
+        <item name="buttonBarNegativeButtonStyle">@style/Widget.VideoManager.Dialog.NegativeButton</item>
+        <item name="android:listChoiceBackgroundIndicator">@drawable/bg_dialog_list_selector</item>
+        <item name="android:listPreferredItemPaddingStart">24dp</item>
+        <item name="android:listPreferredItemPaddingEnd">24dp</item>
+    </style>
+
+    <style name="TextAppearance.VideoManager.Dialog.Title" parent="MaterialAlertDialog.MaterialComponents.Title.Text">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">19sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.VideoManager.Dialog" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item>
+    </style>
+
+    <style name="TextAppearance.VideoManager.Dialog.Body" parent="MaterialAlertDialog.MaterialComponents.Body.Text">
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:lineSpacingExtra">2dp</item>
+    </style>
+
+    <style name="ThemeOverlay.VideoManager.BottomSheet" parent="ThemeOverlay.MaterialComponents.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/Widget.VideoManager.BottomSheet</item>
+    </style>
+
+    <style name="Widget.VideoManager.BottomSheet" parent="Widget.MaterialComponents.BottomSheet.Modal">
+        <item name="backgroundTint">@color/surface</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.VideoManager.BottomSheet</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.VideoManager.BottomSheet" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+        <item name="cornerSizeTopLeft">8dp</item>
+        <item name="cornerSizeTopRight">8dp</item>
+    </style>
+
+    <style name="TextAppearance.VideoManager.MainTab" parent="TextAppearance.MaterialComponents.Button">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="textAllCaps">false</item>
+    </style>
+
+    <style name="Widget.VideoManager.Dialog.PositiveButton" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/color_primary</item>
+        <item name="android:textStyle">bold</item>
+        <item name="backgroundTint">#E8F4F0</item>
+        <item name="cornerRadius">8dp</item>
+        <item name="rippleColor">#331E6F5C</item>
+    </style>
+
+    <style name="Widget.VideoManager.Dialog.NegativeButton" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="backgroundTint">@android:color/transparent</item>
+        <item name="cornerRadius">8dp</item>
+        <item name="rippleColor">#1F52606D</item>
+    </style>
+</resources>
