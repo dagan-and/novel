@@ -74,13 +74,25 @@ showPinSetupDialog() / showNewPinDialog()
 ## 컴포넌트별 상세
 
 - **`DeviceIdentity`**: `init(context)` + SharedPreferences 싱글톤(`VideoPreferenceManager`와 동일 패턴).
-  `getOrCreateId(): String` — 이미 저장된 값이 있으면 그대로 반환, 없으면 영문 대문자+숫자 12자리를
-  무작위 생성해 저장 후 반환. 재설치 전까지 불변.
-- **`RecoveryCodePolicy`**: 순수 함수 `object`. `computeResetCode(deviceId: String): String` — 앱에
-  내장된 고정 비밀 키로 HMAC-SHA256을 계산하고, 그 결과를 4자리 숫자로 축약(`BigInteger(1, digest).mod(10000)`
-  형태). 같은 입력에 항상 같은 출력이 나오는 결정적 함수라, 개발자가 별도 스크립트로 동일 로직을 돌려
-  이메일로 받은 고유 코드에 대응하는 값을 계산할 수 있다. 단순 자릿수 재배열이 아니라 해시 기반이라
-  사용자가 자기 코드만 보고 값을 유추하기 어렵다.
+  `getOrCreateId(): String` — 이미 저장된 값이 있으면 그대로 반환, 없으면 13자리 고유 코드를 생성해
+  저장 후 반환. 재설치 전까지 불변. **생성 규칙(중요)**: `RecoveryCodePolicy`가 항상 계산 가능해야
+  하므로, A~J 알파벳 중 무작위 4글자를 먼저 뽑고(이것이 실제 복구 코드로 변환되는 부분), 나머지
+  9자리는 K~Z 알파벳과 0~9 숫자 중에서만 무작위로 채운다(디코이 — A~J를 포함하지 않아 복구 코드
+  계산에 영향을 주지 않음). 이 4글자 + 9글자를 무작위로 섞어서 최종 코드를 만든다. 이렇게 하면
+  생성되는 모든 고유 코드에 A~J 문자가 정확히 4개만 포함되는 것이 보장된다.
+- **`RecoveryCodePolicy`**: 순수 함수 `object`. `computeResetCode(deviceId: String): String?` — 고유
+  코드 문자열에서 A~J에 해당하는 문자만 순서대로 추출해, 각각을 아래 표대로 숫자로 바꿔 이어붙인
+  4자리 문자열을 반환한다(4개 미만이면 `null` — `DeviceIdentity`가 항상 4개를 보장하므로 정상 흐름에서는
+  발생하지 않는다).
+
+  | 문자 | A | B | C | D | E | F | G | H | I | J |
+  |---|---|---|---|---|---|---|---|---|---|---|
+  | 숫자 | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
+
+  예: `FG1238AA88NZXZ` → A~J 문자만 순서대로 뽑으면 F, G, A, A → 5, 6, 0, 0 → `"5600"`.
+  암호화나 비밀 키 없이 고정된 치환표만 쓰므로, 개발자가 표를 외워서 암산으로도 계산할 수 있을 만큼
+  단순하다 — 그래도 편의상 스크립트는 만들어 둔다. 사용자가 자기 고유 코드를 봐도 어떤 문자가 실제
+  코드에 쓰이는지, 나머지가 의미 없는 디코이인지 구분할 단서가 없어서 눈으로 유추하긴 어렵다.
 - **`PinPreferenceManager`**: `init(context)` + SharedPreferences 싱글톤. `hasPin(): Boolean`,
   `savePin(pin: String, salt: String)`, `verifyPin(pin: String, salt: String): Boolean`. PIN은 평문
   저장하지 않고 `hashPin(pin, salt)`(파일 내 top-level 순수 함수, SHA-256 hex)의 결과만 저장한다. salt로는
@@ -95,9 +107,9 @@ showPinSetupDialog() / showNewPinDialog()
   `window.setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE)`
   추가 — 최근 앱 목록 썸네일과 스크린샷 캡처에서 이 액티비티의 모든 화면(잠금 화면 포함)이 가려진다.
 - **개발자용 계산 스크립트**: `scripts/compute_pin_reset_code.py` — `RecoveryCodePolicy`와 동일한
-  HMAC-SHA256 로직을 순수 Python으로 재구현. 사용자가 이메일로 보낸 고유 코드를 인자로 실행하면 4자리
-  복구 코드를 출력한다. 앱과 로직이 어긋나지 않도록, 비밀 키 상수 값은 앱 코드와 동일하게 유지해야 함을
-  스크립트 상단 주석에 명시한다.
+  A~J 치환표 로직을 순수 Python으로 재구현. 사용자가 이메일로 보낸 고유 코드를 인자로 실행하면 4자리
+  복구 코드를 출력한다. 비밀 키가 없는 고정 치환표라 앱 코드가 바뀔 일이 없고, 스크립트도 한 번 만들면
+  계속 그대로 쓸 수 있다.
 
 ## 에러 처리
 
