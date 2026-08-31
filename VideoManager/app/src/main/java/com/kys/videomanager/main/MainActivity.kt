@@ -35,6 +35,7 @@ import com.kys.videomanager.BuildConfig
 import com.kys.videomanager.update.ForceUpdateDecision
 import com.kys.videomanager.update.ForceUpdateGate
 import com.kys.videomanager.update.ForceUpdateResult
+import com.kys.videomanager.update.NetworkConnectivityGate
 import com.kys.videomanager.video.RatingFilter
 import com.kys.videomanager.video.VideoSortMode
 import com.kys.videomanager.video.VideoSourceDeletionSummary
@@ -51,6 +52,7 @@ import android.graphics.Bitmap
 import android.media.MediaExtractor
 import android.media.MediaFormat
 import android.media.MediaMetadataRetriever
+import android.net.ConnectivityManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -176,6 +178,8 @@ class MainActivity : AppCompatActivity() {
     private var stopDownloadStatusListening: (() -> Unit)? = null
     private var browserController: BrowserWebViewController? = null
     private var downloadController: DownloadStatusController? = null
+    private val networkGate: NetworkConnectivityGate by lazy { NetworkConnectivityGate(applicationContext) }
+    private var networkCallback: ConnectivityManager.NetworkCallback? = null
     private var importChangedReceiverRegistered = false
     private val importChangedReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent?) {
@@ -200,7 +204,27 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        checkForceUpdate()
+        checkNetworkThenForceUpdate()
+    }
+
+    private fun checkNetworkThenForceUpdate() {
+        if (networkGate.isConnected()) {
+            checkForceUpdate()
+            return
+        }
+        val dialog = MaterialAlertDialogBuilder(this)
+            .setTitle("인터넷 연결 필요")
+            .setMessage("이 앱은 인터넷 연결이 필요합니다. 연결하면 자동으로 진행됩니다.")
+            .setCancelable(false)
+            .show()
+        networkCallback = networkGate.awaitConnectivity {
+            runOnUiThread {
+                dialog.dismiss()
+                networkCallback?.let { networkGate.stopAwaiting(it) }
+                networkCallback = null
+                checkForceUpdate()
+            }
+        }
     }
 
     private fun checkForceUpdate() {
@@ -288,6 +312,7 @@ class MainActivity : AppCompatActivity() {
         stopDownloadStatusListening = null
         browserController?.destroy()
         downloadController?.destroy()
+        networkCallback?.let { networkGate.stopAwaiting(it) }
         scope.cancel()
     }
 
