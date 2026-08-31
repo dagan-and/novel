@@ -34,7 +34,7 @@
 
         <!-- ── 메인 액티비티 ────────────────────────────────────────────── -->
         <activity
-            android:name=".MainActivity"
+            android:name=".main.MainActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:exported="true"
             android:windowSoftInputMode="adjustResize">
@@ -45,26 +45,26 @@
         </activity>
 
         <activity
-            android:name=".SearchWebViewActivity"
+            android:name=".search.SearchWebViewActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:exported="false" />
 
         <activity
-            android:name=".DownloadStatusActivity"
+            android:name=".downloadstatus.DownloadStatusActivity"
             android:exported="false" />
 
         <service
-            android:name=".HlsDownloadService"
+            android:name=".hls.HlsDownloadService"
             android:exported="false"
             android:foregroundServiceType="dataSync" />
 
         <service
-            android:name=".VideoImportService"
+            android:name=".videoimport.VideoImportService"
             android:exported="false"
             android:foregroundServiceType="dataSync" />
 
         <service
-            android:name=".VideoTrimService"
+            android:name=".videotrim.VideoTrimService"
             android:exported="false"
             android:foregroundServiceType="dataSync" />
 

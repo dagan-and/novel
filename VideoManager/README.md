@@ -8,12 +8,15 @@ Android(Kotlin)로 작성된 로컬 동영상 관리 앱입니다. 이 저장소
 .
 ├── app/                         # 실제 Android 앱 모듈
 │   └── src/main/java/com/kys/videomanager/
-│       ├── MainActivity.kt       # 화면, 영상 로딩, 필터, 삭제, 플레이어 실행
-│       ├── VideoAdapter.kt       # RecyclerView 어댑터와 썸네일/별점 UI
-│       ├── VideoFilter.kt        # 별점 필터 순수 로직
-│       ├── VideoItem.kt          # 영상 데이터 모델
-│       ├── VideoPreferenceManager.kt
-│       └── RatingBackupManager.kt
+│       ├── main/          # MainActivity, 메인 화면 UI 모델
+│       ├── video/         # 영상 목록/필터/썸네일/별점 백업 등 핵심 영상 도메인
+│       ├── videotrim/     # 영상 트림(자르기) 정책·큐·서비스
+│       ├── videoimport/   # 영상 임포트 정책·큐·서비스
+│       ├── ffmpeg/        # FFmpeg 커맨드 래퍼
+│       ├── hls/           # HLS 다운로드 서비스·모델·재시도/토큰 정책
+│       ├── hlsplaylist/   # HLS 플레이리스트 파싱/탐지/디버그
+│       ├── downloadstatus/# 다운로드 상태 화면
+│       └── search/        # 검색 웹뷰 화면
 ├── docs/superpowers/            # 기능 구현 계획/설계 문서
 ├── gradle/                      # Gradle wrapper 설정
 ├── settings.gradle.kts          # include(":app")
