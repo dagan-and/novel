@@ -1,5 +1,4 @@
 package com.kys.videomanager.hlsplaylist
-import com.kys.videomanager.search.SearchWebViewController
 
 import java.net.URI
 import java.util.Locale
@@ -23,6 +22,8 @@ data class HlsProbeMatch(
 )
 
 object HlsRequestProbe {
+    private const val WEB_USER_AGENT =
+        "Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125 Mobile Safari/537.36"
     private val ignoredExtensions = setOf(
         "css",
         "png",
@@ -74,7 +75,7 @@ object HlsRequestProbe {
             }
         }
         if (!headers.containsHeader("User-Agent")) {
-            headers["User-Agent"] = SearchWebViewController.WEB_USER_AGENT
+            headers["User-Agent"] = WEB_USER_AGENT
         }
         if (!headers.containsHeader("Referer") && !request.pageUrl.isNullOrBlank()) {
             headers["Referer"] = request.pageUrl

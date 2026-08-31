@@ -11,21 +11,15 @@ class MainScreenUiModelTest {
 
     @Test fun `main screen copy describes the video tab as the central library`() {
         assertEquals("영상 관리자", MainScreenUiModel.title)
-        assertEquals(listOf("검색", "영상", "다운로드"), MainScreenUiModel.tabs)
+        assertEquals(listOf("영상", "다운로드"), MainScreenUiModel.tabs)
         assertEquals("영상", MainScreenUiModel.selectedTab)
     }
 
-    @Test fun `main pager uses three tabs with video selected by default`() {
-        assertEquals(3, MainScreenUiModel.pageCount)
-        assertEquals(1, MainScreenUiModel.defaultPageIndex)
-        assertEquals("검색", MainScreenUiModel.tabTitle(0))
-        assertEquals("영상", MainScreenUiModel.tabTitle(1))
-        assertEquals("다운로드", MainScreenUiModel.tabTitle(2))
-    }
-
-    @Test fun `search page can navigate to product-code search url`() {
-        assertEquals("https://avppomppu.com", MainScreenUiModel.productCodeHomeUrl)
-        assertEquals("https://avdbapi.com", MainScreenUiModel.searchHomeUrl)
+    @Test fun `main pager uses two tabs with video selected by default`() {
+        assertEquals(2, MainScreenUiModel.pageCount)
+        assertEquals(0, MainScreenUiModel.defaultPageIndex)
+        assertEquals("영상", MainScreenUiModel.tabTitle(0))
+        assertEquals("다운로드", MainScreenUiModel.tabTitle(1))
     }
 
     @Test fun `settings menu exposes video actions before player settings`() {

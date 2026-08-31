@@ -4,16 +4,12 @@ import com.kys.videomanager.hls.HlsDownloadStatus
 
 object MainScreenUiModel {
     const val title = "영상 관리자"
-    const val productCodeHomeUrl = "https://avppomppu.com"
-    const val searchHomeUrl = "https://avdbapi.com"
-    val tabs = listOf("검색", "영상", "다운로드")
+    val tabs = listOf("영상", "다운로드")
     const val selectedTab = "영상"
     val pageCount: Int
         get() = tabs.size
     val defaultPageIndex: Int
         get() = tabs.indexOf(selectedTab).coerceAtLeast(0)
-    val searchPageIndex: Int
-        get() = tabs.indexOf("검색").coerceAtLeast(0)
     val downloadPageIndex: Int
         get() = tabs.indexOf("다운로드").coerceAtLeast(defaultPageIndex)
     val settingsOptions = arrayOf("가져오기", "편집하기", "파일명 변경", "플레이어 변경", "플레이어 초기화")

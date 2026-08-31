@@ -1,5 +1,4 @@
 package com.kys.videomanager.hlsplaylist
-import com.kys.videomanager.search.SearchWebViewController
 
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
@@ -67,7 +66,10 @@ class HlsRequestProbeTest {
         assertEquals("*/*", headers["Accept"])
         assertEquals("session=abc", headers["Cookie"])
         assertEquals("https://upload18.org/play/index/nhdtc-242", headers["Referer"])
-        assertEquals(SearchWebViewController.WEB_USER_AGENT, headers["User-Agent"])
+        assertEquals(
+            "Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125 Mobile Safari/537.36",
+            headers["User-Agent"]
+        )
     }
 
     @Test fun `headers force identity encoding even if browser requested compression`() {

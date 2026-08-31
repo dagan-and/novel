@@ -15,8 +15,7 @@ Android(Kotlin)로 작성된 로컬 동영상 관리 앱입니다. 이 저장소
 │       ├── ffmpeg/        # FFmpeg 커맨드 래퍼
 │       ├── hls/           # HLS 다운로드 서비스·모델·재시도/토큰 정책
 │       ├── hlsplaylist/   # HLS 플레이리스트 파싱/탐지/디버그
-│       ├── downloadstatus/# 다운로드 상태 화면
-│       └── search/        # 검색 웹뷰 화면
+│       └── downloadstatus/# 다운로드 상태 화면
 ├── docs/superpowers/            # 기능 구현 계획/설계 문서
 ├── gradle/                      # Gradle wrapper 설정
 ├── settings.gradle.kts          # include(":app")

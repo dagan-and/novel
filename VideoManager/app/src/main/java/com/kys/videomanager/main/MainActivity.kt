@@ -8,7 +8,6 @@ import com.kys.videomanager.ffmpeg.FfmpegRuntimeAvailability
 import com.kys.videomanager.hls.HlsDownloadOutputPolicy
 import com.kys.videomanager.hls.HlsDownloadProgress
 import com.kys.videomanager.hls.HlsDownloadStore
-import com.kys.videomanager.search.SearchWebViewController
 import com.kys.videomanager.video.RatingBackupManager
 import com.kys.videomanager.video.VideoAdapter
 import com.kys.videomanager.video.VideoFileNameSanitizer
@@ -166,7 +165,6 @@ class MainActivity : AppCompatActivity() {
     private var currentImportTempFile: File? = null
     private var isUnlocked = false
     private var stopDownloadStatusListening: (() -> Unit)? = null
-    private var searchController: SearchWebViewController? = null
     private var downloadController: DownloadStatusController? = null
     private var importChangedReceiverRegistered = false
     private val importChangedReceiver = object : BroadcastReceiver() {
@@ -225,7 +223,6 @@ class MainActivity : AppCompatActivity() {
         currentImportTempFile?.delete()
         stopDownloadStatusListening?.invoke()
         stopDownloadStatusListening = null
-        searchController?.destroy()
         downloadController?.destroy()
         scope.cancel()
     }
@@ -277,10 +274,9 @@ class MainActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.tv_main_title).text = MainScreenUiModel.title
 
         val inflater = LayoutInflater.from(this)
-        val searchPage = inflater.inflate(R.layout.page_search_webview, mainPager, false)
         val videoPage = inflater.inflate(R.layout.page_video_library, mainPager, false)
         val downloadPage = inflater.inflate(R.layout.page_download_status, mainPager, false)
-        setupMainPager(listOf(searchPage, videoPage, downloadPage))
+        setupMainPager(listOf(videoPage, downloadPage))
 
         progressBar      = videoPage.findViewById(R.id.progress_bar)
         tvEmpty          = videoPage.findViewById(R.id.tv_empty)
@@ -296,13 +292,6 @@ class MainActivity : AppCompatActivity() {
         downloadStatusProgress = videoPage.findViewById(R.id.download_status_progress)
         recyclerView     = videoPage.findViewById(R.id.recycler_view)
 
-        searchController = SearchWebViewController(
-            activity = this,
-            root = searchPage,
-            homeUrl = MainScreenUiModel.searchHomeUrl,
-            onClose = { mainPager.currentItem = MainScreenUiModel.defaultPageIndex },
-            onOpenDownloads = { mainPager.currentItem = MainScreenUiModel.downloadPageIndex }
-        ).also { it.start() }
         downloadController = DownloadStatusController(
             activity = this,
             root = downloadPage,
@@ -318,8 +307,6 @@ class MainActivity : AppCompatActivity() {
             override fun handleOnBackPressed() {
                 if (selectionAction != null) {
                     setVideoSelectionAction(null)
-                } else if (mainPager.currentItem == MainScreenUiModel.searchPageIndex && searchController?.handleBack() == true) {
-                    return
                 } else if (mainPager.currentItem != MainScreenUiModel.defaultPageIndex) {
                     mainPager.currentItem = MainScreenUiModel.defaultPageIndex
                 } else {
