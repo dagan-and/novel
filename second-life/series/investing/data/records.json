@@ -9,7 +9,8 @@
     "progress": "series/investing/state.json",
     "narrative": "series/investing/months/2005-05.md",
     "workflow": "workflow/continuity.md",
-    "metrics": "series/investing/data/metrics.json"
+    "metrics": "series/investing/data/metrics.json",
+    "public_entry": "series/investing/dashboard.html"
   },
   "decisions": [
     {
@@ -125,6 +126,12 @@
       "status": "confirmed",
       "summary": "화면과 탐색 금액을 원화 중심으로 표시. 원본 USD는 보존하고 표시용 고정1달러≈1000원으로 환산하며 실제 환전과 구분.",
       "source": "사용자 지시 2026-11-18: 달러를 원화로 표시"
+    },
+    {
+      "id": "D020",
+      "status": "confirmed",
+      "summary": "현황판 안에 선택한 달의 탐색 기록을 함께 넣어 하나의 화면에서 읽는다. 기존 탐색 URL은 월 정보를 유지해 통합 화면으로 연결한다.",
+      "source": "사용자 지시 2026-11-18: 현황판 안에 탐색 기록 통합"
     }
   ],
   "events": [
@@ -949,6 +956,14 @@
         "D019"
       ],
       "reason": "금액 체감을 위해 화면·그래프·표·서술의 금액 표기를 원화로 전환. 원본 수익과 실제 현금은 변경하지 않음."
+    },
+    {
+      "id": "C010",
+      "recorded_at": "2026-11-18",
+      "targets": [
+        "D020"
+      ],
+      "reason": "탐색과 지표를 별도 웹 화면으로 오가던 구조를 한 화면과 공통 월 선택으로 통합. 원본 Markdown과 구조화 데이터의 관리 분리는 유지."
     }
   ],
   "months": {

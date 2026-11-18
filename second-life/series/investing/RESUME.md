@@ -28,9 +28,9 @@ data/metrics.json이 월별/일별방문·광고·성적·체격·APM·자산의
 
 ## 갱신·검증·게시
 
-지표 수정 → python3 scripts/refresh_metrics.py → python3 scripts/check_continuity.py → python3 scripts/render_investing.py. refresh는3월 원본 수익·4월 원본 체격을 동기화하고 파생 일별값·누적·평균을 계산한다. check는 일별 합/월별/누적/시나리오/평균을 대조한다. render는 index.html과dashboard.html을 함께 생성한다. 직접HTML 숫자를 수정하지 않는다.
+지표 수정 → python3 scripts/refresh_metrics.py → python3 scripts/check_continuity.py → python3 scripts/render_investing.py. refresh는3월 원본 수익·4월 원본 체격을 동기화하고 파생 일별값·누적·평균을 계산한다. check는 일별 합/월별/누적/시나리오/평균을 대조한다. render는 dashboard.html에 탐색과 지표를 통합 생성하고 index.html은 기존 월·앵커를 유지하는 연결 화면으로 만든다. 직접HTML 숫자를 수정하지 않는다.
 
-현황판은 월/날짜/지표 선택·분류 필터·그래프·금융표를 제공한다. 월 선택은 과거에 미래의 성적을 보여 주지 않는다. 1~5월 탐색 기록 사이드에도 수익을 항상 표시한다. 새 월을 만들면 수익·방문·성적·체격·게임 지표를 갱신하거나 null을 명시한다.
+현황판은 월/날짜/지표 선택·분류 필터·그래프·금융표를 제공한다. 월 선택은 과거에 미래의 성적을 보여 주지 않는다. 월별 탐색과 모든 수익·그래프는 하나의 현황판 안에서 같은 월 선택을 따른다. 새 월을 만들면 수익·방문·성적·체격·게임 지표를 갱신하거나 null을 명시한다.
 
 main은 제작 자료 보관. gh-pages에는 기존 허용된 HTML/설정 문서와 새dashboard.html만 게시한다. data·research·planning·scenarios를 원본 그대로 Pages에 복사하지 않고 공개용 지표만 HTML에 포함한다. 링크: https://dagan-and.github.io/novel/series/investing/dashboard.html?month=2005-05 .
 
@@ -42,3 +42,8 @@ main은 제작 자료 보관. gh-pages에는 기존 허용된 HTML/설정 문서
 ## 최신 표시 통화
 
 사용자 요청 D019로 현황판·월간 수익 카드·탐색 본문의 달러 금액을 원화 중심으로 환산 표시한다. metrics.display_fx의 표시용 고정1USD≈1000KRW를 사용한다. 원본 USD·실제 환전환율 미정·현금/비용 구분은 유지한다. 원화 표시는 시세 평가나 실제 입금이 아니다. 수익과 문장을 독립적으로 원화로 덮어써 환율 변경 때 이중 환산하지 않는다.
+
+
+## 최신 화면 구성 · D020
+
+탐색 기록과 현황판은 이제 dashboard.html 한 화면이다. 위의 월 선택을 바꾸면 수익·그래프·탐색 본문이 함께 바뀐다. 모두 보기/탐색 기록/전체 지표와 세부 분류로 같은 페이지 안에서 볼 수 있다. 원문은 months Markdown, 수치는 metrics JSON을 계속 기준으로 삼는다. story_rendering.py가 원화 환산·이스케이프한 본문을 만든다. 이전 index.html?month= 링크는 해당 월과 함께 dashboard.html#exploration으로 이동한다. 별도의 탐색 전용 화면을 다시 만들지 않는다. scripts/templates/investing.html은 과거 보존 템플릿이며 현재 생성에 쓰지 않는다.
