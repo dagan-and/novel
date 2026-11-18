@@ -32,4 +32,12 @@ def visit(key, path):
         visit(dep, path | {key})
 for key in tasks:
     visit(key, set())
+for key, meta in data.get('months', {}).items():
+    assert meta['status'] in ('confirmed', 'draft'), key
+    assert (root / 'series/investing/months' / f'{key}.md').is_file(), key
+if state.get('month_end_state'):
+    snapshot = json.loads((root / 'series/investing' / state['month_end_state']).read_text())
+    assert snapshot['as_of'][:7] == state['last_confirmed_month'], 'Snapshot month mismatch'
+    events = {item['id']: item for item in data['events']}
+    assert all(events[key]['status'] == 'confirmed' for key in snapshot['event_ids'])
 print(f'Continuity OK: {len(ids)} IDs; progress {state["next_month"]}; unknowns preserved')

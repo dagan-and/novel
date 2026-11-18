@@ -1,0 +1,19 @@
+{
+  "as_of": "2005-01-31",
+  "series": "investing",
+  "status": "confirmed_qualitative",
+  "event_ids": [
+    "E001",
+    "E002",
+    "E003",
+    "E004"
+  ],
+  "site_stage": "internal_prototype",
+  "site_public": false,
+  "investment_trades": [],
+  "cash_krw": null,
+  "operating_costs_krw": null,
+  "revenue_krw": null,
+  "actual_work_hours": null,
+  "note": "1월 질적 진행만 채택. 잠정 시작 자금을 확정 월말 잔액으로 사용하지 않음."
+}
