@@ -23,6 +23,13 @@ function renderPersonal(month) {
   const money=v=>v==null?'미정':fmt(v)+'원';
   $('#totalAssets').textContent=money(values.total);
   $('#heroCash').textContent=money(values.cash);
+  const livingPlan = M.personal_spending_budget?.monthly.find(plan => plan.month === key);
+  $('#heroAllowance').textContent = money(month.monthly_available_budget_krw);
+  $('#heroAfterOperations').textContent = money(month.remaining_recurring_budget_krw);
+  $('#heroAfterLivingPlan').textContent = money(livingPlan?.remaining_budget_krw);
+  $('#heroSpendingNote').textContent = livingPlan
+    ? '생활비 계획은 그달 사이트·참고서·데이트·기타 예산을 반영한 금액입니다. 실제 지출과 현금은 별도입니다.'
+    : '사이트 운영 예산에는 도메인 적립과 예비비가 포함됩니다. 이달 생활비 계획은 미정입니다.';
   $('#heroInvestments').textContent=money(values.investment);
   $('#assetBasis').textContent=values.total==null?'현금·소유 자산 확인 후 합산':'개인 소유 자산 합계';
   $('#heroCar').textContent=assets.vehicles.items.length?assets.vehicles.items.map(v=>v.name).join(', '):'보유 기록 없음';
