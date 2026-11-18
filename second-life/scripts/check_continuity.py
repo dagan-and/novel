@@ -113,3 +113,8 @@ for point in metrics['body']:
     assert point['skeletal_muscle_mass_kg'] is None
 assert set(m['month'] for m in metrics['monthly'])==set(data['months'])
 print(f'Metrics OK: {len(metrics["daily"])} modeled days; cumulative USD {cumulative:.2f}')
+
+fx = metrics["display_fx"]
+assert fx["currency"] == "KRW" and fx["source_currency"] == "USD"
+assert fx["kind"] == "fixed_display_approximation" and fx["krw_per_usd"] > 0
+assert round(metrics["monthly"][-1]["cumulative_ad_revenue_usd"] * fx["krw_per_usd"]) >= 0

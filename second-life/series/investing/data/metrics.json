@@ -8,7 +8,7 @@
     "visitors": "모형상 일별 방문자. 날짜를 합친 visitor_days는 월간 고유 방문자가 아님.",
     "daily": "월별 가정에서 요일·완만한 증가 가중치로 배분한 추정. 실제 로그나 측정값 아님.",
     "null": "미정/미기록. 0과 구분.",
-    "currencies": "광고 USD, 개인 현금·투자 KRW. 환율 미정이므로 합산하지 않음."
+    "currencies": "원본 광고 USD를 보존하고 화면은 표시용 1달러≈1000원으로 환산. 실제 환전 환율·수수료·개인현금과 구분."
   },
   "monthly": [
     {
@@ -1637,5 +1637,14 @@
   "source_links": {
     "march_revenue": "series/investing/scenarios/2005-03.json",
     "april_body": "series/investing/scenarios/2005-04-body.json"
+  },
+  "display_fx": {
+    "currency": "KRW",
+    "source_currency": "USD",
+    "krw_per_usd": 1000,
+    "kind": "fixed_display_approximation",
+    "label": "표시용 환산: 1달러 ≈ 1,000원. 실제 환전·입금액 아님.",
+    "reference_url": "https://www.newswire.co.kr/newsRead.php?no=117827",
+    "reference_note": "한국은행의 2005년 회고: 1분기 1010원 중심,4월29일997.1원. 일별/월별 실환율을 대체하지 않는 보기용 고정값."
   }
 }

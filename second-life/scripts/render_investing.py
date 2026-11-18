@@ -3,12 +3,18 @@
 from pathlib import Path
 from html import escape
 import json
+import re
 
 root = Path(__file__).resolve().parents[1]
 folder = root / 'series/investing'
 records = json.loads((folder / 'data/records.json').read_text())
 months = records['months']
 metrics = json.loads((folder / 'data/metrics.json').read_text())
+fx = metrics['display_fx']['krw_per_usd']
+def won(value):
+    return f'{round(value * fx):,}원'
+def display_text(text):
+    return re.sub(r'(\d[\d,]*(?:\.\d+)?)\s*달러', lambda m: won(float(m.group(1).replace(',', ''))), text)
 panels = []
 for key, meta in sorted(months.items()):
     year, month = map(int, key.split('-'))
@@ -17,7 +23,7 @@ for key, meta in sorted(months.items()):
     for number, part in enumerate(md.split('\n## ')[1:], 1):
         title, body = part.split('\n', 1)
         paragraphs = [p.strip().replace('\n', ' ') for p in body.strip().split('\n\n')]
-        content = ''.join(f'<p>{escape(p)}</p>' for p in paragraphs)
+        content = ''.join(f'<p>{escape(display_text(p))}</p>' for p in paragraphs)
         sections.append(f'<section class="chapter"><div class="chapter-number">{number:02d}</div><div><h2>{escape(title)}</h2>{content}</div></section>')
     title = escape(meta['title'])
     summary = escape(meta['summary'])
@@ -52,13 +58,13 @@ for key, meta in sorted(months.items()):
         cumulative = metric['cumulative_ad_revenue_usd']
         received = metric['cash_received_usd']
         daily = metric['average_daily_ad_revenue_usd']
-        revenue_card = f'<section class="card"><small>SITE METRICS</small><h3>이달 사이트 지표</h3><div class="row"><span>광고 발생액 · 기준안</span><b>${earned:,.2f}</b></div><div class="row"><span>누적 광고 발생액</span><b>${cumulative:,.2f}</b></div><div class="row"><span>현금 수령 · 시나리오</span><b>${received:,.2f}</b></div><div class="row"><span>일평균 방문 · 추정</span><b>{visitors}</b></div><div class="row"><span>일평균 광고 발생액</span><b>${daily:,.2f}</b></div><p>작품용 가정이며 서버 실측이 아닙니다. 비용·개인 잔액과 구분합니다.</p><p><a href="dashboard.html?month={key}">전체 현황판 보기 ↗</a></p></section>'
+        revenue_card = f'<section class="card"><small>SITE METRICS</small><h3>이달 사이트 지표</h3><div class="row"><span>광고 발생액 · 기준안</span><b>{won(earned)}</b></div><div class="row"><span>누적 광고 발생액</span><b>{won(cumulative)}</b></div><div class="row"><span>현금 수령 · 시나리오</span><b>{won(received)}</b></div><div class="row"><span>일평균 방문 · 추정</span><b>{visitors}</b></div><div class="row"><span>일평균 광고 발생액</span><b>{won(daily)}</b></div><p>작품용 가정이며 서버 실측이 아닙니다. 비용·개인 잔액과 구분합니다. 표시용 1달러≈1,000원 환산입니다.</p><p><a href="dashboard.html?month={key}">전체 현황판 보기 ↗</a></p></section>'
     if not body_card:
         points = [b for b in metrics['body'] if b['date'].startswith(key)]
         if points:
             point = points[-1]
             body_card = f'<section class="card"><small>BODY RECORD</small><h3>체격 · 기준안</h3><div class="row"><span>키 · 체중</span><b>{point["height_cm"]:g}cm · {point["weight_kg"]:g}kg</b></div><div class="row"><span>체지방률</span><b>{point["body_fat_percent"]:g}%</b></div><p>{point["date"]} 기준 · 성장 후보는 실측이 아닙니다.</p></section>'
-    panels.append(f'''<div class="month-panel hidden" data-month="{key}"><section class="hero"><small>INVESTING · {key}</small><h2>{title}</h2><p>{summary}</p><div class="status"><span>{year}년 {month}월</span><span>용인 수지</span><span>{status}</span></div></section><div class="layout"><article class="story"><header class="story-head"><small>MONTHLY EXPLORATION</small><h2>{year}년 {month}월의 탐색 기록</h2><p>{summary}</p></header>{''.join(sections)}</article><aside class="side"><section class="card"><small>MY SITUATION</small><h3>이달의 출발점</h3><div class="row"><span>현재</span><b>{school}</b></div><div class="row"><span>개인 보유금</span><b>{money}</b></div><div class="row"><span>투자 거래</span><b>{trade_label}</b></div><p>{escape(meta['asset_note'])}</p></section><section class="card"><small>MY PROJECT</small><h3>{stage}</h3><p>{escape(meta['site_note'])}</p></section>{revenue_card}{body_card}</aside></div></div>''')
+    panels.append(f'''<div class="month-panel hidden" data-month="{key}"><section class="hero"><small>INVESTING · {key}</small><h2>{title}</h2><p>{summary}</p><div class="status"><span>{year}년 {month}월</span><span>용인 수지</span><span>{status}</span></div></section><div class="layout"><article class="story"><header class="story-head"><small>MONTHLY EXPLORATION</small><h2>{year}년 {month}월의 탐색 기록</h2><p>{summary}</p></header>{''.join(sections)}</article><aside class="side"><section class="card"><small>MY SITUATION</small><h3>이달의 출발점</h3><div class="row"><span>현재</span><b>{school}</b></div><div class="row"><span>개인 보유금</span><b>{money}</b></div><div class="row"><span>투자 거래</span><b>{trade_label}</b></div><p>{escape(display_text(meta['asset_note']))}</p></section><section class="card"><small>MY PROJECT</small><h3>{stage}</h3><p>{escape(display_text(meta['site_note']))}</p></section>{revenue_card}{body_card}</aside></div></div>''')
 script = '''
 const year=document.querySelector('#year'),month=document.querySelector('#month'),empty=document.querySelector('#empty');
 const panels=[...document.querySelectorAll('[data-month]')];
