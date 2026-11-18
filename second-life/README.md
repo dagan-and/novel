@@ -26,7 +26,7 @@
 
 새 채팅에서 이 프로젝트를 이어갈 때는 다음처럼 말하면 된다.
 
-> `dagan-and/novel` 저장소의 최신 `main`을 기준으로 `second-life` 투자 편을 이어가자. `second-life/AGENTS.md`, `README.md`, `workflow/continuity.md`, `series/investing/RESUME.md`와 관련 관리 기록을 읽어. 현재 진행과 미확정 사항을 짧게 요약하고 다음 달 구성부터 나와 상의해. 합의 전 새 본문·수익·자산·인물·월 마감을 확정하지 마. 사이트·학업·운동·스타·현지와의 관계를 빠뜨리지 말고 이어가자.
+> `dagan-and/novel` 저장소의 최신 `main`을 기준으로 `second-life` 투자 편을 이어가자. `second-life/AGENTS.md`, `second-life/README.md`, `second-life/workflow/continuity.md`, `second-life/series/investing/RESUME.md`와 관련 관리 기록을 읽어. 현재 진행과 미확정 사항을 짧게 요약하고 다음 달 구성부터 나와 상의해. 합의 전 새 본문·수익·자산·인물·월 마감을 확정하지 마. 사이트·학업·운동·스타·현지와의 관계를 빠뜨리지 말고 이어가자.
 
 모바일이나 새 채팅에서도 같은 지시문을 사용한다. `/Users/...` 같은 이전 기기의 로컬 절대 경로 대신 저장소 안의 경로를 지정한다. 이어가기 문서를 읽었는지 먼저 확인하고, 이후 원하는 달과 변경 내용을 말한다. 승인된 변경을 저장할 때는 관리 데이터·본문·RESUME·생성 HTML을 맞춘다. 공개 반영을 요청하면 main 반영과 gh-pages 게시를 구분해 실제 링크를 검증하도록 지시한다. PR만 생성했다면 main 반영 여부와 공개 배포 여부를 별도로 보고받는다.
 
