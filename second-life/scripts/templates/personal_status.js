@@ -21,7 +21,7 @@ function renderPersonal(month) {
   $('#heroCash').textContent = money(personal.cash_krw);
   const cashNotes = {
     unknown: '이달까지 확인한 현금 없음',
-    settlement: '광고 정산금에서 확인한 잔액 · 전체 현금 미정',
+    settlement: `${Number(personal.cash_as_of_month?.slice(5))}월 장부의 광고 정산금 잔액 · 전체 현금 미정`,
     full: '확인된 전체 현금 잔액',
   };
   $('#heroCashNote').textContent = cashNotes[personal.cash_scope];

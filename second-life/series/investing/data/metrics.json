@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "series": "investing",
-  "as_of": "2005-08-31",
+  "as_of": "2005-09-30",
   "definitions": {
     "data_kind": "fictional_world_not_live_analytics",
     "revenue": "플랫폼 배분 후 게시자 광고 발생액. 운영비·세금 차감 전. 실제 수령·개인 현금과 구분.",
@@ -39,6 +39,7 @@
         "personal": {
           "cash_krw": null,
           "cash_scope": "unknown",
+          "cash_as_of_month": null,
           "total_assets_krw": null
         },
         "budget": {
@@ -86,6 +87,7 @@
         "personal": {
           "cash_krw": null,
           "cash_scope": "unknown",
+          "cash_as_of_month": null,
           "total_assets_krw": null
         },
         "budget": {
@@ -133,6 +135,7 @@
         "personal": {
           "cash_krw": null,
           "cash_scope": "unknown",
+          "cash_as_of_month": null,
           "total_assets_krw": null
         },
         "budget": {
@@ -180,6 +183,7 @@
         "personal": {
           "cash_krw": null,
           "cash_scope": "unknown",
+          "cash_as_of_month": null,
           "total_assets_krw": null
         },
         "budget": {
@@ -227,6 +231,7 @@
         "personal": {
           "cash_krw": null,
           "cash_scope": "unknown",
+          "cash_as_of_month": null,
           "total_assets_krw": null
         },
         "budget": {
@@ -274,6 +279,7 @@
         "personal": {
           "cash_krw": null,
           "cash_scope": "unknown",
+          "cash_as_of_month": null,
           "total_assets_krw": null
         },
         "budget": {
@@ -321,6 +327,7 @@
         "personal": {
           "cash_krw": null,
           "cash_scope": "unknown",
+          "cash_as_of_month": null,
           "total_assets_krw": null
         },
         "budget": {
@@ -368,6 +375,7 @@
         "personal": {
           "cash_krw": 389958,
           "cash_scope": "settlement",
+          "cash_as_of_month": "2005-08",
           "total_assets_krw": null
         },
         "budget": {
@@ -385,6 +393,54 @@
           "unpaid_usd": 525.0,
           "fee_this_month_krw": 7000,
           "held_this_month_krw": 452084
+        }
+      }
+    },
+    {
+      "month": "2005-09",
+      "status": "pending",
+      "visitor_days": null,
+      "pageviews": null,
+      "ad_pageviews": null,
+      "publisher_rpm_usd": null,
+      "ad_revenue_usd": null,
+      "cash_received_usd": null,
+      "operating_costs_usd": null,
+      "net_profit_usd": null,
+      "personal_cash_krw": null,
+      "basis": "9월 신규 수익과 실제 정산은 미정. 합의한 사건만 진행.",
+      "investment_assets_krw": 0,
+      "investment_realized_pnl_krw": 0,
+      "investment_cash_krw": null,
+      "holdings": [],
+      "trade_count": 0,
+      "days": 30,
+      "cumulative_ad_revenue_usd": null,
+      "cumulative_cash_received_usd": null,
+      "average_daily_visitors": null,
+      "average_daily_ad_revenue_usd": null,
+      "finances": {
+        "personal": {
+          "cash_krw": 389958,
+          "cash_scope": "settlement",
+          "cash_as_of_month": "2005-08",
+          "total_assets_krw": null
+        },
+        "budget": {
+          "allowance_krw": 100000,
+          "after_site_krw": 82167,
+          "after_living_plan_krw": null,
+          "hosting_krw": 11000,
+          "recurring_site_krw": 17833,
+          "site_cash_plan_krw": 11000,
+          "site_cash_plan_total_krw": 104000
+        },
+        "site": {
+          "received_krw": null,
+          "received_total_krw": null,
+          "unpaid_usd": null,
+          "fee_this_month_krw": null,
+          "held_this_month_krw": null
         }
       }
     }
@@ -2576,6 +2632,276 @@
       "pageviews": 16944,
       "ad_pageviews": 16944,
       "ad_revenue_usd": 21.18
+    },
+    {
+      "date": "2005-09-01",
+      "status": "pending",
+      "method": "not_recorded",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": null,
+      "ad_revenue_usd": null
+    },
+    {
+      "date": "2005-09-02",
+      "status": "pending",
+      "method": "not_recorded",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": null,
+      "ad_revenue_usd": null
+    },
+    {
+      "date": "2005-09-03",
+      "status": "pending",
+      "method": "not_recorded",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": null,
+      "ad_revenue_usd": null
+    },
+    {
+      "date": "2005-09-04",
+      "status": "pending",
+      "method": "not_recorded",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": null,
+      "ad_revenue_usd": null
+    },
+    {
+      "date": "2005-09-05",
+      "status": "pending",
+      "method": "not_recorded",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": null,
+      "ad_revenue_usd": null
+    },
+    {
+      "date": "2005-09-06",
+      "status": "pending",
+      "method": "not_recorded",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": null,
+      "ad_revenue_usd": null
+    },
+    {
+      "date": "2005-09-07",
+      "status": "pending",
+      "method": "not_recorded",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": null,
+      "ad_revenue_usd": null
+    },
+    {
+      "date": "2005-09-08",
+      "status": "pending",
+      "method": "not_recorded",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": null,
+      "ad_revenue_usd": null
+    },
+    {
+      "date": "2005-09-09",
+      "status": "pending",
+      "method": "not_recorded",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": null,
+      "ad_revenue_usd": null
+    },
+    {
+      "date": "2005-09-10",
+      "status": "pending",
+      "method": "not_recorded",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": null,
+      "ad_revenue_usd": null
+    },
+    {
+      "date": "2005-09-11",
+      "status": "pending",
+      "method": "not_recorded",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": null,
+      "ad_revenue_usd": null
+    },
+    {
+      "date": "2005-09-12",
+      "status": "pending",
+      "method": "not_recorded",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": null,
+      "ad_revenue_usd": null
+    },
+    {
+      "date": "2005-09-13",
+      "status": "pending",
+      "method": "not_recorded",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": null,
+      "ad_revenue_usd": null
+    },
+    {
+      "date": "2005-09-14",
+      "status": "pending",
+      "method": "not_recorded",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": null,
+      "ad_revenue_usd": null
+    },
+    {
+      "date": "2005-09-15",
+      "status": "pending",
+      "method": "not_recorded",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": null,
+      "ad_revenue_usd": null
+    },
+    {
+      "date": "2005-09-16",
+      "status": "pending",
+      "method": "not_recorded",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": null,
+      "ad_revenue_usd": null
+    },
+    {
+      "date": "2005-09-17",
+      "status": "pending",
+      "method": "not_recorded",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": null,
+      "ad_revenue_usd": null
+    },
+    {
+      "date": "2005-09-18",
+      "status": "pending",
+      "method": "not_recorded",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": null,
+      "ad_revenue_usd": null
+    },
+    {
+      "date": "2005-09-19",
+      "status": "pending",
+      "method": "not_recorded",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": null,
+      "ad_revenue_usd": null
+    },
+    {
+      "date": "2005-09-20",
+      "status": "pending",
+      "method": "not_recorded",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": null,
+      "ad_revenue_usd": null
+    },
+    {
+      "date": "2005-09-21",
+      "status": "pending",
+      "method": "not_recorded",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": null,
+      "ad_revenue_usd": null
+    },
+    {
+      "date": "2005-09-22",
+      "status": "pending",
+      "method": "not_recorded",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": null,
+      "ad_revenue_usd": null
+    },
+    {
+      "date": "2005-09-23",
+      "status": "pending",
+      "method": "not_recorded",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": null,
+      "ad_revenue_usd": null
+    },
+    {
+      "date": "2005-09-24",
+      "status": "pending",
+      "method": "not_recorded",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": null,
+      "ad_revenue_usd": null
+    },
+    {
+      "date": "2005-09-25",
+      "status": "pending",
+      "method": "not_recorded",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": null,
+      "ad_revenue_usd": null
+    },
+    {
+      "date": "2005-09-26",
+      "status": "pending",
+      "method": "not_recorded",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": null,
+      "ad_revenue_usd": null
+    },
+    {
+      "date": "2005-09-27",
+      "status": "pending",
+      "method": "not_recorded",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": null,
+      "ad_revenue_usd": null
+    },
+    {
+      "date": "2005-09-28",
+      "status": "pending",
+      "method": "not_recorded",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": null,
+      "ad_revenue_usd": null
+    },
+    {
+      "date": "2005-09-29",
+      "status": "pending",
+      "method": "not_recorded",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": null,
+      "ad_revenue_usd": null
+    },
+    {
+      "date": "2005-09-30",
+      "status": "pending",
+      "method": "not_recorded",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": null,
+      "ad_revenue_usd": null
     }
   ],
   "academics": {
@@ -2839,6 +3165,12 @@
       },
       {
         "month": "2005-08",
+        "hosting_krw": 11000,
+        "domain_cash_krw": 0,
+        "setup_cash_krw": 0
+      },
+      {
+        "month": "2005-09",
         "hosting_krw": 11000,
         "domain_cash_krw": 0,
         "setup_cash_krw": 0

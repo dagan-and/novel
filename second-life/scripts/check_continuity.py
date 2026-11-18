@@ -81,8 +81,12 @@ for entry in metrics['daily']:
     assert entry['date'] not in seen, 'Duplicate modeled day'
     seen.add(entry['date'])
     date.fromisoformat(entry['date'])
-    assert entry['status'] == 'story_estimate' and entry['method'] == 'monthly_allocation_not_observed'
-    for field in ('visitors', 'pageviews', 'ad_pageviews', 'ad_revenue_usd'):
+    fields = ('visitors', 'pageviews', 'ad_pageviews', 'ad_revenue_usd')
+    populated = any(entry[field] is not None for field in fields)
+    assert (entry['status'], entry['method']) == (
+        ('story_estimate', 'monthly_allocation_not_observed') if populated else ('pending', 'not_recorded')
+    )
+    for field in fields:
         assert entry[field] is None or entry[field] >= 0
 for month in metrics['monthly']:
     key = month['month']; y,m = map(int,key.split('-'))
@@ -93,9 +97,15 @@ for month in metrics['monthly']:
         assert all(v is None for v in values) if month[total] is None else all(v is not None for v in values)
         if month[total] is not None:
             assert sum(values) == month[total], (key, field)
-    assert abs(sum(v['ad_revenue_usd'] for v in rows)-month['ad_revenue_usd'])<0.001
-    cumulative=round(cumulative+month['ad_revenue_usd'],2)
-    cumulative_cash=round(cumulative_cash+month['cash_received_usd'],2)
+    revenue, cash = month['ad_revenue_usd'], month['cash_received_usd']
+    daily_revenue = [day['ad_revenue_usd'] for day in rows]
+    if revenue is None:
+        assert all(value is None for value in daily_revenue), key
+    else:
+        assert all(value is not None for value in daily_revenue), key
+        assert abs(sum(daily_revenue) - revenue) < 0.001, key
+    cumulative = round(cumulative + revenue, 2) if cumulative is not None and revenue is not None else None
+    cumulative_cash = round(cumulative_cash + cash, 2) if cumulative_cash is not None and cash is not None else None
     assert month['cumulative_ad_revenue_usd']==cumulative
     assert month['cumulative_cash_received_usd']==cumulative_cash
     if month['publisher_rpm_usd'] is not None:
@@ -110,7 +120,7 @@ for point in metrics['body']:
     assert abs(point['weight_kg']*(1-point['body_fat_percent']/100)-point['fat_free_mass_kg'])<0.01
     assert point['skeletal_muscle_mass_kg'] is None
 assert set(m['month'] for m in metrics['monthly'])==set(data['months'])
-print(f'Metrics OK: {len(metrics["daily"])} modeled days; cumulative USD {cumulative:.2f}')
+print(f'Metrics OK: {len(metrics["daily"])} days, including pending months')
 
 # Verify actual story receipts and personal outflows independently from the display exchange rate.
 from decimal import Decimal, ROUND_HALF_UP
@@ -122,6 +132,7 @@ event_ids = {event['id'] for event in data['events']}
 paid_months = set()
 received_krw = 0
 tracked_balance = None
+tracked_month = None
 for key, row in sorted(monthly.items()):
     site = row['finances']['site']
     personal = row['finances']['personal']
@@ -150,20 +161,23 @@ for key, row in sorted(monthly.items()):
         assert all(sum(item['items'].values()) == item['amount_krw'] >= 0 for item in outflows)
         tracked_balance = (tracked_balance or 0) + each_krw - sum(item['amount_krw'] for item in outflows)
         assert tracked_balance >= 0
+        tracked_month = key
     net_receipt = site['received_krw']
     if not ledger:
         assert net_receipt == (0 if row['cash_received_usd'] == 0 else None)
         assert site['held_this_month_krw'] is None and site['fee_this_month_krw'] is None
     received_krw = received_krw + net_receipt if received_krw is not None and net_receipt is not None else None
     assert site['received_total_krw'] == received_krw
-    unpaid = round(row['cumulative_ad_revenue_usd'] - row['cumulative_cash_received_usd'], 2)
-    assert site['unpaid_usd'] == unpaid >= 0
+    gross_total, cash_total = row['cumulative_ad_revenue_usd'], row['cumulative_cash_received_usd']
+    unpaid = round(gross_total - cash_total, 2) if gross_total is not None and cash_total is not None else None
+    assert site['unpaid_usd'] == unpaid and (unpaid is None or unpaid >= 0)
     full_cash = row['personal_cash_krw']
     if full_cash is not None:
         assert personal['cash_krw'] == full_cash and personal['cash_scope'] == 'full'
     else:
         assert personal['cash_krw'] == tracked_balance
         assert personal['cash_scope'] == ('settlement' if tracked_balance is not None else 'unknown')
+    assert personal['cash_as_of_month'] == (key if full_cash is not None else tracked_month)
     assets = metrics['personal_assets']
     components = [full_cash, row['investment_assets_krw'], assets['vehicles']['valuation_krw'],
                   assets['homes']['valuation_krw'], assets['other_assets_krw']]
@@ -173,7 +187,7 @@ print('Cash ledger OK: incoming funds, allocations, outflows, and tracked balanc
 fx = metrics["display_fx"]
 assert fx["currency"] == "KRW" and fx["source_currency"] == "USD"
 assert fx["kind"] == "fixed_display_approximation" and fx["krw_per_usd"] > 0
-assert round(metrics["monthly"][-1]["cumulative_ad_revenue_usd"] * fx["krw_per_usd"]) >= 0
+assert all(row['cumulative_ad_revenue_usd'] is None or row['cumulative_ad_revenue_usd'] >= 0 for row in metrics['monthly'])
 
 # User-specified 2/3/4-point questions cannot produce a one-point loss by wrong answers.
 for exam in [metrics['academics'], *metrics.get('additional_exams', [])]:

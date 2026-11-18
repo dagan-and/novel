@@ -30,6 +30,7 @@ def allocate(total, weights):
 rows = []; cumulative = 0; received = 0; budget_total = 0
 received_krw = 0
 tracked_cash = None
+tracked_month = None
 cost = data['cost_model']
 budget = {row['month']: row for row in cost['monthly']}
 living = {row['month']: row for row in data['personal_spending_budget']['monthly']}
@@ -48,6 +49,7 @@ for month in sorted(data['monthly'], key=lambda m:m['month']):
         deposit = payment['deposit_krw']
         spent = sum(item['amount_krw'] for item in ledger['personal_outflows'])
         tracked_cash = (tracked_cash or 0) + ledger['distribution']['to_yongsik_krw'] - spent
+        tracked_month = key
     else:
         deposit = 0 if month['cash_received_usd'] == 0 else None
     received_krw = received_krw + deposit if received_krw is not None and deposit is not None else None
@@ -64,24 +66,37 @@ for month in sorted(data['monthly'], key=lambda m:m['month']):
     weights = [(0.7 + 0.6*i/max(1,days-1))*(1.15 if dt.weekday()>=5 else 1) for i,dt in enumerate(dates)]
     visits = allocate(month['visitor_days'], weights) if month['visitor_days'] is not None else [None]*days
     pages = allocate(month['pageviews'], weights) if month['pageviews'] is not None else [None]*days
-    adpages = [0]*days
+    adpages = [None] * days if month['ad_pageviews'] is None else allocate(month['ad_pageviews'], weights)
     if key == march['story_month']:
         start = int(march['advertising_start'][-2:])-1
         pages = allocate(month['pageviews']-month['ad_pageviews'],weights[:start])+allocate(month['ad_pageviews'],weights[start:])
         adpages = [0]*start + pages[start:]
-    elif month['ad_pageviews']:
-        adpages = pages[:]
     if key != march['story_month'] and month['publisher_rpm_usd'] is not None:
         month['ad_revenue_usd'] = round(month['ad_pageviews']/1000*month['publisher_rpm_usd'],2)
-    cents = allocate(round(month['ad_revenue_usd']*100), adpages) if month['ad_revenue_usd'] else [0]*days
+    revenue = month['ad_revenue_usd']
+    if revenue is None:
+        cents = [None] * days
+    elif revenue == 0:
+        cents = [0] * days
+    else:
+        cents = allocate(round(revenue * 100), weights if month['ad_pageviews'] is None else adpages)
+    pending = all(month[field] is None for field in ('visitor_days', 'pageviews', 'ad_pageviews', 'ad_revenue_usd'))
     for i,dt in enumerate(dates):
-        rows.append(dict(date=dt.isoformat(),status='story_estimate',method='monthly_allocation_not_observed',visitors=visits[i],pageviews=pages[i],ad_pageviews=adpages[i],ad_revenue_usd=cents[i]/100))
-    cumulative=round(cumulative+month['ad_revenue_usd'],2);received=round(received+month['cash_received_usd'],2)
-    month.update(days=days,cumulative_ad_revenue_usd=cumulative,cumulative_cash_received_usd=received,average_daily_visitors=round(month['visitor_days']/days,2) if month['visitor_days'] is not None else None,average_daily_ad_revenue_usd=round(month['ad_revenue_usd']/days,4))
+        rows.append(dict(date=dt.isoformat(),status='pending' if pending else 'story_estimate',
+                         method='not_recorded' if pending else 'monthly_allocation_not_observed',
+                         visitors=visits[i],pageviews=pages[i],ad_pageviews=adpages[i],
+                         ad_revenue_usd=cents[i]/100 if cents[i] is not None else None))
+    cash = month['cash_received_usd']
+    cumulative = round(cumulative + revenue, 2) if cumulative is not None and revenue is not None else None
+    received = round(received + cash, 2) if received is not None and cash is not None else None
+    month.update(days=days,cumulative_ad_revenue_usd=cumulative,cumulative_cash_received_usd=received,
+                 average_daily_visitors=round(month['visitor_days']/days,2) if month['visitor_days'] is not None else None,
+                 average_daily_ad_revenue_usd=round(revenue/days,4) if revenue is not None else None)
     month['finances'] = {
         'personal': {
             'cash_krw': full_personal_cash if full_personal_cash is not None else tracked_cash,
             'cash_scope': 'full' if full_personal_cash is not None else 'settlement' if tracked_cash is not None else 'unknown',
+            'cash_as_of_month': key if full_personal_cash is not None else tracked_month,
             'total_assets_krw': sum(asset_parts) if all(value is not None for value in asset_parts) else None,
         },
         'budget': {
@@ -96,7 +111,7 @@ for month in sorted(data['monthly'], key=lambda m:m['month']):
         'site': {
             'received_krw': deposit,
             'received_total_krw': received_krw,
-            'unpaid_usd': round(cumulative - received, 2),
+            'unpaid_usd': round(cumulative - received, 2) if cumulative is not None and received is not None else None,
             'fee_this_month_krw': ledger['payment']['fee_krw'] if ledger else None,
             'held_this_month_krw': ledger['distribution']['held_unallocated_krw'] if ledger else None,
         },
@@ -108,4 +123,4 @@ for exam in [data['academics'], *data.get('additional_exams', [])]:
     subjects = exam['subjects']
     exam['simple_average'] = sum(subject['score'] for subject in subjects) / len(subjects)
 path.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
-print(f'Refreshed modeled metrics: {len(rows)} days; cumulative USD {cumulative:.2f}')
+print(f'Refreshed metrics for {len(rows)} days; latest month {data["monthly"][-1]["month"]}')
