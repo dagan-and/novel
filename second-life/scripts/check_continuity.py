@@ -70,3 +70,46 @@ for key, meta in data.get('months', {}).items():
             assert point['skeletal_muscle_mass_kg'] is None
         assert set(body['event_ids']) <= {item['id'] for item in data['events']}
 print(f'Continuity OK: {len(ids)} IDs; progress {state["next_month"]}; unknowns preserved')
+
+# Reconcile fictional metrics rather than accepting silently divergent display copies.
+from datetime import date
+import calendar
+metrics = json.loads((root / 'series/investing/data/metrics.json').read_text())
+assert metrics['definitions']['data_kind'] == 'fictional_world_not_live_analytics'
+seen = set(); cumulative = 0; cumulative_cash = 0
+for entry in metrics['daily']:
+    assert entry['date'] not in seen, 'Duplicate modeled day'
+    seen.add(entry['date'])
+    date.fromisoformat(entry['date'])
+    assert entry['status'] == 'story_estimate' and entry['method'] == 'monthly_allocation_not_observed'
+    for field in ('visitors', 'pageviews', 'ad_pageviews', 'ad_revenue_usd'):
+        assert entry[field] is None or entry[field] >= 0
+for month in metrics['monthly']:
+    key = month['month']; y,m = map(int,key.split('-'))
+    rows = [v for v in metrics['daily'] if v['date'].startswith(key)]
+    assert len(rows) == calendar.monthrange(y,m)[1] == month['days']
+    for field, total in [('visitors','visitor_days'),('pageviews','pageviews'),('ad_pageviews','ad_pageviews')]:
+        values = [v[field] for v in rows]
+        assert all(v is None for v in values) if month[total] is None else all(v is not None for v in values)
+        if month[total] is not None:
+            assert sum(values) == month[total], (key, field)
+    assert abs(sum(v['ad_revenue_usd'] for v in rows)-month['ad_revenue_usd'])<0.001
+    cumulative=round(cumulative+month['ad_revenue_usd'],2)
+    cumulative_cash=round(cumulative_cash+month['cash_received_usd'],2)
+    assert month['cumulative_ad_revenue_usd']==cumulative
+    assert month['cumulative_cash_received_usd']==cumulative_cash
+    if month['publisher_rpm_usd'] is not None:
+        assert abs(month['ad_pageviews']/1000*month['publisher_rpm_usd']-month['ad_revenue_usd'])<0.001
+    assert month['personal_cash_krw'] is None and month['net_profit_usd'] is None
+march = json.loads((root / metrics['source_links']['march_revenue']).read_text())
+mr = next(m for m in metrics['monthly'] if m['month']==march['story_month'])
+assert mr['ad_revenue_usd']==march['estimated_ad_revenue']
+assert mr['ad_pageviews']==march['ad_period_pageviews']
+subjects=metrics['academics']['subjects']
+assert all(0<=s['score']<=s['maximum'] for s in subjects)
+assert abs(sum(s['score'] for s in subjects)/len(subjects)-metrics['academics']['simple_average'])<0.001
+for point in metrics['body']:
+    assert abs(point['weight_kg']*(1-point['body_fat_percent']/100)-point['fat_free_mass_kg'])<0.01
+    assert point['skeletal_muscle_mass_kg'] is None
+assert set(m['month'] for m in metrics['monthly'])==set(data['months'])
+print(f'Metrics OK: {len(metrics["daily"])} modeled days; cumulative USD {cumulative:.2f}')

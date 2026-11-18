@@ -1,0 +1,1641 @@
+{
+  "schema_version": 1,
+  "series": "investing",
+  "as_of": "2005-05-31",
+  "definitions": {
+    "data_kind": "fictional_world_not_live_analytics",
+    "revenue": "플랫폼 배분 후 게시자 광고 발생액. 운영비·세금 차감 전. 실제 수령·개인 현금과 구분.",
+    "visitors": "모형상 일별 방문자. 날짜를 합친 visitor_days는 월간 고유 방문자가 아님.",
+    "daily": "월별 가정에서 요일·완만한 증가 가중치로 배분한 추정. 실제 로그나 측정값 아님.",
+    "null": "미정/미기록. 0과 구분.",
+    "currencies": "광고 USD, 개인 현금·투자 KRW. 환율 미정이므로 합산하지 않음."
+  },
+  "monthly": [
+    {
+      "month": "2005-01",
+      "status": "story_estimate",
+      "days": 31,
+      "visitor_days": null,
+      "pageviews": null,
+      "ad_pageviews": 0,
+      "publisher_rpm_usd": null,
+      "ad_revenue_usd": 0,
+      "cumulative_ad_revenue_usd": 0,
+      "cash_received_usd": 0,
+      "cumulative_cash_received_usd": 0,
+      "operating_costs_usd": null,
+      "net_profit_usd": null,
+      "personal_cash_krw": null,
+      "average_daily_visitors": null,
+      "average_daily_ad_revenue_usd": 0.0,
+      "basis": "3월 광고기간 40000PV·48달러는 기존 시나리오. 나머지 유입·성장은 이번 월별 창작 기준안.",
+      "investment_assets_krw": 0,
+      "investment_realized_pnl_krw": 0,
+      "investment_cash_krw": null,
+      "holdings": [],
+      "trade_count": 0
+    },
+    {
+      "month": "2005-02",
+      "status": "story_estimate",
+      "days": 28,
+      "visitor_days": 2400,
+      "pageviews": 7200,
+      "ad_pageviews": 0,
+      "publisher_rpm_usd": null,
+      "ad_revenue_usd": 0,
+      "cumulative_ad_revenue_usd": 0,
+      "cash_received_usd": 0,
+      "cumulative_cash_received_usd": 0,
+      "operating_costs_usd": null,
+      "net_profit_usd": null,
+      "personal_cash_krw": null,
+      "average_daily_visitors": 85.71,
+      "average_daily_ad_revenue_usd": 0.0,
+      "basis": "3월 광고기간 40000PV·48달러는 기존 시나리오. 나머지 유입·성장은 이번 월별 창작 기준안.",
+      "investment_assets_krw": 0,
+      "investment_realized_pnl_krw": 0,
+      "investment_cash_krw": null,
+      "holdings": [],
+      "trade_count": 0
+    },
+    {
+      "month": "2005-03",
+      "status": "story_estimate",
+      "days": 31,
+      "visitor_days": 15500,
+      "pageviews": 70000,
+      "ad_pageviews": 40000,
+      "publisher_rpm_usd": 1.2,
+      "ad_revenue_usd": 48,
+      "cumulative_ad_revenue_usd": 48,
+      "cash_received_usd": 0,
+      "cumulative_cash_received_usd": 0,
+      "operating_costs_usd": null,
+      "net_profit_usd": null,
+      "personal_cash_krw": null,
+      "average_daily_visitors": 500.0,
+      "average_daily_ad_revenue_usd": 1.5484,
+      "basis": "3월 광고기간 40000PV·48달러는 기존 시나리오. 나머지 유입·성장은 이번 월별 창작 기준안.",
+      "investment_assets_krw": 0,
+      "investment_realized_pnl_krw": 0,
+      "investment_cash_krw": null,
+      "holdings": [],
+      "trade_count": 0
+    },
+    {
+      "month": "2005-04",
+      "status": "story_estimate",
+      "days": 30,
+      "visitor_days": 27000,
+      "pageviews": 120000,
+      "ad_pageviews": 120000,
+      "publisher_rpm_usd": 1.2,
+      "ad_revenue_usd": 144.0,
+      "cumulative_ad_revenue_usd": 192.0,
+      "cash_received_usd": 0,
+      "cumulative_cash_received_usd": 0,
+      "operating_costs_usd": null,
+      "net_profit_usd": null,
+      "personal_cash_krw": null,
+      "average_daily_visitors": 900.0,
+      "average_daily_ad_revenue_usd": 4.8,
+      "basis": "3월 광고기간 40000PV·48달러는 기존 시나리오. 나머지 유입·성장은 이번 월별 창작 기준안.",
+      "investment_assets_krw": 0,
+      "investment_realized_pnl_krw": 0,
+      "investment_cash_krw": null,
+      "holdings": [],
+      "trade_count": 0
+    },
+    {
+      "month": "2005-05",
+      "status": "story_estimate",
+      "days": 31,
+      "visitor_days": 46500,
+      "pageviews": 210000,
+      "ad_pageviews": 210000,
+      "publisher_rpm_usd": 1.25,
+      "ad_revenue_usd": 262.5,
+      "cumulative_ad_revenue_usd": 454.5,
+      "cash_received_usd": 0,
+      "cumulative_cash_received_usd": 0,
+      "operating_costs_usd": null,
+      "net_profit_usd": null,
+      "personal_cash_krw": null,
+      "average_daily_visitors": 1500.0,
+      "average_daily_ad_revenue_usd": 8.4677,
+      "basis": "3월 광고기간 40000PV·48달러는 기존 시나리오. 나머지 유입·성장은 이번 월별 창작 기준안.",
+      "investment_assets_krw": 0,
+      "investment_realized_pnl_krw": 0,
+      "investment_cash_krw": null,
+      "holdings": [],
+      "trade_count": 0
+    }
+  ],
+  "daily": [
+    {
+      "date": "2005-01-01",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-01-02",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-01-03",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-01-04",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-01-05",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-01-06",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-01-07",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-01-08",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-01-09",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-01-10",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-01-11",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-01-12",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-01-13",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-01-14",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-01-15",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-01-16",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-01-17",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-01-18",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-01-19",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-01-20",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-01-21",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-01-22",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-01-23",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-01-24",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-01-25",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-01-26",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-01-27",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-01-28",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-01-29",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-01-30",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-01-31",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": null,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-02-01",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 57,
+      "pageviews": 172,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-02-02",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 59,
+      "pageviews": 178,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-02-03",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 61,
+      "pageviews": 183,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-02-04",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 63,
+      "pageviews": 189,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-02-05",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 74,
+      "pageviews": 223,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-02-06",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 77,
+      "pageviews": 230,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-02-07",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 68,
+      "pageviews": 205,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-02-08",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 70,
+      "pageviews": 211,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-02-09",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 72,
+      "pageviews": 216,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-02-10",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 74,
+      "pageviews": 222,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-02-11",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 76,
+      "pageviews": 227,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-02-12",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 89,
+      "pageviews": 267,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-02-13",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 91,
+      "pageviews": 274,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-02-14",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 81,
+      "pageviews": 244,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-02-15",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 83,
+      "pageviews": 249,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-02-16",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 85,
+      "pageviews": 254,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-02-17",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 87,
+      "pageviews": 260,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-02-18",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 88,
+      "pageviews": 265,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-02-19",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 104,
+      "pageviews": 311,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-02-20",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 106,
+      "pageviews": 318,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-02-21",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 94,
+      "pageviews": 282,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-02-22",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 96,
+      "pageviews": 287,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-02-23",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 98,
+      "pageviews": 293,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-02-24",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 99,
+      "pageviews": 298,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-02-25",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 101,
+      "pageviews": 304,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-02-26",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 119,
+      "pageviews": 356,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-02-27",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 121,
+      "pageviews": 362,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-02-28",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 107,
+      "pageviews": 320,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-03-01",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 337,
+      "pageviews": 2894,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-03-02",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 347,
+      "pageviews": 2976,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-03-03",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 356,
+      "pageviews": 3059,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-03-04",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 366,
+      "pageviews": 3142,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-03-05",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 432,
+      "pageviews": 3708,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-03-06",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 443,
+      "pageviews": 3803,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-03-07",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 395,
+      "pageviews": 3390,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-03-08",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 404,
+      "pageviews": 3473,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-03-09",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 414,
+      "pageviews": 3555,
+      "ad_pageviews": 0,
+      "ad_revenue_usd": 0.0
+    },
+    {
+      "date": "2005-03-10",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 424,
+      "pageviews": 1411,
+      "ad_pageviews": 1411,
+      "ad_revenue_usd": 1.69
+    },
+    {
+      "date": "2005-03-11",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 433,
+      "pageviews": 1443,
+      "ad_pageviews": 1443,
+      "ad_revenue_usd": 1.73
+    },
+    {
+      "date": "2005-03-12",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 509,
+      "pageviews": 1697,
+      "ad_pageviews": 1697,
+      "ad_revenue_usd": 2.04
+    },
+    {
+      "date": "2005-03-13",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 520,
+      "pageviews": 1733,
+      "ad_pageviews": 1733,
+      "ad_revenue_usd": 2.08
+    },
+    {
+      "date": "2005-03-14",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 462,
+      "pageviews": 1539,
+      "ad_pageviews": 1539,
+      "ad_revenue_usd": 1.85
+    },
+    {
+      "date": "2005-03-15",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 472,
+      "pageviews": 1572,
+      "ad_pageviews": 1572,
+      "ad_revenue_usd": 1.89
+    },
+    {
+      "date": "2005-03-16",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 481,
+      "pageviews": 1604,
+      "ad_pageviews": 1604,
+      "ad_revenue_usd": 1.92
+    },
+    {
+      "date": "2005-03-17",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 491,
+      "pageviews": 1636,
+      "ad_pageviews": 1636,
+      "ad_revenue_usd": 1.96
+    },
+    {
+      "date": "2005-03-18",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 501,
+      "pageviews": 1668,
+      "ad_pageviews": 1668,
+      "ad_revenue_usd": 2.0
+    },
+    {
+      "date": "2005-03-19",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 587,
+      "pageviews": 1955,
+      "ad_pageviews": 1955,
+      "ad_revenue_usd": 2.35
+    },
+    {
+      "date": "2005-03-20",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 598,
+      "pageviews": 1992,
+      "ad_pageviews": 1992,
+      "ad_revenue_usd": 2.39
+    },
+    {
+      "date": "2005-03-21",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 529,
+      "pageviews": 1764,
+      "ad_pageviews": 1764,
+      "ad_revenue_usd": 2.12
+    },
+    {
+      "date": "2005-03-22",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 539,
+      "pageviews": 1796,
+      "ad_pageviews": 1796,
+      "ad_revenue_usd": 2.16
+    },
+    {
+      "date": "2005-03-23",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 549,
+      "pageviews": 1828,
+      "ad_pageviews": 1828,
+      "ad_revenue_usd": 2.19
+    },
+    {
+      "date": "2005-03-24",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 558,
+      "pageviews": 1860,
+      "ad_pageviews": 1860,
+      "ad_revenue_usd": 2.23
+    },
+    {
+      "date": "2005-03-25",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 568,
+      "pageviews": 1892,
+      "ad_pageviews": 1892,
+      "ad_revenue_usd": 2.27
+    },
+    {
+      "date": "2005-03-26",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 664,
+      "pageviews": 2213,
+      "ad_pageviews": 2213,
+      "ad_revenue_usd": 2.66
+    },
+    {
+      "date": "2005-03-27",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 675,
+      "pageviews": 2250,
+      "ad_pageviews": 2250,
+      "ad_revenue_usd": 2.7
+    },
+    {
+      "date": "2005-03-28",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 597,
+      "pageviews": 1988,
+      "ad_pageviews": 1988,
+      "ad_revenue_usd": 2.39
+    },
+    {
+      "date": "2005-03-29",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 607,
+      "pageviews": 2021,
+      "ad_pageviews": 2021,
+      "ad_revenue_usd": 2.42
+    },
+    {
+      "date": "2005-03-30",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 616,
+      "pageviews": 2053,
+      "ad_pageviews": 2053,
+      "ad_revenue_usd": 2.46
+    },
+    {
+      "date": "2005-03-31",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 626,
+      "pageviews": 2085,
+      "ad_pageviews": 2085,
+      "ad_revenue_usd": 2.5
+    },
+    {
+      "date": "2005-04-01",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 603,
+      "pageviews": 2681,
+      "ad_pageviews": 2681,
+      "ad_revenue_usd": 3.22
+    },
+    {
+      "date": "2005-04-02",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 714,
+      "pageviews": 3174,
+      "ad_pageviews": 3174,
+      "ad_revenue_usd": 3.81
+    },
+    {
+      "date": "2005-04-03",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 735,
+      "pageviews": 3265,
+      "ad_pageviews": 3265,
+      "ad_revenue_usd": 3.92
+    },
+    {
+      "date": "2005-04-04",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 657,
+      "pageviews": 2919,
+      "ad_pageviews": 2919,
+      "ad_revenue_usd": 3.5
+    },
+    {
+      "date": "2005-04-05",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 675,
+      "pageviews": 2998,
+      "ad_pageviews": 2998,
+      "ad_revenue_usd": 3.6
+    },
+    {
+      "date": "2005-04-06",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 692,
+      "pageviews": 3077,
+      "ad_pageviews": 3077,
+      "ad_revenue_usd": 3.69
+    },
+    {
+      "date": "2005-04-07",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 710,
+      "pageviews": 3156,
+      "ad_pageviews": 3156,
+      "ad_revenue_usd": 3.79
+    },
+    {
+      "date": "2005-04-08",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 728,
+      "pageviews": 3236,
+      "ad_pageviews": 3236,
+      "ad_revenue_usd": 3.88
+    },
+    {
+      "date": "2005-04-09",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 858,
+      "pageviews": 3812,
+      "ad_pageviews": 3812,
+      "ad_revenue_usd": 4.57
+    },
+    {
+      "date": "2005-04-10",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 878,
+      "pageviews": 3903,
+      "ad_pageviews": 3903,
+      "ad_revenue_usd": 4.68
+    },
+    {
+      "date": "2005-04-11",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 781,
+      "pageviews": 3473,
+      "ad_pageviews": 3473,
+      "ad_revenue_usd": 4.17
+    },
+    {
+      "date": "2005-04-12",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 799,
+      "pageviews": 3552,
+      "ad_pageviews": 3552,
+      "ad_revenue_usd": 4.26
+    },
+    {
+      "date": "2005-04-13",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 817,
+      "pageviews": 3632,
+      "ad_pageviews": 3632,
+      "ad_revenue_usd": 4.36
+    },
+    {
+      "date": "2005-04-14",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 835,
+      "pageviews": 3711,
+      "ad_pageviews": 3711,
+      "ad_revenue_usd": 4.45
+    },
+    {
+      "date": "2005-04-15",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 853,
+      "pageviews": 3790,
+      "ad_pageviews": 3790,
+      "ad_revenue_usd": 4.55
+    },
+    {
+      "date": "2005-04-16",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 1001,
+      "pageviews": 4450,
+      "ad_pageviews": 4450,
+      "ad_revenue_usd": 5.34
+    },
+    {
+      "date": "2005-04-17",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 1022,
+      "pageviews": 4541,
+      "ad_pageviews": 4541,
+      "ad_revenue_usd": 5.45
+    },
+    {
+      "date": "2005-04-18",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 906,
+      "pageviews": 4028,
+      "ad_pageviews": 4028,
+      "ad_revenue_usd": 4.83
+    },
+    {
+      "date": "2005-04-19",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 924,
+      "pageviews": 4107,
+      "ad_pageviews": 4107,
+      "ad_revenue_usd": 4.93
+    },
+    {
+      "date": "2005-04-20",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 942,
+      "pageviews": 4186,
+      "ad_pageviews": 4186,
+      "ad_revenue_usd": 5.02
+    },
+    {
+      "date": "2005-04-21",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 960,
+      "pageviews": 4266,
+      "ad_pageviews": 4266,
+      "ad_revenue_usd": 5.12
+    },
+    {
+      "date": "2005-04-22",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 978,
+      "pageviews": 4345,
+      "ad_pageviews": 4345,
+      "ad_revenue_usd": 5.21
+    },
+    {
+      "date": "2005-04-23",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 1145,
+      "pageviews": 5088,
+      "ad_pageviews": 5088,
+      "ad_revenue_usd": 6.11
+    },
+    {
+      "date": "2005-04-24",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 1165,
+      "pageviews": 5179,
+      "ad_pageviews": 5179,
+      "ad_revenue_usd": 6.22
+    },
+    {
+      "date": "2005-04-25",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 1031,
+      "pageviews": 4583,
+      "ad_pageviews": 4583,
+      "ad_revenue_usd": 5.5
+    },
+    {
+      "date": "2005-04-26",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 1049,
+      "pageviews": 4662,
+      "ad_pageviews": 4662,
+      "ad_revenue_usd": 5.6
+    },
+    {
+      "date": "2005-04-27",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 1067,
+      "pageviews": 4741,
+      "ad_pageviews": 4741,
+      "ad_revenue_usd": 5.69
+    },
+    {
+      "date": "2005-04-28",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 1085,
+      "pageviews": 4820,
+      "ad_pageviews": 4820,
+      "ad_revenue_usd": 5.78
+    },
+    {
+      "date": "2005-04-29",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 1102,
+      "pageviews": 4899,
+      "ad_pageviews": 4899,
+      "ad_revenue_usd": 5.88
+    },
+    {
+      "date": "2005-04-30",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 1288,
+      "pageviews": 5726,
+      "ad_pageviews": 5726,
+      "ad_revenue_usd": 6.87
+    },
+    {
+      "date": "2005-05-01",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 1157,
+      "pageviews": 5225,
+      "ad_pageviews": 5225,
+      "ad_revenue_usd": 6.53
+    },
+    {
+      "date": "2005-05-02",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 1035,
+      "pageviews": 4674,
+      "ad_pageviews": 4674,
+      "ad_revenue_usd": 5.84
+    },
+    {
+      "date": "2005-05-03",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 1064,
+      "pageviews": 4803,
+      "ad_pageviews": 4803,
+      "ad_revenue_usd": 6.0
+    },
+    {
+      "date": "2005-05-04",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 1092,
+      "pageviews": 4933,
+      "ad_pageviews": 4933,
+      "ad_revenue_usd": 6.17
+    },
+    {
+      "date": "2005-05-05",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 1121,
+      "pageviews": 5063,
+      "ad_pageviews": 5063,
+      "ad_revenue_usd": 6.33
+    },
+    {
+      "date": "2005-05-06",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 1150,
+      "pageviews": 5193,
+      "ad_pageviews": 5193,
+      "ad_revenue_usd": 6.49
+    },
+    {
+      "date": "2005-05-07",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 1355,
+      "pageviews": 6121,
+      "ad_pageviews": 6121,
+      "ad_revenue_usd": 7.65
+    },
+    {
+      "date": "2005-05-08",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 1388,
+      "pageviews": 6270,
+      "ad_pageviews": 6270,
+      "ad_revenue_usd": 7.84
+    },
+    {
+      "date": "2005-05-09",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 1236,
+      "pageviews": 5582,
+      "ad_pageviews": 5582,
+      "ad_revenue_usd": 6.98
+    },
+    {
+      "date": "2005-05-10",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 1265,
+      "pageviews": 5712,
+      "ad_pageviews": 5712,
+      "ad_revenue_usd": 7.14
+    },
+    {
+      "date": "2005-05-11",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 1294,
+      "pageviews": 5842,
+      "ad_pageviews": 5842,
+      "ad_revenue_usd": 7.3
+    },
+    {
+      "date": "2005-05-12",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 1322,
+      "pageviews": 5972,
+      "ad_pageviews": 5972,
+      "ad_revenue_usd": 7.47
+    },
+    {
+      "date": "2005-05-13",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 1351,
+      "pageviews": 6102,
+      "ad_pageviews": 6102,
+      "ad_revenue_usd": 7.63
+    },
+    {
+      "date": "2005-05-14",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 1587,
+      "pageviews": 7166,
+      "ad_pageviews": 7166,
+      "ad_revenue_usd": 8.96
+    },
+    {
+      "date": "2005-05-15",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 1620,
+      "pageviews": 7315,
+      "ad_pageviews": 7315,
+      "ad_revenue_usd": 9.14
+    },
+    {
+      "date": "2005-05-16",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 1437,
+      "pageviews": 6491,
+      "ad_pageviews": 6491,
+      "ad_revenue_usd": 8.11
+    },
+    {
+      "date": "2005-05-17",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 1466,
+      "pageviews": 6621,
+      "ad_pageviews": 6621,
+      "ad_revenue_usd": 8.28
+    },
+    {
+      "date": "2005-05-18",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 1495,
+      "pageviews": 6751,
+      "ad_pageviews": 6751,
+      "ad_revenue_usd": 8.44
+    },
+    {
+      "date": "2005-05-19",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 1524,
+      "pageviews": 6880,
+      "ad_pageviews": 6880,
+      "ad_revenue_usd": 8.6
+    },
+    {
+      "date": "2005-05-20",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 1552,
+      "pageviews": 7010,
+      "ad_pageviews": 7010,
+      "ad_revenue_usd": 8.76
+    },
+    {
+      "date": "2005-05-21",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 1818,
+      "pageviews": 8211,
+      "ad_pageviews": 8211,
+      "ad_revenue_usd": 10.26
+    },
+    {
+      "date": "2005-05-22",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 1851,
+      "pageviews": 8360,
+      "ad_pageviews": 8360,
+      "ad_revenue_usd": 10.45
+    },
+    {
+      "date": "2005-05-23",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 1638,
+      "pageviews": 7400,
+      "ad_pageviews": 7400,
+      "ad_revenue_usd": 9.25
+    },
+    {
+      "date": "2005-05-24",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 1667,
+      "pageviews": 7529,
+      "ad_pageviews": 7529,
+      "ad_revenue_usd": 9.41
+    },
+    {
+      "date": "2005-05-25",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 1696,
+      "pageviews": 7659,
+      "ad_pageviews": 7659,
+      "ad_revenue_usd": 9.57
+    },
+    {
+      "date": "2005-05-26",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 1725,
+      "pageviews": 7789,
+      "ad_pageviews": 7789,
+      "ad_revenue_usd": 9.74
+    },
+    {
+      "date": "2005-05-27",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 1753,
+      "pageviews": 7919,
+      "ad_pageviews": 7919,
+      "ad_revenue_usd": 9.9
+    },
+    {
+      "date": "2005-05-28",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 2050,
+      "pageviews": 9256,
+      "ad_pageviews": 9256,
+      "ad_revenue_usd": 11.57
+    },
+    {
+      "date": "2005-05-29",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 2083,
+      "pageviews": 9405,
+      "ad_pageviews": 9405,
+      "ad_revenue_usd": 11.76
+    },
+    {
+      "date": "2005-05-30",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 1840,
+      "pageviews": 8308,
+      "ad_pageviews": 8308,
+      "ad_revenue_usd": 10.38
+    },
+    {
+      "date": "2005-05-31",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 1868,
+      "pageviews": 8438,
+      "ad_pageviews": 8438,
+      "ad_revenue_usd": 10.55
+    }
+  ],
+  "academics": {
+    "school": "풍덕고등학교",
+    "school_source": "user_confirmed",
+    "exam": "2005년 1학기 중간고사",
+    "story_month": "2005-05",
+    "exam_date": null,
+    "exam_window": "5월 초·사용자 지정",
+    "rank_in_grade": 1,
+    "rank_status": "user_setting",
+    "cohort_size": null,
+    "subjects_status": "provisional_same_curriculum_not_school_exam_schedule",
+    "subjects": [
+      {
+        "name": "국어(상)",
+        "score": 99,
+        "maximum": 100,
+        "status": "story_estimate"
+      },
+      {
+        "name": "영어",
+        "score": 100,
+        "maximum": 100,
+        "status": "story_estimate"
+      },
+      {
+        "name": "수학 10-가",
+        "score": 100,
+        "maximum": 100,
+        "status": "story_estimate"
+      },
+      {
+        "name": "사회",
+        "score": 100,
+        "maximum": 100,
+        "status": "story_estimate"
+      },
+      {
+        "name": "과학",
+        "score": 100,
+        "maximum": 100,
+        "status": "story_estimate"
+      },
+      {
+        "name": "국사",
+        "score": 99,
+        "maximum": 100,
+        "status": "story_estimate"
+      },
+      {
+        "name": "도덕",
+        "score": 100,
+        "maximum": 100,
+        "status": "story_estimate"
+      }
+    ],
+    "simple_average": 99.71428571428571,
+    "average_definition": "임시 7과목 단순평균. 학교 공식 가중평균/학기말 성적 아님.",
+    "extra_subjects_pending": [
+      "기술·가정 및 기타 교과 지필평가 포함 여부"
+    ],
+    "research": "series/investing/research/school/2005-05-midterms.md"
+  },
+  "body": [
+    {
+      "date": "2005-01-01",
+      "height_cm": 176,
+      "weight_kg": 70,
+      "body_fat_percent": 15,
+      "fat_free_mass_kg": 59.5,
+      "skeletal_muscle_mass_kg": null,
+      "status": "base_setting"
+    },
+    {
+      "date": "2005-04-30",
+      "height_cm": 178,
+      "weight_kg": 74.5,
+      "body_fat_percent": 13.5,
+      "fat_free_mass_kg": 64.4425,
+      "skeletal_muscle_mass_kg": null,
+      "status": "story_estimate"
+    },
+    {
+      "date": "2005-05-31",
+      "height_cm": 178.5,
+      "weight_kg": 76,
+      "body_fat_percent": 13,
+      "fat_free_mass_kg": 66.12,
+      "skeletal_muscle_mass_kg": null,
+      "status": "story_estimate"
+    }
+  ],
+  "starcraft": [
+    {
+      "month": "2005-01",
+      "apm_low": 230,
+      "apm_high": 230,
+      "status": "user_recalled_baseline"
+    },
+    {
+      "month": "2005-02",
+      "apm_low": 350,
+      "apm_high": 450,
+      "status": "performance_candidate"
+    },
+    {
+      "month": "2005-03",
+      "apm_low": 400,
+      "apm_high": 500,
+      "status": "performance_candidate"
+    },
+    {
+      "month": "2005-04",
+      "apm_low": null,
+      "apm_high": null,
+      "status": "not_recorded"
+    },
+    {
+      "month": "2005-05",
+      "apm_low": 450,
+      "apm_high": 550,
+      "status": "performance_candidate"
+    }
+  ],
+  "standing": {
+    "story_month": "2005-05",
+    "academic": "학년 1등으로 학교·학원에서 알려짐",
+    "starcraft": "교내 최상위·사용자 선택",
+    "social": "체격·외모·성적·게임 실력으로 관심과 인지도 증가",
+    "status": "user_setting",
+    "popularity_score": null
+  },
+  "investments": {
+    "as_of": "2005-05-31",
+    "holdings": [],
+    "trades": [],
+    "valuation_krw": 0,
+    "realized_pnl_krw": 0,
+    "cash_krw": null,
+    "fx_rate": null,
+    "basis": "거래 시작 전. 개인 현금·운영비·정산 미정. 0원 보유 종목과 미정 현금 구별."
+  },
+  "source_links": {
+    "march_revenue": "series/investing/scenarios/2005-03.json",
+    "april_body": "series/investing/scenarios/2005-04-body.json"
+  }
+}

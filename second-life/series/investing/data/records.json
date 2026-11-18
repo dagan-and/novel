@@ -1,14 +1,15 @@
 {
   "schema_version": 1,
   "series": "investing",
-  "story_month": "2005-04",
-  "draft_month": "2005-04",
+  "story_month": "2005-05",
+  "draft_month": "2005-05",
   "last_confirmed_month": "2005-02",
   "authority": {
     "common": "base/",
     "progress": "series/investing/state.json",
-    "narrative": "series/investing/months/2005-04.md",
-    "workflow": "workflow/continuity.md"
+    "narrative": "series/investing/months/2005-05.md",
+    "workflow": "workflow/continuity.md",
+    "metrics": "series/investing/data/metrics.json"
   },
   "decisions": [
     {
@@ -94,6 +95,30 @@
       "status": "confirmed",
       "summary": "청소년 수면은 밤5시간+학교2~3시간으로 총7~8시간. 분할수면에서도 회복을 유지하는 가상 신체 효율을 추가한다.",
       "source": "사용자 답변 2026-11-18: 밤 5시간과 학교 수면을 합쳐 7~8시간"
+    },
+    {
+      "id": "D015",
+      "status": "confirmed",
+      "summary": "2005년 고등학교는 용인 풍덕고. 5월 초 중간고사 뒤 학년1등으로 학교·학원에서 알려지고 체격·외모로 관심이 늘며 스타는 교내 최상위다.",
+      "source": "사용자 지시 2026-11-18: 5월 학교·시험·운영·현황판"
+    },
+    {
+      "id": "D016",
+      "status": "confirmed",
+      "summary": "학교에서 다른 학생들도 잠을 보충하는 수업에 함께 일부 수면. 야자는 자습서·문제집 최고난도 풀이로 활용한다.",
+      "source": "사용자 지시 2026-11-18: 5월 학교·시험·운영·현황판"
+    },
+    {
+      "id": "D017",
+      "status": "confirmed",
+      "summary": "사이트는 평상시 짧게 점검하며 패치·업데이트·오류가 있을 때 집중 수정. 늦게 작업하면 게임을 줄이고 보충수면한다.",
+      "source": "사용자 지시 2026-11-18: 5월 학교·시험·운영·현황판"
+    },
+    {
+      "id": "D018",
+      "status": "confirmed",
+      "summary": "현황판에 일별/월별 방문·광고 발생·누적 수익·현금 수령·성적·체격·게임·투자 지표를 같은 데이터에서 지속 표시한다.",
+      "source": "사용자 지시 2026-11-18: 5월 학교·시험·운영·현황판"
     }
   ],
   "events": [
@@ -364,6 +389,67 @@
       "story_date": "2005-03",
       "decision_ids": [
         "D013"
+      ]
+    },
+    {
+      "id": "E027",
+      "status": "draft",
+      "summary": "풍덕고 고1 5월 초 중간고사 이후 학년1등·학교와 학원 인지도 확대",
+      "source": "series/investing/months/2005-05.md",
+      "story_date": "2005-05",
+      "decision_ids": [
+        "D015"
+      ]
+    },
+    {
+      "id": "E028",
+      "status": "draft",
+      "summary": "야자에 당시 교과 범위 최고난도 문제를 풀고 일부 수업에서 보충수면",
+      "source": "series/investing/months/2005-05.md",
+      "story_date": "2005-05",
+      "decision_ids": [
+        "D016"
+      ]
+    },
+    {
+      "id": "E029",
+      "status": "draft",
+      "summary": "외모·체격·성적과 교내 스타 최상위 실력으로 관심과 인지도 증가",
+      "source": "series/investing/months/2005-05.md",
+      "story_date": "2005-05",
+      "decision_ids": [
+        "D015"
+      ]
+    },
+    {
+      "id": "E030",
+      "status": "draft",
+      "summary": "사이트 일상 자동 운영과 필요 시 패치·버그·자료 수집 오류 집중 수정",
+      "source": "series/investing/months/2005-05.md",
+      "story_date": "2005-05",
+      "decision_ids": [
+        "D017"
+      ]
+    },
+    {
+      "id": "E031",
+      "status": "draft",
+      "summary": "월별 방문·광고 수익 성장과 일별 모형값·누적 지표를 현황판에 연결",
+      "source": "series/investing/months/2005-05.md",
+      "story_date": "2005-05",
+      "decision_ids": [
+        "D018"
+      ]
+    },
+    {
+      "id": "E032",
+      "status": "draft",
+      "summary": "임시 7과목 점수와 5월 체격·평균APM 범위를 작품 기준안으로 구성",
+      "source": "series/investing/months/2005-05.md",
+      "story_date": "2005-05",
+      "decision_ids": [
+        "D015",
+        "D018"
       ]
     }
   ],
@@ -636,6 +722,39 @@
       "actual_hours": null,
       "completion": null,
       "source": "series/investing/planning/2005-04.md"
+    },
+    {
+      "id": "T022",
+      "status": "planned",
+      "summary": "풍덕고 2005년 시험표·정확한 과목·배점·학년 인원 후속 확인",
+      "scope": "story",
+      "story_month": "2005-05",
+      "depends_on": [],
+      "actual_hours": null,
+      "completion": null,
+      "source": "series/investing/planning/2005-05.md"
+    },
+    {
+      "id": "T023",
+      "status": "planned",
+      "summary": "현황판 월별 지표와 일별 모형 배분·누적·현금 구분 지속 갱신",
+      "scope": "story",
+      "story_month": "2005-05",
+      "depends_on": [],
+      "actual_hours": null,
+      "completion": null,
+      "source": "series/investing/planning/2005-05.md"
+    },
+    {
+      "id": "T024",
+      "status": "planned",
+      "summary": "예외 운영의 늦은 작업과 보충수면, 야자 심화 문제풀이 배분",
+      "scope": "story",
+      "story_month": "2005-05",
+      "depends_on": [],
+      "actual_hours": null,
+      "completion": null,
+      "source": "series/investing/planning/2005-05.md"
     }
   ],
   "unknowns": [
@@ -703,6 +822,13 @@
       "question": "4월 체격·체지방·골격근량의 이야기 속 실제 측정",
       "value": null,
       "source": "series/investing/scenarios/2005-04-body.json"
+    },
+    {
+      "id": "U010",
+      "status": "unknown",
+      "question": "풍덕고 2005 중간고사 실제 시간표·추가 과목·배점·학년 인원·당시 문제집 판본",
+      "value": null,
+      "source": "series/investing/research/school/2005-05-midterms.md"
     }
   ],
   "changes": [
@@ -792,6 +918,23 @@
         "E021"
       ],
       "reason": "사용자 선택에 따라 청소년 수면8.5~9.5시간을 총7~8시간 분할수면으로 대체. 미래 생체 최적화 가정이며 현실의 짧은 수면을 근거로 삼지 않음."
+    },
+    {
+      "id": "C008",
+      "recorded_at": "2026-11-18",
+      "targets": [
+        "D015",
+        "D016",
+        "D017",
+        "D018",
+        "E027",
+        "E028",
+        "E029",
+        "E030",
+        "E031",
+        "E032"
+      ],
+      "reason": "사용자가 5월 시험·학년1등·인기·교내 스타1등과 안정 운영을 지정하고 누락됐던 수익/방문/성적 현황판을 요청. 사실 조사·사용자 설정·수치 시나리오를 분리."
     }
   ],
   "months": {
@@ -817,7 +960,7 @@
       "title": "학교에 다니며 수익의 첫 줄을 만들다",
       "status": "draft",
       "summary": "고등학교 입학 · 사이트 우선 운영 · 첫 광고 발생액 · 꾸준한 테란 연습",
-      "school_label": "고등학교 1학년 · 입학",
+      "school_label": "풍덕고등학교 1학년",
       "site_stage": "운영·첫 광고 게재 초안",
       "asset_note": "광고 발생액 48달러는 창작 시나리오이며 실제 수령 0달러와 구분합니다. 현금 잔액과 운영비는 미정입니다.",
       "site_note": "학교생활과 함께 디아블로·WoW 구현·운영을 우선합니다. 3월 10일 광고 게재와 발생액은 초안입니다. 스타는 남는 시간 2~3시간을 즐기는 방향입니다.",
@@ -829,11 +972,20 @@
       "title": "달라지는 몸, 계속 돌아가는 사이트",
       "status": "draft",
       "summary": "성장·학교 운동 · 컴퓨터 없는 야자 · 야간 개발과 운영 자동화",
-      "school_label": "고등학교 1학년 · 야자",
+      "school_label": "풍덕고등학교 1학년",
       "site_stage": "운영 자동화 보강안",
       "asset_note": "3월 48달러는 여전히 광고 발생액 초안입니다. 4월 현금 잔액·지급·수익은 새로 확정하지 않았습니다.",
       "site_note": "초기부터 도입한 수집·예약 운영을 안정화하고 자료원을 확장합니다. 밤5시간+학교2~3시간 수면과 운영 부담 감소를 바탕으로 개발·게임 시간을 배분합니다.",
       "body_scenario": "series/investing/scenarios/2005-04-body.json"
+    },
+    "2005-05": {
+      "title": "성적과 실력, 숫자로 드러나는 변화",
+      "status": "draft",
+      "summary": "풍덕고 중간고사 · 학년 1등 · 교내 스타 최상위 · 사이트 성장 지표",
+      "school_label": "풍덕고 1학년 · 첫 중간고사",
+      "site_stage": "자동 운영·예외 대응",
+      "asset_note": "5월 광고 발생액 262.50달러·누적454.50달러는 작품용 기준안입니다. 실제 수령·비용·개인현금과 구분합니다.",
+      "site_note": "일상 운영은 짧게 점검하고 패치·오류 발생 시 집중 수정합니다. 방문·수익·성적·체격은 현황판에서 같은 데이터를 조회합니다."
     }
   },
   "ongoing_threads": [
@@ -846,7 +998,9 @@
         "D004",
         "D006",
         "D007",
-        "D013"
+        "D013",
+        "D017",
+        "D018"
       ],
       "event_ids": [
         "E003",
@@ -864,7 +1018,9 @@
         "E023",
         "E024",
         "E025",
-        "E026"
+        "E026",
+        "E030",
+        "E031"
       ],
       "task_ids": [
         "T003",
@@ -877,7 +1033,8 @@
         "T015",
         "T018",
         "T019",
-        "T020"
+        "T020",
+        "T023"
       ]
     },
     {
@@ -887,7 +1044,8 @@
       "event_ids": [
         "E005",
         "E006",
-        "E016"
+        "E016",
+        "E029"
       ],
       "task_ids": [
         "T009",
@@ -895,7 +1053,8 @@
         "T013"
       ],
       "decision_ids": [
-        "D007"
+        "D007",
+        "D015"
       ]
     },
     {
@@ -905,17 +1064,24 @@
       "decision_ids": [
         "D008",
         "D011",
-        "D012"
+        "D012",
+        "D015",
+        "D016"
       ],
       "event_ids": [
         "E012",
         "E020",
-        "E021"
+        "E021",
+        "E027",
+        "E028",
+        "E032"
       ],
       "task_ids": [
         "T013",
         "T016",
-        "T017"
+        "T017",
+        "T022",
+        "T024"
       ]
     },
     {
@@ -927,7 +1093,9 @@
       ],
       "event_ids": [
         "E018",
-        "E019"
+        "E019",
+        "E029",
+        "E032"
       ],
       "task_ids": [
         "T021"

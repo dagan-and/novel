@@ -7,6 +7,7 @@
 | 작업 | 시작 문서 |
 | --- | --- |
 | 작품 선택 화면 | [HTML 시작 화면](index.html) |
+| 지표 현황판 | [사이트·성적·체격·게임·자산](series/investing/dashboard.html) |
 | 공통 설정 화면 | [공통 설정 HTML](base/index.html) |
 | 주인공과 가족 | [인물 기본 설정](base/character.md) |
 | 능력과 측정 방법 | [공통 능력 설정](base/abilities.md) |

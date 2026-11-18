@@ -8,6 +8,7 @@ root = Path(__file__).resolve().parents[1]
 folder = root / 'series/investing'
 records = json.loads((folder / 'data/records.json').read_text())
 months = records['months']
+metrics = json.loads((folder / 'data/metrics.json').read_text())
 panels = []
 for key, meta in sorted(months.items()):
     year, month = map(int, key.split('-'))
@@ -24,6 +25,8 @@ for key, meta in sorted(months.items()):
     if meta.get('revision_status') == 'draft':
         status += ' · 보완 초안 포함'
     money = '약 10만 원 · 시작 잠정값' if key == '2005-01' else '월말 잔액 미확정'
+    month_metrics = next((m for m in metrics['monthly'] if m['month'] == key), None)
+    trade_label = '아직 시작하지 않음' if not month_metrics or month_metrics['trade_count'] == 0 else f"{month_metrics['trade_count']}건 기록"
     stage = escape(meta.get('site_stage', '내부 시험판' if key == '2005-01' else '시험공개·운영'))
     school = escape(meta.get('school_label', '정평중 3학년 · 입학 전'))
     revenue_card = ''
@@ -41,7 +44,21 @@ for key, meta in sorted(months.items()):
         assert body['status'] == 'draft'
         height, weight, fat = point['height_cm'], point['weight_kg'], point['body_fat_percent']
         body_card = f'<section class="card"><small>BODY SCENARIO</small><h3>월말 체격 · 후보</h3><div class="row"><span>키 · 체중</span><b>{height:g}cm · {weight:g}kg</b></div><div class="row"><span>체지방률</span><b>{fat:g}%</b></div><p>투자 편 성장 초안이며 실측이 아닙니다. 제지방과 골격근량을 구분합니다.</p></section>'
-    panels.append(f'''<div class="month-panel hidden" data-month="{key}"><section class="hero"><small>INVESTING · {key}</small><h2>{title}</h2><p>{summary}</p><div class="status"><span>{year}년 {month}월</span><span>용인 수지</span><span>{status}</span></div></section><div class="layout"><article class="story"><header class="story-head"><small>MONTHLY EXPLORATION</small><h2>{year}년 {month}월의 탐색 기록</h2><p>{summary}</p></header>{''.join(sections)}</article><aside class="side"><section class="card"><small>MY SITUATION</small><h3>이달의 출발점</h3><div class="row"><span>현재</span><b>{school}</b></div><div class="row"><span>개인 보유금</span><b>{money}</b></div><div class="row"><span>투자 거래</span><b>아직 시작하지 않음</b></div><p>{escape(meta['asset_note'])}</p></section><section class="card"><small>MY PROJECT</small><h3>{stage}</h3><p>{escape(meta['site_note'])}</p></section>{revenue_card}{body_card}</aside></div></div>''')
+    metric = next((m for m in metrics['monthly'] if m['month'] == key), None)
+    if metric:
+        avg = metric['average_daily_visitors']
+        visitors = '미기록' if avg is None else f'{avg:,.0f}명'
+        earned = metric['ad_revenue_usd']
+        cumulative = metric['cumulative_ad_revenue_usd']
+        received = metric['cash_received_usd']
+        daily = metric['average_daily_ad_revenue_usd']
+        revenue_card = f'<section class="card"><small>SITE METRICS</small><h3>이달 사이트 지표</h3><div class="row"><span>광고 발생액 · 기준안</span><b>${earned:,.2f}</b></div><div class="row"><span>누적 광고 발생액</span><b>${cumulative:,.2f}</b></div><div class="row"><span>현금 수령 · 시나리오</span><b>${received:,.2f}</b></div><div class="row"><span>일평균 방문 · 추정</span><b>{visitors}</b></div><div class="row"><span>일평균 광고 발생액</span><b>${daily:,.2f}</b></div><p>작품용 가정이며 서버 실측이 아닙니다. 비용·개인 잔액과 구분합니다.</p><p><a href="dashboard.html?month={key}">전체 현황판 보기 ↗</a></p></section>'
+    if not body_card:
+        points = [b for b in metrics['body'] if b['date'].startswith(key)]
+        if points:
+            point = points[-1]
+            body_card = f'<section class="card"><small>BODY RECORD</small><h3>체격 · 기준안</h3><div class="row"><span>키 · 체중</span><b>{point["height_cm"]:g}cm · {point["weight_kg"]:g}kg</b></div><div class="row"><span>체지방률</span><b>{point["body_fat_percent"]:g}%</b></div><p>{point["date"]} 기준 · 성장 후보는 실측이 아닙니다.</p></section>'
+    panels.append(f'''<div class="month-panel hidden" data-month="{key}"><section class="hero"><small>INVESTING · {key}</small><h2>{title}</h2><p>{summary}</p><div class="status"><span>{year}년 {month}월</span><span>용인 수지</span><span>{status}</span></div></section><div class="layout"><article class="story"><header class="story-head"><small>MONTHLY EXPLORATION</small><h2>{year}년 {month}월의 탐색 기록</h2><p>{summary}</p></header>{''.join(sections)}</article><aside class="side"><section class="card"><small>MY SITUATION</small><h3>이달의 출발점</h3><div class="row"><span>현재</span><b>{school}</b></div><div class="row"><span>개인 보유금</span><b>{money}</b></div><div class="row"><span>투자 거래</span><b>{trade_label}</b></div><p>{escape(meta['asset_note'])}</p></section><section class="card"><small>MY PROJECT</small><h3>{stage}</h3><p>{escape(meta['site_note'])}</p></section>{revenue_card}{body_card}</aside></div></div>''')
 script = '''
 const year=document.querySelector('#year'),month=document.querySelector('#month'),empty=document.querySelector('#empty');
 const panels=[...document.querySelectorAll('[data-month]')];
@@ -59,3 +76,6 @@ document.querySelector('#back').textContent='최신 탐색 기록으로 돌아�
 template = (root / 'scripts/templates/investing.html').read_text()
 (folder / 'index.html').write_text(template.replace('MONTH_PANELS', ''.join(panels)).replace('MONTH_SCRIPT', script))
 print(f'Rendered {len(panels)} months; latest {max(months)}')
+
+from render_dashboard import render_dashboard
+render_dashboard(root)
