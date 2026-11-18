@@ -6,6 +6,7 @@ import calendar, json, math
 root = Path(__file__).resolve().parents[1]
 path = root / 'series/investing/data/metrics.json'
 data = json.loads(path.read_text())
+data['schema_version'] = 2
 march = json.loads((root / data['source_links']['march_revenue']).read_text())
 row = next(m for m in data['monthly'] if m['month'] == march['story_month'])
 row.update(ad_pageviews=march['ad_period_pageviews'], publisher_rpm_usd=march['publisher_revenue_per_1000_pageviews'], ad_revenue_usd=march['estimated_ad_revenue'], cash_received_usd=march['cash_received'])
@@ -29,34 +30,35 @@ def allocate(total, weights):
 rows = []; cumulative = 0; received = 0; budget_total = 0
 received_krw = 0
 tracked_cash = None
-budget = {row['month']: row for row in data.get('cost_model', {}).get('monthly', [])}
+cost = data['cost_model']
+budget = {row['month']: row for row in cost['monthly']}
+living = {row['month']: row for row in data['personal_spending_budget']['monthly']}
+assets = data['personal_assets']
+legacy_finance_keys = (
+    'cash_received_krw', 'cumulative_cash_received_krw', 'tracked_personal_cash_krw',
+    'planned_hosting_cost_krw', 'planned_cash_cost_krw', 'cumulative_planned_cash_cost_krw',
+    'monthly_available_budget_krw', 'remaining_recurring_budget_krw',
+)
 for month in sorted(data['monthly'], key=lambda m:m['month']):
     key = month['month']
     ledger = cash_by_month.get(key)
     if ledger:
         payment = ledger['payment']
         month['cash_received_usd'] = payment['gross_usd']
-        month['cash_received_krw'] = payment['deposit_krw']
+        deposit = payment['deposit_krw']
         spent = sum(item['amount_krw'] for item in ledger['personal_outflows'])
         tracked_cash = (tracked_cash or 0) + ledger['distribution']['to_yongsik_krw'] - spent
     else:
-        month['cash_received_krw'] = 0 if month['cash_received_usd'] == 0 else None
-    if received_krw is None or month['cash_received_krw'] is None:
-        received_krw = None
-    else:
-        received_krw += month['cash_received_krw']
-    month['cumulative_cash_received_krw'] = received_krw
-    month['tracked_personal_cash_krw'] = tracked_cash
-    planned = budget.get(key)
-    if planned:
-        month['planned_hosting_cost_krw'] = planned['hosting_krw']
-        month['planned_cash_cost_krw'] = planned['hosting_krw'] + planned['domain_cash_krw'] + planned['setup_cash_krw']
-        budget_total += month['planned_cash_cost_krw']
-        month['cumulative_planned_cash_cost_krw'] = budget_total
-        allowance = data['cost_model']['monthly_allowance_krw']
-        recurring = planned['hosting_krw'] + data['cost_model']['annual_domain_budget_krw']/12 + data['cost_model']['monthly_contingency_krw']
-        month['monthly_available_budget_krw'] = allowance
-        month['remaining_recurring_budget_krw'] = round(allowance-recurring) if allowance is not None else None
+        deposit = 0 if month['cash_received_usd'] == 0 else None
+    received_krw = received_krw + deposit if received_krw is not None and deposit is not None else None
+    planned = budget[key]
+    cash_plan = planned['hosting_krw'] + planned['domain_cash_krw'] + planned['setup_cash_krw']
+    budget_total += cash_plan
+    allowance = cost['monthly_allowance_krw']
+    recurring = planned['hosting_krw'] + cost['annual_domain_budget_krw']/12 + cost['monthly_contingency_krw']
+    full_personal_cash = month['personal_cash_krw']
+    asset_parts = [full_personal_cash, month['investment_assets_krw'], assets['vehicles']['valuation_krw'],
+                   assets['homes']['valuation_krw'], assets['other_assets_krw']]
     y,m = map(int,key.split('-')); days = calendar.monthrange(y,m)[1]
     dates = [date(y,m,i+1) for i in range(days)]
     weights = [(0.7 + 0.6*i/max(1,days-1))*(1.15 if dt.weekday()>=5 else 1) for i,dt in enumerate(dates)]
@@ -76,6 +78,31 @@ for month in sorted(data['monthly'], key=lambda m:m['month']):
         rows.append(dict(date=dt.isoformat(),status='story_estimate',method='monthly_allocation_not_observed',visitors=visits[i],pageviews=pages[i],ad_pageviews=adpages[i],ad_revenue_usd=cents[i]/100))
     cumulative=round(cumulative+month['ad_revenue_usd'],2);received=round(received+month['cash_received_usd'],2)
     month.update(days=days,cumulative_ad_revenue_usd=cumulative,cumulative_cash_received_usd=received,average_daily_visitors=round(month['visitor_days']/days,2) if month['visitor_days'] is not None else None,average_daily_ad_revenue_usd=round(month['ad_revenue_usd']/days,4))
+    month['finances'] = {
+        'personal': {
+            'cash_krw': full_personal_cash if full_personal_cash is not None else tracked_cash,
+            'cash_scope': 'full' if full_personal_cash is not None else 'settlement' if tracked_cash is not None else 'unknown',
+            'total_assets_krw': sum(asset_parts) if all(value is not None for value in asset_parts) else None,
+        },
+        'budget': {
+            'allowance_krw': allowance,
+            'after_site_krw': round(allowance - recurring) if allowance is not None else None,
+            'after_living_plan_krw': living.get(key, {}).get('remaining_budget_krw'),
+            'hosting_krw': planned['hosting_krw'],
+            'recurring_site_krw': round(recurring),
+            'site_cash_plan_krw': cash_plan,
+            'site_cash_plan_total_krw': budget_total,
+        },
+        'site': {
+            'received_krw': deposit,
+            'received_total_krw': received_krw,
+            'unpaid_usd': round(cumulative - received, 2),
+            'fee_this_month_krw': ledger['payment']['fee_krw'] if ledger else None,
+            'held_this_month_krw': ledger['distribution']['held_unallocated_krw'] if ledger else None,
+        },
+    }
+    for field in legacy_finance_keys:
+        month.pop(field, None)
 data['daily']=rows
 for exam in [data['academics'], *data.get('additional_exams', [])]:
     subjects = exam['subjects']

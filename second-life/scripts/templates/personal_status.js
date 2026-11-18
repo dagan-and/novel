@@ -5,10 +5,6 @@ function relationshipAt(person, month) {
   if (active) return active.kind;
   return phases.some(p=>p.from_month<=month) ? 'past' : 'met';
 }
-function assetSummary(month, assets) {
-  const components = [month.personal_cash_krw, month.investment_assets_krw, assets.vehicles.valuation_krw, assets.homes.valuation_krw, assets.other_assets_krw];
-  return {cash:month.personal_cash_krw,investment:month.investment_assets_krw,total:components.every(v=>typeof v==='number' && Number.isFinite(v)) ? components.reduce((a,b)=>a+b,0) : null};
-}
 function profileLink(person, month) {
   return person.profile_href+'?month='+encodeURIComponent(month);
 }
@@ -19,28 +15,31 @@ function examAt(month) {
     .at(-1);
 }
 function renderPersonal(month) {
-  const key=month.month,assets=M.personal_assets,values=assetSummary(month,assets);
-  const money=v=>v==null?'미정':fmt(v)+'원';
-  $('#totalAssets').textContent=money(values.total);
-  $('#heroCash').textContent=money(values.cash);
-  const livingPlan = M.personal_spending_budget?.monthly.find(plan => plan.month === key);
-  $('#heroAllowance').textContent = money(month.monthly_available_budget_krw);
-  $('#heroAfterOperations').textContent = money(month.remaining_recurring_budget_krw);
-  $('#heroAfterLivingPlan').textContent = money(livingPlan?.remaining_budget_krw);
-  $('#heroSpendingNote').textContent = livingPlan
-    ? '생활비 계획은 그달 사이트·참고서·데이트·기타 예산을 반영한 금액입니다. 실제 지출과 현금은 별도입니다.'
-    : '사이트 운영 예산에는 도메인 적립과 예비비가 포함됩니다. 이달 생활비 계획은 미정입니다.';
-  $('#heroTrackedFunds').hidden = month.tracked_personal_cash_krw == null;
-  $('#heroTrackedCash').textContent = money(month.tracked_personal_cash_krw);
-  $('#heroInvestments').textContent=money(values.investment);
-  $('#assetBasis').textContent=values.total==null?'현금·소유 자산 확인 후 합산':'개인 소유 자산 합계';
+  const key=month.month, assets=M.personal_assets;
+  const {personal, budget} = month.finances;
+  $('#heroCashLabel').textContent = personal.cash_scope === 'full' ? '개인 현금' : '확인된 개인 현금';
+  $('#heroCash').textContent = money(personal.cash_krw);
+  const cashNotes = {
+    unknown: '이달까지 확인한 현금 없음',
+    settlement: '광고 정산금에서 확인한 잔액 · 전체 현금 미정',
+    full: '확인된 전체 현금 잔액',
+  };
+  $('#heroCashNote').textContent = cashNotes[personal.cash_scope];
+  $('#heroInvestments').textContent = money(month.investment_assets_krw);
+  $('#totalAssets').textContent = money(personal.total_assets_krw);
+  $('#assetBasis').textContent = personal.total_assets_krw == null ? '전체 현금과 소유 자산 확인 후 합산' : '개인 소유 자산 합계';
+  $('#heroAllowance').textContent = money(budget.allowance_krw);
+  $('#heroAfterOperations').textContent = money(budget.after_site_krw);
+  $('#heroAfterLivingPlan').textContent = money(budget.after_living_plan_krw);
+  const livingPlan = M.personal_spending_budget.monthly.find(plan => plan.month === key);
+  $('#livingPlanDetail').hidden = !livingPlan;
+  $('#livingPlanItems').textContent = livingPlan
+    ? `사이트 ${money(livingPlan.site_krw)} · 참고서 ${money(livingPlan.books_krw)} · 데이트 ${money(livingPlan.dating_krw)} · 기타 ${money(livingPlan.other_krw)}`
+    : '';
   $('#heroCar').textContent=assets.vehicles.items.length?assets.vehicles.items.map(v=>v.name).join(', '):'보유 기록 없음';
   $('#heroHome').textContent=assets.homes.items.length?assets.homes.items.map(v=>v.name).join(', '):'보유 기록 없음';
   $('#homeNote').textContent='거주: '+assets.residence;
   const people=(M.relationships||[]).filter(p=>relationshipAt(p,key)!==null);
-  const current=people.filter(p=>relationshipAt(p,key)==='girlfriend');
-  $('#heroRelationship').innerHTML=current.length?current.map(p=>`<a class="person-link" href="${esc(profileLink(p,key))}">${esc(p.name)} ↗</a>`).join(' · '):'교제 기록 없음';
-  $('#relationshipNote').textContent=current.length?'교제 중 · 이름을 눌러 프로필':'해당 월 기록 기준';
   const groups=[['girlfriend','여자친구',p=>relationshipAt(p,key)==='girlfriend'],['crush','썸',p=>relationshipAt(p,key)==='crush'],['past','만남 기록',p=>['past','met'].includes(relationshipAt(p,key))]];
   $('#relationshipGroups').innerHTML=groups.map(([kind,label,accept])=>{const list=people.filter(accept);return `<section class="relation-group"><h3>${label} <span>${list.length}</span></h3>${list.length?list.map(p=>`<a class="person-card" href="${esc(profileLink(p,key))}"><img src="${esc(p.portrait)}" alt="${esc(p.name)} 가상 외모 시안" width="56" height="72"><span><b>${esc(p.name)} ↗</b><small>${kind==='girlfriend'?'교제 중 · ':''}${p.first_month.replace('-','년 ')}월부터 기록</small></span></a>`).join(''):'<p class="empty-relationship">기록 없음</p>'}</section>`}).join('');
   const body=M.body.filter(p=>p.date.slice(0,7)<=key).at(-1);

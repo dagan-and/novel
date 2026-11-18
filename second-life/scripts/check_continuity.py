@@ -100,7 +100,8 @@ for month in metrics['monthly']:
     assert month['cumulative_cash_received_usd']==cumulative_cash
     if month['publisher_rpm_usd'] is not None:
         assert abs(month['ad_pageviews']/1000*month['publisher_rpm_usd']-month['ad_revenue_usd'])<0.001
-    assert month['personal_cash_krw'] is None and month['net_profit_usd'] is None
+    assert month['net_profit_usd'] is None
+    assert month['personal_cash_krw'] is None or month['personal_cash_krw'] >= 0
 march = json.loads((root / metrics['source_links']['march_revenue']).read_text())
 mr = next(m for m in metrics['monthly'] if m['month']==march['story_month'])
 assert mr['ad_revenue_usd']==march['estimated_ad_revenue']
@@ -122,6 +123,8 @@ paid_months = set()
 received_krw = 0
 tracked_balance = None
 for key, row in sorted(monthly.items()):
+    site = row['finances']['site']
+    personal = row['finances']['personal']
     ledger = ledger_by_month.get(key)
     if ledger:
         payment, distribution = ledger['payment'], ledger['distribution']
@@ -134,24 +137,37 @@ for key, row in sorted(monthly.items()):
         gross = sum(Decimal(str(monthly[month]['ad_revenue_usd'])) for month in period)
         assert gross == Decimal(str(payment['gross_usd'])) == Decimal(str(row['cash_received_usd']))
         deposit = gross * payment['exchange_krw_per_usd'] - payment['fee_krw']
-        assert deposit == payment['deposit_krw'] == row['cash_received_krw']
+        assert deposit == payment['deposit_krw'] == site['received_krw']
+        assert site['fee_this_month_krw'] == payment['fee_krw']
         split_period = {month for month in period if distribution['split_from_month'] <= month <= distribution['split_through_month']}
         assert split_period
         each_usd = sum(Decimal(str(monthly[month]['ad_revenue_usd'])) for month in split_period) / 2
         assert each_usd == Decimal(str(distribution['gross_each_usd']))
         each_krw = (deposit * each_usd / gross).quantize(Decimal('1'), rounding=ROUND_HALF_UP)
         assert distribution['to_yongsik_krw'] == distribution['to_mother_krw'] == each_krw
-        assert distribution['held_unallocated_krw'] == deposit - 2 * each_krw
+        assert distribution['held_unallocated_krw'] == deposit - 2 * each_krw == site['held_this_month_krw']
         outflows = ledger['personal_outflows']
         assert all(sum(item['items'].values()) == item['amount_krw'] >= 0 for item in outflows)
         tracked_balance = (tracked_balance or 0) + each_krw - sum(item['amount_krw'] for item in outflows)
         assert tracked_balance >= 0
-    net_receipt = row.get('cash_received_krw')
+    net_receipt = site['received_krw']
     if not ledger:
         assert net_receipt == (0 if row['cash_received_usd'] == 0 else None)
+        assert site['held_this_month_krw'] is None and site['fee_this_month_krw'] is None
     received_krw = received_krw + net_receipt if received_krw is not None and net_receipt is not None else None
-    assert row.get('cumulative_cash_received_krw') == received_krw
-    assert row.get('tracked_personal_cash_krw') == tracked_balance
+    assert site['received_total_krw'] == received_krw
+    unpaid = round(row['cumulative_ad_revenue_usd'] - row['cumulative_cash_received_usd'], 2)
+    assert site['unpaid_usd'] == unpaid >= 0
+    full_cash = row['personal_cash_krw']
+    if full_cash is not None:
+        assert personal['cash_krw'] == full_cash and personal['cash_scope'] == 'full'
+    else:
+        assert personal['cash_krw'] == tracked_balance
+        assert personal['cash_scope'] == ('settlement' if tracked_balance is not None else 'unknown')
+    assets = metrics['personal_assets']
+    components = [full_cash, row['investment_assets_krw'], assets['vehicles']['valuation_krw'],
+                  assets['homes']['valuation_krw'], assets['other_assets_krw']]
+    assert personal['total_assets_krw'] == (sum(components) if None not in components else None)
 print('Cash ledger OK: incoming funds, allocations, outflows, and tracked balance')
 
 fx = metrics["display_fx"]
@@ -177,22 +193,25 @@ for exam in [metrics['academics'], *metrics.get('additional_exams', [])]:
 budget = metrics['cost_model']
 assert budget['status'] == 'budget_scenario_not_paid_expense'
 cumulative_budget = 0
+living = {row['month']: row for row in metrics['personal_spending_budget']['monthly']}
 for month in metrics['monthly']:
     cost = next(row for row in budget['monthly'] if row['month']==month['month'])
     amount = cost['hosting_krw'] + cost['domain_cash_krw'] + cost['setup_cash_krw']
-    assert month['planned_cash_cost_krw'] == amount
+    monthly_budget = month['finances']['budget']
+    assert monthly_budget['site_cash_plan_krw'] == amount
     cumulative_budget += amount
-    assert month['cumulative_planned_cash_cost_krw'] == cumulative_budget
+    assert monthly_budget['site_cash_plan_total_krw'] == cumulative_budget
+    assert monthly_budget['hosting_krw'] == cost['hosting_krw']
+    recurring = cost['hosting_krw'] + budget['annual_domain_budget_krw']/12 + budget['monthly_contingency_krw']
+    allowance = budget['monthly_allowance_krw']
+    assert monthly_budget['recurring_site_krw'] == round(recurring)
+    assert monthly_budget['allowance_krw'] == allowance
+    assert monthly_budget['after_site_krw'] == (round(allowance - recurring) if allowance is not None else None)
+    assert monthly_budget['after_living_plan_krw'] == living.get(month['month'], {}).get('remaining_budget_krw')
     assert month['operating_costs_usd'] is None, 'Budget must not become an actual expense'
 for person in metrics.get('relationships', []):
     assert person['first_month'] in data['months']
 print(f'Budget OK: planned KRW {cumulative_budget:,}; separate from actual cash')
-
-for month in metrics["monthly"]:
-    allowance = metrics["cost_model"]["monthly_allowance_krw"]
-    recurring = month["planned_hosting_cost_krw"] + metrics["cost_model"]["annual_domain_budget_krw"]/12 + metrics["cost_model"]["monthly_contingency_krw"]
-    assert month["monthly_available_budget_krw"] == allowance
-    assert month["remaining_recurring_budget_krw"] == (round(allowance-recurring) if allowance is not None else None)
 
 # Keep relationship profiles and image assets reachable; record timing explicitly.
 for person in metrics.get('relationships', []):
