@@ -5,14 +5,12 @@
 
 ## 지금 이어갈 작업
 
-**새로운 HTML 기반 세계관·게임형 소설 구상**
+**《완전한 두 번째 삶》 (가제)**
 
 - 원하는 경험: 직접 만든 세계관과 진행 상황을 HTML 화면으로 보며 계속 갱신하기.
 - 게시 방향: GitHub Pages로 게시하고 스마트폰에서 같은 주소로 갱신 내용을 확인하기.
-- 현재 단계: 저장소 탐색 안내 정리 완료. 새 프로젝트의 이름, 세계관, 화면 구성과 진행 방식은 미정.
-- 다음 단계: [새 프로젝트 인계 메모](docs/START_HERE.md#새-html-세계관게임형-소설)를 읽고 구체화하기.
-
-새 프로젝트는 아직 생성하지 않았습니다. 아래 기존 작품과 별개의 작업입니다.
+- 현재 단계: 공통 회귀일은 2005년 1월 1일입니다. 신체·인지의 수치와 측정 기준, 투자 편 첫 달 초안, 월별 관리 방식이 마련되었습니다.
+- 다음 단계: [프로젝트 안내](second-life/README.md)에서 투자 편의 2005년 1월 첫 장면과 조사 항목을 확인하세요.
 
 ## 프로젝트 찾기
 
@@ -28,6 +26,7 @@
 
 | 폴더 | 내용 | 시작 위치 |
 | --- | --- | --- |
+| [second-life](second-life/) | 2005년으로 돌아온 김용식의 여러 삶. 투자 편부터 월별로 기록 | [작품·관리 안내](second-life/README.md), [투자 편](second-life/series/investing/README.md) |
 | [dual_life](dual_life/) | 이중 현실 생활소설 | [README](dual_life/README.md), [세션 규칙](dual_life/AGENTS.md) |
 | [reunion](reunion/) | 기존 reunion 시리즈 | [세션 규칙](reunion/AGENTS.md) |
 | [reunion-reboot](reunion-reboot/) | 기존 reunion과 구분되는 별도 리부트 시리즈 | [세션 규칙](reunion-reboot/AGENTS.md) |
