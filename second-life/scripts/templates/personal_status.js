@@ -12,6 +12,12 @@ function assetSummary(month, assets) {
 function profileLink(person, month) {
   return person.profile_href+'?month='+encodeURIComponent(month);
 }
+function examAt(month) {
+  return [M.academics, ...(M.additional_exams || [])]
+    .filter(exam => exam.story_month <= month)
+    .sort((a, b) => a.story_month.localeCompare(b.story_month))
+    .at(-1);
+}
 function renderPersonal(month) {
   const key=month.month,assets=M.personal_assets,values=assetSummary(month,assets);
   const money=v=>v==null?'미정':fmt(v)+'원';
@@ -29,6 +35,8 @@ function renderPersonal(month) {
   const groups=[['girlfriend','여자친구',p=>relationshipAt(p,key)==='girlfriend'],['crush','썸',p=>relationshipAt(p,key)==='crush'],['past','만남 기록',p=>['past','met'].includes(relationshipAt(p,key))]];
   $('#relationshipGroups').innerHTML=groups.map(([kind,label,accept])=>{const list=people.filter(accept);return `<section class="relation-group"><h3>${label} <span>${list.length}</span></h3>${list.length?list.map(p=>`<a class="person-card" href="${esc(profileLink(p,key))}"><img src="${esc(p.portrait)}" alt="${esc(p.name)} 가상 외모 시안" width="56" height="72"><span><b>${esc(p.name)} ↗</b><small>${kind==='girlfriend'?'교제 중 · ':''}${p.first_month.replace('-','년 ')}월부터 기록</small></span></a>`).join(''):'<p class="empty-relationship">기록 없음</p>'}</section>`}).join('');
   const body=M.body.filter(p=>p.date.slice(0,7)<=key).at(-1);
-  const specs=[R[key].school_label,body?fmt(body.height_cm,1)+'cm · '+fmt(body.weight_kg,1)+'kg':null,key>=M.academics.story_month?'중간고사 평균 '+fmt(M.academics.simple_average)+'점 · 학년 '+M.academics.rank_in_grade+'등':null];
+  const exam = examAt(key);
+  const examSummary = exam ? `${exam.exam.split(' ').at(-1)} 평균 ${fmt(exam.simple_average)}점${exam.rank_in_grade == null ? '' : ' · 학년 ' + exam.rank_in_grade + '등'}` : null;
+  const specs=[R[key].school_label,body?fmt(body.height_cm,1)+'cm · '+fmt(body.weight_kg,1)+'kg':null,examSummary];
   $('#personalSpecs').textContent=specs.filter(Boolean).join(' / ');
 }

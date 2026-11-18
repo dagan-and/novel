@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "series": "investing",
-  "story_month": "2005-06",
-  "draft_month": "2005-06",
+  "story_month": "2005-07",
+  "draft_month": "2005-07",
   "last_confirmed_month": "2005-02",
   "authority": {
     "common": "base/",
@@ -213,6 +213,24 @@
       "status": "confirmed",
       "summary": "최신개인현황판·김현지상세프로필·v2이미지를Git푸시및기존GitHubPages에반영하도록명시승인. 게시완료는월진행마감이나미정자산확정과별개.",
       "source": "사용자2026-11-18: 반영해줘"
+    },
+    {
+      "id": "D034",
+      "status": "confirmed",
+      "summary": "7월부터 현지와 가끔 데이트하고, 서로 호감을 표현하며 편한 속도로 손잡기 같은 가벼운 애정 표현이 늘어나는 방향을 채택. 만남의 세부와 월별 금액은 협의한다.",
+      "source": "series/investing/planning/2005-07.md"
+    },
+    {
+      "id": "D035",
+      "status": "confirmed",
+      "summary": "협의안에 따라 7월 월간 초안을 작성한다. 시험을 중심으로 사이트 운영·광고 발생액·현지와의 데이트를 이어가며 7월 이후 신규 게임 플레이와 대회 기록은 제외한다. 성적과 광고 추정은 월말 확정과 별개다.",
+      "source": "series/investing/planning/2005-07.md"
+    },
+    {
+      "id": "D036",
+      "status": "confirmed",
+      "summary": "합의한 변경의 구현과 검증을 마치면 GitHub main 푸시와 공개 파일의 gh-pages 게시를 매번 수행한다. 원격 반영과 실제 페이지를 확인한다. 협의 단계와 작품 속 월말 확정은 게시와 별개다.",
+      "source": "사용자 2026-11-18 요청: 항상 깃헙 게시까지 진행"
     }
   ],
   "events": [
@@ -613,6 +631,48 @@
         "D028"
       ],
       "outline_accepted": true
+    },
+    {
+      "id": "E039",
+      "status": "draft",
+      "story_date": "2005-07",
+      "summary": "기말 준비 중 예약 갱신·백업·검색 오류 점검을 유지하고 시험 뒤 오래된 안내와 중복 검색 결과를 정리했다.",
+      "source": "series/investing/months/2005-07.md",
+      "decision_ids": [
+        "D035"
+      ]
+    },
+    {
+      "id": "E040",
+      "status": "draft",
+      "story_date": "2005-07",
+      "summary": "풍덕고 1학년 기말고사의 작품 기준안은 국어 95·영어 98·수학 96·사회 94·과학 97·국사 93·도덕 92점으로 7과목 단순평균 95점. 기말 석차와 학기말 성적은 미정.",
+      "source": "series/investing/months/2005-07.md",
+      "decision_ids": [
+        "D035"
+      ]
+    },
+    {
+      "id": "E041",
+      "status": "draft",
+      "story_date": "2005-07",
+      "summary": "시험 뒤 현지가 제안한 가벼운 분식 데이트를 하고 돌아가는 길에 손을 잡았다. 정확한 날과 지출은 미정.",
+      "source": "series/investing/months/2005-07.md",
+      "decision_ids": [
+        "D034",
+        "D035"
+      ]
+    },
+    {
+      "id": "E042",
+      "status": "draft",
+      "story_date": "2005-07-31",
+      "summary": "광고 발생액 450달러·누적 1,317달러를 작품 기준안에 반영. 어머니와 용식 몫은 각각 225달러이며 실제 광고대금 수령과 지급은 보류.",
+      "source": "series/investing/months/2005-07.md",
+      "decision_ids": [
+        "D028",
+        "D035"
+      ]
     }
   ],
   "tasks": [
@@ -1043,6 +1103,13 @@
       "value": null,
       "source": "series/investing/research/business/2005-06-operating-costs.md",
       "known_monthly_available_budget_krw": 100000
+    },
+    {
+      "id": "U012",
+      "status": "unknown",
+      "question": "풍덕고 2005년 기말고사 실제 시험일·과목·범위·배점표 및 작품의 기말 석차·수행평가 반영 학기말 성적",
+      "value": null,
+      "source": "series/investing/research/school/2005-07-finals.md"
     }
   ],
   "changes": [
@@ -1230,6 +1297,28 @@
         "D033"
       ],
       "reason": "main소스 e4921608 푸시,gh-pages 1d8804d 게시. Pages built와공개3파일HTTP200·로컬해시일치를확인. 기존타프로젝트변경을포함하지않음."
+    },
+    {
+      "id": "C017",
+      "recorded_at": "2026-11-18",
+      "targets": [
+        "D034",
+        "O005"
+      ],
+      "reason": "사용자가 지정한 데이트와 호감 표현의 방향을 제작 자료에 기록. 7월 사건·날짜·비용은 협의 중."
+    },
+    {
+      "id": "C018",
+      "recorded_at": "2026-11-18",
+      "targets": [
+        "D035",
+        "E039",
+        "E040",
+        "E041",
+        "E042",
+        "U012"
+      ],
+      "reason": "사용자 요청에 따라 7월 월간 초안·지표·현황판을 동기화한다. 세부 비용과 실제 수령, 월말 스냅샷은 확정하지 않는다."
     }
   ],
   "months": {
@@ -1291,6 +1380,16 @@
       "asset_note": "6월광고발생412.50달러·누적867달러는작품가정입니다.월지출예산과실제현금은구분합니다.",
       "site_note": "자동운영을유지하며6월9일전장업데이트와유입에대응합니다.유지비예산을점검하고학원첫교제와시간을나눕니다.",
       "revision_note": "세 가지 큰 흐름·정산 방식은 사용자 채택. 세부 서술·이미지·과목별 점수는 검토안이며 실제 수령·월 마감과 구분."
+    },
+    "2005-07": {
+      "title": "시험을 마치고 함께 걷는 길",
+      "status": "draft",
+      "summary": "기말고사 · 사이트 검색과 운영 · 현지와 시험 뒤 데이트 · 월말 광고 장부",
+      "school_label": "풍덕고 1학년",
+      "site_stage": "예약 운영 유지·시험 뒤 검색 정리",
+      "asset_note": "7월 광고 발생 450달러, 누적 1,317달러는 작품 모형. 현금 수령과 지급은 보류.",
+      "site_note": "시험 기간에는 예약 작업·백업·오류만 확인하고 이후 중복 검색 결과를 정리.",
+      "revision_note": "기말 7과목과 원점수는 작품 기준안. 학교 원본 시험표와 기말 석차는 미확인."
     }
   },
   "ongoing_threads": [
@@ -1329,7 +1428,9 @@
         "E031",
         "E034",
         "E035",
-        "E036"
+        "E036",
+        "E039",
+        "E042"
       ],
       "task_ids": [
         "T003",
@@ -1352,7 +1453,7 @@
     {
       "id": "O002",
       "priority": "secondary",
-      "summary": "스타 실력 유지·게임. 야자와 야간 개발을 하는 날은 여유에 맞춰 축소하고 주말 등으로 이동",
+      "summary": "1~6월에 남긴 스타·게임 기록. 7월부터 별도 플레이나 대회 전개를 추가하지 않는다.",
       "event_ids": [
         "E005",
         "E006",
@@ -1366,7 +1467,8 @@
       ],
       "decision_ids": [
         "D007",
-        "D015"
+        "D015",
+        "D035"
       ]
     },
     {
@@ -1388,7 +1490,8 @@
         "E027",
         "E028",
         "E032",
-        "E037"
+        "E037",
+        "E040"
       ],
       "task_ids": [
         "T013",
@@ -1418,12 +1521,14 @@
     {
       "id": "O005",
       "priority": "secondary",
-      "summary": "학원에서 시작한 첫 교제와 시간·관계 조율",
+      "summary": "학원에서 시작한 첫 교제. 가끔 데이트하며 서로 호감을 표현하고 편한 속도로 가까워진다.",
       "decision_ids": [
-        "D022"
+        "D022",
+        "D034"
       ],
       "event_ids": [
-        "E033"
+        "E033",
+        "E041"
       ],
       "task_ids": [
         "T028"

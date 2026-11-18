@@ -105,9 +105,6 @@ march = json.loads((root / metrics['source_links']['march_revenue']).read_text()
 mr = next(m for m in metrics['monthly'] if m['month']==march['story_month'])
 assert mr['ad_revenue_usd']==march['estimated_ad_revenue']
 assert mr['ad_pageviews']==march['ad_period_pageviews']
-subjects=metrics['academics']['subjects']
-assert all(0<=s['score']<=s['maximum'] for s in subjects)
-assert abs(sum(s['score'] for s in subjects)/len(subjects)-metrics['academics']['simple_average'])<0.001
 for point in metrics['body']:
     assert abs(point['weight_kg']*(1-point['body_fat_percent']/100)-point['fat_free_mass_kg'])<0.01
     assert point['skeletal_muscle_mass_kg'] is None
@@ -120,13 +117,19 @@ assert fx["kind"] == "fixed_display_approximation" and fx["krw_per_usd"] > 0
 assert round(metrics["monthly"][-1]["cumulative_ad_revenue_usd"] * fx["krw_per_usd"]) >= 0
 
 # User-specified 2/3/4-point questions cannot produce a one-point loss by wrong answers.
-points = metrics['academics'].get('question_point_values', [])
-assert points == [2, 3, 4]
-losses = {0}
-for total in range(101):
-    if total in losses:
-        losses.update(total+p for p in points if total+p<=100)
-assert all(100-subject['score'] in losses for subject in metrics['academics']['subjects'])
+for exam in [metrics['academics'], *metrics.get('additional_exams', [])]:
+    assert exam['story_month'] in data['months'], exam['exam']
+    assert (root / exam['research']).is_file(), exam['exam']
+    subjects = exam['subjects']
+    assert all(0 <= subject['score'] <= subject['maximum'] for subject in subjects), exam['exam']
+    assert abs(sum(subject['score'] for subject in subjects) / len(subjects) - exam['simple_average']) < 0.001, exam['exam']
+    points = exam.get('question_point_values', [])
+    assert points == [2, 3, 4]
+    losses = {0}
+    for total in range(101):
+        if total in losses:
+            losses.update(total + point for point in points if total + point <= 100)
+    assert all(subject['maximum'] - subject['score'] in losses for subject in subjects), exam['exam']
 # Budgets are not paid operating expenses and must reconcile without annual-fee duplication.
 budget = metrics['cost_model']
 assert budget['status'] == 'budget_scenario_not_paid_expense'

@@ -56,6 +56,8 @@ for month in sorted(data['monthly'], key=lambda m:m['month']):
     cumulative=round(cumulative+month['ad_revenue_usd'],2);received=round(received+month['cash_received_usd'],2)
     month.update(days=days,cumulative_ad_revenue_usd=cumulative,cumulative_cash_received_usd=received,average_daily_visitors=round(month['visitor_days']/days,2) if month['visitor_days'] is not None else None,average_daily_ad_revenue_usd=round(month['ad_revenue_usd']/days,4))
 data['daily']=rows
-data['academics']['simple_average']=sum(s['score'] for s in data['academics']['subjects'])/len(data['academics']['subjects'])
+for exam in [data['academics'], *data.get('additional_exams', [])]:
+    subjects = exam['subjects']
+    exam['simple_average'] = sum(subject['score'] for subject in subjects) / len(subjects)
 path.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
 print(f'Refreshed modeled metrics: {len(rows)} days; cumulative USD {cumulative:.2f}')
