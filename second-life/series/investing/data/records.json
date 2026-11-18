@@ -150,6 +150,12 @@
       "status": "confirmed",
       "summary": "사이트 유지비는 당시 가격·트래픽·용돈을 함께 검토하며 월 예산과 실제 납부를 구분한다.",
       "source": "사용자 지시2026-11-18: 유지비·첫여친·배점 교정·6월사건"
+    },
+    {
+      "id": "D024",
+      "status": "confirmed",
+      "summary": "매달 약100000원 사용 가능. 월 사용 예산으로 관리하며 잠정 초기 보유금10만원·실제 입금·현재 현금잔액과 구분한다.",
+      "source": "사용자 답변2026-11-18: 한달에10만원정도사용가능"
     }
   ],
   "events": [
@@ -958,9 +964,10 @@
     {
       "id": "U011",
       "status": "unknown",
-      "question": "실제 월용돈과 실제 호스팅·도메인·설정비 납부,트래픽 한도",
+      "question": "월사용가능예산약10만원은확인. 실제 호스팅·도메인·설정비 납부와 상품 트래픽 한도는 미정",
       "value": null,
-      "source": "series/investing/research/business/2005-06-operating-costs.md"
+      "source": "series/investing/research/business/2005-06-operating-costs.md",
+      "known_monthly_available_budget_krw": 100000
     }
   ],
   "changes": [
@@ -1098,6 +1105,15 @@
         "E037"
       ],
       "reason": "사용자 배점 지적 반영과6월 첫 교제·유지비·패치 사건 초안 구성. 비용 예산은 실제 지출 원장에 반영하지 않음."
+    },
+    {
+      "id": "C012",
+      "recorded_at": "2026-11-18",
+      "targets": [
+        "D024",
+        "U011"
+      ],
+      "reason": "비동기 답변으로 월 사용 가능 예산 약10만원 확인. 실제 입금 원장이나 잔액을 생성하지 않음."
     }
   ],
   "months": {

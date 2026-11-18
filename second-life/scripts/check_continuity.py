@@ -141,3 +141,9 @@ for month in metrics['monthly']:
 for person in metrics.get('relationships', []):
     assert person['first_month'] in data['months']
 print(f'Budget OK: planned KRW {cumulative_budget:,}; separate from actual cash')
+
+for month in metrics["monthly"]:
+    allowance = metrics["cost_model"]["monthly_allowance_krw"]
+    recurring = month["planned_hosting_cost_krw"] + metrics["cost_model"]["annual_domain_budget_krw"]/12 + metrics["cost_model"]["monthly_contingency_krw"]
+    assert month["monthly_available_budget_krw"] == allowance
+    assert month["remaining_recurring_budget_krw"] == (round(allowance-recurring) if allowance is not None else None)

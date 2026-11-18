@@ -36,7 +36,9 @@
       "trade_count": 0,
       "planned_hosting_cost_krw": 5500,
       "planned_cash_cost_krw": 32500,
-      "cumulative_planned_cash_cost_krw": 32500
+      "cumulative_planned_cash_cost_krw": 32500,
+      "monthly_available_budget_krw": 100000,
+      "remaining_recurring_budget_krw": 87667
     },
     {
       "month": "2005-02",
@@ -63,7 +65,9 @@
       "trade_count": 0,
       "planned_hosting_cost_krw": 5500,
       "planned_cash_cost_krw": 5500,
-      "cumulative_planned_cash_cost_krw": 38000
+      "cumulative_planned_cash_cost_krw": 38000,
+      "monthly_available_budget_krw": 100000,
+      "remaining_recurring_budget_krw": 87667
     },
     {
       "month": "2005-03",
@@ -90,7 +94,9 @@
       "trade_count": 0,
       "planned_hosting_cost_krw": 5500,
       "planned_cash_cost_krw": 5500,
-      "cumulative_planned_cash_cost_krw": 43500
+      "cumulative_planned_cash_cost_krw": 43500,
+      "monthly_available_budget_krw": 100000,
+      "remaining_recurring_budget_krw": 87667
     },
     {
       "month": "2005-04",
@@ -117,7 +123,9 @@
       "trade_count": 0,
       "planned_hosting_cost_krw": 5500,
       "planned_cash_cost_krw": 5500,
-      "cumulative_planned_cash_cost_krw": 49000
+      "cumulative_planned_cash_cost_krw": 49000,
+      "monthly_available_budget_krw": 100000,
+      "remaining_recurring_budget_krw": 87667
     },
     {
       "month": "2005-05",
@@ -144,7 +152,9 @@
       "trade_count": 0,
       "planned_hosting_cost_krw": 11000,
       "planned_cash_cost_krw": 11000,
-      "cumulative_planned_cash_cost_krw": 60000
+      "cumulative_planned_cash_cost_krw": 60000,
+      "monthly_available_budget_krw": 100000,
+      "remaining_recurring_budget_krw": 82167
     },
     {
       "month": "2005-06",
@@ -171,7 +181,9 @@
       "trade_count": 0,
       "planned_hosting_cost_krw": 11000,
       "planned_cash_cost_krw": 11000,
-      "cumulative_planned_cash_cost_krw": 71000
+      "cumulative_planned_cash_cost_krw": 71000,
+      "monthly_available_budget_krw": 100000,
+      "remaining_recurring_budget_krw": 82167
     }
   ],
   "daily": [
@@ -1986,7 +1998,7 @@
   "cost_model": {
     "status": "budget_scenario_not_paid_expense",
     "currency": "KRW",
-    "monthly_allowance_krw": null,
+    "monthly_allowance_krw": 100000,
     "annual_domain_budget_krw": 22000,
     "monthly_contingency_krw": 5000,
     "monthly": [
@@ -2033,6 +2045,8 @@
     "sources": [
       "https://yokim.net/ko/415",
       "https://www.etnews.com/200506290053?m=1"
-    ]
+    ],
+    "allowance_definition": "사용자 확인: 한 달에 약10만원 사용 가능. 실제 용돈 입금·현재 잔액·과거 월별 수령 내역을 뜻하지 않음.",
+    "allowance_status": "user_confirmed_approximate_available_budget"
   }
 }

@@ -32,6 +32,10 @@ for month in sorted(data['monthly'], key=lambda m:m['month']):
         month['planned_cash_cost_krw'] = planned['hosting_krw'] + planned['domain_cash_krw'] + planned['setup_cash_krw']
         budget_total += month['planned_cash_cost_krw']
         month['cumulative_planned_cash_cost_krw'] = budget_total
+        allowance = data['cost_model']['monthly_allowance_krw']
+        recurring = planned['hosting_krw'] + data['cost_model']['annual_domain_budget_krw']/12 + data['cost_model']['monthly_contingency_krw']
+        month['monthly_available_budget_krw'] = allowance
+        month['remaining_recurring_budget_krw'] = round(allowance-recurring) if allowance is not None else None
     y,m = map(int,key.split('-')); days = calendar.monthrange(y,m)[1]
     dates = [date(y,m,i+1) for i in range(days)]
     weights = [(0.7 + 0.6*i/max(1,days-1))*(1.15 if dt.weekday()>=5 else 1) for i,dt in enumerate(dates)]
