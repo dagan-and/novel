@@ -66,3 +66,13 @@ main에 제작 자료,gh-pages에 공개HTML과이미허용한설정문서만 �
 D024는 초기 보유금10만원을 월말 잔액으로 확정하거나 과거6개월 용돈60만원 수령을 뜻하지 않는다. 현황판의 월사용예산·반복비용후여유만 갱신하고 개인현금은 미정 유지한다.
 
 검증:기존연속성·광고/비용합계·점수검산,프로필원본/링크/이미지/기간검사통과. 브라우저에서상단링크→현지상세→6월관계목록복귀,5월관계미노출,390px모바일가로넘침없음과사진3:4비율을확인했다.
+
+## 게시 검증 완료 · 2026-11-18
+
+사용자「반영해줘」에 따라 소스main e4921608을푸시하고,gh-pages 1d8804d4260acbc8d694963d222f154888bf5c55로게시했다. GitHubPages최신빌드built·오류없음을확인했고,아래세파일이공개HTTP200이며로컬생성물과SHA256이일치했다. 게시변경은이세파일뿐이다.
+
+- https://dagan-and.github.io/novel/series/investing/dashboard.html?month=2005-06
+- https://dagan-and.github.io/novel/series/investing/characters/person-001.html?month=2005-06
+- series/investing/characters/images/kim-hyeonji-v2.png
+
+초안의게시가월별진행마감이나미정금액의확정을뜻하지않는다. 기존협의원칙은유지한다.
