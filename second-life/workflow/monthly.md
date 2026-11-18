@@ -1,5 +1,6 @@
 # 월별 진행과 기록
 
+현재 적용 규칙은 [세계관 탐색과 연속성 관리](continuity.md)다. 이 문서의 소설·episodes 및 제안 구조는 이전 설계이며, 현재는 months에 1인칭 탐색 서술, data/records.json에 결정·사건·할 일, planning에 제작 계획을 관리한다.
 새 분야를 시작할 때 `series/<분야>/` 아래에 `README.md`, `state.json`, `research/`, `months/`를 둔다. 소설 본문이 생기면 `episodes/`를 추가한다. `base/`는 모든 편에 적용할 기본 설정이다.
 
 | 기록 위치 | 업데이트 기준 |

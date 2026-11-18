@@ -1,0 +1,35 @@
+"""Check record structure and local references; does not change story state."""
+from pathlib import Path
+import json
+
+root = Path(__file__).resolve().parents[1]
+data = json.loads((root / 'series/investing/data/records.json').read_text())
+state = json.loads((root / 'series/investing/state.json').read_text())
+ids = []
+for group in ('decisions', 'events', 'tasks', 'unknowns', 'changes'):
+    for item in data[group]:
+        ids.append(item['id'])
+        source = item.get('source', '')
+        if '/' in source and not source.startswith('http'):
+            assert (root / source).is_file(), f"Missing reference: {source}"
+assert len(ids) == len(set(ids)), 'Duplicate record ID'
+assert data['last_confirmed_month'] == state['last_confirmed_month'], 'Progress mismatch'
+decision_ids = {item['id'] for item in data['decisions']}
+for item in data['decisions'] + data['events']:
+    assert item['status'] in ('confirmed', 'draft'), item['id']
+    assert set(item.get('decision_ids', [])) <= decision_ids, item['id']
+tasks = {item['id']: item for item in data['tasks']}
+for task in tasks.values():
+    assert task['status'] in ('planned', 'in_progress', 'done', 'blocked'), task['id']
+    assert set(task['depends_on']) <= tasks.keys(), task['id']
+    assert task['actual_hours'] is None or task['actual_hours'] >= 0, task['id']
+    assert task['completion'] is None or 0 <= task['completion'] <= 1, task['id']
+    if task['status'] == 'done':
+        assert task.get('evidence'), f"Missing completion evidence: {task['id']}"
+def visit(key, path):
+    assert key not in path, f'Dependency cycle: {key}'
+    for dep in tasks[key]['depends_on']:
+        visit(dep, path | {key})
+for key in tasks:
+    visit(key, set())
+print(f'Continuity OK: {len(ids)} IDs; progress {state["next_month"]}; unknowns preserved')
