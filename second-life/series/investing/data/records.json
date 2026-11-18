@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
   "series": "investing",
-  "story_month": "2005-02",
-  "draft_month": "2005-02",
-  "last_confirmed_month": "2005-01",
+  "story_month": "2005-03",
+  "draft_month": "2005-03",
+  "last_confirmed_month": "2005-02",
   "authority": {
     "common": "base/",
     "progress": "series/investing/state.json",
-    "narrative": "series/investing/months/2005-02.md",
+    "narrative": "series/investing/months/2005-03.md",
     "workflow": "workflow/continuity.md"
   },
   "decisions": [
@@ -46,6 +46,24 @@
       "status": "confirmed",
       "summary": "사이트 구현과 운영은 2월에도 계속되는 본줄기다. 새 관심사인 스타 때문에 기존 활동을 생략하거나 대체하지 않는다.",
       "source": "사용자 지시 2026-11-18: 사이트 구현 및 운영은 자연스럽게 2월에도 계속"
+    },
+    {
+      "id": "D007",
+      "status": "confirmed",
+      "summary": "3월은 사이트가 최우선이며 남는 시간에 스타를 하루 2~3시간 즐기는 방향. 학교·학원·식사·수면과 겹치면 게임 시간을 조정한다.",
+      "source": "사용자 지시 2026-11-18: 사이트 최우선, 남는 시간 게임"
+    },
+    {
+      "id": "D008",
+      "status": "confirmed",
+      "summary": "정독·이해한 교과 내용이 기억되고 필요한 내용을 바로 찾아 사고·추론할 수 있어 학업 성과가 매우 높다.",
+      "source": "base/cognition.md"
+    },
+    {
+      "id": "D009",
+      "status": "confirmed",
+      "summary": "2월의 사이트 구현·시험공개·반복 운영을 이어받아 3월로 진행. 자금과 경기 수치는 미확정 유지.",
+      "source": "사용자 지시 2026-11-18: 3월도 정리"
     }
   ],
   "events": [
@@ -107,56 +125,124 @@
     },
     {
       "id": "E007",
-      "status": "draft",
+      "status": "confirmed",
       "summary": "게임 사이트 소규모 시험공개와 피드백에 따른 검색·질문 연결 개선",
       "source": "series/investing/months/2005-02.md",
       "story_date": "2005-02",
       "decision_ids": [
         "D003"
-      ]
+      ],
+      "accepted_by": "2026-11-18 사용자: 3월도 정리 요청, 기존 사업 지속 방향 유지"
     },
     {
       "id": "E008",
-      "status": "draft",
+      "status": "confirmed",
       "summary": "디아블로 검색의 부족 조건·표기 정리·큐브 검색·공략 연결 보완",
       "source": "series/investing/months/2005-02.md",
       "story_date": "2005-02",
       "decision_ids": [
         "D003",
         "D006"
-      ]
+      ],
+      "accepted_by": "2026-11-18 사용자: 3월도 정리 요청, 기존 사업 지속 방향 유지"
     },
     {
       "id": "E009",
-      "status": "draft",
+      "status": "confirmed",
       "summary": "WoW 직업 안내·체크리스트·관련 질문 연결을 계속 구현",
       "source": "series/investing/months/2005-02.md",
       "story_date": "2005-02",
       "decision_ids": [
         "D003",
         "D006"
-      ]
+      ],
+      "accepted_by": "2026-11-18 사용자: 3월도 정리 요청, 기존 사업 지속 방향 유지"
     },
     {
       "id": "E010",
-      "status": "draft",
+      "status": "confirmed",
       "summary": "시험공개 뒤 질문 응대·정보 교정·오류 우선 처리·신고·백업을 반복 운영",
       "source": "series/investing/months/2005-02.md",
       "story_date": "2005-02",
       "decision_ids": [
         "D003",
         "D006"
-      ]
+      ],
+      "accepted_by": "2026-11-18 사용자: 3월도 정리 요청, 기존 사업 지속 방향 유지"
     },
     {
       "id": "E011",
-      "status": "draft",
+      "status": "confirmed",
       "summary": "독립 콘텐츠와 사용 가능한 도구를 바탕으로 광고 신청 준비; 승인과 입금은 미확정",
       "source": "series/investing/months/2005-02.md",
       "story_date": "2005-02",
       "decision_ids": [
         "D003",
         "D006"
+      ],
+      "accepted_by": "2026-11-18 사용자: 3월도 정리 요청, 기존 사업 지속 방향 유지"
+    },
+    {
+      "id": "E012",
+      "status": "draft",
+      "summary": "3월 초 고등학교 입학과 교과 학습, 높은 이해·회상·추론 능력 탐색",
+      "source": "series/investing/months/2005-03.md",
+      "story_date": "2005-03",
+      "decision_ids": [
+        "D008"
+      ]
+    },
+    {
+      "id": "E013",
+      "status": "draft",
+      "summary": "수업 외에는 사이트를 먼저 관리하고 디아블로·WoW 기능·자료를 계속 보강",
+      "source": "series/investing/months/2005-03.md",
+      "story_date": "2005-03",
+      "decision_ids": [
+        "D006",
+        "D007"
+      ]
+    },
+    {
+      "id": "E014",
+      "status": "draft",
+      "summary": "광고 신청 후 3월 10일 게재 시작이라는 창작 시나리오",
+      "source": "series/investing/months/2005-03.md",
+      "story_date": "2005-03-10",
+      "decision_ids": [
+        "D004",
+        "D007"
+      ]
+    },
+    {
+      "id": "E015",
+      "status": "draft",
+      "summary": "광고 기간 4만 페이지뷰·게시자 RPM 1.20달러로 48달러 발생, 현금 수령 0달러라는 초안",
+      "source": "series/investing/months/2005-03.md",
+      "story_date": "2005-03",
+      "decision_ids": [
+        "D004"
+      ]
+    },
+    {
+      "id": "E016",
+      "status": "draft",
+      "summary": "남는 시간 스타 2~3시간을 지향. 평균 APM 400~500은 실측 전 작품용 후보",
+      "source": "series/investing/months/2005-03.md",
+      "story_date": "2005-03",
+      "decision_ids": [
+        "D007"
+      ]
+    },
+    {
+      "id": "E017",
+      "status": "draft",
+      "summary": "반복 질문·검색·자료 교정·백업·관리 작업을 정리해 개학 후에도 사이트 운영 지속",
+      "source": "series/investing/months/2005-03.md",
+      "story_date": "2005-03",
+      "decision_ids": [
+        "D006",
+        "D007"
       ]
     }
   ],
@@ -190,7 +276,7 @@
       "status": "in_progress",
       "summary": "디아블로 II 1.10 데이터 검증과 도구 연결",
       "scope": "story",
-      "story_month": "2005-01",
+      "story_month": "2005-03",
       "depends_on": [
         "T002"
       ],
@@ -204,7 +290,7 @@
       "status": "in_progress",
       "summary": "WoW 입문 자료·체크리스트 연결",
       "scope": "story",
-      "story_month": "2005-01",
+      "story_month": "2005-03",
       "depends_on": [
         "T002"
       ],
@@ -215,7 +301,7 @@
     },
     {
       "id": "T005",
-      "status": "planned",
+      "status": "done",
       "summary": "시험판 기능·자료·외부 이용성 검수",
       "scope": "story",
       "story_month": "2005-02",
@@ -224,13 +310,14 @@
         "T004"
       ],
       "actual_hours": null,
-      "completion": null,
+      "completion": 1,
       "source": "series/investing/planning/2005-01-site-plan.md",
-      "note": "1월의 미완료·미확정 항목을 2월로 이월. 초안 사건을 확정 실적으로 입력하지 않음."
+      "note": "전체 데이터 목표나 실사용 시간까지 확정한 것은 아님.",
+      "evidence": "E007：사용자 채택한 2월 소규모 시험공개와 그 범위의 검수"
     },
     {
       "id": "T006",
-      "status": "planned",
+      "status": "done",
       "summary": "사이트 첫 공개와 반응 확인",
       "scope": "story",
       "story_month": "2005-02",
@@ -238,16 +325,17 @@
         "T005"
       ],
       "actual_hours": null,
-      "completion": null,
+      "completion": 1,
       "source": "series/investing/planning/2005-01-site-plan.md",
-      "note": "1월의 미완료·미확정 항목을 2월로 이월. 초안 사건을 확정 실적으로 입력하지 않음."
+      "note": "전체 데이터 목표나 실사용 시간까지 확정한 것은 아님.",
+      "evidence": "E007：사용자 채택한 2월 소규모 시험공개와 그 범위의 검수"
     },
     {
       "id": "T007",
       "status": "planned",
       "summary": "어머니와 광고 신청 준비・정산 기준 결정",
       "scope": "story",
-      "story_month": "2005-02",
+      "story_month": "2005-03",
       "depends_on": [
         "T001",
         "T005"
@@ -262,7 +350,7 @@
       "status": "planned",
       "summary": "월말 사건·자금 확인과 마감",
       "scope": "story",
-      "story_month": "2005-02",
+      "story_month": "2005-03",
       "depends_on": [],
       "actual_hours": null,
       "completion": null,
@@ -274,7 +362,7 @@
       "status": "planned",
       "summary": "테란 세 빌드의 같은 조건 리플레이 비교",
       "scope": "story",
-      "story_month": "2005-02",
+      "story_month": "2005-03",
       "depends_on": [
         "T010"
       ],
@@ -287,7 +375,7 @@
       "status": "planned",
       "summary": "스타 기록 도구 호환성 확인과 실제 측정값 수집",
       "scope": "story",
-      "story_month": "2005-02",
+      "story_month": "2005-03",
       "depends_on": [],
       "actual_hours": null,
       "completion": null,
@@ -298,7 +386,7 @@
       "status": "planned",
       "summary": "입학 후 사이트 운영·연습 시간 배분",
       "scope": "story",
-      "story_month": "2005-02",
+      "story_month": "2005-03",
       "depends_on": [],
       "actual_hours": null,
       "completion": null,
@@ -306,16 +394,65 @@
     },
     {
       "id": "T012",
-      "status": "planned",
+      "status": "in_progress",
       "summary": "시험공개 후 질문·검색 실패·오류·신고·자료 수정·백업을 반복 관리",
       "scope": "story",
-      "story_month": "2005-02",
+      "story_month": "2005-03",
       "depends_on": [
         "T006"
       ],
       "actual_hours": null,
       "completion": null,
-      "source": "series/investing/planning/2005-02.md"
+      "source": "series/investing/planning/2005-02.md",
+      "evidence": "E010: 반복 운영을 이어받음. 계속되는 작업이며 종료 아님."
+    },
+    {
+      "id": "T013",
+      "status": "planned",
+      "summary": "3월 학교·학원 일정 안에서 사이트 우선 운영과 스타 시간 조정",
+      "scope": "story",
+      "story_month": "2005-03",
+      "depends_on": [],
+      "actual_hours": null,
+      "completion": null,
+      "source": "series/investing/planning/2005-03.md"
+    },
+    {
+      "id": "T014",
+      "status": "planned",
+      "summary": "광고 신청·게재와 일별 발생액·지급 절차 확인",
+      "scope": "story",
+      "story_month": "2005-03",
+      "depends_on": [
+        "T007"
+      ],
+      "actual_hours": null,
+      "completion": null,
+      "source": "series/investing/planning/2005-03.md"
+    },
+    {
+      "id": "T015",
+      "status": "planned",
+      "summary": "디아블로 검색 조건 유지·자료 보강과 WoW 안내·질문 연결 개선",
+      "scope": "story",
+      "story_month": "2005-03",
+      "depends_on": [
+        "T005"
+      ],
+      "actual_hours": null,
+      "completion": null,
+      "source": "series/investing/planning/2005-03.md"
+    },
+    {
+      "id": "T016",
+      "status": "planned",
+      "summary": "교과 내용 이해·구조화·즉시 회상과 과제 처리",
+      "scope": "story",
+      "story_month": "2005-03",
+      "depends_on": [],
+      "actual_hours": null,
+      "completion": null,
+      "source": "series/investing/planning/2005-03.md"
     }
   ],
   "unknowns": [
@@ -344,9 +481,10 @@
     {
       "id": "U004",
       "status": "unknown",
-      "question": "외부 공개일·광고 신청·승인·수익·실제 현금 수령",
+      "question": "시험공개는 2월 채택. 정확한 공개일·광고 승인·발생액·현금 수령은 확정 전",
       "value": null,
-      "source": "series/investing/README.md"
+      "source": "series/investing/README.md",
+      "scenario_source": "series/investing/scenarios/2005-03.json"
     },
     {
       "id": "U005",
@@ -354,6 +492,13 @@
       "question": "스타 측정 도구·실제 경기 표본·월말 APM과 상대별 성적",
       "value": null,
       "source": "series/investing/research/games/2005-02-starcraft.md"
+    },
+    {
+      "id": "U006",
+      "status": "unknown",
+      "question": "고등학교명·정확한 입학일·등하교·학원 시간표와 실제 시험 성적",
+      "value": null,
+      "source": "series/investing/planning/2005-03.md"
     }
   ],
   "changes": [
@@ -390,6 +535,21 @@
         "E011"
       ],
       "reason": "사용자 교정: 2월 서술에서 스타 설명에 치우친 비중을 조정하고 사이트 구현·운영을 월 전체의 본줄기로 복원."
+    },
+    {
+      "id": "C004",
+      "recorded_at": "2026-11-18",
+      "targets": [
+        "D007",
+        "D008",
+        "D009",
+        "E007",
+        "E008",
+        "E009",
+        "E010",
+        "E011"
+      ],
+      "reason": "사용자가 3월 진행과 사이트 최우선·남는 시간 스타·뛰어난 교과 기억/추론을 선택. 2월 질적 진행만 채택하며 3월 수익과 성적은 초안 분리."
     }
   ],
   "months": {
@@ -402,10 +562,20 @@
     },
     "2005-02": {
       "title": "사이트가 돌아가기 시작한 달",
-      "status": "draft",
+      "status": "confirmed",
       "summary": "구현·시험공개·운영의 연결 · 테란 능력 탐색 · 입학 준비",
       "asset_note": "시작 자금은 잠정 약 10만 원입니다. 2월 지출·보유금·광고 수령액은 미확정입니다.",
-      "site_note": "디아블로·WoW 기능 보완, 소규모 시험공개, 질문 대응과 오류 수정을 함께 진행하는 초안입니다. 광고 승인·수익은 미확정입니다."
+      "site_note": "디아블로·WoW 기능 보완과 소규모 시험공개·반복 운영을 이어받았습니다. 정확한 운영비·유입 수치와 스타 수행 실측은 미정입니다."
+    },
+    "2005-03": {
+      "title": "학교에 다니며 수익의 첫 줄을 만들다",
+      "status": "draft",
+      "summary": "고등학교 입학 · 사이트 우선 운영 · 첫 광고 발생액 · 꾸준한 테란 연습",
+      "school_label": "고등학교 1학년 · 입학",
+      "site_stage": "운영·첫 광고 게재 초안",
+      "asset_note": "광고 발생액 48달러는 창작 시나리오이며 실제 수령 0달러와 구분합니다. 현금 잔액과 운영비는 미정입니다.",
+      "site_note": "학교생활과 함께 디아블로·WoW 구현·운영을 우선합니다. 3월 10일 광고 게재와 발생액은 초안입니다. 스타는 남는 시간 2~3시간을 즐기는 방향입니다.",
+      "revenue_scenario": "series/investing/scenarios/2005-03.json"
     }
   },
   "ongoing_threads": [
@@ -416,7 +586,8 @@
       "decision_ids": [
         "D003",
         "D004",
-        "D006"
+        "D006",
+        "D007"
       ],
       "event_ids": [
         "E003",
@@ -425,14 +596,21 @@
         "E008",
         "E009",
         "E010",
-        "E011"
+        "E011",
+        "E013",
+        "E014",
+        "E015",
+        "E017"
       ],
       "task_ids": [
         "T003",
         "T004",
         "T005",
         "T006",
-        "T007"
+        "T007",
+        "T012",
+        "T014",
+        "T015"
       ]
     },
     {
@@ -441,11 +619,31 @@
       "summary": "스타 테란 실력 적응·측정과 소규모 콘텐츠 가능성",
       "event_ids": [
         "E005",
-        "E006"
+        "E006",
+        "E016"
       ],
       "task_ids": [
         "T009",
-        "T010"
+        "T010",
+        "T013"
+      ],
+      "decision_ids": [
+        "D007"
+      ]
+    },
+    {
+      "id": "O003",
+      "priority": "secondary",
+      "summary": "학교생활·교과 학습·과제. 수업 중 높은 이해·회상·추론으로 효율 확보",
+      "decision_ids": [
+        "D008"
+      ],
+      "event_ids": [
+        "E012"
+      ],
+      "task_ids": [
+        "T013",
+        "T016"
       ]
     }
   ]

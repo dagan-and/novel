@@ -1,0 +1,21 @@
+{
+  "as_of": "2005-02-28",
+  "series": "investing",
+  "status": "confirmed_qualitative",
+  "event_ids": [
+    "E007",
+    "E008",
+    "E009",
+    "E010",
+    "E011"
+  ],
+  "site_stage": "limited_public_trial_and_operations",
+  "site_public": true,
+  "investment_trades": [],
+  "cash_krw": null,
+  "operating_costs_krw": null,
+  "revenue_krw": null,
+  "actual_work_hours": null,
+  "starcraft_measured_apm": null,
+  "note": "2월 구현·시험공개·운영을 3월로 이어받음. 수치·광고 승인·실제 입금은 채택 대상 아님."
+}

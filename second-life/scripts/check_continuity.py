@@ -48,4 +48,14 @@ for thread in data.get('ongoing_threads', []):
     for field, group in [('decision_ids', 'decisions'), ('event_ids', 'events'), ('task_ids', 'tasks')]:
         allowed = {item['id'] for item in data[group]}
         assert set(thread.get(field, [])) <= allowed, thread['id']
+for key, meta in data.get('months', {}).items():
+    if meta.get('revenue_scenario'):
+        scenario = json.loads((root / meta['revenue_scenario']).read_text())
+        assert scenario['story_month'] == key
+        assert scenario['kind'] == 'fictional_scenario' and scenario['status'] == 'draft'
+        modeled = scenario['ad_period_pageviews'] / 1000 * scenario['publisher_revenue_per_1000_pageviews']
+        assert abs(modeled - scenario['estimated_ad_revenue']) < 0.001, 'Revenue formula mismatch'
+        assert scenario['cash_received'] >= 0
+        assert scenario['personal_cash_balance'] is None, 'Do not infer a personal cash balance'
+        assert set(scenario['event_ids']) <= {item['id'] for item in data['events']}
 print(f'Continuity OK: {len(ids)} IDs; progress {state["next_month"]}; unknowns preserved')

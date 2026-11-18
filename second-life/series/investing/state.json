@@ -2,7 +2,7 @@
   "series": "investing",
   "return_date": "2005-01-01",
   "planned_start_date": "2005-01-01",
-  "last_confirmed_month": "2005-01",
-  "next_month": "2005-02",
-  "month_end_state": "snapshots/2005-01.json"
+  "last_confirmed_month": "2005-02",
+  "next_month": "2005-03",
+  "month_end_state": "snapshots/2005-02.json"
 }
