@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "id": "B200504",
+  "status": "draft",
+  "kind": "fictional_body_scenario",
+  "story_month": "2005-04",
+  "event_ids": [
+    "E018",
+    "E019"
+  ],
+  "points": [
+    {
+      "as_of": "2005-04-01",
+      "height_cm": 177.5,
+      "weight_kg": 73,
+      "body_fat_percent": 14,
+      "fat_free_mass_kg": 62.78,
+      "skeletal_muscle_mass_kg": null
+    },
+    {
+      "as_of": "2005-04-30",
+      "height_cm": 178,
+      "weight_kg": 74.5,
+      "body_fat_percent": 13.5,
+      "fat_free_mass_kg": 64.4425,
+      "skeletal_muscle_mass_kg": null
+    }
+  ],
+  "basis": "회귀 직후 공통 체격에서 점진 성장하는 투자 편 후보. 실제 측정이나 현실 성장 예측 아님. 제지방은 골격근량과 다름."
+}

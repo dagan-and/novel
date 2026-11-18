@@ -32,7 +32,14 @@ for key, meta in sorted(months.items()):
         earned = scenario['estimated_ad_revenue']
         received = scenario['cash_received']
         revenue_card = f'<section class="card"><small>REVENUE SCENARIO</small><h3>첫 광고 수익 · 초안</h3><div class="row"><span>광고 발생액</span><b>{earned:g} {currency}</b></div><div class="row"><span>실제 수령액</span><b>{received:g} {currency}</b></div><p>창작 시나리오입니다. 발생액은 운영비·세금 공제 전이며 개인 현금에 더하지 않습니다.</p></section>'
-    panels.append(f'''<div class="month-panel hidden" data-month="{key}"><section class="hero"><small>INVESTING · {key}</small><h2>{title}</h2><p>{summary}</p><div class="status"><span>{year}년 {month}월</span><span>용인 수지</span><span>{status}</span></div></section><div class="layout"><article class="story"><header class="story-head"><small>MONTHLY EXPLORATION</small><h2>{year}년 {month}월의 탐색 기록</h2><p>{summary}</p></header>{''.join(sections)}</article><aside class="side"><section class="card"><small>MY SITUATION</small><h3>이달의 출발점</h3><div class="row"><span>현재</span><b>{school}</b></div><div class="row"><span>개인 보유금</span><b>{money}</b></div><div class="row"><span>투자 거래</span><b>아직 시작하지 않음</b></div><p>{escape(meta['asset_note'])}</p></section><section class="card"><small>MY PROJECT</small><h3>{stage}</h3><p>{escape(meta['site_note'])}</p></section>{revenue_card}</aside></div></div>''')
+    body_card = ''
+    if meta.get('body_scenario'):
+        body = json.loads((root / meta['body_scenario']).read_text())
+        point = body['points'][-1]
+        assert body['status'] == 'draft'
+        height, weight, fat = point['height_cm'], point['weight_kg'], point['body_fat_percent']
+        body_card = f'<section class="card"><small>BODY SCENARIO</small><h3>월말 체격 · 후보</h3><div class="row"><span>키 · 체중</span><b>{height:g}cm · {weight:g}kg</b></div><div class="row"><span>체지방률</span><b>{fat:g}%</b></div><p>투자 편 성장 초안이며 실측이 아닙니다. 제지방과 골격근량을 구분합니다.</p></section>'
+    panels.append(f'''<div class="month-panel hidden" data-month="{key}"><section class="hero"><small>INVESTING · {key}</small><h2>{title}</h2><p>{summary}</p><div class="status"><span>{year}년 {month}월</span><span>용인 수지</span><span>{status}</span></div></section><div class="layout"><article class="story"><header class="story-head"><small>MONTHLY EXPLORATION</small><h2>{year}년 {month}월의 탐색 기록</h2><p>{summary}</p></header>{''.join(sections)}</article><aside class="side"><section class="card"><small>MY SITUATION</small><h3>이달의 출발점</h3><div class="row"><span>현재</span><b>{school}</b></div><div class="row"><span>개인 보유금</span><b>{money}</b></div><div class="row"><span>투자 거래</span><b>아직 시작하지 않음</b></div><p>{escape(meta['asset_note'])}</p></section><section class="card"><small>MY PROJECT</small><h3>{stage}</h3><p>{escape(meta['site_note'])}</p></section>{revenue_card}{body_card}</aside></div></div>''')
 script = '''
 const year=document.querySelector('#year'),month=document.querySelector('#month'),empty=document.querySelector('#empty');
 const panels=[...document.querySelectorAll('[data-month]')];

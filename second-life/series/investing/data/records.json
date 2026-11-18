@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
   "series": "investing",
-  "story_month": "2005-03",
-  "draft_month": "2005-03",
+  "story_month": "2005-04",
+  "draft_month": "2005-04",
   "last_confirmed_month": "2005-02",
   "authority": {
     "common": "base/",
     "progress": "series/investing/state.json",
-    "narrative": "series/investing/months/2005-03.md",
+    "narrative": "series/investing/months/2005-04.md",
     "workflow": "workflow/continuity.md"
   },
   "decisions": [
@@ -64,6 +64,24 @@
       "status": "confirmed",
       "summary": "2월의 사이트 구현·시험공개·반복 운영을 이어받아 3월로 진행. 자금과 경기 수치는 미확정 유지.",
       "source": "사용자 지시 2026-11-18: 3월도 정리"
+    },
+    {
+      "id": "D010",
+      "status": "confirmed",
+      "summary": "4월부터 외모를 관리하고 점심·야자 전 식사 뒤 학교 철봉·푸시업 등 짧은 운동을 하는 방향.",
+      "source": "사용자 지시·답변 2026-11-18: 4월 운동·야간 개발·교실 PC 불가"
+    },
+    {
+      "id": "D011",
+      "status": "confirmed",
+      "summary": "학교 교실에서는 컴퓨터 사용 불가. 야자에는 종이 설계·자료 독해·할 일 정리를 하고 귀가 뒤 구현한다.",
+      "source": "사용자 지시·답변 2026-11-18: 4월 운동·야간 개발·교실 PC 불가"
+    },
+    {
+      "id": "D012",
+      "status": "confirmed",
+      "summary": "희망 생활은 야자 21시 종료 뒤 22~02시 사이트 집중과 학교에서 수면 보충. 수면 필요량·실제 시간표와 허용 여부를 맞추기 전 정착 사실로 쓰지 않는다.",
+      "source": "사용자 지시·답변 2026-11-18: 4월 운동·야간 개발·교실 PC 불가"
     }
   ],
   "events": [
@@ -243,6 +261,66 @@
       "decision_ids": [
         "D006",
         "D007"
+      ]
+    },
+    {
+      "id": "E018",
+      "status": "draft",
+      "summary": "4월 초 177.5cm·73kg·14%, 월말 178cm·74.5kg·13.5% 성장 후보. 골격근량 실측 아님.",
+      "source": "series/investing/months/2005-04.md",
+      "story_date": "2005-04",
+      "decision_ids": [
+        "D010"
+      ]
+    },
+    {
+      "id": "E019",
+      "status": "draft",
+      "summary": "철봉·푸시업·몸통/하체 동작을 짧게 나누고 청결·교복 핏·자세를 관리",
+      "source": "series/investing/months/2005-04.md",
+      "story_date": "2005-04",
+      "decision_ids": [
+        "D010"
+      ]
+    },
+    {
+      "id": "E020",
+      "status": "draft",
+      "summary": "컴퓨터 없는 야자에 기능·데이터·예외를 종이에 설계해 밤 구현을 준비",
+      "source": "series/investing/months/2005-04.md",
+      "story_date": "2005-04",
+      "decision_ids": [
+        "D011"
+      ]
+    },
+    {
+      "id": "E021",
+      "status": "draft",
+      "summary": "22~02시 사이트 작업과 낮 수면을 희망하나, 밤5시간 예시에서는 낮3.5~4.5시간이 추가로 필요",
+      "source": "series/investing/months/2005-04.md",
+      "story_date": "2005-04",
+      "decision_ids": [
+        "D012"
+      ]
+    },
+    {
+      "id": "E022",
+      "status": "draft",
+      "summary": "이미 운영되는 회원·검색·게시판과 별개로 RSS/웹 변경 수집·중복 제거·검수 대기를 보강",
+      "source": "series/investing/months/2005-04.md",
+      "story_date": "2005-04",
+      "decision_ids": [
+        "D006"
+      ]
+    },
+    {
+      "id": "E023",
+      "status": "draft",
+      "summary": "예약 백업·색인/캐시 갱신·오류/관리 요약을 연결해 반복 운영 부담을 줄이는 계획",
+      "source": "series/investing/months/2005-04.md",
+      "story_date": "2005-04",
+      "decision_ids": [
+        "D006"
       ]
     }
   ],
@@ -453,6 +531,67 @@
       "actual_hours": null,
       "completion": null,
       "source": "series/investing/planning/2005-03.md"
+    },
+    {
+      "id": "T017",
+      "status": "planned",
+      "summary": "야자·학원·이동·기상·주간 수면 가능 시간을 맞춰 24시간 예산 검산",
+      "scope": "story",
+      "story_month": "2005-04",
+      "depends_on": [],
+      "actual_hours": null,
+      "completion": null,
+      "source": "series/investing/planning/2005-04.md"
+    },
+    {
+      "id": "T018",
+      "status": "planned",
+      "summary": "RSS/수집 자료원과 호스팅 예약 실행·접속 한도 확인",
+      "scope": "story",
+      "story_month": "2005-04",
+      "depends_on": [],
+      "actual_hours": null,
+      "completion": null,
+      "source": "series/investing/planning/2005-04.md"
+    },
+    {
+      "id": "T019",
+      "status": "planned",
+      "summary": "중복·변경 감지 수집기와 검수 대기 목록 설계",
+      "scope": "story",
+      "story_month": "2005-04",
+      "depends_on": [
+        "T018"
+      ],
+      "actual_hours": null,
+      "completion": null,
+      "source": "series/investing/planning/2005-04.md"
+    },
+    {
+      "id": "T020",
+      "status": "planned",
+      "summary": "예약 백업·복원 시험·실패 작업 기록·운영 요약 연결",
+      "scope": "story",
+      "story_month": "2005-04",
+      "depends_on": [
+        "T018"
+      ],
+      "actual_hours": null,
+      "completion": null,
+      "source": "series/investing/planning/2005-04.md"
+    },
+    {
+      "id": "T021",
+      "status": "planned",
+      "summary": "학교 운동 구간·청결·자세·월별 체격 기록",
+      "scope": "story",
+      "story_month": "2005-04",
+      "depends_on": [
+        "T017"
+      ],
+      "actual_hours": null,
+      "completion": null,
+      "source": "series/investing/planning/2005-04.md"
     }
   ],
   "unknowns": [
@@ -499,6 +638,27 @@
       "question": "고등학교명·정확한 입학일·등하교·학원 시간표와 실제 시험 성적",
       "value": null,
       "source": "series/investing/planning/2005-03.md"
+    },
+    {
+      "id": "U007",
+      "status": "unknown",
+      "question": "실제 기상·등하교·학원·학교 수면 가능 구간. 22~02시 작업과 8.5~9.5시간 수면의 양립",
+      "value": null,
+      "source": "series/investing/planning/2005-04.md"
+    },
+    {
+      "id": "U008",
+      "status": "unknown",
+      "question": "수집할 당시 자료원·RSS 제공 여부·예약 실행 가능한 호스팅·운영 시간 절감 실적",
+      "value": null,
+      "source": "series/investing/research/technology/2005-automation.md"
+    },
+    {
+      "id": "U009",
+      "status": "unknown",
+      "question": "4월 체격·체지방·골격근량의 이야기 속 실제 측정",
+      "value": null,
+      "source": "series/investing/scenarios/2005-04-body.json"
     }
   ],
   "changes": [
@@ -550,6 +710,22 @@
         "E011"
       ],
       "reason": "사용자가 3월 진행과 사이트 최우선·남는 시간 스타·뛰어난 교과 기억/추론을 선택. 2월 질적 진행만 채택하며 3월 수익과 성적은 초안 분리."
+    },
+    {
+      "id": "C005",
+      "recorded_at": "2026-11-18",
+      "targets": [
+        "D010",
+        "D011",
+        "D012",
+        "E018",
+        "E019",
+        "E020",
+        "E021",
+        "E022",
+        "E023"
+      ],
+      "reason": "4월 체격·학교 운동·야자 활용·야간 개발과 크롤링 자동화 검토. 수면 기본 설정을 임의로 단축하지 않으며 3월 수익 시나리오도 미확정 유지."
     }
   ],
   "months": {
@@ -576,6 +752,16 @@
       "asset_note": "광고 발생액 48달러는 창작 시나리오이며 실제 수령 0달러와 구분합니다. 현금 잔액과 운영비는 미정입니다.",
       "site_note": "학교생활과 함께 디아블로·WoW 구현·운영을 우선합니다. 3월 10일 광고 게재와 발생액은 초안입니다. 스타는 남는 시간 2~3시간을 즐기는 방향입니다.",
       "revenue_scenario": "series/investing/scenarios/2005-03.json"
+    },
+    "2005-04": {
+      "title": "달라지는 몸, 계속 돌아가는 사이트",
+      "status": "draft",
+      "summary": "성장·학교 운동 · 컴퓨터 없는 야자 · 야간 개발과 운영 자동화",
+      "school_label": "고등학교 1학년 · 야자",
+      "site_stage": "운영 자동화 보강안",
+      "asset_note": "3월 48달러는 여전히 광고 발생액 초안입니다. 4월 현금 잔액·지급·수익은 새로 확정하지 않았습니다.",
+      "site_note": "기본 서비스는 무인 동작합니다. 4월은 수집·검수 대기·예약 백업·오류 요약을 보강하는 초안입니다. 수면과 학교 시간표는 조정 전입니다.",
+      "body_scenario": "series/investing/scenarios/2005-04-body.json"
     }
   },
   "ongoing_threads": [
@@ -600,7 +786,9 @@
         "E013",
         "E014",
         "E015",
-        "E017"
+        "E017",
+        "E022",
+        "E023"
       ],
       "task_ids": [
         "T003",
@@ -610,13 +798,16 @@
         "T007",
         "T012",
         "T014",
-        "T015"
+        "T015",
+        "T018",
+        "T019",
+        "T020"
       ]
     },
     {
       "id": "O002",
       "priority": "secondary",
-      "summary": "스타 테란 실력 적응·측정과 소규모 콘텐츠 가능성",
+      "summary": "스타 실력 유지·게임. 야자와 야간 개발을 하는 날은 여유에 맞춰 축소하고 주말 등으로 이동",
       "event_ids": [
         "E005",
         "E006",
@@ -636,14 +827,34 @@
       "priority": "secondary",
       "summary": "학교생활·교과 학습·과제. 수업 중 높은 이해·회상·추론으로 효율 확보",
       "decision_ids": [
-        "D008"
+        "D008",
+        "D011",
+        "D012"
       ],
       "event_ids": [
-        "E012"
+        "E012",
+        "E020",
+        "E021"
       ],
       "task_ids": [
         "T013",
-        "T016"
+        "T016",
+        "T017"
+      ]
+    },
+    {
+      "id": "O004",
+      "priority": "secondary",
+      "summary": "성장·철봉/푸시업·외모·청결 관리",
+      "decision_ids": [
+        "D010"
+      ],
+      "event_ids": [
+        "E018",
+        "E019"
+      ],
+      "task_ids": [
+        "T021"
       ]
     }
   ]

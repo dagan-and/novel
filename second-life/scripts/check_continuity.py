@@ -58,4 +58,15 @@ for key, meta in data.get('months', {}).items():
         assert scenario['cash_received'] >= 0
         assert scenario['personal_cash_balance'] is None, 'Do not infer a personal cash balance'
         assert set(scenario['event_ids']) <= {item['id'] for item in data['events']}
+for key, meta in data.get('months', {}).items():
+    if meta.get('body_scenario'):
+        body = json.loads((root / meta['body_scenario']).read_text())
+        assert body['status'] == 'draft' and body['story_month'] == key
+        for point in body['points']:
+            assert point['as_of'][:7] == key
+            assert 0 <= point['body_fat_percent'] < 100
+            lean = point['weight_kg'] * (1 - point['body_fat_percent'] / 100)
+            assert abs(lean - point['fat_free_mass_kg']) < 0.01
+            assert point['skeletal_muscle_mass_kg'] is None
+        assert set(body['event_ids']) <= {item['id'] for item in data['events']}
 print(f'Continuity OK: {len(ids)} IDs; progress {state["next_month"]}; unknowns preserved')
