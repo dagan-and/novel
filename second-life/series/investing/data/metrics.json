@@ -1,14 +1,15 @@
 {
   "schema_version": 1,
   "series": "investing",
-  "as_of": "2005-07-31",
+  "as_of": "2005-08-31",
   "definitions": {
     "data_kind": "fictional_world_not_live_analytics",
     "revenue": "플랫폼 배분 후 게시자 광고 발생액. 운영비·세금 차감 전. 실제 수령·개인 현금과 구분.",
     "visitors": "모형상 일별 방문자. 날짜를 합친 visitor_days는 월간 고유 방문자가 아님.",
     "daily": "월별 가정에서 요일·완만한 증가 가중치로 배분한 추정. 실제 로그나 측정값 아님.",
     "null": "미정/미기록. 0과 구분.",
-    "currencies": "원본 광고 USD를 보존하고 화면은 표시용 1달러≈1000원으로 환산. 실제 환전 환율·수수료·개인현금과 구분."
+    "currencies": "광고 발생액은 USD 원본을 보존한다. 발생액의 원화 표시는 1달러≈1,000원, 실제 수령 원화는 별도 작품 원장 기준이다.",
+    "tracked_personal_cash": "실제 수령 후 용식에게 배분된 광고 정산금에서 해당 자금으로 낸 비용을 차감한 잔액. 기존 개인 현금·월 예산·미배분분은 포함하지 않는다."
   },
   "monthly": [
     {
@@ -38,7 +39,10 @@
       "planned_cash_cost_krw": 32500,
       "cumulative_planned_cash_cost_krw": 32500,
       "monthly_available_budget_krw": 100000,
-      "remaining_recurring_budget_krw": 87667
+      "remaining_recurring_budget_krw": 87667,
+      "cash_received_krw": 0,
+      "cumulative_cash_received_krw": 0,
+      "tracked_personal_cash_krw": null
     },
     {
       "month": "2005-02",
@@ -67,7 +71,10 @@
       "planned_cash_cost_krw": 5500,
       "cumulative_planned_cash_cost_krw": 38000,
       "monthly_available_budget_krw": 100000,
-      "remaining_recurring_budget_krw": 87667
+      "remaining_recurring_budget_krw": 87667,
+      "cash_received_krw": 0,
+      "cumulative_cash_received_krw": 0,
+      "tracked_personal_cash_krw": null
     },
     {
       "month": "2005-03",
@@ -96,7 +103,10 @@
       "planned_cash_cost_krw": 5500,
       "cumulative_planned_cash_cost_krw": 43500,
       "monthly_available_budget_krw": 100000,
-      "remaining_recurring_budget_krw": 87667
+      "remaining_recurring_budget_krw": 87667,
+      "cash_received_krw": 0,
+      "cumulative_cash_received_krw": 0,
+      "tracked_personal_cash_krw": null
     },
     {
       "month": "2005-04",
@@ -125,7 +135,10 @@
       "planned_cash_cost_krw": 5500,
       "cumulative_planned_cash_cost_krw": 49000,
       "monthly_available_budget_krw": 100000,
-      "remaining_recurring_budget_krw": 87667
+      "remaining_recurring_budget_krw": 87667,
+      "cash_received_krw": 0,
+      "cumulative_cash_received_krw": 0,
+      "tracked_personal_cash_krw": null
     },
     {
       "month": "2005-05",
@@ -154,7 +167,10 @@
       "planned_cash_cost_krw": 11000,
       "cumulative_planned_cash_cost_krw": 60000,
       "monthly_available_budget_krw": 100000,
-      "remaining_recurring_budget_krw": 82167
+      "remaining_recurring_budget_krw": 82167,
+      "cash_received_krw": 0,
+      "cumulative_cash_received_krw": 0,
+      "tracked_personal_cash_krw": null
     },
     {
       "month": "2005-06",
@@ -183,7 +199,10 @@
       "planned_cash_cost_krw": 11000,
       "cumulative_planned_cash_cost_krw": 71000,
       "monthly_available_budget_krw": 100000,
-      "remaining_recurring_budget_krw": 82167
+      "remaining_recurring_budget_krw": 82167,
+      "cash_received_krw": 0,
+      "cumulative_cash_received_krw": 0,
+      "tracked_personal_cash_krw": null
     },
     {
       "month": "2005-07",
@@ -212,7 +231,42 @@
       "cumulative_ad_revenue_usd": 1317.0,
       "cumulative_cash_received_usd": 0,
       "average_daily_visitors": null,
-      "average_daily_ad_revenue_usd": 14.5161
+      "average_daily_ad_revenue_usd": 14.5161,
+      "cash_received_krw": 0,
+      "cumulative_cash_received_krw": 0,
+      "tracked_personal_cash_krw": null
+    },
+    {
+      "month": "2005-08",
+      "status": "story_estimate",
+      "visitor_days": null,
+      "pageviews": 420000,
+      "ad_pageviews": 420000,
+      "publisher_rpm_usd": 1.25,
+      "ad_revenue_usd": 525.0,
+      "cash_received_usd": 1317.0,
+      "operating_costs_usd": null,
+      "net_profit_usd": null,
+      "personal_cash_krw": null,
+      "basis": "42만 PV·525달러는 작품 모형. 8월에 수령한 3~7월 광고대금은 별도 장부에서 계산.",
+      "investment_assets_krw": 0,
+      "investment_realized_pnl_krw": 0,
+      "investment_cash_krw": null,
+      "holdings": [],
+      "trade_count": 0,
+      "planned_hosting_cost_krw": 11000,
+      "planned_cash_cost_krw": 11000,
+      "cumulative_planned_cash_cost_krw": 93000,
+      "monthly_available_budget_krw": 100000,
+      "remaining_recurring_budget_krw": 82167,
+      "days": 31,
+      "cumulative_ad_revenue_usd": 1842.0,
+      "cumulative_cash_received_usd": 1317.0,
+      "average_daily_visitors": null,
+      "average_daily_ad_revenue_usd": 16.9355,
+      "cash_received_krw": 1310000,
+      "cumulative_cash_received_krw": 1310000,
+      "tracked_personal_cash_krw": 389958
     }
   ],
   "daily": [
@@ -2123,6 +2177,285 @@
       "pageviews": 16552,
       "ad_pageviews": 16552,
       "ad_revenue_usd": 20.69
+    },
+    {
+      "date": "2005-08-01",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": 9124,
+      "ad_pageviews": 9124,
+      "ad_revenue_usd": 11.41
+    },
+    {
+      "date": "2005-08-02",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": 9384,
+      "ad_pageviews": 9384,
+      "ad_revenue_usd": 11.73
+    },
+    {
+      "date": "2005-08-03",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": 9645,
+      "ad_pageviews": 9645,
+      "ad_revenue_usd": 12.06
+    },
+    {
+      "date": "2005-08-04",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": 9906,
+      "ad_pageviews": 9906,
+      "ad_revenue_usd": 12.38
+    },
+    {
+      "date": "2005-08-05",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": 10166,
+      "ad_pageviews": 10166,
+      "ad_revenue_usd": 12.71
+    },
+    {
+      "date": "2005-08-06",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": 11991,
+      "ad_pageviews": 11991,
+      "ad_revenue_usd": 14.99
+    },
+    {
+      "date": "2005-08-07",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": 12291,
+      "ad_pageviews": 12291,
+      "ad_revenue_usd": 15.36
+    },
+    {
+      "date": "2005-08-08",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": 10948,
+      "ad_pageviews": 10948,
+      "ad_revenue_usd": 13.69
+    },
+    {
+      "date": "2005-08-09",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": 11209,
+      "ad_pageviews": 11209,
+      "ad_revenue_usd": 14.01
+    },
+    {
+      "date": "2005-08-10",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": 11470,
+      "ad_pageviews": 11470,
+      "ad_revenue_usd": 14.34
+    },
+    {
+      "date": "2005-08-11",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": 11730,
+      "ad_pageviews": 11730,
+      "ad_revenue_usd": 14.66
+    },
+    {
+      "date": "2005-08-12",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": 11991,
+      "ad_pageviews": 11991,
+      "ad_revenue_usd": 14.99
+    },
+    {
+      "date": "2005-08-13",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": 14090,
+      "ad_pageviews": 14090,
+      "ad_revenue_usd": 17.61
+    },
+    {
+      "date": "2005-08-14",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": 14389,
+      "ad_pageviews": 14389,
+      "ad_revenue_usd": 17.99
+    },
+    {
+      "date": "2005-08-15",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": 12773,
+      "ad_pageviews": 12773,
+      "ad_revenue_usd": 15.97
+    },
+    {
+      "date": "2005-08-16",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": 13034,
+      "ad_pageviews": 13034,
+      "ad_revenue_usd": 16.29
+    },
+    {
+      "date": "2005-08-17",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": 13294,
+      "ad_pageviews": 13294,
+      "ad_revenue_usd": 16.62
+    },
+    {
+      "date": "2005-08-18",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": 13555,
+      "ad_pageviews": 13555,
+      "ad_revenue_usd": 16.94
+    },
+    {
+      "date": "2005-08-19",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": 13816,
+      "ad_pageviews": 13816,
+      "ad_revenue_usd": 17.27
+    },
+    {
+      "date": "2005-08-20",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": 16188,
+      "ad_pageviews": 16188,
+      "ad_revenue_usd": 20.23
+    },
+    {
+      "date": "2005-08-21",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": 16488,
+      "ad_pageviews": 16488,
+      "ad_revenue_usd": 20.61
+    },
+    {
+      "date": "2005-08-22",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": 14598,
+      "ad_pageviews": 14598,
+      "ad_revenue_usd": 18.25
+    },
+    {
+      "date": "2005-08-23",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": 14858,
+      "ad_pageviews": 14858,
+      "ad_revenue_usd": 18.57
+    },
+    {
+      "date": "2005-08-24",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": 15119,
+      "ad_pageviews": 15119,
+      "ad_revenue_usd": 18.9
+    },
+    {
+      "date": "2005-08-25",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": 15380,
+      "ad_pageviews": 15380,
+      "ad_revenue_usd": 19.22
+    },
+    {
+      "date": "2005-08-26",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": 15641,
+      "ad_pageviews": 15641,
+      "ad_revenue_usd": 19.55
+    },
+    {
+      "date": "2005-08-27",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": 18286,
+      "ad_pageviews": 18286,
+      "ad_revenue_usd": 22.86
+    },
+    {
+      "date": "2005-08-28",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": 18586,
+      "ad_pageviews": 18586,
+      "ad_revenue_usd": 23.23
+    },
+    {
+      "date": "2005-08-29",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": 16423,
+      "ad_pageviews": 16423,
+      "ad_revenue_usd": 20.53
+    },
+    {
+      "date": "2005-08-30",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": 16683,
+      "ad_pageviews": 16683,
+      "ad_revenue_usd": 20.85
+    },
+    {
+      "date": "2005-08-31",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": null,
+      "pageviews": 16944,
+      "ad_pageviews": 16944,
+      "ad_revenue_usd": 21.18
     }
   ],
   "academics": {
@@ -2283,7 +2616,10 @@
   },
   "source_links": {
     "march_revenue": "series/investing/scenarios/2005-03.json",
-    "april_body": "series/investing/scenarios/2005-04-body.json"
+    "april_body": "series/investing/scenarios/2005-04-body.json",
+    "cash_ledgers": [
+      "series/investing/ledger/2005-08.json"
+    ]
   },
   "display_fx": {
     "currency": "KRW",
@@ -2377,6 +2713,12 @@
       },
       {
         "month": "2005-07",
+        "hosting_krw": 11000,
+        "domain_cash_krw": 0,
+        "setup_cash_krw": 0
+      },
+      {
+        "month": "2005-08",
         "hosting_krw": 11000,
         "domain_cash_krw": 0,
         "setup_cash_krw": 0
@@ -2480,6 +2822,16 @@
         "cash_received_usd": 0,
         "actual_distribution_krw": null,
         "note": "기존 반반 정책으로 계산한 미수령 발생액의 작품 기준안. 7월에 새로 확정된 환전·지급은 없음."
+      },
+      {
+        "month": "2005-08",
+        "revenue_usd": 525.0,
+        "mother_allocation_usd": 262.5,
+        "yongsik_allocation_usd": 262.5,
+        "display_approx_each_krw": 262500,
+        "cash_received_usd": 0,
+        "actual_distribution_krw": null,
+        "note": "8월 발생분 자체는 미수령. 8월에 받은 3~7월 지급분은 별도 장부에 기록."
       }
     ]
   },

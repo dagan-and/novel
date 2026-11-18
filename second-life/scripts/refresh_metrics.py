@@ -15,6 +15,10 @@ entry = next(b for b in data['body'] if b['date'] == point['as_of'])
 for field in ('height_cm', 'weight_kg', 'body_fat_percent', 'fat_free_mass_kg', 'skeletal_muscle_mass_kg'):
     entry[field] = point[field]
 
+cash_ledgers = [json.loads((root / source).read_text()) for source in data['source_links'].get('cash_ledgers', [])]
+cash_by_month = {ledger['month']: ledger for ledger in cash_ledgers}
+assert len(cash_by_month) == len(cash_ledgers), 'Duplicate cash ledger month'
+
 def allocate(total, weights):
     raw = [total * w / sum(weights) for w in weights]
     result = [math.floor(v) for v in raw]
@@ -23,9 +27,26 @@ def allocate(total, weights):
     return result
 
 rows = []; cumulative = 0; received = 0; budget_total = 0
+received_krw = 0
+tracked_cash = None
 budget = {row['month']: row for row in data.get('cost_model', {}).get('monthly', [])}
 for month in sorted(data['monthly'], key=lambda m:m['month']):
     key = month['month']
+    ledger = cash_by_month.get(key)
+    if ledger:
+        payment = ledger['payment']
+        month['cash_received_usd'] = payment['gross_usd']
+        month['cash_received_krw'] = payment['deposit_krw']
+        spent = sum(item['amount_krw'] for item in ledger['personal_outflows'])
+        tracked_cash = (tracked_cash or 0) + ledger['distribution']['to_yongsik_krw'] - spent
+    else:
+        month['cash_received_krw'] = 0 if month['cash_received_usd'] == 0 else None
+    if received_krw is None or month['cash_received_krw'] is None:
+        received_krw = None
+    else:
+        received_krw += month['cash_received_krw']
+    month['cumulative_cash_received_krw'] = received_krw
+    month['tracked_personal_cash_krw'] = tracked_cash
     planned = budget.get(key)
     if planned:
         month['planned_hosting_cost_krw'] = planned['hosting_krw']

@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "series": "investing",
-  "story_month": "2005-07",
-  "draft_month": "2005-07",
+  "story_month": "2005-08",
+  "draft_month": "2005-08",
   "last_confirmed_month": "2005-02",
   "authority": {
     "common": "base/",
@@ -237,6 +237,12 @@
       "status": "confirmed",
       "summary": "개인 현황판 상단에서 선택 월의 기본 예산, 반복 사이트 운영 예산을 뺀 여유, 생활비 계획 후 여유를 따로 표시한다. 개인 현금과 미수령 광고수익은 별도로 관리하며 계획이 없는 월의 생활비 여유는 미정으로 표시한다.",
       "source": "사용자 2026-11-18 요청: 내가 쓸 수 있는 돈을 현황판에 갱신"
+    },
+    {
+      "id": "D038",
+      "status": "confirmed",
+      "summary": "8월 방학에 모임과 현지와의 단둘 데이트를 이어가고 기존 사이트를 확장한다. 첫 광고대금을 수령하고 비용 및 정산 후 잔액을 작품 장부와 현황판에 반영한다.",
+      "source": "series/investing/planning/2005-08.md"
     }
   ],
   "events": [
@@ -679,6 +685,70 @@
         "D028",
         "D035"
       ]
+    },
+    {
+      "id": "E043",
+      "status": "draft",
+      "story_date": "2005-08",
+      "summary": "기존 사이트에서 재료명 조합 검색과 입문 안내·질문 묶음을 추가하고, 변경 검수·예약 색인·백업을 유지했다.",
+      "source": "series/investing/months/2005-08.md",
+      "decision_ids": [
+        "D038"
+      ]
+    },
+    {
+      "id": "E044",
+      "status": "confirmed",
+      "story_date": "2005-08",
+      "summary": "8월 첫 광고대금 수령 및 6~7월 기존 반반 정산. 3~5월분은 분배 대기. 세부 가상 거래값은 8월 장부가 기준이다.",
+      "source": "series/investing/ledger/2005-08.json",
+      "decision_ids": [
+        "D028",
+        "D038"
+      ]
+    },
+    {
+      "id": "E045",
+      "status": "draft",
+      "story_date": "2005-08",
+      "summary": "학원 친구 다섯 명이 영화를 보고 분식집에 갔다. 용식 지출 11,000원.",
+      "source": "series/investing/months/2005-08.md",
+      "decision_ids": [
+        "D034",
+        "D038"
+      ]
+    },
+    {
+      "id": "E046",
+      "status": "draft",
+      "story_date": "2005-08",
+      "summary": "친구들과 수영장에 다녀왔다. 용식 지출 15,000원.",
+      "source": "series/investing/months/2005-08.md",
+      "decision_ids": [
+        "D034",
+        "D038"
+      ]
+    },
+    {
+      "id": "E047",
+      "status": "draft",
+      "story_date": "2005-08",
+      "summary": "현지와 둘이 식사·간식·산책을 했다. 용식 지출 13,000원.",
+      "source": "series/investing/months/2005-08.md",
+      "decision_ids": [
+        "D034",
+        "D038"
+      ]
+    },
+    {
+      "id": "E048",
+      "status": "draft",
+      "story_date": "2005-08",
+      "summary": "방학 사이트 유입 모형 42만 PV, 새 광고 발생액 525달러는 첫 지급분에 포함하지 않았다.",
+      "source": "series/investing/months/2005-08.md",
+      "decision_ids": [
+        "D038"
+      ]
     }
   ],
   "tasks": [
@@ -1055,7 +1125,7 @@
     {
       "id": "U004",
       "status": "unknown",
-      "question": "시험공개는 2월 채택. 정확한 공개일·광고 승인·발생액·현금 수령은 확정 전",
+      "question": "시험공개는 2월 채택. 정확한 공개일·승인일과 일부 광고 발생 모형은 미정. 3~7월분의 8월 첫 수령은 정산 원장 E044 참조.",
       "value": null,
       "source": "series/investing/README.md",
       "scenario_source": "series/investing/scenarios/2005-03.json"
@@ -1325,6 +1395,20 @@
         "U012"
       ],
       "reason": "사용자 요청에 따라 7월 월간 초안·지표·현황판을 동기화한다. 세부 비용과 실제 수령, 월말 스냅샷은 확정하지 않는다."
+    },
+    {
+      "id": "C019",
+      "recorded_at": "2026-11-18",
+      "targets": [
+        "D038",
+        "E043",
+        "E044",
+        "E045",
+        "E046",
+        "E047",
+        "E048"
+      ],
+      "reason": "8월 진행 승인에 따라 본문과 첫 수령 및 지출 장부, 현황판 갱신. 입금되지 않은 발생액, 분배 대기분, 월 예산, 전체 개인 현금은 분리한다."
     }
   ],
   "months": {
@@ -1396,6 +1480,16 @@
       "asset_note": "7월 광고 발생 450달러, 누적 1,317달러는 작품 모형. 현금 수령과 지급은 보류.",
       "site_note": "시험 기간에는 예약 작업·백업·오류만 확인하고 이후 중복 검색 결과를 정리.",
       "revision_note": "기말 7과목과 원점수는 작품 기준안. 학교 원본 시험표와 기말 석차는 미확인."
+    },
+    "2005-08": {
+      "title": "방학에 넓어진 일과 만남",
+      "status": "draft",
+      "summary": "사이트 확장 · 첫 광고대금 · 친구들과 영화·수영장 · 현지와 단둘 데이트",
+      "school_label": "풍덕고 1학년 · 여름방학",
+      "site_stage": "검색·입문 안내 확장",
+      "asset_note": "첫 광고대금 순입금 1,310,000원. 용식이 받은 몫에서 모임과 데이트 비용을 빼고 389,958원이 남았다.",
+      "site_note": "예약 운영을 유지하며 조합 검색과 입문 안내를 확장했다.",
+      "revision_note": "광고 지급·지출은 작품 장부, 유입·발생액은 작품 모형이다. 전체 현금과 3~5월 개인 배분은 미정이다."
     }
   },
   "ongoing_threads": [
@@ -1436,7 +1530,10 @@
         "E035",
         "E036",
         "E039",
-        "E042"
+        "E042",
+        "E043",
+        "E044",
+        "E048"
       ],
       "task_ids": [
         "T003",
@@ -1534,7 +1631,10 @@
       ],
       "event_ids": [
         "E033",
-        "E041"
+        "E041",
+        "E045",
+        "E046",
+        "E047"
       ],
       "task_ids": [
         "T028"

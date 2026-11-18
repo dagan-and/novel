@@ -111,6 +111,49 @@ for point in metrics['body']:
 assert set(m['month'] for m in metrics['monthly'])==set(data['months'])
 print(f'Metrics OK: {len(metrics["daily"])} modeled days; cumulative USD {cumulative:.2f}')
 
+# Verify actual story receipts and personal outflows independently from the display exchange rate.
+from decimal import Decimal, ROUND_HALF_UP
+ledgers = [json.loads((root / source).read_text()) for source in metrics['source_links'].get('cash_ledgers', [])]
+ledger_by_month = {ledger['month']: ledger for ledger in ledgers}
+monthly = {row['month']: row for row in metrics['monthly']}
+assert len(ledger_by_month) == len(ledgers) and ledger_by_month.keys() <= monthly.keys()
+event_ids = {event['id'] for event in data['events']}
+paid_months = set()
+received_krw = 0
+tracked_balance = None
+for key, row in sorted(monthly.items()):
+    ledger = ledger_by_month.get(key)
+    if ledger:
+        payment, distribution = ledger['payment'], ledger['distribution']
+        entries = [payment, distribution, *ledger['personal_outflows']]
+        assert len({entry['id'] for entry in entries}) == len(entries)
+        assert all(entry['event_id'] in event_ids for entry in entries)
+        period = {month for month in monthly if payment['from_month'] <= month <= payment['through_month']}
+        assert period and max(period) < key and not period & paid_months
+        paid_months.update(period)
+        gross = sum(Decimal(str(monthly[month]['ad_revenue_usd'])) for month in period)
+        assert gross == Decimal(str(payment['gross_usd'])) == Decimal(str(row['cash_received_usd']))
+        deposit = gross * payment['exchange_krw_per_usd'] - payment['fee_krw']
+        assert deposit == payment['deposit_krw'] == row['cash_received_krw']
+        split_period = {month for month in period if distribution['split_from_month'] <= month <= distribution['split_through_month']}
+        assert split_period
+        each_usd = sum(Decimal(str(monthly[month]['ad_revenue_usd'])) for month in split_period) / 2
+        assert each_usd == Decimal(str(distribution['gross_each_usd']))
+        each_krw = (deposit * each_usd / gross).quantize(Decimal('1'), rounding=ROUND_HALF_UP)
+        assert distribution['to_yongsik_krw'] == distribution['to_mother_krw'] == each_krw
+        assert distribution['held_unallocated_krw'] == deposit - 2 * each_krw
+        outflows = ledger['personal_outflows']
+        assert all(sum(item['items'].values()) == item['amount_krw'] >= 0 for item in outflows)
+        tracked_balance = (tracked_balance or 0) + each_krw - sum(item['amount_krw'] for item in outflows)
+        assert tracked_balance >= 0
+    net_receipt = row.get('cash_received_krw')
+    if not ledger:
+        assert net_receipt == (0 if row['cash_received_usd'] == 0 else None)
+    received_krw = received_krw + net_receipt if received_krw is not None and net_receipt is not None else None
+    assert row.get('cumulative_cash_received_krw') == received_krw
+    assert row.get('tracked_personal_cash_krw') == tracked_balance
+print('Cash ledger OK: incoming funds, allocations, outflows, and tracked balance')
+
 fx = metrics["display_fx"]
 assert fx["currency"] == "KRW" and fx["source_currency"] == "USD"
 assert fx["kind"] == "fixed_display_approximation" and fx["krw_per_usd"] > 0

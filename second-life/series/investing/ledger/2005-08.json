@@ -1,0 +1,52 @@
+{
+  "month": "2005-08",
+  "status": "story_ledger",
+  "basis": "사용자가 승인한 8월 첫 수령과 방학 전개. 환율·수수료·개별 지출은 작품에 설정한 거래값이며 당시 실제 금융기관 요율이나 영수증이 아니다.",
+  "payment": {
+    "id": "L001",
+    "event_id": "E044",
+    "from_month": "2005-03",
+    "through_month": "2005-07",
+    "gross_usd": 1317.0,
+    "exchange_krw_per_usd": 1000,
+    "fee_krw": 7000,
+    "deposit_krw": 1310000
+  },
+  "distribution": {
+    "id": "L002",
+    "event_id": "E044",
+    "split_from_month": "2005-06",
+    "split_through_month": "2005-07",
+    "gross_each_usd": 431.25,
+    "method": "순입금액에서 기존 합의분의 달러 비중을 각각 적용해 원 단위로 반올림. 나머지는 분배 미정분으로 보관.",
+    "to_yongsik_krw": 428958,
+    "to_mother_krw": 428958,
+    "held_unallocated_krw": 452084
+  },
+  "personal_outflows": [
+    {
+      "id": "L003",
+      "event_id": "E045",
+      "category": "group_outing",
+      "label": "친구들과 영화·분식",
+      "items": {"영화표": 6500, "분식": 3500, "교통": 1000},
+      "amount_krw": 11000
+    },
+    {
+      "id": "L004",
+      "event_id": "E046",
+      "category": "group_outing",
+      "label": "친구들과 수영장",
+      "items": {"입장": 7500, "간식과 식사": 5000, "교통": 2500},
+      "amount_krw": 15000
+    },
+    {
+      "id": "L005",
+      "event_id": "E047",
+      "category": "date",
+      "label": "현지와 둘이 식사·간식·산책",
+      "items": {"식사와 간식 중 부담한 몫": 11000, "교통": 2000},
+      "amount_krw": 13000
+    }
+  ]
+}
