@@ -118,3 +118,26 @@ fx = metrics["display_fx"]
 assert fx["currency"] == "KRW" and fx["source_currency"] == "USD"
 assert fx["kind"] == "fixed_display_approximation" and fx["krw_per_usd"] > 0
 assert round(metrics["monthly"][-1]["cumulative_ad_revenue_usd"] * fx["krw_per_usd"]) >= 0
+
+# User-specified 2/3/4-point questions cannot produce a one-point loss by wrong answers.
+points = metrics['academics'].get('question_point_values', [])
+assert points == [2, 3, 4]
+losses = {0}
+for total in range(101):
+    if total in losses:
+        losses.update(total+p for p in points if total+p<=100)
+assert all(100-subject['score'] in losses for subject in metrics['academics']['subjects'])
+# Budgets are not paid operating expenses and must reconcile without annual-fee duplication.
+budget = metrics['cost_model']
+assert budget['status'] == 'budget_scenario_not_paid_expense'
+cumulative_budget = 0
+for month in metrics['monthly']:
+    cost = next(row for row in budget['monthly'] if row['month']==month['month'])
+    amount = cost['hosting_krw'] + cost['domain_cash_krw'] + cost['setup_cash_krw']
+    assert month['planned_cash_cost_krw'] == amount
+    cumulative_budget += amount
+    assert month['cumulative_planned_cash_cost_krw'] == cumulative_budget
+    assert month['operating_costs_usd'] is None, 'Budget must not become an actual expense'
+for person in metrics.get('relationships', []):
+    assert person['first_month'] in data['months']
+print(f'Budget OK: planned KRW {cumulative_budget:,}; separate from actual cash')

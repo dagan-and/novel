@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
   "series": "investing",
-  "story_month": "2005-05",
-  "draft_month": "2005-05",
+  "story_month": "2005-06",
+  "draft_month": "2005-06",
   "last_confirmed_month": "2005-02",
   "authority": {
     "common": "base/",
     "progress": "series/investing/state.json",
-    "narrative": "series/investing/months/2005-05.md",
+    "narrative": "series/investing/months/2005-06.md",
     "workflow": "workflow/continuity.md",
     "metrics": "series/investing/data/metrics.json",
     "public_entry": "series/investing/dashboard.html"
@@ -132,6 +132,24 @@
       "status": "confirmed",
       "summary": "현황판 안에 선택한 달의 탐색 기록을 함께 넣어 하나의 화면에서 읽는다. 기존 탐색 URL은 월 정보를 유지해 통합 화면으로 연결한다.",
       "source": "사용자 지시 2026-11-18: 현황판 안에 탐색 기록 통합"
+    },
+    {
+      "id": "D021",
+      "status": "confirmed",
+      "summary": "사용자 지정2·3·4점 문항 구성에 맞지 않는99점 성적을 제거. 점수 기준안은 전과목100점으로 교정.",
+      "source": "사용자 지시2026-11-18: 유지비·첫여친·배점 교정·6월사건"
+    },
+    {
+      "id": "D022",
+      "status": "confirmed",
+      "summary": "6월 같은 학원에서 첫 여자친구를 사귀는 방향. 이름·성격·구체 진행은 창작 초안.",
+      "source": "사용자 지시2026-11-18: 유지비·첫여친·배점 교정·6월사건"
+    },
+    {
+      "id": "D023",
+      "status": "confirmed",
+      "summary": "사이트 유지비는 당시 가격·트래픽·용돈을 함께 검토하며 월 예산과 실제 납부를 구분한다.",
+      "source": "사용자 지시2026-11-18: 유지비·첫여친·배점 교정·6월사건"
     }
   ],
   "events": [
@@ -464,6 +482,56 @@
         "D015",
         "D018"
       ]
+    },
+    {
+      "id": "E033",
+      "status": "draft",
+      "summary": "학원 고1 동급생 P001윤서진(창작 가칭)과 첫 교제 시작",
+      "source": "series/investing/months/2005-06.md",
+      "story_date": "2005-06",
+      "decision_ids": [
+        "D022"
+      ]
+    },
+    {
+      "id": "E034",
+      "status": "draft",
+      "summary": "6월9일 한국WoW전장 업데이트를 계기로 입문 자료·검색/캐시를 점검",
+      "source": "series/investing/months/2005-06.md",
+      "story_date": "2005-06",
+      "decision_ids": [
+        "D017"
+      ]
+    },
+    {
+      "id": "E035",
+      "status": "draft",
+      "summary": "패치 대응과 유입 증가,필요 시 집중 수정하고 보충수면",
+      "source": "series/investing/months/2005-06.md",
+      "story_date": "2005-06",
+      "decision_ids": [
+        "D017"
+      ]
+    },
+    {
+      "id": "E036",
+      "status": "draft",
+      "summary": "초기설정·연도메인·월호스팅 예산을 정리하며 용돈 충당 가능성을 검토",
+      "source": "series/investing/months/2005-06.md",
+      "story_date": "2005-06",
+      "decision_ids": [
+        "D023"
+      ]
+    },
+    {
+      "id": "E037",
+      "status": "draft",
+      "summary": "배점 교정에 따라5월7과목100점 기준안 반영",
+      "source": "series/investing/months/2005-06.md",
+      "story_date": "2005-06",
+      "decision_ids": [
+        "D021"
+      ]
     }
   ],
   "tasks": [
@@ -768,6 +836,50 @@
       "actual_hours": null,
       "completion": null,
       "source": "series/investing/planning/2005-05.md"
+    },
+    {
+      "id": "T025",
+      "status": "planned",
+      "summary": "당시 호스팅 상품·DB/예약 실행·일 트래픽 한도와 실제 전송량 확인",
+      "scope": "story",
+      "story_month": "2005-06",
+      "depends_on": [],
+      "actual_hours": null,
+      "completion": null,
+      "source": "series/investing/planning/2005-06.md"
+    },
+    {
+      "id": "T026",
+      "status": "planned",
+      "summary": "월용돈·실제 도메인/설정/호스팅 납부·정산 확인",
+      "scope": "story",
+      "story_month": "2005-06",
+      "depends_on": [],
+      "actual_hours": null,
+      "completion": null,
+      "source": "series/investing/planning/2005-06.md"
+    },
+    {
+      "id": "T027",
+      "status": "planned",
+      "summary": "6월 전장 안내·검색/캐시·수집 형식 점검",
+      "scope": "story",
+      "story_month": "2005-06",
+      "depends_on": [],
+      "actual_hours": null,
+      "completion": null,
+      "source": "series/investing/planning/2005-06.md"
+    },
+    {
+      "id": "T028",
+      "status": "planned",
+      "summary": "학원 교제와 학교·사이트·게임·보충수면 시간 배분",
+      "scope": "story",
+      "story_month": "2005-06",
+      "depends_on": [],
+      "actual_hours": null,
+      "completion": null,
+      "source": "series/investing/planning/2005-06.md"
     }
   ],
   "unknowns": [
@@ -842,6 +954,13 @@
       "question": "풍덕고 2005 중간고사 실제 시간표·추가 과목·배점·학년 인원·당시 문제집 판본",
       "value": null,
       "source": "series/investing/research/school/2005-05-midterms.md"
+    },
+    {
+      "id": "U011",
+      "status": "unknown",
+      "question": "실제 월용돈과 실제 호스팅·도메인·설정비 납부,트래픽 한도",
+      "value": null,
+      "source": "series/investing/research/business/2005-06-operating-costs.md"
     }
   ],
   "changes": [
@@ -964,6 +1083,21 @@
         "D020"
       ],
       "reason": "탐색과 지표를 별도 웹 화면으로 오가던 구조를 한 화면과 공통 월 선택으로 통합. 원본 Markdown과 구조화 데이터의 관리 분리는 유지."
+    },
+    {
+      "id": "C011",
+      "recorded_at": "2026-11-18",
+      "targets": [
+        "D021",
+        "D022",
+        "D023",
+        "E033",
+        "E034",
+        "E035",
+        "E036",
+        "E037"
+      ],
+      "reason": "사용자 배점 지적 반영과6월 첫 교제·유지비·패치 사건 초안 구성. 비용 예산은 실제 지출 원장에 반영하지 않음."
     }
   ],
   "months": {
@@ -1015,6 +1149,15 @@
       "site_stage": "자동 운영·예외 대응",
       "asset_note": "5월 광고 발생액 262.50달러·누적454.50달러는 작품용 기준안입니다. 실제 수령·비용·개인현금과 구분합니다.",
       "site_note": "일상 운영은 짧게 점검하고 패치·오류 발생 시 집중 수정합니다. 방문·수익·성적·체격은 현황판에서 같은 데이터를 조회합니다."
+    },
+    "2005-06": {
+      "title": "첫 연애와 사이트의 다음 부담",
+      "status": "draft",
+      "summary": "학원 첫 교제 · WoW 전장 업데이트 · 유지비와 운영 규모",
+      "school_label": "풍덕고1학년·학원 첫 교제",
+      "site_stage": "패치 대응·트래픽 점검",
+      "asset_note": "6월광고발생412.50달러·누적867달러는작품가정입니다.월지출예산과실제현금은구분합니다.",
+      "site_note": "자동운영을유지하며6월9일전장업데이트와유입에대응합니다.유지비예산을점검하고학원첫교제와시간을나눕니다."
     }
   },
   "ongoing_threads": [
@@ -1029,7 +1172,8 @@
         "D007",
         "D013",
         "D017",
-        "D018"
+        "D018",
+        "D023"
       ],
       "event_ids": [
         "E003",
@@ -1049,7 +1193,10 @@
         "E025",
         "E026",
         "E030",
-        "E031"
+        "E031",
+        "E034",
+        "E035",
+        "E036"
       ],
       "task_ids": [
         "T003",
@@ -1063,7 +1210,10 @@
         "T018",
         "T019",
         "T020",
-        "T023"
+        "T023",
+        "T025",
+        "T026",
+        "T027"
       ]
     },
     {
@@ -1095,7 +1245,8 @@
         "D011",
         "D012",
         "D015",
-        "D016"
+        "D016",
+        "D021"
       ],
       "event_ids": [
         "E012",
@@ -1103,7 +1254,8 @@
         "E021",
         "E027",
         "E028",
-        "E032"
+        "E032",
+        "E037"
       ],
       "task_ids": [
         "T013",
@@ -1128,6 +1280,20 @@
       ],
       "task_ids": [
         "T021"
+      ]
+    },
+    {
+      "id": "O005",
+      "priority": "secondary",
+      "summary": "학원에서 시작한 첫 교제와 시간·관계 조율",
+      "decision_ids": [
+        "D022"
+      ],
+      "event_ids": [
+        "E033"
+      ],
+      "task_ids": [
+        "T028"
       ]
     }
   ]

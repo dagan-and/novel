@@ -22,9 +22,17 @@ def allocate(total, weights):
         result[index] += 1
     return result
 
-rows = []; cumulative = 0; received = 0
+rows = []; cumulative = 0; received = 0; budget_total = 0
+budget = {row['month']: row for row in data.get('cost_model', {}).get('monthly', [])}
 for month in sorted(data['monthly'], key=lambda m:m['month']):
-    key = month['month']; y,m = map(int,key.split('-')); days = calendar.monthrange(y,m)[1]
+    key = month['month']
+    planned = budget.get(key)
+    if planned:
+        month['planned_hosting_cost_krw'] = planned['hosting_krw']
+        month['planned_cash_cost_krw'] = planned['hosting_krw'] + planned['domain_cash_krw'] + planned['setup_cash_krw']
+        budget_total += month['planned_cash_cost_krw']
+        month['cumulative_planned_cash_cost_krw'] = budget_total
+    y,m = map(int,key.split('-')); days = calendar.monthrange(y,m)[1]
     dates = [date(y,m,i+1) for i in range(days)]
     weights = [(0.7 + 0.6*i/max(1,days-1))*(1.15 if dt.weekday()>=5 else 1) for i,dt in enumerate(dates)]
     visits = allocate(month['visitor_days'], weights) if month['visitor_days'] is not None else [None]*days

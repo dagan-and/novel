@@ -9,8 +9,8 @@ def render_month_sections(root, month, krw_per_usd):
 
     def display_money(value):
         return re.sub(
-            r'(\d[\d,]*(?:\.\d+)?)\s*달러',
-            lambda m: f"{round(float(m.group(1).replace(',', '')) * krw_per_usd):,}원",
+            r'(\d[\d,]*(?:\.\d+)?)\s*달러(라는|라고|라면|로|다\b|가|는|를|와)?',
+            lambda m: f"{round(float(m.group(1).replace(',', '')) * krw_per_usd):,}원" + {'라는':'이라는','라고':'이라고','라면':'이라면','로':'으로','다':'이다','가':'이','는':'은','를':'을','와':'과'}.get(m.group(2), ''),
             value,
         )
 

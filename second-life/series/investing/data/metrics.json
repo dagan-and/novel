@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "series": "investing",
-  "as_of": "2005-05-31",
+  "as_of": "2005-06-30",
   "definitions": {
     "data_kind": "fictional_world_not_live_analytics",
     "revenue": "플랫폼 배분 후 게시자 광고 발생액. 운영비·세금 차감 전. 실제 수령·개인 현금과 구분.",
@@ -33,7 +33,10 @@
       "investment_realized_pnl_krw": 0,
       "investment_cash_krw": null,
       "holdings": [],
-      "trade_count": 0
+      "trade_count": 0,
+      "planned_hosting_cost_krw": 5500,
+      "planned_cash_cost_krw": 32500,
+      "cumulative_planned_cash_cost_krw": 32500
     },
     {
       "month": "2005-02",
@@ -57,7 +60,10 @@
       "investment_realized_pnl_krw": 0,
       "investment_cash_krw": null,
       "holdings": [],
-      "trade_count": 0
+      "trade_count": 0,
+      "planned_hosting_cost_krw": 5500,
+      "planned_cash_cost_krw": 5500,
+      "cumulative_planned_cash_cost_krw": 38000
     },
     {
       "month": "2005-03",
@@ -81,7 +87,10 @@
       "investment_realized_pnl_krw": 0,
       "investment_cash_krw": null,
       "holdings": [],
-      "trade_count": 0
+      "trade_count": 0,
+      "planned_hosting_cost_krw": 5500,
+      "planned_cash_cost_krw": 5500,
+      "cumulative_planned_cash_cost_krw": 43500
     },
     {
       "month": "2005-04",
@@ -105,7 +114,10 @@
       "investment_realized_pnl_krw": 0,
       "investment_cash_krw": null,
       "holdings": [],
-      "trade_count": 0
+      "trade_count": 0,
+      "planned_hosting_cost_krw": 5500,
+      "planned_cash_cost_krw": 5500,
+      "cumulative_planned_cash_cost_krw": 49000
     },
     {
       "month": "2005-05",
@@ -129,7 +141,37 @@
       "investment_realized_pnl_krw": 0,
       "investment_cash_krw": null,
       "holdings": [],
-      "trade_count": 0
+      "trade_count": 0,
+      "planned_hosting_cost_krw": 11000,
+      "planned_cash_cost_krw": 11000,
+      "cumulative_planned_cash_cost_krw": 60000
+    },
+    {
+      "month": "2005-06",
+      "status": "story_estimate",
+      "days": 30,
+      "visitor_days": 69000,
+      "pageviews": 330000,
+      "ad_pageviews": 330000,
+      "publisher_rpm_usd": 1.25,
+      "ad_revenue_usd": 412.5,
+      "cumulative_ad_revenue_usd": 867.0,
+      "cash_received_usd": 0,
+      "cumulative_cash_received_usd": 0,
+      "operating_costs_usd": null,
+      "net_profit_usd": null,
+      "personal_cash_krw": null,
+      "average_daily_visitors": 2300.0,
+      "average_daily_ad_revenue_usd": 13.75,
+      "basis": "6월 전장 업데이트와 자료 보강을 연결한 작품 성장 가정. 실측 아님.",
+      "investment_assets_krw": 0,
+      "investment_realized_pnl_krw": 0,
+      "investment_cash_krw": null,
+      "holdings": [],
+      "trade_count": 0,
+      "planned_hosting_cost_krw": 11000,
+      "planned_cash_cost_krw": 11000,
+      "cumulative_planned_cash_cost_krw": 71000
     }
   ],
   "daily": [
@@ -1491,6 +1533,276 @@
       "pageviews": 8438,
       "ad_pageviews": 8438,
       "ad_revenue_usd": 10.55
+    },
+    {
+      "date": "2005-06-01",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 1549,
+      "pageviews": 7407,
+      "ad_pageviews": 7407,
+      "ad_revenue_usd": 9.26
+    },
+    {
+      "date": "2005-06-02",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 1594,
+      "pageviews": 7626,
+      "ad_pageviews": 7626,
+      "ad_revenue_usd": 9.53
+    },
+    {
+      "date": "2005-06-03",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 1640,
+      "pageviews": 7845,
+      "ad_pageviews": 7845,
+      "ad_revenue_usd": 9.81
+    },
+    {
+      "date": "2005-06-04",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 1939,
+      "pageviews": 9273,
+      "ad_pageviews": 9273,
+      "ad_revenue_usd": 11.59
+    },
+    {
+      "date": "2005-06-05",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 1992,
+      "pageviews": 9525,
+      "ad_pageviews": 9525,
+      "ad_revenue_usd": 11.91
+    },
+    {
+      "date": "2005-06-06",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 1778,
+      "pageviews": 8501,
+      "ad_pageviews": 8501,
+      "ad_revenue_usd": 10.63
+    },
+    {
+      "date": "2005-06-07",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 1823,
+      "pageviews": 8720,
+      "ad_pageviews": 8720,
+      "ad_revenue_usd": 10.9
+    },
+    {
+      "date": "2005-06-08",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 1869,
+      "pageviews": 8939,
+      "ad_pageviews": 8939,
+      "ad_revenue_usd": 11.17
+    },
+    {
+      "date": "2005-06-09",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 1915,
+      "pageviews": 9158,
+      "ad_pageviews": 9158,
+      "ad_revenue_usd": 11.45
+    },
+    {
+      "date": "2005-06-10",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 1961,
+      "pageviews": 9377,
+      "ad_pageviews": 9377,
+      "ad_revenue_usd": 11.72
+    },
+    {
+      "date": "2005-06-11",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 2307,
+      "pageviews": 11035,
+      "ad_pageviews": 11035,
+      "ad_revenue_usd": 13.79
+    },
+    {
+      "date": "2005-06-12",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 2360,
+      "pageviews": 11287,
+      "ad_pageviews": 11287,
+      "ad_revenue_usd": 14.11
+    },
+    {
+      "date": "2005-06-13",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 2098,
+      "pageviews": 10034,
+      "ad_pageviews": 10034,
+      "ad_revenue_usd": 12.54
+    },
+    {
+      "date": "2005-06-14",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 2144,
+      "pageviews": 10253,
+      "ad_pageviews": 10253,
+      "ad_revenue_usd": 12.82
+    },
+    {
+      "date": "2005-06-15",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 2190,
+      "pageviews": 10472,
+      "ad_pageviews": 10472,
+      "ad_revenue_usd": 13.09
+    },
+    {
+      "date": "2005-06-16",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 2235,
+      "pageviews": 10691,
+      "ad_pageviews": 10691,
+      "ad_revenue_usd": 13.36
+    },
+    {
+      "date": "2005-06-17",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 2281,
+      "pageviews": 10909,
+      "ad_pageviews": 10909,
+      "ad_revenue_usd": 13.64
+    },
+    {
+      "date": "2005-06-18",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 2676,
+      "pageviews": 12798,
+      "ad_pageviews": 12798,
+      "ad_revenue_usd": 16.0
+    },
+    {
+      "date": "2005-06-19",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 2729,
+      "pageviews": 13049,
+      "ad_pageviews": 13049,
+      "ad_revenue_usd": 16.31
+    },
+    {
+      "date": "2005-06-20",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 2418,
+      "pageviews": 11566,
+      "ad_pageviews": 11566,
+      "ad_revenue_usd": 14.46
+    },
+    {
+      "date": "2005-06-21",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 2464,
+      "pageviews": 11785,
+      "ad_pageviews": 11785,
+      "ad_revenue_usd": 14.73
+    },
+    {
+      "date": "2005-06-22",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 2510,
+      "pageviews": 12004,
+      "ad_pageviews": 12004,
+      "ad_revenue_usd": 15.01
+    },
+    {
+      "date": "2005-06-23",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 2556,
+      "pageviews": 12223,
+      "ad_pageviews": 12223,
+      "ad_revenue_usd": 15.28
+    },
+    {
+      "date": "2005-06-24",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 2601,
+      "pageviews": 12442,
+      "ad_pageviews": 12442,
+      "ad_revenue_usd": 15.55
+    },
+    {
+      "date": "2005-06-25",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 3044,
+      "pageviews": 14560,
+      "ad_pageviews": 14560,
+      "ad_revenue_usd": 18.2
+    },
+    {
+      "date": "2005-06-26",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 3097,
+      "pageviews": 14812,
+      "ad_pageviews": 14812,
+      "ad_revenue_usd": 18.51
+    },
+    {
+      "date": "2005-06-27",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 2739,
+      "pageviews": 13099,
+      "ad_pageviews": 13099,
+      "ad_revenue_usd": 16.37
+    },
+    {
+      "date": "2005-06-28",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 2785,
+      "pageviews": 13318,
+      "ad_pageviews": 13318,
+      "ad_revenue_usd": 16.65
+    },
+    {
+      "date": "2005-06-29",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 2830,
+      "pageviews": 13537,
+      "ad_pageviews": 13537,
+      "ad_revenue_usd": 16.92
+    },
+    {
+      "date": "2005-06-30",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 2876,
+      "pageviews": 13755,
+      "ad_pageviews": 13755,
+      "ad_revenue_usd": 17.19
     }
   ],
   "academics": {
@@ -1507,7 +1819,7 @@
     "subjects": [
       {
         "name": "국어(상)",
-        "score": 99,
+        "score": 100,
         "maximum": 100,
         "status": "story_estimate"
       },
@@ -1537,7 +1849,7 @@
       },
       {
         "name": "국사",
-        "score": 99,
+        "score": 100,
         "maximum": 100,
         "status": "story_estimate"
       },
@@ -1548,12 +1860,19 @@
         "status": "story_estimate"
       }
     ],
-    "simple_average": 99.71428571428571,
+    "simple_average": 100.0,
     "average_definition": "임시 7과목 단순평균. 학교 공식 가중평균/학기말 성적 아님.",
     "extra_subjects_pending": [
       "기술·가정 및 기타 교과 지필평가 포함 여부"
     ],
-    "research": "series/investing/research/school/2005-05-midterms.md"
+    "research": "series/investing/research/school/2005-05-midterms.md",
+    "question_point_values": [
+      2,
+      3,
+      4
+    ],
+    "point_values_source": "사용자 지정 시험 구성·실제 시험지 배점표는 미확인",
+    "score_revision": "99점 임의 설정을 제거하고 전과목100점 기준안으로 교정"
   },
   "body": [
     {
@@ -1614,6 +1933,12 @@
       "apm_low": 450,
       "apm_high": 550,
       "status": "performance_candidate"
+    },
+    {
+      "month": "2005-06",
+      "apm_low": null,
+      "apm_high": null,
+      "status": "not_recorded"
     }
   ],
   "standing": {
@@ -1646,5 +1971,68 @@
     "label": "표시용 환산: 1달러 ≈ 1,000원. 실제 환전·입금액 아님.",
     "reference_url": "https://www.newswire.co.kr/newsRead.php?no=117827",
     "reference_note": "한국은행의 2005년 회고: 1분기 1010원 중심,4월29일997.1원. 일별/월별 실환율을 대체하지 않는 보기용 고정값."
+  },
+  "relationships": [
+    {
+      "person_id": "P001",
+      "name": "윤서진",
+      "name_status": "fictional_provisional",
+      "first_month": "2005-06",
+      "relationship": "학원에서 첫 교제 시작",
+      "school_stage": "고1 동급생",
+      "status": "story_draft"
+    }
+  ],
+  "cost_model": {
+    "status": "budget_scenario_not_paid_expense",
+    "currency": "KRW",
+    "monthly_allowance_krw": null,
+    "annual_domain_budget_krw": 22000,
+    "monthly_contingency_krw": 5000,
+    "monthly": [
+      {
+        "month": "2005-01",
+        "hosting_krw": 5500,
+        "domain_cash_krw": 22000,
+        "setup_cash_krw": 5000
+      },
+      {
+        "month": "2005-02",
+        "hosting_krw": 5500,
+        "domain_cash_krw": 0,
+        "setup_cash_krw": 0
+      },
+      {
+        "month": "2005-03",
+        "hosting_krw": 5500,
+        "domain_cash_krw": 0,
+        "setup_cash_krw": 0
+      },
+      {
+        "month": "2005-04",
+        "hosting_krw": 5500,
+        "domain_cash_krw": 0,
+        "setup_cash_krw": 0
+      },
+      {
+        "month": "2005-05",
+        "hosting_krw": 11000,
+        "domain_cash_krw": 0,
+        "setup_cash_krw": 0
+      },
+      {
+        "month": "2005-06",
+        "hosting_krw": 11000,
+        "domain_cash_krw": 0,
+        "setup_cash_krw": 0
+      }
+    ],
+    "includes_tax_assumption": true,
+    "source_note": "2005년 당사자 호스팅 사용 경험과 도메인 가격 보도를 참고한 작품 예산. 특정 상품 정가·실제 납부·트래픽 적합성 보장 아님.",
+    "research": "series/investing/research/business/2005-06-operating-costs.md",
+    "sources": [
+      "https://yokim.net/ko/415",
+      "https://www.etnews.com/200506290053?m=1"
+    ]
   }
 }
