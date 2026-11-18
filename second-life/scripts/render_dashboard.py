@@ -2,6 +2,7 @@
 from pathlib import Path
 import json
 from story_rendering import render_month_sections
+from render_profiles import render_profiles
 
 
 def render_dashboard(root=None):
@@ -18,6 +19,7 @@ def render_dashboard(root=None):
             'summary': meta['summary'],
             'status': '진행 채택' if meta['status'] == 'confirmed' else '탐색 초안',
             'revision_note': meta.get('revision_note', ''),
+            'school_label': meta.get('school_label', ''),
             'html': render_month_sections(root, month, data['display_fx']['krw_per_usd']),
         }
     template = (root / 'scripts/templates/dashboard.html').read_text()
@@ -26,7 +28,9 @@ def render_dashboard(root=None):
         return json.dumps(value, ensure_ascii=False, separators=(',', ':')).replace('<', '\\u003c')
 
     output = folder / 'dashboard.html'
-    output.write_text(template.replace('METRICS_JSON', payload(data)).replace('STORIES_JSON', payload(stories)))
+    status_js = (root / 'scripts/templates/personal_status.js').read_text()
+    output.write_text(template.replace('METRICS_JSON', payload(data)).replace('STORIES_JSON', payload(stories)).replace('PERSONAL_STATUS_JS', status_js))
+    render_profiles(root)
     print(f'Unified dashboard rendered: {len(stories)} months; {len(data["daily"])} modeled days')
 
 

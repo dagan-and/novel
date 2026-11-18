@@ -1831,48 +1831,48 @@
     "subjects": [
       {
         "name": "국어(상)",
-        "score": 100,
+        "score": 94,
         "maximum": 100,
         "status": "story_estimate"
       },
       {
         "name": "영어",
-        "score": 100,
+        "score": 98,
         "maximum": 100,
         "status": "story_estimate"
       },
       {
         "name": "수학 10-가",
-        "score": 100,
+        "score": 96,
         "maximum": 100,
         "status": "story_estimate"
       },
       {
         "name": "사회",
-        "score": 100,
+        "score": 94,
         "maximum": 100,
         "status": "story_estimate"
       },
       {
         "name": "과학",
-        "score": 100,
+        "score": 96,
         "maximum": 100,
         "status": "story_estimate"
       },
       {
         "name": "국사",
-        "score": 100,
+        "score": 94,
         "maximum": 100,
         "status": "story_estimate"
       },
       {
         "name": "도덕",
-        "score": 100,
+        "score": 93,
         "maximum": 100,
         "status": "story_estimate"
       }
     ],
-    "simple_average": 100.0,
+    "simple_average": 95.0,
     "average_definition": "임시 7과목 단순평균. 학교 공식 가중평균/학기말 성적 아님.",
     "extra_subjects_pending": [
       "기술·가정 및 기타 교과 지필평가 포함 여부"
@@ -1884,7 +1884,9 @@
       4
     ],
     "point_values_source": "사용자 지정 시험 구성·실제 시험지 배점표는 미확인",
-    "score_revision": "99점 임의 설정을 제거하고 전과목100점 기준안으로 교정"
+    "score_revision": "전과목100점 기준안을 폐기. 임시7과목 94·98·96·94·96·94·93으로 평균95점인 후보 배분. 세부 점수는 창작 제안이며 학년1등은 사용자 설정.",
+    "target_average": 95,
+    "target_average_source": "사용자 지정: 전과목100점 대신 평균95점 정도"
   },
   "body": [
     {
@@ -1987,12 +1989,39 @@
   "relationships": [
     {
       "person_id": "P001",
-      "name": "윤서진",
-      "name_status": "fictional_provisional",
+      "name": "김현지",
+      "name_status": "user_named",
       "first_month": "2005-06",
       "relationship": "학원에서 첫 교제 시작",
       "school_stage": "고1 동급생",
-      "status": "story_draft"
+      "status": "user_confirmed_relationship_outline",
+      "appearance": {
+        "height_cm": 162,
+        "weight_kg": 53,
+        "measurement_status": "user_recalled_approximate",
+        "hair": "중단발",
+        "impression": "기존시안보다 더 예쁘고 고양이상에 가까운 귀여운 인상. 부드러운 볼살·중단발."
+      },
+      "personality": {
+        "confirmed": "친해지면 장난이 많고 잘 웃음. 공부를 잘하지 않으며 조금 날라리 같은 분위기.",
+        "source": "사용자 답변2026-11-18"
+      },
+      "known_from": "2005-06",
+      "profile_href": "characters/person-001.html",
+      "portrait": "characters/images/kim-hyeonji-v2.png",
+      "phases": [
+        {
+          "from_month": "2005-06",
+          "to_month": null,
+          "kind": "girlfriend"
+        }
+      ],
+      "portrait_caption": "중단발과 부드러운 볼선 위로 눈꼬리가 살짝 올라가는 눈매.",
+      "profile_tags": [
+        "약162cm",
+        "약53kg",
+        "친해지면 장난이 많음"
+      ]
     }
   ],
   "cost_model": {
@@ -2048,5 +2077,102 @@
     ],
     "allowance_definition": "사용자 확인: 한 달에 약10만원 사용 가능. 실제 용돈 입금·현재 잔액·과거 월별 수령 내역을 뜻하지 않음.",
     "allowance_status": "user_confirmed_approximate_available_budget"
+  },
+  "personal_spending_budget": {
+    "status": "user_accepted_planning_scenario_not_paid_ledger",
+    "monthly_available_krw": 100000,
+    "note": "이전 제안표를 사용자 채택. 실제 지출·수령한 용돈·현재 현금잔액과 구분. 초기10만원 별도 가산 없음.",
+    "monthly": [
+      {
+        "month": "2005-01",
+        "site_krw": 32500,
+        "books_krw": 15000,
+        "dating_krw": 0,
+        "other_krw": 15000,
+        "total_krw": 62500,
+        "remaining_budget_krw": 37500
+      },
+      {
+        "month": "2005-02",
+        "site_krw": 5500,
+        "books_krw": 20000,
+        "dating_krw": 0,
+        "other_krw": 20000,
+        "total_krw": 45500,
+        "remaining_budget_krw": 54500
+      },
+      {
+        "month": "2005-03",
+        "site_krw": 5500,
+        "books_krw": 25000,
+        "dating_krw": 0,
+        "other_krw": 15000,
+        "total_krw": 45500,
+        "remaining_budget_krw": 54500
+      },
+      {
+        "month": "2005-04",
+        "site_krw": 5500,
+        "books_krw": 20000,
+        "dating_krw": 0,
+        "other_krw": 15000,
+        "total_krw": 40500,
+        "remaining_budget_krw": 59500
+      },
+      {
+        "month": "2005-05",
+        "site_krw": 11000,
+        "books_krw": 15000,
+        "dating_krw": 0,
+        "other_krw": 20000,
+        "total_krw": 46000,
+        "remaining_budget_krw": 54000
+      },
+      {
+        "month": "2005-06",
+        "site_krw": 11000,
+        "books_krw": 15000,
+        "dating_krw": 30000,
+        "other_krw": 20000,
+        "total_krw": 76000,
+        "remaining_budget_krw": 24000
+      }
+    ]
+  },
+  "revenue_sharing": {
+    "start_month": "2005-06",
+    "status": "user_accepted_policy",
+    "basis": "월말 광고 발생액의 몫을 기록하고 실제 광고대금 수령 뒤 지급. 서버비는 용돈 예산에서 부담하므로 분배 시 중복 차감하지 않음.",
+    "mother_fraction": 0.5,
+    "yongsik_fraction": 0.5,
+    "earlier_months_allocation": null,
+    "monthly": [
+      {
+        "month": "2005-06",
+        "revenue_usd": 412.5,
+        "mother_allocation_usd": 206.25,
+        "yongsik_allocation_usd": 206.25,
+        "display_approx_each_krw": 206250,
+        "cash_received_usd": 0,
+        "actual_distribution_krw": null,
+        "note": "배분 몫은 미수령 광고수익 기준. 원화는 표시용 환산이며 실제 수령·환전·지급액이 아님."
+      }
+    ]
+  },
+  "personal_assets": {
+    "basis": "월별 개인현금·투자자산과 확인된 개인 소유 자산 기준. 광고발생액·용돈 잔여예산·가족 자산·사업 추정가치는 합산하지 않음.",
+    "vehicles": {
+      "status": "unrecorded",
+      "items": [],
+      "valuation_krw": null
+    },
+    "homes": {
+      "status": "unrecorded",
+      "items": [],
+      "valuation_krw": null
+    },
+    "other_assets_krw": null,
+    "residence": "용인 수지",
+    "residence_ownership": "미확인. 거주지와 개인 소유 주택은 구분."
   }
 }

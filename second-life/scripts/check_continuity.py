@@ -147,3 +147,16 @@ for month in metrics["monthly"]:
     recurring = month["planned_hosting_cost_krw"] + metrics["cost_model"]["annual_domain_budget_krw"]/12 + metrics["cost_model"]["monthly_contingency_krw"]
     assert month["monthly_available_budget_krw"] == allowance
     assert month["remaining_recurring_budget_krw"] == (round(allowance-recurring) if allowance is not None else None)
+
+# Keep relationship profiles and image assets reachable; record timing explicitly.
+for person in metrics.get('relationships', []):
+    if person.get('profile_href'):
+        profile = root / 'series/investing' / person['profile_href']
+        assert profile.is_file() and profile.with_suffix('.md').is_file(), person['person_id']
+        assert (root / 'series/investing' / person['portrait']).is_file(), person['person_id']
+        assert person['known_from'] <= person['first_month']
+        for phase in person.get('phases', []):
+            assert phase['kind'] in ('girlfriend', 'crush', 'met')
+            assert phase['from_month'] >= person['known_from']
+            assert phase['to_month'] is None or phase['to_month'] >= phase['from_month']
+print('Profiles OK: sources, generated links, images and relation periods')
