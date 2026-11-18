@@ -40,4 +40,12 @@ if state.get('month_end_state'):
     assert snapshot['as_of'][:7] == state['last_confirmed_month'], 'Snapshot month mismatch'
     events = {item['id']: item for item in data['events']}
     assert all(events[key]['status'] == 'confirmed' for key in snapshot['event_ids'])
+thread_ids = set()
+for thread in data.get('ongoing_threads', []):
+    assert thread['id'] not in thread_ids, 'Duplicate ongoing thread ID'
+    thread_ids.add(thread['id'])
+    assert thread['priority'] in ('main', 'secondary'), thread['id']
+    for field, group in [('decision_ids', 'decisions'), ('event_ids', 'events'), ('task_ids', 'tasks')]:
+        allowed = {item['id'] for item in data[group]}
+        assert set(thread.get(field, [])) <= allowed, thread['id']
 print(f'Continuity OK: {len(ids)} IDs; progress {state["next_month"]}; unknowns preserved')

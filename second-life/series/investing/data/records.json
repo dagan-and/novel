@@ -40,6 +40,12 @@
       "status": "confirmed",
       "summary": "1월 서술의 질적 진행을 채택하고 2월로 진행. 미정 자금과 거래는 확정하지 않음.",
       "source": "사용자 지시 2026-11-18: 좋아졌네, 2월 하자"
+    },
+    {
+      "id": "D006",
+      "status": "confirmed",
+      "summary": "사이트 구현과 운영은 2월에도 계속되는 본줄기다. 새 관심사인 스타 때문에 기존 활동을 생략하거나 대체하지 않는다.",
+      "source": "사용자 지시 2026-11-18: 사이트 구현 및 운영은 자연스럽게 2월에도 계속"
     }
   ],
   "events": [
@@ -107,6 +113,50 @@
       "story_date": "2005-02",
       "decision_ids": [
         "D003"
+      ]
+    },
+    {
+      "id": "E008",
+      "status": "draft",
+      "summary": "디아블로 검색의 부족 조건·표기 정리·큐브 검색·공략 연결 보완",
+      "source": "series/investing/months/2005-02.md",
+      "story_date": "2005-02",
+      "decision_ids": [
+        "D003",
+        "D006"
+      ]
+    },
+    {
+      "id": "E009",
+      "status": "draft",
+      "summary": "WoW 직업 안내·체크리스트·관련 질문 연결을 계속 구현",
+      "source": "series/investing/months/2005-02.md",
+      "story_date": "2005-02",
+      "decision_ids": [
+        "D003",
+        "D006"
+      ]
+    },
+    {
+      "id": "E010",
+      "status": "draft",
+      "summary": "시험공개 뒤 질문 응대·정보 교정·오류 우선 처리·신고·백업을 반복 운영",
+      "source": "series/investing/months/2005-02.md",
+      "story_date": "2005-02",
+      "decision_ids": [
+        "D003",
+        "D006"
+      ]
+    },
+    {
+      "id": "E011",
+      "status": "draft",
+      "summary": "독립 콘텐츠와 사용 가능한 도구를 바탕으로 광고 신청 준비; 승인과 입금은 미확정",
+      "source": "series/investing/months/2005-02.md",
+      "story_date": "2005-02",
+      "decision_ids": [
+        "D003",
+        "D006"
       ]
     }
   ],
@@ -253,6 +303,19 @@
       "actual_hours": null,
       "completion": null,
       "source": "series/investing/planning/2005-02.md"
+    },
+    {
+      "id": "T012",
+      "status": "planned",
+      "summary": "시험공개 후 질문·검색 실패·오류·신고·자료 수정·백업을 반복 관리",
+      "scope": "story",
+      "story_month": "2005-02",
+      "depends_on": [
+        "T006"
+      ],
+      "actual_hours": null,
+      "completion": null,
+      "source": "series/investing/planning/2005-02.md"
     }
   ],
   "unknowns": [
@@ -314,6 +377,19 @@
         "D005"
       ],
       "reason": "사용자가 1월 방향을 받아들이고 2월 진행 요청. 질적 사건만 채택하고 자금·실제 사용시간은 미정 유지."
+    },
+    {
+      "id": "C003",
+      "recorded_at": "2026-11-18",
+      "targets": [
+        "D006",
+        "E007",
+        "E008",
+        "E009",
+        "E010",
+        "E011"
+      ],
+      "reason": "사용자 교정: 2월 서술에서 스타 설명에 치우친 비중을 조정하고 사이트 구현·운영을 월 전체의 본줄기로 복원."
     }
   ],
   "months": {
@@ -325,11 +401,52 @@
       "site_note": "회원·게시판, 디아블로 II 조합 검색과 WoW 입문 기능의 내부 시험판을 마련했습니다. 외부 공개·광고 수익은 아직 없습니다."
     },
     "2005-02": {
-      "title": "내가 알던 속도 너머",
+      "title": "사이트가 돌아가기 시작한 달",
       "status": "draft",
-      "summary": "사이트 시험공개 · 테란의 변화 · 고등학교 입학 준비",
+      "summary": "구현·시험공개·운영의 연결 · 테란 능력 탐색 · 입학 준비",
       "asset_note": "시작 자금은 잠정 약 10만 원입니다. 2월 지출·보유금·광고 수령액은 미확정입니다.",
-      "site_note": "소규모 시험공개와 개선, 광고 신청 준비를 진행하는 초안입니다. 스타 실력 수치는 창작 후보이며 경기 실측값이 아닙니다."
+      "site_note": "디아블로·WoW 기능 보완, 소규모 시험공개, 질문 대응과 오류 수정을 함께 진행하는 초안입니다. 광고 승인·수익은 미확정입니다."
     }
-  }
+  },
+  "ongoing_threads": [
+    {
+      "id": "O001",
+      "priority": "main",
+      "summary": "디아블로·WoW 사이트 구현·정보 보강·운영·수익화 준비",
+      "decision_ids": [
+        "D003",
+        "D004",
+        "D006"
+      ],
+      "event_ids": [
+        "E003",
+        "E004",
+        "E007",
+        "E008",
+        "E009",
+        "E010",
+        "E011"
+      ],
+      "task_ids": [
+        "T003",
+        "T004",
+        "T005",
+        "T006",
+        "T007"
+      ]
+    },
+    {
+      "id": "O002",
+      "priority": "secondary",
+      "summary": "스타 테란 실력 적응·측정과 소규모 콘텐츠 가능성",
+      "event_ids": [
+        "E005",
+        "E006"
+      ],
+      "task_ids": [
+        "T009",
+        "T010"
+      ]
+    }
+  ]
 }
