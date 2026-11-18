@@ -21,6 +21,8 @@ for key, meta in sorted(months.items()):
     title = escape(meta['title'])
     summary = escape(meta['summary'])
     status = '진행 채택' if meta['status'] == 'confirmed' else '탐색 초안'
+    if meta.get('revision_status') == 'draft':
+        status += ' · 보완 초안 포함'
     money = '약 10만 원 · 시작 잠정값' if key == '2005-01' else '월말 잔액 미확정'
     stage = escape(meta.get('site_stage', '내부 시험판' if key == '2005-01' else '시험공개·운영'))
     school = escape(meta.get('school_label', '정평중 3학년 · 입학 전'))

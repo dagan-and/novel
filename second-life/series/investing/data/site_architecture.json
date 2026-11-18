@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "status": "draft_revision",
+  "source": "사용자 2026-11-18 초기 자동화 교정",
+  "timeline": {
+    "2005-01": "수집·자료 구조·원천/버전/확인일·검수·예약 설계와 표본",
+    "2005-02": "검증한 자료원부터 가져오기·중복/변경 검사·예약 백업 연결",
+    "2005-03": "개학 중 무인 실행·야간 검수·실패 처리",
+    "2005-04": "자료원 확장·이상 감지·복원 확인·운영 요약 개선"
+  },
+  "modules": [
+    {
+      "id": "A001",
+      "name": "회원·게시판·검색·유틸",
+      "mode": "요청 시 자동 처리",
+      "human": "오류·계정·신고 판단"
+    },
+    {
+      "id": "A002",
+      "name": "자료 수집",
+      "mode": "확인 가능한 자료원·피드/HTML·원천 주소·버전·중복 식별",
+      "human": "자료원 형식과 내용 적합성 확인"
+    },
+    {
+      "id": "A003",
+      "name": "변경·검수 대기",
+      "mode": "변경 후보·실패 수집·대기 목록 생성",
+      "human": "내용/게임 버전 검수와 직접 설명 작성"
+    },
+    {
+      "id": "A004",
+      "name": "예약 운영",
+      "mode": "백업·색인·캐시·실패 기록",
+      "human": "복원 시험·장애·호스팅 한도 판단"
+    }
+  ],
+  "sources": [
+    {
+      "id": "SRC001",
+      "name": "디아블로 II 공식 자료",
+      "historical_status": "개별 페이지의 2005년 내용/형식 확인 필요",
+      "rss_available_2005": null,
+      "automated_import_completed": null
+    },
+    {
+      "id": "SRC002",
+      "name": "WoW 공지·입문 자료",
+      "historical_status": "실제 자료원과 당시 피드 제공 확인 필요",
+      "rss_available_2005": null,
+      "automated_import_completed": null
+    }
+  ],
+  "time_budget_estimates": {
+    "normal_day_required_operations_minutes": [
+      30,
+      60
+    ],
+    "content_review_and_writing_minutes": [
+      30,
+      60
+    ],
+    "new_development_hours": "별도 선택 투입; 매일 4시간 의무 아님",
+    "measured_hours_saved": null
+  },
+  "note": "설계 보완 초안. 특정 자료원·예약 실행 환경·자동화율을 확인 없이 완료로 입력하지 않음."
+}
