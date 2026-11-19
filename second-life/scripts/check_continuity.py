@@ -205,20 +205,28 @@ assert fx["currency"] == "KRW" and fx["source_currency"] == "USD"
 assert fx["kind"] == "fixed_display_approximation" and fx["krw_per_usd"] > 0
 assert all(row['cumulative_ad_revenue_usd'] is None or row['cumulative_ad_revenue_usd'] >= 0 for row in metrics['monthly'])
 
-# User-specified 2/3/4-point questions cannot produce a one-point loss by wrong answers.
+# Keep school-test constraints distinct from the historical mock exam's domain weights.
 for exam in [metrics['academics'], *metrics.get('additional_exams', [])]:
     assert exam['story_month'] in data['months'], exam['exam']
     assert (root / exam['research']).is_file(), exam['exam']
     subjects = exam['subjects']
     assert all(0 <= subject['score'] <= subject['maximum'] for subject in subjects), exam['exam']
     assert abs(sum(subject['score'] for subject in subjects) / len(subjects) - exam['simple_average']) < 0.001, exam['exam']
-    points = exam.get('question_point_values', [])
-    assert points == [2, 3, 4]
-    losses = {0}
-    for total in range(101):
-        if total in losses:
-            losses.update(total + point for point in points if total + point <= 100)
-    assert all(subject['maximum'] - subject['score'] in losses for subject in subjects), exam['exam']
+    mock = exam.get('kind') == 'national_mock'
+    assert exam.get('question_point_values') == ([1, 2, 3, 4] if mock else [2, 3, 4])
+    for subject in subjects:
+        points = subject['question_point_values'] if mock else exam['question_point_values']
+        assert points and all(point in (1, 2, 3, 4) for point in points)
+        losses = {0}
+        for total in range(subject['maximum'] + 1):
+            if total in losses:
+                losses.update(total + point for point in points if total + point <= subject['maximum'])
+        assert subject['maximum'] - subject['score'] in losses, (exam['exam'], subject['name'])
+        if mock:
+            assert sum(subject['loss_point_values']) == subject['maximum'] - subject['score']
+            assert set(subject['loss_point_values']) <= set(points)
+        for field in ('grade', 'grade_estimate'):
+            assert subject.get(field) is None or 1 <= subject[field] <= 9
 # Budgets are not paid operating expenses and must reconcile without annual-fee duplication.
 budget = metrics['cost_model']
 assert budget['status'] == 'budget_scenario_not_paid_expense'

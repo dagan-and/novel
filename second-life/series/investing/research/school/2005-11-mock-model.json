@@ -1,5 +1,5 @@
 {
-  "status": "proposal_not_adopted",
+  "status": "adopted_story_draft",
   "exam": "2005학년도11월고1전국연합학력평가",
   "date": "2005-11-29",
   "date_basis": "보존문제지의 연월/학년 확인 및 시행자료목록의29일 표기 대조. 주관기관 날짜공지 원문은미확보.",
@@ -79,5 +79,7 @@
     "외국어(영어)": "https://mogozip.com/downloads/legacy-public/고1/2005/2005년_11월_고1_모의고사-학력평가_문제지,정답&해설,등급컷/question-2005년_11월_고1_모의고사_영어_문제-82a98d7d51.pdf",
     "사회탐구·과학탐구": "https://mogozip.com/downloads/legacy-public/고1/2005/2005년_11월_고1_모의고사-학력평가_문제지,정답&해설,등급컷/question-2005년_11월_고1_모의고사_사회과학탐구_문제-d35e903195.pdf",
     "정답·해설": "https://mogozip.com/downloads/legacy-public/고1/2005/2005년_11월_고1_모의고사-학력평가_문제지,정답&해설,등급컷/explanation-2005년_11월_고1_모의고사_정답&해설-07b1e30dd5.pdf"
-  }
+  },
+  "decision": "D063",
+  "adopted_at": "2026-11-19"
 }

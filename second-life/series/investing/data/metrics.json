@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "series": "investing",
-  "as_of": "2005-10-31",
+  "as_of": "2005-11-30",
   "definitions": {
     "data_kind": "fictional_world_not_live_analytics",
     "revenue": "플랫폼 배분 후 게시자 광고 발생액. 운영비·세금 차감 전. 실제 수령·개인 현금과 구분.",
@@ -616,6 +616,70 @@
           "to_mother_krw": 149038,
           "unpaid_usd": 600.0,
           "next_payout_usd": 600.0,
+          "fee_this_month_krw": 0
+        }
+      }
+    },
+    {
+      "visitor_days": 104500,
+      "pageviews": 500000,
+      "ad_pageviews": 500000,
+      "publisher_rpm_usd": 1.25,
+      "ad_revenue_usd": 625.0,
+      "cash_received_usd": 600.0,
+      "operating_costs_usd": null,
+      "net_profit_usd": null,
+      "personal_cash_krw": null,
+      "investment_cash_krw": null,
+      "section_pageviews": {
+        "diablo2": 120000,
+        "wow": 300000,
+        "dnf": 80000
+      },
+      "month": "2005-11",
+      "status": "story_estimate",
+      "basis": "D063 진행의창작모형. 기존게임패치집중유입감소(디아2 12만·WoW30만),던파한달전체운영으로8만. 시험기간반영.실측아님.",
+      "investment_assets_krw": 0,
+      "investment_realized_pnl_krw": 0,
+      "holdings": [],
+      "trade_count": 0,
+      "days": 30,
+      "cumulative_ad_revenue_usd": 3642.0,
+      "average_daily_visitors": 3483.33,
+      "average_daily_ad_revenue_usd": 20.8333,
+      "activity_stage": 3,
+      "cumulative_cash_received_usd": 3017.0,
+      "finances": {
+        "personal": {
+          "cash_krw": 561395,
+          "cash_scope": "provisional",
+          "cash_as_of_month": "2005-11",
+          "total_assets_krw": null
+        },
+        "flow": {
+          "opening_krw": 0,
+          "allowance_krw": 0,
+          "ad_share_krw": 437119,
+          "spending_krw": 200000
+        },
+        "budget": {
+          "allowance_krw": 0,
+          "after_site_krw": null,
+          "after_living_plan_krw": null,
+          "hosting_krw": 11000,
+          "recurring_site_krw": 17833,
+          "site_cash_plan_krw": 11000,
+          "site_cash_plan_total_krw": 126000
+        },
+        "site": {
+          "received_usd": 600.0,
+          "fx_krw_per_usd": 1040.76,
+          "received_krw": 624456,
+          "received_total_krw": 3110564,
+          "to_yongsik_krw": 437119,
+          "to_mother_krw": 187337,
+          "unpaid_usd": 625.0,
+          "next_payout_usd": 625.0,
           "fee_this_month_krw": 0
         }
       }
@@ -3357,6 +3421,276 @@
       "pageviews": 19209,
       "ad_pageviews": 19209,
       "ad_revenue_usd": 24.01
+    },
+    {
+      "date": "2005-11-01",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 2344,
+      "pageviews": 11214,
+      "ad_pageviews": 11214,
+      "ad_revenue_usd": 14.02
+    },
+    {
+      "date": "2005-11-02",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 2413,
+      "pageviews": 11545,
+      "ad_pageviews": 11545,
+      "ad_revenue_usd": 14.43
+    },
+    {
+      "date": "2005-11-03",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 2482,
+      "pageviews": 11876,
+      "ad_pageviews": 11876,
+      "ad_revenue_usd": 14.85
+    },
+    {
+      "date": "2005-11-04",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 2551,
+      "pageviews": 12208,
+      "ad_pageviews": 12208,
+      "ad_revenue_usd": 15.26
+    },
+    {
+      "date": "2005-11-05",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 3014,
+      "pageviews": 14420,
+      "ad_pageviews": 14420,
+      "ad_revenue_usd": 18.03
+    },
+    {
+      "date": "2005-11-06",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 3094,
+      "pageviews": 14801,
+      "ad_pageviews": 14801,
+      "ad_revenue_usd": 18.5
+    },
+    {
+      "date": "2005-11-07",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 2759,
+      "pageviews": 13202,
+      "ad_pageviews": 13202,
+      "ad_revenue_usd": 16.5
+    },
+    {
+      "date": "2005-11-08",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 2829,
+      "pageviews": 13534,
+      "ad_pageviews": 13534,
+      "ad_revenue_usd": 16.92
+    },
+    {
+      "date": "2005-11-09",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 2898,
+      "pageviews": 13865,
+      "ad_pageviews": 13865,
+      "ad_revenue_usd": 17.33
+    },
+    {
+      "date": "2005-11-10",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 2967,
+      "pageviews": 14196,
+      "ad_pageviews": 14196,
+      "ad_revenue_usd": 17.74
+    },
+    {
+      "date": "2005-11-11",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 3036,
+      "pageviews": 14528,
+      "ad_pageviews": 14528,
+      "ad_revenue_usd": 18.16
+    },
+    {
+      "date": "2005-11-12",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 3571,
+      "pageviews": 17088,
+      "ad_pageviews": 17088,
+      "ad_revenue_usd": 21.36
+    },
+    {
+      "date": "2005-11-13",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 3651,
+      "pageviews": 17469,
+      "ad_pageviews": 17469,
+      "ad_revenue_usd": 21.84
+    },
+    {
+      "date": "2005-11-14",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 3244,
+      "pageviews": 15522,
+      "ad_pageviews": 15522,
+      "ad_revenue_usd": 19.4
+    },
+    {
+      "date": "2005-11-15",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 3313,
+      "pageviews": 15854,
+      "ad_pageviews": 15854,
+      "ad_revenue_usd": 19.82
+    },
+    {
+      "date": "2005-11-16",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 3383,
+      "pageviews": 16185,
+      "ad_pageviews": 16185,
+      "ad_revenue_usd": 20.23
+    },
+    {
+      "date": "2005-11-17",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 3452,
+      "pageviews": 16516,
+      "ad_pageviews": 16516,
+      "ad_revenue_usd": 20.64
+    },
+    {
+      "date": "2005-11-18",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 3521,
+      "pageviews": 16848,
+      "ad_pageviews": 16848,
+      "ad_revenue_usd": 21.06
+    },
+    {
+      "date": "2005-11-19",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 4129,
+      "pageviews": 19756,
+      "ad_pageviews": 19756,
+      "ad_revenue_usd": 24.69
+    },
+    {
+      "date": "2005-11-20",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 4209,
+      "pageviews": 20137,
+      "ad_pageviews": 20137,
+      "ad_revenue_usd": 25.17
+    },
+    {
+      "date": "2005-11-21",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 3729,
+      "pageviews": 17842,
+      "ad_pageviews": 17842,
+      "ad_revenue_usd": 22.3
+    },
+    {
+      "date": "2005-11-22",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 3798,
+      "pageviews": 18174,
+      "ad_pageviews": 18174,
+      "ad_revenue_usd": 22.72
+    },
+    {
+      "date": "2005-11-23",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 3868,
+      "pageviews": 18505,
+      "ad_pageviews": 18505,
+      "ad_revenue_usd": 23.13
+    },
+    {
+      "date": "2005-11-24",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 3937,
+      "pageviews": 18837,
+      "ad_pageviews": 18837,
+      "ad_revenue_usd": 23.55
+    },
+    {
+      "date": "2005-11-25",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 4006,
+      "pageviews": 19168,
+      "ad_pageviews": 19168,
+      "ad_revenue_usd": 23.96
+    },
+    {
+      "date": "2005-11-26",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 4687,
+      "pageviews": 22424,
+      "ad_pageviews": 22424,
+      "ad_revenue_usd": 28.03
+    },
+    {
+      "date": "2005-11-27",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 4766,
+      "pageviews": 22805,
+      "ad_pageviews": 22805,
+      "ad_revenue_usd": 28.51
+    },
+    {
+      "date": "2005-11-28",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 4214,
+      "pageviews": 20162,
+      "ad_pageviews": 20162,
+      "ad_revenue_usd": 25.2
+    },
+    {
+      "date": "2005-11-29",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 4283,
+      "pageviews": 20494,
+      "ad_pageviews": 20494,
+      "ad_revenue_usd": 25.62
+    },
+    {
+      "date": "2005-11-30",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 4352,
+      "pageviews": 20825,
+      "ad_pageviews": 20825,
+      "ad_revenue_usd": 26.03
     }
   ],
   "academics": {
@@ -3641,6 +3975,12 @@
         "hosting_krw": 11000,
         "domain_cash_krw": 0,
         "setup_cash_krw": 0
+      },
+      {
+        "month": "2005-11",
+        "hosting_krw": 11000,
+        "domain_cash_krw": 0,
+        "setup_cash_krw": 0
       }
     ],
     "includes_tax_assumption": true,
@@ -3794,6 +4134,15 @@
         "paid_this_month_usd": 475.0,
         "to_yongsik_krw": 347755,
         "to_mother_krw": 149038
+      },
+      {
+        "month": "2005-11",
+        "revenue_usd": 625.0,
+        "yongsik_allocation_usd": 437.5,
+        "mother_allocation_usd": 187.5,
+        "paid_this_month_usd": 600.0,
+        "to_yongsik_krw": 437119,
+        "to_mother_krw": 187337
       }
     ]
   },
@@ -3969,6 +4318,123 @@
       "research": "series/investing/research/school/2005-10-midterms.md",
       "rank_status": "carried_user_setting_story_draft",
       "grade_status": "pending_subject_rank_distribution"
+    },
+    {
+      "school": "풍덕고등학교",
+      "exam": "2005년11월 전국연합학력평가",
+      "kind": "national_mock",
+      "story_month": "2005-11",
+      "exam_date": "2005-11-29",
+      "exam_window": "11월29일 고1 전국연합 · 가채점 기준 · 영역별등급은예상,확정분포미확보",
+      "rank_in_grade": null,
+      "national_rank": null,
+      "national_percentile": null,
+      "cohort_size": null,
+      "subjects_status": "historical_domains_story_scores",
+      "subjects": [
+        {
+          "name": "언어",
+          "maximum": 100,
+          "question_count": 60,
+          "score": 98,
+          "loss_point_values": [
+            2
+          ],
+          "grade_estimate": 1,
+          "confirmed_grade": null,
+          "grade_status": "estimated_not_historical_confirmed",
+          "grade": null,
+          "status": "adopted_story_score",
+          "question_point_values": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "name": "수리",
+          "maximum": 100,
+          "question_count": 30,
+          "score": 100,
+          "loss_point_values": [],
+          "grade_estimate": 1,
+          "confirmed_grade": null,
+          "grade_status": "estimated_not_historical_confirmed",
+          "grade": null,
+          "status": "adopted_story_score",
+          "question_point_values": [
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "name": "외국어(영어)",
+          "maximum": 100,
+          "question_count": 50,
+          "score": 98,
+          "loss_point_values": [
+            2
+          ],
+          "grade_estimate": 1,
+          "confirmed_grade": null,
+          "grade_status": "estimated_not_historical_confirmed",
+          "grade": null,
+          "status": "adopted_story_score",
+          "question_point_values": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "name": "사회탐구",
+          "maximum": 100,
+          "question_count": 40,
+          "score": 95,
+          "loss_point_values": [
+            2,
+            3
+          ],
+          "grade_estimate": 1,
+          "confirmed_grade": null,
+          "grade_status": "estimated_not_historical_confirmed",
+          "grade": null,
+          "status": "adopted_story_score",
+          "question_point_values": [
+            2,
+            3
+          ]
+        },
+        {
+          "name": "과학탐구",
+          "maximum": 100,
+          "question_count": 40,
+          "score": 97,
+          "loss_point_values": [
+            3
+          ],
+          "grade_estimate": 1,
+          "confirmed_grade": null,
+          "grade_status": "estimated_not_historical_confirmed",
+          "grade": null,
+          "status": "adopted_story_score",
+          "question_point_values": [
+            2,
+            3
+          ]
+        }
+      ],
+      "simple_average": 97.6,
+      "average_definition": "5영역원점수단순평균·검산용.공식종합등급/석차가아님.",
+      "question_point_values": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "point_values_source": "2005년11월고1보존문제지의영역별배점.내신2/3/4제약과구분.",
+      "research": "series/investing/research/school/2005-11-mock.md"
     }
   ],
   "game_records_through": "2005-06",
