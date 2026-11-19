@@ -557,29 +557,33 @@
       "activity_stage": 3
     },
     {
-      "visitor_days": null,
-      "pageviews": null,
-      "ad_pageviews": null,
-      "publisher_rpm_usd": null,
-      "ad_revenue_usd": null,
+      "visitor_days": 100320,
+      "pageviews": 480000,
+      "ad_pageviews": 480000,
+      "publisher_rpm_usd": 1.25,
+      "ad_revenue_usd": 600.0,
       "cash_received_usd": 475.0,
       "operating_costs_usd": null,
       "net_profit_usd": null,
       "personal_cash_krw": null,
       "investment_cash_krw": null,
-      "section_pageviews": null,
+      "section_pageviews": {
+        "diablo2": 130000,
+        "wow": 320000,
+        "dnf": 30000
+      },
       "month": "2005-10",
-      "status": "pending",
-      "basis": "10월 유입·광고 발생액은 아직 미채택. 디아2·WoW·던파를 각각 계산할 예정이며 일별 값도미정.",
+      "status": "story_estimate",
+      "basis": "D060 보완 창작모형: 디아2 래더 열기 감소13만,WoW1.8·관련 검색과월말확장팩소식32만,던파신설/10월25일정식서비스3만. 시험기간 반영. 합48만PV·방문일수PV×0.209. 실측/서버로그 아님.",
       "investment_assets_krw": 0,
       "investment_realized_pnl_krw": 0,
       "holdings": [],
       "trade_count": 0,
       "days": 31,
-      "cumulative_ad_revenue_usd": null,
-      "average_daily_visitors": null,
-      "average_daily_ad_revenue_usd": null,
-      "activity_stage": null,
+      "cumulative_ad_revenue_usd": 3017.0,
+      "average_daily_visitors": 3236.13,
+      "average_daily_ad_revenue_usd": 19.3548,
+      "activity_stage": 3,
       "cumulative_cash_received_usd": 2417.0,
       "finances": {
         "personal": {
@@ -610,8 +614,8 @@
           "received_total_krw": 2486108,
           "to_yongsik_krw": 347755,
           "to_mother_krw": 149038,
-          "unpaid_usd": null,
-          "next_payout_usd": null,
+          "unpaid_usd": 600.0,
+          "next_payout_usd": 600.0,
           "fee_this_month_krw": 0
         }
       }
@@ -3077,282 +3081,282 @@
     },
     {
       "date": "2005-10-01",
-      "status": "pending",
-      "method": "not_recorded",
-      "visitors": null,
-      "pageviews": null,
-      "ad_pageviews": null,
-      "ad_revenue_usd": null
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 2486,
+      "pageviews": 11895,
+      "ad_pageviews": 11895,
+      "ad_revenue_usd": 14.87
     },
     {
       "date": "2005-10-02",
-      "status": "pending",
-      "method": "not_recorded",
-      "visitors": null,
-      "pageviews": null,
-      "ad_pageviews": null,
-      "ad_revenue_usd": null
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 2557,
+      "pageviews": 12235,
+      "ad_pageviews": 12235,
+      "ad_revenue_usd": 15.29
     },
     {
       "date": "2005-10-03",
-      "status": "pending",
-      "method": "not_recorded",
-      "visitors": null,
-      "pageviews": null,
-      "ad_pageviews": null,
-      "ad_revenue_usd": null
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 2285,
+      "pageviews": 10934,
+      "ad_pageviews": 10934,
+      "ad_revenue_usd": 13.67
     },
     {
       "date": "2005-10-04",
-      "status": "pending",
-      "method": "not_recorded",
-      "visitors": null,
-      "pageviews": null,
-      "ad_pageviews": null,
-      "ad_revenue_usd": null
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 2347,
+      "pageviews": 11230,
+      "ad_pageviews": 11230,
+      "ad_revenue_usd": 14.04
     },
     {
       "date": "2005-10-05",
-      "status": "pending",
-      "method": "not_recorded",
-      "visitors": null,
-      "pageviews": null,
-      "ad_pageviews": null,
-      "ad_revenue_usd": null
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 2409,
+      "pageviews": 11525,
+      "ad_pageviews": 11525,
+      "ad_revenue_usd": 14.41
     },
     {
       "date": "2005-10-06",
-      "status": "pending",
-      "method": "not_recorded",
-      "visitors": null,
-      "pageviews": null,
-      "ad_pageviews": null,
-      "ad_revenue_usd": null
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 2471,
+      "pageviews": 11821,
+      "ad_pageviews": 11821,
+      "ad_revenue_usd": 14.78
     },
     {
       "date": "2005-10-07",
-      "status": "pending",
-      "method": "not_recorded",
-      "visitors": null,
-      "pageviews": null,
-      "ad_pageviews": null,
-      "ad_revenue_usd": null
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 2532,
+      "pageviews": 12116,
+      "ad_pageviews": 12116,
+      "ad_revenue_usd": 15.15
     },
     {
       "date": "2005-10-08",
-      "status": "pending",
-      "method": "not_recorded",
-      "visitors": null,
-      "pageviews": null,
-      "ad_pageviews": null,
-      "ad_revenue_usd": null
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 2983,
+      "pageviews": 14274,
+      "ad_pageviews": 14274,
+      "ad_revenue_usd": 17.84
     },
     {
       "date": "2005-10-09",
-      "status": "pending",
-      "method": "not_recorded",
-      "visitors": null,
-      "pageviews": null,
-      "ad_pageviews": null,
-      "ad_revenue_usd": null
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 3054,
+      "pageviews": 14614,
+      "ad_pageviews": 14614,
+      "ad_revenue_usd": 18.27
     },
     {
       "date": "2005-10-10",
-      "status": "pending",
-      "method": "not_recorded",
-      "visitors": null,
-      "pageviews": null,
-      "ad_pageviews": null,
-      "ad_revenue_usd": null
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 2718,
+      "pageviews": 13003,
+      "ad_pageviews": 13003,
+      "ad_revenue_usd": 16.25
     },
     {
       "date": "2005-10-11",
-      "status": "pending",
-      "method": "not_recorded",
-      "visitors": null,
-      "pageviews": null,
-      "ad_pageviews": null,
-      "ad_revenue_usd": null
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 2779,
+      "pageviews": 13298,
+      "ad_pageviews": 13298,
+      "ad_revenue_usd": 16.62
     },
     {
       "date": "2005-10-12",
-      "status": "pending",
-      "method": "not_recorded",
-      "visitors": null,
-      "pageviews": null,
-      "ad_pageviews": null,
-      "ad_revenue_usd": null
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 2841,
+      "pageviews": 13594,
+      "ad_pageviews": 13594,
+      "ad_revenue_usd": 16.99
     },
     {
       "date": "2005-10-13",
-      "status": "pending",
-      "method": "not_recorded",
-      "visitors": null,
-      "pageviews": null,
-      "ad_pageviews": null,
-      "ad_revenue_usd": null
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 2903,
+      "pageviews": 13889,
+      "ad_pageviews": 13889,
+      "ad_revenue_usd": 17.36
     },
     {
       "date": "2005-10-14",
-      "status": "pending",
-      "method": "not_recorded",
-      "visitors": null,
-      "pageviews": null,
-      "ad_pageviews": null,
-      "ad_revenue_usd": null
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 2965,
+      "pageviews": 14185,
+      "ad_pageviews": 14185,
+      "ad_revenue_usd": 17.73
     },
     {
       "date": "2005-10-15",
-      "status": "pending",
-      "method": "not_recorded",
-      "visitors": null,
-      "pageviews": null,
-      "ad_pageviews": null,
-      "ad_revenue_usd": null
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 3480,
+      "pageviews": 16653,
+      "ad_pageviews": 16653,
+      "ad_revenue_usd": 20.82
     },
     {
       "date": "2005-10-16",
-      "status": "pending",
-      "method": "not_recorded",
-      "visitors": null,
-      "pageviews": null,
-      "ad_pageviews": null,
-      "ad_revenue_usd": null
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 3551,
+      "pageviews": 16992,
+      "ad_pageviews": 16992,
+      "ad_revenue_usd": 21.24
     },
     {
       "date": "2005-10-17",
-      "status": "pending",
-      "method": "not_recorded",
-      "visitors": null,
-      "pageviews": null,
-      "ad_pageviews": null,
-      "ad_revenue_usd": null
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 3150,
+      "pageviews": 15072,
+      "ad_pageviews": 15072,
+      "ad_revenue_usd": 18.84
     },
     {
       "date": "2005-10-18",
-      "status": "pending",
-      "method": "not_recorded",
-      "visitors": null,
-      "pageviews": null,
-      "ad_pageviews": null,
-      "ad_revenue_usd": null
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 3212,
+      "pageviews": 15367,
+      "ad_pageviews": 15367,
+      "ad_revenue_usd": 19.21
     },
     {
       "date": "2005-10-19",
-      "status": "pending",
-      "method": "not_recorded",
-      "visitors": null,
-      "pageviews": null,
-      "ad_pageviews": null,
-      "ad_revenue_usd": null
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 3273,
+      "pageviews": 15663,
+      "ad_pageviews": 15663,
+      "ad_revenue_usd": 19.58
     },
     {
       "date": "2005-10-20",
-      "status": "pending",
-      "method": "not_recorded",
-      "visitors": null,
-      "pageviews": null,
-      "ad_pageviews": null,
-      "ad_revenue_usd": null
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 3335,
+      "pageviews": 15958,
+      "ad_pageviews": 15958,
+      "ad_revenue_usd": 19.95
     },
     {
       "date": "2005-10-21",
-      "status": "pending",
-      "method": "not_recorded",
-      "visitors": null,
-      "pageviews": null,
-      "ad_pageviews": null,
-      "ad_revenue_usd": null
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 3397,
+      "pageviews": 16254,
+      "ad_pageviews": 16254,
+      "ad_revenue_usd": 20.32
     },
     {
       "date": "2005-10-22",
-      "status": "pending",
-      "method": "not_recorded",
-      "visitors": null,
-      "pageviews": null,
-      "ad_pageviews": null,
-      "ad_revenue_usd": null
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 3978,
+      "pageviews": 19032,
+      "ad_pageviews": 19032,
+      "ad_revenue_usd": 23.79
     },
     {
       "date": "2005-10-23",
-      "status": "pending",
-      "method": "not_recorded",
-      "visitors": null,
-      "pageviews": null,
-      "ad_pageviews": null,
-      "ad_revenue_usd": null
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 4049,
+      "pageviews": 19371,
+      "ad_pageviews": 19371,
+      "ad_revenue_usd": 24.21
     },
     {
       "date": "2005-10-24",
-      "status": "pending",
-      "method": "not_recorded",
-      "visitors": null,
-      "pageviews": null,
-      "ad_pageviews": null,
-      "ad_revenue_usd": null
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 3582,
+      "pageviews": 17140,
+      "ad_pageviews": 17140,
+      "ad_revenue_usd": 21.43
     },
     {
       "date": "2005-10-25",
-      "status": "pending",
-      "method": "not_recorded",
-      "visitors": null,
-      "pageviews": null,
-      "ad_pageviews": null,
-      "ad_revenue_usd": null
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 3644,
+      "pageviews": 17436,
+      "ad_pageviews": 17436,
+      "ad_revenue_usd": 21.79
     },
     {
       "date": "2005-10-26",
-      "status": "pending",
-      "method": "not_recorded",
-      "visitors": null,
-      "pageviews": null,
-      "ad_pageviews": null,
-      "ad_revenue_usd": null
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 3706,
+      "pageviews": 17731,
+      "ad_pageviews": 17731,
+      "ad_revenue_usd": 22.16
     },
     {
       "date": "2005-10-27",
-      "status": "pending",
-      "method": "not_recorded",
-      "visitors": null,
-      "pageviews": null,
-      "ad_pageviews": null,
-      "ad_revenue_usd": null
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 3768,
+      "pageviews": 18027,
+      "ad_pageviews": 18027,
+      "ad_revenue_usd": 22.53
     },
     {
       "date": "2005-10-28",
-      "status": "pending",
-      "method": "not_recorded",
-      "visitors": null,
-      "pageviews": null,
-      "ad_pageviews": null,
-      "ad_revenue_usd": null
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 3829,
+      "pageviews": 18322,
+      "ad_pageviews": 18322,
+      "ad_revenue_usd": 22.9
     },
     {
       "date": "2005-10-29",
-      "status": "pending",
-      "method": "not_recorded",
-      "visitors": null,
-      "pageviews": null,
-      "ad_pageviews": null,
-      "ad_revenue_usd": null
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 4475,
+      "pageviews": 21410,
+      "ad_pageviews": 21410,
+      "ad_revenue_usd": 26.76
     },
     {
       "date": "2005-10-30",
-      "status": "pending",
-      "method": "not_recorded",
-      "visitors": null,
-      "pageviews": null,
-      "ad_pageviews": null,
-      "ad_revenue_usd": null
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 4546,
+      "pageviews": 21750,
+      "ad_pageviews": 21750,
+      "ad_revenue_usd": 27.19
     },
     {
       "date": "2005-10-31",
-      "status": "pending",
-      "method": "not_recorded",
-      "visitors": null,
-      "pageviews": null,
-      "ad_pageviews": null,
-      "ad_revenue_usd": null
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 4015,
+      "pageviews": 19209,
+      "ad_pageviews": 19209,
+      "ad_revenue_usd": 24.01
     }
   ],
   "academics": {
@@ -3371,43 +3375,50 @@
         "name": "국어(상)",
         "score": 94,
         "maximum": 100,
-        "status": "story_estimate"
+        "status": "story_estimate",
+        "grade": null
       },
       {
         "name": "영어",
         "score": 98,
         "maximum": 100,
-        "status": "story_estimate"
+        "status": "story_estimate",
+        "grade": null
       },
       {
         "name": "수학 10-가",
         "score": 96,
         "maximum": 100,
-        "status": "story_estimate"
+        "status": "story_estimate",
+        "grade": null
       },
       {
         "name": "사회",
         "score": 94,
         "maximum": 100,
-        "status": "story_estimate"
+        "status": "story_estimate",
+        "grade": null
       },
       {
         "name": "과학",
         "score": 96,
         "maximum": 100,
-        "status": "story_estimate"
+        "status": "story_estimate",
+        "grade": null
       },
       {
         "name": "국사",
         "score": 94,
         "maximum": 100,
-        "status": "story_estimate"
+        "status": "story_estimate",
+        "grade": null
       },
       {
         "name": "도덕",
         "score": 93,
         "maximum": 100,
-        "status": "story_estimate"
+        "status": "story_estimate",
+        "grade": null
       }
     ],
     "simple_average": 95.0,
@@ -3424,7 +3435,8 @@
     "point_values_source": "사용자 지정 시험 구성·실제 시험지 배점표는 미확인",
     "score_revision": "전과목100점 기준안을 폐기. 임시7과목 94·98·96·94·96·94·93으로 평균95점인 후보 배분. 세부 점수는 창작 제안이며 학년1등은 사용자 설정.",
     "target_average": 95,
-    "target_average_source": "사용자 지정: 전과목100점 대신 평균95점 정도"
+    "target_average_source": "사용자 지정: 전과목100점 대신 평균95점 정도",
+    "grade_status": "pending_subject_rank_distribution"
   },
   "body": [
     {
@@ -3776,9 +3788,9 @@
       },
       {
         "month": "2005-10",
-        "revenue_usd": null,
-        "yongsik_allocation_usd": null,
-        "mother_allocation_usd": null,
+        "revenue_usd": 600.0,
+        "yongsik_allocation_usd": 420.0,
+        "mother_allocation_usd": 180.0,
         "paid_this_month_usd": 475.0,
         "to_yongsik_krw": 347755,
         "to_mother_krw": 149038
@@ -3829,43 +3841,50 @@
           "name": "국어(상)",
           "score": 95,
           "maximum": 100,
-          "status": "story_estimate"
+          "status": "story_estimate",
+          "grade": null
         },
         {
           "name": "영어",
           "score": 98,
           "maximum": 100,
-          "status": "story_estimate"
+          "status": "story_estimate",
+          "grade": null
         },
         {
           "name": "수학 10-가",
           "score": 96,
           "maximum": 100,
-          "status": "story_estimate"
+          "status": "story_estimate",
+          "grade": null
         },
         {
           "name": "사회",
           "score": 94,
           "maximum": 100,
-          "status": "story_estimate"
+          "status": "story_estimate",
+          "grade": null
         },
         {
           "name": "과학",
           "score": 97,
           "maximum": 100,
-          "status": "story_estimate"
+          "status": "story_estimate",
+          "grade": null
         },
         {
           "name": "국사",
           "score": 93,
           "maximum": 100,
-          "status": "story_estimate"
+          "status": "story_estimate",
+          "grade": null
         },
         {
           "name": "도덕",
           "score": 92,
           "maximum": 100,
-          "status": "story_estimate"
+          "status": "story_estimate",
+          "grade": null
         }
       ],
       "simple_average": 95.0,
@@ -3876,7 +3895,8 @@
         4
       ],
       "point_values_source": "기존 작품 배점 제약과 정합성 확인 · 실제 풍덕고 기말 배점은 미확인",
-      "research": "series/investing/research/school/2005-07-finals.md"
+      "research": "series/investing/research/school/2005-07-finals.md",
+      "grade_status": "pending_subject_rank_distribution"
     },
     {
       "school": "풍덕고등학교",
@@ -3892,43 +3912,50 @@
           "name": "국어(하)",
           "score": 96,
           "maximum": 100,
-          "status": "story_estimate"
+          "status": "story_estimate",
+          "grade": null
         },
         {
           "name": "영어",
           "score": 98,
           "maximum": 100,
-          "status": "story_estimate"
+          "status": "story_estimate",
+          "grade": null
         },
         {
           "name": "수학10-나",
           "score": 96,
           "maximum": 100,
-          "status": "story_estimate"
+          "status": "story_estimate",
+          "grade": null
         },
         {
           "name": "사회",
           "score": 94,
           "maximum": 100,
-          "status": "story_estimate"
+          "status": "story_estimate",
+          "grade": null
         },
         {
           "name": "과학",
           "score": 96,
           "maximum": 100,
-          "status": "story_estimate"
+          "status": "story_estimate",
+          "grade": null
         },
         {
           "name": "국사",
           "score": 93,
           "maximum": 100,
-          "status": "story_estimate"
+          "status": "story_estimate",
+          "grade": null
         },
         {
           "name": "도덕",
           "score": 92,
           "maximum": 100,
-          "status": "story_estimate"
+          "status": "story_estimate",
+          "grade": null
         }
       ],
       "simple_average": 95.0,
@@ -3940,7 +3967,8 @@
       ],
       "point_values_source": "기존 작품 배점 제약과 정합성 확인 · 실제 풍덕고 기말 배점은 미확인",
       "research": "series/investing/research/school/2005-10-midterms.md",
-      "rank_status": "carried_user_setting_story_draft"
+      "rank_status": "carried_user_setting_story_draft",
+      "grade_status": "pending_subject_rank_distribution"
     }
   ],
   "game_records_through": "2005-06",
@@ -3984,5 +4012,34 @@
       "diablo2": "출시 5년 차 하락. 2005-08-01 1.11 패치·래더 초기화로 8월 반짝, 9월부터 빠르게 식음",
       "wow": "한국 서비스 첫해 상승. 패치·확장팩 발표 때 급증"
     }
+  },
+  "grading_policy": {
+    "scale": "relative_9_levels",
+    "grade_shares_percent": [
+      4,
+      7,
+      12,
+      17,
+      20,
+      17,
+      12,
+      7,
+      4
+    ],
+    "cumulative_upper_percent": [
+      4,
+      11,
+      23,
+      40,
+      60,
+      77,
+      89,
+      96,
+      100
+    ],
+    "school_basis": "과목별 수강자 내 석차·동점자 처리·학기 성적 기준. 종합 전교석차나 원점수만으로 내신등급을 만들지 않음.",
+    "mock_basis": "전국연합 영역별 표준점수/백분위/등급은 별도. 당시 확정 분포가 없으면 예상등급과 실제등급을 구분.",
+    "source": "https://www.korea.kr/news/policyFocusView.do?newsId=148626395&pkgId=49500224",
+    "decision": "D062"
   }
 }

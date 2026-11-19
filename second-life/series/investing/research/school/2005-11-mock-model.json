@@ -1,0 +1,83 @@
+{
+  "status": "proposal_not_adopted",
+  "exam": "2005학년도11월고1전국연합학력평가",
+  "date": "2005-11-29",
+  "date_basis": "보존문제지의 연월/학년 확인 및 시행자료목록의29일 표기 대조. 주관기관 날짜공지 원문은미확보.",
+  "subjects": [
+    {
+      "name": "언어",
+      "maximum": 100,
+      "question_count": 60,
+      "score": 98,
+      "loss_point_values": [
+        2
+      ],
+      "grade_estimate": 1,
+      "confirmed_grade": null,
+      "grade_status": "fictional_target_pending_historical_cutoff"
+    },
+    {
+      "name": "수리",
+      "maximum": 100,
+      "question_count": 30,
+      "score": 100,
+      "loss_point_values": [],
+      "grade_estimate": 1,
+      "confirmed_grade": null,
+      "grade_status": "fictional_target_pending_historical_cutoff"
+    },
+    {
+      "name": "외국어(영어)",
+      "maximum": 100,
+      "question_count": 50,
+      "score": 98,
+      "loss_point_values": [
+        2
+      ],
+      "grade_estimate": 1,
+      "confirmed_grade": null,
+      "grade_status": "fictional_target_pending_historical_cutoff"
+    },
+    {
+      "name": "사회탐구",
+      "maximum": 100,
+      "question_count": 40,
+      "score": 95,
+      "loss_point_values": [
+        2,
+        3
+      ],
+      "grade_estimate": 1,
+      "confirmed_grade": null,
+      "grade_status": "fictional_target_pending_historical_cutoff"
+    },
+    {
+      "name": "과학탐구",
+      "maximum": 100,
+      "question_count": 40,
+      "score": 97,
+      "loss_point_values": [
+        3
+      ],
+      "grade_estimate": 1,
+      "confirmed_grade": null,
+      "grade_status": "fictional_target_pending_historical_cutoff"
+    }
+  ],
+  "arithmetic_total": 488,
+  "arithmetic_maximum": 500,
+  "arithmetic_average": 97.6,
+  "total_note": "작품 점수안 산술검산용. 공식종합성적/등급/전국석차가 아니다.",
+  "national_rank": null,
+  "national_percentile": null,
+  "national_cohort_size": null,
+  "rank_reason": "2005-11고1의 실제 채점통계·응시자수·원점수누적도수 미확보. 다른연도/고3/수능통계로대체하지 않는다.",
+  "grade_policy": "당시 영역별 상대평가9등급. 예상1등급은 작품목표이며 실제원점수등급컷으로검증한결과는아니다. 영어90점이상절대평가를소급하지않는다.",
+  "sources": {
+    "언어": "https://mogozip.com/downloads/legacy-public/고1/2005/2005년_11월_고1_모의고사-학력평가_문제지,정답&해설,등급컷/question-2005년_11월_고1_모의고사_국어_문제-357c4bf65a.pdf",
+    "수리": "https://mogozip.com/downloads/legacy-public/고1/2005/2005년_11월_고1_모의고사-학력평가_문제지,정답&해설,등급컷/question-2005년_11월_고1_모의고사_수학_문제-b46351c201.pdf",
+    "외국어(영어)": "https://mogozip.com/downloads/legacy-public/고1/2005/2005년_11월_고1_모의고사-학력평가_문제지,정답&해설,등급컷/question-2005년_11월_고1_모의고사_영어_문제-82a98d7d51.pdf",
+    "사회탐구·과학탐구": "https://mogozip.com/downloads/legacy-public/고1/2005/2005년_11월_고1_모의고사-학력평가_문제지,정답&해설,등급컷/question-2005년_11월_고1_모의고사_사회과학탐구_문제-d35e903195.pdf",
+    "정답·해설": "https://mogozip.com/downloads/legacy-public/고1/2005/2005년_11월_고1_모의고사-학력평가_문제지,정답&해설,등급컷/explanation-2005년_11월_고1_모의고사_정답&해설-07b1e30dd5.pdf"
+  }
+}
