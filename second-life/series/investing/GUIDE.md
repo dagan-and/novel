@@ -166,8 +166,9 @@ RESUME는 덧붙이지 말고 **통째로 다시 쓴다.** 한 화면 안에 다
    h=$(git hash-object -w second-life/series/investing/dashboard.html)
    git update-index --add --cacheinfo 100644,$h,series/investing/dashboard.html
    t=$(git write-tree); c=$(git commit-tree $t -p origin/gh-pages -m "Publish ...")
-   git push origin $c:gh-pages; unset GIT_INDEX_FILE
+   git push origin "${c}:refs/heads/gh-pages"; unset GIT_INDEX_FILE
    ```
+   (zsh에서는 `$c:gh-pages`가 변수 수식어로 해석되므로 반드시 `${c}`로 감싼다.)
 3. 확인: `gh api repos/dagan-and/novel/pages/builds/latest`의 상태가 built인지, 공개 URL이 HTTP 200인지, 내려받은 파일이 로컬 생성물과 같은지(SHA256) 본다. 공개 URL: `https://dagan-and.github.io/novel/series/investing/dashboard.html?month=YYYY-MM`
 4. 보고할 때 로컬 수정, main 커밋·푸시, gh-pages 게시, 라이브 확인을 구분한다.
 5. records·ledger·planning·research·인물 원본은 Pages에 올리지 않는다.
