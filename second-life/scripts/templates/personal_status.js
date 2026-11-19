@@ -48,7 +48,15 @@ function renderPersonal(month) {
   $('#heroHome').textContent=assets.homes.items.length?assets.homes.items.map(v=>v.name).join(', '):'보유 기록 없음';
   $('#homeNote').textContent='거주: '+assets.residence;
   const people=(M.relationships||[]).filter(p=>relationshipAt(p,key)!==null);
-  const groups=[['girlfriend','여자친구',p=>relationshipAt(p,key)==='girlfriend'],['crush','썸',p=>relationshipAt(p,key)==='crush'],['past','만남 기록',p=>['past','met'].includes(relationshipAt(p,key))]];
+  const groups = [
+    ['girlfriend', '여자친구', p => relationshipAt(p, key) === 'girlfriend'],
+    ['crush', '썸', p => relationshipAt(p, key) === 'crush'],
+    ['past', '만남 기록', p => ['past', 'met'].includes(relationshipAt(p, key))],
+  ];
+  const isPartner = person => relationshipAt(person, key) === 'partner';
+  if (people.some(isPartner)) {
+    groups.splice(2, 0, ['partner', '섹스 파트너', isPartner]);
+  }
   $('#relationshipGroups').innerHTML=groups.map(([kind,label,accept])=>{const list=people.filter(accept);return `<section class="relation-group"><h3>${label} <span>${list.length}</span></h3>${list.length?list.map(p=>`<a class="person-card" href="${esc(profileLink(p,key))}"><img src="${esc(p.portrait)}" alt="${esc(p.name)} 가상 외모 시안" width="56" height="72"><span><b>${esc(p.name)} ↗</b><small>${kind==='girlfriend'?'교제 중 · ':''}${p.first_month.replace('-','년 ')}월부터 기록</small></span></a>`).join(''):'<p class="empty-relationship">기록 없음</p>'}</section>`}).join('');
   const body = hasBodyRecordsAt(key) ? M.body.findLast(p => p.date.slice(0, 7) <= key) : null;
   const exam = examAt(key);

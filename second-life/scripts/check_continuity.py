@@ -273,7 +273,7 @@ for person in metrics.get('relationships', []):
         assert (root / 'series/investing' / person['portrait']).is_file(), person['person_id']
         assert person['known_from'] <= person['first_month']
         for phase in person.get('phases', []):
-            assert phase['kind'] in ('girlfriend', 'crush', 'met')
+            assert phase['kind'] in ('girlfriend', 'crush', 'partner', 'met')
             assert phase['from_month'] >= person['known_from']
             assert phase['to_month'] is None or phase['to_month'] >= phase['from_month']
 print('Profiles OK: sources, generated links, images and relation periods')
