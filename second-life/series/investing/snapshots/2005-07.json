@@ -1,0 +1,34 @@
+{
+  "as_of": "2005-07-31",
+  "series": "investing",
+  "status": "confirmed",
+  "closed_by": "D053",
+  "event_ids": [
+    "E039",
+    "E040",
+    "E041",
+    "E042",
+    "E055"
+  ],
+  "cash_krw": 703994,
+  "cash_flow": {
+    "opening_krw": 0,
+    "allowance_krw": 0,
+    "ad_share_krw": 299307,
+    "spending_krw": 200000
+  },
+  "pageviews": 340000,
+  "section_pageviews": {
+    "diablo2": 170000,
+    "wow": 170000
+  },
+  "activity_stage": 3,
+  "ad_revenue_usd": 425.0,
+  "ad_received_usd": 412.5,
+  "ad_received_krw": 427581,
+  "to_mother_krw": 128274,
+  "adsense_unpaid_usd": 425.0,
+  "investment_trades": [],
+  "investment_assets_krw": 0,
+  "note": "data/ledger.json과 metrics.json에서 생성한 마감 스냅샷. 숫자를 고치려면 원장을 고치고 다시 만든다."
+}

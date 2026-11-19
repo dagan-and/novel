@@ -2,8 +2,8 @@
   "schema_version": 1,
   "series": "investing",
   "story_month": "2005-09",
-  "draft_month": "2005-09",
-  "last_confirmed_month": "2005-06",
+  "draft_month": null,
+  "last_confirmed_month": "2005-09",
   "authority": {
     "common": "base/",
     "progress": "series/investing/state.json",
@@ -388,6 +388,38 @@
       "domain": "money",
       "summary": "지출은 항목별로 적지 않고 한 달 총액을 대략적으로 정한다(예: 이번 달 지출 20만원, 데이트·교통). 원장에는 월 1줄로 기록한다.",
       "source": "사용자 2026-11-19: 지출도 하나하나 적지 말고 러프하게",
+      "recorded_at": "2026-11-19"
+    },
+    {
+      "id": "D050",
+      "status": "confirmed",
+      "domain": "site",
+      "summary": "7월부터 사이트 유입을 섹션별(디아2·WoW) 모델로 계산한다. 디아2는 하락하되 8월 1.11 패치·래더 초기화로 반짝, WoW는 상승. 방학↑·시험↓. 7월 34만 PV(17/17), 8월 52만(29/23), 9월 38만(16/22), 게시자 단가 1.25달러. 1~6월은 마감값 유지.",
+      "source": "사용자 2026-11-19: 7월부터 유입 모델 적용·활성 커뮤니티 수준·7~9월 지출 각 20만원·9월까지 정리",
+      "recorded_at": "2026-11-19"
+    },
+    {
+      "id": "D051",
+      "status": "confirmed",
+      "domain": "site",
+      "summary": "사이트 활성화 단계표(1 초기 <300, 2 단골 형성 300~, 3 활성 커뮤니티 1,500~, 4 대형 5,000~ 일평균 방문자)를 채택. 7~9월은 활성 커뮤니티 수준이다.",
+      "source": "사용자 2026-11-19: 7월부터 유입 모델 적용·활성 커뮤니티 수준·7~9월 지출 각 20만원·9월까지 정리",
+      "recorded_at": "2026-11-19"
+    },
+    {
+      "id": "D052",
+      "status": "confirmed",
+      "domain": "money",
+      "summary": "7~9월 지출은 각 20만원 정도(데이트·교통·사이트, 8월은 친구 모임 포함).",
+      "source": "사용자 2026-11-19: 7월부터 유입 모델 적용·활성 커뮤니티 수준·7~9월 지출 각 20만원·9월까지 정리",
+      "recorded_at": "2026-11-19"
+    },
+    {
+      "id": "D053",
+      "status": "confirmed",
+      "domain": "workflow",
+      "summary": "2005년 7~9월을 마감한다. 10월부터는 다른 세션에서 진행하며 새 게임 섹션(던전앤파이터 등)은 10월에 사용자가 추가한다.",
+      "source": "사용자 2026-11-19: 7월부터 유입 모델 적용·활성 커뮤니티 수준·7~9월 지출 각 20만원·9월까지 정리",
       "recorded_at": "2026-11-19"
     }
   ],
@@ -823,57 +855,63 @@
     },
     {
       "id": "E039",
-      "status": "draft",
+      "status": "confirmed",
       "story_date": "2005-07",
       "summary": "기말 준비 중 예약 갱신·백업·검색 오류 점검을 유지하고 시험 뒤 오래된 안내와 중복 검색 결과를 정리했다.",
       "source": "series/investing/months/2005-07.md",
       "decision_ids": [
         "D035"
-      ]
+      ],
+      "accepted_by": "D053"
     },
     {
       "id": "E040",
-      "status": "draft",
+      "status": "confirmed",
       "story_date": "2005-07",
       "summary": "풍덕고 1학년 기말고사의 작품 기준안은 국어 95·영어 98·수학 96·사회 94·과학 97·국사 93·도덕 92점으로 7과목 단순평균 95점. 기말 석차와 학기말 성적은 미정.",
       "source": "series/investing/months/2005-07.md",
       "decision_ids": [
         "D035"
-      ]
+      ],
+      "accepted_by": "D053"
     },
     {
       "id": "E041",
-      "status": "draft",
+      "status": "confirmed",
       "story_date": "2005-07",
       "summary": "시험 뒤 현지가 제안한 가벼운 분식 데이트를 하고 돌아가는 길에 손을 잡았다. 정확한 날과 지출은 미정.",
       "source": "series/investing/months/2005-07.md",
       "decision_ids": [
         "D034",
         "D035"
-      ]
+      ],
+      "accepted_by": "D053"
     },
     {
       "id": "E042",
-      "status": "draft",
+      "status": "confirmed",
       "story_date": "2005-07-31",
-      "summary": "광고 발생액 450달러·누적 1,317달러를 작품 기준안에 반영. 7월 말에는 6월분 412.50달러를 받아 7:3으로 나눴다(D042·D043).",
+      "summary": "7월 광고 발생 425달러(34만 PV)·누적 1,292달러. 7월 말에 6월분을 받아 7:3으로 나눴다(D042·D043·D050).",
       "source": "series/investing/months/2005-07.md",
       "decision_ids": [
         "D028",
         "D035",
         "D042",
-        "D043"
-      ]
+        "D043",
+        "D050"
+      ],
+      "accepted_by": "D053"
     },
     {
       "id": "E043",
-      "status": "draft",
+      "status": "confirmed",
       "story_date": "2005-08",
       "summary": "기존 사이트에서 재료명 조합 검색과 입문 안내·질문 묶음을 추가하고, 변경 검수·예약 색인·백업을 유지했다.",
       "source": "series/investing/months/2005-08.md",
       "decision_ids": [
         "D038"
-      ]
+      ],
+      "accepted_by": "D053"
     },
     {
       "id": "E044",
@@ -892,86 +930,95 @@
     },
     {
       "id": "E045",
-      "status": "draft",
+      "status": "confirmed",
       "story_date": "2005-08",
       "summary": "학원 친구 다섯 명이 영화를 보고 분식집에 갔다. 용식 지출 11,000원.",
       "source": "series/investing/months/2005-08.md",
       "decision_ids": [
         "D034",
         "D038"
-      ]
+      ],
+      "accepted_by": "D053"
     },
     {
       "id": "E046",
-      "status": "draft",
+      "status": "confirmed",
       "story_date": "2005-08",
       "summary": "친구들과 수영장에 다녀왔다. 용식 지출 15,000원.",
       "source": "series/investing/months/2005-08.md",
       "decision_ids": [
         "D034",
         "D038"
-      ]
+      ],
+      "accepted_by": "D053"
     },
     {
       "id": "E047",
-      "status": "draft",
+      "status": "confirmed",
       "story_date": "2005-08",
       "summary": "현지와 둘이 식사·간식·산책을 했다. 용식 지출 13,000원.",
       "source": "series/investing/months/2005-08.md",
       "decision_ids": [
         "D034",
         "D038"
-      ]
+      ],
+      "accepted_by": "D053"
     },
     {
       "id": "E048",
-      "status": "draft",
+      "status": "confirmed",
       "story_date": "2005-08",
-      "summary": "방학 사이트 유입 모형 42만 PV, 새 광고 발생액 525달러는 첫 지급분에 포함하지 않았다.",
+      "summary": "방학과 디아2 1.11 래더 초기화로 8월 52만 PV·광고 발생 650달러. 8월 발생분은 9월 말에 들어온다(D050).",
       "source": "series/investing/months/2005-08.md",
       "decision_ids": [
-        "D038"
-      ]
+        "D038",
+        "D050"
+      ],
+      "accepted_by": "D053"
     },
     {
       "id": "E049",
-      "status": "draft",
+      "status": "confirmed",
       "story_date": "2005-09",
       "summary": "개학 첫 주에 평일은 예약 작업·오류만 점검하고 주말에 제보와 질문을 검수해 검색과 안내를 갱신했다.",
       "source": "series/investing/months/2005-09.md",
       "decision_ids": [
         "D040"
-      ]
+      ],
+      "accepted_by": "D053"
     },
     {
       "id": "E050",
-      "status": "draft",
+      "status": "confirmed",
       "story_date": "2005-09",
       "summary": "국사·도덕을 복습하고 야자에서 친구와 같은 문제를 다른 근거로 풀어 답을 점검하는 습관을 들였다.",
       "source": "series/investing/months/2005-09.md",
       "decision_ids": [
         "D040"
-      ]
+      ],
+      "accepted_by": "D053"
     },
     {
       "id": "E051",
-      "status": "draft",
+      "status": "confirmed",
       "story_date": "2005-09",
       "summary": "여름에 함께 놀던 학원 친구들이 분식집에 다시 모였다. 현지가 주말 모임을 제안했고 둘만의 약속은 별도로 잡았다.",
       "source": "series/investing/months/2005-09.md",
       "decision_ids": [
         "D040"
-      ]
+      ],
+      "accepted_by": "D053"
     },
     {
       "id": "E052",
-      "status": "draft",
+      "status": "confirmed",
       "story_date": "2005-09",
-      "summary": "8월 광고 발생분 지급 상태를 확인했다. 9월 입금과 지출은 확정하지 않았고, 기존 정산금을 기준으로 투자 준비만 했다.",
+      "summary": "9월 말 8월분 광고대금을 받아 7:3으로 나눴다. 남겨 둘 돈과 쓸 돈을 나누고, 주식은 사기 전 조사와 준비만 이어갔다.",
       "source": "series/investing/months/2005-09.md",
       "decision_ids": [
         "D040"
-      ]
+      ],
+      "accepted_by": "D053"
     },
     {
       "id": "E053",
@@ -1001,7 +1048,7 @@
     },
     {
       "id": "E055",
-      "status": "draft",
+      "status": "confirmed",
       "story_date": "2005-07-31",
       "summary": "6월분 412.50달러×1,036.56원=427,581원 수령. 용식 299,307원·어머니 128,274원.",
       "source": "series/investing/data/ledger.json",
@@ -1010,32 +1057,46 @@
         "D043",
         "D044",
         "D046"
-      ]
+      ],
+      "accepted_by": "D053"
     },
     {
       "id": "E056",
-      "status": "draft",
+      "status": "confirmed",
       "story_date": "2005-08-31",
-      "summary": "7월분 450달러×1,021.68원=459,756원 수령. 용식 321,829원·어머니 137,927원.",
+      "summary": "7월분 425달러×1,021.68원=434,214원 수령. 용식 303,950원·어머니 130,264원.",
       "source": "series/investing/data/ledger.json",
       "decision_ids": [
         "D042",
         "D043",
         "D044",
         "D046"
-      ]
+      ],
+      "accepted_by": "D053"
     },
     {
       "id": "E057",
-      "status": "draft",
+      "status": "confirmed",
       "story_date": "2005-09-30",
-      "summary": "8월분 525달러×1,029.84원=540,666원 수령. 용식 378,466원·어머니 162,200원.",
+      "summary": "8월분 650달러×1,029.84원=669,396원 수령. 용식 468,577원·어머니 200,819원.",
       "source": "series/investing/data/ledger.json",
       "decision_ids": [
         "D042",
         "D043",
         "D044",
         "D046"
+      ],
+      "accepted_by": "D053"
+    },
+    {
+      "id": "E058",
+      "status": "confirmed",
+      "story_date": "2005-09",
+      "summary": "9월 개학으로 유입 38만 PV·광고 발생 475달러. 디아2 래더 열기가 식고 WoW 쪽 비중이 처음 앞섰다. 9월분은 10월 말에 들어온다.",
+      "source": "series/investing/months/2005-09.md",
+      "decision_ids": [
+        "D050",
+        "D051"
       ]
     }
   ],
@@ -1737,6 +1798,24 @@
       ],
       "reason": "사용자 결정으로 현금 규칙을 하나의 원장(data/ledger.json)으로 통합하고 3월부터 소급. 8월 일괄 첫 수령·반반·3~5월 보류·수수료 7,000원 설정을 폐기하고 3~6월을 마감. 구 장부는 history/ledger-2005-08-superseded.json에 보존.",
       "previous": "8월 첫 수령 1,317달러(1000원 환율·수수료 7,000원), 6~7월 반반 각 428,958원, 3~5월 452,084원 보류, 정산금 잔액 389,958원"
+    },
+    {
+      "id": "C022",
+      "recorded_at": "2026-11-19",
+      "targets": [
+        "D049",
+        "D050",
+        "D051",
+        "D052",
+        "D053",
+        "E042",
+        "E048",
+        "E056",
+        "E057",
+        "E058"
+      ],
+      "reason": "지출을 월 총액으로 단순화, 7월부터 섹션별 유입 모델로 7~9월 수치 재계산, 활성화 단계표 채택, 7~9월 마감.",
+      "previous": "7월 36만 PV·450달러, 8월 42만 PV·525달러, 9월 미정, 8월 지출 39,000원만 기록"
     }
   ],
   "months": {
@@ -1803,33 +1882,33 @@
     },
     "2005-07": {
       "title": "시험을 마치고 함께 걷는 길",
-      "status": "draft",
+      "status": "confirmed",
       "summary": "기말고사 · 사이트 검색과 운영 · 현지와 시험 뒤 데이트 · 월말 광고 장부",
       "school_label": "풍덕고 1학년",
       "site_stage": "예약 운영 유지·시험 뒤 검색 정리",
       "asset_note": "7월 광고 발생 450달러, 누적 1,317달러는 작품 모형. 현금 수령과 지급은 보류.",
       "site_note": "시험 기간에는 예약 작업·백업·오류만 확인하고 이후 중복 검색 결과를 정리.",
-      "revision_note": "기말 7과목과 원점수는 작품 기준안. 학교 원본 시험표와 기말 석차는 미확인."
+      "revision_note": "D053로 2026-11-19 마감"
     },
     "2005-08": {
       "title": "방학에 넓어진 일과 만남",
-      "status": "draft",
+      "status": "confirmed",
       "summary": "사이트 확장 · 첫 광고대금 · 친구들과 영화·수영장 · 현지와 단둘 데이트",
       "school_label": "풍덕고 1학년 · 여름방학",
       "site_stage": "검색·입문 안내 확장",
       "asset_note": "첫 광고대금 순입금 1,310,000원. 용식이 받은 몫에서 모임과 데이트 비용을 빼고 389,958원이 남았다.",
       "site_note": "예약 운영을 유지하며 조합 검색과 입문 안내를 확장했다.",
-      "revision_note": "광고 지급·지출은 작품 장부, 유입·발생액은 작품 모형이다. 전체 현금과 3~5월 개인 배분은 미정이다."
+      "revision_note": "D053로 2026-11-19 마감"
     },
     "2005-09": {
       "title": "개학 뒤에도 돌아가는 사이트",
-      "status": "draft",
+      "status": "confirmed",
       "summary": "평일 점검·주말 갱신 · 국사와 도덕 복습 · 친구들 모임과 현지 · 지급 확인",
       "school_label": "풍덕고 1학년 · 2학기 개학",
       "site_stage": "개학 뒤 운영 주기 시험",
       "asset_note": "8월에 마지막으로 확인한 개인 정산금 389,958원. 9월 수입과 지출은 미정.",
       "site_note": "예약 작업과 오류를 평일에 확인하고 제보 검수와 색인 갱신은 주말에 모았다.",
-      "revision_note": "9월 유입·광고 발생액·입금·지출은 미정이며 새 거래나 시험 결과는 없다."
+      "revision_note": "D053로 2026-11-19 마감"
     }
   },
   "ongoing_threads": [

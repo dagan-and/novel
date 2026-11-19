@@ -31,7 +31,11 @@ for event in data['events']:
 for key in data['months']:
     if key <= state['last_confirmed_month']:
         assert (root / 'series/investing/snapshots' / f'{key}.json').is_file(), f'Missing snapshot {key}'
-assert state['working_month'] in data['months'] and state['next_month'] > state['working_month']
+assert state['working_month'] is None or state['working_month'] in data['months']
+assert state['next_month'] > max(data['months'])
+for row in json.loads((root / 'series/investing/data/metrics.json').read_text())['monthly']:
+    if row.get('section_pageviews'):
+        assert sum(row['section_pageviews'].values()) == row['pageviews'], row['month']
 for item in data['events']:
     assert set(item.get('decision_ids', [])) <= decision_ids, item['id']
 tasks = {item['id']: item for item in data['tasks']}

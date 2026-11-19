@@ -72,6 +72,10 @@ for month in sorted(data['monthly'], key=lambda m:m['month']):
     month.update(days=days,cumulative_ad_revenue_usd=cumulative,
                  average_daily_visitors=round(month['visitor_days']/days,2) if month['visitor_days'] is not None else None,
                  average_daily_ad_revenue_usd=round(revenue/days,4) if revenue is not None else None)
+    daily_visitors = month['average_daily_visitors']
+    stages = data['site_activity_stages']['stages']
+    month['activity_stage'] = (max((st for st in stages if daily_visitors >= st['min_daily_visitors']),
+                                   key=lambda st: st['stage'])['stage'] if daily_visitors is not None else None)
     month['_budget'] = {
         'hosting_krw': planned['hosting_krw'],
         'recurring_site_krw': round(recurring),
