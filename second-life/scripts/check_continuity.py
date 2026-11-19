@@ -96,6 +96,7 @@ print(f'Continuity OK: {len(ids)} IDs; progress {state["next_month"]}; unknowns 
 
 # Reconcile fictional metrics rather than accepting silently divergent display copies.
 from datetime import date
+from decimal import Decimal, ROUND_HALF_UP
 import calendar
 metrics = json.loads((root / 'series/investing/data/metrics.json').read_text())
 assert metrics['definitions']['data_kind'] == 'fictional_world_not_live_analytics'
@@ -132,7 +133,8 @@ for month in metrics['monthly']:
     assert month['cumulative_ad_revenue_usd']==cumulative
     assert month['cumulative_cash_received_usd']==cumulative_cash
     if month['publisher_rpm_usd'] is not None:
-        assert abs(month['ad_pageviews']/1000*month['publisher_rpm_usd']-month['ad_revenue_usd'])<0.001
+        modeled = Decimal(str(month['publisher_rpm_usd'])) * month['ad_pageviews'] / 1000
+        assert Decimal(str(month['ad_revenue_usd'])) == modeled.quantize(Decimal('0.01'), rounding=ROUND_HALF_UP), key
     assert month['net_profit_usd'] is None
     assert month['personal_cash_krw'] is None or month['personal_cash_krw'] >= 0
 march = json.loads((root / metrics['source_links']['march_revenue']).read_text())
@@ -146,7 +148,6 @@ assert set(m['month'] for m in metrics['monthly'])==set(data['months'])
 print(f'Metrics OK: {len(metrics["daily"])} days, including pending months')
 
 # Verify the personal cash ledger independently of refresh_metrics.py.
-from decimal import Decimal, ROUND_HALF_UP
 def won(value):
     return int(Decimal(str(value)).quantize(Decimal('1'), rounding=ROUND_HALF_UP))
 ledger = json.loads((root / metrics['source_links']['ledger']).read_text())

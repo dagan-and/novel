@@ -11,25 +11,26 @@
     "E048",
     "E056"
   ],
-  "cash_krw": 807944,
+  "cash_krw": 1735255,
   "cash_flow": {
     "opening_krw": 0,
     "allowance_krw": 0,
-    "ad_share_krw": 303950,
+    "ad_share_krw": 706687,
     "spending_krw": 200000
   },
-  "pageviews": 520000,
+  "pageviews": 1195500,
   "section_pageviews": {
-    "diablo2": 290000,
-    "wow": 230000
+    "diablo2": 609000,
+    "wow": 586500
   },
-  "activity_stage": 3,
-  "ad_revenue_usd": 650.0,
-  "ad_received_usd": 425.0,
-  "ad_received_krw": 434214,
-  "to_mother_krw": 130264,
-  "adsense_unpaid_usd": 650.0,
+  "activity_stage": 4,
+  "ad_revenue_usd": 1494.38,
+  "ad_received_usd": 988.13,
+  "ad_received_krw": 1009553,
+  "to_mother_krw": 302866,
+  "adsense_unpaid_usd": 1494.38,
   "investment_trades": [],
   "investment_assets_krw": 0,
-  "note": "data/ledger.json과 metrics.json에서 생성한 마감 스냅샷. 숫자를 고치려면 원장을 고치고 다시 만든다."
+  "note": "data/ledger.json과 metrics.json에서 생성한 마감 스냅샷. 숫자를 고치려면 원장을 고치고 다시 만든다.",
+  "revised_by": "D089"
 }

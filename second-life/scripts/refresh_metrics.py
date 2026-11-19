@@ -1,8 +1,9 @@
 """Refresh derived fictional daily allocations and cumulative values; no network or git."""
 from pathlib import Path
 from datetime import date
+from decimal import Decimal
 import calendar, json, math
-from cashflow import compute as compute_cashflow
+from cashflow import compute as compute_cashflow, won
 
 root = Path(__file__).resolve().parents[1]
 path = root / 'series/investing/data/metrics.json'
@@ -54,7 +55,8 @@ for month in sorted(data['monthly'], key=lambda m:m['month']):
         pages = allocate(month['pageviews']-month['ad_pageviews'],weights[:start])+allocate(month['ad_pageviews'],weights[start:])
         adpages = [0]*start + pages[start:]
     if key != march['story_month'] and month['publisher_rpm_usd'] is not None:
-        month['ad_revenue_usd'] = round(month['ad_pageviews']/1000*month['publisher_rpm_usd'],2)
+        revenue_cents = won(Decimal(str(month['publisher_rpm_usd'])) * month['ad_pageviews'] / 10)
+        month['ad_revenue_usd'] = revenue_cents / 100
     revenue = month['ad_revenue_usd']
     if revenue is None:
         cents = [None] * days

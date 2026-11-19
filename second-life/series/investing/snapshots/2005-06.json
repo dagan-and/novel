@@ -11,19 +11,26 @@
     "E037",
     "E054"
   ],
-  "cash_krw": 604687,
+  "cash_krw": 874847,
   "cash_flow": {
     "opening_krw": 0,
     "allowance_krw": 0,
-    "ad_share_krw": 186040,
+    "ad_share_krw": 343433,
     "spending_krw": 76000
   },
-  "ad_revenue_usd": 412.5,
-  "ad_received_usd": 262.5,
-  "ad_received_krw": 265771,
-  "to_mother_krw": 79731,
-  "adsense_unpaid_usd": 412.5,
+  "ad_revenue_usd": 763.13,
+  "ad_received_usd": 484.58,
+  "ad_received_krw": 490618,
+  "to_mother_krw": 147185,
+  "adsense_unpaid_usd": 763.13,
   "investment_trades": [],
   "investment_assets_krw": 0,
-  "note": "data/ledger.json과 metrics.json에서 생성한 마감 스냅샷. 숫자를 고치려면 원장을 고치고 다시 만든다."
+  "note": "data/ledger.json과 metrics.json에서 생성한 마감 스냅샷. 숫자를 고치려면 원장을 고치고 다시 만든다.",
+  "pageviews": 610500,
+  "section_pageviews": {
+    "diablo2": 288750,
+    "wow": 321750
+  },
+  "activity_stage": 3,
+  "revised_by": "D089"
 }
