@@ -47,7 +47,9 @@ function renderPersonal(month) {
   $('#relationshipGroups').innerHTML=groups.map(([kind,label,accept])=>{const list=people.filter(accept);return `<section class="relation-group"><h3>${label} <span>${list.length}</span></h3>${list.length?list.map(p=>`<a class="person-card" href="${esc(profileLink(p,key))}"><img src="${esc(p.portrait)}" alt="${esc(p.name)} 가상 외모 시안" width="56" height="72"><span><b>${esc(p.name)} ↗</b><small>${kind==='girlfriend'?'교제 중 · ':''}${p.first_month.replace('-','년 ')}월부터 기록</small></span></a>`).join(''):'<p class="empty-relationship">기록 없음</p>'}</section>`}).join('');
   const body=M.body.filter(p=>p.date.slice(0,7)<=key).at(-1);
   const exam = examAt(key);
-  const examSummary = !exam ? null : exam.kind === 'national_mock'
+  const examSummary = !exam ? null : exam.kind === 'csat'
+    ? '수능 · 응시 전 과목 1등급'
+    : exam.kind === 'national_mock'
     ? '전국연합 · ' + exam.subjects.map(subject=>`${subject.name} ${subject.grade != null ? subject.grade + '등급' : subject.grade_estimate != null ? '예상' + subject.grade_estimate + '등급' : '미정'}`).join(' · ')
     : `${exam.exam.split(' ').at(-1)} 평균 ${fmt(exam.simple_average)}점${exam.rank_in_grade == null ? '' : ' · 학년 ' + exam.rank_in_grade + '등'}`;
   const specs=[R[key].school_label,body?fmt(body.height_cm,1)+'cm · '+fmt(body.weight_kg,1)+'kg':null,examSummary];

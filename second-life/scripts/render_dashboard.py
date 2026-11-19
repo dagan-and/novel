@@ -14,6 +14,8 @@ def render_dashboard(root=None):
     for row in data['monthly']:
         month = row['month']
         meta = records['months'][month]
+        if meta.get('ledger_only'):
+            continue
         stories[month] = {
             'title': meta['title'],
             'summary': meta['summary'],
@@ -27,9 +29,11 @@ def render_dashboard(root=None):
     def payload(value):
         return json.dumps(value, ensure_ascii=False, separators=(',', ':')).replace('<', '\\u003c')
 
+    # Daily allocations are internal and no longer have a dashboard panel.
+    public_metrics = {key: value for key, value in data.items() if key != 'daily'}
     output = folder / 'dashboard.html'
     status_js = (root / 'scripts/templates/personal_status.js').read_text()
-    output.write_text(template.replace('METRICS_JSON', payload(data)).replace('STORIES_JSON', payload(stories)).replace('PERSONAL_STATUS_JS', status_js))
+    output.write_text(template.replace('METRICS_JSON', payload(public_metrics)).replace('STORIES_JSON', payload(stories)).replace('PERSONAL_STATUS_JS', status_js))
     render_profiles(root)
     print(f'Unified dashboard rendered: {len(stories)} months; {len(data["daily"])} modeled days')
 

@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "series": "investing",
-  "story_month": "2005-11",
-  "draft_month": "2005-11",
+  "story_month": "2007-11",
+  "draft_month": "2007-11",
   "last_confirmed_month": "2005-09",
   "authority": {
     "common": "base/",
@@ -500,6 +500,22 @@
       "domain": "story",
       "summary": "11월 제안서의 시험·학교생활·현지 중심 흐름과 가채점안(언어98·수리100·외국어98·사회95·과학97)을 진행한다. 영역별1등급은 예상으로 구분하고 정밀전국석차를 만들지 않는다. 사이트는 짧은 운영·정산으로 잇는다. 월 마감 지시가 아니다.",
       "source": "사용자 2026-11-19: 11월 만들자",
+      "recorded_at": "2026-11-19"
+    },
+    {
+      "id": "D064",
+      "status": "confirmed",
+      "domain": "relation",
+      "summary": "2005년 12월 김현지와 교제를 끝낸다. 정확한 날짜와 이유는 미정이다.",
+      "source": "사용자 2026-11-19: 2005년 12월 이별과 2007년 11월 수능 시점 이동 및 사이트 수익 산정 요청",
+      "recorded_at": "2026-11-19"
+    },
+    {
+      "id": "D065",
+      "status": "confirmed",
+      "domain": "story",
+      "summary": "다음 본문과 현황판의 시점을 2007년 11월 고3 수능으로 옮긴다. 중간 기간 사이트가 안정적으로 운영되었다는 가정으로 수익을 추정한다.",
+      "source": "사용자 2026-11-19: 2005년 12월 이별과 2007년 11월 수능 시점 이동 및 사이트 수익 산정 요청",
       "recorded_at": "2026-11-19"
     }
   ],
@@ -1309,6 +1325,38 @@
       "decision_ids": [
         "D063"
       ]
+    },
+    {
+      "id": "E071",
+      "story_date": "2005-12",
+      "status": "confirmed",
+      "summary": "현지와 교제를 끝냄.",
+      "source": "series/investing/months/2005-12.md",
+      "decision_ids": [
+        "D064"
+      ]
+    },
+    {
+      "id": "E072",
+      "story_date": "2007-11-15",
+      "status": "draft",
+      "summary": "2008학년도 수능에 응시한다. 수리 가형과 과학탐구 네 과목을 선택한 작품 성적.",
+      "source": "series/investing/months/2007-11.md",
+      "decision_ids": [
+        "D065"
+      ]
+    },
+    {
+      "id": "E073",
+      "story_date": "2007-11",
+      "status": "draft",
+      "summary": "2005년 12월부터 2007년 11월까지 사이트 운영과 광고 발생 및 지급 추정 요약.",
+      "source": "series/investing/months/2007-11.md",
+      "decision_ids": [
+        "D050",
+        "D061",
+        "D065"
+      ]
     }
   ],
   "tasks": [
@@ -2091,6 +2139,18 @@
         "E070"
       ],
       "reason": "11월작성승인으로본문·별도전국연합시험·월간유입/발생·원장지출·현황판을동기화. 예상등급과확정등급구분,마감9월유지."
+    },
+    {
+      "id": "C028",
+      "recorded_at": "2026-11-19",
+      "targets": [
+        "D064",
+        "D065",
+        "E071",
+        "E072",
+        "E073"
+      ],
+      "reason": "이별과 수능 시점 이동을 반영. 중간 월은 사이트 수익 모형만 관리하고 월별 본문이나 생활비를 추정하지 않는다."
     }
   ],
   "months": {
@@ -2204,6 +2264,108 @@
       "asset_note": "현금은미마감잠정치. 광고발생625달러와실제수령을구분한다.",
       "site_note": "세게임의 월별유입은창작모형. 사이트서술은짧게유지한다.",
       "revision_note": "D063 진행승인.10·11월미마감,마지막마감9월."
+    },
+    "2005-12": {
+      "title": "현지와 헤어진 달",
+      "status": "draft",
+      "summary": "현지와 교제 종료 · 일상과 사이트 운영 지속",
+      "school_label": "풍덕고 1학년",
+      "revision_note": "사용자 승인 방향을 반영한 탐색 기록"
+    },
+    "2006-01": {
+      "status": "draft",
+      "ledger_only": true
+    },
+    "2006-02": {
+      "status": "draft",
+      "ledger_only": true
+    },
+    "2006-03": {
+      "status": "draft",
+      "ledger_only": true
+    },
+    "2006-04": {
+      "status": "draft",
+      "ledger_only": true
+    },
+    "2006-05": {
+      "status": "draft",
+      "ledger_only": true
+    },
+    "2006-06": {
+      "status": "draft",
+      "ledger_only": true
+    },
+    "2006-07": {
+      "status": "draft",
+      "ledger_only": true
+    },
+    "2006-08": {
+      "status": "draft",
+      "ledger_only": true
+    },
+    "2006-09": {
+      "status": "draft",
+      "ledger_only": true
+    },
+    "2006-10": {
+      "status": "draft",
+      "ledger_only": true
+    },
+    "2006-11": {
+      "status": "draft",
+      "ledger_only": true
+    },
+    "2006-12": {
+      "status": "draft",
+      "ledger_only": true
+    },
+    "2007-01": {
+      "status": "draft",
+      "ledger_only": true
+    },
+    "2007-02": {
+      "status": "draft",
+      "ledger_only": true
+    },
+    "2007-03": {
+      "status": "draft",
+      "ledger_only": true
+    },
+    "2007-04": {
+      "status": "draft",
+      "ledger_only": true
+    },
+    "2007-05": {
+      "status": "draft",
+      "ledger_only": true
+    },
+    "2007-06": {
+      "status": "draft",
+      "ledger_only": true
+    },
+    "2007-07": {
+      "status": "draft",
+      "ledger_only": true
+    },
+    "2007-08": {
+      "status": "draft",
+      "ledger_only": true
+    },
+    "2007-09": {
+      "status": "draft",
+      "ledger_only": true
+    },
+    "2007-10": {
+      "status": "draft",
+      "ledger_only": true
+    },
+    "2007-11": {
+      "title": "고3 수능과 두 해의 운영 기록",
+      "status": "draft",
+      "summary": "2008학년도 수능 · WoW와 던파 운영 수익 결산",
+      "school_label": "풍덕고 3학년",
+      "revision_note": "사용자 승인 방향을 반영한 탐색 기록"
     }
   },
   "ongoing_threads": [
@@ -2265,7 +2427,8 @@
         "E065",
         "E066",
         "E069",
-        "E070"
+        "E070",
+        "E073"
       ],
       "task_ids": [
         "T003",
@@ -2332,7 +2495,8 @@
         "E050",
         "E061",
         "E066",
-        "E067"
+        "E067",
+        "E072"
       ],
       "task_ids": [
         "T013",
@@ -2365,11 +2529,12 @@
     {
       "id": "O005",
       "priority": "secondary",
-      "summary": "학원에서 시작한 첫 교제. 가끔 데이트하며 서로 호감을 표현하고 편한 속도로 가까워진다.",
+      "summary": "2005년 12월 현지와 교제 종료. 이후 과거 관계로 유지.",
       "decision_ids": [
         "D022",
         "D034",
-        "D063"
+        "D063",
+        "D064"
       ],
       "event_ids": [
         "E033",
@@ -2379,7 +2544,8 @@
         "E047",
         "E051",
         "E063",
-        "E068"
+        "E068",
+        "E071"
       ],
       "task_ids": [
         "T028"

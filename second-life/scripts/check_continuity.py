@@ -54,7 +54,10 @@ for key in tasks:
     visit(key, set())
 for key, meta in data.get('months', {}).items():
     assert meta['status'] in ('confirmed', 'draft'), key
-    assert (root / 'series/investing/months' / f'{key}.md').is_file(), key
+    if meta.get('ledger_only'):
+        assert meta['status'] == 'draft'
+    else:
+        assert (root / 'series/investing/months' / f'{key}.md').is_file(), key
 if state.get('month_end_state'):
     snapshot = json.loads((root / 'series/investing' / state['month_end_state']).read_text())
     assert snapshot['as_of'][:7] == state['last_confirmed_month'], 'Snapshot month mismatch'
@@ -183,8 +186,11 @@ for row in rows:
         first_paid = first_paid or key
     expected_allowance = rules['allowance']['amount_krw'] if first_paid is None or key <= first_paid else 0
     assert flow['allowance_krw'] == expected_allowance, key
-    assert flow['spending_krw'] == sum(i['amount_krw'] for i in ledger['spending'] if i['month'] == key)
-    if cash is not None and flow['ad_share_krw'] is not None:
+    spending_entries = [i['amount_krw'] for i in ledger['spending'] if i['month'] == key]
+    untracked_from = ledger.get('spending_untracked_from')
+    expected_spending = None if not spending_entries and untracked_from and key >= untracked_from else sum(spending_entries)
+    assert flow['spending_krw'] == expected_spending
+    if cash is not None and flow['ad_share_krw'] is not None and expected_spending is not None:
         cash += flow['opening_krw'] + flow['allowance_krw'] + flow['ad_share_krw'] - flow['spending_krw']
     else:
         cash = None
@@ -212,6 +218,11 @@ for exam in [metrics['academics'], *metrics.get('additional_exams', [])]:
     subjects = exam['subjects']
     assert all(0 <= subject['score'] <= subject['maximum'] for subject in subjects), exam['exam']
     assert abs(sum(subject['score'] for subject in subjects) / len(subjects) - exam['simple_average']) < 0.001, exam['exam']
+    if exam.get('kind') == 'csat':
+        assert date.fromisoformat(exam['exam_date']) < date.fromisoformat(exam['result_date'])
+        assert exam['national_rank'] is None
+        assert all(subject['grade'] == 1 and subject['score'] >= subject['reference_grade_one_min'] for subject in subjects)
+        continue
     mock = exam.get('kind') == 'national_mock'
     assert exam.get('question_point_values') == ([1, 2, 3, 4] if mock else [2, 3, 4])
     for subject in subjects:

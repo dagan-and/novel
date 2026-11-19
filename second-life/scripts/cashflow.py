@@ -47,8 +47,9 @@ def compute(monthly_rows, ledger):
         allowance = allowance_rule['amount_krw'] if key >= allowance_rule['from_month'] and (
             first_receipt_month is None or key <= first_receipt_month) else 0
         opening_krw = opening['amount_krw'] if key == opening['date'][:7] else 0
-        spent = spending.get(key, 0)
-        if cash is not None and to_yongsik is not None:
+        untracked_from = ledger.get('spending_untracked_from')
+        spent = spending.get(key) if untracked_from and key >= untracked_from else spending.get(key, 0)
+        if cash is not None and to_yongsik is not None and spent is not None:
             cash = cash + opening_krw + allowance + to_yongsik - spent
         else:
             cash = None
