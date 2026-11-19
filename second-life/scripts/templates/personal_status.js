@@ -8,7 +8,11 @@ function relationshipAt(person, month) {
 function profileLink(person, month) {
   return person.profile_href+'?month='+encodeURIComponent(month);
 }
+function hasSchoolResultsAt(month) {
+  return !M.school_results_through || month <= M.school_results_through;
+}
 function examAt(month) {
+  if (!hasSchoolResultsAt(month)) return null;
   return [M.academics, ...(M.additional_exams || [])]
     .filter(exam => exam.story_month <= month)
     .sort((a, b) => a.story_month.localeCompare(b.story_month))
