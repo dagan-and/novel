@@ -8,6 +8,7 @@ def render_profiles(root=None):
     root = Path(root) if root else Path(__file__).resolve().parents[1]
     folder = root / 'series/investing'
     data = json.loads((folder / 'data/metrics.json').read_text())
+    records = json.loads((folder / 'data/records.json').read_text())
     template = (root / 'scripts/templates/person.html').read_text()
     count = 0
     for person in data.get('relationships', []):
@@ -17,6 +18,19 @@ def render_profiles(root=None):
         output = folder / href
         source = output.with_suffix('.md')
         sections = []
+        milestones = sorted(
+            (event for event in records['events']
+             if event.get('relationship_person_id') == person['person_id']
+             and event['status'] != 'superseded'),
+            key=lambda event: event['story_date'],
+        )
+        if milestones:
+            items = []
+            for event in milestones:
+                day = escape(event['story_date'], quote=True)
+                note = escape(event['profile_note'])
+                items.append(f'<p data-story-date="{day}"><strong><time datetime="{day}">{day}</time></strong> · {note}</p>')
+            sections.append('<section id="relationshipTimeline"><h2>관계 기록</h2>' + ''.join(items) + '</section>')
         for part in source.read_text().split('\n## ')[1:]:
             title, body = part.split('\n', 1)
             if title == '이미지 시안':
@@ -29,6 +43,11 @@ def render_profiles(root=None):
             'PERSON_FROM': person['known_from'],
             'PERSON_IMAGE': escape(str(portrait), quote=True),
             'PERSON_BODY': ''.join(sections),
+            'PERSON_TIMELINE_JS': (
+                "for(const entry of document.querySelectorAll('[data-story-date]'))"
+                "entry.hidden=entry.dataset.storyDate.slice(0,7)>month;"
+                if milestones else ''
+            ),
             'PERSON_CAPTION': escape(person.get('portrait_caption', person.get('appearance', {}).get('impression', '외모 시안'))),
             'PERSON_FACTS': ''.join('<span>'+escape(tag)+'</span>' for tag in person.get('profile_tags', [])),
         }

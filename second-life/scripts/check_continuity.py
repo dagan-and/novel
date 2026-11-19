@@ -277,3 +277,13 @@ for person in metrics.get('relationships', []):
             assert phase['from_month'] >= person['known_from']
             assert phase['to_month'] is None or phase['to_month'] >= phase['from_month']
 print('Profiles OK: sources, generated links, images and relation periods')
+
+people = {person['person_id']: person for person in metrics.get('relationships', [])}
+for event in data['events']:
+    if 'relationship_person_id' not in event:
+        continue
+    assert event['relationship_person_id'] in people, event['id']
+    person = people[event['relationship_person_id']]
+    milestone_date = date.fromisoformat(event['story_date'])
+    assert person['known_from'] <= milestone_date.isoformat()[:7] <= max(data['months']), event['id']
+    assert event['profile_note'].strip(), event['id']

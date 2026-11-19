@@ -638,6 +638,14 @@
       "summary": "윤정은 대학에 들어갈 무렵 한층 슬림해졌고 화장과 여성스러운 옷차림을 즐긴다. 2008년 3월 대표 카페 사진과 프로필에 이를 반영한다.",
       "source": "사용자 2026-11-19: 대학생인 윤정의 사진에 화장, 슬림한 외형과 꾸미기를 좋아하는 여성스러운 모습을 반영.",
       "recorded_at": "2026-11-19"
+    },
+    {
+      "id": "D081",
+      "status": "confirmed",
+      "domain": "relation",
+      "summary": "첨부 사진을 직접 참고해 윤정의 카페 초상을 다시 제작한다. 윤정과 서연의 월 단위 관계 사건에 작품 날짜를 정하고 프로필에서 날짜별로 보여준다.",
+      "source": "사용자 2026-11-19: 첨부 사진을 닮은 윤정 이미지 재제작, 교제 시작일 및 탁구 선배와 처음 만난 날과 관계 기록 요청.",
+      "recorded_at": "2026-11-19"
     }
   ],
   "events": [
@@ -1503,13 +1511,16 @@
     },
     {
       "id": "E076",
-      "story_date": "2007-12",
+      "story_date": "2007-12-15",
       "status": "confirmed",
       "summary": "용식이 먼저 마음을 표현하고 윤정이 받아들여 교제를 시작한다.",
       "source": "series/investing/months/2007-12.md",
       "decision_ids": [
-        "D068"
-      ]
+        "D068",
+        "D081"
+      ],
+      "relationship_person_id": "P002",
+      "profile_note": "용식이 먼저 고백하고 윤정이 받아들여 교제를 시작했다."
     },
     {
       "id": "E077",
@@ -1549,14 +1560,17 @@
     },
     {
       "id": "E080",
-      "story_date": "2008-01",
+      "story_date": "2008-01-19",
       "status": "confirmed",
       "summary": "윤정과 데이트하고 손을 잡으며 두 사람이 처음 입을 맞춘다. 구체적인 데이트 동선은 창작이다.",
       "source": "series/investing/months/2008-01.md",
       "decision_ids": [
         "D068",
-        "D072"
-      ]
+        "D072",
+        "D081"
+      ],
+      "relationship_person_id": "P002",
+      "profile_note": "주말 데이트를 마치고 귀갓길에 처음 입을 맞췄다."
     },
     {
       "id": "E081",
@@ -1651,14 +1665,17 @@
     },
     {
       "id": "E089",
-      "story_date": "2008-03",
+      "story_date": "2008-03-12",
       "status": "draft",
       "summary": "탁구 동아리에서 2학년 선배 한서연과 혼합복식을 치며 가까워진다. 윤정과의 교제도 이어간다.",
       "source": "series/investing/months/2008-03.md",
       "decision_ids": [
         "D068",
-        "D078"
-      ]
+        "D078",
+        "D081"
+      ],
+      "relationship_person_id": "P003",
+      "profile_note": "연세대 탁구 동아리에서 처음 만나 혼합복식 파트너가 됐다."
     },
     {
       "id": "E090",
@@ -1682,6 +1699,45 @@
         "D050",
         "D070"
       ]
+    },
+    {
+      "id": "E092",
+      "story_date": "2008-03-19",
+      "status": "draft",
+      "summary": "연습을 마치고 신촌역까지 함께 걸으며 서로의 수업과 일상을 이야기했다.",
+      "source": "series/investing/months/2008-03.md",
+      "decision_ids": [
+        "D078",
+        "D081"
+      ],
+      "relationship_person_id": "P003",
+      "profile_note": "연습을 마치고 신촌역까지 함께 걸으며 서로의 수업과 일상을 이야기했다."
+    },
+    {
+      "id": "E093",
+      "story_date": "2008-03-22",
+      "status": "draft",
+      "summary": "카페에서 봄옷을 입고 나온 윤정이 웃는 모습을 사진으로 남겼다.",
+      "source": "series/investing/months/2008-03.md",
+      "decision_ids": [
+        "D080",
+        "D081"
+      ],
+      "relationship_person_id": "P002",
+      "profile_note": "카페에서 봄옷을 입고 나온 윤정이 웃는 모습을 사진으로 남겼다."
+    },
+    {
+      "id": "E094",
+      "story_date": "2008-03-26",
+      "status": "draft",
+      "summary": "서연이 먼저 복식을 다시 하자고 했다. 서로 다음 연습일을 기다리는 썸으로 이어졌다.",
+      "source": "series/investing/months/2008-03.md",
+      "decision_ids": [
+        "D078",
+        "D081"
+      ],
+      "relationship_person_id": "P003",
+      "profile_note": "서연이 먼저 복식을 다시 하자고 했다. 서로 다음 연습일을 기다리는 썸으로 이어졌다."
     }
   ],
   "tasks": [
@@ -2553,6 +2609,22 @@
         "D080"
       ],
       "reason": "윤정의 3월 카페 장면과 프로필을 입학 뒤의 외형과 취향에 맞추고 대표 초상을 새 시안으로 교체했다."
+    },
+    {
+      "id": "C035",
+      "recorded_at": "2026-11-19",
+      "targets": [
+        "D078",
+        "D080",
+        "D081",
+        "E076",
+        "E080",
+        "E089",
+        "E092",
+        "E093",
+        "E094"
+      ],
+      "reason": "윤정 대표 이미지를 새 외형 참고 사진으로 다시 생성하고 기존 교제와 동아리 사건에 작품 날짜를 붙였다. 날짜는 사용자에게 받은 실제 날짜가 아니라 창작 세부다."
     }
   ],
   "months": {
@@ -3008,14 +3080,16 @@
         "D076",
         "D078",
         "D079",
-        "D080"
+        "D080",
+        "D081"
       ],
       "event_ids": [
         "E076",
         "E080",
         "E086",
         "E089",
-        "E090"
+        "E090",
+        "E093"
       ],
       "task_ids": []
     },
@@ -3038,10 +3112,13 @@
       "priority": "main",
       "summary": "연세대 탁구 동아리에서 한서연 선배와 혼합복식을 치며 서로에게 관심을 느낀다.",
       "decision_ids": [
-        "D078"
+        "D078",
+        "D081"
       ],
       "event_ids": [
-        "E089"
+        "E089",
+        "E092",
+        "E094"
       ],
       "task_ids": []
     }
