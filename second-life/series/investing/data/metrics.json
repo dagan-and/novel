@@ -13459,11 +13459,11 @@
         "weight_kg": null,
         "measurement_status": "user_stated_height",
         "hair": "긴 생머리와 반듯한 앞머리",
-        "impression": "예쁜 인상과 슬림한 체형. 첨부 이미지의 머리와 차분한 표정 참고."
+        "impression": "예쁜 인상과 슬림한 체형. 첨부 이미지의 머리와 차분한 표정 참고. 대학 입학 무렵 한층 슬림해졌으며 화장과 여성스러운 옷차림을 즐긴다."
       },
       "known_from": "2007-12",
       "profile_href": "characters/person-002.html",
-      "portrait": "characters/images/jang-yunjeong-v2.jpg",
+      "portrait": "characters/images/jang-yunjeong-v3.jpg",
       "phases": [
         {
           "from_month": "2007-12",
@@ -13471,7 +13471,7 @@
           "kind": "girlfriend"
         }
       ],
-      "portrait_caption": "카페 창가에서 테이블 너머로 이야기를 듣다 웃는 모습.",
+      "portrait_caption": "화장과 봄옷을 고르고 나온 윤정이 카페 창가에서 차를 마시며 웃는 모습.",
       "profile_tags": [
         "164cm",
         "슬림한 체형",
