@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "series": "investing",
-  "as_of": "2007-12-31",
+  "as_of": "2008-01-31",
   "definitions": {
     "data_kind": "fictional_world_not_live_analytics",
     "revenue": "플랫폼 배분 후 게시자 광고 발생액. 운영비·세금 차감 전. 실제 수령·개인 현금과 구분.",
@@ -2280,6 +2280,70 @@
           "to_mother_krw": 488827,
           "unpaid_usd": 1885.0,
           "next_payout_usd": 1885.0,
+          "fee_this_month_krw": 0
+        }
+      }
+    },
+    {
+      "month": "2008-01",
+      "status": "story_estimate",
+      "visitor_days": 321024,
+      "pageviews": 1536000,
+      "ad_pageviews": 1536000,
+      "publisher_rpm_usd": 1.25,
+      "ad_revenue_usd": 1920.0,
+      "operating_costs_usd": null,
+      "net_profit_usd": null,
+      "investment_assets_krw": 0,
+      "investment_realized_pnl_krw": 0,
+      "investment_cash_krw": null,
+      "holdings": [],
+      "trade_count": 0,
+      "section_pageviews": {
+        "diablo2": 46000,
+        "wow": 350000,
+        "dnf": 1140000
+      },
+      "basis": "국내 사이트 추정. 디아블로 II 소폭 감소, WoW 방학 수요와 던파 연말 개편 효과 잔존. 중국어판은 비공개 준비 단계.",
+      "days": 31,
+      "cumulative_ad_revenue_usd": 37150.75,
+      "average_daily_visitors": 10355.61,
+      "average_daily_ad_revenue_usd": 61.9355,
+      "activity_stage": 4,
+      "cash_received_usd": 1885.0,
+      "cumulative_cash_received_usd": 35230.75,
+      "personal_cash_krw": null,
+      "finances": {
+        "personal": {
+          "cash_krw": null,
+          "cash_scope": "unknown",
+          "cash_as_of_month": null,
+          "total_assets_krw": null
+        },
+        "flow": {
+          "opening_krw": 0,
+          "allowance_krw": 0,
+          "ad_share_krw": 1243048,
+          "spending_krw": null
+        },
+        "budget": {
+          "allowance_krw": 0,
+          "after_site_krw": null,
+          "after_living_plan_krw": null,
+          "hosting_krw": 70000,
+          "recurring_site_krw": 76833,
+          "site_cash_plan_krw": 70000,
+          "site_cash_plan_total_krw": 1296000
+        },
+        "site": {
+          "received_usd": 1885.0,
+          "fx_krw_per_usd": 942.06,
+          "received_krw": 1775783,
+          "received_total_krw": 33346974,
+          "to_yongsik_krw": 1243048,
+          "to_mother_krw": 532735,
+          "unpaid_usd": 1920.0,
+          "next_payout_usd": 1920.0,
           "fee_this_month_krw": 0
         }
       }
@@ -12140,6 +12204,285 @@
       "pageviews": 60348,
       "ad_pageviews": 60348,
       "ad_revenue_usd": 75.43
+    },
+    {
+      "date": "2008-01-01",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 6979,
+      "pageviews": 33391,
+      "ad_pageviews": 33391,
+      "ad_revenue_usd": 41.74
+    },
+    {
+      "date": "2008-01-02",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 7178,
+      "pageviews": 34345,
+      "ad_pageviews": 34345,
+      "ad_revenue_usd": 42.93
+    },
+    {
+      "date": "2008-01-03",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 7378,
+      "pageviews": 35299,
+      "ad_pageviews": 35299,
+      "ad_revenue_usd": 44.12
+    },
+    {
+      "date": "2008-01-04",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 7577,
+      "pageviews": 36253,
+      "ad_pageviews": 36253,
+      "ad_revenue_usd": 45.32
+    },
+    {
+      "date": "2008-01-05",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 8943,
+      "pageviews": 42789,
+      "ad_pageviews": 42789,
+      "ad_revenue_usd": 53.49
+    },
+    {
+      "date": "2008-01-06",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 9172,
+      "pageviews": 43886,
+      "ad_pageviews": 43886,
+      "ad_revenue_usd": 54.86
+    },
+    {
+      "date": "2008-01-07",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 8175,
+      "pageviews": 39115,
+      "ad_pageviews": 39115,
+      "ad_revenue_usd": 48.89
+    },
+    {
+      "date": "2008-01-08",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 8375,
+      "pageviews": 40069,
+      "ad_pageviews": 40069,
+      "ad_revenue_usd": 50.09
+    },
+    {
+      "date": "2008-01-09",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 8574,
+      "pageviews": 41024,
+      "ad_pageviews": 41024,
+      "ad_revenue_usd": 51.28
+    },
+    {
+      "date": "2008-01-10",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 8773,
+      "pageviews": 41978,
+      "ad_pageviews": 41978,
+      "ad_revenue_usd": 52.47
+    },
+    {
+      "date": "2008-01-11",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 8973,
+      "pageviews": 42932,
+      "ad_pageviews": 42932,
+      "ad_revenue_usd": 53.66
+    },
+    {
+      "date": "2008-01-12",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 10548,
+      "pageviews": 50469,
+      "ad_pageviews": 50469,
+      "ad_revenue_usd": 63.09
+    },
+    {
+      "date": "2008-01-13",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 10777,
+      "pageviews": 51566,
+      "ad_pageviews": 51566,
+      "ad_revenue_usd": 64.46
+    },
+    {
+      "date": "2008-01-14",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 9571,
+      "pageviews": 45794,
+      "ad_pageviews": 45794,
+      "ad_revenue_usd": 57.24
+    },
+    {
+      "date": "2008-01-15",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 9770,
+      "pageviews": 46748,
+      "ad_pageviews": 46748,
+      "ad_revenue_usd": 58.43
+    },
+    {
+      "date": "2008-01-16",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 9970,
+      "pageviews": 47702,
+      "ad_pageviews": 47702,
+      "ad_revenue_usd": 59.63
+    },
+    {
+      "date": "2008-01-17",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 10169,
+      "pageviews": 48656,
+      "ad_pageviews": 48656,
+      "ad_revenue_usd": 60.82
+    },
+    {
+      "date": "2008-01-18",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 10369,
+      "pageviews": 49610,
+      "ad_pageviews": 49610,
+      "ad_revenue_usd": 62.01
+    },
+    {
+      "date": "2008-01-19",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 12153,
+      "pageviews": 58149,
+      "ad_pageviews": 58149,
+      "ad_revenue_usd": 72.69
+    },
+    {
+      "date": "2008-01-20",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 12382,
+      "pageviews": 59246,
+      "ad_pageviews": 59246,
+      "ad_revenue_usd": 74.06
+    },
+    {
+      "date": "2008-01-21",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 10967,
+      "pageviews": 52472,
+      "ad_pageviews": 52472,
+      "ad_revenue_usd": 65.59
+    },
+    {
+      "date": "2008-01-22",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 11166,
+      "pageviews": 53426,
+      "ad_pageviews": 53426,
+      "ad_revenue_usd": 66.78
+    },
+    {
+      "date": "2008-01-23",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 11365,
+      "pageviews": 54380,
+      "ad_pageviews": 54380,
+      "ad_revenue_usd": 67.97
+    },
+    {
+      "date": "2008-01-24",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 11565,
+      "pageviews": 55334,
+      "ad_pageviews": 55334,
+      "ad_revenue_usd": 69.17
+    },
+    {
+      "date": "2008-01-25",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 11764,
+      "pageviews": 56288,
+      "ad_pageviews": 56288,
+      "ad_revenue_usd": 70.36
+    },
+    {
+      "date": "2008-01-26",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 13758,
+      "pageviews": 65829,
+      "ad_pageviews": 65829,
+      "ad_revenue_usd": 82.29
+    },
+    {
+      "date": "2008-01-27",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 13987,
+      "pageviews": 66926,
+      "ad_pageviews": 66926,
+      "ad_revenue_usd": 83.66
+    },
+    {
+      "date": "2008-01-28",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 12362,
+      "pageviews": 59150,
+      "ad_pageviews": 59150,
+      "ad_revenue_usd": 73.94
+    },
+    {
+      "date": "2008-01-29",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 12562,
+      "pageviews": 60104,
+      "ad_pageviews": 60104,
+      "ad_revenue_usd": 75.13
+    },
+    {
+      "date": "2008-01-30",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 12761,
+      "pageviews": 61058,
+      "ad_pageviews": 61058,
+      "ad_revenue_usd": 76.32
+    },
+    {
+      "date": "2008-01-31",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 12961,
+      "pageviews": 62012,
+      "ad_pageviews": 62012,
+      "ad_revenue_usd": 77.51
     }
   ],
   "academics": {
@@ -12612,6 +12955,12 @@
         "hosting_krw": 70000,
         "domain_cash_krw": 0,
         "setup_cash_krw": 0
+      },
+      {
+        "month": "2008-01",
+        "hosting_krw": 70000,
+        "domain_cash_krw": 0,
+        "setup_cash_krw": 0
       }
     ],
     "includes_tax_assumption": true,
@@ -12999,6 +13348,15 @@
         "paid_this_month_usd": 1750.0,
         "to_yongsik_krw": 1140598,
         "to_mother_krw": 488827
+      },
+      {
+        "month": "2008-01",
+        "revenue_usd": 1920.0,
+        "yongsik_allocation_usd": 1344.0,
+        "mother_allocation_usd": 576.0,
+        "paid_this_month_usd": 1885.0,
+        "to_yongsik_krw": 1243048,
+        "to_mother_krw": 532735
       }
     ]
   },
@@ -13310,15 +13668,15 @@
           "score": 98,
           "maximum": 100,
           "grade": 1,
-          "reference_grade_one_min": 90,
+          "reference_grade_one_min": 91,
           "status": "fictional_result"
         },
         {
-          "name": "수리 가형(미분과 적분)",
+          "name": "수리 나형",
           "score": 100,
           "maximum": 100,
           "grade": 1,
-          "reference_grade_one_min": 98,
+          "reference_grade_one_min": 92,
           "status": "fictional_result"
         },
         {
@@ -13330,15 +13688,15 @@
           "status": "fictional_result"
         },
         {
-          "name": "물리Ⅰ",
-          "score": 47,
+          "name": "경제",
+          "score": 48,
           "maximum": 50,
           "grade": 1,
-          "reference_grade_one_min": 45,
+          "reference_grade_one_min": 46,
           "status": "fictional_result"
         },
         {
-          "name": "화학Ⅰ",
+          "name": "사회문화",
           "score": 48,
           "maximum": 50,
           "grade": 1,
@@ -13346,23 +13704,23 @@
           "status": "fictional_result"
         },
         {
-          "name": "생물Ⅰ",
+          "name": "정치",
           "score": 47,
           "maximum": 50,
           "grade": 1,
-          "reference_grade_one_min": 45,
+          "reference_grade_one_min": 46,
           "status": "fictional_result"
         },
         {
-          "name": "지구과학Ⅰ",
+          "name": "한국지리",
           "score": 48,
           "maximum": 50,
           "grade": 1,
-          "reference_grade_one_min": 45,
+          "reference_grade_one_min": 41,
           "status": "fictional_result"
         }
       ],
-      "simple_average": 69.42857142857143
+      "simple_average": 69.57142857142857
     }
   ],
   "game_records_through": "2005-06",
