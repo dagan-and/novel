@@ -3,7 +3,7 @@
   "series": "investing",
   "story_month": "2005-09",
   "draft_month": "2005-09",
-  "last_confirmed_month": "2005-02",
+  "last_confirmed_month": "2005-06",
   "authority": {
     "common": "base/",
     "progress": "series/investing/state.json",
@@ -17,244 +17,370 @@
       "id": "D001",
       "status": "confirmed",
       "summary": "표현은 용식의 1인칭 세계관 탐색·월간 경험 기록. 대화와 독백 없이 경험·선택·변화를 서술한다.",
-      "source": "사용자 지시 2026-11-18: 1인칭 세계관 탐색"
+      "source": "사용자 지시 2026-11-18: 1인칭 세계관 탐색",
+      "domain": "workflow"
     },
     {
       "id": "D002",
       "status": "confirmed",
       "summary": "HTML은 탐색 서술 중심. 작업 일정과 DB성 관리 기록은 제작용 폴더에서 관리한다.",
-      "source": "사용자 지시 2026-11-18: 별도 관리"
+      "source": "사용자 지시 2026-11-18: 별도 관리",
+      "domain": "workflow"
     },
     {
       "id": "D003",
       "status": "confirmed",
       "summary": "디아블로 II와 WoW 정보·유틸·커뮤니티를 한 사이트에서 연동한다.",
-      "source": "사용자 선택: 두 게임 유틸 사이트 연동"
+      "source": "사용자 선택: 두 게임 유틸 사이트 연동",
+      "domain": "site"
     },
     {
       "id": "D004",
-      "status": "confirmed",
+      "status": "superseded",
       "summary": "어머니가 애드센스 실제 계약·정산을 맡고 수익은 반씩 나눈다. 비용 공제는 미정.",
-      "source": "사용자 선택: 어머니 명의·반반 분배"
+      "source": "사용자 선택: 어머니 명의·반반 분배",
+      "domain": "money",
+      "superseded_by": "D043"
     },
     {
       "id": "D005",
       "status": "confirmed",
       "summary": "1월 서술의 질적 진행을 채택하고 2월로 진행. 미정 자금과 거래는 확정하지 않음.",
-      "source": "사용자 지시 2026-11-18: 좋아졌네, 2월 하자"
+      "source": "사용자 지시 2026-11-18: 좋아졌네, 2월 하자",
+      "domain": "workflow"
     },
     {
       "id": "D006",
       "status": "confirmed",
       "summary": "사이트 구현과 운영은 2월에도 계속되는 본줄기다. 새 관심사인 스타 때문에 기존 활동을 생략하거나 대체하지 않는다.",
-      "source": "사용자 지시 2026-11-18: 사이트 구현 및 운영은 자연스럽게 2월에도 계속"
+      "source": "사용자 지시 2026-11-18: 사이트 구현 및 운영은 자연스럽게 2월에도 계속",
+      "domain": "site"
     },
     {
       "id": "D007",
       "status": "confirmed",
       "summary": "3월은 사이트가 최우선이며 남는 시간에 스타를 하루 2~3시간 즐기는 방향. 학교·학원·식사·수면과 겹치면 게임 시간을 조정한다.",
-      "source": "사용자 지시 2026-11-18: 사이트 최우선, 남는 시간 게임"
+      "source": "사용자 지시 2026-11-18: 사이트 최우선, 남는 시간 게임",
+      "domain": "life"
     },
     {
       "id": "D008",
       "status": "confirmed",
       "summary": "정독·이해한 교과 내용이 기억되고 필요한 내용을 바로 찾아 사고·추론할 수 있어 학업 성과가 매우 높다.",
-      "source": "base/cognition.md"
+      "source": "base/cognition.md",
+      "domain": "school"
     },
     {
       "id": "D009",
       "status": "confirmed",
       "summary": "2월의 사이트 구현·시험공개·반복 운영을 이어받아 3월로 진행. 자금과 경기 수치는 미확정 유지.",
-      "source": "사용자 지시 2026-11-18: 3월도 정리"
+      "source": "사용자 지시 2026-11-18: 3월도 정리",
+      "domain": "workflow"
     },
     {
       "id": "D010",
       "status": "confirmed",
       "summary": "4월부터 외모를 관리하고 점심·야자 전 식사 뒤 학교 철봉·푸시업 등 짧은 운동을 하는 방향.",
-      "source": "사용자 지시·답변 2026-11-18: 4월 운동·야간 개발·교실 PC 불가"
+      "source": "사용자 지시·답변 2026-11-18: 4월 운동·야간 개발·교실 PC 불가",
+      "domain": "body"
     },
     {
       "id": "D011",
       "status": "confirmed",
       "summary": "학교 교실에서는 컴퓨터 사용 불가. 야자에는 종이 설계·자료 독해·할 일 정리를 하고 귀가 뒤 구현한다.",
-      "source": "사용자 지시·답변 2026-11-18: 4월 운동·야간 개발·교실 PC 불가"
+      "source": "사용자 지시·답변 2026-11-18: 4월 운동·야간 개발·교실 PC 불가",
+      "domain": "school"
     },
     {
       "id": "D012",
       "status": "confirmed",
       "summary": "희망 생활은 야자 21시 종료 뒤 22~02시 사이트 집중과 학교에서 수면 보충. 수면 필요량·실제 시간표와 허용 여부를 맞추기 전 정착 사실로 쓰지 않는다.",
-      "source": "사용자 지시·답변 2026-11-18: 4월 운동·야간 개발·교실 PC 불가"
+      "source": "사용자 지시·답변 2026-11-18: 4월 운동·야간 개발·교실 PC 불가",
+      "domain": "life"
     },
     {
       "id": "D013",
       "status": "confirmed",
       "summary": "크롤링·자료 가져오기·예약 운영은 첫 사이트 설계부터 고려한다. 4월은 첫 도입이 아니라 안정화와 확장이다.",
-      "source": "사용자 교정 2026-11-18: 처음부터 크롤링을 알았을 것"
+      "source": "사용자 교정 2026-11-18: 처음부터 크롤링을 알았을 것",
+      "domain": "site"
     },
     {
       "id": "D014",
       "status": "confirmed",
       "summary": "청소년 수면은 밤5시간+학교2~3시간으로 총7~8시간. 분할수면에서도 회복을 유지하는 가상 신체 효율을 추가한다.",
-      "source": "사용자 답변 2026-11-18: 밤 5시간과 학교 수면을 합쳐 7~8시간"
+      "source": "사용자 답변 2026-11-18: 밤 5시간과 학교 수면을 합쳐 7~8시간",
+      "domain": "life"
     },
     {
       "id": "D015",
       "status": "confirmed",
       "summary": "2005년 고등학교는 용인 풍덕고. 5월 초 중간고사 뒤 학년1등으로 학교·학원에서 알려지고 체격·외모로 관심이 늘며 스타는 교내 최상위다.",
-      "source": "사용자 지시 2026-11-18: 5월 학교·시험·운영·현황판"
+      "source": "사용자 지시 2026-11-18: 5월 학교·시험·운영·현황판",
+      "domain": "school"
     },
     {
       "id": "D016",
       "status": "confirmed",
       "summary": "학교에서 다른 학생들도 잠을 보충하는 수업에 함께 일부 수면. 야자는 자습서·문제집 최고난도 풀이로 활용한다.",
-      "source": "사용자 지시 2026-11-18: 5월 학교·시험·운영·현황판"
+      "source": "사용자 지시 2026-11-18: 5월 학교·시험·운영·현황판",
+      "domain": "school"
     },
     {
       "id": "D017",
       "status": "confirmed",
       "summary": "사이트는 평상시 짧게 점검하며 패치·업데이트·오류가 있을 때 집중 수정. 늦게 작업하면 게임을 줄이고 보충수면한다.",
-      "source": "사용자 지시 2026-11-18: 5월 학교·시험·운영·현황판"
+      "source": "사용자 지시 2026-11-18: 5월 학교·시험·운영·현황판",
+      "domain": "site"
     },
     {
       "id": "D018",
       "status": "confirmed",
       "summary": "현황판에 일별/월별 방문·광고 발생·누적 수익·현금 수령·성적·체격·게임·투자 지표를 같은 데이터에서 지속 표시한다.",
-      "source": "사용자 지시 2026-11-18: 5월 학교·시험·운영·현황판"
+      "source": "사용자 지시 2026-11-18: 5월 학교·시험·운영·현황판",
+      "domain": "publish"
     },
     {
       "id": "D019",
       "status": "confirmed",
       "summary": "화면과 탐색 금액을 원화 중심으로 표시. 원본 USD는 보존하고 표시용 고정1달러≈1000원으로 환산하며 실제 환전과 구분.",
-      "source": "사용자 지시 2026-11-18: 달러를 원화로 표시"
+      "source": "사용자 지시 2026-11-18: 달러를 원화로 표시",
+      "domain": "publish"
     },
     {
       "id": "D020",
       "status": "confirmed",
       "summary": "현황판 안에 선택한 달의 탐색 기록을 함께 넣어 하나의 화면에서 읽는다. 기존 탐색 URL은 월 정보를 유지해 통합 화면으로 연결한다.",
-      "source": "사용자 지시 2026-11-18: 현황판 안에 탐색 기록 통합"
+      "source": "사용자 지시 2026-11-18: 현황판 안에 탐색 기록 통합",
+      "domain": "publish"
     },
     {
       "id": "D021",
       "status": "confirmed",
       "summary": "사용자 지정2·3·4점 문항 구성에 맞지 않는99점 성적을 제거. 점수 기준안은 전과목100점으로 교정.",
       "source": "사용자 지시2026-11-18: 유지비·첫여친·배점 교정·6월사건",
-      "superseded_by": "D029"
+      "superseded_by": "D029",
+      "domain": "school"
     },
     {
       "id": "D022",
       "status": "confirmed",
       "summary": "6월 같은 학원에서 첫 여자친구를 사귀는 방향. 이름·성격·구체 진행은 창작 초안.",
-      "source": "사용자 지시2026-11-18: 유지비·첫여친·배점 교정·6월사건"
+      "source": "사용자 지시2026-11-18: 유지비·첫여친·배점 교정·6월사건",
+      "domain": "relation"
     },
     {
       "id": "D023",
       "status": "confirmed",
       "summary": "사이트 유지비는 당시 가격·트래픽·용돈을 함께 검토하며 월 예산과 실제 납부를 구분한다.",
-      "source": "사용자 지시2026-11-18: 유지비·첫여친·배점 교정·6월사건"
+      "source": "사용자 지시2026-11-18: 유지비·첫여친·배점 교정·6월사건",
+      "domain": "money"
     },
     {
       "id": "D024",
       "status": "confirmed",
       "summary": "매달 약100000원 사용 가능. 월 사용 예산으로 관리하며 잠정 초기 보유금10만원·실제 입금·현재 현금잔액과 구분한다.",
-      "source": "사용자 답변2026-11-18: 한달에10만원정도사용가능"
+      "source": "사용자 답변2026-11-18: 한달에10만원정도사용가능",
+      "domain": "money",
+      "updated_by": [
+        "D044"
+      ]
     },
     {
       "id": "D025",
       "status": "confirmed",
       "summary": "새 전개·월별 계산은 먼저 사용자와 조율한다. 검토 요청만으로 본문 작성·HTML 갱신·게시를 진행하지 않는다.",
-      "source": "사용자 교정2026-11-18: 항상 나랑 의견을 조율해야해"
+      "source": "사용자 교정2026-11-18: 항상 나랑 의견을 조율해야해",
+      "domain": "workflow"
     },
     {
       "id": "D026",
       "status": "confirmed",
       "summary": "첫 여자친구 P001 이름은 김현지. 기존 윤서진은 폐기한 창작 가칭이다. 구체 성격·교제 과정은 아직 협의하지 않았다.",
       "source": "사용자 지정2026-11-18: 여자친구 이름은 김현지",
-      "personality_updated_by": "D030"
+      "domain": "relation",
+      "updated_by": [
+        "D030"
+      ]
     },
     {
       "id": "D027",
       "status": "confirmed",
       "summary": "월사용예산 약10만원에서 서버관리 비용·참고서·데이트 비용을 부담한다. 광고수익은 이제 월말에 어머니와 반반 나누려는 방향이며 발생액/수령액 기준과 구체 정산 방법은 협의한다. 월별 사용액은 제안 단계다.",
       "source": "사용자 설명2026-11-18: 10만원 지출 용도와 월말 광고수익 반반 정산",
-      "settlement_confirmed_by": "D028"
+      "domain": "money",
+      "updated_by": [
+        "D028"
+      ],
+      "partially_superseded_by": [
+        "D043",
+        "D044"
+      ]
     },
     {
       "id": "D028",
       "status": "confirmed",
       "summary": "6월은 김현지와 첫 교제·WoW전장 업데이트 대응·첫 월말 수익정산의 세 축을 채택. 월말 발생수익 몫을 기록하고 실제 수령 뒤 지급하며 서버비는 용돈에서 부담. 이전 월별 지출 제안표는 예산 시나리오로 채택.",
-      "source": "사용자2026-11-18: 그래 그렇게 하자"
+      "source": "사용자2026-11-18: 그래 그렇게 하자",
+      "domain": "money",
+      "partially_superseded_by": [
+        "D042",
+        "D043",
+        "D044"
+      ]
     },
     {
       "id": "D029",
       "status": "confirmed",
       "summary": "전과목100점 성적안 대신 평균95점 정도로 변경. 기존 학년1등 설정은 유지. 세부 과목점수는 평균95에 맞춘 창작 후보이며 실제 학교 등급컷으로 역산하지 않음.",
-      "source": "사용자2026-11-18: 학업 전부100점은 너무 뜬금없음, 평균95점 정도"
+      "source": "사용자2026-11-18: 학업 전부100점은 너무 뜬금없음, 평균95점 정도",
+      "domain": "school"
     },
     {
       "id": "D030",
       "status": "confirmed",
       "summary": "P001김현지: 귀여운 스타일·중단발·아이돌처럼 화려하지 않은 반에서 이쁘장한 인상·조금 통통한 느낌·약162cm53kg. 친해지면 장난이 많고 잘 웃음. 이미지 구체 얼굴은 검토용 시안.",
-      "source": "사용자2026-11-18: 외모 설명과 성격 답변"
+      "source": "사용자2026-11-18: 외모 설명과 성격 답변",
+      "domain": "relation"
     },
     {
       "id": "D031",
       "status": "confirmed",
       "summary": "김현지는 기존 이미지보다 더 예쁘고 고양이상. 공부를 잘하지 않고 조금 날라리 분위기. 외모를 눈·코·입·머리카락·체형까지 스케치처럼 상세히 묘사하고 성격도 사용자 조건 아래 구체적으로 창작하도록 요청.",
-      "source": "사용자2026-11-18: 고양이상·상세 프로필·날라리 느낌"
+      "source": "사용자2026-11-18: 고양이상·상세 프로필·날라리 느낌",
+      "domain": "relation"
     },
     {
       "id": "D032",
       "status": "confirmed",
       "summary": "통합현황판 최상단을 사이트 운영에서 개인 총자산·교제·차·집 등 상태 중심으로 변경. 여자친구·썸·만난 인물은 관계 목록과 상세 프로필 링크로 연결. 사이트는 수입수단 중 하나로 하위 배치.",
-      "source": "사용자2026-11-18: 개인 스펙과 관계 프로필 링크 요청"
+      "source": "사용자2026-11-18: 개인 스펙과 관계 프로필 링크 요청",
+      "domain": "publish"
     },
     {
       "id": "D033",
       "status": "confirmed",
       "summary": "최신개인현황판·김현지상세프로필·v2이미지를Git푸시및기존GitHubPages에반영하도록명시승인. 게시완료는월진행마감이나미정자산확정과별개.",
-      "source": "사용자2026-11-18: 반영해줘"
+      "source": "사용자2026-11-18: 반영해줘",
+      "domain": "publish"
     },
     {
       "id": "D034",
       "status": "confirmed",
       "summary": "7월부터 현지와 가끔 데이트하고, 서로 호감을 표현하며 편한 속도로 손잡기 같은 가벼운 애정 표현이 늘어나는 방향을 채택. 만남의 세부와 월별 금액은 협의한다.",
-      "source": "series/investing/planning/2005-07.md"
+      "source": "series/investing/planning/2005-07.md",
+      "domain": "relation"
     },
     {
       "id": "D035",
       "status": "confirmed",
       "summary": "협의안에 따라 7월 월간 초안을 작성한다. 시험을 중심으로 사이트 운영·광고 발생액·현지와의 데이트를 이어가며 7월 이후 신규 게임 플레이와 대회 기록은 제외한다. 성적과 광고 추정은 월말 확정과 별개다.",
-      "source": "series/investing/planning/2005-07.md"
+      "source": "series/investing/planning/2005-07.md",
+      "domain": "workflow"
     },
     {
       "id": "D036",
       "status": "confirmed",
       "summary": "합의한 변경의 구현과 검증을 마치면 GitHub main 푸시와 공개 파일의 gh-pages 게시를 매번 수행한다. 원격 반영과 실제 페이지를 확인한다. 협의 단계와 작품 속 월말 확정은 게시와 별개다.",
-      "source": "사용자 2026-11-18 요청: 항상 깃헙 게시까지 진행"
+      "source": "사용자 2026-11-18 요청: 항상 깃헙 게시까지 진행",
+      "domain": "publish"
     },
     {
       "id": "D037",
       "status": "confirmed",
       "summary": "개인 현황판 상단에서 선택 월의 기본 예산, 반복 사이트 운영 예산을 뺀 여유, 생활비 계획 후 여유를 따로 표시한다. 개인 현금과 미수령 광고수익은 별도로 관리하며 계획이 없는 월의 생활비 여유는 미정으로 표시한다.",
-      "source": "사용자 2026-11-18 요청: 내가 쓸 수 있는 돈을 현황판에 갱신"
+      "source": "사용자 2026-11-18 요청: 내가 쓸 수 있는 돈을 현황판에 갱신",
+      "domain": "publish"
     },
     {
       "id": "D038",
       "status": "confirmed",
       "summary": "8월 방학에 모임과 현지와의 단둘 데이트를 이어가고 기존 사이트를 확장한다. 첫 광고대금을 수령하고 비용 및 정산 후 잔액을 작품 장부와 현황판에 반영한다.",
-      "source": "series/investing/planning/2005-08.md"
+      "source": "series/investing/planning/2005-08.md",
+      "domain": "money",
+      "partially_superseded_by": [
+        "D042",
+        "D043",
+        "D044"
+      ]
     },
     {
       "id": "D039",
       "status": "confirmed",
       "summary": "9월 진행 전 개인 자산, 월 지출 계획, 사이트 정산을 화면과 월별 재무 데이터에서 구분한다. 정산금 잔액만 확인된 달에는 그 금액과 확인 범위를 표시하며 전체 총자산은 미정으로 둔다.",
-      "source": "사용자 2026-11-18 요청: 9월 전에 총자산·현금 구조와 데이터 정리"
+      "source": "사용자 2026-11-18 요청: 9월 전에 총자산·현금 구조와 데이터 정리",
+      "domain": "publish"
     },
     {
       "id": "D040",
       "status": "confirmed",
       "summary": "개학 뒤 평일 짧은 사이트 점검과 주말 제보 검수·갱신을 시험한다. 국사·도덕 복습, 친구들과의 모임, 현지와 단둘 약속, 8월분 지급 확인과 투자 준비를 9월에 이어간다. 새 금액은 미정으로 둔다.",
-      "source": "series/investing/planning/2005-09.md"
+      "source": "series/investing/planning/2005-09.md",
+      "domain": "life"
+    },
+    {
+      "id": "D041",
+      "status": "confirmed",
+      "domain": "money",
+      "summary": "2005년 1월 1일 시작 현금 100,000원 확정. 1월 용돈은 별도로 받는다.",
+      "source": "사용자 2026-11-19: 시작잔액 확정·100달러 다음달말 지급·용식7 엄마3·실제 월평균 환율·첫 수령 다음달부터 용돈 중단·6월까지 일괄 마감·새 규칙 소급",
+      "recorded_at": "2026-11-19"
+    },
+    {
+      "id": "D042",
+      "status": "confirmed",
+      "domain": "money",
+      "summary": "애드센스 지급 규칙: 월말 미지급 잔액이 100달러 이상이면 다음 달 말에 그 잔액 전액을 어머니 명의로 받는다. 3월부터 소급해 첫 수령은 5월 말 192달러(3~4월분)이며 이후 매달 받는다. D038의 '8월 첫 수령·1,317달러 일괄 지급·수수료 7,000원'을 대체한다.",
+      "source": "사용자 2026-11-19: 시작잔액 확정·100달러 다음달말 지급·용식7 엄마3·실제 월평균 환율·첫 수령 다음달부터 용돈 중단·6월까지 일괄 마감·새 규칙 소급",
+      "recorded_at": "2026-11-19"
+    },
+    {
+      "id": "D043",
+      "status": "confirmed",
+      "domain": "money",
+      "summary": "광고수익은 3월 발생분부터 모두 용식 70%·어머니 30%로 나눈다. 수령한 달에 원화 수령액을 나눠 용식 몫은 즉시 용식 현금이 된다. D004·D027·D028의 반반 분배와 3~5월 보류를 대체한다.",
+      "source": "사용자 2026-11-19: 시작잔액 확정·100달러 다음달말 지급·용식7 엄마3·실제 월평균 환율·첫 수령 다음달부터 용돈 중단·6월까지 일괄 마감·새 규칙 소급",
+      "recorded_at": "2026-11-19"
+    },
+    {
+      "id": "D044",
+      "status": "confirmed",
+      "domain": "money",
+      "summary": "월 용돈 10만원은 첫 광고대금을 받은 5월까지 받고 6월부터 받지 않는다. 받은 용돈 중 쓰고 남은 돈은 현금으로 쌓이며 6월부터 사이트비·생활비는 용식 현금에서 나간다.",
+      "source": "사용자 2026-11-19: 시작잔액 확정·100달러 다음달말 지급·용식7 엄마3·실제 월평균 환율·첫 수령 다음달부터 용돈 중단·6월까지 일괄 마감·새 규칙 소급",
+      "recorded_at": "2026-11-19"
+    },
+    {
+      "id": "D045",
+      "status": "confirmed",
+      "domain": "money",
+      "summary": "1~6월 실제 지출은 채택된 월별 지출 예산표(사이트·참고서·데이트·기타, 합계 316,000원)로 확정한다.",
+      "source": "사용자 2026-11-19: 시작잔액 확정·100달러 다음달말 지급·용식7 엄마3·실제 월평균 환율·첫 수령 다음달부터 용돈 중단·6월까지 일괄 마감·새 규칙 소급",
+      "recorded_at": "2026-11-19"
+    },
+    {
+      "id": "D046",
+      "status": "confirmed",
+      "domain": "money",
+      "summary": "광고 수령액의 원화 환산은 수령한 달의 당시 월평균 실제 환율(미국 연준 G.5)을 쓴다. 표시용 1달러≈1000원은 발생액 그래프에만 남긴다. 수수료는 별도 지시 전까지 0으로 둔다.",
+      "source": "사용자 2026-11-19: 시작잔액 확정·100달러 다음달말 지급·용식7 엄마3·실제 월평균 환율·첫 수령 다음달부터 용돈 중단·6월까지 일괄 마감·새 규칙 소급",
+      "recorded_at": "2026-11-19"
+    },
+    {
+      "id": "D047",
+      "status": "confirmed",
+      "domain": "workflow",
+      "summary": "2005년 3~6월을 D041~D046 규칙으로 일괄 마감한다. 3~6월 사건·성적·체격·지출을 확정하고 6월 말 현금 604,687원을 마감 잔액으로 한다. 7~9월은 새 규칙으로 정산 문단만 고친 초안으로 둔다.",
+      "source": "사용자 2026-11-19: 시작잔액 확정·100달러 다음달말 지급·용식7 엄마3·실제 월평균 환율·첫 수령 다음달부터 용돈 중단·6월까지 일괄 마감·새 규칙 소급",
+      "recorded_at": "2026-11-19"
+    },
+    {
+      "id": "D048",
+      "status": "confirmed",
+      "domain": "workflow",
+      "summary": "새 세션은 series/investing/GUIDE.md 한 문서만 보고 작업 순서·파일 역할·쓰기 규칙을 따른다. 매달 본문을 쓰기 전에 그해 실제 사건·분위기와 15~16세가 할 만한 일을 조사해 다음 달 제안서를 먼저 내고 사용자와 고른다.",
+      "source": "사용자 2026-11-19: 시작잔액 확정·100달러 다음달말 지급·용식7 엄마3·실제 월평균 환율·첫 수령 다음달부터 용돈 중단·6월까지 일괄 마감·새 규칙 소급",
+      "recorded_at": "2026-11-19"
     }
   ],
   "events": [
@@ -308,11 +434,12 @@
     },
     {
       "id": "E006",
-      "status": "draft",
+      "status": "confirmed",
       "summary": "2월 스타 재적응과 리플레이 비교, 평균 APM 350~450 수행 후보 탐색",
       "source": "series/investing/months/2005-02.md",
       "story_date": "2005-02",
-      "decision_ids": []
+      "decision_ids": [],
+      "accepted_by": "D047"
     },
     {
       "id": "E007",
@@ -375,222 +502,243 @@
     },
     {
       "id": "E012",
-      "status": "draft",
+      "status": "confirmed",
       "summary": "3월 초 고등학교 입학과 교과 학습, 높은 이해·회상·추론 능력 탐색",
       "source": "series/investing/months/2005-03.md",
       "story_date": "2005-03",
       "decision_ids": [
         "D008"
-      ]
+      ],
+      "accepted_by": "D047"
     },
     {
       "id": "E013",
-      "status": "draft",
+      "status": "confirmed",
       "summary": "수업 외에는 사이트를 먼저 관리하고 디아블로·WoW 기능·자료를 계속 보강",
       "source": "series/investing/months/2005-03.md",
       "story_date": "2005-03",
       "decision_ids": [
         "D006",
         "D007"
-      ]
+      ],
+      "accepted_by": "D047"
     },
     {
       "id": "E014",
-      "status": "draft",
+      "status": "confirmed",
       "summary": "광고 신청 후 3월 10일 게재 시작이라는 창작 시나리오",
       "source": "series/investing/months/2005-03.md",
       "story_date": "2005-03-10",
       "decision_ids": [
         "D004",
         "D007"
-      ]
+      ],
+      "accepted_by": "D047"
     },
     {
       "id": "E015",
-      "status": "draft",
+      "status": "confirmed",
       "summary": "광고 기간 4만 페이지뷰·게시자 RPM 1.20달러로 48달러 발생, 현금 수령 0달러라는 초안",
       "source": "series/investing/months/2005-03.md",
       "story_date": "2005-03",
       "decision_ids": [
         "D004"
-      ]
+      ],
+      "accepted_by": "D047"
     },
     {
       "id": "E016",
-      "status": "draft",
+      "status": "confirmed",
       "summary": "남는 시간 스타 2~3시간을 지향. 평균 APM 400~500은 실측 전 작품용 후보",
       "source": "series/investing/months/2005-03.md",
       "story_date": "2005-03",
       "decision_ids": [
         "D007"
-      ]
+      ],
+      "accepted_by": "D047"
     },
     {
       "id": "E017",
-      "status": "draft",
+      "status": "confirmed",
       "summary": "반복 질문·검색·자료 교정·백업·관리 작업을 정리해 개학 후에도 사이트 운영 지속",
       "source": "series/investing/months/2005-03.md",
       "story_date": "2005-03",
       "decision_ids": [
         "D006",
         "D007"
-      ]
+      ],
+      "accepted_by": "D047"
     },
     {
       "id": "E018",
-      "status": "draft",
+      "status": "confirmed",
       "summary": "4월 초 177.5cm·73kg·14%, 월말 178cm·74.5kg·13.5% 성장 후보. 골격근량 실측 아님.",
       "source": "series/investing/months/2005-04.md",
       "story_date": "2005-04",
       "decision_ids": [
         "D010"
-      ]
+      ],
+      "accepted_by": "D047"
     },
     {
       "id": "E019",
-      "status": "draft",
+      "status": "confirmed",
       "summary": "철봉·푸시업·몸통/하체 동작을 짧게 나누고 청결·교복 핏·자세를 관리",
       "source": "series/investing/months/2005-04.md",
       "story_date": "2005-04",
       "decision_ids": [
         "D010"
-      ]
+      ],
+      "accepted_by": "D047"
     },
     {
       "id": "E020",
-      "status": "draft",
+      "status": "confirmed",
       "summary": "컴퓨터 없는 야자에 기능·데이터·예외를 종이에 설계해 밤 구현을 준비",
       "source": "series/investing/months/2005-04.md",
       "story_date": "2005-04",
       "decision_ids": [
         "D011"
-      ]
+      ],
+      "accepted_by": "D047"
     },
     {
       "id": "E021",
-      "status": "draft",
+      "status": "confirmed",
       "summary": "22~02시 작업 구간과 밤5시간+학교2~3시간 수면으로 총7~8시간을 구성. 실제 시간표는 조정 전",
       "source": "series/investing/months/2005-04.md",
       "story_date": "2005-04",
       "decision_ids": [
         "D012",
         "D014"
-      ]
+      ],
+      "accepted_by": "D047"
     },
     {
       "id": "E022",
-      "status": "draft",
+      "status": "confirmed",
       "summary": "초기부터 도입한 자료 수집·중복/변경 검사·검수 대기를 4월에 확장하고 정확성·실패 감지를 강화",
       "source": "series/investing/months/2005-04.md",
       "story_date": "2005-04",
       "decision_ids": [
         "D006"
-      ]
+      ],
+      "accepted_by": "D047"
     },
     {
       "id": "E023",
-      "status": "draft",
+      "status": "confirmed",
       "summary": "기존 예약 백업·색인 갱신을 안정화하고 오류/관리 요약을 개선해 반복 운영 부담 축소",
       "source": "series/investing/months/2005-04.md",
       "story_date": "2005-04",
       "decision_ids": [
         "D006"
-      ]
+      ],
+      "accepted_by": "D047"
     },
     {
       "id": "E024",
-      "status": "draft",
+      "status": "confirmed",
       "summary": "초기 기획에 자료 수집·원천/버전 추적·중복 검사·예약 작업을 포함",
       "source": "series/investing/months/2005-01.md",
       "story_date": "2005-01",
       "decision_ids": [
         "D013"
-      ]
+      ],
+      "accepted_by": "D047"
     },
     {
       "id": "E025",
-      "status": "draft",
+      "status": "confirmed",
       "summary": "검증 가능한 자료원의 가져오기·검수 대기·예약 백업을 시험공개 흐름에 연결",
       "source": "series/investing/months/2005-02.md",
       "story_date": "2005-02",
       "decision_ids": [
         "D013"
-      ]
+      ],
+      "accepted_by": "D047"
     },
     {
       "id": "E026",
-      "status": "draft",
+      "status": "confirmed",
       "summary": "학교에 있는 동안 자동 처리하고 귀가 뒤 변경·실패·질문을 검수",
       "source": "series/investing/months/2005-03.md",
       "story_date": "2005-03",
       "decision_ids": [
         "D013"
-      ]
+      ],
+      "accepted_by": "D047"
     },
     {
       "id": "E027",
-      "status": "draft",
+      "status": "confirmed",
       "summary": "풍덕고 고1 5월 초 중간고사 이후 학년1등·학교와 학원 인지도 확대",
       "source": "series/investing/months/2005-05.md",
       "story_date": "2005-05",
       "decision_ids": [
         "D015"
-      ]
+      ],
+      "accepted_by": "D047"
     },
     {
       "id": "E028",
-      "status": "draft",
+      "status": "confirmed",
       "summary": "야자에 당시 교과 범위 최고난도 문제를 풀고 일부 수업에서 보충수면",
       "source": "series/investing/months/2005-05.md",
       "story_date": "2005-05",
       "decision_ids": [
         "D016"
-      ]
+      ],
+      "accepted_by": "D047"
     },
     {
       "id": "E029",
-      "status": "draft",
+      "status": "confirmed",
       "summary": "외모·체격·성적과 교내 스타 최상위 실력으로 관심과 인지도 증가",
       "source": "series/investing/months/2005-05.md",
       "story_date": "2005-05",
       "decision_ids": [
         "D015"
-      ]
+      ],
+      "accepted_by": "D047"
     },
     {
       "id": "E030",
-      "status": "draft",
+      "status": "confirmed",
       "summary": "사이트 일상 자동 운영과 필요 시 패치·버그·자료 수집 오류 집중 수정",
       "source": "series/investing/months/2005-05.md",
       "story_date": "2005-05",
       "decision_ids": [
         "D017"
-      ]
+      ],
+      "accepted_by": "D047"
     },
     {
       "id": "E031",
-      "status": "draft",
+      "status": "confirmed",
       "summary": "월별 방문·광고 수익 성장과 일별 모형값·누적 지표를 현황판에 연결",
       "source": "series/investing/months/2005-05.md",
       "story_date": "2005-05",
       "decision_ids": [
         "D018"
-      ]
+      ],
+      "accepted_by": "D047"
     },
     {
       "id": "E032",
-      "status": "draft",
+      "status": "confirmed",
       "summary": "임시 7과목 점수와 5월 체격·평균APM 범위를 작품 기준안으로 구성",
       "source": "series/investing/months/2005-05.md",
       "story_date": "2005-05",
       "decision_ids": [
         "D015",
         "D018"
-      ]
+      ],
+      "accepted_by": "D047"
     },
     {
       "id": "E033",
-      "status": "draft",
+      "status": "confirmed",
       "summary": "같은 종합반 학원의 김현지와 첫 교제 시작. 교제 방향·외모·성격은 사용자 지정, 구체 과정은 검토 초안.",
       "source": "series/investing/months/2005-06.md",
       "story_date": "2005-06",
@@ -600,61 +748,70 @@
         "D028",
         "D030"
       ],
-      "outline_accepted": true
+      "outline_accepted": true,
+      "accepted_by": "D047"
     },
     {
       "id": "E034",
-      "status": "draft",
+      "status": "confirmed",
       "summary": "6월9일 한국WoW전장 업데이트를 계기로 입문 자료·검색/캐시를 점검",
       "source": "series/investing/months/2005-06.md",
       "story_date": "2005-06",
       "decision_ids": [
         "D017"
       ],
-      "outline_accepted": true
+      "outline_accepted": true,
+      "accepted_by": "D047"
     },
     {
       "id": "E035",
-      "status": "draft",
+      "status": "confirmed",
       "summary": "패치 대응과 유입 증가,필요 시 집중 수정하고 보충수면",
       "source": "series/investing/months/2005-06.md",
       "story_date": "2005-06",
       "decision_ids": [
         "D017"
       ],
-      "outline_accepted": true
+      "outline_accepted": true,
+      "accepted_by": "D047"
     },
     {
       "id": "E036",
-      "status": "draft",
+      "status": "confirmed",
       "summary": "초기설정·연도메인·월호스팅 예산을 정리하며 용돈 충당 가능성을 검토",
       "source": "series/investing/months/2005-06.md",
       "story_date": "2005-06",
       "decision_ids": [
         "D023"
       ],
-      "outline_accepted": true
+      "outline_accepted": true,
+      "accepted_by": "D047"
     },
     {
       "id": "E037",
-      "status": "draft",
+      "status": "confirmed",
       "summary": "5월 성적 기준안을 평균95점으로 교정. 과목별 배분은 창작 후보.",
       "source": "series/investing/months/2005-06.md",
       "story_date": "2005-06",
       "decision_ids": [
         "D029"
-      ]
+      ],
+      "accepted_by": "D047"
     },
     {
       "id": "E038",
-      "status": "draft",
+      "status": "superseded",
       "story_date": "2005-06-30",
       "summary": "월말 광고발생액412.50달러의 몫을 어머니206.25달러·용식206.25달러로 기록. 실제 지급은 광고대금 수령 뒤이며 개인현금은 증가시키지 않음.",
       "source": "series/investing/months/2005-06.md",
       "decision_ids": [
         "D028"
       ],
-      "outline_accepted": true
+      "outline_accepted": true,
+      "superseded_by": [
+        "D042",
+        "D043"
+      ]
     },
     {
       "id": "E039",
@@ -691,11 +848,13 @@
       "id": "E042",
       "status": "draft",
       "story_date": "2005-07-31",
-      "summary": "광고 발생액 450달러·누적 1,317달러를 작품 기준안에 반영. 어머니와 용식 몫은 각각 225달러이며 실제 광고대금 수령과 지급은 보류.",
+      "summary": "광고 발생액 450달러·누적 1,317달러를 작품 기준안에 반영. 7월 말에는 6월분 412.50달러를 받아 7:3으로 나눴다(D042·D043).",
       "source": "series/investing/months/2005-07.md",
       "decision_ids": [
         "D028",
-        "D035"
+        "D035",
+        "D042",
+        "D043"
       ]
     },
     {
@@ -710,13 +869,17 @@
     },
     {
       "id": "E044",
-      "status": "confirmed",
+      "status": "superseded",
       "story_date": "2005-08",
       "summary": "8월 첫 광고대금 수령 및 6~7월 기존 반반 정산. 3~5월분은 분배 대기. 세부 가상 거래값은 8월 장부가 기준이다.",
-      "source": "series/investing/ledger/2005-08.json",
+      "source": "series/investing/history/ledger-2005-08-superseded.json",
       "decision_ids": [
         "D028",
         "D038"
+      ],
+      "superseded_by": [
+        "D042",
+        "D043"
       ]
     },
     {
@@ -800,6 +963,71 @@
       "source": "series/investing/months/2005-09.md",
       "decision_ids": [
         "D040"
+      ]
+    },
+    {
+      "id": "E053",
+      "status": "confirmed",
+      "story_date": "2005-05-31",
+      "summary": "첫 광고대금 수령: 3~4월분 192달러×1,001.84원=192,353원. 용식 134,647원·어머니 57,706원. 용돈은 5월까지 받는다.",
+      "source": "series/investing/data/ledger.json",
+      "decision_ids": [
+        "D042",
+        "D043",
+        "D044",
+        "D046"
+      ]
+    },
+    {
+      "id": "E054",
+      "status": "confirmed",
+      "story_date": "2005-06-30",
+      "summary": "5월분 262.50달러×1,012.46원=265,771원 수령. 용식 186,040원·어머니 79,731원. 6월부터 용돈 없음. 6월 말 마감 현금 604,687원.",
+      "source": "series/investing/data/ledger.json",
+      "decision_ids": [
+        "D042",
+        "D043",
+        "D044",
+        "D046"
+      ]
+    },
+    {
+      "id": "E055",
+      "status": "draft",
+      "story_date": "2005-07-31",
+      "summary": "6월분 412.50달러×1,036.56원=427,581원 수령. 용식 299,307원·어머니 128,274원.",
+      "source": "series/investing/data/ledger.json",
+      "decision_ids": [
+        "D042",
+        "D043",
+        "D044",
+        "D046"
+      ]
+    },
+    {
+      "id": "E056",
+      "status": "draft",
+      "story_date": "2005-08-31",
+      "summary": "7월분 450달러×1,021.68원=459,756원 수령. 용식 321,829원·어머니 137,927원.",
+      "source": "series/investing/data/ledger.json",
+      "decision_ids": [
+        "D042",
+        "D043",
+        "D044",
+        "D046"
+      ]
+    },
+    {
+      "id": "E057",
+      "status": "draft",
+      "story_date": "2005-09-30",
+      "summary": "8월분 525달러×1,029.84원=540,666원 수령. 용식 378,466원·어머니 162,200원.",
+      "source": "series/investing/data/ledger.json",
+      "decision_ids": [
+        "D042",
+        "D043",
+        "D044",
+        "D046"
       ]
     }
   ],
@@ -1154,11 +1382,12 @@
   "unknowns": [
     {
       "id": "U001",
-      "status": "unknown",
+      "status": "resolved",
       "question": "초기 자금 정확한 금액과 운영비·월말 잔액",
-      "value": null,
+      "value": 100000,
       "tentative_krw": 100000,
-      "source": "series/investing/planning/2005-01-site-plan.md"
+      "source": "series/investing/planning/2005-01-site-plan.md",
+      "resolved_by": "D041"
     },
     {
       "id": "U002",
@@ -1177,7 +1406,7 @@
     {
       "id": "U004",
       "status": "unknown",
-      "question": "시험공개는 2월 채택. 정확한 공개일·승인일과 일부 광고 발생 모형은 미정. 3~7월분의 8월 첫 수령은 정산 원장 E044 참조.",
+      "question": "정확한 공개일·광고 승인일은 미정. 지급은 D042 규칙으로 확정(첫 수령 5월말).",
       "value": null,
       "source": "series/investing/README.md",
       "scenario_source": "series/investing/scenarios/2005-03.json"
@@ -1473,6 +1702,33 @@
         "E052"
       ],
       "reason": "사용자가 채택한 9월 흐름으로 본문과 현황판을 갱신한다. 신규 수익과 입금·지출은 미정이다."
+    },
+    {
+      "id": "C021",
+      "recorded_at": "2026-11-19",
+      "targets": [
+        "D041",
+        "D042",
+        "D043",
+        "D044",
+        "D045",
+        "D046",
+        "D047",
+        "D048",
+        "D004",
+        "D028",
+        "D038",
+        "E038",
+        "E042",
+        "E044",
+        "E053",
+        "E054",
+        "E055",
+        "E056",
+        "E057"
+      ],
+      "reason": "사용자 결정으로 현금 규칙을 하나의 원장(data/ledger.json)으로 통합하고 3월부터 소급. 8월 일괄 첫 수령·반반·3~5월 보류·수수료 7,000원 설정을 폐기하고 3~6월을 마감. 구 장부는 history/ledger-2005-08-superseded.json에 보존.",
+      "previous": "8월 첫 수령 1,317달러(1000원 환율·수수료 7,000원), 6~7월 반반 각 428,958원, 3~5월 452,084원 보류, 정산금 잔액 389,958원"
     }
   ],
   "months": {
@@ -1496,7 +1752,7 @@
     },
     "2005-03": {
       "title": "학교에 다니며 수익의 첫 줄을 만들다",
-      "status": "draft",
+      "status": "confirmed",
       "summary": "고등학교 입학 · 사이트 우선 운영 · 첫 광고 발생액 · 꾸준한 테란 연습",
       "school_label": "풍덕고등학교 1학년",
       "site_stage": "운영·첫 광고 게재 초안",
@@ -1504,36 +1760,38 @@
       "site_note": "학교생활과 함께 디아블로·WoW 구현·운영을 우선합니다. 3월 10일 광고 게재와 발생액은 초안입니다. 스타는 남는 시간 2~3시간을 즐기는 방향입니다.",
       "revenue_scenario": "series/investing/scenarios/2005-03.json",
       "revision_status": "draft",
-      "revision_note": "초기 자동화 도입 흐름을 반영한 보완 초안 포함"
+      "revision_note": "D047로 2026-11-19 일괄 마감"
     },
     "2005-04": {
       "title": "달라지는 몸, 계속 돌아가는 사이트",
-      "status": "draft",
+      "status": "confirmed",
       "summary": "성장·학교 운동 · 컴퓨터 없는 야자 · 야간 개발과 운영 자동화",
       "school_label": "풍덕고등학교 1학년",
       "site_stage": "운영 자동화 보강안",
       "asset_note": "3월 48달러는 여전히 광고 발생액 초안입니다. 4월 현금 잔액·지급·수익은 새로 확정하지 않았습니다.",
       "site_note": "초기부터 도입한 수집·예약 운영을 안정화하고 자료원을 확장합니다. 밤5시간+학교2~3시간 수면과 운영 부담 감소를 바탕으로 개발·게임 시간을 배분합니다.",
-      "body_scenario": "series/investing/scenarios/2005-04-body.json"
+      "body_scenario": "series/investing/scenarios/2005-04-body.json",
+      "revision_note": "D047로 2026-11-19 일괄 마감"
     },
     "2005-05": {
       "title": "성적과 실력, 숫자로 드러나는 변화",
-      "status": "draft",
+      "status": "confirmed",
       "summary": "풍덕고 중간고사 · 학년 1등 · 교내 스타 최상위 · 사이트 성장 지표",
       "school_label": "풍덕고 1학년 · 첫 중간고사",
       "site_stage": "자동 운영·예외 대응",
       "asset_note": "5월 광고 발생액 262.50달러·누적454.50달러는 작품용 기준안입니다. 실제 수령·비용·개인현금과 구분합니다.",
-      "site_note": "일상 운영은 짧게 점검하고 패치·오류 발생 시 집중 수정합니다. 방문·수익·성적·체격은 현황판에서 같은 데이터를 조회합니다."
+      "site_note": "일상 운영은 짧게 점검하고 패치·오류 발생 시 집중 수정합니다. 방문·수익·성적·체격은 현황판에서 같은 데이터를 조회합니다.",
+      "revision_note": "D047로 2026-11-19 일괄 마감"
     },
     "2005-06": {
       "title": "첫 연애와 첫 월말 정산",
-      "status": "draft",
+      "status": "confirmed",
       "summary": "김현지와 첫 교제 · WoW 전장 대응 · 용돈 사용과 광고수익 반반 정산",
       "school_label": "풍덕고1학년·학원 첫 교제",
       "site_stage": "패치 대응·트래픽 점검",
       "asset_note": "6월광고발생412.50달러·누적867달러는작품가정입니다.월지출예산과실제현금은구분합니다.",
       "site_note": "자동운영을유지하며6월9일전장업데이트와유입에대응합니다.유지비예산을점검하고학원첫교제와시간을나눕니다.",
-      "revision_note": "세 가지 큰 흐름·정산 방식은 사용자 채택. 세부 서술·이미지·과목별 점수는 검토안이며 실제 수령·월 마감과 구분."
+      "revision_note": "D047로 2026-11-19 일괄 마감"
     },
     "2005-07": {
       "title": "시험을 마치고 함께 걷는 길",
@@ -1579,7 +1837,10 @@
         "D013",
         "D017",
         "D018",
-        "D023"
+        "D023",
+        "D042",
+        "D043",
+        "D044"
       ],
       "event_ids": [
         "E003",

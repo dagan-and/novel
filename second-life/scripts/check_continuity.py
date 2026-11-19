@@ -16,7 +16,23 @@ assert len(ids) == len(set(ids)), 'Duplicate record ID'
 assert data['last_confirmed_month'] == state['last_confirmed_month'], 'Progress mismatch'
 decision_ids = {item['id'] for item in data['decisions']}
 for item in data['decisions'] + data['events']:
-    assert item['status'] in ('confirmed', 'draft'), item['id']
+    assert item['status'] in ('confirmed', 'draft', 'superseded'), item['id']
+    if item['status'] == 'superseded':
+        assert item.get('superseded_by'), f"Superseded record needs superseded_by: {item['id']}"
+    for ref in ([item['superseded_by']] if isinstance(item.get('superseded_by'), str) else item.get('superseded_by', [])):
+        assert ref in decision_ids or ref in {e['id'] for e in data['events']}, item['id']
+# Closing: every month up to the last confirmed month is confirmed, and so are its events.
+for key, meta in data['months'].items():
+    if key <= data['last_confirmed_month']:
+        assert meta['status'] == 'confirmed', f'Closed month not confirmed: {key}'
+for event in data['events']:
+    if event['status'] == 'draft' and event.get('story_date', '9999')[:7] <= data['last_confirmed_month']:
+        raise AssertionError(f"Draft event inside closed months: {event['id']}")
+for key in data['months']:
+    if key <= state['last_confirmed_month']:
+        assert (root / 'series/investing/snapshots' / f'{key}.json').is_file(), f'Missing snapshot {key}'
+assert state['working_month'] in data['months'] and state['next_month'] > state['working_month']
+for item in data['events']:
     assert set(item.get('decision_ids', [])) <= decision_ids, item['id']
 tasks = {item['id']: item for item in data['tasks']}
 for task in tasks.values():
@@ -52,7 +68,7 @@ for key, meta in data.get('months', {}).items():
     if meta.get('revenue_scenario'):
         scenario = json.loads((root / meta['revenue_scenario']).read_text())
         assert scenario['story_month'] == key
-        assert scenario['kind'] == 'fictional_scenario' and scenario['status'] == 'draft'
+        assert scenario['kind'] == 'fictional_scenario' and scenario['status'] in ('draft', 'confirmed')
         modeled = scenario['ad_period_pageviews'] / 1000 * scenario['publisher_revenue_per_1000_pageviews']
         assert abs(modeled - scenario['estimated_ad_revenue']) < 0.001, 'Revenue formula mismatch'
         assert scenario['cash_received'] >= 0
@@ -61,7 +77,7 @@ for key, meta in data.get('months', {}).items():
 for key, meta in data.get('months', {}).items():
     if meta.get('body_scenario'):
         body = json.loads((root / meta['body_scenario']).read_text())
-        assert body['status'] == 'draft' and body['story_month'] == key
+        assert body['status'] in ('draft', 'confirmed') and body['story_month'] == key
         for point in body['points']:
             assert point['as_of'][:7] == key
             assert 0 <= point['body_fat_percent'] < 100
@@ -122,67 +138,62 @@ for point in metrics['body']:
 assert set(m['month'] for m in metrics['monthly'])==set(data['months'])
 print(f'Metrics OK: {len(metrics["daily"])} days, including pending months')
 
-# Verify actual story receipts and personal outflows independently from the display exchange rate.
+# Verify the personal cash ledger independently of refresh_metrics.py.
 from decimal import Decimal, ROUND_HALF_UP
-ledgers = [json.loads((root / source).read_text()) for source in metrics['source_links'].get('cash_ledgers', [])]
-ledger_by_month = {ledger['month']: ledger for ledger in ledgers}
-monthly = {row['month']: row for row in metrics['monthly']}
-assert len(ledger_by_month) == len(ledgers) and ledger_by_month.keys() <= monthly.keys()
+def won(value):
+    return int(Decimal(str(value)).quantize(Decimal('1'), rounding=ROUND_HALF_UP))
+ledger = json.loads((root / metrics['source_links']['ledger']).read_text())
+rules = ledger['rules']
+assert ledger['closed_through'] == state['last_confirmed_month'] == data['last_confirmed_month'], 'Ledger close mismatch'
+spend_ids = [item['id'] for item in ledger['spending']]
+assert len(spend_ids) == len(set(spend_ids)), 'Duplicate spending ID'
 event_ids = {event['id'] for event in data['events']}
-paid_months = set()
-received_krw = 0
-tracked_balance = None
-tracked_month = None
-for key, row in sorted(monthly.items()):
-    site = row['finances']['site']
-    personal = row['finances']['personal']
-    ledger = ledger_by_month.get(key)
-    if ledger:
-        payment, distribution = ledger['payment'], ledger['distribution']
-        entries = [payment, distribution, *ledger['personal_outflows']]
-        assert len({entry['id'] for entry in entries}) == len(entries)
-        assert all(entry['event_id'] in event_ids for entry in entries)
-        period = {month for month in monthly if payment['from_month'] <= month <= payment['through_month']}
-        assert period and max(period) < key and not period & paid_months
-        paid_months.update(period)
-        gross = sum(Decimal(str(monthly[month]['ad_revenue_usd'])) for month in period)
-        assert gross == Decimal(str(payment['gross_usd'])) == Decimal(str(row['cash_received_usd']))
-        deposit = gross * payment['exchange_krw_per_usd'] - payment['fee_krw']
-        assert deposit == payment['deposit_krw'] == site['received_krw']
-        assert site['fee_this_month_krw'] == payment['fee_krw']
-        split_period = {month for month in period if distribution['split_from_month'] <= month <= distribution['split_through_month']}
-        assert split_period
-        each_usd = sum(Decimal(str(monthly[month]['ad_revenue_usd'])) for month in split_period) / 2
-        assert each_usd == Decimal(str(distribution['gross_each_usd']))
-        each_krw = (deposit * each_usd / gross).quantize(Decimal('1'), rounding=ROUND_HALF_UP)
-        assert distribution['to_yongsik_krw'] == distribution['to_mother_krw'] == each_krw
-        assert distribution['held_unallocated_krw'] == deposit - 2 * each_krw == site['held_this_month_krw']
-        outflows = ledger['personal_outflows']
-        assert all(sum(item['items'].values()) == item['amount_krw'] >= 0 for item in outflows)
-        tracked_balance = (tracked_balance or 0) + each_krw - sum(item['amount_krw'] for item in outflows)
-        assert tracked_balance >= 0
-        tracked_month = key
-    net_receipt = site['received_krw']
-    if not ledger:
-        assert net_receipt == (0 if row['cash_received_usd'] == 0 else None)
-        assert site['held_this_month_krw'] is None and site['fee_this_month_krw'] is None
-    received_krw = received_krw + net_receipt if received_krw is not None and net_receipt is not None else None
-    assert site['received_total_krw'] == received_krw
-    gross_total, cash_total = row['cumulative_ad_revenue_usd'], row['cumulative_cash_received_usd']
-    unpaid = round(gross_total - cash_total, 2) if gross_total is not None and cash_total is not None else None
-    assert site['unpaid_usd'] == unpaid and (unpaid is None or unpaid >= 0)
-    full_cash = row['personal_cash_krw']
-    if full_cash is not None:
-        assert personal['cash_krw'] == full_cash and personal['cash_scope'] == 'full'
+for item in ledger['spending']:
+    assert item['month'] in data['months'] and item['amount_krw'] > 0, item['id']
+    assert 'items' not in item or sum(item['items'].values()) == item['amount_krw'], item['id']
+    assert 'event_id' not in item or item['event_id'] in event_ids, item['id']
+# Closed months spend exactly the user-adopted plan (D045).
+plan = {row['month']: row['total_krw'] for row in metrics['personal_spending_budget']['monthly']}
+for key in plan:
+    if key <= ledger['closed_through']:
+        assert sum(i['amount_krw'] for i in ledger['spending'] if i['month'] == key) == plan[key], f'Spending != plan {key}'
+rows = sorted(metrics['monthly'], key=lambda r: r['month'])
+cash = 0; balance = Decimal('0'); first_paid = None; prev_end_balance = None
+for row in rows:
+    key, f = row['month'], row['finances']
+    site, personal, flow = f['site'], f['personal'], f['flow']
+    paid = site['received_usd']
+    # AdSense: pay the whole previous month-end balance only when it reached the threshold.
+    if prev_end_balance is None and key != rows[0]['month']:
+        assert paid is None, key
     else:
-        assert personal['cash_krw'] == tracked_balance
-        assert personal['cash_scope'] == ('settlement' if tracked_balance is not None else 'unknown')
-    assert personal['cash_as_of_month'] == (key if full_cash is not None else tracked_month)
-    assets = metrics['personal_assets']
-    components = [full_cash, row['investment_assets_krw'], assets['vehicles']['valuation_krw'],
-                  assets['homes']['valuation_krw'], assets['other_assets_krw']]
-    assert personal['total_assets_krw'] == (sum(components) if None not in components else None)
-print('Cash ledger OK: incoming funds, allocations, outflows, and tracked balance')
+        expected = prev_end_balance if prev_end_balance is not None and prev_end_balance >= rules['adsense']['payout_threshold_usd'] else Decimal('0')
+        assert Decimal(str(paid)) == expected, (key, paid, expected)
+    if paid:
+        fx = rules['fx']['krw_per_usd'][key]
+        assert site['fx_krw_per_usd'] == fx
+        krw = won(Decimal(str(paid)) * Decimal(str(fx)))
+        assert site['received_krw'] == krw and site['to_yongsik_krw'] + site['to_mother_krw'] == krw
+        assert site['to_yongsik_krw'] == won(Decimal(krw) * Decimal(str(rules['split']['yongsik'])))
+        first_paid = first_paid or key
+    expected_allowance = rules['allowance']['amount_krw'] if first_paid is None or key <= first_paid else 0
+    assert flow['allowance_krw'] == expected_allowance, key
+    assert flow['spending_krw'] == sum(i['amount_krw'] for i in ledger['spending'] if i['month'] == key)
+    if cash is not None and flow['ad_share_krw'] is not None:
+        cash += flow['opening_krw'] + flow['allowance_krw'] + flow['ad_share_krw'] - flow['spending_krw']
+    else:
+        cash = None
+    assert personal['cash_krw'] == cash, key
+    assert personal['cash_scope'] == ('unknown' if cash is None else 'closed' if key <= ledger['closed_through'] else 'provisional')
+    assert row['personal_cash_krw'] == (cash if key <= ledger['closed_through'] else None)
+    assert cash is None or cash >= 0, f'Negative cash {key}'
+    if row['ad_revenue_usd'] is None or paid is None or (prev_end_balance is None and key != rows[0]['month']):
+        prev_end_balance = None
+    else:
+        balance = (prev_end_balance or Decimal('0')) + Decimal(str(row['ad_revenue_usd'])) - Decimal(str(paid))
+        prev_end_balance = balance
+    assert site['unpaid_usd'] == (float(prev_end_balance) if prev_end_balance is not None else None), key
+print('Cash ledger OK: opening, allowance stop, AdSense payouts, 7:3 split, FX, spending, balances')
 
 fx = metrics["display_fx"]
 assert fx["currency"] == "KRW" and fx["source_currency"] == "USD"
@@ -217,10 +228,10 @@ for month in metrics['monthly']:
     assert monthly_budget['site_cash_plan_total_krw'] == cumulative_budget
     assert monthly_budget['hosting_krw'] == cost['hosting_krw']
     recurring = cost['hosting_krw'] + budget['annual_domain_budget_krw']/12 + budget['monthly_contingency_krw']
-    allowance = budget['monthly_allowance_krw']
+    allowance = month['finances']['flow']['allowance_krw']
     assert monthly_budget['recurring_site_krw'] == round(recurring)
     assert monthly_budget['allowance_krw'] == allowance
-    assert monthly_budget['after_site_krw'] == (round(allowance - recurring) if allowance is not None else None)
+    assert monthly_budget['after_site_krw'] == (round(allowance - recurring) if allowance else None)
     assert monthly_budget['after_living_plan_krw'] == living.get(month['month'], {}).get('remaining_budget_krw')
     assert month['operating_costs_usd'] is None, 'Budget must not become an actual expense'
 for person in metrics.get('relationships', []):

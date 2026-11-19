@@ -1,0 +1,29 @@
+{
+  "as_of": "2005-04-30",
+  "series": "investing",
+  "status": "confirmed",
+  "closed_by": "D047",
+  "event_ids": [
+    "E018",
+    "E019",
+    "E020",
+    "E021",
+    "E022",
+    "E023"
+  ],
+  "cash_krw": 306000,
+  "cash_flow": {
+    "opening_krw": 0,
+    "allowance_krw": 100000,
+    "ad_share_krw": 0,
+    "spending_krw": 40500
+  },
+  "ad_revenue_usd": 144.0,
+  "ad_received_usd": 0.0,
+  "ad_received_krw": 0,
+  "to_mother_krw": 0,
+  "adsense_unpaid_usd": 192.0,
+  "investment_trades": [],
+  "investment_assets_krw": 0,
+  "note": "data/ledger.json과 metrics.json에서 생성한 마감 스냅샷. 숫자를 고치려면 원장을 고치고 다시 만든다."
+}

@@ -17,19 +17,19 @@ function examAt(month) {
 function renderPersonal(month) {
   const key=month.month, assets=M.personal_assets;
   const {personal, budget} = month.finances;
-  $('#heroCashLabel').textContent = personal.cash_scope === 'full' ? '개인 현금' : '확인된 개인 현금';
+  $('#heroCashLabel').textContent = '개인 현금';
   $('#heroCash').textContent = money(personal.cash_krw);
   const cashNotes = {
-    unknown: '이달까지 확인한 현금 없음',
-    settlement: `${Number(personal.cash_as_of_month?.slice(5))}월 장부의 광고 정산금 잔액 · 전체 현금 미정`,
-    full: '확인된 전체 현금 잔액',
+    unknown: '미정',
+    closed: '마감된 월말 잔액 · 시작금+용돈+광고 몫−지출',
+    provisional: '미마감 · 광고 몫 반영, 이달 생활비 일부 미기록',
   };
   $('#heroCashNote').textContent = cashNotes[personal.cash_scope];
   $('#heroInvestments').textContent = money(month.investment_assets_krw);
   $('#totalAssets').textContent = money(personal.total_assets_krw);
-  $('#assetBasis').textContent = personal.total_assets_krw == null ? '전체 현금과 소유 자산 확인 후 합산' : '개인 소유 자산 합계';
-  $('#heroAllowance').textContent = money(budget.allowance_krw);
-  $('#heroAfterOperations').textContent = money(budget.after_site_krw);
+  $('#assetBasis').textContent = personal.total_assets_krw == null ? '현금 확인 후 합산' : '현금+투자자산+기록된 소유 자산 · 미수령 광고·가족 자산 제외';
+  $('#heroAllowance').textContent = budget.allowance_krw ? money(budget.allowance_krw) : '용돈 없음 · 현금에서 지출';
+  $('#heroAfterOperations').textContent = budget.allowance_krw ? money(budget.after_site_krw) : '해당 없음';
   $('#heroAfterLivingPlan').textContent = money(budget.after_living_plan_krw);
   const livingPlan = M.personal_spending_budget.monthly.find(plan => plan.month === key);
   $('#livingPlanDetail').hidden = !livingPlan;

@@ -1,0 +1,251 @@
+{
+  "schema_version": 1,
+  "series": "investing",
+  "currency": "KRW",
+  "purpose": "용식 개인 현금의 유일한 원장. 사람이 쓰는 곳은 rules와 spending뿐이다. 용돈·광고 수령·분배·월말 잔액은 refresh_metrics.py가 계산해 metrics.json monthly[].finances에 쓴다.",
+  "closed_through": "2005-06",
+  "rules": {
+    "opening": {
+      "date": "2005-01-01",
+      "amount_krw": 100000,
+      "decision": "D041"
+    },
+    "allowance": {
+      "amount_krw": 100000,
+      "from_month": "2005-01",
+      "stop": "first_ad_receipt_next_month",
+      "decision": "D044",
+      "note": "첫 광고대금 수령(5월말) 다음 달인 6월부터 용돈 없음. 받은 용돈 중 쓰고 남은 돈은 현금으로 누적."
+    },
+    "adsense": {
+      "payout_threshold_usd": 100,
+      "timing": "월말 미지급 잔액이 100달러 이상이면 다음 달 말에 그 잔액 전액 지급",
+      "fee_krw": 0,
+      "fee_note": "수수료는 사용자 지정 전까지 반영하지 않음",
+      "receiver": "어머니 명의 계좌(D004)",
+      "decision": "D042"
+    },
+    "split": {
+      "from_month": "2005-03",
+      "yongsik": 0.7,
+      "mother": 0.3,
+      "rounding": "수령 원화 총액=round(달러×환율), 용식=round(총액×0.7), 어머니=나머지",
+      "decision": "D043"
+    },
+    "fx": {
+      "kind": "수령 월의 당시 월평균 실제 환율",
+      "source": "미국 연준 G.5 월평균(뉴욕 정오 매입률)",
+      "source_urls": [
+        "https://www.federalreserve.gov/releases/G5/20050701/g5.txt",
+        "https://www.federalreserve.gov/releases/G5/20051003/g5.txt"
+      ],
+      "decision": "D046",
+      "krw_per_usd": {
+        "2005-03": 1007.78,
+        "2005-04": 1010.07,
+        "2005-05": 1001.84,
+        "2005-06": 1012.46,
+        "2005-07": 1036.56,
+        "2005-08": 1021.68,
+        "2005-09": 1029.84,
+        "2005-10": 1045.88,
+        "2005-11": 1040.76
+      }
+    }
+  },
+  "spending": [
+    {
+      "id": "S001",
+      "month": "2005-01",
+      "category": "site",
+      "label": "사이트 호스팅·도메인·설정",
+      "amount_krw": 32500,
+      "source": "D045: 채택된 월별 지출 예산표를 실제 지출로 확정"
+    },
+    {
+      "id": "S002",
+      "month": "2005-01",
+      "category": "books",
+      "label": "참고서·문제집",
+      "amount_krw": 15000,
+      "source": "D045: 채택된 월별 지출 예산표를 실제 지출로 확정"
+    },
+    {
+      "id": "S003",
+      "month": "2005-01",
+      "category": "other",
+      "label": "기타 생활비",
+      "amount_krw": 15000,
+      "source": "D045: 채택된 월별 지출 예산표를 실제 지출로 확정"
+    },
+    {
+      "id": "S004",
+      "month": "2005-02",
+      "category": "site",
+      "label": "사이트 호스팅·도메인·설정",
+      "amount_krw": 5500,
+      "source": "D045: 채택된 월별 지출 예산표를 실제 지출로 확정"
+    },
+    {
+      "id": "S005",
+      "month": "2005-02",
+      "category": "books",
+      "label": "참고서·문제집",
+      "amount_krw": 20000,
+      "source": "D045: 채택된 월별 지출 예산표를 실제 지출로 확정"
+    },
+    {
+      "id": "S006",
+      "month": "2005-02",
+      "category": "other",
+      "label": "기타 생활비",
+      "amount_krw": 20000,
+      "source": "D045: 채택된 월별 지출 예산표를 실제 지출로 확정"
+    },
+    {
+      "id": "S007",
+      "month": "2005-03",
+      "category": "site",
+      "label": "사이트 호스팅·도메인·설정",
+      "amount_krw": 5500,
+      "source": "D045: 채택된 월별 지출 예산표를 실제 지출로 확정"
+    },
+    {
+      "id": "S008",
+      "month": "2005-03",
+      "category": "books",
+      "label": "참고서·문제집",
+      "amount_krw": 25000,
+      "source": "D045: 채택된 월별 지출 예산표를 실제 지출로 확정"
+    },
+    {
+      "id": "S009",
+      "month": "2005-03",
+      "category": "other",
+      "label": "기타 생활비",
+      "amount_krw": 15000,
+      "source": "D045: 채택된 월별 지출 예산표를 실제 지출로 확정"
+    },
+    {
+      "id": "S010",
+      "month": "2005-04",
+      "category": "site",
+      "label": "사이트 호스팅·도메인·설정",
+      "amount_krw": 5500,
+      "source": "D045: 채택된 월별 지출 예산표를 실제 지출로 확정"
+    },
+    {
+      "id": "S011",
+      "month": "2005-04",
+      "category": "books",
+      "label": "참고서·문제집",
+      "amount_krw": 20000,
+      "source": "D045: 채택된 월별 지출 예산표를 실제 지출로 확정"
+    },
+    {
+      "id": "S012",
+      "month": "2005-04",
+      "category": "other",
+      "label": "기타 생활비",
+      "amount_krw": 15000,
+      "source": "D045: 채택된 월별 지출 예산표를 실제 지출로 확정"
+    },
+    {
+      "id": "S013",
+      "month": "2005-05",
+      "category": "site",
+      "label": "사이트 호스팅·도메인·설정",
+      "amount_krw": 11000,
+      "source": "D045: 채택된 월별 지출 예산표를 실제 지출로 확정"
+    },
+    {
+      "id": "S014",
+      "month": "2005-05",
+      "category": "books",
+      "label": "참고서·문제집",
+      "amount_krw": 15000,
+      "source": "D045: 채택된 월별 지출 예산표를 실제 지출로 확정"
+    },
+    {
+      "id": "S015",
+      "month": "2005-05",
+      "category": "other",
+      "label": "기타 생활비",
+      "amount_krw": 20000,
+      "source": "D045: 채택된 월별 지출 예산표를 실제 지출로 확정"
+    },
+    {
+      "id": "S016",
+      "month": "2005-06",
+      "category": "site",
+      "label": "사이트 호스팅·도메인·설정",
+      "amount_krw": 11000,
+      "source": "D045: 채택된 월별 지출 예산표를 실제 지출로 확정"
+    },
+    {
+      "id": "S017",
+      "month": "2005-06",
+      "category": "books",
+      "label": "참고서·문제집",
+      "amount_krw": 15000,
+      "source": "D045: 채택된 월별 지출 예산표를 실제 지출로 확정"
+    },
+    {
+      "id": "S018",
+      "month": "2005-06",
+      "category": "date",
+      "label": "데이트",
+      "amount_krw": 30000,
+      "source": "D045: 채택된 월별 지출 예산표를 실제 지출로 확정"
+    },
+    {
+      "id": "S019",
+      "month": "2005-06",
+      "category": "other",
+      "label": "기타 생활비",
+      "amount_krw": 20000,
+      "source": "D045: 채택된 월별 지출 예산표를 실제 지출로 확정"
+    },
+    {
+      "id": "S020",
+      "month": "2005-08",
+      "category": "outing",
+      "label": "친구들과 영화·분식",
+      "amount_krw": 11000,
+      "items": {
+        "영화표": 6500,
+        "분식": 3500,
+        "교통": 1000
+      },
+      "event_id": "E045",
+      "source": "8월 본문 기존 지출(D038)"
+    },
+    {
+      "id": "S021",
+      "month": "2005-08",
+      "category": "outing",
+      "label": "친구들과 수영장",
+      "amount_krw": 15000,
+      "items": {
+        "입장": 7500,
+        "간식과 식사": 5000,
+        "교통": 2500
+      },
+      "event_id": "E046",
+      "source": "8월 본문 기존 지출(D038)"
+    },
+    {
+      "id": "S022",
+      "month": "2005-08",
+      "category": "date",
+      "label": "현지와 둘이 식사·간식·산책",
+      "amount_krw": 13000,
+      "items": {
+        "식사와 간식 중 부담한 몫": 11000,
+        "교통": 2000
+      },
+      "event_id": "E047",
+      "source": "8월 본문 기존 지출(D038)"
+    }
+  ]
+}

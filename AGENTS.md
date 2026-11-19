@@ -10,7 +10,7 @@
 
 ## 새 HTML 세계관·게임형 소설
 
-《완전한 두 번째 삶》(가제)은 `second-life/README.md`에서 시작한다. `second-life/base/`는 다른 편과 공유하는 설정이다. 각 편의 공통 회귀일은 2005년 1월 1일이다. 현재 진행하는 투자 편은 `second-life/series/investing/README.md`와 월별 기록을 읽고 이어간다. 다른 작품의 김용식 설정이나 기존 시뮬레이션의 규칙은 이 프로젝트의 출처로 삼지 않는다.
+《완전한 두 번째 삶》(가제)은 `second-life/README.md`에서 시작한다. `second-life/base/`는 다른 편과 공유하는 설정이다. 각 편의 공통 회귀일은 2005년 1월 1일이다. 현재 진행하는 투자 편은 `second-life/series/investing/GUIDE.md`와 `RESUME.md`를 읽고 이어간다. 다른 작품의 김용식 설정이나 기존 시뮬레이션의 규칙은 이 프로젝트의 출처로 삼지 않는다.
 
 ## 파일과 실행
 

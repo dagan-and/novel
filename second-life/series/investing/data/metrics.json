@@ -9,12 +9,13 @@
     "daily": "월별 가정에서 요일·완만한 증가 가중치로 배분한 추정. 실제 로그나 측정값 아님.",
     "null": "미정/미기록. 0과 구분.",
     "currencies": "광고 발생액은 USD 원본을 보존한다. 발생액의 원화 표시는 1달러≈1,000원, 실제 수령 원화는 별도 작품 원장 기준이다.",
-    "tracked_personal_cash": "실제 수령 후 용식에게 배분된 광고 정산금에서 해당 자금으로 낸 비용을 차감한 잔액. 기존 개인 현금·월 예산·미배분분은 포함하지 않는다."
+    "tracked_personal_cash": "실제 수령 후 용식에게 배분된 광고 정산금에서 해당 자금으로 낸 비용을 차감한 잔액. 기존 개인 현금·월 예산·미배분분은 포함하지 않는다.",
+    "cash": "개인 현금은 data/ledger.json(시작금·용돈·광고 몫·지출)로만 계산한다. 마감 월은 closed, 이후 월은 지출 일부 미기록인 provisional."
   },
   "monthly": [
     {
       "month": "2005-01",
-      "status": "story_estimate",
+      "status": "closed",
       "days": 31,
       "visitor_days": null,
       "pageviews": null,
@@ -22,11 +23,11 @@
       "publisher_rpm_usd": null,
       "ad_revenue_usd": 0,
       "cumulative_ad_revenue_usd": 0,
-      "cash_received_usd": 0,
-      "cumulative_cash_received_usd": 0,
+      "cash_received_usd": 0.0,
+      "cumulative_cash_received_usd": 0.0,
       "operating_costs_usd": null,
       "net_profit_usd": null,
-      "personal_cash_krw": null,
+      "personal_cash_krw": 137500,
       "average_daily_visitors": null,
       "average_daily_ad_revenue_usd": 0.0,
       "basis": "3월 광고기간 40000PV·48달러는 기존 시나리오. 나머지 유입·성장은 이번 월별 창작 기준안.",
@@ -37,10 +38,16 @@
       "trade_count": 0,
       "finances": {
         "personal": {
-          "cash_krw": null,
-          "cash_scope": "unknown",
-          "cash_as_of_month": null,
-          "total_assets_krw": null
+          "cash_krw": 137500,
+          "cash_scope": "closed",
+          "cash_as_of_month": "2005-01",
+          "total_assets_krw": 137500
+        },
+        "flow": {
+          "opening_krw": 100000,
+          "allowance_krw": 100000,
+          "ad_share_krw": 0,
+          "spending_krw": 62500
         },
         "budget": {
           "allowance_krw": 100000,
@@ -52,17 +59,21 @@
           "site_cash_plan_total_krw": 32500
         },
         "site": {
+          "received_usd": 0.0,
+          "fx_krw_per_usd": null,
           "received_krw": 0,
           "received_total_krw": 0,
-          "unpaid_usd": 0,
-          "fee_this_month_krw": null,
-          "held_this_month_krw": null
+          "to_yongsik_krw": 0,
+          "to_mother_krw": 0,
+          "unpaid_usd": 0.0,
+          "next_payout_usd": 0.0,
+          "fee_this_month_krw": null
         }
       }
     },
     {
       "month": "2005-02",
-      "status": "story_estimate",
+      "status": "closed",
       "days": 28,
       "visitor_days": 2400,
       "pageviews": 7200,
@@ -70,11 +81,11 @@
       "publisher_rpm_usd": null,
       "ad_revenue_usd": 0,
       "cumulative_ad_revenue_usd": 0,
-      "cash_received_usd": 0,
-      "cumulative_cash_received_usd": 0,
+      "cash_received_usd": 0.0,
+      "cumulative_cash_received_usd": 0.0,
       "operating_costs_usd": null,
       "net_profit_usd": null,
-      "personal_cash_krw": null,
+      "personal_cash_krw": 192000,
       "average_daily_visitors": 85.71,
       "average_daily_ad_revenue_usd": 0.0,
       "basis": "3월 광고기간 40000PV·48달러는 기존 시나리오. 나머지 유입·성장은 이번 월별 창작 기준안.",
@@ -85,10 +96,16 @@
       "trade_count": 0,
       "finances": {
         "personal": {
-          "cash_krw": null,
-          "cash_scope": "unknown",
-          "cash_as_of_month": null,
-          "total_assets_krw": null
+          "cash_krw": 192000,
+          "cash_scope": "closed",
+          "cash_as_of_month": "2005-02",
+          "total_assets_krw": 192000
+        },
+        "flow": {
+          "opening_krw": 0,
+          "allowance_krw": 100000,
+          "ad_share_krw": 0,
+          "spending_krw": 45500
         },
         "budget": {
           "allowance_krw": 100000,
@@ -100,17 +117,21 @@
           "site_cash_plan_total_krw": 38000
         },
         "site": {
+          "received_usd": 0.0,
+          "fx_krw_per_usd": null,
           "received_krw": 0,
           "received_total_krw": 0,
-          "unpaid_usd": 0,
-          "fee_this_month_krw": null,
-          "held_this_month_krw": null
+          "to_yongsik_krw": 0,
+          "to_mother_krw": 0,
+          "unpaid_usd": 0.0,
+          "next_payout_usd": 0.0,
+          "fee_this_month_krw": null
         }
       }
     },
     {
       "month": "2005-03",
-      "status": "story_estimate",
+      "status": "closed",
       "days": 31,
       "visitor_days": 15500,
       "pageviews": 70000,
@@ -118,11 +139,11 @@
       "publisher_rpm_usd": 1.2,
       "ad_revenue_usd": 48,
       "cumulative_ad_revenue_usd": 48,
-      "cash_received_usd": 0,
-      "cumulative_cash_received_usd": 0,
+      "cash_received_usd": 0.0,
+      "cumulative_cash_received_usd": 0.0,
       "operating_costs_usd": null,
       "net_profit_usd": null,
-      "personal_cash_krw": null,
+      "personal_cash_krw": 246500,
       "average_daily_visitors": 500.0,
       "average_daily_ad_revenue_usd": 1.5484,
       "basis": "3월 광고기간 40000PV·48달러는 기존 시나리오. 나머지 유입·성장은 이번 월별 창작 기준안.",
@@ -133,10 +154,16 @@
       "trade_count": 0,
       "finances": {
         "personal": {
-          "cash_krw": null,
-          "cash_scope": "unknown",
-          "cash_as_of_month": null,
-          "total_assets_krw": null
+          "cash_krw": 246500,
+          "cash_scope": "closed",
+          "cash_as_of_month": "2005-03",
+          "total_assets_krw": 246500
+        },
+        "flow": {
+          "opening_krw": 0,
+          "allowance_krw": 100000,
+          "ad_share_krw": 0,
+          "spending_krw": 45500
         },
         "budget": {
           "allowance_krw": 100000,
@@ -148,17 +175,21 @@
           "site_cash_plan_total_krw": 43500
         },
         "site": {
+          "received_usd": 0.0,
+          "fx_krw_per_usd": null,
           "received_krw": 0,
           "received_total_krw": 0,
-          "unpaid_usd": 48,
-          "fee_this_month_krw": null,
-          "held_this_month_krw": null
+          "to_yongsik_krw": 0,
+          "to_mother_krw": 0,
+          "unpaid_usd": 48.0,
+          "next_payout_usd": 0.0,
+          "fee_this_month_krw": null
         }
       }
     },
     {
       "month": "2005-04",
-      "status": "story_estimate",
+      "status": "closed",
       "days": 30,
       "visitor_days": 27000,
       "pageviews": 120000,
@@ -166,11 +197,11 @@
       "publisher_rpm_usd": 1.2,
       "ad_revenue_usd": 144.0,
       "cumulative_ad_revenue_usd": 192.0,
-      "cash_received_usd": 0,
-      "cumulative_cash_received_usd": 0,
+      "cash_received_usd": 0.0,
+      "cumulative_cash_received_usd": 0.0,
       "operating_costs_usd": null,
       "net_profit_usd": null,
-      "personal_cash_krw": null,
+      "personal_cash_krw": 306000,
       "average_daily_visitors": 900.0,
       "average_daily_ad_revenue_usd": 4.8,
       "basis": "3월 광고기간 40000PV·48달러는 기존 시나리오. 나머지 유입·성장은 이번 월별 창작 기준안.",
@@ -181,10 +212,16 @@
       "trade_count": 0,
       "finances": {
         "personal": {
-          "cash_krw": null,
-          "cash_scope": "unknown",
-          "cash_as_of_month": null,
-          "total_assets_krw": null
+          "cash_krw": 306000,
+          "cash_scope": "closed",
+          "cash_as_of_month": "2005-04",
+          "total_assets_krw": 306000
+        },
+        "flow": {
+          "opening_krw": 0,
+          "allowance_krw": 100000,
+          "ad_share_krw": 0,
+          "spending_krw": 40500
         },
         "budget": {
           "allowance_krw": 100000,
@@ -196,17 +233,21 @@
           "site_cash_plan_total_krw": 49000
         },
         "site": {
+          "received_usd": 0.0,
+          "fx_krw_per_usd": null,
           "received_krw": 0,
           "received_total_krw": 0,
+          "to_yongsik_krw": 0,
+          "to_mother_krw": 0,
           "unpaid_usd": 192.0,
-          "fee_this_month_krw": null,
-          "held_this_month_krw": null
+          "next_payout_usd": 192.0,
+          "fee_this_month_krw": null
         }
       }
     },
     {
       "month": "2005-05",
-      "status": "story_estimate",
+      "status": "closed",
       "days": 31,
       "visitor_days": 46500,
       "pageviews": 210000,
@@ -214,11 +255,11 @@
       "publisher_rpm_usd": 1.25,
       "ad_revenue_usd": 262.5,
       "cumulative_ad_revenue_usd": 454.5,
-      "cash_received_usd": 0,
-      "cumulative_cash_received_usd": 0,
+      "cash_received_usd": 192.0,
+      "cumulative_cash_received_usd": 192.0,
       "operating_costs_usd": null,
       "net_profit_usd": null,
-      "personal_cash_krw": null,
+      "personal_cash_krw": 494647,
       "average_daily_visitors": 1500.0,
       "average_daily_ad_revenue_usd": 8.4677,
       "basis": "3월 광고기간 40000PV·48달러는 기존 시나리오. 나머지 유입·성장은 이번 월별 창작 기준안.",
@@ -229,10 +270,16 @@
       "trade_count": 0,
       "finances": {
         "personal": {
-          "cash_krw": null,
-          "cash_scope": "unknown",
-          "cash_as_of_month": null,
-          "total_assets_krw": null
+          "cash_krw": 494647,
+          "cash_scope": "closed",
+          "cash_as_of_month": "2005-05",
+          "total_assets_krw": 494647
+        },
+        "flow": {
+          "opening_krw": 0,
+          "allowance_krw": 100000,
+          "ad_share_krw": 134647,
+          "spending_krw": 46000
         },
         "budget": {
           "allowance_krw": 100000,
@@ -244,17 +291,21 @@
           "site_cash_plan_total_krw": 60000
         },
         "site": {
-          "received_krw": 0,
-          "received_total_krw": 0,
-          "unpaid_usd": 454.5,
-          "fee_this_month_krw": null,
-          "held_this_month_krw": null
+          "received_usd": 192.0,
+          "fx_krw_per_usd": 1001.84,
+          "received_krw": 192353,
+          "received_total_krw": 192353,
+          "to_yongsik_krw": 134647,
+          "to_mother_krw": 57706,
+          "unpaid_usd": 262.5,
+          "next_payout_usd": 262.5,
+          "fee_this_month_krw": 0
         }
       }
     },
     {
       "month": "2005-06",
-      "status": "story_estimate",
+      "status": "closed",
       "days": 30,
       "visitor_days": 69000,
       "pageviews": 330000,
@@ -262,11 +313,11 @@
       "publisher_rpm_usd": 1.25,
       "ad_revenue_usd": 412.5,
       "cumulative_ad_revenue_usd": 867.0,
-      "cash_received_usd": 0,
-      "cumulative_cash_received_usd": 0,
+      "cash_received_usd": 262.5,
+      "cumulative_cash_received_usd": 454.5,
       "operating_costs_usd": null,
       "net_profit_usd": null,
-      "personal_cash_krw": null,
+      "personal_cash_krw": 604687,
       "average_daily_visitors": 2300.0,
       "average_daily_ad_revenue_usd": 13.75,
       "basis": "6월 전장 업데이트와 자료 보강을 연결한 작품 성장 가정. 실측 아님.",
@@ -277,14 +328,20 @@
       "trade_count": 0,
       "finances": {
         "personal": {
-          "cash_krw": null,
-          "cash_scope": "unknown",
-          "cash_as_of_month": null,
-          "total_assets_krw": null
+          "cash_krw": 604687,
+          "cash_scope": "closed",
+          "cash_as_of_month": "2005-06",
+          "total_assets_krw": 604687
+        },
+        "flow": {
+          "opening_krw": 0,
+          "allowance_krw": 0,
+          "ad_share_krw": 186040,
+          "spending_krw": 76000
         },
         "budget": {
-          "allowance_krw": 100000,
-          "after_site_krw": 82167,
+          "allowance_krw": 0,
+          "after_site_krw": null,
           "after_living_plan_krw": 24000,
           "hosting_krw": 11000,
           "recurring_site_krw": 17833,
@@ -292,11 +349,15 @@
           "site_cash_plan_total_krw": 71000
         },
         "site": {
-          "received_krw": 0,
-          "received_total_krw": 0,
-          "unpaid_usd": 867.0,
-          "fee_this_month_krw": null,
-          "held_this_month_krw": null
+          "received_usd": 262.5,
+          "fx_krw_per_usd": 1012.46,
+          "received_krw": 265771,
+          "received_total_krw": 458124,
+          "to_yongsik_krw": 186040,
+          "to_mother_krw": 79731,
+          "unpaid_usd": 412.5,
+          "next_payout_usd": 412.5,
+          "fee_this_month_krw": 0
         }
       }
     },
@@ -308,7 +369,7 @@
       "ad_pageviews": 360000,
       "publisher_rpm_usd": 1.25,
       "ad_revenue_usd": 450.0,
-      "cash_received_usd": 0,
+      "cash_received_usd": 412.5,
       "operating_costs_usd": null,
       "net_profit_usd": null,
       "personal_cash_krw": null,
@@ -320,19 +381,25 @@
       "trade_count": 0,
       "days": 31,
       "cumulative_ad_revenue_usd": 1317.0,
-      "cumulative_cash_received_usd": 0,
+      "cumulative_cash_received_usd": 867.0,
       "average_daily_visitors": null,
       "average_daily_ad_revenue_usd": 14.5161,
       "finances": {
         "personal": {
-          "cash_krw": null,
-          "cash_scope": "unknown",
-          "cash_as_of_month": null,
-          "total_assets_krw": null
+          "cash_krw": 903994,
+          "cash_scope": "provisional",
+          "cash_as_of_month": "2005-07",
+          "total_assets_krw": 903994
+        },
+        "flow": {
+          "opening_krw": 0,
+          "allowance_krw": 0,
+          "ad_share_krw": 299307,
+          "spending_krw": 0
         },
         "budget": {
-          "allowance_krw": 100000,
-          "after_site_krw": 82167,
+          "allowance_krw": 0,
+          "after_site_krw": null,
           "after_living_plan_krw": null,
           "hosting_krw": 11000,
           "recurring_site_krw": 17833,
@@ -340,11 +407,15 @@
           "site_cash_plan_total_krw": 82000
         },
         "site": {
-          "received_krw": 0,
-          "received_total_krw": 0,
-          "unpaid_usd": 1317.0,
-          "fee_this_month_krw": null,
-          "held_this_month_krw": null
+          "received_usd": 412.5,
+          "fx_krw_per_usd": 1036.56,
+          "received_krw": 427581,
+          "received_total_krw": 885705,
+          "to_yongsik_krw": 299307,
+          "to_mother_krw": 128274,
+          "unpaid_usd": 450.0,
+          "next_payout_usd": 450.0,
+          "fee_this_month_krw": 0
         }
       }
     },
@@ -356,7 +427,7 @@
       "ad_pageviews": 420000,
       "publisher_rpm_usd": 1.25,
       "ad_revenue_usd": 525.0,
-      "cash_received_usd": 1317.0,
+      "cash_received_usd": 450.0,
       "operating_costs_usd": null,
       "net_profit_usd": null,
       "personal_cash_krw": null,
@@ -373,14 +444,20 @@
       "average_daily_ad_revenue_usd": 16.9355,
       "finances": {
         "personal": {
-          "cash_krw": 389958,
-          "cash_scope": "settlement",
+          "cash_krw": 1186823,
+          "cash_scope": "provisional",
           "cash_as_of_month": "2005-08",
-          "total_assets_krw": null
+          "total_assets_krw": 1186823
+        },
+        "flow": {
+          "opening_krw": 0,
+          "allowance_krw": 0,
+          "ad_share_krw": 321829,
+          "spending_krw": 39000
         },
         "budget": {
-          "allowance_krw": 100000,
-          "after_site_krw": 82167,
+          "allowance_krw": 0,
+          "after_site_krw": null,
           "after_living_plan_krw": null,
           "hosting_krw": 11000,
           "recurring_site_krw": 17833,
@@ -388,11 +465,15 @@
           "site_cash_plan_total_krw": 93000
         },
         "site": {
-          "received_krw": 1310000,
-          "received_total_krw": 1310000,
+          "received_usd": 450.0,
+          "fx_krw_per_usd": 1021.68,
+          "received_krw": 459756,
+          "received_total_krw": 1345461,
+          "to_yongsik_krw": 321829,
+          "to_mother_krw": 137927,
           "unpaid_usd": 525.0,
-          "fee_this_month_krw": 7000,
-          "held_this_month_krw": 452084
+          "next_payout_usd": 525.0,
+          "fee_this_month_krw": 0
         }
       }
     },
@@ -404,7 +485,7 @@
       "ad_pageviews": null,
       "publisher_rpm_usd": null,
       "ad_revenue_usd": null,
-      "cash_received_usd": null,
+      "cash_received_usd": 525.0,
       "operating_costs_usd": null,
       "net_profit_usd": null,
       "personal_cash_krw": null,
@@ -416,19 +497,25 @@
       "trade_count": 0,
       "days": 30,
       "cumulative_ad_revenue_usd": null,
-      "cumulative_cash_received_usd": null,
+      "cumulative_cash_received_usd": 1842.0,
       "average_daily_visitors": null,
       "average_daily_ad_revenue_usd": null,
       "finances": {
         "personal": {
-          "cash_krw": 389958,
-          "cash_scope": "settlement",
-          "cash_as_of_month": "2005-08",
-          "total_assets_krw": null
+          "cash_krw": 1565289,
+          "cash_scope": "provisional",
+          "cash_as_of_month": "2005-09",
+          "total_assets_krw": 1565289
+        },
+        "flow": {
+          "opening_krw": 0,
+          "allowance_krw": 0,
+          "ad_share_krw": 378466,
+          "spending_krw": 0
         },
         "budget": {
-          "allowance_krw": 100000,
-          "after_site_krw": 82167,
+          "allowance_krw": 0,
+          "after_site_krw": null,
           "after_living_plan_krw": null,
           "hosting_krw": 11000,
           "recurring_site_krw": 17833,
@@ -436,11 +523,15 @@
           "site_cash_plan_total_krw": 104000
         },
         "site": {
-          "received_krw": null,
-          "received_total_krw": null,
+          "received_usd": 525.0,
+          "fx_krw_per_usd": 1029.84,
+          "received_krw": 540666,
+          "received_total_krw": 1886127,
+          "to_yongsik_krw": 378466,
+          "to_mother_krw": 162200,
           "unpaid_usd": null,
-          "fee_this_month_krw": null,
-          "held_this_month_krw": null
+          "next_payout_usd": null,
+          "fee_this_month_krw": 0
         }
       }
     }
@@ -3063,9 +3154,7 @@
   "source_links": {
     "march_revenue": "series/investing/scenarios/2005-03.json",
     "april_body": "series/investing/scenarios/2005-04-body.json",
-    "cash_ledgers": [
-      "series/investing/ledger/2005-08.json"
-    ]
+    "ledger": "series/investing/data/ledger.json"
   },
   "display_fx": {
     "currency": "KRW",
@@ -3183,13 +3272,13 @@
       "https://yokim.net/ko/415",
       "https://www.etnews.com/200506290053?m=1"
     ],
-    "allowance_definition": "사용자 확인: 한 달에 약10만원 사용 가능. 실제 용돈 입금·현재 잔액·과거 월별 수령 내역을 뜻하지 않음.",
+    "allowance_definition": "월 용돈 10만원. D044로 1~5월만 실제 수령, 6월부터 없음. 실제 수령·잔액은 data/ledger.json에서 계산.",
     "allowance_status": "user_confirmed_approximate_available_budget"
   },
   "personal_spending_budget": {
-    "status": "user_accepted_planning_scenario_not_paid_ledger",
+    "status": "plan_table_confirmed_as_actual_through_2005-06",
     "monthly_available_krw": 100000,
-    "note": "이전 제안표를 사용자 채택. 실제 지출·수령한 용돈·현재 현금잔액과 구분. 초기10만원 별도 가산 없음.",
+    "note": "월별 지출 계획표. D045로 1~6월은 이 표가 실제 지출로 확정됐고 data/ledger.json spending에 옮겨 적었다. 7월 이후 계획은 미정. 실제 현금은 원장에서만 계산한다.",
     "monthly": [
       {
         "month": "2005-01",
@@ -3248,42 +3337,76 @@
     ]
   },
   "revenue_sharing": {
-    "start_month": "2005-06",
-    "status": "user_accepted_policy",
-    "basis": "월말 광고 발생액의 몫을 기록하고 실제 광고대금 수령 뒤 지급. 서버비는 용돈 예산에서 부담하므로 분배 시 중복 차감하지 않음.",
-    "mother_fraction": 0.5,
-    "yongsik_fraction": 0.5,
-    "earlier_months_allocation": null,
+    "generated_by": "scripts/refresh_metrics.py from data/ledger.json",
+    "status": "user_confirmed_policy",
+    "decision": "D043",
+    "start_month": "2005-03",
+    "yongsik_fraction": 0.7,
+    "mother_fraction": 0.3,
+    "basis": "광고 발생액은 월말 몫(달러)으로만 기록하고, 실제 수령한 달에 원화 수령액을 7:3으로 나눈다. 서버비·생활비는 용식 현금에서 나가며 분배 때 다시 빼지 않는다.",
     "monthly": [
+      {
+        "month": "2005-03",
+        "revenue_usd": 48,
+        "yongsik_allocation_usd": 33.6,
+        "mother_allocation_usd": 14.4,
+        "paid_this_month_usd": 0.0,
+        "to_yongsik_krw": 0,
+        "to_mother_krw": 0
+      },
+      {
+        "month": "2005-04",
+        "revenue_usd": 144.0,
+        "yongsik_allocation_usd": 100.8,
+        "mother_allocation_usd": 43.2,
+        "paid_this_month_usd": 0.0,
+        "to_yongsik_krw": 0,
+        "to_mother_krw": 0
+      },
+      {
+        "month": "2005-05",
+        "revenue_usd": 262.5,
+        "yongsik_allocation_usd": 183.75,
+        "mother_allocation_usd": 78.75,
+        "paid_this_month_usd": 192.0,
+        "to_yongsik_krw": 134647,
+        "to_mother_krw": 57706
+      },
       {
         "month": "2005-06",
         "revenue_usd": 412.5,
-        "mother_allocation_usd": 206.25,
-        "yongsik_allocation_usd": 206.25,
-        "display_approx_each_krw": 206250,
-        "cash_received_usd": 0,
-        "actual_distribution_krw": null,
-        "note": "배분 몫은 미수령 광고수익 기준. 원화는 표시용 환산이며 실제 수령·환전·지급액이 아님."
+        "yongsik_allocation_usd": 288.75,
+        "mother_allocation_usd": 123.75,
+        "paid_this_month_usd": 262.5,
+        "to_yongsik_krw": 186040,
+        "to_mother_krw": 79731
       },
       {
         "month": "2005-07",
         "revenue_usd": 450.0,
-        "mother_allocation_usd": 225.0,
-        "yongsik_allocation_usd": 225.0,
-        "display_approx_each_krw": 225000,
-        "cash_received_usd": 0,
-        "actual_distribution_krw": null,
-        "note": "기존 반반 정책으로 계산한 미수령 발생액의 작품 기준안. 7월에 새로 확정된 환전·지급은 없음."
+        "yongsik_allocation_usd": 315.0,
+        "mother_allocation_usd": 135.0,
+        "paid_this_month_usd": 412.5,
+        "to_yongsik_krw": 299307,
+        "to_mother_krw": 128274
       },
       {
         "month": "2005-08",
         "revenue_usd": 525.0,
-        "mother_allocation_usd": 262.5,
-        "yongsik_allocation_usd": 262.5,
-        "display_approx_each_krw": 262500,
-        "cash_received_usd": 0,
-        "actual_distribution_krw": null,
-        "note": "8월 발생분 자체는 미수령. 8월에 받은 3~7월 지급분은 별도 장부에 기록."
+        "yongsik_allocation_usd": 367.5,
+        "mother_allocation_usd": 157.5,
+        "paid_this_month_usd": 450.0,
+        "to_yongsik_krw": 321829,
+        "to_mother_krw": 137927
+      },
+      {
+        "month": "2005-09",
+        "revenue_usd": null,
+        "yongsik_allocation_usd": null,
+        "mother_allocation_usd": null,
+        "paid_this_month_usd": 525.0,
+        "to_yongsik_krw": 378466,
+        "to_mother_krw": 162200
       }
     ]
   },

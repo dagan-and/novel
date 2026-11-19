@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "S200503",
-  "status": "draft",
+  "status": "confirmed",
   "kind": "fictional_scenario",
   "story_month": "2005-03",
   "event_ids": [
@@ -19,5 +19,6 @@
   "family_distribution": null,
   "personal_cash_balance": null,
   "fx_rate": null,
-  "basis": "작가가 선택한 가상 유입·단가. 역사적 평균이나 실제 측정 아님. 발생액은 운영비·세금 공제 전 게시자 수익. 실제 개인 현금과 분리."
+  "basis": "작가가 선택한 가상 유입·단가. 역사적 평균이나 실제 측정 아님. 발생액은 운영비·세금 공제 전 게시자 수익. 실제 개인 현금과 분리.",
+  "closed_by": "D047"
 }
