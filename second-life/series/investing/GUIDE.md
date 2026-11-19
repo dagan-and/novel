@@ -130,7 +130,7 @@
 | 체격 | `metrics.body`에 날짜별 점 추가. 제지방 = 체중×(1−체지방률). 골격근량은 null |
 | 스타 | `metrics.starcraft` 월별 행(D035로 7월 이후 직접 플레이 기록은 제외) |
 | 학교·학원 평판 | `metrics.standing` (정성 기록, 인기 점수 금지) |
-| 인물 | `metrics.relationships`(phases, profile_href, portrait) + `characters/person-NNN.md`. 날짜별 관계 기록은 `records.events`의 `relationship_person_id`, `story_date`, `profile_note`에서 인물 페이지로 생성한다. |
+| 인물 | `metrics.relationships`(phases, profile_href, portrait) + `characters/person-NNN.md`. 날짜별 관계 기록은 `records.events`의 `relationship_person_id`, `relationship_milestone`, `story_date`, `profile_note`에서 인물 페이지로 생성한다. 첫 만남·교제 시작·섹스 파트너 합의만 날짜별로 표시한다(D083). |
 | 투자 | `metrics.monthly[].investment_assets_krw / investment_realized_pnl_krw / holdings / trade_count`, `metrics.investments`. 매수 대금은 `ledger.spending`(category `investment`)으로 현금에서 뺀다 |
 | 사건 | `records.events`에 `E###`: status, story_date, summary, source, decision_ids |
 

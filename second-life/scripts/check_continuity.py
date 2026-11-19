@@ -283,6 +283,7 @@ for event in data['events']:
     if 'relationship_person_id' not in event:
         continue
     assert event['relationship_person_id'] in people, event['id']
+    assert event['relationship_milestone'] in ('first_meeting', 'dating_started', 'partner_agreement'), event['id']
     person = people[event['relationship_person_id']]
     milestone_date = date.fromisoformat(event['story_date'])
     assert person['known_from'] <= milestone_date.isoformat()[:7] <= max(data['months']), event['id']
