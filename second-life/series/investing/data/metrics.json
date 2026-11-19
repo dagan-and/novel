@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "series": "investing",
-  "as_of": "2007-11-30",
+  "as_of": "2007-12-31",
   "definitions": {
     "data_kind": "fictional_world_not_live_analytics",
     "revenue": "플랫폼 배분 후 게시자 광고 발생액. 운영비·세금 차감 전. 실제 수령·개인 현금과 구분.",
@@ -2216,6 +2216,70 @@
           "to_mother_krw": 471005,
           "unpaid_usd": 1750.0,
           "next_payout_usd": 1750.0,
+          "fee_this_month_krw": 0
+        }
+      }
+    },
+    {
+      "month": "2007-12",
+      "status": "story_estimate",
+      "visitor_days": 315172,
+      "pageviews": 1508000,
+      "ad_pageviews": 1508000,
+      "publisher_rpm_usd": 1.25,
+      "ad_revenue_usd": 1885.0,
+      "operating_costs_usd": null,
+      "net_profit_usd": null,
+      "investment_assets_krw": null,
+      "investment_realized_pnl_krw": null,
+      "investment_cash_krw": null,
+      "holdings": null,
+      "trade_count": null,
+      "section_pageviews": {
+        "diablo2": 48000,
+        "wow": 340000,
+        "dnf": 1120000
+      },
+      "basis": "11월 안정 운영 기준에서 던파 12월 던전·퀘스트 개편과 연말 유입, WoW 연말 검색, 디아블로 II의 완만한 감소를 섹션별로 적용한 창작 추정.",
+      "days": 31,
+      "cumulative_ad_revenue_usd": 35230.75,
+      "average_daily_visitors": 10166.84,
+      "average_daily_ad_revenue_usd": 60.8065,
+      "activity_stage": 4,
+      "cash_received_usd": 1750.0,
+      "cumulative_cash_received_usd": 33345.75,
+      "personal_cash_krw": null,
+      "finances": {
+        "personal": {
+          "cash_krw": null,
+          "cash_scope": "unknown",
+          "cash_as_of_month": null,
+          "total_assets_krw": null
+        },
+        "flow": {
+          "opening_krw": 0,
+          "allowance_krw": 0,
+          "ad_share_krw": 1140598,
+          "spending_krw": null
+        },
+        "budget": {
+          "allowance_krw": 0,
+          "after_site_krw": null,
+          "after_living_plan_krw": null,
+          "hosting_krw": 70000,
+          "recurring_site_krw": 76833,
+          "site_cash_plan_krw": 70000,
+          "site_cash_plan_total_krw": 1226000
+        },
+        "site": {
+          "received_usd": 1750.0,
+          "fx_krw_per_usd": 931.1,
+          "received_krw": 1629425,
+          "received_total_krw": 31571191,
+          "to_yongsik_krw": 1140598,
+          "to_mother_krw": 488827,
+          "unpaid_usd": 1885.0,
+          "next_payout_usd": 1885.0,
           "fee_this_month_krw": 0
         }
       }
@@ -11797,6 +11861,285 @@
       "pageviews": 58403,
       "ad_pageviews": 58403,
       "ad_revenue_usd": 73.0
+    },
+    {
+      "date": "2007-12-01",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 7810,
+      "pageviews": 37369,
+      "ad_pageviews": 37369,
+      "ad_revenue_usd": 46.71
+    },
+    {
+      "date": "2007-12-02",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 8033,
+      "pageviews": 38437,
+      "ad_pageviews": 38437,
+      "ad_revenue_usd": 48.05
+    },
+    {
+      "date": "2007-12-03",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 7180,
+      "pageviews": 34352,
+      "ad_pageviews": 34352,
+      "ad_revenue_usd": 42.94
+    },
+    {
+      "date": "2007-12-04",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 7374,
+      "pageviews": 35280,
+      "ad_pageviews": 35280,
+      "ad_revenue_usd": 44.1
+    },
+    {
+      "date": "2007-12-05",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 7568,
+      "pageviews": 36209,
+      "ad_pageviews": 36209,
+      "ad_revenue_usd": 45.26
+    },
+    {
+      "date": "2007-12-06",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 7762,
+      "pageviews": 37137,
+      "ad_pageviews": 37137,
+      "ad_revenue_usd": 46.42
+    },
+    {
+      "date": "2007-12-07",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 7956,
+      "pageviews": 38066,
+      "ad_pageviews": 38066,
+      "ad_revenue_usd": 47.58
+    },
+    {
+      "date": "2007-12-08",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 9372,
+      "pageviews": 44843,
+      "ad_pageviews": 44843,
+      "ad_revenue_usd": 56.05
+    },
+    {
+      "date": "2007-12-09",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 9595,
+      "pageviews": 45911,
+      "ad_pageviews": 45911,
+      "ad_revenue_usd": 57.39
+    },
+    {
+      "date": "2007-12-10",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 8538,
+      "pageviews": 40851,
+      "ad_pageviews": 40851,
+      "ad_revenue_usd": 51.06
+    },
+    {
+      "date": "2007-12-11",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 8732,
+      "pageviews": 41779,
+      "ad_pageviews": 41779,
+      "ad_revenue_usd": 52.22
+    },
+    {
+      "date": "2007-12-12",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 8926,
+      "pageviews": 42708,
+      "ad_pageviews": 42708,
+      "ad_revenue_usd": 53.39
+    },
+    {
+      "date": "2007-12-13",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 9120,
+      "pageviews": 43636,
+      "ad_pageviews": 43636,
+      "ad_revenue_usd": 54.55
+    },
+    {
+      "date": "2007-12-14",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 9314,
+      "pageviews": 44565,
+      "ad_pageviews": 44565,
+      "ad_revenue_usd": 55.71
+    },
+    {
+      "date": "2007-12-15",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 10934,
+      "pageviews": 52317,
+      "ad_pageviews": 52317,
+      "ad_revenue_usd": 65.4
+    },
+    {
+      "date": "2007-12-16",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 11157,
+      "pageviews": 53385,
+      "ad_pageviews": 53385,
+      "ad_revenue_usd": 66.73
+    },
+    {
+      "date": "2007-12-17",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 9896,
+      "pageviews": 47350,
+      "ad_pageviews": 47350,
+      "ad_revenue_usd": 59.19
+    },
+    {
+      "date": "2007-12-18",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 10090,
+      "pageviews": 48278,
+      "ad_pageviews": 48278,
+      "ad_revenue_usd": 60.35
+    },
+    {
+      "date": "2007-12-19",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 10284,
+      "pageviews": 49207,
+      "ad_pageviews": 49207,
+      "ad_revenue_usd": 61.51
+    },
+    {
+      "date": "2007-12-20",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 10478,
+      "pageviews": 50135,
+      "ad_pageviews": 50135,
+      "ad_revenue_usd": 62.67
+    },
+    {
+      "date": "2007-12-21",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 10672,
+      "pageviews": 51063,
+      "ad_pageviews": 51063,
+      "ad_revenue_usd": 63.83
+    },
+    {
+      "date": "2007-12-22",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 12496,
+      "pageviews": 59791,
+      "ad_pageviews": 59791,
+      "ad_revenue_usd": 74.74
+    },
+    {
+      "date": "2007-12-23",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 12719,
+      "pageviews": 60858,
+      "ad_pageviews": 60858,
+      "ad_revenue_usd": 76.07
+    },
+    {
+      "date": "2007-12-24",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 11254,
+      "pageviews": 53849,
+      "ad_pageviews": 53849,
+      "ad_revenue_usd": 67.31
+    },
+    {
+      "date": "2007-12-25",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 11448,
+      "pageviews": 54777,
+      "ad_pageviews": 54777,
+      "ad_revenue_usd": 68.47
+    },
+    {
+      "date": "2007-12-26",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 11643,
+      "pageviews": 55706,
+      "ad_pageviews": 55706,
+      "ad_revenue_usd": 69.63
+    },
+    {
+      "date": "2007-12-27",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 11837,
+      "pageviews": 56634,
+      "ad_pageviews": 56634,
+      "ad_revenue_usd": 70.79
+    },
+    {
+      "date": "2007-12-28",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 12031,
+      "pageviews": 57562,
+      "ad_pageviews": 57562,
+      "ad_revenue_usd": 71.95
+    },
+    {
+      "date": "2007-12-29",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 14058,
+      "pageviews": 67265,
+      "ad_pageviews": 67265,
+      "ad_revenue_usd": 84.08
+    },
+    {
+      "date": "2007-12-30",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 14282,
+      "pageviews": 68332,
+      "ad_pageviews": 68332,
+      "ad_revenue_usd": 85.42
+    },
+    {
+      "date": "2007-12-31",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 12613,
+      "pageviews": 60348,
+      "ad_pageviews": 60348,
+      "ad_revenue_usd": 75.43
     }
   ],
   "academics": {
@@ -12014,6 +12357,37 @@
         "친해지면 장난이 많음"
       ],
       "relationship_ended_month": "2005-12"
+    },
+    {
+      "person_id": "P002",
+      "name": "장윤정",
+      "name_status": "user_named",
+      "first_month": "2007-12",
+      "relationship": "용식이 먼저 고백해 교제 시작",
+      "status": "user_confirmed_relationship_outline",
+      "appearance": {
+        "height_cm": 164,
+        "weight_kg": null,
+        "measurement_status": "user_stated_height",
+        "hair": "긴 생머리와 반듯한 앞머리",
+        "impression": "예쁜 인상과 슬림한 체형. 첨부 이미지의 머리와 차분한 표정 참고."
+      },
+      "known_from": "2007-12",
+      "profile_href": "characters/person-002.html",
+      "portrait": "characters/images/jang-yunjeong-v1.jpg",
+      "phases": [
+        {
+          "from_month": "2007-12",
+          "to_month": null,
+          "kind": "girlfriend"
+        }
+      ],
+      "portrait_caption": "긴 생머리와 반듯한 앞머리, 차분한 눈매를 참고한 가상 인물 시안.",
+      "profile_tags": [
+        "164cm",
+        "슬림한 체형",
+        "2007년 12월 교제 시작"
+      ]
     }
   ],
   "cost_model": {
@@ -12229,6 +12603,12 @@
       },
       {
         "month": "2007-11",
+        "hosting_krw": 70000,
+        "domain_cash_krw": 0,
+        "setup_cash_krw": 0
+      },
+      {
+        "month": "2007-12",
         "hosting_krw": 70000,
         "domain_cash_krw": 0,
         "setup_cash_krw": 0
@@ -12610,6 +12990,15 @@
         "paid_this_month_usd": 1708.75,
         "to_yongsik_krw": 1099012,
         "to_mother_krw": 471005
+      },
+      {
+        "month": "2007-12",
+        "revenue_usd": 1885.0,
+        "yongsik_allocation_usd": 1319.5,
+        "mother_allocation_usd": 565.5,
+        "paid_this_month_usd": 1750.0,
+        "to_yongsik_krw": 1140598,
+        "to_mother_krw": 488827
       }
     ]
   },
@@ -13046,5 +13435,7 @@
     "mock_basis": "전국연합 영역별 표준점수/백분위/등급은 별도. 당시 확정 분포가 없으면 예상등급과 실제등급을 구분.",
     "source": "https://www.korea.kr/news/policyFocusView.do?newsId=148626395&pkgId=49500224",
     "decision": "D062"
-  }
+  },
+  "body_records_through": "2007-11",
+  "school_results_final_from": "2007-12"
 }
