@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "series": "investing",
-  "as_of": "2008-01-31",
+  "as_of": "2008-02-29",
   "definitions": {
     "data_kind": "fictional_world_not_live_analytics",
     "revenue": "플랫폼 배분 후 게시자 광고 발생액. 운영비·세금 차감 전. 실제 수령·개인 현금과 구분.",
@@ -2418,6 +2418,72 @@
           "to_mother_krw": 532735,
           "unpaid_usd": 1920.0,
           "next_payout_usd": 1920.0,
+          "fee_this_month_krw": 0
+        }
+      }
+    },
+    {
+      "month": "2008-02",
+      "status": "story_estimate",
+      "visitor_days": 309738,
+      "pageviews": 1482000,
+      "ad_pageviews": 1482000,
+      "publisher_rpm_usd": 1.25,
+      "ad_revenue_usd": 1852.5,
+      "operating_costs_usd": null,
+      "net_profit_usd": null,
+      "investment_assets_krw": 0,
+      "investment_realized_pnl_krw": 0,
+      "investment_cash_krw": null,
+      "holdings": [],
+      "trade_count": 0,
+      "section_pageviews": {
+        "diablo2": 42000,
+        "wow": 330000,
+        "dnf": 1110000
+      },
+      "basis": "29일 달력과 설 연휴를 적용한 국내 사이트 추정. 중국어판은 비공개 준비 중.",
+      "days": 29,
+      "cumulative_ad_revenue_usd": 39003.25,
+      "average_daily_visitors": 10680.62,
+      "average_daily_ad_revenue_usd": 63.8793,
+      "activity_stage": 4,
+      "cash_received_usd": 1920.0,
+      "cumulative_cash_received_usd": 37150.75,
+      "personal_cash_krw": null,
+      "finances": {
+        "personal": {
+          "cash_krw": 11895633,
+          "cash_scope": "provisional",
+          "cash_as_of_month": "2008-02",
+          "total_assets_krw": null,
+          "recorded_assets_krw": 11895633,
+          "cash_includes_estimated_spending": true
+        },
+        "flow": {
+          "opening_krw": 0,
+          "allowance_krw": 0,
+          "ad_share_krw": 1268749,
+          "spending_krw": 5900000
+        },
+        "budget": {
+          "allowance_krw": 0,
+          "after_site_krw": null,
+          "after_living_plan_krw": null,
+          "hosting_krw": 70000,
+          "recurring_site_krw": 76833,
+          "site_cash_plan_krw": 70000,
+          "site_cash_plan_total_krw": 1366000
+        },
+        "site": {
+          "received_usd": 1920.0,
+          "fx_krw_per_usd": 944.01,
+          "received_krw": 1812499,
+          "received_total_krw": 35159473,
+          "to_yongsik_krw": 1268749,
+          "to_mother_krw": 543750,
+          "unpaid_usd": 1852.5,
+          "next_payout_usd": 1852.5,
           "fee_this_month_krw": 0
         }
       }
@@ -12557,6 +12623,267 @@
       "pageviews": 62012,
       "ad_pageviews": 62012,
       "ad_revenue_usd": 77.51
+    },
+    {
+      "date": "2008-02-01",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 7192,
+      "pageviews": 34410,
+      "ad_pageviews": 34410,
+      "ad_revenue_usd": 43.01
+    },
+    {
+      "date": "2008-02-02",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 8524,
+      "pageviews": 40782,
+      "ad_pageviews": 40782,
+      "ad_revenue_usd": 50.98
+    },
+    {
+      "date": "2008-02-03",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 8777,
+      "pageviews": 41994,
+      "ad_pageviews": 41994,
+      "ad_revenue_usd": 52.49
+    },
+    {
+      "date": "2008-02-04",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 7852,
+      "pageviews": 37570,
+      "ad_pageviews": 37570,
+      "ad_revenue_usd": 46.96
+    },
+    {
+      "date": "2008-02-05",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 8072,
+      "pageviews": 38623,
+      "ad_pageviews": 38623,
+      "ad_revenue_usd": 48.28
+    },
+    {
+      "date": "2008-02-06",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 8292,
+      "pageviews": 39676,
+      "ad_pageviews": 39676,
+      "ad_revenue_usd": 49.59
+    },
+    {
+      "date": "2008-02-07",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 8512,
+      "pageviews": 40730,
+      "ad_pageviews": 40730,
+      "ad_revenue_usd": 50.91
+    },
+    {
+      "date": "2008-02-08",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 8733,
+      "pageviews": 41783,
+      "ad_pageviews": 41783,
+      "ad_revenue_usd": 52.23
+    },
+    {
+      "date": "2008-02-09",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 10296,
+      "pageviews": 49262,
+      "ad_pageviews": 49262,
+      "ad_revenue_usd": 61.58
+    },
+    {
+      "date": "2008-02-10",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 10549,
+      "pageviews": 50473,
+      "ad_pageviews": 50473,
+      "ad_revenue_usd": 63.09
+    },
+    {
+      "date": "2008-02-11",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 9393,
+      "pageviews": 44943,
+      "ad_pageviews": 44943,
+      "ad_revenue_usd": 56.18
+    },
+    {
+      "date": "2008-02-12",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 9613,
+      "pageviews": 45996,
+      "ad_pageviews": 45996,
+      "ad_revenue_usd": 57.49
+    },
+    {
+      "date": "2008-02-13",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 9833,
+      "pageviews": 47050,
+      "ad_pageviews": 47050,
+      "ad_revenue_usd": 58.81
+    },
+    {
+      "date": "2008-02-14",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 10054,
+      "pageviews": 48103,
+      "ad_pageviews": 48103,
+      "ad_revenue_usd": 60.13
+    },
+    {
+      "date": "2008-02-15",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 10274,
+      "pageviews": 49157,
+      "ad_pageviews": 49157,
+      "ad_revenue_usd": 61.45
+    },
+    {
+      "date": "2008-02-16",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 12068,
+      "pageviews": 57741,
+      "ad_pageviews": 57741,
+      "ad_revenue_usd": 72.18
+    },
+    {
+      "date": "2008-02-17",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 12321,
+      "pageviews": 58953,
+      "ad_pageviews": 58953,
+      "ad_revenue_usd": 73.69
+    },
+    {
+      "date": "2008-02-18",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 10934,
+      "pageviews": 52317,
+      "ad_pageviews": 52317,
+      "ad_revenue_usd": 65.4
+    },
+    {
+      "date": "2008-02-19",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 11154,
+      "pageviews": 53370,
+      "ad_pageviews": 53370,
+      "ad_revenue_usd": 66.71
+    },
+    {
+      "date": "2008-02-20",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 11374,
+      "pageviews": 54423,
+      "ad_pageviews": 54423,
+      "ad_revenue_usd": 68.03
+    },
+    {
+      "date": "2008-02-21",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 11595,
+      "pageviews": 55477,
+      "ad_pageviews": 55477,
+      "ad_revenue_usd": 69.35
+    },
+    {
+      "date": "2008-02-22",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 11815,
+      "pageviews": 56530,
+      "ad_pageviews": 56530,
+      "ad_revenue_usd": 70.66
+    },
+    {
+      "date": "2008-02-23",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 13840,
+      "pageviews": 66221,
+      "ad_pageviews": 66221,
+      "ad_revenue_usd": 82.78
+    },
+    {
+      "date": "2008-02-24",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 14093,
+      "pageviews": 67432,
+      "ad_pageviews": 67432,
+      "ad_revenue_usd": 84.29
+    },
+    {
+      "date": "2008-02-25",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 12475,
+      "pageviews": 59690,
+      "ad_pageviews": 59690,
+      "ad_revenue_usd": 74.61
+    },
+    {
+      "date": "2008-02-26",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 12695,
+      "pageviews": 60743,
+      "ad_pageviews": 60743,
+      "ad_revenue_usd": 75.93
+    },
+    {
+      "date": "2008-02-27",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 12916,
+      "pageviews": 61797,
+      "ad_pageviews": 61797,
+      "ad_revenue_usd": 77.25
+    },
+    {
+      "date": "2008-02-28",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 13136,
+      "pageviews": 62850,
+      "ad_pageviews": 62850,
+      "ad_revenue_usd": 78.56
+    },
+    {
+      "date": "2008-02-29",
+      "status": "story_estimate",
+      "method": "monthly_allocation_not_observed",
+      "visitors": 13356,
+      "pageviews": 63904,
+      "ad_pageviews": 63904,
+      "ad_revenue_usd": 79.88
     }
   ],
   "academics": {
@@ -13035,6 +13362,12 @@
         "hosting_krw": 70000,
         "domain_cash_krw": 0,
         "setup_cash_krw": 0
+      },
+      {
+        "month": "2008-02",
+        "hosting_krw": 70000,
+        "domain_cash_krw": 0,
+        "setup_cash_krw": 0
       }
     ],
     "includes_tax_assumption": true,
@@ -13431,6 +13764,15 @@
         "paid_this_month_usd": 1885.0,
         "to_yongsik_krw": 1243048,
         "to_mother_krw": 532735
+      },
+      {
+        "month": "2008-02",
+        "revenue_usd": 1852.5,
+        "yongsik_allocation_usd": 1296.75,
+        "mother_allocation_usd": 555.75,
+        "paid_this_month_usd": 1920.0,
+        "to_yongsik_krw": 1268749,
+        "to_mother_krw": 543750
       }
     ]
   },
@@ -13460,6 +13802,17 @@
         "status": "story_draft",
         "event_id": "E059",
         "note": "구입비는월 총지출110만원에 포함. 중고 평가액으로 다시 더하지 않는다."
+      },
+      {
+        "id": "equipment-002",
+        "name": "델 인스피론 1525 보급형",
+        "acquired_month": "2008-02",
+        "acquisition_cost_krw": 650000,
+        "cost_status": "story_estimate",
+        "valuation_krw": null,
+        "status": "story_draft",
+        "event_id": "E085",
+        "note": "월 총지출 590만원에 포함. 노트북 구입액을 평가액으로 다시 더하지 않는다."
       }
     ]
   },
