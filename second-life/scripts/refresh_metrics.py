@@ -87,6 +87,10 @@ for month in sorted(data['monthly'], key=lambda m:m['month']):
 
 # Personal cash: one ledger, computed after every month's ad revenue is known.
 flows = compute_cashflow(data['monthly'], ledger)
+first_estimated_expense = min(
+    (entry['month'] for entry in ledger['spending'] if entry.get('status') == 'story_estimate'),
+    default=None,
+)
 owned = sum(item.get('valuation_krw') or 0 for group in ('vehicles', 'homes') for item in assets[group]['items'])
 received_usd = 0
 for month in data['monthly']:
@@ -102,12 +106,18 @@ for month in data['monthly']:
     equipment = [item for item in assets.get('equipment', []) if item['acquired_month'] <= key]
     equipment_value_known = all(item.get('valuation_krw') is not None for item in equipment)
     equipment_value = sum(item.get('valuation_krw') or 0 for item in equipment)
+    recorded_assets = (
+        cash + (month['investment_assets_krw'] or 0) + owned + (assets['other_assets_krw'] or 0) + equipment_value
+        if cash is not None else None
+    )
     month['finances'] = {
         'personal': {
             'cash_krw': cash,
             'cash_scope': 'unknown' if cash is None else flow['scope'],
             'cash_as_of_month': key if cash is not None else None,
-            'total_assets_krw': cash + (month['investment_assets_krw'] or 0) + owned + (assets['other_assets_krw'] or 0) + equipment_value if cash is not None and equipment_value_known else None,
+            'total_assets_krw': recorded_assets if equipment_value_known else None,
+            'recorded_assets_krw': recorded_assets,
+            'cash_includes_estimated_spending': first_estimated_expense is not None and key >= first_estimated_expense,
         },
         'flow': {
             'opening_krw': flow['opening_krw'],

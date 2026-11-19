@@ -19,20 +19,22 @@ function hasBodyRecordsAt(month) {
 }
 function renderPersonal(month) {
   const key=month.month, assets=M.personal_assets;
-  const {personal, budget} = month.finances;
+  const {personal, budget, flow} = month.finances;
   $('#heroCashLabel').textContent = '개인 현금';
   $('#heroCash').textContent = money(personal.cash_krw);
   const cashNotes = {
     unknown: '미정',
     closed: '마감된 월말 잔액 · 시작금+용돈+광고 몫−지출',
-    provisional: '미마감 · 기록된 수령·지출 기준 잠정 현금',
+    provisional: '미마감 · 원장 기준 월말 잔액',
   };
-  $('#heroCashNote').textContent = cashNotes[personal.cash_scope];
+  const cashNote = personal.cash_includes_estimated_spending ? '월말 잔액 추정 · 추정 지출 포함' : cashNotes[personal.cash_scope];
+  $('#heroCashNote').textContent = flow.spending_krw == null ? cashNote : cashNote + ' · 이달 지출 ' + money(flow.spending_krw);
   $('#heroInvestments').textContent = money(month.investment_assets_krw);
-  $('#totalAssets').textContent = money(personal.total_assets_krw);
-  const unvaluedEquipment = (assets.equipment || []).some(item => item.acquired_month <= key && item.valuation_krw == null);
-  $('#assetBasis').textContent = personal.total_assets_krw == null
-    ? (unvaluedEquipment ? '보유 장비 평가액 미정 · 구입비를 다시 더하지 않음' : '현금 확인 후 합산')
+  const partialAssets = personal.total_assets_krw == null && personal.recorded_assets_krw != null;
+  $('#totalAssetsLabel').textContent = partialAssets ? '기록 기준 자산' : '개인 총자산';
+  $('#totalAssets').textContent = money(personal.total_assets_krw ?? personal.recorded_assets_krw);
+  $('#assetBasis').textContent = partialAssets
+    ? '현금과 금액이 기록된 자산 합계 · 평가액이 없는 장비 제외'
     : '현금+투자자산+기록된 소유 자산 · 미수령 광고·가족 자산 제외';
   $('#heroAllowance').textContent = budget.allowance_krw ? money(budget.allowance_krw) : '용돈 없음 · 현금에서 지출';
   $('#heroAfterOperations').textContent = budget.allowance_krw ? money(budget.after_site_krw) : '해당 없음';

@@ -156,10 +156,12 @@ spend_ids = [item['id'] for item in ledger['spending']]
 assert len(spend_ids) == len(set(spend_ids)), 'Duplicate spending ID'
 event_ids = {event['id'] for event in data['events']}
 for item in ledger['spending']:
-    assert item['month'] in data['months'] and item['amount_krw'] > 0, item['id']
+    assert item['month'] in data['months'] and item['amount_krw'] >= 0, item['id']
     assert set(item.get('event_ids', [])) <= event_ids, item['id']
 months_with_spending = [item['month'] for item in ledger['spending']]
 assert len(months_with_spending) == len(set(months_with_spending)), 'One spending line per month (D049)'
+missing_spending = set(data['months']) - set(months_with_spending)
+assert not missing_spending, f'Missing ledger.spending months: {", ".join(sorted(missing_spending))}'
 # Closed months spend exactly the user-adopted plan (D045).
 plan = {row['month']: row['total_krw'] for row in metrics['personal_spending_budget']['monthly']}
 for key in plan:
@@ -194,6 +196,7 @@ for row in rows:
         cash += flow['opening_krw'] + flow['allowance_krw'] + flow['ad_share_krw'] - flow['spending_krw']
     else:
         cash = None
+    assert cash is not None, f'Missing cash balance for {key}'
     assert personal['cash_krw'] == cash, key
     assert personal['cash_scope'] == ('unknown' if cash is None else 'closed' if key <= ledger['closed_through'] else 'provisional')
     assert row['personal_cash_krw'] == (cash if key <= ledger['closed_through'] else None)

@@ -41,7 +41,9 @@
           "cash_krw": 137500,
           "cash_scope": "closed",
           "cash_as_of_month": "2005-01",
-          "total_assets_krw": 137500
+          "total_assets_krw": 137500,
+          "recorded_assets_krw": 137500,
+          "cash_includes_estimated_spending": false
         },
         "flow": {
           "opening_krw": 100000,
@@ -100,7 +102,9 @@
           "cash_krw": 192000,
           "cash_scope": "closed",
           "cash_as_of_month": "2005-02",
-          "total_assets_krw": 192000
+          "total_assets_krw": 192000,
+          "recorded_assets_krw": 192000,
+          "cash_includes_estimated_spending": false
         },
         "flow": {
           "opening_krw": 0,
@@ -159,7 +163,9 @@
           "cash_krw": 246500,
           "cash_scope": "closed",
           "cash_as_of_month": "2005-03",
-          "total_assets_krw": 246500
+          "total_assets_krw": 246500,
+          "recorded_assets_krw": 246500,
+          "cash_includes_estimated_spending": false
         },
         "flow": {
           "opening_krw": 0,
@@ -218,7 +224,9 @@
           "cash_krw": 306000,
           "cash_scope": "closed",
           "cash_as_of_month": "2005-04",
-          "total_assets_krw": 306000
+          "total_assets_krw": 306000,
+          "recorded_assets_krw": 306000,
+          "cash_includes_estimated_spending": false
         },
         "flow": {
           "opening_krw": 0,
@@ -277,7 +285,9 @@
           "cash_krw": 494647,
           "cash_scope": "closed",
           "cash_as_of_month": "2005-05",
-          "total_assets_krw": 494647
+          "total_assets_krw": 494647,
+          "recorded_assets_krw": 494647,
+          "cash_includes_estimated_spending": false
         },
         "flow": {
           "opening_krw": 0,
@@ -336,7 +346,9 @@
           "cash_krw": 604687,
           "cash_scope": "closed",
           "cash_as_of_month": "2005-06",
-          "total_assets_krw": 604687
+          "total_assets_krw": 604687,
+          "recorded_assets_krw": 604687,
+          "cash_includes_estimated_spending": false
         },
         "flow": {
           "opening_krw": 0,
@@ -395,7 +407,9 @@
           "cash_krw": 703994,
           "cash_scope": "closed",
           "cash_as_of_month": "2005-07",
-          "total_assets_krw": 703994
+          "total_assets_krw": 703994,
+          "recorded_assets_krw": 703994,
+          "cash_includes_estimated_spending": false
         },
         "flow": {
           "opening_krw": 0,
@@ -458,7 +472,9 @@
           "cash_krw": 807944,
           "cash_scope": "closed",
           "cash_as_of_month": "2005-08",
-          "total_assets_krw": 807944
+          "total_assets_krw": 807944,
+          "recorded_assets_krw": 807944,
+          "cash_includes_estimated_spending": false
         },
         "flow": {
           "opening_krw": 0,
@@ -521,7 +537,9 @@
           "cash_krw": 1076521,
           "cash_scope": "closed",
           "cash_as_of_month": "2005-09",
-          "total_assets_krw": 1076521
+          "total_assets_krw": 1076521,
+          "recorded_assets_krw": 1076521,
+          "cash_includes_estimated_spending": false
         },
         "flow": {
           "opening_krw": 0,
@@ -590,7 +608,9 @@
           "cash_krw": 324276,
           "cash_scope": "provisional",
           "cash_as_of_month": "2005-10",
-          "total_assets_krw": null
+          "total_assets_krw": null,
+          "recorded_assets_krw": 324276,
+          "cash_includes_estimated_spending": false
         },
         "flow": {
           "opening_krw": 0,
@@ -654,7 +674,9 @@
           "cash_krw": 561395,
           "cash_scope": "provisional",
           "cash_as_of_month": "2005-11",
-          "total_assets_krw": null
+          "total_assets_krw": null,
+          "recorded_assets_krw": 561395,
+          "cash_includes_estimated_spending": false
         },
         "flow": {
           "opening_krw": 0,
@@ -715,16 +737,18 @@
       "personal_cash_krw": null,
       "finances": {
         "personal": {
-          "cash_krw": null,
-          "cash_scope": "unknown",
-          "cash_as_of_month": null,
-          "total_assets_krw": null
+          "cash_krw": 808687,
+          "cash_scope": "provisional",
+          "cash_as_of_month": "2005-12",
+          "total_assets_krw": null,
+          "recorded_assets_krw": 808687,
+          "cash_includes_estimated_spending": true
         },
         "flow": {
           "opening_krw": 0,
           "allowance_krw": 0,
           "ad_share_krw": 447292,
-          "spending_krw": null
+          "spending_krw": 200000
         },
         "budget": {
           "allowance_krw": 0,
@@ -779,16 +803,18 @@
       "personal_cash_krw": null,
       "finances": {
         "personal": {
-          "cash_krw": null,
-          "cash_scope": "unknown",
-          "cash_as_of_month": null,
-          "total_assets_krw": null
+          "cash_krw": 1059536,
+          "cash_scope": "provisional",
+          "cash_as_of_month": "2006-01",
+          "total_assets_krw": null,
+          "recorded_assets_krw": 1059536,
+          "cash_includes_estimated_spending": true
         },
         "flow": {
           "opening_krw": 0,
           "allowance_krw": 0,
           "ad_share_krw": 450849,
-          "spending_krw": null
+          "spending_krw": 200000
         },
         "budget": {
           "allowance_krw": 0,
@@ -843,16 +869,18 @@
       "personal_cash_krw": null,
       "finances": {
         "personal": {
-          "cash_krw": null,
-          "cash_scope": "unknown",
-          "cash_as_of_month": null,
-          "total_assets_krw": null
+          "cash_krw": 1364459,
+          "cash_scope": "provisional",
+          "cash_as_of_month": "2006-02",
+          "total_assets_krw": null,
+          "recorded_assets_krw": 1364459,
+          "cash_includes_estimated_spending": true
         },
         "flow": {
           "opening_krw": 0,
           "allowance_krw": 0,
           "ad_share_krw": 504923,
-          "spending_krw": null
+          "spending_krw": 200000
         },
         "budget": {
           "allowance_krw": 0,
@@ -907,16 +935,18 @@
       "personal_cash_krw": null,
       "finances": {
         "personal": {
-          "cash_krw": null,
-          "cash_scope": "unknown",
-          "cash_as_of_month": null,
-          "total_assets_krw": null
+          "cash_krw": 1646331,
+          "cash_scope": "provisional",
+          "cash_as_of_month": "2006-03",
+          "total_assets_krw": null,
+          "recorded_assets_krw": 1646331,
+          "cash_includes_estimated_spending": true
         },
         "flow": {
           "opening_krw": 0,
           "allowance_krw": 0,
           "ad_share_krw": 481872,
-          "spending_krw": null
+          "spending_krw": 200000
         },
         "budget": {
           "allowance_krw": 0,
@@ -971,16 +1001,18 @@
       "personal_cash_krw": null,
       "finances": {
         "personal": {
-          "cash_krw": null,
-          "cash_scope": "unknown",
-          "cash_as_of_month": null,
-          "total_assets_krw": null
+          "cash_krw": 1904770,
+          "cash_scope": "provisional",
+          "cash_as_of_month": "2006-04",
+          "total_assets_krw": null,
+          "recorded_assets_krw": 1904770,
+          "cash_includes_estimated_spending": true
         },
         "flow": {
           "opening_krw": 0,
           "allowance_krw": 0,
           "ad_share_krw": 458439,
-          "spending_krw": null
+          "spending_krw": 200000
         },
         "budget": {
           "allowance_krw": 0,
@@ -1035,16 +1067,18 @@
       "personal_cash_krw": null,
       "finances": {
         "personal": {
-          "cash_krw": null,
-          "cash_scope": "unknown",
-          "cash_as_of_month": null,
-          "total_assets_krw": null
+          "cash_krw": 2149308,
+          "cash_scope": "provisional",
+          "cash_as_of_month": "2006-05",
+          "total_assets_krw": null,
+          "recorded_assets_krw": 2149308,
+          "cash_includes_estimated_spending": true
         },
         "flow": {
           "opening_krw": 0,
           "allowance_krw": 0,
           "ad_share_krw": 444538,
-          "spending_krw": null
+          "spending_krw": 200000
         },
         "budget": {
           "allowance_krw": 0,
@@ -1099,16 +1133,18 @@
       "personal_cash_krw": null,
       "finances": {
         "personal": {
-          "cash_krw": null,
-          "cash_scope": "unknown",
-          "cash_as_of_month": null,
-          "total_assets_krw": null
+          "cash_krw": 2425340,
+          "cash_scope": "provisional",
+          "cash_as_of_month": "2006-06",
+          "total_assets_krw": null,
+          "recorded_assets_krw": 2425340,
+          "cash_includes_estimated_spending": true
         },
         "flow": {
           "opening_krw": 0,
           "allowance_krw": 0,
           "ad_share_krw": 476032,
-          "spending_krw": null
+          "spending_krw": 200000
         },
         "budget": {
           "allowance_krw": 0,
@@ -1163,16 +1199,18 @@
       "personal_cash_krw": null,
       "finances": {
         "personal": {
-          "cash_krw": null,
-          "cash_scope": "unknown",
-          "cash_as_of_month": null,
-          "total_assets_krw": null
+          "cash_krw": 2703717,
+          "cash_scope": "provisional",
+          "cash_as_of_month": "2006-07",
+          "total_assets_krw": null,
+          "recorded_assets_krw": 2703717,
+          "cash_includes_estimated_spending": true
         },
         "flow": {
           "opening_krw": 0,
           "allowance_krw": 0,
           "ad_share_krw": 478377,
-          "spending_krw": null
+          "spending_krw": 200000
         },
         "budget": {
           "allowance_krw": 0,
@@ -1227,16 +1265,18 @@
       "personal_cash_krw": null,
       "finances": {
         "personal": {
-          "cash_krw": null,
-          "cash_scope": "unknown",
-          "cash_as_of_month": null,
-          "total_assets_krw": null
+          "cash_krw": 3100707,
+          "cash_scope": "provisional",
+          "cash_as_of_month": "2006-08",
+          "total_assets_krw": null,
+          "recorded_assets_krw": 3100707,
+          "cash_includes_estimated_spending": true
         },
         "flow": {
           "opening_krw": 0,
           "allowance_krw": 0,
           "ad_share_krw": 596990,
-          "spending_krw": null
+          "spending_krw": 200000
         },
         "budget": {
           "allowance_krw": 0,
@@ -1291,16 +1331,18 @@
       "personal_cash_krw": null,
       "finances": {
         "personal": {
-          "cash_krw": null,
-          "cash_scope": "unknown",
-          "cash_as_of_month": null,
-          "total_assets_krw": null
+          "cash_krw": 3553145,
+          "cash_scope": "provisional",
+          "cash_as_of_month": "2006-09",
+          "total_assets_krw": null,
+          "recorded_assets_krw": 3553145,
+          "cash_includes_estimated_spending": true
         },
         "flow": {
           "opening_krw": 0,
           "allowance_krw": 0,
           "ad_share_krw": 652438,
-          "spending_krw": null
+          "spending_krw": 200000
         },
         "budget": {
           "allowance_krw": 0,
@@ -1355,16 +1397,18 @@
       "personal_cash_krw": null,
       "finances": {
         "personal": {
-          "cash_krw": null,
-          "cash_scope": "unknown",
-          "cash_as_of_month": null,
-          "total_assets_krw": null
+          "cash_krw": 3943305,
+          "cash_scope": "provisional",
+          "cash_as_of_month": "2006-10",
+          "total_assets_krw": null,
+          "recorded_assets_krw": 3943305,
+          "cash_includes_estimated_spending": true
         },
         "flow": {
           "opening_krw": 0,
           "allowance_krw": 0,
           "ad_share_krw": 590160,
-          "spending_krw": null
+          "spending_krw": 200000
         },
         "budget": {
           "allowance_krw": 0,
@@ -1419,16 +1463,18 @@
       "personal_cash_krw": null,
       "finances": {
         "personal": {
-          "cash_krw": null,
-          "cash_scope": "unknown",
-          "cash_as_of_month": null,
-          "total_assets_krw": null
+          "cash_krw": 4336706,
+          "cash_scope": "provisional",
+          "cash_as_of_month": "2006-11",
+          "total_assets_krw": null,
+          "recorded_assets_krw": 4336706,
+          "cash_includes_estimated_spending": true
         },
         "flow": {
           "opening_krw": 0,
           "allowance_krw": 0,
           "ad_share_krw": 593401,
-          "spending_krw": null
+          "spending_krw": 200000
         },
         "budget": {
           "allowance_krw": 0,
@@ -1483,16 +1529,18 @@
       "personal_cash_krw": null,
       "finances": {
         "personal": {
-          "cash_krw": null,
-          "cash_scope": "unknown",
-          "cash_as_of_month": null,
-          "total_assets_krw": null
+          "cash_krw": 4741296,
+          "cash_scope": "provisional",
+          "cash_as_of_month": "2006-12",
+          "total_assets_krw": null,
+          "recorded_assets_krw": 4741296,
+          "cash_includes_estimated_spending": true
         },
         "flow": {
           "opening_krw": 0,
           "allowance_krw": 0,
           "ad_share_krw": 604590,
-          "spending_krw": null
+          "spending_krw": 200000
         },
         "budget": {
           "allowance_krw": 0,
@@ -1547,16 +1595,18 @@
       "personal_cash_krw": null,
       "finances": {
         "personal": {
-          "cash_krw": null,
-          "cash_scope": "unknown",
-          "cash_as_of_month": null,
-          "total_assets_krw": null
+          "cash_krw": 5287192,
+          "cash_scope": "provisional",
+          "cash_as_of_month": "2007-01",
+          "total_assets_krw": null,
+          "recorded_assets_krw": 5287192,
+          "cash_includes_estimated_spending": true
         },
         "flow": {
           "opening_krw": 0,
           "allowance_krw": 0,
           "ad_share_krw": 745896,
-          "spending_krw": null
+          "spending_krw": 200000
         },
         "budget": {
           "allowance_krw": 0,
@@ -1611,16 +1661,18 @@
       "personal_cash_krw": null,
       "finances": {
         "personal": {
-          "cash_krw": null,
-          "cash_scope": "unknown",
-          "cash_as_of_month": null,
-          "total_assets_krw": null
+          "cash_krw": 6048803,
+          "cash_scope": "provisional",
+          "cash_as_of_month": "2007-02",
+          "total_assets_krw": null,
+          "recorded_assets_krw": 6048803,
+          "cash_includes_estimated_spending": true
         },
         "flow": {
           "opening_krw": 0,
           "allowance_krw": 0,
           "ad_share_krw": 961611,
-          "spending_krw": null
+          "spending_krw": 200000
         },
         "budget": {
           "allowance_krw": 0,
@@ -1675,16 +1727,18 @@
       "personal_cash_krw": null,
       "finances": {
         "personal": {
-          "cash_krw": null,
-          "cash_scope": "unknown",
-          "cash_as_of_month": null,
-          "total_assets_krw": null
+          "cash_krw": 7024457,
+          "cash_scope": "provisional",
+          "cash_as_of_month": "2007-03",
+          "total_assets_krw": null,
+          "recorded_assets_krw": 7024457,
+          "cash_includes_estimated_spending": true
         },
         "flow": {
           "opening_krw": 0,
           "allowance_krw": 0,
           "ad_share_krw": 1175654,
-          "spending_krw": null
+          "spending_krw": 200000
         },
         "budget": {
           "allowance_krw": 0,
@@ -1739,16 +1793,18 @@
       "personal_cash_krw": null,
       "finances": {
         "personal": {
-          "cash_krw": null,
-          "cash_scope": "unknown",
-          "cash_as_of_month": null,
-          "total_assets_krw": null
+          "cash_krw": 7883117,
+          "cash_scope": "provisional",
+          "cash_as_of_month": "2007-04",
+          "total_assets_krw": null,
+          "recorded_assets_krw": 7883117,
+          "cash_includes_estimated_spending": true
         },
         "flow": {
           "opening_krw": 0,
           "allowance_krw": 0,
           "ad_share_krw": 1058660,
-          "spending_krw": null
+          "spending_krw": 200000
         },
         "budget": {
           "allowance_krw": 0,
@@ -1803,16 +1859,18 @@
       "personal_cash_krw": null,
       "finances": {
         "personal": {
-          "cash_krw": null,
-          "cash_scope": "unknown",
-          "cash_as_of_month": null,
-          "total_assets_krw": null
+          "cash_krw": 8676534,
+          "cash_scope": "provisional",
+          "cash_as_of_month": "2007-05",
+          "total_assets_krw": null,
+          "recorded_assets_krw": 8676534,
+          "cash_includes_estimated_spending": true
         },
         "flow": {
           "opening_krw": 0,
           "allowance_krw": 0,
           "ad_share_krw": 993417,
-          "spending_krw": null
+          "spending_krw": 200000
         },
         "budget": {
           "allowance_krw": 0,
@@ -1867,16 +1925,18 @@
       "personal_cash_krw": null,
       "finances": {
         "personal": {
-          "cash_krw": null,
-          "cash_scope": "unknown",
-          "cash_as_of_month": null,
-          "total_assets_krw": null
+          "cash_krw": 9511689,
+          "cash_scope": "provisional",
+          "cash_as_of_month": "2007-06",
+          "total_assets_krw": null,
+          "recorded_assets_krw": 9511689,
+          "cash_includes_estimated_spending": true
         },
         "flow": {
           "opening_krw": 0,
           "allowance_krw": 0,
           "ad_share_krw": 1035155,
-          "spending_krw": null
+          "spending_krw": 200000
         },
         "budget": {
           "allowance_krw": 0,
@@ -1931,16 +1991,18 @@
       "personal_cash_krw": null,
       "finances": {
         "personal": {
-          "cash_krw": null,
-          "cash_scope": "unknown",
-          "cash_as_of_month": null,
-          "total_assets_krw": null
+          "cash_krw": 10395415,
+          "cash_scope": "provisional",
+          "cash_as_of_month": "2007-07",
+          "total_assets_krw": null,
+          "recorded_assets_krw": 10395415,
+          "cash_includes_estimated_spending": true
         },
         "flow": {
           "opening_krw": 0,
           "allowance_krw": 0,
           "ad_share_krw": 1083726,
-          "spending_krw": null
+          "spending_krw": 200000
         },
         "budget": {
           "allowance_krw": 0,
@@ -1995,16 +2057,18 @@
       "personal_cash_krw": null,
       "finances": {
         "personal": {
-          "cash_krw": null,
-          "cash_scope": "unknown",
-          "cash_as_of_month": null,
-          "total_assets_krw": null
+          "cash_krw": 11515952,
+          "cash_scope": "provisional",
+          "cash_as_of_month": "2007-08",
+          "total_assets_krw": null,
+          "recorded_assets_krw": 11515952,
+          "cash_includes_estimated_spending": true
         },
         "flow": {
           "opening_krw": 0,
           "allowance_krw": 0,
           "ad_share_krw": 1320537,
-          "spending_krw": null
+          "spending_krw": 200000
         },
         "budget": {
           "allowance_krw": 0,
@@ -2059,16 +2123,18 @@
       "personal_cash_krw": null,
       "finances": {
         "personal": {
-          "cash_krw": null,
-          "cash_scope": "unknown",
-          "cash_as_of_month": null,
-          "total_assets_krw": null
+          "cash_krw": 12735433,
+          "cash_scope": "provisional",
+          "cash_as_of_month": "2007-09",
+          "total_assets_krw": null,
+          "recorded_assets_krw": 12735433,
+          "cash_includes_estimated_spending": true
         },
         "flow": {
           "opening_krw": 0,
           "allowance_krw": 0,
           "ad_share_krw": 1419481,
-          "spending_krw": null
+          "spending_krw": 200000
         },
         "budget": {
           "allowance_krw": 0,
@@ -2123,16 +2189,18 @@
       "personal_cash_krw": null,
       "finances": {
         "personal": {
-          "cash_krw": null,
-          "cash_scope": "unknown",
-          "cash_as_of_month": null,
-          "total_assets_krw": null
+          "cash_krw": 13644226,
+          "cash_scope": "provisional",
+          "cash_as_of_month": "2007-10",
+          "total_assets_krw": null,
+          "recorded_assets_krw": 13644226,
+          "cash_includes_estimated_spending": true
         },
         "flow": {
           "opening_krw": 0,
           "allowance_krw": 0,
           "ad_share_krw": 1108793,
-          "spending_krw": null
+          "spending_krw": 200000
         },
         "budget": {
           "allowance_krw": 0,
@@ -2187,16 +2255,18 @@
       "personal_cash_krw": null,
       "finances": {
         "personal": {
-          "cash_krw": null,
-          "cash_scope": "unknown",
-          "cash_as_of_month": null,
-          "total_assets_krw": null
+          "cash_krw": 14543238,
+          "cash_scope": "provisional",
+          "cash_as_of_month": "2007-11",
+          "total_assets_krw": null,
+          "recorded_assets_krw": 14543238,
+          "cash_includes_estimated_spending": true
         },
         "flow": {
           "opening_krw": 0,
           "allowance_krw": 0,
           "ad_share_krw": 1099012,
-          "spending_krw": null
+          "spending_krw": 200000
         },
         "budget": {
           "allowance_krw": 0,
@@ -2251,16 +2321,18 @@
       "personal_cash_krw": null,
       "finances": {
         "personal": {
-          "cash_krw": null,
-          "cash_scope": "unknown",
-          "cash_as_of_month": null,
-          "total_assets_krw": null
+          "cash_krw": 15483836,
+          "cash_scope": "provisional",
+          "cash_as_of_month": "2007-12",
+          "total_assets_krw": null,
+          "recorded_assets_krw": 15483836,
+          "cash_includes_estimated_spending": true
         },
         "flow": {
           "opening_krw": 0,
           "allowance_krw": 0,
           "ad_share_krw": 1140598,
-          "spending_krw": null
+          "spending_krw": 200000
         },
         "budget": {
           "allowance_krw": 0,
@@ -2315,16 +2387,18 @@
       "personal_cash_krw": null,
       "finances": {
         "personal": {
-          "cash_krw": null,
-          "cash_scope": "unknown",
-          "cash_as_of_month": null,
-          "total_assets_krw": null
+          "cash_krw": 16526884,
+          "cash_scope": "provisional",
+          "cash_as_of_month": "2008-01",
+          "total_assets_krw": null,
+          "recorded_assets_krw": 16526884,
+          "cash_includes_estimated_spending": true
         },
         "flow": {
           "opening_krw": 0,
           "allowance_krw": 0,
           "ad_share_krw": 1243048,
-          "spending_krw": null
+          "spending_krw": 200000
         },
         "budget": {
           "allowance_krw": 0,
