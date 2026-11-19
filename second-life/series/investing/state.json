@@ -3,9 +3,9 @@
   "return_date": "2005-01-01",
   "planned_start_date": "2005-01-01",
   "last_confirmed_month": "2005-09",
-  "next_month": "2008-03",
+  "next_month": "2008-04",
   "month_end_state": "snapshots/2005-09.json",
-  "working_month": "2008-02",
+  "working_month": "2008-03",
   "field_notes": {
     "last_confirmed_month": "마감된 마지막 달",
     "working_month": "초안을 쓰고 있는 달. 없으면 null",
