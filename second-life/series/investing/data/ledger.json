@@ -57,195 +57,57 @@
     {
       "id": "S001",
       "month": "2005-01",
-      "category": "site",
-      "label": "사이트 호스팅·도메인·설정",
-      "amount_krw": 32500,
+      "amount_krw": 62500,
+      "memo": "사이트·참고서·생활·교통",
       "source": "D045: 채택된 월별 지출 예산표를 실제 지출로 확정"
     },
     {
       "id": "S002",
-      "month": "2005-01",
-      "category": "books",
-      "label": "참고서·문제집",
-      "amount_krw": 15000,
+      "month": "2005-02",
+      "amount_krw": 45500,
+      "memo": "사이트·참고서·생활·교통",
       "source": "D045: 채택된 월별 지출 예산표를 실제 지출로 확정"
     },
     {
       "id": "S003",
-      "month": "2005-01",
-      "category": "other",
-      "label": "기타 생활비",
-      "amount_krw": 15000,
+      "month": "2005-03",
+      "amount_krw": 45500,
+      "memo": "사이트·참고서·생활·교통",
       "source": "D045: 채택된 월별 지출 예산표를 실제 지출로 확정"
     },
     {
       "id": "S004",
-      "month": "2005-02",
-      "category": "site",
-      "label": "사이트 호스팅·도메인·설정",
-      "amount_krw": 5500,
+      "month": "2005-04",
+      "amount_krw": 40500,
+      "memo": "사이트·참고서·생활·교통",
       "source": "D045: 채택된 월별 지출 예산표를 실제 지출로 확정"
     },
     {
       "id": "S005",
-      "month": "2005-02",
-      "category": "books",
-      "label": "참고서·문제집",
-      "amount_krw": 20000,
+      "month": "2005-05",
+      "amount_krw": 46000,
+      "memo": "사이트·참고서·생활·교통",
       "source": "D045: 채택된 월별 지출 예산표를 실제 지출로 확정"
     },
     {
       "id": "S006",
-      "month": "2005-02",
-      "category": "other",
-      "label": "기타 생활비",
-      "amount_krw": 20000,
+      "month": "2005-06",
+      "amount_krw": 76000,
+      "memo": "사이트·참고서·데이트·생활·교통",
       "source": "D045: 채택된 월별 지출 예산표를 실제 지출로 확정"
     },
     {
       "id": "S007",
-      "month": "2005-03",
-      "category": "site",
-      "label": "사이트 호스팅·도메인·설정",
-      "amount_krw": 5500,
-      "source": "D045: 채택된 월별 지출 예산표를 실제 지출로 확정"
-    },
-    {
-      "id": "S008",
-      "month": "2005-03",
-      "category": "books",
-      "label": "참고서·문제집",
-      "amount_krw": 25000,
-      "source": "D045: 채택된 월별 지출 예산표를 실제 지출로 확정"
-    },
-    {
-      "id": "S009",
-      "month": "2005-03",
-      "category": "other",
-      "label": "기타 생활비",
-      "amount_krw": 15000,
-      "source": "D045: 채택된 월별 지출 예산표를 실제 지출로 확정"
-    },
-    {
-      "id": "S010",
-      "month": "2005-04",
-      "category": "site",
-      "label": "사이트 호스팅·도메인·설정",
-      "amount_krw": 5500,
-      "source": "D045: 채택된 월별 지출 예산표를 실제 지출로 확정"
-    },
-    {
-      "id": "S011",
-      "month": "2005-04",
-      "category": "books",
-      "label": "참고서·문제집",
-      "amount_krw": 20000,
-      "source": "D045: 채택된 월별 지출 예산표를 실제 지출로 확정"
-    },
-    {
-      "id": "S012",
-      "month": "2005-04",
-      "category": "other",
-      "label": "기타 생활비",
-      "amount_krw": 15000,
-      "source": "D045: 채택된 월별 지출 예산표를 실제 지출로 확정"
-    },
-    {
-      "id": "S013",
-      "month": "2005-05",
-      "category": "site",
-      "label": "사이트 호스팅·도메인·설정",
-      "amount_krw": 11000,
-      "source": "D045: 채택된 월별 지출 예산표를 실제 지출로 확정"
-    },
-    {
-      "id": "S014",
-      "month": "2005-05",
-      "category": "books",
-      "label": "참고서·문제집",
-      "amount_krw": 15000,
-      "source": "D045: 채택된 월별 지출 예산표를 실제 지출로 확정"
-    },
-    {
-      "id": "S015",
-      "month": "2005-05",
-      "category": "other",
-      "label": "기타 생활비",
-      "amount_krw": 20000,
-      "source": "D045: 채택된 월별 지출 예산표를 실제 지출로 확정"
-    },
-    {
-      "id": "S016",
-      "month": "2005-06",
-      "category": "site",
-      "label": "사이트 호스팅·도메인·설정",
-      "amount_krw": 11000,
-      "source": "D045: 채택된 월별 지출 예산표를 실제 지출로 확정"
-    },
-    {
-      "id": "S017",
-      "month": "2005-06",
-      "category": "books",
-      "label": "참고서·문제집",
-      "amount_krw": 15000,
-      "source": "D045: 채택된 월별 지출 예산표를 실제 지출로 확정"
-    },
-    {
-      "id": "S018",
-      "month": "2005-06",
-      "category": "date",
-      "label": "데이트",
-      "amount_krw": 30000,
-      "source": "D045: 채택된 월별 지출 예산표를 실제 지출로 확정"
-    },
-    {
-      "id": "S019",
-      "month": "2005-06",
-      "category": "other",
-      "label": "기타 생활비",
-      "amount_krw": 20000,
-      "source": "D045: 채택된 월별 지출 예산표를 실제 지출로 확정"
-    },
-    {
-      "id": "S020",
       "month": "2005-08",
-      "category": "outing",
-      "label": "친구들과 영화·분식",
-      "amount_krw": 11000,
-      "items": {
-        "영화표": 6500,
-        "분식": 3500,
-        "교통": 1000
-      },
-      "event_id": "E045",
-      "source": "8월 본문 기존 지출(D038)"
-    },
-    {
-      "id": "S021",
-      "month": "2005-08",
-      "category": "outing",
-      "label": "친구들과 수영장",
-      "amount_krw": 15000,
-      "items": {
-        "입장": 7500,
-        "간식과 식사": 5000,
-        "교통": 2500
-      },
-      "event_id": "E046",
-      "source": "8월 본문 기존 지출(D038)"
-    },
-    {
-      "id": "S022",
-      "month": "2005-08",
-      "category": "date",
-      "label": "현지와 둘이 식사·간식·산책",
-      "amount_krw": 13000,
-      "items": {
-        "식사와 간식 중 부담한 몫": 11000,
-        "교통": 2000
-      },
-      "event_id": "E047",
-      "source": "8월 본문 기존 지출(D038)"
+      "amount_krw": 39000,
+      "memo": "친구 모임·데이트",
+      "event_ids": [
+        "E045",
+        "E046",
+        "E047"
+      ],
+      "source": "8월 본문 나들이 지출(D038). 7~9월 생활비 전체는 미정"
     }
-  ]
+  ],
+  "spending_rule": "한 달에 한 줄. 그달 총지출을 대략적인 금액(예: 200,000원)과 짧은 메모(데이트·교통 등)로 적는다. 항목별 영수증 수준으로 나누지 않는다(D049)."
 }

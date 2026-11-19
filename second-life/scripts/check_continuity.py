@@ -150,8 +150,9 @@ assert len(spend_ids) == len(set(spend_ids)), 'Duplicate spending ID'
 event_ids = {event['id'] for event in data['events']}
 for item in ledger['spending']:
     assert item['month'] in data['months'] and item['amount_krw'] > 0, item['id']
-    assert 'items' not in item or sum(item['items'].values()) == item['amount_krw'], item['id']
-    assert 'event_id' not in item or item['event_id'] in event_ids, item['id']
+    assert set(item.get('event_ids', [])) <= event_ids, item['id']
+months_with_spending = [item['month'] for item in ledger['spending']]
+assert len(months_with_spending) == len(set(months_with_spending)), 'One spending line per month (D049)'
 # Closed months spend exactly the user-adopted plan (D045).
 plan = {row['month']: row['total_krw'] for row in metrics['personal_spending_budget']['monthly']}
 for key in plan:

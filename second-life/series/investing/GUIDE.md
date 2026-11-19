@@ -124,7 +124,7 @@
 | --- | --- |
 | 사이트 유입·광고 | `metrics.monthly`의 그달 행: `visitor_days`, `pageviews`, `ad_pageviews`, `publisher_rpm_usd`. 미정이면 null |
 | 새 달 추가 | `metrics.monthly` 행, `cost_model.monthly` 행, `records.months` 항목을 함께 추가 |
-| 지출 | `ledger.spending`에 `S###` 줄: month, category(site·books·date·outing·other), label, amount_krw, 있으면 items·event_id |
+| 지출 | `ledger.spending`에 **한 달에 한 줄**(D049): `S###`, month, amount_krw(대략적인 총액, 예: 200000), memo(예: "데이트·교통·사이트"), 있으면 event_ids. 항목별로 나누지 않는다. 본문에도 "이번 달 20만원 정도" 수준으로 쓴다 |
 | 다음 달 생활비 계획 | `metrics.personal_spending_budget.monthly` (계획일 뿐 현금에 반영되지 않음) |
 | 시험 | 새 시험은 `metrics.additional_exams`에 객체 하나(school, exam, story_month, subjects, rank_in_grade, research, question_point_values 2·3·4). 점수는 2·3·4점 문항으로 만들 수 있는 값이어야 한다 |
 | 체격 | `metrics.body`에 날짜별 점 추가. 제지방 = 체중×(1−체지방률). 골격근량은 null |
@@ -193,7 +193,7 @@ RESUME는 덧붙이지 말고 **통째로 다시 쓴다.** 한 화면 안에 다
 
 새 달에 할 일:
 - 그달 환율을 `rules.fx.krw_per_usd`에 추가한다.
-- 지출을 `spending`에 넣는다.
+- 그달 총지출을 `spending`에 한 줄로 넣는다(대략적인 금액).
 - 규칙이 바뀌면 rules를 고치고 결정 D와 변경 C를 남긴다.
 
 마감 잔액(참고): 1월 137,500원 → 2월 192,000원 → 3월 246,500원 → 4월 306,000원 → 5월 494,647원 → **6월 604,687원(마감)**. 7월 이후는 생활비 일부가 아직 기록되지 않은 잠정값이다.
