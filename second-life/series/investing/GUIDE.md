@@ -159,9 +159,10 @@ RESUME는 덧붙이지 말고 **통째로 다시 쓴다.** 한 화면 안에 다
 ### 8단계. 게시 (D036: 합의한 변경을 구현·검증했으면 매번)
 
 1. `main`: second-life의 변경 파일만 커밋한다(다른 프로젝트 변경을 섞지 않는다). 메시지 끝에 지정된 Co-Authored-By 줄을 단다. `git push origin main`.
-2. `gh-pages`: 변경된 **공개 파일만** 같은 경로로 올린다. 대상은 `series/investing/dashboard.html`, 바뀌었으면 `characters/person-NNN.html`과 그 페이지가 쓰는 이미지다. 작업 폴더를 바꾸지 않고 임시 인덱스로 커밋한다.
+2. `gh-pages`: 변경된 **공개 파일만** 올린다. main의 `second-life/`를 Pages 루트에 대응하므로 게시 경로에서는 그 접두사를 뺀다. 대상은 `series/investing/dashboard.html`, 바뀌었으면 `characters/person-NNN.html`과 그 페이지가 쓰는 이미지다. 작업 폴더를 바꾸지 않고 임시 인덱스로 커밋한다.
    ```
-   cd <저장소 루트>; git fetch origin gh-pages
+   cd <저장소 루트>
+   git fetch origin gh-pages
    export GIT_INDEX_FILE=$(mktemp); git read-tree origin/gh-pages
    h=$(git hash-object -w second-life/series/investing/dashboard.html)
    git update-index --add --cacheinfo 100644,$h,series/investing/dashboard.html
