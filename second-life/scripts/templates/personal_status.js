@@ -22,12 +22,15 @@ function renderPersonal(month) {
   const cashNotes = {
     unknown: '미정',
     closed: '마감된 월말 잔액 · 시작금+용돈+광고 몫−지출',
-    provisional: '미마감 · 광고 몫 반영, 이달 생활비 일부 미기록',
+    provisional: '미마감 · 기록된 수령·지출 기준 잠정 현금',
   };
   $('#heroCashNote').textContent = cashNotes[personal.cash_scope];
   $('#heroInvestments').textContent = money(month.investment_assets_krw);
   $('#totalAssets').textContent = money(personal.total_assets_krw);
-  $('#assetBasis').textContent = personal.total_assets_krw == null ? '현금 확인 후 합산' : '현금+투자자산+기록된 소유 자산 · 미수령 광고·가족 자산 제외';
+  const unvaluedEquipment = (assets.equipment || []).some(item => item.acquired_month <= key && item.valuation_krw == null);
+  $('#assetBasis').textContent = personal.total_assets_krw == null
+    ? (unvaluedEquipment ? '보유 장비 평가액 미정 · 구입비를 다시 더하지 않음' : '현금 확인 후 합산')
+    : '현금+투자자산+기록된 소유 자산 · 미수령 광고·가족 자산 제외';
   $('#heroAllowance').textContent = budget.allowance_krw ? money(budget.allowance_krw) : '용돈 없음 · 현금에서 지출';
   $('#heroAfterOperations').textContent = budget.allowance_krw ? money(budget.after_site_krw) : '해당 없음';
   $('#heroAfterLivingPlan').textContent = money(budget.after_living_plan_krw);

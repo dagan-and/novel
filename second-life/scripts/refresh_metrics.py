@@ -99,12 +99,15 @@ for month in data['monthly']:
         month['status'] = 'closed'
     cash = flow['cash_end_krw']
     allowance = flow['allowance_krw']
+    equipment = [item for item in assets.get('equipment', []) if item['acquired_month'] <= key]
+    equipment_value_known = all(item.get('valuation_krw') is not None for item in equipment)
+    equipment_value = sum(item.get('valuation_krw') or 0 for item in equipment)
     month['finances'] = {
         'personal': {
             'cash_krw': cash,
             'cash_scope': 'unknown' if cash is None else flow['scope'],
             'cash_as_of_month': key if cash is not None else None,
-            'total_assets_krw': cash + (month['investment_assets_krw'] or 0) + owned + (assets['other_assets_krw'] or 0) if cash is not None else None,
+            'total_assets_krw': cash + (month['investment_assets_krw'] or 0) + owned + (assets['other_assets_krw'] or 0) + equipment_value if cash is not None and equipment_value_known else None,
         },
         'flow': {
             'opening_krw': flow['opening_krw'],
